@@ -15,7 +15,7 @@
  #  For details, see https://jekyll.one
  #
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2019-09-27 17:11:16 +0200
+ #  Adapter generated: 2019-09-27 17:30:39 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -43,7 +43,7 @@ j1.adapter['back2top'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.back2top',
-        generated:   '2019-09-27 17:11:16 +0200'
+        generated:   '2019-09-27 17:30:39 +0200'
       }, options);
       _this   = j1.adapter.back2top;
       logger  = log4javascript.getLogger('j1.adapter.back2top');

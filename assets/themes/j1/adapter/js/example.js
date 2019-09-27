@@ -15,7 +15,7 @@
  # YOUR_MODULE_NAME is licensed under YOUR LICENSE
  # For details, see https://YOUR.SITE
  # -----------------------------------------------------------------------------
- # Adapter generated: 2019-09-27 17:11:16 +0200
+ # Adapter generated: 2019-09-27 17:30:39 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -40,7 +40,7 @@ j1.adapter.example = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.example',
-        generated:   '2019-09-27 17:11:16 +0200'
+        generated:   '2019-09-27 17:30:39 +0200'
       }, options);
       // Load  module DEFAULTS|CONFIG
       //
