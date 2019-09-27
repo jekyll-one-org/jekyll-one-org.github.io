@@ -1,0 +1,525 @@
+
+
+[
+    {
+    "title":        "Welcome",
+    "tagline":      "jekyll for everyone",
+    "tags":         "Example,Post",
+    "index":         "Website,Static,Site,Difference CMS",
+    "categories":   "posts,public,featured",
+    "date":         "2019-08-01 00:00:00 +0200",
+    "url":          "/posts/public/featured/2019/08/01/welcome-to-j1-template/",
+    "target":       "",
+    "excerpt":      "If you’re not familiar with Jekyll (or other site generators), Jekyll is a so-called static site generator. Think of it like a CMS but without all the complexity and headache. No need to build a giant content strangling Rube Goldberg machine to manage content. All you’re doing at the end..."
+  },
+  {
+    "title":        "Cookies",
+    "tagline":      "good to know about",
+    "tags":         "About,Cookies",
+    "index":         "Cookie,Usage,Type,Policy,Consent",
+    "categories":   "posts,public,featured",
+    "date":         "2019-06-01 00:00:00 +0200",
+    "url":          "/posts/public/featured/2019/06/01/about-cookies/",
+    "target":       "",
+    "excerpt":      "Is it needed for vistors to know what cookies are all about? Not first place. Cookies are widely used. All users visting web sites are bothered all the time to accept on cookies. Because cookies are used that often. For good reasons - but for different reasons. To answer the..."
+  },
+  {
+    "title":        "Site generators",
+    "tagline":      "open-source tools",
+    "tags":         "Jekyll,Generators",
+    "index":         "Jekyll,Top,Open,Source,Static,Site,Generators",
+    "categories":   "posts,public,featured",
+    "date":         "2019-05-01 02:00:00 +0200",
+    "url":          "/posts/public/featured/2019/05/01/top-open-source-static-site-generators/",
+    "target":       "",
+    "excerpt":      "People sometimes ask if static sites make sense for anything beyond a one pager. This article highlights top open source projects, in many different programming languages, that make static sites not only viable, but an attractive option for creating sophisticated websites!"
+  },
+  {
+    "title":        "Using Docker",
+    "tagline":      "Docker on Windows",
+    "tags":         "Tutorial,kickstarter",
+    "index":         "Docker,Windows,Shared,Folder,Folders",
+    "categories":   "posts,private,series",
+    "date":         "2018-11-01 01:00:00 +0200",
+    "url":          "/posts/private/series/2018/11/01/docker-using-shared-folders/",
+    "target":       "",
+    "excerpt":      "How to run Docker smooth on Windows? Sounds like a quite simple question follwed by a simple answer: go for Docker for Windows. Unfortunately, the answer is not that easy. As often: it depends (on the use case)."
+  },
+  {
+    "title":        "Jekyll URLs",
+    "tagline":      "What is a baseurl",
+    "tags":         "Jekyll,Configuration",
+    "index":         "Jekyll,Configuration,URL,base_url",
+    "categories":   "posts,public,jekyll,featured",
+    "date":         "2018-05-01 02:00:00 +0200",
+    "url":          "/posts/public/jekyll/featured/2018/05/01/confusion-about-base-url/",
+    "target":       "",
+    "excerpt":      "Hey, so there’s been a bit of confusion about what the Jekyll configuration option called baseurl is. Part of the beauty of open-source and of Jekyll is that there’s a lot of flexibility. Unfortunately, much of this flexibility doesn’t apply to baseurl. Here’s a quick distillation of its intentions, and..."
+  },
+  {
+    "title":        "Columbia River",
+    "tagline":      "Largest River in the Pacific Northwest region",
+    "tags":         "Wikipedia",
+    "index":         "USA,Northwest Region,Rocky Mountains,Rivers",
+    "categories":   "posts,protected,wikipedia",
+    "date":         "2016-11-26 01:00:00 +0200",
+    "url":          "/posts/protected/wikipedia/2016/11/26/columbia-river/",
+    "target":       "",
+    "excerpt":      "The Columbia River is the largest river in the Pacific Northwest region of North America. It flows northwest and then south into the US state of Washington, then turns west to form most of the border between Washington and the state of Oregon before emptying into the Pacific Ocean."
+  },
+  {
+    "title":        "Narcisse Snake Dens",
+    "tagline":      "Largest snake population",
+    "tags":         "Wikipedia",
+    "index":         "Canada,Geography,Narcisse,Manitoba,Cities,Snakes,Largest population,Wikipedia",
+    "categories":   "posts,protected,wikipedia",
+    "date":         "2016-11-24 01:00:00 +0200",
+    "url":          "/posts/protected/wikipedia/2016/11/24/narcisse-snake-dens/",
+    "target":       "",
+    "excerpt":      "The Narcisse Snake Pits are located in the Rural Municipality of Armstrong about 6 kilometres (3.7 mi) north of Narcisse, Manitoba, Canada. The dens are the winter home of tens of thousands of red-sided garter snakes (Thamnophis sirtalis parietalis)."
+  },
+  {
+    "title":        "Minneapolis",
+    "tagline":      "Largest City in the state of Minnesota",
+    "tags":         "Wikipedia",
+    "index":         "USA,Minnesota,City,Minneapolis",
+    "categories":   "posts,protected,wikipedia",
+    "date":         "2016-11-20 20:16:49 +0200",
+    "url":          "/posts/protected/wikipedia/2016/11/20/minneapolis/",
+    "target":       "",
+    "excerpt":      "Minneapolis is the largest city in the state of Minnesota in the United States, and the county seat of Hennepin County. According to the United States Census Bureau, the city has a total area of 151.3 km² (58.4 mi²). 142.2 km² (54.9 mi²) of it is land and 9.1 km²..."
+  },
+  {
+    "title":        "Copyright",
+    "tagline":      "software and content",
+    "tags":         "Copyright, Software, Content",
+    "index":        "",
+    "categories":   "pages",
+    "url":          "/pages/public/legal/en/copyright/",
+    "target":       "",
+    "excerpt":      "Copyright for Software and Content"
+  },
+  {
+    "title":        "Asciidoc Writer&#39;s Guide",
+    "tagline":      "Introduction",
+    "tags":         "Asciidoc, Writer, Guide, Tutorial, Kickstarter",
+    "index":        "Introduction",
+    "categories":   "tutorial",
+    "url":          "/pages/manuals/asciidoc/writers_guide/intro/",
+    "target":       "",
+    "excerpt":      ""
+  },
+  {
+    "title":        "Asciidoc Writer&#39;s Guide",
+    "tagline":      "Introduction",
+    "tags":         "Asciidoc, Writer, Guide, Tutorial, Kickstarter",
+    "index":        "Introduction",
+    "categories":   "tutorial",
+    "url":          "/pages/manuals/asciidoc/writers_guide/intro/",
+    "target":       "",
+    "excerpt":      ""
+  },
+  {
+    "title":        "Roundtrip",
+    "tagline":      "step in",
+    "tags":         "Page, Roundtrip",
+    "index":        "Start, Template, Whats, Up, Readme, TL;DR",
+    "categories":   "pages",
+    "url":          "/pages/public/start/roundtrip/whats_up/",
+    "target":       "",
+    "excerpt":      "What to get"
+  },
+  {
+    "title":        "Title Chapter 1",
+    "tagline":      "Tagline",
+    "tags":         "Topic, ..",
+    "index":        "Title, Tagline, ..",
+    "categories":   "category_name",
+    "url":          "/pages/_base_folder_/_title_chapter_1/",
+    "target":       "",
+    "excerpt":      ""
+  },
+  {
+    "title":        "Title Chapter 1",
+    "tagline":      "Tagline",
+    "tags":         "Topic, ..",
+    "index":        "Title, Tagline, ..",
+    "categories":   "category_name",
+    "url":          "/pages/_base_folder_/_title_chapter_1/",
+    "target":       "",
+    "excerpt":      ""
+  },
+  {
+    "title":        "Impress",
+    "tagline":      "Entries referred to § 5 TMG",
+    "tags":         "Impressum",
+    "index":        "",
+    "categories":   "pages",
+    "url":          "/pages/public/legal/en/impress/",
+    "target":       "",
+    "excerpt":      "Impressum"
+  },
+  {
+    "title":        "Impressum",
+    "tagline":      "Angaben gemäß § 5 TMG",
+    "tags":         "Impressum",
+    "index":        "",
+    "categories":   "pages",
+    "url":          "/pages/public/legal/de/impress/",
+    "target":       "",
+    "excerpt":      "Impressum"
+  },
+  {
+    "title":        "Web in a day",
+    "tagline":      "meet & greet jekyll",
+    "tags":         "Kickstarter",
+    "index":        "Introduction, Web, Website, Jekyll",
+    "categories":   "pages",
+    "url":          "/pages/public/start/kickstarter/web_in_a_day/intro/",
+    "target":       "",
+    "excerpt":      "Modern static website in a day"
+  },
+  {
+    "title":        "Roundtrip",
+    "tagline":      "present images",
+    "tags":         "Page, Roundtrip",
+    "index":        "Template, Roundtrip, Images",
+    "categories":   "pages",
+    "url":          "/pages/public/start/roundtrip/present_images/",
+    "target":       "",
+    "excerpt":      "J1 Template Roundtrip - Present image based data"
+  },
+  {
+    "title":        "Roundtrip",
+    "tagline":      "present videos",
+    "tags":         "Page, Roundtrip",
+    "index":        "Template, Roundtrip, Video",
+    "categories":   "pages",
+    "url":          "/pages/public/start/roundtrip/present_videos/",
+    "target":       "",
+    "excerpt":      "J1 Template Roundtrip - Present video based data"
+  },
+  {
+    "title":        "Web in a day",
+    "tagline":      "preparations",
+    "tags":         "Kickstarter, Introduction, Web, Day, Jekyll",
+    "index":        "",
+    "categories":   "pages",
+    "url":          "/pages/public/start/kickstarter/web_in_a_day/preparations/",
+    "target":       "",
+    "excerpt":      "Modern static website in a day"
+  },
+  {
+    "title":        "Web in a day",
+    "tagline":      "getting started",
+    "tags":         "Kickstarter, Introduction, Web, Day, Jekyll",
+    "index":        "",
+    "categories":   "pages",
+    "url":          "/pages/public/start/kickstarter/web_in_a_day/getting_started/",
+    "target":       "",
+    "excerpt":      "Modern static website in a day"
+  },
+  {
+    "title":        "Title Chapter 2",
+    "tagline":      "Tagline",
+    "tags":         "Topic, ..",
+    "index":        "Title, Tagline, ..",
+    "categories":   "category_name",
+    "url":          "/pages/_base_folder_/_title_chapter_2/",
+    "target":       "",
+    "excerpt":      ""
+  },
+  {
+    "title":        "Title Chapter 2",
+    "tagline":      "Tagline",
+    "tags":         "Topic, ..",
+    "index":        "Title, Tagline, ..",
+    "categories":   "category_name",
+    "url":          "/pages/_base_folder_/_title_chapter_2/",
+    "target":       "",
+    "excerpt":      ""
+  },
+  {
+    "title":        "Terms of Use",
+    "tagline":      "Terms of Use for Software and Content",
+    "tags":         "Terms, Use, Software, Content",
+    "index":        "",
+    "categories":   "pages",
+    "url":          "/pages/public/legal/en/terms_of_use/",
+    "target":       "",
+    "excerpt":      "Terms of Use for Software and Content"
+  },
+  {
+    "title":        "Nutzungsbedingungen",
+    "tagline":      "Copyright für Software und Inhalte",
+    "tags":         "Nutzungsbedingungen, Copyright",
+    "index":        "",
+    "categories":   "pages",
+    "url":          "/pages/public/legal/de/terms_of_use/",
+    "target":       "",
+    "excerpt":      "Copyright für Software und Inhalte"
+  },
+  {
+    "title":        "Roundtrip",
+    "tagline":      "typography",
+    "tags":         "Page, Roundtrip",
+    "index":        "Template, Roundtrip, Typography",
+    "categories":   "pages",
+    "url":          "/pages/public/start/roundtrip/typography/",
+    "target":       "",
+    "excerpt":      "Typography, a crucial branding element"
+  },
+  {
+    "title":        "Roundtrip",
+    "tagline":      "icon fonts",
+    "tags":         "Page, Roundtrip",
+    "index":        "Template, Roundtrip, Material, Design, MDI, Font Awesome, Icon, Fonts",
+    "categories":   "pages",
+    "url":          "/pages/public/start/roundtrip/mdi_icon_font/",
+    "target":       "",
+    "excerpt":      "J1 Template Roundtrip - Icon Fonts"
+  },
+  {
+    "title":        "Datenschutzbestimmungen",
+    "tagline":      "Schutz Ihrer Privatsphäre",
+    "tags":         "Datenschutz, Privatsphäre",
+    "index":        "",
+    "categories":   "pages",
+    "url":          "/pages/public/legal/de/privacy/",
+    "target":       "",
+    "excerpt":      "Schutz Ihrer Privatsphäre"
+  },
+  {
+    "title":        "Privacy",
+    "tagline":      "your personal data",
+    "tags":         "Privacy, Statement",
+    "index":        "",
+    "categories":   "pages",
+    "url":          "/pages/public/legal/en/privacy/",
+    "target":       "",
+    "excerpt":      "Protection of your personal data"
+  },
+  {
+    "title":        "Roundtrip",
+    "tagline":      "asciidoc extensions",
+    "tags":         "Page, Roundtrip",
+    "index":        "Template, Roundtrip, Asciidoc, Asciidoctor, Extensions",
+    "categories":   "pages",
+    "url":          "/pages/public/start/roundtrip/asciidoc_extensions/",
+    "target":       "",
+    "excerpt":      "Asciidoc Extensions (asciidoctor)"
+  },
+  {
+    "title":        "License",
+    "tagline":      "Software and their licenses used by this website",
+    "tags":         "License, Agreement",
+    "index":        "",
+    "categories":   "pages",
+    "url":          "/pages/public/legal/en/license_agreement/",
+    "target":       "",
+    "excerpt":      "License Agreement"
+  },
+  {
+    "title":        "Lizensierung",
+    "tagline":      "Lizenzvereinbarungen",
+    "tags":         "Lizenzvereinbarungen, Lizenz",
+    "index":        "",
+    "categories":   "pages",
+    "url":          "/pages/public/legal/de/license_agreement/",
+    "target":       "",
+    "excerpt":      "Lizenzvereinbarungen"
+  },
+  {
+    "title":        "Roundtrip",
+    "tagline":      "enhanced bootstrap modals",
+    "tags":         "Page, Roundtrip",
+    "index":        "Template, Roundtrip, Bootstrap, Extended, Modal",
+    "categories":   "pages",
+    "url":          "/pages/public/start/roundtrip/modals/",
+    "target":       "",
+    "excerpt":      "Enhanced Bootstrap Modals for J1 Template"
+  },
+  {
+    "title":        "Roundtrip",
+    "tagline":      "BS table extensions",
+    "tags":         "Page, Roundtrip",
+    "index":        "Template, Bootstrap, Roundtrip, Extended, Tables",
+    "categories":   "pages",
+    "url":          "/pages/public/start/roundtrip/responsive_tables/",
+    "target":       "",
+    "excerpt":      "Enhanced table styles for Bootstrap"
+  },
+  {
+    "title":        "Support",
+    "tagline":      "Where to get help",
+    "tags":         "Support",
+    "index":        "",
+    "categories":   "pages",
+    "url":          "/pages/public/legal/de/support/",
+    "target":       "",
+    "excerpt":      "Where to get help and support"
+  },
+  {
+    "title":        "Support",
+    "tagline":      "Where to get help",
+    "tags":         "Support",
+    "index":        "",
+    "categories":   "pages",
+    "url":          "/pages/public/legal/de/support/",
+    "target":       "",
+    "excerpt":      "Where to get help and support"
+  },
+  {
+    "title":        "Roundtrip",
+    "tagline":      "themes",
+    "tags":         "Page, Roundtrip",
+    "index":        "Template, Roundtrip, Bootstrap, Themes",
+    "categories":   "pages",
+    "url":          "/pages/public/start/roundtrip/themes/",
+    "target":       "",
+    "excerpt":      "J1 Template Roundtrip - Template Themes"
+  },
+  {
+    "title":        "Sources",
+    "tagline":      "List of References",
+    "tags":         "Topic, ..",
+    "index":        "Title, Tagline, ..",
+    "categories":   "category_name",
+    "url":          "/pages/_base_folder_sources/",
+    "target":       "",
+    "excerpt":      ""
+  },
+  {
+    "title":        "Sources",
+    "tagline":      "List of References",
+    "tags":         "Topic, ..",
+    "index":        "Title, Tagline, ..",
+    "categories":   "category_name",
+    "url":          "/pages/_base_folder_sources/",
+    "target":       "",
+    "excerpt":      ""
+  },
+  {
+    "title":        "About",
+    "tagline":      "j1 template",
+    "tags":         "About",
+    "index":        "",
+    "categories":   "pages",
+    "url":          "/pages/public/about/site/",
+    "target":       "",
+    "excerpt":      "Things you should know about this site"
+  },
+  {
+    "title":        "Become a patron",
+    "tagline":      "help us to create premium content",
+    "tags":         "business",
+    "index":        "Patron, Premium, Content",
+    "categories":   "pages",
+    "url":          "/pages/public/about/become_a_patron/",
+    "target":       "",
+    "excerpt":      "Help to create premium content"
+  },
+  {
+    "title":        "Theme previewer",
+    "tagline":      "common components",
+    "tags":         "App, Previewer",
+    "index":        "Bootstrap, Theme, Preview, Common, Component, Navbars, Buttons, Typography, Tables, Forms, Navs, Pills, Breadcrumbs, Pagination, Indicators, Alerts, Badges, Progress, Container, Jumbotron, List, Groups, Cards, Dialogs, Modals, Popovers, Tooltips",
+    "categories":   "pages",
+    "url":          "/pages/public/previewer/theme/",
+    "target":       "",
+    "excerpt":      "Themes Previewer for common components of a selected theme."
+  },
+  {
+    "title":        "Framer",
+    "tagline":      "framer module test page",
+    "tags":         "App, Previewer",
+    "index":        "Start, Template, Web, Day, Jekyll",
+    "categories":   "pages",
+    "url":          "/pages/public/iframer/",
+    "target":       "",
+    "excerpt":      "Test page for J1 module framer"
+  },
+  {
+    "title":        "Control Center",
+    "tagline":      "site management",
+    "tags":         "App, Control Center",
+    "index":        "Control, Center, Netlify, CMS",
+    "categories":   "apps",
+    "url":          "/apps/public/cc/",
+    "target":       "",
+    "excerpt":      "A CMS environment based on Netlify CMS"
+  },
+  {
+    "title":        "J1 Calendar",
+    "tagline":      "Integrated Cloud Calendar for your Web",
+    "tags":         "App, Calendar, TeamUp",
+    "index":        "",
+    "categories":   "apps",
+    "url":          "/apps/public/calendar/",
+    "target":       "",
+    "excerpt":      "J1 Calendar - Integrated Cloud Calendar for your Web"
+  },
+  {
+    "title":        "Gallery Previewer",
+    "tagline":      "manage galleries your way",
+    "tags":         "App, Gallery",
+    "index":        "Customizer, Previewer, Justified, Gallery",
+    "categories":   "app",
+    "url":          "/pages/protected/previewer/justified_gallery/",
+    "target":       "",
+    "excerpt":      "Justified Gallery Previewer"
+  },
+  {
+    "title":        "MDI Icon Previewer",
+    "tagline":      "search and customize icons",
+    "tags":         "Preview, Material, Design, MDI, FontAwesome, Icon, Fonts",
+    "index":        "",
+    "categories":   "pages, manuals",
+    "url":          "/pages/protected/previewer/mdi_font/",
+    "target":       "",
+    "excerpt":      "Material Design Icons Preview for J1 Template"
+  },
+  {
+    "title":        "J1 Template",
+    "tagline":      "responsive web design",
+    "tags":         "Jekyll, Template",
+    "index":        "Jekyll, Template, Responsive, Web",
+    "categories":   "pages",
+    "url":          "/pages/public/panels/intro_panel/",
+    "target":       "",
+    "excerpt":      "Responsive Webs using J1 Template"
+  },
+  {
+    "title":        "Asciidoc Skeleton",
+    "tagline":      "base file and folder structure",
+    "tags":         "Asciidoc, Example",
+    "index":        "Document, Skeleton, Folder, Structure",
+    "categories":   "examples",
+    "url":          "/pages/private/document/skeleton/",
+    "target":       "",
+    "excerpt":      ""
+  },
+  {
+    "title":        "Asciidoc Skeleton",
+    "tagline":      "base file and folder structure",
+    "tags":         "Asciidoc, Example",
+    "index":        "Document, Skeleton, Folder, Structure",
+    "categories":   "examples",
+    "url":          "/pages/public/start/kickstarter/web_in_a_day/document/skeleton/",
+    "target":       "",
+    "excerpt":      ""
+  },
+  {
+    "title":        "Emoji Previewer",
+    "tagline":      "search and customize icons",
+    "tags":         "Twitter, Emoji, Icons, Preview",
+    "index":        "",
+    "categories":   "pages, manuals",
+    "url":          "/pages/protected/previewer/twitter_emoji/",
+    "target":       "",
+    "excerpt":      "Twitter Emoji Icons V1 Preview Page for J1 Template"
+  },
+
+]
+
+
