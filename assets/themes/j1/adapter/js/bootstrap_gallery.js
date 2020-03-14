@@ -12,7 +12,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2019-09-27 17:30:39 +0200
+ #  Adapter generated: 2020-03-14 14:56:31 +0100
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -41,7 +41,7 @@ j1.adapter['bs_gallery'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.bs_gallery',
-        generated:   '2019-09-27 17:30:39 +0200'
+        generated:   '2020-03-14 14:56:31 +0100'
       }, options);
       _this   = j1.adapter.bs_gallery;
       logger  = log4javascript.getLogger('j1.adapter.bs_gallery');
@@ -55,17 +55,17 @@ j1.adapter['bs_gallery'] = (function (j1, window) {
       _this.setState('started');
       logger.info('state: ' + _this.getState());
       logger.info('module is being initialized');
-      _this.bgInit();
+      _this.initialize();
       return true;
     }, // END init
     // -------------------------------------------------------------------------
     // Load AJAX data and initialize the gallery
     // -------------------------------------------------------------------------
-    bgInit: function () {
-      logger = log4javascript.getLogger("j1.adapter.bs_gallery.bgInit");
+    initialize: function () {
+      logger = log4javascript.getLogger("j1.adapter.bs_gallery.init");
           // Create an gallery instance if bg_old_times exists
           if ($('#bg_old_times').length) {
-            logText = 'gallery on ID #bg_old_times is being initialized';
+            logText = 'gallery is being initialized on id: #bg_old_times';
             _this.setState('running');
             logger.info('state: ' + _this.getState());
             logger.info(logText);
@@ -121,7 +121,7 @@ j1.adapter['bs_gallery'] = (function (j1, window) {
                 }, );
                 // Initialize instance variable of lightGallery  (for later access)
                 j1["bg_old_times_ul"] = $('#bg_old_times_ul').data('lightGallery');
-                logText = 'LightGallery on ID #bg_old_times initializing finished';
+                logText = 'initializing gallery finished on id: #bg_old_times';
                 _this.setState('finished');
                 logger.info('state: ' + _this.getState());
                 logger.info(logText);
@@ -129,7 +129,7 @@ j1.adapter['bs_gallery'] = (function (j1, window) {
           } //end gallery
           // Create an gallery instance if bg_video_html5 exists
           if ($('#bg_video_html5').length) {
-            logText = 'gallery on ID #bg_video_html5 is being initialized';
+            logText = 'gallery is being initialized on id: #bg_video_html5';
             _this.setState('running');
             logger.info('state: ' + _this.getState());
             logger.info(logText);
@@ -203,7 +203,7 @@ j1.adapter['bs_gallery'] = (function (j1, window) {
                 }, );
                 // Initialize instance variable of lightGallery  (for later access)
                 j1["bg_video_html5_ul"] = $('#bg_video_html5_ul').data('lightGallery');
-                logText = 'LightGallery on ID #bg_video_html5 initializing finished';
+                logText = 'initializing gallery finished on id: #bg_video_html5';
                 _this.setState('finished');
                 logger.info('state: ' + _this.getState());
                 logger.info(logText);
@@ -211,7 +211,7 @@ j1.adapter['bs_gallery'] = (function (j1, window) {
           } //end gallery
           // Create an gallery instance if bg_video_online exists
           if ($('#bg_video_online').length) {
-            logText = 'gallery on ID #bg_video_online is being initialized';
+            logText = 'gallery is being initialized on id: #bg_video_online';
             _this.setState('running');
             logger.info('state: ' + _this.getState());
             logger.info(logText);
@@ -269,21 +269,21 @@ j1.adapter['bs_gallery'] = (function (j1, window) {
                 }, );
                 // Initialize instance variable of lightGallery  (for later access)
                 j1["bg_video_online_ul"] = $('#bg_video_online_ul').data('lightGallery');
-                logText = 'LightGallery on ID #bg_video_online initializing finished';
+                logText = 'initializing gallery finished on id: #bg_video_online';
                 _this.setState('finished');
                 logger.info('state: ' + _this.getState());
                 logger.info(logText);
             });
           } //end gallery
       return true;
-    }, // END bgInit
+    }, // END initialize
     // -------------------------------------------------------------------------
     // messageHandler: MessageHandler for J1 CookieConsent module
     // Manage messages send from other J1 modules
     // -------------------------------------------------------------------------
     messageHandler: function (sender, message) {
       var json_message = JSON.stringify(message, undefined, 2);
-      logText = 'Received message from ' + sender + ': ' + json_message;
+      logText = 'received message from ' + sender + ': ' + json_message;
       logger.debug(logText);
       // -----------------------------------------------------------------------
       //  Process commands|actions

@@ -12,7 +12,7 @@
  # J1 Cookie Consent is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2019-09-27 17:30:39 +0200
+ #  Adapter generated: 2020-03-14 15:10:06 +0100
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -47,7 +47,7 @@ j1.adapter['cookie_consent'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.cookie_consent',
-        generated:   '2019-09-27 17:30:39 +0200'
+        generated:   '2020-03-14 15:10:06 +0100'
       }, options);
       _this             = j1.adapter.cookie_consent;
       logger            = log4javascript.getLogger('j1.adapter.cookie_consent');
@@ -88,8 +88,8 @@ j1.adapter['cookie_consent'] = (function (j1, window) {
         // ---------------------------------------------------------------------
         // data loader
         // ---------------------------------------------------------------------
-        logger.info('loading HTML data for modals');
-        $.when(j1.xhrDATA('j1.adapter.cookie_consent', moduleOptions, 'data_loaded'))
+        logger.info('loading html data for modals');
+        $.when (j1.xhrData('j1.adapter.cookie_consent', moduleOptions, 'data_loaded'))
         .then (function (success) {
           if (success) {
             logger.info('loading data completed');
@@ -145,7 +145,7 @@ j1.adapter['cookie_consent'] = (function (j1, window) {
     // -------------------------------------------------------------------------
     messageHandler: function (sender, message) {
       var json_message = JSON.stringify(message, undefined, 2);
-      logText = 'Received message from ' + sender + ': ' + json_message;
+      logText = 'received message from ' + sender + ': ' + json_message;
       logger.info(logText);
       // -----------------------------------------------------------------------
       //  Process commands if send as a message

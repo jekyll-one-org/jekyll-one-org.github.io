@@ -12,7 +12,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- # Adapter generated: 2019-09-27 17:30:39 +0200
+ # Adapter generated: 2020-03-14 15:10:06 +0100
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -24,7 +24,8 @@ j1.adapter['logger'] = (function (j1, window) {
   var page_id               = uuid().slice(25, 37);
   var cookie_names          = j1.getCookieNames();
   var loggerRequestCallback = false;
-  var utilSrvOptions        = {};
+  var loggerOptions         = {};
+  var ajaxAppenderOptions   = {};
   var user_session;
   var appDetected;
   var _this;
@@ -101,7 +102,8 @@ j1.adapter['logger'] = (function (j1, window) {
       // initialize state flag
       j1.adapter.logger.state = 'started';
       // load module DEFAULTS|CONFIG to js object
-      utilSrvOptions = $.extend({}, {"enabled":true, "commit_detection":{"modal_commit_detected":{"enabled":true, "autohide":false, "autohidden":5000}, "modal_pull_response":{"enabled":true, "autohide":false, "autohidden":5000}}, "utility_server":{"enabled":true, "ssl":false, "origin":"localhost", "host_name":"0.0.0.0", "port":44444, "verbose":false, "oauth_client":{"enabled":true, "provider":"github", "provider_url":"https://github.com", "token_path":"/login/oauth/access_token", "authorize_path":"/login/oauth/authorize"}, "git_client":{"enabled":true, "secret":"12ada70c0d34914d194f1a790c9b23bd", "payload_url":"https://smee.io/bzTe8lpQq1KeSJF", "pull":{"execute":true, "response_success":"The pull request to your local working copy finished successfully.", "response_failed":"The pull request to your local working copy has failed. Reason: "}}, "npm_client":{"enabled":true, "built":{"execute":false, "response_success":"The built request to your local site finished successfully.", "response_failed":"The built request to your local fite has failed. Reason: "}}, "logger_client":{"enabled":false, "payload_url_app":"https://preview.jekyll.one/", "payload_url_web":"http://localhost:16001/log2disk?request=write", "log_folder":"log", "log_file_name":"messages", "log_file_ext":"log", "create_on_start":true, "reset_on_start":true, "rolling_files":false, "file_mode":"append"}}});
+      loggerOptions       = $.extend({}, {"appenders":[{"name":"Console Appender", "appender":{"name":"consoleAppender", "enabled":true, "type":"BrowserConsoleAppender", "layout":"PatternLayout", "custom_fields":["file", "line", "path"], "pattern_string":"[%d{HH:mm:ss.SSS}] [%f{4}] [%-5p] [%-40c] [%f{1}:%f{2}] %m%n[%f{3}]"}}, {"name":"Ajax Appender", "appender":{"name":"ajaxAppender", "enabled":true, "type":"BrowserAjaxAppender", "layout":"JsonLayout", "custom_fields":["file", "line", "path"], "payload_url_app":"http://localhost:5000/log2disk?request=write", "payload_url_web":"http://localhost:44444/log2disk?request=write", "log_folder":"log", "log_file_name":"messages", "log_file_ext":"log", "create_on_start":true, "reset_on_start":true, "rolling_files":false, "file_mode":"append"}}, {"name":"Popup Appender", "appender":{"name":"popupAppender", "enabled":false, "type":"PopUpAppender", "width":600, "height":400, "lazyInit":false, "initiallyMinimized":false, "layout":"PatternLayout", "custom_fields":[], "pattern_string":"[%d{HH:mm:ss}] [ %-5p] - [%m{1}]%n"}}], "loggers":[{"name":"Parent Logger", "logger":{"type":"parent", "name":"j1", "appender":["consoleAppender", "ajaxAppender"], "level":{"production":"warn", "development":"debug"}}}]});
+      ajaxAppenderOptions = loggerOptions.appenders[1].appender;
       // -----------------------------------------------------------------------
       // setup logger instances
       // -----------------------------------------------------------------------
@@ -116,9 +118,9 @@ j1.adapter['logger'] = (function (j1, window) {
           clearInterval(dependencies_met_mode_detected);
           appDetected = user_session.mode === 'app' ? true : false;
           if (appDetected) {
-            payloadURL = utilSrvOptions.utility_server.logger_client.payload_url_app;
+            payloadURL = ajaxAppenderOptions.payload_url_app;
           } else {
-            payloadURL = utilSrvOptions.utility_server.logger_client.payload_url_web;
+            payloadURL = ajaxAppenderOptions.payload_url_web;
           }
           // -------------------------------------------------------------------
           // setup appenders
@@ -170,19 +172,14 @@ j1.adapter['logger'] = (function (j1, window) {
           // setup (root) loggers
           // -------------------------------------------------------------------
           log4javascript.getRootLogger().addAppender(consoleAppender);
-          if (utilSrvOptions.utility_server.logger_client.enabled) {
+          if (ajaxAppenderOptions.enabled) {
             log4javascript.getRootLogger().addAppender(ajaxAppender);
-            logger.info('ajaxAppender detected as: enabled');
+            logger.info('ajax appender detected as: enabled');
           } else {
-            logger.info('ajaxAppender detected as: disabled');
+            logger.info('ajax appender detected as: disabled');
           }
           _this.setState('started');
           logger.info('state: ' + _this.getState());
-          // -------------------------------------------------------------------
-          // setup logger client (Internet)
-          // passing log data over Internet|SeeMe currently NOT used
-          // -------------------------------------------------------------------
-          // j1.core.log4javascript.init(utilSrvOptions);
           _this.setState('finished');
           logger.info('state: ' + _this.getState());
           return true;
@@ -195,7 +192,7 @@ j1.adapter['logger'] = (function (j1, window) {
     // -------------------------------------------------------------------------
     messageHandler: function (sender, message) {
       var json_message = JSON.stringify(message, undefined, 2);
-      logText = 'Received message from ' + sender + ': ' + json_message;
+      logText = 'received message from ' + sender + ': ' + json_message;
       logger.debug(logText);
       // -----------------------------------------------------------------------
       //  process commands|actions

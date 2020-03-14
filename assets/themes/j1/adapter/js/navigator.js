@@ -18,7 +18,7 @@
  # NOTE: For getStyleValue helper see
  #  https://stackoverflow.com/questions/16965515/how-to-get-a-style-attribute-from-a-css-class-by-javascript-jquery
  # -----------------------------------------------------------------------------
- # Adapter generated: 2019-09-27 17:30:39 +0200
+ # Adapter generated: 2020-03-14 15:10:06 +0100
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -32,7 +32,7 @@ j1.adapter['navigator'] = (function (j1, window) {
   var nav_menu_id                 = '';
   var nav_quicklinks_id           = '';
   var nav_sidebar_id              = '';
-  var authclient_modals_id        = 'authclient_modals';
+  var authclient_modals_id        = '';
   var colors_data_path            = '/assets/data/colors.json';
   var font_size_data_path         = '/assets/data/font_sizes.json';
   var nav_menu_data_path          = '';
@@ -70,7 +70,7 @@ j1.adapter['navigator'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.navigator',
-        generated:   '2019-09-27 17:30:39 +0200'
+        generated:   '2020-03-14 15:10:06 +0100'
       }, options);
       _this         = j1.adapter.navigator;
       logger        = log4javascript.getLogger('j1.adapter.navigator');
@@ -92,14 +92,14 @@ j1.adapter['navigator'] = (function (j1, window) {
       var navSidebarOptions                         = {};
       var navAuthClientOptions                      = {};
       var navAuthMAnagerConfig                      = {};
-      navDefaults                                   = $.extend({}, {"icon_family":"MDI", "nav_bar":{"enabled":false, "xhr_container_id":"navigator_nav_navbar", "media_breakpoint":"lg", "brand_position":"right", "brand_type":"image", "brand_type_collapsed":"text", "fixed":true, "style":"overlay", "color":"light", "position":"left", "bottom_line_height":1, "bottom_line_color":"md_grey_200", "background_color_full":"rgba_darken_400", "background_color_collapsed":"bg-primary", "background_color_scrolled":"bg-primary"}, "nav_menu":{"enabled":false, "xhr_container_id":"navigator_nav_menu", "xhr_data_path":"/assets/data/menu/index.html", "raised_level":15, "delay_menu_open":200, "max_height":550, "menu_font_size":"larger", "megamenu_font_size":"large", "icon_family":"MDI", "icon_style":"mdi", "icon_color":"#9E9E9E", "icon_size":"mdi-18px", "menu_item_color":"rgba_lighten", "menu_item_color_hover":"rgba_lighten_900", "dropdown_style":"raised", "dropdown_item_style":"flat", "dropdown_animate":false, "dropdown_animate_in":"slideInDown", "dropdown_animate_out":"fadeOutDown", "dropdown_animate_duration":0.75, "dropdown_item_width":15, "dropdown_menu_height_max":25, "dropdown_font_size":"small", "dropdown_padding_x":15, "dropdown_padding_y":10, "dropdown_item_color":"md_grey_900", "dropdown_border_color":"#3f51b5", "dropdown_border_top":3, "dropdown_border_radius":0, "dropdown_background_color_hover":"md_bluegrey_50", "dropdown_background_color_active":"md_bluegrey_100"}, "nav_quicklinks":{"enabled":false, "xhr_container_id":"navigator_nav_quicklinks", "xhr_data_path":"/assets/data/quicklinks/index.html", "icon_family":"MDI", "icon_color":"rgba_lighten", "icon_color_hover":"rgba_lighten_900", "icon_size":"larger", "cookies_icon":"cookie", "top_search_icon":"magnify", "sidebar":true, "sidebar_icon":"dots-vertical", "control_center":true, "control_center_icon":"git", "control_center_url":"/apps/public/cc/", "home_icon":"home-variant", "home_url":"#", "disqus_icon":"disqus", "disqus_url":"none", "github_icon":"github-circle", "github_url":"none", "patreon_icon":"patreon", "patreon_url":"none", "facebook_icon":"facebook", "facebook_url":"none", "twitter_icon":"twitter", "twitter_url":"none", "signin":false, "signin_client":"enabled", "signin_icon":"login", "signout_icon":"logout"}, "nav_topsearch":{"enabled":false, "xhr_container_id":"navigator_nav_topsearch", "type":"quicksearch", "icon_family":"MDI", "icon_color":"md_white", "icon_size":"xxxlarge", "search_icon":"magnify", "close_icon":"close", "input_color":"md_grey_900", "background_color":"md_grey_400", "placeholder":"QuickSearch", "search_heading_lead":"", "result_heading_lead":""}, "nav_sidebar":{"enabled":false, "xhr_container_id":"navigator_nav_sidebar", "xhr_data_path":"/assets/data/sidebar/index.html", "width":380, "icon_family":"MDI", "icon_color":"md_white", "icon_size":"mdi-1x", "sidebar_icon":"dots-vertical", "close_icon":"close", "background_color":"md_grey_900"}, "nav_authclient":{"enabled":false, "xhr_container_id":"authclient_modals", "xhr_data_path":"/assets/data/authclient/index.html", "signin_modal_id":"modalOmniSignIn", "hide_on_cookies_declined":true, "icon_family":"MDI", "signin_icon":"login", "signout_icon":"logout"}});
+      navDefaults                                   = $.extend({}, {"icon_family":"MDI", "nav_bar":{"enabled":false, "xhr_container_id":"navigator_nav_navbar", "media_breakpoint":"lg", "brand_position":"right", "brand_type":"image", "brand_type_collapsed":"text", "fixed":true, "style":"overlay", "color":"light", "position":"left", "bottom_line_height":1, "bottom_line_color":"md_grey_200", "background_color_full":"rgba_darken_400", "background_color_collapsed":"bg-primary", "background_color_scrolled":"bg-primary"}, "nav_menu":{"enabled":false, "xhr_container_id":"navigator_nav_menu", "xhr_data_path":"/assets/data/menu/index.html", "raised_level":15, "delay_menu_open":200, "max_height":550, "menu_font_size":"larger", "megamenu_font_size":"large", "icon_family":"MDI", "icon_style":"mdi", "icon_color":"#9E9E9E", "icon_size":"mdi-18px", "menu_item_color":"rgba_lighten", "menu_item_color_hover":"rgba_lighten_900", "dropdown_style":"raised", "dropdown_item_style":"flat", "dropdown_animate":false, "dropdown_animate_in":"slideInDown", "dropdown_animate_out":"fadeOutDown", "dropdown_animate_duration":0.75, "dropdown_item_width":15, "dropdown_menu_height_max":25, "dropdown_font_size":"small", "dropdown_padding_x":15, "dropdown_padding_y":10, "dropdown_item_color":"md_grey_900", "dropdown_border_color":"#3f51b5", "dropdown_border_top":3, "dropdown_border_radius":0, "dropdown_background_color_hover":"md_bluegrey_50", "dropdown_background_color_active":"md_bluegrey_100"}, "nav_quicklinks":{"enabled":false, "xhr_container_id":"navigator_nav_quicklinks", "xhr_data_path":"/assets/data/quicklinks/index.html", "icon_family":"MDI", "icon_color":"rgba_lighten", "icon_color_hover":"rgba_lighten_900", "icon_size":"larger", "cookies_icon":"cookie", "top_search_icon":"magnify", "translator_icon":"flag-variant", "sidebar":true, "sidebar_icon":"dots-vertical", "home_icon":"home-variant", "home_url":"none", "disqus_icon":"disqus", "disqus_url":"none", "github_icon":"github-circle", "github_url":"none", "patreon_icon":"patreon", "patreon_url":"none", "facebook_icon":"facebook", "facebook_url":"none", "twitter_icon":"twitter", "twitter_url":"none"}, "nav_topsearch":{"enabled":false, "xhr_container_id":"navigator_nav_topsearch", "type":"quicksearch", "icon_family":"MDI", "icon_color":"md_white", "icon_size":"xxxlarge", "search_icon":"magnify", "close_icon":"close", "input_color":"md_grey_900", "background_color":"md_grey_400", "placeholder":"QuickSearch", "search_heading_lead":"", "result_heading_lead":""}, "nav_sidebar":{"enabled":false, "xhr_container_id":"navigator_nav_sidebar", "xhr_data_path":"/assets/data/sidebar/index.html", "width":380, "icon_family":"MDI", "icon_color":"md_white", "icon_size":"mdi-1x", "sidebar_icon":"dots-vertical", "close_icon":"close", "background_color":"md_grey_900"}});
       navBarConfig                                  = $.extend({}, {"enabled":true, "xhr_container_id":"navigator_nav_navbar", "media_breakpoint":"lg", "brand_position":"right", "brand_type":"image", "brand_type_collapsed":"text", "fixed":true, "style":"overlay", "color":"light", "position":"left", "bottom_line_height":1, "bottom_line_color":"md_grey_200", "background_color_full":"rgba_darken_400", "background_color_collapsed":"bg-primary", "background_color_scrolled":"bg-primary"});
       navMenuConfig                                 = $.extend({}, {"enabled":true, "xhr_container_id":"navigator_nav_menu", "xhr_data_path":"/assets/data/menu/index.html", "raised_level":15, "delay_menu_open":200, "max_height":550, "menu_font_size":"larger", "megamenu_font_size":"large", "icon_family":"MDI", "icon_style":"mdi", "icon_color":"#9E9E9E", "icon_size":"mdi-18px", "menu_item_color":"rgba_lighten", "menu_item_color_hover":"rgba_lighten_900", "dropdown_style":"raised", "dropdown_item_style":"flat", "dropdown_animate":false, "dropdown_animate_in":"slideInDown", "dropdown_animate_out":"fadeOutDown", "dropdown_animate_duration":0.75, "dropdown_item_width":15, "dropdown_menu_height_max":25, "dropdown_font_size":"small", "dropdown_padding_x":15, "dropdown_padding_y":10, "dropdown_item_color":"md_grey_900", "dropdown_border_color":"#3f51b5", "dropdown_border_top":3, "dropdown_border_radius":0, "dropdown_background_color_hover":"md_bluegrey_50", "dropdown_background_color_active":"md_bluegrey_100", "delay_open_menu":250});
-      navQuicklinksConfig                           = $.extend({}, {"enabled":true, "xhr_container_id":"navigator_nav_quicklinks", "xhr_data_path":"/assets/data/quicklinks/index.html", "icon_family":"MDI", "icon_color":"rgba_lighten", "icon_color_hover":"rgba_lighten_900", "icon_size":"larger", "cookies_icon":"cookie", "top_search_icon":"magnify", "sidebar":true, "sidebar_icon":"dots-vertical", "control_center":false, "control_center_icon":"git", "control_center_url":"/apps/public/cc/", "home_icon":"home-variant", "home_url":"https://preview.jekyll.one/", "disqus_icon":"disqus", "disqus_url":"https://disqus.com/", "github_icon":"github-circle", "github_url":"https://github.com/jekyll-one", "patreon_icon":"patreon", "patreon_url":"https://www.patreon.com/jekyll_one/posts", "facebook_icon":"facebook", "facebook_url":"none", "twitter_icon":"twitter", "twitter_url":"none", "signin":false, "signin_client":"enabled", "signin_icon":"login", "signout_icon":"logout"});
+      navQuicklinksConfig                           = $.extend({}, {"enabled":true, "xhr_container_id":"navigator_nav_quicklinks", "xhr_data_path":"/assets/data/quicklinks/index.html", "icon_family":"MDI", "icon_color":"rgba_lighten", "icon_color_hover":"rgba_lighten_900", "icon_size":"larger", "cookies_icon":"cookie", "top_search_icon":"magnify", "translator_icon":"flag-variant", "sidebar":true, "sidebar_icon":"dots-vertical", "home_icon":"home-variant", "home_url":"none", "disqus_icon":"disqus", "disqus_url":"https://disqus.com/", "github_icon":"github-circle", "github_url":"https://github.com/jekyll-one", "patreon_icon":"patreon", "patreon_url":"none", "facebook_icon":"facebook", "facebook_url":"none", "twitter_icon":"twitter", "twitter_url":"none"});
       navTopsearchConfig                            = $.extend({}, {"enabled":true, "xhr_container_id":"navigator_nav_topsearch", "type":"quicksearch", "icon_family":"MDI", "icon_color":"md_white", "icon_size":"xxxlarge", "search_icon":"magnify", "close_icon":"close", "input_color":"md_grey_900", "background_color":"md_grey_400", "placeholder":"QuickSearch", "search_heading_lead":"", "result_heading_lead":""});
       navSidebarConfig                              = $.extend({}, {"enabled":true, "xhr_container_id":"navigator_nav_sidebar", "xhr_data_path":"/assets/data/sidebar/index.html", "width":380, "icon_family":"MDI", "icon_color":"md_white", "icon_size":"mdi-1x", "sidebar_icon":"dots-vertical", "close_icon":"close", "background_color":"md_grey_900", "boxes":[{"box":{"enabled":true, "type":"user_info", "title":"User", "links":[{"title":"Provider", "value":"??provider", "href":"??provider-site-url", "target":"_blank", "icon":"domain"}, {"title":"User", "icon":"account", "value":"??user-name", "href":"??provider_member_url", "target":"_blank"}, {"title":"Permissions", "icon":"account-check", "value":"??provider-permissions", "href":"??provider_member_url", "target":"_blank"}, {"title":"Membership", "icon":"account-settings", "value":"??provider-membership", "href":"??provider_member_url", "target":"none"}, {"title":"Cookies", "icon":"cookie", "value":"??cookie-state", "href":"??provider_privacy_url", "target":"none"}]}}, {"box":{"enabled":true, "type":"theme_info", "title":"Theme", "links":[{"title":"Name", "icon":"face", "value":"??theme-name", "href":"/pages/public/previewer/theme/", "target":"none"}, {"title":"Author", "icon":"grease-pencil", "value":"??theme-author", "href":"??theme-author-url", "target":"_blank"}, {"title":"Version", "icon":"numeric", "value":"??theme-version", "href":"/pages/public/previewer/theme/", "target":"none"}]}}, {"box":{"enabled":true, "type":"site_info", "title":"Site", "links":[{"title":"About", "icon":"home-outline", "href":"/pages/public/about/site/", "target":false}, {"title":"Become a Patron", "icon":"patreon", "href":"/pages/public/about/become_a_patron/", "target":"_blank"}, {"title":"Impress", "icon":"alert-outline", "href":"/pages/public/legal/en/impress/", "target":"none"}, {"title":"Privacy", "icon":"heart", "href":"/pages/public/legal/en/privacy/", "target":"none"}, {"title":"License", "icon":"checkbox-multiple-marked-circle-outline", "href":"/pages/public/legal/en/license_agreement/", "target":"none"}]}}]});
       navAuthClientConfig                           = $.extend({}, {"enabled":true, "xhr_container_id":"authclient_modals", "xhr_data_path":"/assets/data/authclient/index.html", "signin_modal_id":"modalOmniSignIn", "hide_on_cookies_declined":true, "icon_family":"MDI", "signin_icon":"login", "signout_icon":"logout", "auth_signin_modal":{"title":"SignIn", "body_text":"In order to get *signed in*, check one of the options below and mark a provider for authentication. You'll be *redirected* to authenticate with the provider *selected*. If signed in *successfully*, you get back to this site for the page requested.\n\nNOTE: To get access to secured pages of this site, authentication with a provider is needed only *once*.\n"}, "auth_disqus":{"id":1, "title":"Disqus", "text":"SignIn to Disqus. Get access to all *PROTECTED* content pages of this site.\n"}, "auth_facebook":{"id":2, "title":"Facebook", "text":"SignIn to Facebook. Get access to all *PROTECTED* content pages of this site.\n"}, "auth_github":{"id":3, "title":"Github", "text":"SignIn to Github. Get access to all *PROTECTED* content pages of this site.\n"}, "auth_patreon":{"id":4, "title":"Patreon", "text":"SignIn to Patreon. Get access to all *PROTECTED* and *PRIVATE* content pages of this site.\n"}, "auth_twitter":{"id":5, "title":"Twitter", "text":"SignIn to Twitter. Get access to all *PROTECTED* content pages of this site.\n"}, "auth_signout_modal":{"title":"SignOut", "body_text":"After signing out from this site, you'll be *redirected* to the *provider* you're currently authenticated. From your home page at the *provider*, you can *sign out* completely.\n\nNOTE: In order to signing out *completely*, check the switch below to *on*.\n"}});
-      navAuthMAnagerConfig                          = $.extend({}, {"enabled":true, "ssl":false, "content":{"public":["\\W*((?i)assets(?-i))\\W*", "\\W*((?i)public(?-i))\\W*"], "protected":["\\W*((?i)protected(?-i))\\W*"], "private":["\\W*((?i)private(?-i))\\W*"]}, "providers":{"activated":["github"], "disqus":{"provider_url":"https://disqus.com", "strategy":"member", "scope":[], "users":["all"], "permissions":["protected"], "data_fields":[], "conditions":{"protected":{"enabled":true, "users":{"blacklist":[]}}, "private":{"enabled":false, "users":{"whitelist":["all"], "blacklist":[]}}}}, "github":{"provider_url":"https://github.com", "strategy":"member", "scope":[], "users":["all"], "permissions":["protected", "private"], "data_fields":[], "conditions":{"protected":{"enabled":true, "users":{"blacklist":[]}}, "private":{"enabled":true, "users":{"whitelist":["all"], "blacklist":[]}}}}}});
+      navAuthMAnagerConfig                          = $.extend({}, {"j1_auth":{"enabled":true, "ssl":false, "content":{"public":["\\W*((?i)assets(?-i))\\W*", "\\W*((?i)public(?-i))\\W*"], "protected":["\\W*((?i)protected(?-i))\\W*"], "private":["\\W*((?i)private(?-i))\\W*"]}, "providers":{"activated":["github", "disqus"], "disqus":{"provider_url":"https://disqus.com", "strategy":"member", "scope":[], "users":["all"], "permissions":["protected"], "data_fields":[], "conditions":{"protected":{"enabled":true, "users":{"blacklist":[]}}, "private":{"enabled":false, "users":{"whitelist":["all"], "blacklist":[]}}}}, "github":{"provider_url":"https://github.com", "strategy":"member", "scope":[], "users":["all"], "permissions":["protected", "private"], "data_fields":[], "conditions":{"protected":{"enabled":true, "users":{"blacklist":[]}}, "private":{"enabled":true, "users":{"whitelist":["all"], "blacklist":[]}}}}}}, "auth_client":{"enabled":true, "auth_signin_modal":{"title":"SignIn", "body_text":"In order to get *signed in*, check one of the options below and mark a provider for authentication. You'll be *redirected* to authenticate with the provider *selected*. If signed in *successfully*, you get back to this site for the page requested.\n\nNOTE: To get access to secured pages of this site, authentication with a provider is needed only *once*.\n"}, "auth_disqus":{"id":1, "title":"Disqus", "text":"SignIn to Disqus. Get access to all *PROTECTED* content pages of this site.\n"}, "auth_facebook":{"id":2, "title":"Facebook", "text":"SignIn to Facebook. Get access to all *PROTECTED* content pages of this site.\n"}, "auth_github":{"id":3, "title":"Github", "text":"SignIn to Github. Get access to all *PROTECTED* content pages of this site.\n"}, "auth_patreon":{"id":4, "title":"Patreon", "text":"SignIn to Patreon. Get access to all *PROTECTED* and *PRIVATE* content pages of this site.\n"}, "auth_twitter":{"id":5, "title":"Twitter", "text":"SignIn to Twitter. Get access to all *PROTECTED* content pages of this site.\n"}, "auth_signout_modal":{"title":"SignOut", "body_text":"After signing out from this site, you'll be *redirected* to the *provider* you're currently authenticated. From your home page at the *provider*, you can *sign out* completely.\n\nNOTE: In order to signing out *completely*, check the switch below to *on*.\n"}}});
       authClientEnabled                             = navAuthMAnagerConfig.enabled;
       // Merge|Overload module CONFIG by DEFAULTS
       //
@@ -121,7 +121,6 @@ j1.adapter['navigator'] = (function (j1, window) {
       j1.adapter.navigator['navAuthManagerConfig']  = navAuthMAnagerConfig;
       // Load (individual) frontmatter options (currently NOT used)
       if (options  != null) { var frontmatterOptions = $.extend({}, options) }
-      logger.info('mode detected as: ' + j1.getMode());
       _this.setState('started');
       logger.info('state: ' + _this.getState());
       logger.info('module is being initialized');
@@ -130,22 +129,22 @@ j1.adapter['navigator'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       logger.info('run deferred data load');
       $.when (
-        j1.xhrDATA (// sidebar
+        j1.xhrData (// sidebar
           'j1.adapter.navigator', {
           xhr_container_id: navSidebarOptions.xhr_container_id,
           xhr_data_path:    navSidebarOptions.xhr_data_path },
           null),
-        j1.xhrDATA (// quicklinks
+        j1.xhrData (// quicklinks
           'j1.adapter.navigator', {
           xhr_container_id: navQuicklinksOptions.xhr_container_id,
           xhr_data_path:    navQuicklinksOptions.xhr_data_path },
           null),
-        j1.xhrDATA (// authclient
+        j1.xhrData (// authclient
           'j1.adapter.navigator', {
           xhr_container_id: navAuthClientConfig.xhr_container_id,
           xhr_data_path:    navAuthClientConfig.xhr_data_path },
           null),
-        j1.xhrDATA (// menubar
+        j1.xhrData (// menubar
           'j1.adapter.navigator', {
           xhr_container_id: navMenuOptions.xhr_container_id,
           xhr_data_path:    navMenuOptions.xhr_data_path },
@@ -161,7 +160,7 @@ j1.adapter['navigator'] = (function (j1, window) {
             logger.info('initialize navigator core');
             // Detect|Set J1 App status
             appDetected       = j1.appDetected();
-            authClientEnabled = j1.authClientEnabled();
+            authClientEnabled = j1.authEnabled();
             logger.info('application status detected: ' + appDetected);
             var dependencies_met_nav_menu = setInterval (function() {
               if (typeof j1.colors !== 'undefined') {
@@ -196,7 +195,7 @@ j1.adapter['navigator'] = (function (j1, window) {
                   navQuicklinksOptions, navTopsearchOptions,
                   navSidebarOptions
                 );
-                logger.info('init AuthClient');
+                logger.info('init auth client');
                 j1.adapter.navigator.initAuthClient(j1.adapter.navigator.navAuthManagerConfig);
                 _this.setState('finished');
                 logger.info('state: ' + _this.getState());
@@ -238,7 +237,7 @@ j1.adapter['navigator'] = (function (j1, window) {
       var logger      = log4javascript.getLogger('j1.adapter.navigator.initAuthClient');
       var user_session  = j1.readCookie(cookie_user_session_name);
       _this.modalEventHandler(auth_config);
-      if (j1.appDetected() && j1.authClientEnabled()) {
+      if (j1.appDetected() && j1.authEnabled()) {
         // Toggle/Set SignIn/SignOut icon|link in QuickLinks
         // See: https://stackoverflow.com/questions/13524107/how-to-set-data-attributes-in-html-elements
         if (user_session.authenticated === 'true') {
@@ -260,7 +259,7 @@ j1.adapter['navigator'] = (function (j1, window) {
     // -------------------------------------------------------------------------
     modalEventHandler: function (options) {
       // var logger      = log4javascript.getLogger("j1.adapter.navigator.EventHandler");
-      var authConfig  = options;
+      var authConfig  = options.j1_auth;
       var route;
       var provider;
       var provider_url;
@@ -276,7 +275,7 @@ j1.adapter['navigator'] = (function (j1, window) {
         providerSignOut:  false,
         do:               false
       }
-      logText = "Initialize button click events";
+      logText = "initialize button click events";
       logger.info(logText);
       // Manage button click events for modal "signInOutButton"
       // -----------------------------------------------------------------------
@@ -303,7 +302,7 @@ j1.adapter['navigator'] = (function (j1, window) {
         e.stopPropagation();
         signOut.providerSignOut = $('input:checkbox[name="providerSignOut"]').is(":checked");
         if(environment == "development") {
-          logText = "Provider signout set to: " + signOut.providerSignOut;
+          logText = "provider signout set to: " + signOut.providerSignOut;
           logger.info(logText);
         }
       });
@@ -311,7 +310,7 @@ j1.adapter['navigator'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       $("#modalOmniSignOut").on('show.bs.modal', function() {
           var modal = $(this);
-          logger.info('Place current user data');
+          logger.info('place current user data');
           user_session = j1.readCookie(cookie_user_session_name);
           modal.find('.user-info').text('You are signed in to provider: ' + user_session.provider);
       }); // END SHOW modalOmniSignOut
@@ -321,17 +320,17 @@ j1.adapter['navigator'] = (function (j1, window) {
         if (signIn.do == true) {
           provider      = signIn.provider.toLowerCase();
           allowed_users = signIn.users.toString();
-          logText       = 'Provider detected: ' + provider;
+          logText       = 'provider detected: ' + provider;
           logger.info(logText);
           var route = '/authentication?request=signin&provider=' +provider+ '&allowed_users=' +allowed_users;
-          logText = 'Call middleware for route ' +route+ ' for signin';
+          logText = 'call middleware for signin on route: ' + route;
           logger.info(logText);
           window.location.href = route;
         } else {
           provider = signIn.provider.toLowerCase();
-          logText = 'Provider detected: ' + provider;
+          logText = 'provider detected: ' + provider;
           logger.info(logText);
-          logText = 'Login for ' +provider+ " declined";
+          logText = 'login declined for provider: ' +provider;
           logger.info(logText);
         }
       }); // END post events "modalOmniSignIn"
@@ -339,28 +338,27 @@ j1.adapter['navigator'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       $("#modalOmniSignOut").on('hidden.bs.modal', function() {
         if (signOut.do == true) {
-          logger.info('Load active provider from cookie: ' + cookie_user_session_name);
+          logger.info('load active provider from cookie: ' + cookie_user_session_name);
           user_session    = j1.readCookie(cookie_user_session_name);
           provider      = user_session.provider;
           provider_url  = user_session.provider_site_url;
-          logText = 'Provider detected: ' + provider;
+          logText = 'provider detected: ' + provider;
           logger.info(logText);
-          logText = 'Initiate signout for ' +provider;
+          logText = 'initiate signout for provider: ' +provider;
           logger.info(logText);
-          // var route = '/authentication?request=signout&provider=' + provider + '&provider_signout=' + signOut.providerSignOut + '&provider_url=' + provider_url;
           var route = '/authentication?request=signout&provider=' + provider + '&provider_signout=' + signOut.providerSignOut; // + '/logout/';
-          logText = 'Call middleware: ' +route;
+          logText = 'call middleware on route : ' +route;
           logger.info(logText);
           window.location.href = route;
         } else {
           provider = signOut.provider.toLowerCase();
-          logText = 'Provider detected: ' + provider;
+          logText = 'provider detected: ' + provider;
           logger.info(logText);
-          logText = 'SignOut for ' +provider+ " declined";
+          logText = 'signout declined for provider: ' +provider ;
           logger.info(logText);
         }
       }); // END post events "modalSignOut"
-      logText = "initialize events completed";
+      logText = "initialize button click events completed";
       logger.info(logText);
       return true;
     }, // END modalEventHandler
@@ -501,7 +499,7 @@ j1.adapter['navigator'] = (function (j1, window) {
     messageHandler: function (sender, message) {
       // var json_message = JSON.stringify(message, undefined, 2);              // multiline
       var json_message = JSON.stringify(message);
-      logText = 'Received message from ' + sender + ': ' + json_message;
+      logText = 'received message from ' + sender + ': ' + json_message;
       logger.debug(logText);
       // -----------------------------------------------------------------------
       //  Process commands|actions

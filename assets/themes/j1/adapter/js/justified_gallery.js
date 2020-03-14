@@ -12,11 +12,11 @@
  # Copyright (C) 2016 Miro Mannino
  #
  # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/j1-template/blob/master/LICENSE
+ # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
  # Justified Gallery is licensed under the MIT license
  # See: https://github.com/miromannino/Justified-Gallery
  # -----------------------------------------------------------------------------
- # Adapter generated: 2019-09-27 17:30:39 +0200
+ # Adapter generated: 2020-03-14 15:10:06 +0100
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -45,7 +45,7 @@ j1.adapter['jf_gallery'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.jf_gallery',
-        generated:   '2019-09-27 17:30:39 +0200'
+        generated:   '2020-03-14 15:10:06 +0100'
       }, options);
       // Load  module DEFAULTS|CONFIG
       //
@@ -58,19 +58,19 @@ j1.adapter['jf_gallery'] = (function (j1, window) {
       _this.setState('started');
       logger.info('state: ' + _this.getState());
       logger.info('module is being initialized');
-      _this.load(moduleOptions);
+      _this.initialize(moduleOptions);
       return true;
     },
     // -----------------------------------------------------------------------
     // Load AJAX data and initialize the jg gallery
     // -----------------------------------------------------------------------
-    load: function (options) {
-      logger = log4javascript.getLogger('j1.adapter.jf_gallery.load');
+    initialize: function (options) {
+      logger = log4javascript.getLogger('j1.adapter.jf_gallery.init');
       _this.setState('running');
       logger.info('state: ' + _this.getState());
           // Create an gallery instance if id: jg_live_demo exists
           if ($('#jg_live_demo').length) {
-          logText = 'Gallery on ID #jg_live_demo is being initialized';
+          logText = 'gallery is being initialized on id: #jg_live_demo';
           logger.info(logText);
           // Place HTML markup for the title
           $('#jg_live_demo').addClass("justified-gallery mb-3");
@@ -116,7 +116,7 @@ j1.adapter['jf_gallery'] = (function (j1, window) {
                     // lightbox is initialized (delayed)
                     setTimeout(function() { 
                       $("#jg_live_demo").show();
-                      logText = 'Gallery on ID #jg_live_demo initializing completed';
+                      logText = 'initializing gallery finished on id: #jg_live_demo';
                       logger.info(logText);
                     }, 300);
                   });
@@ -135,7 +135,7 @@ j1.adapter['jf_gallery'] = (function (j1, window) {
                     // lightbox is initialized (delayed)
                     setTimeout(function() { 
                       $("#jg_live_demo").show();
-                      logText = 'Gallery on ID #jg_live_demo initializing completed';
+                      logText = 'initializing gallery finished on id: #jg_live_demo';
                       logger.info(logText);
                       }, 300);
                   });
@@ -147,7 +147,7 @@ j1.adapter['jf_gallery'] = (function (j1, window) {
          // ENDIF gallery enabled
           // Create an gallery instance if id: jg_customizer exists
           if ($('#jg_customizer').length) {
-          logText = 'Gallery on ID #jg_customizer is being initialized';
+          logText = 'gallery is being initialized on id: #jg_customizer';
           logger.info(logText);
           // Place HTML markup for the title
           $('#jg_customizer').addClass("justified-gallery mb-3");
@@ -193,7 +193,7 @@ j1.adapter['jf_gallery'] = (function (j1, window) {
                     // lightbox is initialized (delayed)
                     setTimeout(function() { 
                       $("#jg_customizer").show();
-                      logText = 'Gallery on ID #jg_customizer initializing completed';
+                      logText = 'initializing gallery finished on id: #jg_customizer';
                       logger.info(logText);
                     }, 250);
                   });
@@ -212,7 +212,7 @@ j1.adapter['jf_gallery'] = (function (j1, window) {
                     // lightbox is initialized (delayed)
                     setTimeout(function() { 
                       $("#jg_customizer").show();
-                      logText = 'Gallery on ID #jg_customizer initializing completed';
+                      logText = 'initializing gallery finished on id: #jg_customizer';
                       logger.info(logText);
                       }, 250);
                   });
@@ -224,7 +224,7 @@ j1.adapter['jf_gallery'] = (function (j1, window) {
          // ENDIF gallery enabled
           // Create an gallery instance if id: jg_old_times exists
           if ($('#jg_old_times').length) {
-          logText = 'Gallery on ID #jg_old_times is being initialized';
+          logText = 'gallery is being initialized on id: #jg_old_times';
           logger.info(logText);
           // Place HTML markup for the title
           var gallery_title = '<div class="jg-gallery-title">Grand Pa around the 1930th</div>';
@@ -272,7 +272,7 @@ j1.adapter['jf_gallery'] = (function (j1, window) {
                     // lightbox is initialized (delayed)
                     setTimeout(function() { 
                       $("#jg_old_times").show();
-                      logText = 'Gallery on ID #jg_old_times initializing completed';
+                      logText = 'initializing gallery finished on id: #jg_old_times';
                       logger.info(logText);
                     }, 300);
                   });
@@ -291,7 +291,7 @@ j1.adapter['jf_gallery'] = (function (j1, window) {
                     // lightbox is initialized (delayed)
                     setTimeout(function() { 
                       $("#jg_old_times").show();
-                      logText = 'Gallery on ID #jg_old_times initializing completed';
+                      logText = 'initializing gallery finished on id: #jg_old_times';
                       logger.info(logText);
                       }, 300);
                   });
@@ -301,14 +301,14 @@ j1.adapter['jf_gallery'] = (function (j1, window) {
             }); // END getJSON
           } //end gallery
          // ENDIF gallery enabled
-    }, // END function load
+    }, // END function initialize
     // -------------------------------------------------------------------------
     // messageHandler: MessageHandler for J1 CookieConsent module
     // Manage messages send from other J1 modules
     // -------------------------------------------------------------------------
     messageHandler: function (sender, message) {
       var json_message = JSON.stringify(message, undefined, 2);
-      logText = 'Received message from ' + sender + ': ' + json_message;
+      logText = 'received message from ' + sender + ': ' + json_message;
       logger.debug(logText);
       // -----------------------------------------------------------------------
       //  Process commands|actions

@@ -16,7 +16,7 @@
  # Backstretch is licensed under the MIT License.
  # For details, see https://github.com/jquery-backstretch/jquery-backstretch
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2019-09-27 17:30:39 +0200
+ #  Adapter generated: 2020-03-14 15:10:06 +0100
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -66,6 +66,7 @@ j1.adapter['attic'] = (function (j1, window) {
             if ($('#home_attic').length) {
               $("#home_attic").backstretch(
                 atticOptions.slides, {
+                  debug:                          atticOptions.debug,
                   spinner:                        atticOptions.spinner,
                   alignX:                         atticOptions.alignX,
                   alignY:                         atticOptions.alignY,
@@ -270,6 +271,7 @@ j1.adapter['attic'] = (function (j1, window) {
             if ($('#image_attic').length) {
               $("#image_attic").backstretch(
                 atticOptions.slides, {
+                  debug:                          atticOptions.debug,
                   spinner:                        atticOptions.spinner,
                   alignX:                         atticOptions.alignX,
                   alignY:                         atticOptions.alignY,
@@ -473,6 +475,7 @@ j1.adapter['attic'] = (function (j1, window) {
             if ($('#text_attic').length) {
               $("#text_attic").backstretch(
                 atticOptions.slides, {
+                  debug:                          atticOptions.debug,
                   spinner:                        atticOptions.spinner,
                   alignX:                         atticOptions.alignX,
                   alignY:                         atticOptions.alignY,
@@ -682,7 +685,7 @@ j1.adapter['attic'] = (function (j1, window) {
     // -------------------------------------------------------------------------
     messageHandler: function (sender, message) {
       var json_message = JSON.stringify(message, undefined, 2);
-      logText = 'Received message from ' + sender + ': ' + json_message;
+      logText = 'received message from ' + sender + ': ' + json_message;
       logger.debug(logText);
       // -----------------------------------------------------------------------
       //  Process commands|actions

@@ -15,7 +15,7 @@
  # YOUR_MODULE_NAME is licensed under YOUR LICENSE
  # For details, see https://YOUR.SITE
  # -----------------------------------------------------------------------------
- # Adapter generated: 2019-09-27 17:30:39 +0200
+ # Adapter generated: 2020-03-14 14:56:31 +0100
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -40,7 +40,7 @@ j1.adapter.example = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.example',
-        generated:   '2019-09-27 17:30:39 +0200'
+        generated:   '2020-03-14 14:56:31 +0100'
       }, options);
       // Load  module DEFAULTS|CONFIG
       //
@@ -60,7 +60,7 @@ j1.adapter.example = (function (j1, window) {
       //
       _this.setState('finished');
       logger.info('state: ' + _this.getState());
-      logger.info('module initializing finished');
+      logger.info('initializing module finished');
       return true;
     }, // END init
     // -------------------------------------------------------------------------
@@ -69,7 +69,7 @@ j1.adapter.example = (function (j1, window) {
     // -------------------------------------------------------------------------
     messageHandler: function (sender, message) {
       var json_message = JSON.stringify(message, undefined, 2);
-      logText = 'Received message from ' + sender + ': ' + json_message;
+      logText = 'received message from ' + sender + ': ' + json_message;
       logger.debug(logText);
       // -----------------------------------------------------------------------
       //  Process commands|actions
