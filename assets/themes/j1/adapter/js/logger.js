@@ -12,7 +12,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-03-14 16:52:33 +0100
+ # Adapter generated: 2020-03-15 16:04:10 +0100
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -102,7 +102,7 @@ j1.adapter['logger'] = (function (j1, window) {
       // initialize state flag
       j1.adapter.logger.state = 'started';
       // load module DEFAULTS|CONFIG to js object
-      loggerOptions       = $.extend({}, {"appenders":[{"name":"Console Appender", "appender":{"name":"consoleAppender", "enabled":true, "type":"BrowserConsoleAppender", "layout":"PatternLayout", "custom_fields":["file", "line", "path"], "pattern_string":"[%d{HH:mm:ss.SSS}] [%f{4}] [%-5p] [%-40c] [%f{1}:%f{2}] %m%n[%f{3}]"}}, {"name":"Ajax Appender", "appender":{"name":"ajaxAppender", "enabled":true, "type":"BrowserAjaxAppender", "layout":"JsonLayout", "custom_fields":["file", "line", "path"], "payload_url_app":"http://localhost:5000/log2disk?request=write", "payload_url_web":"http://localhost:44444/log2disk?request=write", "log_folder":"log", "log_file_name":"messages", "log_file_ext":"log", "create_on_start":true, "reset_on_start":true, "rolling_files":false, "file_mode":"append"}}, {"name":"Popup Appender", "appender":{"name":"popupAppender", "enabled":false, "type":"PopUpAppender", "width":600, "height":400, "lazyInit":false, "initiallyMinimized":false, "layout":"PatternLayout", "custom_fields":[], "pattern_string":"[%d{HH:mm:ss}] [ %-5p] - [%m{1}]%n"}}], "loggers":[{"name":"Parent Logger", "logger":{"type":"parent", "name":"j1", "appender":["consoleAppender", "ajaxAppender"], "level":{"production":"warn", "development":"debug"}}}]});
+      loggerOptions       = $.extend({}, {"appenders":[{"name":"Console Appender", "appender":{"name":"consoleAppender", "enabled":true, "type":"BrowserConsoleAppender", "layout":"PatternLayout", "custom_fields":["file", "line", "path"], "pattern_string":"[%d{HH:mm:ss.SSS}] [%f{4}] [%-5p] [%-40c] [%f{1}:%f{2}] %m%n[%f{3}]"}}, {"name":"Ajax Appender", "appender":{"name":"ajaxAppender", "enabled":false, "type":"BrowserAjaxAppender", "layout":"JsonLayout", "custom_fields":["file", "line", "path"], "payload_url_app":"https://j1-preview.netlify.com/", "payload_url_web":"http://localhost:16001/log2disk?request=write", "log_folder":"log", "log_file_name":"messages", "log_file_ext":"log", "create_on_start":true, "reset_on_start":true, "rolling_files":false, "file_mode":"append"}}, {"name":"Popup Appender", "appender":{"name":"popupAppender", "enabled":false, "type":"PopUpAppender", "width":600, "height":400, "lazyInit":false, "initiallyMinimized":false, "layout":"PatternLayout", "custom_fields":[], "pattern_string":"[%d{HH:mm:ss}] [ %-5p] - [%m{1}]%n"}}], "loggers":[{"name":"Parent Logger", "logger":{"type":"parent", "name":"j1", "appender":["consoleAppender", "ajaxAppender"], "level":{"production":"warn", "development":"debug"}}}]});
       ajaxAppenderOptions = loggerOptions.appenders[1].appender;
       // -----------------------------------------------------------------------
       // setup logger instances

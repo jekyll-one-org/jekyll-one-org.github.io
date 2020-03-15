@@ -16,5 +16,5 @@
 # AUTH Manager (j1_auth) settings
 #
 j1_auth:
-  enabled:                              true
+  enabled:                              false
 
