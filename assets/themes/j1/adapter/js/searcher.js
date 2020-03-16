@@ -16,7 +16,7 @@
  # SimpleJekyllSearch is licensed under the MIT License.
  # For details, see https://github.com/christian-fei/Simple-Jekyll-Search
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2020-03-15 16:04:10 +0100
+ #  Adapter generated: 2020-03-16 20:24:48 +0100
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -41,7 +41,7 @@ j1.adapter['searcher'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.searcher',
-        generated:   '2020-03-15 16:04:10 +0100'
+        generated:   '2020-03-16 20:24:48 +0100'
       }, options);
       _this   = j1.adapter.searcher;
       logger  = log4javascript.getLogger('j1.adapter.searcher');
