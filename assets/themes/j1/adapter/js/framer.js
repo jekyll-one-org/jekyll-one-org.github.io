@@ -8,7 +8,7 @@
  #  https://jekyll.one
  #  http://davidjbradshaw.github.io/iframe-resizer/
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #  Copyright (C) 2013-15 David J. Bradshaw
  #
  #  J1 Template is licensed under the MIT License.
@@ -17,7 +17,7 @@
  #  For details, see http://davidjbradshaw.github.io/iframe-resizer/
  #
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2020-03-18 09:59:52 +0100
+ #  Adapter generated: 2020-06-13 16:18:59 +0200
  # -----------------------------------------------------------------------------
  */
 'use strict';
@@ -45,11 +45,11 @@ j1.adapter['framer'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.example',
-        generated:   '2020-03-18 09:59:52 +0100'
+        generated:   '2020-06-13 16:18:59 +0200'
       }, options);
       // Load  module DEFAULTS|CONFIG
       //
-      moduleOptions = $.extend({}, {"enabled":true, "load":"sync", "log":false, "autoResize":true, "bodyBackground":"", "bodyMargin":0, "checkOrigin":true, "inPageLinks":false, "interval":32, "heightCalculationMethod":"bodyOffset", "maxHeight":100000000, "minHeight":512, "maxWidth":100000000, "minWidth":0, "resizeFrom":"parent", "scrolling":false, "sizeHeight":true, "sizeWidth":false, "tolerance":0, "widthCalculationMethod":"scroll"});
+      moduleOptions = $.extend({}, {"enabled":true, "load":"sync", "log":false, "autoResize":true, "bodyBackground":"", "bodyMargin":0, "checkOrigin":true, "inPageLinks":false, "interval":32, "heightCalculationMethod":"bodyOffset", "widthCalculationMethod":"scroll", "maxHeight":100000000, "minHeight":512, "maxWidth":100000000, "minWidth":0, "resizeFrom":"parent", "scrolling":false, "sizeHeight":true, "sizeWidth":false, "tolerance":0});
       if (typeof settings !== 'undefined') {
         moduleOptions = j1.mergeData(moduleOptions, settings);
       }

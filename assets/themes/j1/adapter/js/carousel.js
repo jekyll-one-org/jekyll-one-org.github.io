@@ -7,12 +7,12 @@
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2019 Juergen Adams
+ # Copyright (C) 2020 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2020-03-18 09:59:52 +0100
+ #  Adapter generated: 2020-06-13 16:18:59 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -40,10 +40,10 @@ j1.adapter['carousel'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.carousel',
-        generated:   '2020-03-18 09:59:52 +0100'
+        generated:   '2020-06-13 16:18:59 +0200'
       }, options);
       // Load  module DEFAULTS|CONFIG
-      moduleOptions = $.extend({}, {"enabled":true, "items":5, "itemsCustom":false, "itemsDesktop":[1199, 4], "itemsDesktopSmall":[980, 3], "itemsTablet":[768, 2], "itemsTabletSmall":false, "itemsMobile":[479, 1], "singleItem":false, "itemsScaleUp":false, "slideSpeed":200, "paginationSpeed":800, "rewindSpeed":1000, "autoPlay":false, "stopOnHover":false, "navigation":false, "navigationText":["prev", "next"], "rewindNav":true, "scrollPerPage":false, "pagination":true, "paginationNumbers":false, "responsive":true, "responsiveRefreshRate":200, "responsiveBaseWidth":"window", "baseClass":"owl-carousel", "theme":"owl-theme", "lazyLoad":false, "lazyFollow":true, "lazyEffect":"fade", "autoHeight":false, "xhr_data_path":"/assets/data/carousel.json", "jsonSuccess":false, "dragBeforeAnimFinish":true, "mouseDrag":true, "touchDrag":true, "transitionStyle":false, "beforeUpdate":false, "afterUpdate":false, "beforeInit":false, "afterInit":false, "beforeMove":false, "afterMove":false, "afterAction":false, "startDragging":false, "afterLazyLoad":false, "addClassActive":false, "carousel":[{"show":{"enabled":true, "id":"owl_demo_text_carousel", "lightbox":false, "type":"text", "css_classes":"img-fluid", "text":["<big>Jekyll One Template</big>         </br> <i>Clean, responsive and fully featured Template made for Jekyll</i>", "<big>Jekyll meets Bootstrap</big>      </br> <i>Best of open source and commercial software for the Web</i>", "<big>J1 is Open Source</big>           </br> <i>No pain for private or professional use</i>", "<big>Explore this site</big>           </br> <i>Learn what's possible if you go the Jekyll Way</i>", "<big>Create modern static sites</big>  </br> <i>Secure, powerful and fast<i>"], "options":{"autoPlay":5000, "singleItem":true, "pagination":false}}}, {"show":{"enabled":true, "id":"owl_demo_text_carousel_parallax", "lightbox":false, "type":"text", "parallax":true, "parallax_id":"owl_text_carousel_parallax", "css_classes":"img-fluid", "text":["<big>Jekyll One Template</big>         </br> <i>Clean, responsive and fully featured Template made for Jekyll</i>", "<big>Jekyll meets Bootstrap</big>      </br> <i>Best of open source and commercial software for the Web</i>", "<big>J1 is Open Source</big>           </br> <i>No pain for private or professional use</i>", "<big>Explore this site</big>           </br> <i>Learn what's possible if you go the Jekyll Way</i>", "<big>Create modern static sites</big>  </br> <i>Secure, powerful and fast<i>"], "options":{"autoPlay":5000, "singleItem":true, "pagination":false}}}, {"show":{"enabled":true, "id":"owl_demo_cats", "slide_space_between":3, "slide_border":true, "lightbox":true, "type":"image", "css_classes":"img-fluid", "images_path":"/assets/images/carousel/cats", "images":["cat-1.jpg", "cat-2.jpg", "cat-3.jpg", "cat-4.jpg"], "links":["#", "#", "#", "#"], "lb_caption":["You see cat no 1", "You see cat no 2", "You see cat np 3", "You see cat no 4"], "options":{"navigation":false, "itemsCustom":[[0, 1], [400, 1], [700, 2], [1000, 2], [1200, 2], [1600, 2]], "slideSpeed":300, "paginationSpeed":400, "items":2}}}, {"show":{"enabled":true, "provider":"j1", "id":"owl_demo_simple", "type":"image", "css_classes":"img-fluid", "images_path":"/assets/images/gallery/justified_gallery", "images":["000_6791628438_affaa19e10_b.jpg", "000_6798453217_72dea2d06e_b.jpg", "000_6806687375_07d2b7a1f9_b.jpg", "000_6840627709_92ed52fb41_b.jpg", "000_6876412479_6268c6e2aa_b.jpg", "000_6880502467_d4b3c4b2a8_b.jpg"], "links":["#", "#", "#", "#", "#", "#", "#", "#"], "options":{"autoPlay":3000, "items":3, "autoHeight":true, "pagination":false, "paginationNumbers":false, "itemsDesktop":"[1199,3]", "itemsDesktopSmall":"[979,3]"}}}, {"show":{"enabled":true, "provider":"j1", "id":"owl_demo_oneslide", "type":"image", "lightbox":true, "css_classes":"img-fluid", "images_path":"/assets/images/gallery/justified_gallery", "images":["000_6791628438_affaa19e10_b.jpg", "000_6798453217_72dea2d06e_b.jpg", "000_6806687375_07d2b7a1f9_b.jpg", "000_6840627709_92ed52fb41_b.jpg", "000_6876412479_6268c6e2aa_b.jpg", "000_6880502467_d4b3c4b2a8_b.jpg"], "options":{"navigation":true, "slideSpeed":300, "paginationSpeed":400, "singleItem":true, "transitionStyle":"goDown"}}}]});
+      moduleOptions = $.extend({}, {"enabled":true, "items":5, "itemsCustom":false, "itemsDesktop":[1199, 4], "itemsDesktopSmall":[980, 3], "itemsTablet":[768, 2], "itemsTabletSmall":false, "itemsMobile":[479, 1], "singleItem":false, "itemsScaleUp":false, "slideSpeed":200, "paginationSpeed":800, "rewindSpeed":1000, "autoPlay":false, "stopOnHover":false, "navigation":false, "navigationText":["prev", "next"], "rewindNav":true, "scrollPerPage":false, "pagination":true, "paginationNumbers":false, "responsive":true, "responsiveRefreshRate":200, "responsiveBaseWidth":"window", "baseClass":"owl-carousel", "theme":"owl-theme", "lazyLoad":false, "lazyFollow":true, "lazyEffect":"fade", "autoHeight":false, "xhr_data_path":"/assets/data/carousel.json", "jsonSuccess":false, "dragBeforeAnimFinish":true, "mouseDrag":true, "touchDrag":true, "transitionStyle":false, "beforeUpdate":false, "afterUpdate":false, "beforeInit":false, "afterInit":false, "beforeMove":false, "afterMove":false, "afterAction":false, "startDragging":false, "afterLazyLoad":false, "addClassActive":false, "carousel":[{"show":{"enabled":true, "id":"owl_demo_text_carousel", "lightbox":false, "type":"text", "css_classes":"img-fluid", "text":["<big>Jekyll One Template</big>         </br> <i>Clean, responsive and fully featured Template made for Jekyll</i>", "<big>Jekyll meets Bootstrap</big>      </br> <i>Best of open source and commercial software for the Web</i>", "<big>J1 is Open Source</big>           </br> <i>No pain for private or professional use</i>", "<big>Explore this site</big>           </br> <i>Learn what's possible if you go the Jekyll Way</i>", "<big>Create modern static sites</big>  </br> <i>Secure, powerful and fast<i>"], "options":{"autoPlay":5000, "singleItem":true, "pagination":false}}}, {"show":{"enabled":true, "id":"owl_demo_text_carousel_parallax", "lightbox":false, "type":"text", "parallax":true, "parallax_id":"owl_text_carousel_parallax", "css_classes":"img-fluid", "text":["<big>Jekyll One Template</big>         </br> <i>Clean, responsive and fully featured Template made for Jekyll</i>", "<big>Jekyll meets Bootstrap</big>      </br> <i>Best of open source and commercial software for the Web</i>", "<big>J1 is Open Source</big>           </br> <i>No pain for private or professional use</i>", "<big>Explore this site</big>           </br> <i>Learn what's possible if you go the Jekyll Way</i>", "<big>Create modern static sites</big>  </br> <i>Secure, powerful and fast<i>"], "options":{"autoPlay":5000, "singleItem":true, "pagination":false}}}, {"show":{"enabled":true, "id":"owl_demo_cats", "slide_space_between":3, "slide_border":true, "lightbox":true, "type":"image", "css_classes":"img-fluid", "images_path":"/assets/images/modules/carousel/cats", "images":["cat-1.jpg", "cat-2.jpg", "cat-3.jpg", "cat-4.jpg"], "links":["#", "#", "#", "#"], "lb_caption":["You see cat no 1", "You see cat no 2", "You see cat np 3", "You see cat no 4"], "options":{"navigation":false, "itemsCustom":[[0, 1], [400, 1], [700, 2], [1000, 2], [1200, 2], [1600, 2]], "slideSpeed":300, "paginationSpeed":400, "items":2}}}, {"show":{"enabled":true, "provider":"j1", "id":"owl_demo_simple", "type":"image", "css_classes":"img-fluid", "images_path":"/assets/images/modules/carousel/mega_cities", "images":["andreas-brucker_b.jpg", "denys-nevozhai-1_b.jpg", "denys-nevozhai-2_b.jpg", "luca-bravo_b.jpg", "thomas-tucker_b.jpg"], "links":["#", "#", "#", "#", "#", "#", "#", "#"], "options":{"autoPlay":3000, "items":3, "autoHeight":true, "pagination":false, "paginationNumbers":false, "itemsDesktop":"[1199,3]", "itemsDesktopSmall":"[979,3]"}}}, {"show":{"enabled":true, "provider":"j1", "id":"owl_demo_oneslide", "type":"image", "lightbox":true, "css_classes":"img-fluid", "images_path":"/assets/images/modules/carousel/mega_cities", "images":["andreas-brucker_b.jpg", "denys-nevozhai-1_b.jpg", "denys-nevozhai-2_b.jpg", "luca-bravo_b.jpg", "thomas-tucker_b.jpg"], "options":{"navigation":true, "slideSpeed":300, "paginationSpeed":400, "singleItem":true, "transitionStyle":"goDown"}}}]});
       if (typeof settings !== 'undefined') {
         moduleOptions = j1.mergeData(moduleOptions, settings);
       }
@@ -55,6 +55,7 @@ j1.adapter['carousel'] = (function (j1, window) {
           // Create an Carousel INSTANCE if slider on id: owl_demo_text_carousel exists
           if ($('#owl_demo_text_carousel').length) {
             // Place HTML markup for the title
+            // place parallax styles
             $('head').append("<style>.owl_demo_text_carousel-item{margin: 3px;}</style>");
             //$('.owl_demo_text_carousel-item').parent().addClass('owl-carousel');
             //$('.owl-carousel .item').css('margin','3px');
@@ -91,6 +92,14 @@ j1.adapter['carousel'] = (function (j1, window) {
           // Create an Carousel INSTANCE if slider on id: owl_demo_text_carousel_parallax exists
           if ($('#owl_demo_text_carousel_parallax').length) {
             // Place HTML markup for the title
+            // place parallax styles
+              $('head').append('<style>.parallax-slider__owl_demo_text_carousel_parallax{background:url(/assets/images/quotes/default.png) 50% 0 repeat fixed}</style>');
+              $('head').append('<style>.parallax-slider__owl_demo_text_carousel_parallax{padding:75px 0 75px 25px;position:relative}</style>');
+              $('head').append('<style>.parallax-slider__owl_demo_text_carousel_parallax{color:#e5e5e5;font-size:1.5rem;font-weight:400}</style>');
+              $('head').append('<!-- style>.parallax-slider__owl_demo_text_carousel_parallax{text-align:center}</style -->');
+              $('head').append('<!-- style>.parallax-slider__owl_demo_text_carousel_parallax{text-transform:uppercase}</style -->');
+              $('head').append('<style>.parallax-slider__owl_demo_text_carousel_parallax:before{top:0;left:0;width:100%;height:100%;content:" ";position:absolute;background:url(/assets/images/modules/patterns/gridtile.png) repeat;}</style>');
+              $('head').append('<style>.parallax-slider__owl_demo_text_carousel_parallax:after{top:0;left:0;width:100%;height:100%;content:" ";position:absolute;background:rgba(0,0,0,0.3)}</style>');
             $('head').append("<style>.owl_demo_text_carousel_parallax-item{margin: 3px;}</style>");
             //$('.owl_demo_text_carousel_parallax-item').parent().addClass('owl-carousel');
             //$('.owl-carousel .item').css('margin','3px');
@@ -127,6 +136,7 @@ j1.adapter['carousel'] = (function (j1, window) {
           // Create an Carousel INSTANCE if slider on id: owl_demo_cats exists
           if ($('#owl_demo_cats').length) {
             // Place HTML markup for the title
+            // place parallax styles
             $('head').append("<style>.owl_demo_cats-item{margin: 3px;}</style>");
             //$('.owl_demo_cats-item').parent().addClass('owl-carousel');
             //$('.owl-carousel .item').css('margin','3px');
@@ -185,6 +195,7 @@ j1.adapter['carousel'] = (function (j1, window) {
           // Create an Carousel INSTANCE if slider on id: owl_demo_simple exists
           if ($('#owl_demo_simple').length) {
             // Place HTML markup for the title
+            // place parallax styles
             $('head').append("<style>.owl_demo_simple-item{margin: 3px;}</style>");
             //$('.owl_demo_simple-item').parent().addClass('owl-carousel');
             //$('.owl-carousel .item').css('margin','3px');
@@ -244,6 +255,7 @@ j1.adapter['carousel'] = (function (j1, window) {
           // Create an Carousel INSTANCE if slider on id: owl_demo_oneslide exists
           if ($('#owl_demo_oneslide').length) {
             // Place HTML markup for the title
+            // place parallax styles
             $('head').append("<style>.owl_demo_oneslide-item{margin: 3px;}</style>");
             //$('.owl_demo_oneslide-item').parent().addClass('owl-carousel');
             //$('.owl-carousel .item').css('margin','3px');

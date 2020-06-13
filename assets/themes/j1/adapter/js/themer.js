@@ -8,7 +8,7 @@
  # https://jekyll.one
  # https://github.com/jguadagno/bootstrapThemethemer
  #
- # Copyright (C) 2019 Juergen Adams
+ # Copyright (C) 2020 Juergen Adams
  # Copyright (C) 2014 Joseph Guadagno
  #
  # J1 Template is licensed under the MIT License.
@@ -20,7 +20,7 @@
  #  Setup of theme selectors (ThemeList|ThemeSelect) moved
  #  to j1_adapter_navigator.js
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-03-18 09:59:52 +0100
+ # Adapter generated: 2020-06-13 16:18:59 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';

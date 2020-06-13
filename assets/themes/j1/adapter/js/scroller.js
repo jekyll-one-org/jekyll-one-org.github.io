@@ -8,7 +8,7 @@
  # http://jekyll.one
  # https://github.com/galambalazs/smoothscroll-for-websites
  #
- # Copyright (C) 2019 Juergen Adams
+ # Copyright (C) 2020 Juergen Adams
  # Copyright (C) 2010-2016 Balazs Galambosi
  #
  # J1 Template is licensed under the MIT License.
@@ -16,7 +16,7 @@
  # Smooth Scroll is licensed under the MIT License.
  # For details, https://github.com/galambalazs/smoothscroll-for-websites
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-03-18 09:59:52 +0100
+ # Adapter generated: 2020-06-13 16:18:59 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';

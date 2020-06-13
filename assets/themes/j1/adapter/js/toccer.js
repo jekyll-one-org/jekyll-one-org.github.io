@@ -8,14 +8,14 @@
  # https://jekyll.one
  # https://tscanlin.github.io/tocbot
  #
- # Copyright (C) 2019 Juergen Adams
+ # Copyright (C) 2020 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # Tocbot is licensed under under the MIT License.
  # For details, see https://tscanlin.github.io/tocbot
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-03-18 09:59:52 +0100
+ # Adapter generated: 2020-06-13 16:18:59 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';

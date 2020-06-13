@@ -7,7 +7,7 @@
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -969,28 +969,8 @@
 
 /*------------------------------------
   Images Grid
+  jadams, 2020-03-27: Disabled because of link checks
 ------------------------------------*/
-.g-bg-grid-v1--before::before {
-  background-image: url(../img/bg/grid/wave.png); }
-
-.g-bg-grid-v2--before::after {
-  background-image: url(../img/bg/grid/tile-left.png); }
-
-.g-bg-grid-v3--before::after {
-  background-image: url(../img/bg/grid/tile-right.png); }
-
-.g-bg-grid-v4--before::after {
-  background-image: url(../img/bg/grid/diagonal-left.png); }
-
-.g-bg-grid-v5--before::after {
-  background-image: url(../img/bg/grid/diagonal-right.png); }
-
-.g-bg-grid-v6--before::after {
-  background-image: url(../img/bg/grid/zigzag-left.png); }
-
-.g-bg-grid-v7--before::after {
-  background-image: url(../img/bg/grid/zigzag-right.png); }
-
 /*------------------------------------
   Covers
 ------------------------------------*/
@@ -1026,10 +1006,8 @@
 
 /*------------------------------------
   Background Patterns
+  jadams, 2020-03-27: Disabled because of link checks
 ------------------------------------*/
-.g-bg-pattern-green {
-  background-image: url("../img/bg/pattern--green.png"); }
-
 /*------------------------------------
   Background Position
 ------------------------------------*/
@@ -1125,7 +1103,7 @@
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -1357,7 +1335,7 @@
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -3060,7 +3038,7 @@
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -3108,7 +3086,7 @@
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -3312,7 +3290,7 @@
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -3795,7 +3773,7 @@
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -4140,7 +4118,7 @@
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -4168,7 +4146,7 @@
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -8036,7 +8014,7 @@
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -12562,7 +12540,7 @@
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -13025,7 +13003,7 @@
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -13059,7 +13037,7 @@
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -13085,7 +13063,7 @@
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -13108,7 +13086,7 @@
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -13470,7 +13448,7 @@
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -13944,7 +13922,7 @@
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE

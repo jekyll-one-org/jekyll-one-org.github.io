@@ -8,7 +8,7 @@
  # https://jekyll.one
  # https://github.com/christian-fei/Simple-Jekyll-Search
  #
- # Copyright (C) 2019 Juergen Adams
+ # Copyright (C) 2020 Juergen Adams
  # Copyright (C) 2015 Christian Fei
  #
  # J1 Template is licensed under the MIT License.
@@ -16,7 +16,7 @@
  # SimpleJekyllSearch is licensed under the MIT License.
  # For details, see https://github.com/christian-fei/Simple-Jekyll-Search
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2020-03-18 09:59:52 +0100
+ #  Adapter generated: 2020-06-13 16:18:59 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -41,7 +41,7 @@ j1.adapter['searcher'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.searcher',
-        generated:   '2020-03-18 09:59:52 +0100'
+        generated:   '2020-06-13 16:18:59 +0200'
       }, options);
       _this   = j1.adapter.searcher;
       logger  = log4javascript.getLogger('j1.adapter.searcher');

@@ -7,8 +7,8 @@
     "tags":         "Example,Post",
     "index":         "",
     "categories":   "posts,public,featured",
-    "date":         "2020-03-14 13:57:10 +0100",
-    "url":          "/posts/public/featured/2020/03/14/welcome-to-J1-Template/",
+    "date":         "2020-06-13 09:27:10 +0200",
+    "url":          "/posts/public/featured/2020/06/13/welcome-to-J1-Template/",
     "target":       "",
     "excerpt":      "If you’re not familiar with Jekyll (or other site generators), Jekyll is a so-called static site generator. Think of it like a CMS but without all the complexity and headache. No need to build a giant content strangling Rube Goldberg machine to manage content. All you’re doing at the end..."
   },
@@ -18,8 +18,8 @@
     "tags":         "About,Cookies",
     "index":         "Cookie,Usage,Type,Policy,Consent",
     "categories":   "posts,public,featured",
-    "date":         "2019-05-31 23:00:00 +0100",
-    "url":          "/posts/public/featured/2019/05/31/about-cookies/",
+    "date":         "2019-06-01 00:00:00 +0200",
+    "url":          "/posts/public/featured/2019/06/01/about-cookies/",
     "target":       "",
     "excerpt":      "Is it needed for vistors to know what cookies are all about? Not first place. Cookies are widely used. All users visting web sites are bothered all the time to accept on cookies. Because cookies are used that often. For good reasons - but for different reasons. To answer the..."
   },
@@ -29,7 +29,7 @@
     "tags":         "Jekyll,Generators",
     "index":         "Jekyll,Top,Open,Source,Static,Site,Generators",
     "categories":   "posts,public,featured",
-    "date":         "2019-05-01 01:00:00 +0100",
+    "date":         "2019-05-01 02:00:00 +0200",
     "url":          "/posts/public/featured/2019/05/01/top-open-source-static-site-generators/",
     "target":       "",
     "excerpt":      "People quite often ask, if static websites make sense for anything beyond a one-page website. Some other see in static websites the stone age of the World Wide Web. What&#8217;s about static websites today? What&#8217;s achiveable? This article highlights top open source projects, in many different programming languages. Have a..."
@@ -39,9 +39,9 @@
     "tagline":      "docker on windows",
     "tags":         "Tutorial,kickstarter",
     "index":         "Docker,Windows,Shared,Folder,Folders",
-    "categories":   "posts,private,series",
-    "date":         "2018-11-01 00:00:00 +0100",
-    "url":          "/posts/private/series/2018/11/01/docker-using-shared-folders/",
+    "categories":   "posts,public,series",
+    "date":         "2018-11-01 01:00:00 +0200",
+    "url":          "/posts/public/series/2018/11/01/docker-using-shared-folders/",
     "target":       "",
     "excerpt":      "How to run Docker smooth on Windows? Sounds like a quite simple question follwed by a simple answer: go for Docker for Windows. Unfortunately, the answer is not that easy. As often: it depends (on the use case)."
   },
@@ -51,7 +51,7 @@
     "tags":         "Jekyll,Configuration",
     "index":         "Jekyll,Configuration,URL,base_url",
     "categories":   "posts,public,jekyll,featured",
-    "date":         "2018-05-01 01:00:00 +0100",
+    "date":         "2018-05-01 02:00:00 +0200",
     "url":          "/posts/public/jekyll/featured/2018/05/01/confusion-about-base-url/",
     "target":       "",
     "excerpt":      "Hey, so there’s been a bit of confusion about what the Jekyll configuration option called baseurl is. Part of the beauty of open-source and of Jekyll is that there’s a lot of flexibility. Unfortunately, much of this flexibility doesn’t apply to baseurl. Here’s a quick distillation of its intentions, and..."
@@ -61,9 +61,9 @@
     "tagline":      "largest river in the pacific northwest region",
     "tags":         "Wikipedia",
     "index":         "USA,Northwest Region,Rocky Mountains,Rivers",
-    "categories":   "posts,protected,wikipedia",
-    "date":         "2016-11-26 00:00:00 +0100",
-    "url":          "/posts/protected/wikipedia/2016/11/26/columbia-river/",
+    "categories":   "posts,public,wikipedia",
+    "date":         "2016-11-26 01:00:00 +0200",
+    "url":          "/posts/public/wikipedia/2016/11/26/columbia-river/",
     "target":       "",
     "excerpt":      "The Columbia River is the largest river in the Pacific Northwest region of North America. It flows northwest and then south into the US state of Washington, then turns west to form most of the border between Washington and the state of Oregon before emptying into the Pacific Ocean."
   },
@@ -72,9 +72,9 @@
     "tagline":      "largest snake population",
     "tags":         "Wikipedia",
     "index":         "Canada,Geography,Narcisse,Manitoba,Cities,Snakes,Largest population,Wikipedia",
-    "categories":   "posts,protected,wikipedia",
-    "date":         "2016-11-24 00:00:00 +0100",
-    "url":          "/posts/protected/wikipedia/2016/11/24/narcisse-snake-dens/",
+    "categories":   "posts,public,wikipedia",
+    "date":         "2016-11-24 01:00:00 +0200",
+    "url":          "/posts/public/wikipedia/2016/11/24/narcisse-snake-dens/",
     "target":       "",
     "excerpt":      "The Narcisse Snake Pits are located in the Rural Municipality of Armstrong about 6 kilometres (3.7 mi) north of Narcisse, Manitoba, Canada. The dens are the winter home of tens of thousands of red-sided garter snakes (Thamnophis sirtalis parietalis)."
   },
@@ -83,11 +83,31 @@
     "tagline":      "largest city in the state of minnesota",
     "tags":         "Wikipedia",
     "index":         "USA,Minnesota,City,Minneapolis",
-    "categories":   "posts,protected,wikipedia",
-    "date":         "2016-11-20 19:16:49 +0100",
-    "url":          "/posts/protected/wikipedia/2016/11/20/minneapolis/",
+    "categories":   "posts,public,wikipedia",
+    "date":         "2016-11-20 20:16:49 +0200",
+    "url":          "/posts/public/wikipedia/2016/11/20/minneapolis/",
     "target":       "",
     "excerpt":      "Minneapolis is the largest city in the state of Minnesota in the United States, and the county seat of Hennepin County. According to the United States Census Bureau, the city has a total area of 151.3 km² (58.4 mi²). 142.2 km² (54.9 mi²) of it is land and 9.1 km²..."
+  },
+  {
+    "title":        "Roundtrip",
+    "tagline":      "bootstrap tour",
+    "tags":         "Page, Roundtrip",
+    "index":        "Template, Roundtrip, Images",
+    "categories":   "pages",
+    "url":          "/pages/public/learn/roundtrip/bs_tour/",
+    "target":       "",
+    "excerpt":      "J1 Template Roundtrip - Present Bootstrap"
+  },
+  {
+    "title":        "Roundtrip",
+    "tagline":      "bootstrap tour api",
+    "tags":         "Page, Roundtrip",
+    "index":        "Template, Roundtrip, Images",
+    "categories":   "pages",
+    "url":          "/pages/public/learn/roundtrip/bs_tour_api/",
+    "target":       "",
+    "excerpt":      "J1 Template Roundtrip - Present Bootstrap"
   },
   {
     "title":        "Copyright",
@@ -125,17 +145,17 @@
     "tags":         "Kickstarter",
     "index":        "Introduction, Web, Website, Jekyll",
     "categories":   "pages",
-    "url":          "/pages/public/start/kickstarter/web_in_a_day/meet_and_greet/",
+    "url":          "/pages/public/learn/kickstarter/web_in_a_day/meet_and_greet/",
     "target":       "",
     "excerpt":      "Modern static website in a day"
   },
   {
-    "title":        "Roundtrip",
+    "title":        "Roundtripppp",
     "tagline":      "present images",
     "tags":         "Page, Roundtrip",
     "index":        "Template, Roundtrip, Images",
     "categories":   "pages",
-    "url":          "/pages/public/start/roundtrip/present_images/",
+    "url":          "/pages/public/learn/roundtrip/present_images/",
     "target":       "",
     "excerpt":      "J1 Template Roundtrip - Present image based data"
   },
@@ -145,7 +165,7 @@
     "tags":         "Page, Roundtrip",
     "index":        "Template, Roundtrip, Video",
     "categories":   "pages",
-    "url":          "/pages/public/start/roundtrip/present_videos/",
+    "url":          "/pages/public/learn/roundtrip/present_videos/",
     "target":       "",
     "excerpt":      "J1 Template Roundtrip - Present video based data"
   },
@@ -155,7 +175,7 @@
     "tags":         "Kickstarter, Introduction, Web, Day, Jekyll",
     "index":        "",
     "categories":   "pages",
-    "url":          "/pages/public/start/kickstarter/web_in_a_day/preparations/",
+    "url":          "/pages/public/learn/kickstarter/web_in_a_day/preparations/",
     "target":       "",
     "excerpt":      "Modern static website in a day"
   },
@@ -185,19 +205,9 @@
     "tags":         "Page, Roundtrip",
     "index":        "Template, Roundtrip, Typography",
     "categories":   "pages",
-    "url":          "/pages/public/start/roundtrip/typography/",
+    "url":          "/pages/public/learn/roundtrip/typography/",
     "target":       "",
     "excerpt":      "Typography, a crucial branding element"
-  },
-  {
-    "title":        "Web in a Day",
-    "tagline":      "a first awesome web",
-    "tags":         "Kickstarter, Introduction, Web, Day, Jekyll",
-    "index":        "",
-    "categories":   "pages",
-    "url":          "/pages/public/start/kickstarter/web_in_a_day/first_awesome_web/",
-    "target":       "",
-    "excerpt":      "Modern static website in a day"
   },
   {
     "title":        "Roundtrip",
@@ -205,19 +215,9 @@
     "tags":         "Page, Roundtrip",
     "index":        "Template, Roundtrip, Material, Design, MDI, FontAwesome, Icon, Fonts",
     "categories":   "pages",
-    "url":          "/pages/public/start/roundtrip/mdi_icon_font/",
+    "url":          "/pages/public/learn/roundtrip/mdi_icon_font/",
     "target":       "",
     "excerpt":      "J1 Template Roundtrip - Icon Fonts"
-  },
-  {
-    "title":        "Datenschutzbestimmungen",
-    "tagline":      "Schutz Ihrer Privatsphäre",
-    "tags":         "Datenschutz, Privatsphäre",
-    "index":        "",
-    "categories":   "pages",
-    "url":          "/pages/public/legal/de/privacy/",
-    "target":       "",
-    "excerpt":      "Schutz Ihrer Privatsphäre"
   },
   {
     "title":        "Privacy",
@@ -230,12 +230,22 @@
     "excerpt":      "Protection of your personal data"
   },
   {
+    "title":        "Datenschutzbestimmungen",
+    "tagline":      "Schutz Ihrer Privatsphäre",
+    "tags":         "Datenschutz, Privatsphäre",
+    "index":        "",
+    "categories":   "pages",
+    "url":          "/pages/public/legal/de/privacy/",
+    "target":       "",
+    "excerpt":      "Schutz Ihrer Privatsphäre"
+  },
+  {
     "title":        "Roundtrip",
     "tagline":      "asciidoc extensions",
     "tags":         "Page, Roundtrip",
     "index":        "Template, Roundtrip, Asciidoc, Asciidoctor, Extensions",
     "categories":   "pages",
-    "url":          "/pages/public/start/roundtrip/asciidoc_extensions/",
+    "url":          "/pages/public/learn/roundtrip/asciidoc_extensions/",
     "target":       "",
     "excerpt":      "Asciidoc Extensions (asciidoctor)"
   },
@@ -265,7 +275,7 @@
     "tags":         "Page, Roundtrip",
     "index":        "Template, Roundtrip, Bootstrap, advanced, Modal",
     "categories":   "pages",
-    "url":          "/pages/public/start/roundtrip/modals/",
+    "url":          "/pages/public/learn/roundtrip/modals/",
     "target":       "",
     "excerpt":      "Advanced Bootstrap Modals for J1 Template"
   },
@@ -275,7 +285,7 @@
     "tags":         "Page, Roundtrip",
     "index":        "Template, Bootstrap, Roundtrip, Extended, Tables",
     "categories":   "pages",
-    "url":          "/pages/public/start/roundtrip/responsive_tables/",
+    "url":          "/pages/public/learn/roundtrip/responsive_tables/",
     "target":       "",
     "excerpt":      "Enhanced table styles for J1 Template"
   },
@@ -305,12 +315,12 @@
     "tags":         "Page, Roundtrip",
     "index":        "Template, Roundtrip, Bootstrap, Themes",
     "categories":   "pages",
-    "url":          "/pages/public/start/roundtrip/themes/",
+    "url":          "/pages/public/learn/roundtrip/themes/",
     "target":       "",
     "excerpt":      "J1 Template Roundtrip - Template Themes"
   },
   {
-    "title":        "About",
+    "title":        "Abouttt",
     "tagline":      "J1 Template",
     "tags":         "About",
     "index":        "",
@@ -348,26 +358,6 @@
     "url":          "/pages/public/iframer/",
     "target":       "",
     "excerpt":      "Test page for J1 module framer"
-  },
-  {
-    "title":        "Control Center",
-    "tagline":      "site management",
-    "tags":         "App, Control Center",
-    "index":        "Control, Center, Netlify, CMS",
-    "categories":   "apps",
-    "url":          "/apps/public/cc/",
-    "target":       "",
-    "excerpt":      "A CMS environment based on Netlify CMS"
-  },
-  {
-    "title":        "J1 Calendar",
-    "tagline":      "Integrated Cloud Calendar for your Web",
-    "tags":         "App, Calendar, TeamUp",
-    "index":        "",
-    "categories":   "apps",
-    "url":          "/apps/public/calendar/",
-    "target":       "",
-    "excerpt":      "J1 Calendar - Integrated Cloud Calendar for your Web"
   },
   {
     "title":        "Gallery Previewer",
@@ -418,7 +408,7 @@
     "url":          "/pages/public/learn/whats_up/",
     "target":       "",
     "excerpt":      "Where to go"
-  }
+  },
 
 ]
 

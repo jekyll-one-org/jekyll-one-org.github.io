@@ -8,7 +8,7 @@
  # https://jekyll.one
  # https://github.com/lokesh/lightbox2/
  #
- # Copyright (C) 2019 Juergen Adams
+ # Copyright (C) 2020 Juergen Adams
  # Copyright (C) 2007, 2018 Lokesh Dhakar
  #
  # J1 Template is licensed under the MIT License.
@@ -17,7 +17,7 @@
  # For details, see https://github.com/lokesh/lightbox2/
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-03-18 09:59:52 +0100
+ # Adapter generated: 2020-06-13 16:18:59 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';

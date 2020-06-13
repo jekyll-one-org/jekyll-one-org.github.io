@@ -7,12 +7,12 @@
  # Product/Info:
  # http://jekyll.one
  #
- # Copyright (C) 2019 Juergen Adams
+ # Copyright (C) 2020 Juergen Adams
  #
  # J1 Cookie Consent is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2020-03-18 09:59:52 +0100
+ #  Adapter generated: 2020-06-13 16:18:59 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -47,7 +47,7 @@ j1.adapter['cookie_consent'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.cookie_consent',
-        generated:   '2020-03-18 09:59:52 +0100'
+        generated:   '2020-06-13 16:18:59 +0200'
       }, options);
       _this             = j1.adapter.cookie_consent;
       logger            = log4javascript.getLogger('j1.adapter.cookie_consent');

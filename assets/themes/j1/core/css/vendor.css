@@ -7,7 +7,7 @@
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -2387,7 +2387,7 @@
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -3114,7 +3114,6 @@ kbd:not(.keyseq) {
   display: inline-block;
   color: rgba(0, 0, 0, 0.8);
   font-size: 0.75em;
-  line-height: 1.4;
   background-color: #e0e0e0;
   border: 1px solid #bdbdbd;
   -webkit-border-radius: 3px;
@@ -3214,7 +3213,7 @@ ul.disc {
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -3272,6 +3271,60 @@ ul.disc {
   .j1-viewer {
     display: none; } }
 
+/* ========================================================================
+ * bootstrap-tour - v0.11.0
+ * http://bootstraptour.com
+ * ========================================================================
+ * Copyright 2012-2015 Ulrich Sossou
+ *
+ * ========================================================================
+ * Licensed under the MIT License (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://opensource.org/licenses/MIT
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * ========================================================================
+ */
+.tour-backdrop {
+  position: absolute;
+  z-index: 1100;
+  background-color: #000;
+  opacity: 0.8;
+  filter: alpha(opacity=80); }
+
+.popover[class*="tour-"] {
+  z-index: 1102; }
+
+.popover[class*="tour-"] .popover-navigation {
+  padding: 9px 14px;
+  overflow: hidden; }
+
+.popover[class*="tour-"] .popover-navigation *[data-role="end"] {
+  float: right; }
+
+.popover[class*="tour-"] .popover-navigation *[data-role="prev"],
+.popover[class*="tour-"] .popover-navigation *[data-role="next"],
+.popover[class*="tour-"] .popover-navigation *[data-role="end"] {
+  cursor: pointer; }
+
+.popover[class*="tour-"] .popover-navigation *[data-role="prev"].disabled,
+.popover[class*="tour-"] .popover-navigation *[data-role="next"].disabled,
+.popover[class*="tour-"] .popover-navigation *[data-role="end"].disabled {
+  cursor: default; }
+
+.popover[class*="tour-"].orphan {
+  position: fixed;
+  margin-top: 0; }
+
+.popover[class*="tour-"].orphan .arrow {
+  display: none; }
+
 /*
  # -----------------------------------------------------------------------------
  #   ~/vendor/fonts/_roboto.scss
@@ -3281,7 +3334,7 @@ ul.disc {
  #  https://jekyll.one
  #  https://fonts.google.com/specimen/Roboto
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -3319,12 +3372,6 @@ ul.disc {
   src: local(Roboto Bold), url("/assets/themes/j1/core/fonts/roboto/fonts/Roboto-Bold.woff2") format("woff2"), url("/assets/themes/j1/core/fonts/roboto/fonts/Roboto-Bold.woff") format("woff");
   font-weight: 700; }
 
-@font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: url("/assets/themes/j1/core/fonts/roboto/fonts/Material-Icons.woff2") format("woff2"); }
-
 /* FONT STYLE|S
 ----------------------------------------------------------------------------- */
 .material-icons {
@@ -3351,7 +3398,7 @@ ul.disc {
  #  https://jekyll.one
  #  http://fontawesome.io
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7767,7 +7814,7 @@ readers do not read off random characters that represent icons */
  #  https://jekyll.one
  #  https://MaterialDesignIcons.com
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -18230,7 +18277,7 @@ readers do not read off random characters that represent icons */
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -18286,7 +18333,7 @@ a.mdi-bs-danger:focus {
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -22234,7 +22281,7 @@ a.mdi-md-black-darker:focus {
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -22300,7 +22347,7 @@ a.mdi-md-black-darker:focus {
  #  https://jekyll.one
  #  https://MaterialDesignIcons.com
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -22323,7 +22370,7 @@ a.mdi-md-black-darker:focus {
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -22398,7 +22445,7 @@ a.iconify-md-danger:focus {
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -26346,7 +26393,7 @@ a.iconify-md-black-darker:focus {
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -26411,7 +26458,7 @@ a.iconify-md-black-darker:focus {
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -26607,7 +26654,7 @@ a.iconify-md-black-darker:focus {
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -33365,7 +33412,7 @@ a.iconify-md-black-darker:focus {
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -33382,7 +33429,7 @@ a.iconify-md-black-darker:focus {
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -40624,7 +40671,7 @@ a.text-dark:hover, a.text-dark:focus {
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -40647,7 +40694,7 @@ button:focus {
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -40661,7 +40708,7 @@ button:focus {
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -40680,7 +40727,7 @@ button:focus {
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -40695,13 +40742,872 @@ code {
 
 /*
  # -----------------------------------------------------------------------------
+ #  ~/vendor/bmd/custom/_drawers.scss
+ #  Provides custom styles for the drawers
+ #
+ #  Product/Info:
+ #  https://jekyll.one
+ #
+ #  Copyright (C) 2020 Juergen Adams
+ #
+ #  J1 Template is licensed under the MIT License.
+ #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ #
+ # -----------------------------------------------------------------------------
+*/
+/*
+  Generates the drawer (left/right) for post series at different sizes that
+  will respond to both marker classes and grid-based responsive classes 
+  such as bmd-drawer-in-lg-up
+*/
+.custom-size-300.bmd-drawer-f-l > .bmd-layout-drawer {
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  transform: translateX(-310px); }
+
+.custom-size-300.bmd-drawer-f-l > .bmd-layout-header,
+.custom-size-300.bmd-drawer-f-l > .bmd-layout-content {
+  margin-left: 0; }
+
+.custom-size-300.bmd-drawer-f-r > .bmd-layout-drawer {
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  transform: translateX(310px); }
+
+.custom-size-300.bmd-drawer-f-r > .bmd-layout-header,
+.custom-size-300.bmd-drawer-f-r > .bmd-layout-content {
+  margin-right: 0; }
+
+.custom-size-300:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-l > .bmd-layout-header {
+  width: calc(100% - 300px);
+  margin-left: 300px; }
+
+.custom-size-300:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-l > .bmd-layout-drawer {
+  transform: translateX(0); }
+
+.custom-size-300:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-l > .bmd-layout-content {
+  margin-left: 300px; }
+
+.custom-size-300:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-r > .bmd-layout-header {
+  width: calc(100% - 300px);
+  margin-right: 300px; }
+
+.custom-size-300:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-r > .bmd-layout-drawer {
+  transform: translateX(0); }
+
+.custom-size-300:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-r > .bmd-layout-content {
+  margin-right: 300px; }
+
+@media (min-width: 576px) {
+  .custom-size-300:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-l > .bmd-layout-header {
+    width: calc(100% - 300px);
+    margin-left: 300px; }
+  .custom-size-300:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-l > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-300:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-l > .bmd-layout-content {
+    margin-left: 300px; }
+  .custom-size-300:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-r > .bmd-layout-header {
+    width: calc(100% - 300px);
+    margin-right: 300px; }
+  .custom-size-300:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-r > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-300:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-r > .bmd-layout-content {
+    margin-right: 300px; } }
+
+@media (min-width: 768px) {
+  .custom-size-300:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-l > .bmd-layout-header {
+    width: calc(100% - 300px);
+    margin-left: 300px; }
+  .custom-size-300:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-l > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-300:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-l > .bmd-layout-content {
+    margin-left: 300px; }
+  .custom-size-300:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-r > .bmd-layout-header {
+    width: calc(100% - 300px);
+    margin-right: 300px; }
+  .custom-size-300:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-r > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-300:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-r > .bmd-layout-content {
+    margin-right: 300px; } }
+
+@media (min-width: 992px) {
+  .custom-size-300:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-l > .bmd-layout-header {
+    width: calc(100% - 300px);
+    margin-left: 300px; }
+  .custom-size-300:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-l > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-300:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-l > .bmd-layout-content {
+    margin-left: 300px; }
+  .custom-size-300:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-r > .bmd-layout-header {
+    width: calc(100% - 300px);
+    margin-right: 300px; }
+  .custom-size-300:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-r > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-300:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-r > .bmd-layout-content {
+    margin-right: 300px; } }
+
+@media (min-width: 1200px) {
+  .custom-size-300:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-l > .bmd-layout-header {
+    width: calc(100% - 300px);
+    margin-left: 300px; }
+  .custom-size-300:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-l > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-300:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-l > .bmd-layout-content {
+    margin-left: 300px; }
+  .custom-size-300:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-r > .bmd-layout-header {
+    width: calc(100% - 300px);
+    margin-right: 300px; }
+  .custom-size-300:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-r > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-300:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-r > .bmd-layout-content {
+    margin-right: 300px; } }
+
+.custom-size-350.bmd-drawer-f-l > .bmd-layout-drawer {
+  top: 0;
+  left: 0;
+  width: 350px;
+  height: 100%;
+  transform: translateX(-360px); }
+
+.custom-size-350.bmd-drawer-f-l > .bmd-layout-header,
+.custom-size-350.bmd-drawer-f-l > .bmd-layout-content {
+  margin-left: 0; }
+
+.custom-size-350.bmd-drawer-f-r > .bmd-layout-drawer {
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 100%;
+  transform: translateX(360px); }
+
+.custom-size-350.bmd-drawer-f-r > .bmd-layout-header,
+.custom-size-350.bmd-drawer-f-r > .bmd-layout-content {
+  margin-right: 0; }
+
+.custom-size-350:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-l > .bmd-layout-header {
+  width: calc(100% - 350px);
+  margin-left: 350px; }
+
+.custom-size-350:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-l > .bmd-layout-drawer {
+  transform: translateX(0); }
+
+.custom-size-350:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-l > .bmd-layout-content {
+  margin-left: 350px; }
+
+.custom-size-350:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-r > .bmd-layout-header {
+  width: calc(100% - 350px);
+  margin-right: 350px; }
+
+.custom-size-350:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-r > .bmd-layout-drawer {
+  transform: translateX(0); }
+
+.custom-size-350:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-r > .bmd-layout-content {
+  margin-right: 350px; }
+
+@media (min-width: 576px) {
+  .custom-size-350:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-l > .bmd-layout-header {
+    width: calc(100% - 350px);
+    margin-left: 350px; }
+  .custom-size-350:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-l > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-350:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-l > .bmd-layout-content {
+    margin-left: 350px; }
+  .custom-size-350:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-r > .bmd-layout-header {
+    width: calc(100% - 350px);
+    margin-right: 350px; }
+  .custom-size-350:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-r > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-350:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-r > .bmd-layout-content {
+    margin-right: 350px; } }
+
+@media (min-width: 768px) {
+  .custom-size-350:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-l > .bmd-layout-header {
+    width: calc(100% - 350px);
+    margin-left: 350px; }
+  .custom-size-350:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-l > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-350:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-l > .bmd-layout-content {
+    margin-left: 350px; }
+  .custom-size-350:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-r > .bmd-layout-header {
+    width: calc(100% - 350px);
+    margin-right: 350px; }
+  .custom-size-350:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-r > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-350:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-r > .bmd-layout-content {
+    margin-right: 350px; } }
+
+@media (min-width: 992px) {
+  .custom-size-350:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-l > .bmd-layout-header {
+    width: calc(100% - 350px);
+    margin-left: 350px; }
+  .custom-size-350:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-l > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-350:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-l > .bmd-layout-content {
+    margin-left: 350px; }
+  .custom-size-350:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-r > .bmd-layout-header {
+    width: calc(100% - 350px);
+    margin-right: 350px; }
+  .custom-size-350:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-r > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-350:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-r > .bmd-layout-content {
+    margin-right: 350px; } }
+
+@media (min-width: 1200px) {
+  .custom-size-350:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-l > .bmd-layout-header {
+    width: calc(100% - 350px);
+    margin-left: 350px; }
+  .custom-size-350:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-l > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-350:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-l > .bmd-layout-content {
+    margin-left: 350px; }
+  .custom-size-350:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-r > .bmd-layout-header {
+    width: calc(100% - 350px);
+    margin-right: 350px; }
+  .custom-size-350:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-r > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-350:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-r > .bmd-layout-content {
+    margin-right: 350px; } }
+
+.custom-size-400.bmd-drawer-f-l > .bmd-layout-drawer {
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 100%;
+  transform: translateX(-410px); }
+
+.custom-size-400.bmd-drawer-f-l > .bmd-layout-header,
+.custom-size-400.bmd-drawer-f-l > .bmd-layout-content {
+  margin-left: 0; }
+
+.custom-size-400.bmd-drawer-f-r > .bmd-layout-drawer {
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100%;
+  transform: translateX(410px); }
+
+.custom-size-400.bmd-drawer-f-r > .bmd-layout-header,
+.custom-size-400.bmd-drawer-f-r > .bmd-layout-content {
+  margin-right: 0; }
+
+.custom-size-400:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-l > .bmd-layout-header {
+  width: calc(100% - 400px);
+  margin-left: 400px; }
+
+.custom-size-400:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-l > .bmd-layout-drawer {
+  transform: translateX(0); }
+
+.custom-size-400:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-l > .bmd-layout-content {
+  margin-left: 400px; }
+
+.custom-size-400:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-r > .bmd-layout-header {
+  width: calc(100% - 400px);
+  margin-right: 400px; }
+
+.custom-size-400:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-r > .bmd-layout-drawer {
+  transform: translateX(0); }
+
+.custom-size-400:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-r > .bmd-layout-content {
+  margin-right: 400px; }
+
+@media (min-width: 576px) {
+  .custom-size-400:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-l > .bmd-layout-header {
+    width: calc(100% - 400px);
+    margin-left: 400px; }
+  .custom-size-400:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-l > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-400:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-l > .bmd-layout-content {
+    margin-left: 400px; }
+  .custom-size-400:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-r > .bmd-layout-header {
+    width: calc(100% - 400px);
+    margin-right: 400px; }
+  .custom-size-400:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-r > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-400:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-r > .bmd-layout-content {
+    margin-right: 400px; } }
+
+@media (min-width: 768px) {
+  .custom-size-400:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-l > .bmd-layout-header {
+    width: calc(100% - 400px);
+    margin-left: 400px; }
+  .custom-size-400:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-l > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-400:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-l > .bmd-layout-content {
+    margin-left: 400px; }
+  .custom-size-400:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-r > .bmd-layout-header {
+    width: calc(100% - 400px);
+    margin-right: 400px; }
+  .custom-size-400:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-r > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-400:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-r > .bmd-layout-content {
+    margin-right: 400px; } }
+
+@media (min-width: 992px) {
+  .custom-size-400:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-l > .bmd-layout-header {
+    width: calc(100% - 400px);
+    margin-left: 400px; }
+  .custom-size-400:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-l > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-400:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-l > .bmd-layout-content {
+    margin-left: 400px; }
+  .custom-size-400:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-r > .bmd-layout-header {
+    width: calc(100% - 400px);
+    margin-right: 400px; }
+  .custom-size-400:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-r > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-400:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-r > .bmd-layout-content {
+    margin-right: 400px; } }
+
+@media (min-width: 1200px) {
+  .custom-size-400:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-l > .bmd-layout-header {
+    width: calc(100% - 400px);
+    margin-left: 400px; }
+  .custom-size-400:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-l > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-400:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-l > .bmd-layout-content {
+    margin-left: 400px; }
+  .custom-size-400:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-r > .bmd-layout-header {
+    width: calc(100% - 400px);
+    margin-right: 400px; }
+  .custom-size-400:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-r > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-400:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-r > .bmd-layout-content {
+    margin-right: 400px; } }
+
+.custom-size-450.bmd-drawer-f-l > .bmd-layout-drawer {
+  top: 0;
+  left: 0;
+  width: 450px;
+  height: 100%;
+  transform: translateX(-460px); }
+
+.custom-size-450.bmd-drawer-f-l > .bmd-layout-header,
+.custom-size-450.bmd-drawer-f-l > .bmd-layout-content {
+  margin-left: 0; }
+
+.custom-size-450.bmd-drawer-f-r > .bmd-layout-drawer {
+  top: 0;
+  right: 0;
+  width: 450px;
+  height: 100%;
+  transform: translateX(460px); }
+
+.custom-size-450.bmd-drawer-f-r > .bmd-layout-header,
+.custom-size-450.bmd-drawer-f-r > .bmd-layout-content {
+  margin-right: 0; }
+
+.custom-size-450:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-l > .bmd-layout-header {
+  width: calc(100% - 450px);
+  margin-left: 450px; }
+
+.custom-size-450:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-l > .bmd-layout-drawer {
+  transform: translateX(0); }
+
+.custom-size-450:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-l > .bmd-layout-content {
+  margin-left: 450px; }
+
+.custom-size-450:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-r > .bmd-layout-header {
+  width: calc(100% - 450px);
+  margin-right: 450px; }
+
+.custom-size-450:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-r > .bmd-layout-drawer {
+  transform: translateX(0); }
+
+.custom-size-450:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-r > .bmd-layout-content {
+  margin-right: 450px; }
+
+@media (min-width: 576px) {
+  .custom-size-450:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-l > .bmd-layout-header {
+    width: calc(100% - 450px);
+    margin-left: 450px; }
+  .custom-size-450:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-l > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-450:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-l > .bmd-layout-content {
+    margin-left: 450px; }
+  .custom-size-450:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-r > .bmd-layout-header {
+    width: calc(100% - 450px);
+    margin-right: 450px; }
+  .custom-size-450:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-r > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-450:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-r > .bmd-layout-content {
+    margin-right: 450px; } }
+
+@media (min-width: 768px) {
+  .custom-size-450:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-l > .bmd-layout-header {
+    width: calc(100% - 450px);
+    margin-left: 450px; }
+  .custom-size-450:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-l > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-450:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-l > .bmd-layout-content {
+    margin-left: 450px; }
+  .custom-size-450:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-r > .bmd-layout-header {
+    width: calc(100% - 450px);
+    margin-right: 450px; }
+  .custom-size-450:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-r > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-450:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-r > .bmd-layout-content {
+    margin-right: 450px; } }
+
+@media (min-width: 992px) {
+  .custom-size-450:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-l > .bmd-layout-header {
+    width: calc(100% - 450px);
+    margin-left: 450px; }
+  .custom-size-450:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-l > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-450:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-l > .bmd-layout-content {
+    margin-left: 450px; }
+  .custom-size-450:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-r > .bmd-layout-header {
+    width: calc(100% - 450px);
+    margin-right: 450px; }
+  .custom-size-450:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-r > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-450:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-r > .bmd-layout-content {
+    margin-right: 450px; } }
+
+@media (min-width: 1200px) {
+  .custom-size-450:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-l > .bmd-layout-header {
+    width: calc(100% - 450px);
+    margin-left: 450px; }
+  .custom-size-450:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-l > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-450:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-l > .bmd-layout-content {
+    margin-left: 450px; }
+  .custom-size-450:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-r > .bmd-layout-header {
+    width: calc(100% - 450px);
+    margin-right: 450px; }
+  .custom-size-450:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-r > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-450:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-r > .bmd-layout-content {
+    margin-right: 450px; } }
+
+.custom-size-500.bmd-drawer-f-l > .bmd-layout-drawer {
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 100%;
+  transform: translateX(-510px); }
+
+.custom-size-500.bmd-drawer-f-l > .bmd-layout-header,
+.custom-size-500.bmd-drawer-f-l > .bmd-layout-content {
+  margin-left: 0; }
+
+.custom-size-500.bmd-drawer-f-r > .bmd-layout-drawer {
+  top: 0;
+  right: 0;
+  width: 500px;
+  height: 100%;
+  transform: translateX(510px); }
+
+.custom-size-500.bmd-drawer-f-r > .bmd-layout-header,
+.custom-size-500.bmd-drawer-f-r > .bmd-layout-content {
+  margin-right: 0; }
+
+.custom-size-500:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-l > .bmd-layout-header {
+  width: calc(100% - 500px);
+  margin-left: 500px; }
+
+.custom-size-500:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-l > .bmd-layout-drawer {
+  transform: translateX(0); }
+
+.custom-size-500:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-l > .bmd-layout-content {
+  margin-left: 500px; }
+
+.custom-size-500:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-r > .bmd-layout-header {
+  width: calc(100% - 500px);
+  margin-right: 500px; }
+
+.custom-size-500:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-r > .bmd-layout-drawer {
+  transform: translateX(0); }
+
+.custom-size-500:not(.bmd-drawer-out).bmd-drawer-in.bmd-drawer-f-r > .bmd-layout-content {
+  margin-right: 500px; }
+
+@media (min-width: 576px) {
+  .custom-size-500:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-l > .bmd-layout-header {
+    width: calc(100% - 500px);
+    margin-left: 500px; }
+  .custom-size-500:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-l > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-500:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-l > .bmd-layout-content {
+    margin-left: 500px; }
+  .custom-size-500:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-r > .bmd-layout-header {
+    width: calc(100% - 500px);
+    margin-right: 500px; }
+  .custom-size-500:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-r > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-500:not(.bmd-drawer-out).bmd-drawer-in-sm-up.bmd-drawer-f-r > .bmd-layout-content {
+    margin-right: 500px; } }
+
+@media (min-width: 768px) {
+  .custom-size-500:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-l > .bmd-layout-header {
+    width: calc(100% - 500px);
+    margin-left: 500px; }
+  .custom-size-500:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-l > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-500:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-l > .bmd-layout-content {
+    margin-left: 500px; }
+  .custom-size-500:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-r > .bmd-layout-header {
+    width: calc(100% - 500px);
+    margin-right: 500px; }
+  .custom-size-500:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-r > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-500:not(.bmd-drawer-out).bmd-drawer-in-md-up.bmd-drawer-f-r > .bmd-layout-content {
+    margin-right: 500px; } }
+
+@media (min-width: 992px) {
+  .custom-size-500:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-l > .bmd-layout-header {
+    width: calc(100% - 500px);
+    margin-left: 500px; }
+  .custom-size-500:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-l > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-500:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-l > .bmd-layout-content {
+    margin-left: 500px; }
+  .custom-size-500:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-r > .bmd-layout-header {
+    width: calc(100% - 500px);
+    margin-right: 500px; }
+  .custom-size-500:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-r > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-500:not(.bmd-drawer-out).bmd-drawer-in-lg-up.bmd-drawer-f-r > .bmd-layout-content {
+    margin-right: 500px; } }
+
+@media (min-width: 1200px) {
+  .custom-size-500:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-l > .bmd-layout-header {
+    width: calc(100% - 500px);
+    margin-left: 500px; }
+  .custom-size-500:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-l > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-500:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-l > .bmd-layout-content {
+    margin-left: 500px; }
+  .custom-size-500:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-r > .bmd-layout-header {
+    width: calc(100% - 500px);
+    margin-right: 500px; }
+  .custom-size-500:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-r > .bmd-layout-drawer {
+    transform: translateX(0); }
+  .custom-size-500:not(.bmd-drawer-out).bmd-drawer-in-xl-up.bmd-drawer-f-r > .bmd-layout-content {
+    margin-right: 500px; } }
+
+/*
+  Generates the drawer (static) for post series at different sizes that
+  is out by default and can be triggered in with bmd-drawer-in
+*/
+.custom-size-300-static.bmd-drawer-f-l > .bmd-layout-drawer {
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  transform: translateX(-310px); }
+
+.custom-size-300-static.bmd-drawer-f-l > .bmd-layout-header,
+.custom-size-300-static.bmd-drawer-f-l > .bmd-layout-content {
+  margin-left: 0; }
+
+.custom-size-300-static.bmd-drawer-f-r > .bmd-layout-drawer {
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  transform: translateX(310px); }
+
+.custom-size-300-static.bmd-drawer-f-r > .bmd-layout-header,
+.custom-size-300-static.bmd-drawer-f-r > .bmd-layout-content {
+  margin-right: 0; }
+
+.custom-size-300-static.bmd-drawer-f-l > .bmd-layout-header {
+  width: calc(100% - 300px);
+  margin-left: 300px; }
+
+.custom-size-300-static.bmd-drawer-f-l > .bmd-layout-drawer {
+  transform: translateX(0); }
+
+.custom-size-300-static.bmd-drawer-f-l > .bmd-layout-content {
+  margin-left: 300px; }
+
+.custom-size-300-static.bmd-drawer-f-r > .bmd-layout-header {
+  width: calc(100% - 300px);
+  margin-right: 300px; }
+
+.custom-size-300-static.bmd-drawer-f-r > .bmd-layout-drawer {
+  transform: translateX(0); }
+
+.custom-size-300-static.bmd-drawer-f-r > .bmd-layout-content {
+  margin-right: 300px; }
+
+.custom-size-300-static > .bmd-layout-backdrop .in {
+  visibility: visible;
+  background-color: rgba(0, 0, 0, 0.5); }
+
+@supports (pointer-events: auto) {
+  .custom-size-300-static > .bmd-layout-backdrop.in {
+    pointer-events: auto;
+    opacity: 1; } }
+
+.custom-size-300-static.bmd-drawer-f-l > .bmd-layout-header,
+.custom-size-300-static.bmd-drawer-f-l > .bmd-layout-content {
+  width: 100%;
+  margin-left: 0; }
+
+.custom-size-300-static.bmd-drawer-f-r > .bmd-layout-header,
+.custom-size-300-static.bmd-drawer-f-r > .bmd-layout-content {
+  width: 100%;
+  margin-right: 0; }
+
+.custom-size-350-static.bmd-drawer-f-l > .bmd-layout-drawer {
+  top: 0;
+  left: 0;
+  width: 350px;
+  height: 100%;
+  transform: translateX(-360px); }
+
+.custom-size-350-static.bmd-drawer-f-l > .bmd-layout-header,
+.custom-size-350-static.bmd-drawer-f-l > .bmd-layout-content {
+  margin-left: 0; }
+
+.custom-size-350-static.bmd-drawer-f-r > .bmd-layout-drawer {
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 100%;
+  transform: translateX(360px); }
+
+.custom-size-350-static.bmd-drawer-f-r > .bmd-layout-header,
+.custom-size-350-static.bmd-drawer-f-r > .bmd-layout-content {
+  margin-right: 0; }
+
+.custom-size-350-static.bmd-drawer-f-l > .bmd-layout-header {
+  width: calc(100% - 350px);
+  margin-left: 350px; }
+
+.custom-size-350-static.bmd-drawer-f-l > .bmd-layout-drawer {
+  transform: translateX(0); }
+
+.custom-size-350-static.bmd-drawer-f-l > .bmd-layout-content {
+  margin-left: 350px; }
+
+.custom-size-350-static.bmd-drawer-f-r > .bmd-layout-header {
+  width: calc(100% - 350px);
+  margin-right: 350px; }
+
+.custom-size-350-static.bmd-drawer-f-r > .bmd-layout-drawer {
+  transform: translateX(0); }
+
+.custom-size-350-static.bmd-drawer-f-r > .bmd-layout-content {
+  margin-right: 350px; }
+
+.custom-size-350-static > .bmd-layout-backdrop .in {
+  visibility: visible;
+  background-color: rgba(0, 0, 0, 0.5); }
+
+@supports (pointer-events: auto) {
+  .custom-size-350-static > .bmd-layout-backdrop.in {
+    pointer-events: auto;
+    opacity: 1; } }
+
+.custom-size-350-static.bmd-drawer-f-l > .bmd-layout-header,
+.custom-size-350-static.bmd-drawer-f-l > .bmd-layout-content {
+  width: 100%;
+  margin-left: 0; }
+
+.custom-size-350-static.bmd-drawer-f-r > .bmd-layout-header,
+.custom-size-350-static.bmd-drawer-f-r > .bmd-layout-content {
+  width: 100%;
+  margin-right: 0; }
+
+.custom-size-400-static.bmd-drawer-f-l > .bmd-layout-drawer {
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 100%;
+  transform: translateX(-410px); }
+
+.custom-size-400-static.bmd-drawer-f-l > .bmd-layout-header,
+.custom-size-400-static.bmd-drawer-f-l > .bmd-layout-content {
+  margin-left: 0; }
+
+.custom-size-400-static.bmd-drawer-f-r > .bmd-layout-drawer {
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100%;
+  transform: translateX(410px); }
+
+.custom-size-400-static.bmd-drawer-f-r > .bmd-layout-header,
+.custom-size-400-static.bmd-drawer-f-r > .bmd-layout-content {
+  margin-right: 0; }
+
+.custom-size-400-static.bmd-drawer-f-l > .bmd-layout-header {
+  width: calc(100% - 400px);
+  margin-left: 400px; }
+
+.custom-size-400-static.bmd-drawer-f-l > .bmd-layout-drawer {
+  transform: translateX(0); }
+
+.custom-size-400-static.bmd-drawer-f-l > .bmd-layout-content {
+  margin-left: 400px; }
+
+.custom-size-400-static.bmd-drawer-f-r > .bmd-layout-header {
+  width: calc(100% - 400px);
+  margin-right: 400px; }
+
+.custom-size-400-static.bmd-drawer-f-r > .bmd-layout-drawer {
+  transform: translateX(0); }
+
+.custom-size-400-static.bmd-drawer-f-r > .bmd-layout-content {
+  margin-right: 400px; }
+
+.custom-size-400-static > .bmd-layout-backdrop .in {
+  visibility: visible;
+  background-color: rgba(0, 0, 0, 0.5); }
+
+@supports (pointer-events: auto) {
+  .custom-size-400-static > .bmd-layout-backdrop.in {
+    pointer-events: auto;
+    opacity: 1; } }
+
+.custom-size-400-static.bmd-drawer-f-l > .bmd-layout-header,
+.custom-size-400-static.bmd-drawer-f-l > .bmd-layout-content {
+  width: 100%;
+  margin-left: 0; }
+
+.custom-size-400-static.bmd-drawer-f-r > .bmd-layout-header,
+.custom-size-400-static.bmd-drawer-f-r > .bmd-layout-content {
+  width: 100%;
+  margin-right: 0; }
+
+.custom-size-450-static.bmd-drawer-f-l > .bmd-layout-drawer {
+  top: 0;
+  left: 0;
+  width: 450px;
+  height: 100%;
+  transform: translateX(-460px); }
+
+.custom-size-450-static.bmd-drawer-f-l > .bmd-layout-header,
+.custom-size-450-static.bmd-drawer-f-l > .bmd-layout-content {
+  margin-left: 0; }
+
+.custom-size-450-static.bmd-drawer-f-r > .bmd-layout-drawer {
+  top: 0;
+  right: 0;
+  width: 450px;
+  height: 100%;
+  transform: translateX(460px); }
+
+.custom-size-450-static.bmd-drawer-f-r > .bmd-layout-header,
+.custom-size-450-static.bmd-drawer-f-r > .bmd-layout-content {
+  margin-right: 0; }
+
+.custom-size-450-static.bmd-drawer-f-l > .bmd-layout-header {
+  width: calc(100% - 450px);
+  margin-left: 450px; }
+
+.custom-size-450-static.bmd-drawer-f-l > .bmd-layout-drawer {
+  transform: translateX(0); }
+
+.custom-size-450-static.bmd-drawer-f-l > .bmd-layout-content {
+  margin-left: 450px; }
+
+.custom-size-450-static.bmd-drawer-f-r > .bmd-layout-header {
+  width: calc(100% - 450px);
+  margin-right: 450px; }
+
+.custom-size-450-static.bmd-drawer-f-r > .bmd-layout-drawer {
+  transform: translateX(0); }
+
+.custom-size-450-static.bmd-drawer-f-r > .bmd-layout-content {
+  margin-right: 450px; }
+
+.custom-size-450-static > .bmd-layout-backdrop .in {
+  visibility: visible;
+  background-color: rgba(0, 0, 0, 0.5); }
+
+@supports (pointer-events: auto) {
+  .custom-size-450-static > .bmd-layout-backdrop.in {
+    pointer-events: auto;
+    opacity: 1; } }
+
+.custom-size-450-static.bmd-drawer-f-l > .bmd-layout-header,
+.custom-size-450-static.bmd-drawer-f-l > .bmd-layout-content {
+  width: 100%;
+  margin-left: 0; }
+
+.custom-size-450-static.bmd-drawer-f-r > .bmd-layout-header,
+.custom-size-450-static.bmd-drawer-f-r > .bmd-layout-content {
+  width: 100%;
+  margin-right: 0; }
+
+.custom-size-500-static.bmd-drawer-f-l > .bmd-layout-drawer {
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 100%;
+  transform: translateX(-510px); }
+
+.custom-size-500-static.bmd-drawer-f-l > .bmd-layout-header,
+.custom-size-500-static.bmd-drawer-f-l > .bmd-layout-content {
+  margin-left: 0; }
+
+.custom-size-500-static.bmd-drawer-f-r > .bmd-layout-drawer {
+  top: 0;
+  right: 0;
+  width: 500px;
+  height: 100%;
+  transform: translateX(510px); }
+
+.custom-size-500-static.bmd-drawer-f-r > .bmd-layout-header,
+.custom-size-500-static.bmd-drawer-f-r > .bmd-layout-content {
+  margin-right: 0; }
+
+.custom-size-500-static.bmd-drawer-f-l > .bmd-layout-header {
+  width: calc(100% - 500px);
+  margin-left: 500px; }
+
+.custom-size-500-static.bmd-drawer-f-l > .bmd-layout-drawer {
+  transform: translateX(0); }
+
+.custom-size-500-static.bmd-drawer-f-l > .bmd-layout-content {
+  margin-left: 500px; }
+
+.custom-size-500-static.bmd-drawer-f-r > .bmd-layout-header {
+  width: calc(100% - 500px);
+  margin-right: 500px; }
+
+.custom-size-500-static.bmd-drawer-f-r > .bmd-layout-drawer {
+  transform: translateX(0); }
+
+.custom-size-500-static.bmd-drawer-f-r > .bmd-layout-content {
+  margin-right: 500px; }
+
+.custom-size-500-static > .bmd-layout-backdrop .in {
+  visibility: visible;
+  background-color: rgba(0, 0, 0, 0.5); }
+
+@supports (pointer-events: auto) {
+  .custom-size-500-static > .bmd-layout-backdrop.in {
+    pointer-events: auto;
+    opacity: 1; } }
+
+.custom-size-500-static.bmd-drawer-f-l > .bmd-layout-header,
+.custom-size-500-static.bmd-drawer-f-l > .bmd-layout-content {
+  width: 100%;
+  margin-left: 0; }
+
+.custom-size-500-static.bmd-drawer-f-r > .bmd-layout-header,
+.custom-size-500-static.bmd-drawer-f-r > .bmd-layout-content {
+  width: 100%;
+  margin-right: 0; }
+
+/*
+ # -----------------------------------------------------------------------------
  #  ~/vendor/bmd/custom/_links.scss
  #  Provides custom styles and overloads
  #
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2019 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -40719,7 +41625,7 @@ a:hover {
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -40794,7 +41700,7 @@ a:hover {
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -40802,7 +41708,6 @@ a:hover {
 */
 .btn, .custom-file-control::before {
   position: relative;
-  margin-bottom: 0.3125rem;
   font-size: 0.875rem;
   text-decoration: none;
   text-transform: uppercase;
@@ -43162,7 +44067,7 @@ fieldset[disabled][disabled] .btn, fieldset[disabled][disabled] .custom-file-con
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -43303,7 +44208,7 @@ label.checkbox-inline {
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -43452,7 +44357,7 @@ fieldset[disabled][disabled] .custom-file-control .form-control, fieldset[disabl
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -43516,7 +44421,7 @@ fieldset[disabled][disabled] .custom-file-control .form-control, fieldset[disabl
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -43627,7 +44532,7 @@ label.radio-inline {
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -44863,7 +45768,7 @@ select, select.form-control, select.custom-file-control {
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -44887,7 +45792,7 @@ select, select.form-control, select.custom-file-control {
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -44948,7 +45853,7 @@ select, select.form-control, select.custom-file-control {
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -44980,7 +45885,7 @@ thead.thead-inverse th,
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -45059,7 +45964,7 @@ thead.thead-inverse th,
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -45087,7 +45992,7 @@ thead.thead-inverse th,
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -45104,7 +46009,7 @@ thead.thead-inverse th,
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -45125,7 +46030,7 @@ thead.thead-inverse th,
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -45202,7 +46107,7 @@ thead.thead-inverse th,
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -45218,7 +46123,7 @@ h6 {
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -45234,7 +46139,7 @@ h6 {
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -45247,7 +46152,7 @@ h6 {
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -45285,7 +46190,7 @@ h6 {
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -45314,7 +46219,7 @@ h6 {
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -45709,7 +46614,7 @@ h6 {
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -45722,7 +46627,7 @@ h6 {
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -45767,7 +46672,7 @@ h6 {
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -45780,7 +46685,7 @@ h6 {
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
@@ -45838,7 +46743,7 @@ h6 {
  #  Product/Info:
  #  https://github.com/FezVrasta/bootstrap-material-design
  #
- #  Copyright (C) 2019 Federico Zivolo and Contributors
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
  #
  #  Bootstrap Material Design is licensed under the MIT License.
  #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md

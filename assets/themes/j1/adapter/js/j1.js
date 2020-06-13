@@ -8,12 +8,12 @@
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2019 Juergen Adams
+ # Copyright (C) 2020 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-03-18 09:59:52 +0100
+ # Adapter generated: 2020-06-13 16:18:59 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -74,7 +74,7 @@ var j1 = (function () {
     'provider_membership':  'guest',
     'provider_permissions': 'public,public',
     'provider_site_url':    'https://jekyll.one',
-    'provider_home_url':    'https://jekyll-one-org.github.io/',
+    'provider_home_url':    'https://jekyll.one',
     'provider_blog_url':    '/pages/public/blog/navigator/',
     'provider_member_url':  '/pages/public/learn/whats_up/',
     'provider_privacy_url': '/pages/public/legal/en/privacy/',
@@ -90,7 +90,7 @@ var j1 = (function () {
     'theme_author':         default_theme_author,
     'theme_author_url':     'https://jekyll.one',
     'theme_link':           default_theme_link,
-    'theme_version':        '2019.1.7',
+    'theme_version':        '2020.0.0',
     'cookies_accepted':     'pending',
     'whitelistedPages':     default_white_listed_pages,     
     'deleteOnDecline':      false,
@@ -413,6 +413,8 @@ var j1 = (function () {
         };
       };
             banner.push('divider-1');
+            banner.push('divider-2');
+            banner.push('divider-3');
             var banner_backround_style = '';
             // Initialze banner background gradient/colors
             banner_backround_style += "<style> .home_teaser_banner-background { ";
@@ -424,6 +426,28 @@ var j1 = (function () {
             banner_backround_style += "} </style>";
             $('head').append( banner_backround_style );
             banner.push('home_teaser_banner');
+            var banner_backround_style = '';
+            // Initialze banner background gradient/colors
+            banner_backround_style += "<style> .home_welcome_banner-background { ";
+            banner_backround_style += "background-image: -webkit-gradient(linear, left top, left bottom, from( " +j1.setColorData('md_gray_50')+ " ), to(  " +j1.setColorData('md_gray_50')+ " ));";
+            banner_backround_style += "background-image: -webkit-linear-gradient(top, " +j1.setColorData('md_gray_50')+ " 0%, " +j1.setColorData('md_gray_50')+ " 100%);";
+            banner_backround_style += "background-image: -o-linear-gradient(top, " +j1.setColorData('md_gray_50')+ " 0%, " +j1.setColorData('md_gray_50')+ " 100%);";
+            banner_backround_style += "background-image: linear-gradient(to bottom, " +j1.setColorData('md_gray_50')+ " 0%, " +j1.setColorData('md_gray_50')+ " 100%);";
+            banner_backround_style += 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="' +j1.setColorData('md_gray_50')+ '", endColorstr="' +j1.setColorData('md_gray_50')+ '", GradientType=0); ';
+            banner_backround_style += "} </style>";
+            $('head').append( banner_backround_style );
+            banner.push('home_welcome_banner');
+            var banner_backround_style = '';
+            // Initialze banner background gradient/colors
+            banner_backround_style += "<style> .home_image_banner-background { ";
+            banner_backround_style += "background-image: -webkit-gradient(linear, left top, left bottom, from( " +j1.setColorData('md_gray_300')+ " ), to(  " +j1.setColorData('md_gray_50')+ " ));";
+            banner_backround_style += "background-image: -webkit-linear-gradient(top, " +j1.setColorData('md_gray_300')+ " 0%, " +j1.setColorData('md_gray_50')+ " 100%);";
+            banner_backround_style += "background-image: -o-linear-gradient(top, " +j1.setColorData('md_gray_300')+ " 0%, " +j1.setColorData('md_gray_50')+ " 100%);";
+            banner_backround_style += "background-image: linear-gradient(to bottom, " +j1.setColorData('md_gray_300')+ " 0%, " +j1.setColorData('md_gray_50')+ " 100%);";
+            banner_backround_style += 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="' +j1.setColorData('md_gray_300')+ '", endColorstr="' +j1.setColorData('md_gray_50')+ '", GradientType=0); ';
+            banner_backround_style += "} </style>";
+            $('head').append( banner_backround_style );
+            banner.push('home_image_banner');
             banner.push('home_parallax_banner');
       banner.push('exception_container');
       if ( banner.length ) {
@@ -468,6 +492,7 @@ var j1 = (function () {
         };
       };
       panel.push('home_intro_panel');
+      panel.push('home_service_panel');
       panel.push('home_news_panel');
       if ( panel.length ) {
         for (var i in panel) {
@@ -805,7 +830,7 @@ var j1 = (function () {
     //  returns the template version taken from site config ( _config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2019.1.7';
+      return '2020.0.0';
     }, // END getTemplateVersion
     // -------------------------------------------------------------------------
     // Scrolls smooth to any anchor referenced by an page URL
