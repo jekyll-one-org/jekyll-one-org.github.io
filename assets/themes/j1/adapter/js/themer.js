@@ -20,7 +20,7 @@
  #  Setup of theme selectors (ThemeList|ThemeSelect) moved
  #  to j1_adapter_navigator.js
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-06-13 16:30:56 +0200
+ # Adapter generated: 2020-06-15 14:14:10 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
