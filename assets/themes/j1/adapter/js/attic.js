@@ -16,7 +16,7 @@
  # Backstretch is licensed under the MIT License.
  # For details, see https://github.com/jquery-backstretch/jquery-backstretch
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2020-06-16 18:02:40 +0200
+ #  Adapter generated: 2020-06-16 18:28:56 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';

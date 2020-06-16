@@ -15,7 +15,7 @@
  # Tocbot is licensed under under the MIT License.
  # For details, see https://tscanlin.github.io/tocbot
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-06-16 18:02:40 +0200
+ # Adapter generated: 2020-06-16 18:27:54 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
