@@ -15,12 +15,12 @@
  # Tocbot is licensed under under the MIT License.
  # For details, see https://tscanlin.github.io/tocbot
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-06-15 14:14:10 +0200
+ # Adapter generated: 2020-06-16 17:27:15 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
 j1.adapter['toccer'] = (function () {
-  var environment   = 'production'; // Set environment
+  var environment   = 'development'; // Set environment
   var moduleOptions = {};
   var _this;
   var logger;

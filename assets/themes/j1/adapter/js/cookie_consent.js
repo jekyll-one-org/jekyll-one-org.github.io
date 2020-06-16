@@ -12,7 +12,7 @@
  # J1 Cookie Consent is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2020-06-15 14:14:10 +0200
+ #  Adapter generated: 2020-06-16 17:27:15 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -23,7 +23,7 @@ j1.adapter['cookie_consent'] = (function (j1, window) {
   var cookie_consent = {
     'cookies_accepted': 'pending'
   };
-  var environment               = 'production';
+  var environment               = 'development';
   var cookie_names              = j1.getCookieNames();
   var user_state_name           = cookie_names.user_state;
   var user_state_exists         = j1.existsCookie(user_state_name);
@@ -47,17 +47,22 @@ j1.adapter['cookie_consent'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.cookie_consent',
-        generated:   '2020-06-15 14:14:10 +0200'
+        generated:   '2020-06-16 17:27:15 +0200'
       }, options);
       _this             = j1.adapter.cookie_consent;
       logger            = log4javascript.getLogger('j1.adapter.cookie_consent');
-      cookie_consent    = j1.existsCookie(user_state_name) ?
-                            j1.readCookie(user_state_name) :
-                            j1.writeCookie({
-                              name:     user_state_name,
-                              data:     cookie_consent,
-                              expires:  365
-                            });
+      // TODO:
+      //    CHECK how|what module should initialize the user_state
+      //    cookie. For now disabled here, because cookie is too early
+      //    written. Cause corrupted|imcomplete cookie content if cookie
+      //    does NOT exists already.
+      // cookie_consent    = j1.existsCookie(user_state_name) ?
+      //                       j1.readCookie(user_state_name) :
+      //                       j1.writeCookie({
+      //                         name:     user_state_name,
+      //                         data:     cookie_consent,
+      //                         expires:  365
+      //                       });
       // -----------------------------------------------------------------------
       // options loader
       // -----------------------------------------------------------------------
@@ -69,22 +74,25 @@ j1.adapter['cookie_consent'] = (function (j1, window) {
         _this.setState('started');
         logger.info('state: ' + _this.getState());
         logger.info('module is being initialized');
-        cookie_consent                      = j1.readCookie(user_state_name);
-        cookie_consent.deleteOnDecline      = moduleOptions.delete_cookies_on_decline;
-        cookie_consent.showConsentOnPending = moduleOptions.show_consent_on_pending;
-        cookie_consent.whitelistedPages     = moduleOptions.whitelisted_pages;
-        cookie_consent.stopScrolling        = moduleOptions.stop_scrolling;
-        // Update cookie consent
-        // j1.writeCookie({
-        //   name:    user_state_name,
-        //   data:    cookie_consent,
-        //   expires: cookie_consent.live_span
-        // });
-        j1.writeCookie({
-          name:    user_state_name,
-          data:    cookie_consent,
-          expires: 365
-        });
+        if (j1.existsCookie(user_state_name)) {
+          cookie_consent                      = j1.readCookie(user_state_name);
+          cookie_consent.deleteOnDecline      = moduleOptions.delete_cookies_on_decline;
+          cookie_consent.showConsentOnPending = moduleOptions.show_consent_on_pending;
+          cookie_consent.whitelistedPages     = moduleOptions.whitelisted_pages;
+          cookie_consent.stopScrolling        = moduleOptions.stop_scrolling;
+          // Update cookie consent
+          // TODO: MAKE expiery date configurable
+          // j1.writeCookie({
+          //   name:    user_state_name,
+          //   data:    cookie_consent,
+          //   expires: cookie_consent.live_span
+          // });
+          j1.writeCookie({
+            name:    user_state_name,
+            data:    cookie_consent,
+            expires: 365
+          });
+        }
         // ---------------------------------------------------------------------
         // data loader
         // ---------------------------------------------------------------------
@@ -175,4 +183,5 @@ j1.adapter['cookie_consent'] = (function (j1, window) {
     } // END state
   }; // END return
 })(j1, window);
+
 

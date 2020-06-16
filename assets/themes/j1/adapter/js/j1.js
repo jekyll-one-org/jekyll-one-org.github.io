@@ -17,7 +17,7 @@
  #    MANAGE themeExtensionCss is to be checked
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-06-15 14:14:10 +0200
+ # Adapter generated: 2020-06-16 17:31:58 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -26,7 +26,7 @@ var j1 = (function () {
   // globals
   // ---------------------------------------------------------------------------
   var rePager         = new RegExp('navigator|dateview|tagview|archive');
-  var environment     = 'production';
+  var environment     = 'development';
   var moduleOptions   = {};
   var j1_runtime_data = {};
   // Status information
@@ -94,7 +94,7 @@ var j1 = (function () {
     'theme_author':         default_theme_author,
     'theme_author_url':     'https://jekyll.one',
     'theme_link':           default_theme_link,
-    'theme_version':        '2020.0.0',
+    'theme_version':        '2020.0.2',
     'cookies_accepted':     'pending',
     'whitelistedPages':     default_white_listed_pages,
     'deleteOnDecline':      false,
@@ -839,7 +839,7 @@ var j1 = (function () {
     //  returns the template version taken from site config ( _config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2020.0.0';
+      return '2020.0.2';
     }, // END getTemplateVersion
     // -------------------------------------------------------------------------
     // Scrolls smooth to any anchor referenced by an page URL

@@ -3,8 +3,8 @@
 {
   "themes":
   [
-    {"name": "Uno",             "css": "/assets/themes/j1/core/css/uno.min.css"},
-    {"name": "Bootstrap",       "css": "/assets/themes/j1/core/css/bootstrap.min.css"}
+    {"name": "Uno",             "css": "/assets/themes/j1/core/css/uno.css"},
+    {"name": "Bootstrap",       "css": "/assets/themes/j1/core/css/bootstrap.css"}
   ]
 }
 
