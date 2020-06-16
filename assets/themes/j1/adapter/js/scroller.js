@@ -16,7 +16,7 @@
  # Smooth Scroll is licensed under the MIT License.
  # For details, https://github.com/galambalazs/smoothscroll-for-websites
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-06-16 17:27:15 +0200
+ # Adapter generated: 2020-06-16 18:02:40 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
