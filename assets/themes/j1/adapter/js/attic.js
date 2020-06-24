@@ -16,12 +16,12 @@
  # Backstretch is licensed under the MIT License.
  # For details, see https://github.com/jquery-backstretch/jquery-backstretch
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2020-06-16 18:28:56 +0200
+ #  Adapter generated: 2020-06-24 15:32:45 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
 j1.adapter['attic'] = (function (j1, window) {
-  var environment   = 'development';
+  var environment   = 'production';
   var moduleOptions = {};
   var _this;
   var logger;

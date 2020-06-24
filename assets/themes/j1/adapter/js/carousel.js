@@ -12,12 +12,12 @@
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2020-06-16 18:28:56 +0200
+ #  Adapter generated: 2020-06-24 15:32:45 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
 j1.adapter['carousel'] = (function (j1, window) {
-  var environment   = 'development';
+  var environment   = 'production';
   var moduleOptions = {};
   var _this;
   var logger;
@@ -40,7 +40,7 @@ j1.adapter['carousel'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.carousel',
-        generated:   '2020-06-16 18:28:56 +0200'
+        generated:   '2020-06-24 15:32:45 +0200'
       }, options);
       // Load  module DEFAULTS|CONFIG
       moduleOptions = $.extend({}, {"enabled":true, "items":5, "itemsCustom":false, "itemsDesktop":[1199, 4], "itemsDesktopSmall":[980, 3], "itemsTablet":[768, 2], "itemsTabletSmall":false, "itemsMobile":[479, 1], "singleItem":false, "itemsScaleUp":false, "slideSpeed":200, "paginationSpeed":800, "rewindSpeed":1000, "autoPlay":false, "stopOnHover":false, "navigation":false, "navigationText":["prev", "next"], "rewindNav":true, "scrollPerPage":false, "pagination":true, "paginationNumbers":false, "responsive":true, "responsiveRefreshRate":200, "responsiveBaseWidth":"window", "baseClass":"owl-carousel", "theme":"owl-theme", "lazyLoad":false, "lazyFollow":true, "lazyEffect":"fade", "autoHeight":false, "xhr_data_path":"/assets/data/carousel.json", "jsonSuccess":false, "dragBeforeAnimFinish":true, "mouseDrag":true, "touchDrag":true, "transitionStyle":false, "beforeUpdate":false, "afterUpdate":false, "beforeInit":false, "afterInit":false, "beforeMove":false, "afterMove":false, "afterAction":false, "startDragging":false, "afterLazyLoad":false, "addClassActive":false, "carousel":[{"show":{"enabled":true, "id":"owl_demo_text_carousel", "lightbox":false, "type":"text", "css_classes":"img-fluid", "text":["<big>Jekyll One Template</big>         </br> <i>Clean, responsive and fully featured Template made for Jekyll</i>", "<big>Jekyll meets Bootstrap</big>      </br> <i>Best of open source and commercial software for the Web</i>", "<big>J1 is Open Source</big>           </br> <i>No pain for private or professional use</i>", "<big>Explore this site</big>           </br> <i>Learn what's possible if you go the Jekyll Way</i>", "<big>Create modern static sites</big>  </br> <i>Secure, powerful and fast<i>"], "options":{"autoPlay":5000, "singleItem":true, "pagination":false}}}, {"show":{"enabled":true, "id":"owl_demo_text_carousel_parallax", "lightbox":false, "type":"text", "parallax":true, "parallax_id":"owl_text_carousel_parallax", "css_classes":"img-fluid", "text":["<big>Jekyll One Template</big>         </br> <i>Clean, responsive and fully featured Template made for Jekyll</i>", "<big>Jekyll meets Bootstrap</big>      </br> <i>Best of open source and commercial software for the Web</i>", "<big>J1 is Open Source</big>           </br> <i>No pain for private or professional use</i>", "<big>Explore this site</big>           </br> <i>Learn what's possible if you go the Jekyll Way</i>", "<big>Create modern static sites</big>  </br> <i>Secure, powerful and fast<i>"], "options":{"autoPlay":5000, "singleItem":true, "pagination":false}}}, {"show":{"enabled":true, "id":"owl_demo_cats", "slide_space_between":3, "slide_border":true, "lightbox":true, "type":"image", "css_classes":"img-fluid", "images_path":"/assets/images/modules/carousel/cats", "images":["cat-1.jpg", "cat-2.jpg", "cat-3.jpg", "cat-4.jpg"], "links":["#", "#", "#", "#"], "lb_caption":["You see cat no 1", "You see cat no 2", "You see cat np 3", "You see cat no 4"], "options":{"navigation":false, "itemsCustom":[[0, 1], [400, 1], [700, 2], [1000, 2], [1200, 2], [1600, 2]], "slideSpeed":300, "paginationSpeed":400, "items":2}}}, {"show":{"enabled":true, "provider":"j1", "id":"owl_demo_simple", "type":"image", "css_classes":"img-fluid", "images_path":"/assets/images/modules/carousel/mega_cities", "images":["andreas-brucker_b.jpg", "denys-nevozhai-1_b.jpg", "denys-nevozhai-2_b.jpg", "luca-bravo_b.jpg", "thomas-tucker_b.jpg"], "links":["#", "#", "#", "#", "#", "#", "#", "#"], "options":{"autoPlay":3000, "items":3, "autoHeight":true, "pagination":false, "paginationNumbers":false, "itemsDesktop":"[1199,3]", "itemsDesktopSmall":"[979,3]"}}}, {"show":{"enabled":true, "provider":"j1", "id":"owl_demo_oneslide", "type":"image", "lightbox":true, "css_classes":"img-fluid", "images_path":"/assets/images/modules/carousel/mega_cities", "images":["andreas-brucker_b.jpg", "denys-nevozhai-1_b.jpg", "denys-nevozhai-2_b.jpg", "luca-bravo_b.jpg", "thomas-tucker_b.jpg"], "options":{"navigation":true, "slideSpeed":300, "paginationSpeed":400, "singleItem":true, "transitionStyle":"goDown"}}}]});
@@ -54,11 +54,6 @@ j1.adapter['carousel'] = (function (j1, window) {
       logger.info('module is being initialized');
           // Create an Carousel INSTANCE if slider on id: owl_demo_text_carousel exists
           if ($('#owl_demo_text_carousel').length) {
-              logText = 'slider is being initialized on id: #owl_demo_text_carousel';
-              logger.info(logText);
-              _this.setState('running');
-              logger.info('state: ' + _this.getState());
-              logger.info('module is being initialized');
             // Place HTML markup for the title
             // place parallax styles
             $('head').append("<style>.owl_demo_text_carousel-item{margin: 3px;}</style>");
@@ -96,11 +91,6 @@ j1.adapter['carousel'] = (function (j1, window) {
           } // END if carousel exists
           // Create an Carousel INSTANCE if slider on id: owl_demo_text_carousel_parallax exists
           if ($('#owl_demo_text_carousel_parallax').length) {
-              logText = 'slider is being initialized on id: #owl_demo_text_carousel_parallax';
-              logger.info(logText);
-              _this.setState('running');
-              logger.info('state: ' + _this.getState());
-              logger.info('module is being initialized');
             // Place HTML markup for the title
             // place parallax styles
               $('head').append('<style>.parallax-slider__owl_demo_text_carousel_parallax{background:url(/assets/images/quotes/default.png) 50% 0 repeat fixed}</style>');
@@ -145,11 +135,6 @@ j1.adapter['carousel'] = (function (j1, window) {
           } // END if carousel exists
           // Create an Carousel INSTANCE if slider on id: owl_demo_cats exists
           if ($('#owl_demo_cats').length) {
-              logText = 'slider is being initialized on id: #owl_demo_cats';
-              logger.info(logText);
-              _this.setState('running');
-              logger.info('state: ' + _this.getState());
-              logger.info('module is being initialized');
             // Place HTML markup for the title
             // place parallax styles
             $('head').append("<style>.owl_demo_cats-item{margin: 3px;}</style>");
@@ -209,11 +194,6 @@ j1.adapter['carousel'] = (function (j1, window) {
           } // END if carousel exists
           // Create an Carousel INSTANCE if slider on id: owl_demo_simple exists
           if ($('#owl_demo_simple').length) {
-              logText = 'slider is being initialized on id: #owl_demo_simple';
-              logger.info(logText);
-              _this.setState('running');
-              logger.info('state: ' + _this.getState());
-              logger.info('module is being initialized');
             // Place HTML markup for the title
             // place parallax styles
             $('head').append("<style>.owl_demo_simple-item{margin: 3px;}</style>");
@@ -274,11 +254,6 @@ j1.adapter['carousel'] = (function (j1, window) {
           } // END if carousel exists
           // Create an Carousel INSTANCE if slider on id: owl_demo_oneslide exists
           if ($('#owl_demo_oneslide').length) {
-              logText = 'slider is being initialized on id: #owl_demo_oneslide';
-              logger.info(logText);
-              _this.setState('running');
-              logger.info('state: ' + _this.getState());
-              logger.info('module is being initialized');
             // Place HTML markup for the title
             // place parallax styles
             $('head').append("<style>.owl_demo_oneslide-item{margin: 3px;}</style>");

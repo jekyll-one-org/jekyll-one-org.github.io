@@ -12,7 +12,7 @@
  # J1 Cookie Consent is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2020-06-16 18:27:54 +0200
+ #  Adapter generated: 2020-06-24 15:27:13 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -23,7 +23,7 @@ j1.adapter['cookie_consent'] = (function (j1, window) {
   var cookie_consent = {
     'cookies_accepted': 'pending'
   };
-  var environment               = 'development';
+  var environment               = 'production';
   var cookie_names              = j1.getCookieNames();
   var user_state_name           = cookie_names.user_state;
   var user_state_exists         = j1.existsCookie(user_state_name);
@@ -47,7 +47,7 @@ j1.adapter['cookie_consent'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.cookie_consent',
-        generated:   '2020-06-16 18:27:54 +0200'
+        generated:   '2020-06-24 15:27:13 +0200'
       }, options);
       _this             = j1.adapter.cookie_consent;
       logger            = log4javascript.getLogger('j1.adapter.cookie_consent');

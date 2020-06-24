@@ -17,13 +17,13 @@
  # For details, see https://github.com/lokesh/lightbox2/
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-06-16 18:27:54 +0200
+ # Adapter generated: 2020-06-24 15:27:13 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
 // j1.Lightbox = (function (j1, window) {
 j1.adapter['lightbox'] = (function (j1, window) {
-  var environment   = 'development';
+  var environment   = 'production';
   var moduleOptions = {};
   var _this;
   var logger;

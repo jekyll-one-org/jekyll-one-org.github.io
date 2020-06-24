@@ -15,12 +15,12 @@
  # Tocbot is licensed under under the MIT License.
  # For details, see https://tscanlin.github.io/tocbot
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-06-16 18:27:54 +0200
+ # Adapter generated: 2020-06-24 15:27:13 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
 j1.adapter['toccer'] = (function () {
-  var environment   = 'development'; // Set environment
+  var environment   = 'production'; // Set environment
   var moduleOptions = {};
   var _this;
   var logger;
@@ -103,38 +103,43 @@ j1.adapter['toccer'] = (function () {
       }
       _this.setState('running');
       logger.info('state: ' + _this.getState());
-      var bg_primary = j1.getStyleValue('bg-primary', 'background-color');
-      tocbot.init({
-        log:                    false,
-        activeLinkColor:        "#212121",
-        tocSelector:            ".js-toc",
-        headingSelector:        "h2, h3, h4, h5",
-        ignoreSelector:         ".notoc",
-        contentSelector:        ".js-toc-content",
-        collapseDepth:          settings.collapseDepth,
-        throttleTimeout:        50,
-        includeHtml:            false,
-        linkClass:              'toc-link',
-        extraLinkClasses:       '',
-        activeLinkClass:        'is-active-link',
-        listClass:              'toc-list',
-        extraListClasses:       '',
-        isCollapsedClass:       'is-collapsed',
-        collapsibleClass:       'is-collapsible',
-        listItemClass:          'toc-list-item',
-        positionFixedSelector:  '',
-        positionFixedClass:     'is-position-fixed',
-        fixedSidebarOffset:     'auto',
-        smoothScroll:           true,
-        smoothScrollOffset:     90,
-        smoothScrollDuration:   300,
-        headingsOffset:         0,
-        throttleTimeout:        50
-      });
-      if (tocbot.options.log == true) {
-        // Writes all of the current option settings to JS console
-        console.log(tocbot.options);
-      }
+      // jadams, 2020-06-23: TODO, tocbot should be fired if page|mmenu
+      //                     is ready
+      //
+      setTimeout (function () {
+        var bg_primary = j1.getStyleValue('bg-primary', 'background-color');
+        tocbot.init({
+          log:                    false,
+          activeLinkColor:        "#212121",
+          tocSelector:            ".js-toc",
+          headingSelector:        "h2, h3, h4, h5",
+          ignoreSelector:         ".notoc",
+          contentSelector:        ".js-toc-content",
+          collapseDepth:          settings.collapseDepth,
+          throttleTimeout:        50,
+          includeHtml:            false,
+          linkClass:              'toc-link',
+          extraLinkClasses:       '',
+          activeLinkClass:        'is-active-link',
+          listClass:              'toc-list',
+          extraListClasses:       '',
+          isCollapsedClass:       'is-collapsed',
+          collapsibleClass:       'is-collapsible',
+          listItemClass:          'toc-list-item',
+          positionFixedSelector:  '',
+          positionFixedClass:     'is-position-fixed',
+          fixedSidebarOffset:     'auto',
+          smoothScroll:           true,
+          smoothScrollOffset:     90,
+          smoothScrollDuration:   300,
+          headingsOffset:         0,
+          throttleTimeout:        50
+        });
+        if (tocbot.options.log == true) {
+          // Writes all of the current option settings to JS console
+          console.log(tocbot.options);
+        }
+      }, 400);
       return true;
     }, // END initToccerCore
     // -------------------------------------------------------------------------
@@ -241,4 +246,5 @@ j1.adapter['toccer'] = (function () {
     } // END state
   }; // END return
 })(j1, window);
+
 

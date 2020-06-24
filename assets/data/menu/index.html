@@ -2,13 +2,14 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <!-- [DEBUG  ] [j1.modules.navigator.menu.html  ] [detect bs type] --><!-- [DEBUG  ] [j1.modules.navigator.menu.html  ] [bs type detected: bmd4] --><!-- [DEBUG  ] [j1.modules.navigator.menu.html  ] [initialize default menu properties] --><!-- [DEBUG  ] [j1.modules.navigator.menu.html  ] [initialize default menu icon properties] --><!-- [DEBUG  ] [j1.modules.navigator.menu.html  ] [collect all nav links for the navigation bar (navbar)] --><!-- div id="" class="collapse" --><!-- div class="collapse" -->
-    <ul class="nav navbar-nav navigator navbar-left" data-in="fadeIn" data-out="fadeOut">
+    <ul id="desktop_menu" class="nav navbar-nav navigator navbar-left" data-in="fadeIn" data-out="fadeOut">
       <!-- [INFO   ] [j1.modules.navigator.menu.html  ] [found menu-type: sub-menue] -->
       <!-- [INFO   ] [j1.modules.navigator.menu.html  ] [submenu level 1 detected] -->
       <li class="dropdown nav-item">
         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Learn</a>
         <!-- jadams, 2017-11-24: (3) ul class="dropdown-menu dropdown-menu-left raised-z15" style="opacity: 1; display: none;" -->
         <ul class="dropdown-menu dropdown-menu-left raised-z15" style="display: none;">
+          <li class="dropdown-item"><a href="/pages/public/learn/whats_up/"><i class="mdi mdi-alert mdi-18px mr-2" style="color:#9E9E9E"></i> What's up</a></li>
           <!-- [INFO   ] [j1.modules.navigator.menu.html  ] [submenu level 2 (dropdown) detected] -->
           <li class="dropdown nav-item nav-sub-item">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="mdi mdi-wallet-travel mdi-18px mr-2" style="color:#9E9E9E"></i> Roundtrip</a>
@@ -201,3 +202,4 @@
     <!-- div -->
     <!-- [INFO   ] [j1.modules.navigator.menu.html  ] [nav_menu_settings: end processing] -->
   
+

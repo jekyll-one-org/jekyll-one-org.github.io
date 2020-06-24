@@ -17,12 +17,12 @@
  #  For details, see http://davidjbradshaw.github.io/iframe-resizer/
  #
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2020-06-16 18:27:54 +0200
+ #  Adapter generated: 2020-06-24 15:27:13 +0200
  # -----------------------------------------------------------------------------
  */
 'use strict';
 j1.adapter['framer'] = (function (j1, window) {
-  var environment   = 'development';
+  var environment   = 'production';
   var moduleOptions = {};
   var _this;
   var logger;
@@ -45,7 +45,7 @@ j1.adapter['framer'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.example',
-        generated:   '2020-06-16 18:27:54 +0200'
+        generated:   '2020-06-24 15:27:13 +0200'
       }, options);
       // Load  module DEFAULTS|CONFIG
       //

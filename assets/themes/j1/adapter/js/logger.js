@@ -12,7 +12,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-06-16 18:27:54 +0200
+ # Adapter generated: 2020-06-24 15:27:13 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -20,7 +20,7 @@ j1.adapter['logger'] = (function (j1, window) {
   // ---------------------------------------------------------------------------
   // globals
   // ---------------------------------------------------------------------------
-  var environment           = 'development';
+  var environment           = 'production';
   var page_id               = uuid().slice(25, 37);
   var cookie_names          = j1.getCookieNames();
   var loggerRequestCallback = false;

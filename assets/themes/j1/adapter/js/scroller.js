@@ -16,12 +16,12 @@
  # Smooth Scroll is licensed under the MIT License.
  # For details, https://github.com/galambalazs/smoothscroll-for-websites
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-06-16 18:27:54 +0200
+ # Adapter generated: 2020-06-24 15:27:13 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
 j1.adapter['scroller'] = (function (j1, window) {
-  var environment   = 'development';
+  var environment   = 'production';
   var moduleOptions = {};
   var _this;
   var logger;

@@ -20,7 +20,7 @@
  #  Setup of theme selectors (ThemeList|ThemeSelect) moved
  #  to j1_adapter_navigator.js
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-06-16 18:27:54 +0200
+ # Adapter generated: 2020-06-24 15:27:13 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -28,7 +28,7 @@ j1.adapter['themer'] = (function (j1, window) {
   // ---------------------------------------------------------------------------
   // globals
   // ---------------------------------------------------------------------------
-  var environment            = 'development';
+  var environment            = 'production';
   var moduleOptions          = {};
   var user_state             = {};
   var cookie_names           = j1.getCookieNames();
@@ -97,8 +97,8 @@ j1.adapter['themer'] = (function (j1, window) {
         themeExtensionCssHtml = "<link rel='stylesheet' id='" + id + "' href='" + themeExtensionCss + "' type='text/css' />";
       } else {
         themeName             = default_theme_name;
-        themeCssHtml          = '<link rel="stylesheet" type="text/css" id="default" href="/assets/themes/j1/core/css/uno.css" />';
-        vendorCssHtml         = '<link rel="stylesheet" type="text/css" id="default" href="/assets/themes/j1/core/css/vendor.css" />';
+        themeCssHtml          = '<link rel="stylesheet" type="text/css" id="default" href="/assets/themes/j1/core/css/uno.min.css" />';
+        vendorCssHtml         = '<link rel="stylesheet" type="text/css" id="default" href="/assets/themes/j1/core/css/vendor.min.css" />';
         $('head').append(vendorCssHtml);
       }
       $('head').append(themeCssHtml);
