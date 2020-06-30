@@ -18,7 +18,7 @@
  # NOTE: For getStyleValue helper see
  #  https://stackoverflow.com/questions/16965515/how-to-get-a-style-attribute-from-a-css-class-by-javascript-jquery
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-06-24 15:32:45 +0200
+ # Adapter generated: 2020-06-30 20:47:02 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -54,7 +54,7 @@ j1.adapter['mmenu'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.mmenu',
-        generated:   '2020-06-24 15:32:45 +0200'
+        generated:   '2020-06-30 20:47:02 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // globals
@@ -64,7 +64,7 @@ j1.adapter['mmenu'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       // options loader
       // -----------------------------------------------------------------------
-      var navMenuOptions = $.extend({}, {"enabled":true, "mmenu_plugin":{"node":"null", "mediaQuery":"all", "max_width":100000}, "mmenu_navigator":{"selected":"Selected", "slidingSubmenus":true, "title":"Starter Web", "theme":"dark"}, "mmenu_drawer":{"position":"right"}, "menus":[{"menu":{"enabled":true, "xhr_container_id":"navigator_nav_mmenu", "xhr_data_path":"/assets/data/mmenu/index.html", "drawer":{"position":"right"}, "content":{"type":"navigation", "title":"Starter Web", "theme":"dark", "toggler":"#navbar-toggler"}}}, {"menu":{"enabled":true, "xhr_container_id":"navigator_sidebar_mmenu", "xhr_data_path":"/assets/data/mmenu_sidebar/index.html", "drawer":{"position":"left"}, "content":{"type":"drawer", "title":"Site Info", "theme":"dark", "toggler":"#navbar-brand", "toggler_animation":"rotateIn", "toggler_activated":"always", "boxes":[{"box":{"enabled":true, "type":"user_info", "title":"User", "links":[{"title":"Provider", "value":"??provider", "href":"??provider-site-url", "target":"_blank", "icon":"domain"}, {"title":"User", "icon":"account", "value":"??user-name", "href":"??provider_member_url", "target":"none"}, {"title":"Permissions", "icon":"account-check", "value":"??provider-permissions", "href":"??provider_member_url", "target":"none"}, {"title":"Membership", "icon":"account-settings", "value":"??provider-membership", "href":"??provider_member_url", "target":"none"}, {"title":"Cookies", "icon":"cookie", "value":"??cookie-state", "href":"??provider_privacy_url", "target":"none"}]}}, {"box":{"enabled":true, "type":"theme_info", "title":"Theme", "links":[{"title":"Name", "icon":"face", "value":"??theme-name", "href":"/pages/public/previewer/theme/", "target":"none"}, {"title":"Author", "icon":"grease-pencil", "value":"??theme-author", "href":"??theme-author-url", "target":"_blank"}, {"title":"Version", "icon":"numeric", "value":"??theme-version", "href":"/pages/public/previewer/theme/", "target":"none"}]}}, {"box":{"enabled":true, "type":"site_info", "title":"Site", "links":[{"title":"About", "icon":"home-outline", "href":"/pages/public/about/site/", "target":"none"}, {"title":"Impress", "icon":"alert-outline", "href":"/pages/public/legal/en/impress/", "target":"none"}, {"title":"Privacy", "icon":"heart", "href":"/pages/public/legal/en/privacy/", "target":"none"}, {"title":"License", "icon":"checkbox-multiple-marked-circle-outline", "href":"/pages/public/legal/en/license_agreement/", "target":"none"}]}}]}}}, {"menu":{"enabled":true, "xhr_container_id":"navigator_toc_mmenu", "xhr_data_path":"/assets/data/mmenu_toc/index.html", "drawer":{"position":"right"}, "content":{"type":"drawer", "title":"Table of Contents", "theme":"light", "toggler":"#toc-toggler", "toggler_animation":"rotateIn", "toggler_activated":"js-toc-content"}}}]});
+      var navMenuOptions = $.extend({}, {"enabled":true, "mmenu_plugin":{"node":"null", "mediaQuery":"all", "max_width":100000}, "mmenu_navigator":{"selected":"Selected", "slidingSubmenus":true, "title":"Preview", "theme":"dark"}, "mmenu_drawer":{"position":"right"}, "menus":[{"menu":{"enabled":true, "xhr_container_id":"navigator_nav_mmenu", "xhr_data_path":"/assets/data/mmenu/index.html", "drawer":{"position":"right"}, "content":{"type":"navigation", "title":"Preview", "theme":"dark", "button":"#mmenu-button", "button_activated":"always"}}}, {"menu":{"enabled":true, "xhr_container_id":"navigator_sidebar_mmenu", "xhr_data_path":"/assets/data/mmenu_sidebar/index.html", "drawer":{"position":"left"}, "content":{"type":"drawer", "title":"Site Info", "theme":"dark", "button":"#navbar-brand", "button_activated":"always", "boxes":[{"box":{"enabled":true, "type":"user_info", "title":"User", "links":[{"title":"Provider", "value":"??provider", "href":"??provider-site-url", "target":"_blank", "icon":"domain"}, {"title":"User", "icon":"account", "value":"??user-name", "href":"??provider_member_url", "target":"none"}, {"title":"Permissions", "icon":"account-check", "value":"??provider-permissions", "href":"??provider_member_url", "target":"none"}, {"title":"Membership", "icon":"account-settings", "value":"??provider-membership", "href":"??provider_member_url", "target":"none"}, {"title":"Cookies", "icon":"cookie", "value":"??cookie-state", "href":"??provider_privacy_url", "target":"none"}]}}, {"box":{"enabled":true, "type":"theme_info", "title":"Theme", "links":[{"title":"Name", "icon":"face", "value":"??theme-name", "href":"/pages/public/previewer/theme/", "target":"none"}, {"title":"Author", "icon":"grease-pencil", "value":"??theme-author", "href":"??theme-author-url", "target":"_blank"}, {"title":"Version", "icon":"numeric", "value":"??theme-version", "href":"/pages/public/previewer/theme/", "target":"none"}]}}, {"box":{"enabled":true, "type":"site_info", "title":"Site", "links":[{"title":"About", "icon":"home-outline", "href":"/pages/public/about/site/", "target":"none"}, {"title":"Impress", "icon":"alert-outline", "href":"/pages/public/legal/en/impress/", "target":"none"}, {"title":"Privacy", "icon":"heart", "href":"/pages/public/legal/en/privacy/", "target":"none"}, {"title":"License", "icon":"checkbox-multiple-marked-circle-outline", "href":"/pages/public/legal/en/license_agreement/", "target":"none"}]}}]}}}, {"menu":{"enabled":true, "xhr_container_id":"navigator_toc_mmenu", "xhr_data_path":"/assets/data/mmenu_toc/index.html", "drawer":{"position":"right"}, "content":{"type":"drawer", "title":"Table of Contents", "theme":"light", "button":"#ssm_toc", "button_activated":"js-toc-content"}}}]});
       var xhr_data_path;
       var menu_id;
       // save config settings into the mmenu object for global access
@@ -191,20 +191,21 @@ j1.adapter['mmenu'] = (function (j1, window) {
             });
             // Toggle Bars (Hamburger) for the NavBar to open|close
             // the mmenu drawer
-            $('#navbar-toggler').each(function(e) {
+            $('#mmenu-button').each(function(e) {
               var $this = $(this);
               $this.on('click', function(e){
-                const toggler_navigator_nav_mmenu = this;
+                const button_navigator_nav_mmenu = this;
                 // TODO: Animated toggle button
                 //
-                $('#navbar-toggler').toggleClass('fadeIn');
-                $('#navbar-toggler').toggleClass('rotateIn')
-                $('.mdi', this).toggleClass('mdi-menu');
-                $('.mdi', this).toggleClass('mdi-close');
+                // $('').toggleClass('fadeIn');
+                // $('').toggleClass('rotateIn')
+                // $('.mdi', this).toggleClass('mdi-menu');
+                // $('.mdi', this).toggleClass('mdi-close');
                 e.preventDefault();
-                (toggler_navigator_nav_mmenu.t = !toggler_navigator_nav_mmenu.t)
-                  ? drawer_navigator_nav_mmenu.open()
-                  : drawer_navigator_nav_mmenu.close();
+                // (toggler_navigator_nav_mmenu.t = !toggler_navigator_nav_mmenu.t)
+                //   ? drawer_navigator_nav_mmenu.open()
+                //   : drawer_navigator_nav_mmenu.close();
+                drawer_navigator_nav_mmenu.open()
               });
             });
             clearInterval(dependencies_met_navigator_nav_mmenu_loaded);
@@ -241,13 +242,13 @@ j1.adapter['mmenu'] = (function (j1, window) {
                 // drawer options
                 position: "left"
               });
-              // Toggler for the MMenu tocbar to open|close the toc drawer
+              // button for the MMenu tocbar to open|close the toc drawer
               $('#navbar-brand').each(function(e) {
                 var $this = $(this);
                 $this.on('click', function(e) {
-                  var toggler_navigator_sidebar_mmenu = this;
+                  var button_navigator_sidebar_mmenu = this;
                   var hasClass;
-                  // check if the toggler should be activated
+                  // check if the button should be activated
                   // e.g for TOC only if clas js-toc-content is found
                   //
                   if ('always' != 'always') {
@@ -257,11 +258,12 @@ j1.adapter['mmenu'] = (function (j1, window) {
                   }
                   if (hasClass) {
                     // Toggle button animation
-                    $('#navbar-brand').toggleClass('rotateIn')
+                    //$('').toggleClass('')
                     e.preventDefault();
-                    (toggler_navigator_sidebar_mmenu.t = !toggler_navigator_sidebar_mmenu.t)
-                      ? drawer_navigator_sidebar_mmenu.open()
-                      : drawer_navigator_sidebar_mmenu.close();
+                    // (toggler_navigator_sidebar_mmenu.t = !toggler_navigator_sidebar_mmenu.t)
+                    //   ? drawer_navigator_sidebar_mmenu.open()
+                    //   : drawer_navigator_sidebar_mmenu.close();
+                    drawer_navigator_sidebar_mmenu.open()
                   } // END if hasclass
                 });
               });
@@ -298,13 +300,13 @@ j1.adapter['mmenu'] = (function (j1, window) {
                 // drawer options
                 position: "right"
               });
-              // Toggler for the MMenu tocbar to open|close the toc drawer
-              $('#toc-toggler').each(function(e) {
+              // button for the MMenu tocbar to open|close the toc drawer
+              $('#ssm_toc').each(function(e) {
                 var $this = $(this);
                 $this.on('click', function(e) {
-                  var toggler_navigator_toc_mmenu = this;
+                  var button_navigator_toc_mmenu = this;
                   var hasClass;
-                  // check if the toggler should be activated
+                  // check if the button should be activated
                   // e.g for TOC only if clas js-toc-content is found
                   //
                   if ('js-toc-content' != 'always') {
@@ -314,11 +316,12 @@ j1.adapter['mmenu'] = (function (j1, window) {
                   }
                   if (hasClass) {
                     // Toggle button animation
-                    $('#toc-toggler').toggleClass('rotateIn')
+                    //$('').toggleClass('')
                     e.preventDefault();
-                    (toggler_navigator_toc_mmenu.t = !toggler_navigator_toc_mmenu.t)
-                      ? drawer_navigator_toc_mmenu.open()
-                      : drawer_navigator_toc_mmenu.close();
+                    // (toggler_navigator_toc_mmenu.t = !toggler_navigator_toc_mmenu.t)
+                    //   ? drawer_navigator_toc_mmenu.open()
+                    //   : drawer_navigator_toc_mmenu.close();
+                    drawer_navigator_toc_mmenu.open()
                   } // END if hasclass
                 });
               });
