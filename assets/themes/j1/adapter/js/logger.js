@@ -12,7 +12,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-06-30 20:41:02 +0200
+ # Adapter generated: 2020-07-02 22:12:58 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';

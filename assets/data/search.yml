@@ -7,8 +7,8 @@
     "tags":         "Example,Post",
     "index":         "",
     "categories":   "posts,public,featured",
-    "date":         "2020-06-30 16:46:25 +0200",
-    "url":          "/posts/public/featured/2020/06/30/welcome-to-J1-Template/",
+    "date":         "2020-07-02 21:41:15 +0200",
+    "url":          "/posts/public/featured/2020/07/02/welcome-to-J1-Template/",
     "target":       "",
     "excerpt":      "If you’re not familiar with Jekyll (or other site generators), Jekyll is a so-called static site generator. Think of it like a CMS but without all the complexity and headache. No need to build a giant content strangling Rube Goldberg machine to manage content. All you’re doing at the end..."
   },
@@ -200,16 +200,6 @@
     "excerpt":      "Modern static website in a day"
   },
   {
-    "title":        "Nutzungsbedingungen",
-    "tagline":      "Copyright für Software und Inhalte",
-    "tags":         "Nutzungsbedingungen, Copyright",
-    "index":        "",
-    "categories":   "pages",
-    "url":          "/pages/public/legal/de/terms_of_use/",
-    "target":       "",
-    "excerpt":      "Copyright für Software und Inhalte"
-  },
-  {
     "title":        "Terms of Use",
     "tagline":      "Terms of Use for Software and Content",
     "tags":         "Terms, Use, Software, Content",
@@ -218,6 +208,16 @@
     "url":          "/pages/public/legal/en/terms_of_use/",
     "target":       "",
     "excerpt":      "Terms of Use for Software and Content"
+  },
+  {
+    "title":        "Nutzungsbedingungen",
+    "tagline":      "Copyright für Software und Inhalte",
+    "tags":         "Nutzungsbedingungen, Copyright",
+    "index":        "",
+    "categories":   "pages",
+    "url":          "/pages/public/legal/de/terms_of_use/",
+    "target":       "",
+    "excerpt":      "Copyright für Software und Inhalte"
   },
   {
     "title":        "Roundtrip",
@@ -240,16 +240,6 @@
     "excerpt":      "J1 Template Roundtrip - Icon Fonts"
   },
   {
-    "title":        "Privacy",
-    "tagline":      "your personal data",
-    "tags":         "Privacy, Statement",
-    "index":        "",
-    "categories":   "pages",
-    "url":          "/pages/public/legal/en/privacy/",
-    "target":       "",
-    "excerpt":      "Protection of your personal data"
-  },
-  {
     "title":        "Datenschutzbestimmungen",
     "tagline":      "Schutz Ihrer Privatsphäre",
     "tags":         "Datenschutz, Privatsphäre",
@@ -258,6 +248,16 @@
     "url":          "/pages/public/legal/de/privacy/",
     "target":       "",
     "excerpt":      "Schutz Ihrer Privatsphäre"
+  },
+  {
+    "title":        "Privacy",
+    "tagline":      "your personal data",
+    "tags":         "Privacy, Statement",
+    "index":        "",
+    "categories":   "pages",
+    "url":          "/pages/public/legal/en/privacy/",
+    "target":       "",
+    "excerpt":      "Protection of your personal data"
   },
   {
     "title":        "Roundtrip",

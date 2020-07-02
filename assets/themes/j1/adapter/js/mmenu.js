@@ -18,7 +18,7 @@
  # NOTE: For getStyleValue helper see
  #  https://stackoverflow.com/questions/16965515/how-to-get-a-style-attribute-from-a-css-class-by-javascript-jquery
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-06-30 20:47:02 +0200
+ # Adapter generated: 2020-07-02 22:13:52 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -54,7 +54,7 @@ j1.adapter['mmenu'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.mmenu',
-        generated:   '2020-06-30 20:47:02 +0200'
+        generated:   '2020-07-02 22:13:52 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // globals
@@ -64,7 +64,7 @@ j1.adapter['mmenu'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       // options loader
       // -----------------------------------------------------------------------
-      var navMenuOptions = $.extend({}, {"enabled":true, "mmenu_plugin":{"node":"null", "mediaQuery":"all", "max_width":100000}, "mmenu_navigator":{"selected":"Selected", "slidingSubmenus":true, "title":"Preview", "theme":"dark"}, "mmenu_drawer":{"position":"right"}, "menus":[{"menu":{"enabled":true, "xhr_container_id":"navigator_nav_mmenu", "xhr_data_path":"/assets/data/mmenu/index.html", "drawer":{"position":"right"}, "content":{"type":"navigation", "title":"Preview", "theme":"dark", "button":"#mmenu-button", "button_activated":"always"}}}, {"menu":{"enabled":true, "xhr_container_id":"navigator_sidebar_mmenu", "xhr_data_path":"/assets/data/mmenu_sidebar/index.html", "drawer":{"position":"left"}, "content":{"type":"drawer", "title":"Site Info", "theme":"dark", "button":"#navbar-brand", "button_activated":"always", "boxes":[{"box":{"enabled":true, "type":"user_info", "title":"User", "links":[{"title":"Provider", "value":"??provider", "href":"??provider-site-url", "target":"_blank", "icon":"domain"}, {"title":"User", "icon":"account", "value":"??user-name", "href":"??provider_member_url", "target":"none"}, {"title":"Permissions", "icon":"account-check", "value":"??provider-permissions", "href":"??provider_member_url", "target":"none"}, {"title":"Membership", "icon":"account-settings", "value":"??provider-membership", "href":"??provider_member_url", "target":"none"}, {"title":"Cookies", "icon":"cookie", "value":"??cookie-state", "href":"??provider_privacy_url", "target":"none"}]}}, {"box":{"enabled":true, "type":"theme_info", "title":"Theme", "links":[{"title":"Name", "icon":"face", "value":"??theme-name", "href":"/pages/public/previewer/theme/", "target":"none"}, {"title":"Author", "icon":"grease-pencil", "value":"??theme-author", "href":"??theme-author-url", "target":"_blank"}, {"title":"Version", "icon":"numeric", "value":"??theme-version", "href":"/pages/public/previewer/theme/", "target":"none"}]}}, {"box":{"enabled":true, "type":"site_info", "title":"Site", "links":[{"title":"About", "icon":"home-outline", "href":"/pages/public/about/site/", "target":"none"}, {"title":"Impress", "icon":"alert-outline", "href":"/pages/public/legal/en/impress/", "target":"none"}, {"title":"Privacy", "icon":"heart", "href":"/pages/public/legal/en/privacy/", "target":"none"}, {"title":"License", "icon":"checkbox-multiple-marked-circle-outline", "href":"/pages/public/legal/en/license_agreement/", "target":"none"}]}}]}}}, {"menu":{"enabled":true, "xhr_container_id":"navigator_toc_mmenu", "xhr_data_path":"/assets/data/mmenu_toc/index.html", "drawer":{"position":"right"}, "content":{"type":"drawer", "title":"Table of Contents", "theme":"light", "button":"#ssm_toc", "button_activated":"js-toc-content"}}}]});
+      var navMenuOptions = $.extend({}, {"enabled":true, "mmenu_plugin":{"node":"null", "mediaQuery":"all", "max_width":100000}, "mmenu_navigator":{"selected":"Selected", "slidingSubmenus":true, "title":"Starter Web", "theme":"dark"}, "mmenu_drawer":{"position":"right"}, "menus":[{"menu":{"enabled":true, "xhr_container_id":"navigator_nav_mmenu", "xhr_data_path":"/assets/data/mmenu/index.html", "drawer":{"position":"right"}, "content":{"id":"menu_mmenu", "type":"navigation", "title":"Starter Web", "theme":"dark", "button":"#mmenu-button", "button_activated":"always"}}}, {"menu":{"enabled":true, "xhr_container_id":"navigator_sidebar_mmenu", "xhr_data_path":"/assets/data/mmenu_sidebar/index.html", "drawer":{"position":"left"}, "content":{"id":"sidebar_mmenu", "type":"drawer", "title":"Site Info", "theme":"dark", "button":"#navbar-brand", "button_activated":"always", "boxes":[{"box":{"enabled":true, "type":"user_info", "title":"User", "links":[{"title":"Provider", "value":"??provider", "href":"??provider-site-url", "target":"_blank", "icon":"domain"}, {"title":"User", "icon":"account", "value":"??user-name", "href":"??provider_member_url", "target":"none"}, {"title":"Permissions", "icon":"account-check", "value":"??provider-permissions", "href":"??provider_member_url", "target":"none"}, {"title":"Membership", "icon":"account-settings", "value":"??provider-membership", "href":"??provider_member_url", "target":"none"}, {"title":"Cookies", "icon":"cookie", "value":"??cookie-state", "href":"??provider_privacy_url", "target":"none"}]}}, {"box":{"enabled":true, "type":"theme_info", "title":"Theme", "links":[{"title":"Name", "icon":"face", "value":"??theme-name", "href":"/pages/public/previewer/theme/", "target":"none"}, {"title":"Author", "icon":"grease-pencil", "value":"??theme-author", "href":"??theme-author-url", "target":"_blank"}, {"title":"Version", "icon":"numeric", "value":"??theme-version", "href":"/pages/public/previewer/theme/", "target":"none"}]}}, {"box":{"enabled":true, "type":"site_info", "title":"Site", "links":[{"title":"About", "icon":"home-outline", "href":"/pages/public/about/site/", "target":"none"}, {"title":"Impress", "icon":"alert-outline", "href":"/pages/public/legal/en/impress/", "target":"none"}, {"title":"Privacy", "icon":"heart", "href":"/pages/public/legal/en/privacy/", "target":"none"}, {"title":"License", "icon":"checkbox-multiple-marked-circle-outline", "href":"/pages/public/legal/en/license_agreement/", "target":"none"}]}}]}}}, {"menu":{"enabled":true, "xhr_container_id":"navigator_toc_mmenu", "xhr_data_path":"/assets/data/mmenu_toc/index.html", "drawer":{"position":"right"}, "content":{"id":"toc_mmenu", "type":"drawer", "title":"Table of Contents", "theme":"dark", "button":"#ssm_toc", "button_activated":"js-toc-content"}}}]});
       var xhr_data_path;
       var menu_id;
       // save config settings into the mmenu object for global access
@@ -123,22 +123,26 @@ j1.adapter['mmenu'] = (function (j1, window) {
           'j1.adapter.mmenu', {
           xhr_container_id: "navigator_nav_mmenu",
           xhr_data_path:    "/assets/data/mmenu/index.html" },
-          'data_loaded'),
+          'null'),
         j1.xhrData (
           'j1.adapter.mmenu', {
           xhr_container_id: "navigator_sidebar_mmenu",
           xhr_data_path:    "/assets/data/mmenu_sidebar/index.html" },
-          'data_loaded'),
+          'null'),
         j1.xhrData (
           'j1.adapter.mmenu', {
           xhr_container_id: "navigator_toc_mmenu",
           xhr_data_path:    "/assets/data/mmenu_toc/index.html" },
-          'data_loaded')
+          'null')
        // ENDFOR menus
       ).done (function (navigator_nav_mmenu, navigator_sidebar_mmenu, navigator_toc_mmenu ) {
         // ---------------------------------------------------------------------
         // Initialize MMenu Navs and Drawers
         // ---------------------------------------------------------------------
+        // Make sure that Load HTML data (AJAX) is finished
+        setTimeout (function() {
+          _this.setState('data_loaded');
+        }, 300);
         var dependencies_met_mmenu_initialized = setInterval (function () {
           if (_this.getState() === 'data_loaded') {
             logger.info('load HTML data (AJAX): finished');
@@ -148,7 +152,14 @@ j1.adapter['mmenu'] = (function (j1, window) {
             j1.adapter.mmenu.mmenuInitializer(mmOptions);
             clearInterval(dependencies_met_mmenu_initialized);
           }
-        }); // END dependencies_met_mmenu_loaded
+        }, 25); // END dependencies_met_mmenu_loaded
+        var dependencies_met_all_menu_loaded = setInterval (function () {
+          if ( $('#menu_mmenu').length && $('#sidebar_mmenu').length && $('#toc_mmenu').length ) {
+            _this.setState('finished');
+            logger.info('status: ' + _this.getState());
+            clearInterval(dependencies_met_all_menu_loaded);
+          }
+        }, 25); // END dependencies_met_all_menu_loaded
       }); // END done
     }, // END dataLoader
     // -------------------------------------------------------------------------
@@ -209,9 +220,10 @@ j1.adapter['mmenu'] = (function (j1, window) {
               });
             });
             clearInterval(dependencies_met_navigator_nav_mmenu_loaded);
+            $('#menu_mmenu').show();
             logger.info('initializing mmenu finished on id: #navigator_nav_mmenu');
           }; // END mmenu_loaded
-        }); // END dependencies_met_mmenu_loaded
+        }, 25); // END dependencies_met_mmenu_loaded
          // ENDIF content_type: NAVIGATION
          // ENDIF content_type: DRAWER
         } // END menus|drawers
@@ -268,8 +280,9 @@ j1.adapter['mmenu'] = (function (j1, window) {
                 });
               });
               clearInterval(dependencies_met_navigator_sidebar_mmenu_loaded);
+              $('#sidebar_mmenu').show();
           }; // END if menu_loaded
-        }); // END dependencies_met_mmenu_loaded
+        }, 25); // END dependencies_met_mmenu_loaded
         logger.info('initializing mmenu finished on id: #navigator_sidebar_mmenu');
          // ENDIF content_type: DRAWER
         } // END menus|drawers
@@ -326,8 +339,9 @@ j1.adapter['mmenu'] = (function (j1, window) {
                 });
               });
               clearInterval(dependencies_met_navigator_toc_mmenu_loaded);
+              $('#toc_mmenu').show();
           }; // END if menu_loaded
-        }); // END dependencies_met_mmenu_loaded
+        }, 25); // END dependencies_met_mmenu_loaded
         logger.info('initializing mmenu finished on id: #navigator_toc_mmenu');
          // ENDIF content_type: DRAWER
         } // END menus|drawers

@@ -17,7 +17,7 @@
  #    MANAGE themeExtensionCss is to be checked
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-06-30 20:47:02 +0200
+ # Adapter generated: 2020-07-02 22:13:52 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -94,7 +94,7 @@ var j1 = (function () {
     'theme_author':         default_theme_author,
     'theme_author_url':     'https://jekyll.one',
     'theme_link':           default_theme_link,
-    'theme_version':        '2020.0.5',
+    'theme_version':        '2020.0.6',
     'cookies_accepted':     'pending',
     'whitelistedPages':     default_white_listed_pages,
     'deleteOnDecline':      false,
@@ -623,7 +623,7 @@ var j1 = (function () {
     // -------------------------------------------------------------------------
     displayPage: function (options) {
       var logger              = log4javascript.getLogger('j1.displayPage');
-      var flickerTimeout      = 250;
+      var flickerTimeout      = 150;
       var url                 = new parseURL(window.location.href)
       var baseUrl             = url.origin;
       var ep_status           = baseUrl + '/status' + '?page=' + window.location.pathname;
@@ -801,7 +801,6 @@ var j1 = (function () {
       //new WOW().init();
       var logText = 'initializing material design finished';
       logger.info(logText);
-      return true;
     }, // END initMDB
     // -------------------------------------------------------------------------
     // Helper functions
@@ -833,55 +832,38 @@ var j1 = (function () {
     // -------------------------------------------------------------------------
     getLanguage: function () {
       var language = navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage);
-      return language;
     }, // END getLanguage
     // -------------------------------------------------------------------------
-    //  returns the template version taken from site config ( _config.yml)
+    //  returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2020.0.5';
+      return '2020.0.6';
     }, // END getTemplateVersion
     // -------------------------------------------------------------------------
-    // Scrolls smooth to any anchor referenced by an page URL
-    // Values for delay|offset are taken from TOC module (Tocbot)
+    // Scrolls smooth to any anchor referenced by an page URL on
+    // e.g. a page reload. Values for delay|offset are taken from
+    // TOCCER module
     // -------------------------------------------------------------------------
     scrollTo: function () {
-      // Unclear why a offset correction is needed (sometimes ???)
-      var offset_correction = 0;
-      var offset            = 90;
-      var anchor_id         = window.location.href.split("#")[1];
+      var anchor    = window.location.href.split("#")[1];
+      var anchor_id = '#' + anchor;
       var selector;
-      var heading;
-      var re;
       if (anchor_id) {
-        selector    = $('.' + anchor_id + ', #' + anchor_id +',[name='+anchor_id+']');
-        heading     = selector[0].nodeName;
         // scroll only, if an anchor is given with URL
+        selector = $(anchor_id);
         if (selector.length) {
-          var delay     = 300;
-          var scroll_to = parseInt( selector.offset().top - offset - offset_correction );
-          //var scroll_to = selector.offset().top;
-          $('html,body').animate({scrollTop: scroll_to}, delay,
-            function () {
-              // scroll the page one pixel back and forth
-              // to get the right position for the NAV Module (Tocbot)
-              $(window).scrollTop($(window).scrollTop()+1);
-              $(window).scrollTop($(window).scrollTop()-1);
+          j1.core.scrollSmooth.scroll( anchor_id, {
+            duration: 300,
+            offset: -90,
+            callback: null
           });
         } else {
-          // TODO: to be checked if this else is needed
-          // scroll the page one pixel back and forth
-          // to get the right position for the NAV Module (Tocbot)
+          // scroll the page one pixel back and forth (trigger)
+          // to get the right position for the Toccer
           $(window).scrollTop($(window).scrollTop()+1);
           $(window).scrollTop($(window).scrollTop()-1);
-        } // selector.length
-      } else {
-        // scroll the page one pixel back and forth
-        // to get the right position for the NAV Module (Tocbot)
-        $(window).scrollTop($(window).scrollTop()+1);
-        $(window).scrollTop($(window).scrollTop()-1);
-      } // END if anchor_id
-      return true;
+        } // END if anchor_id
+      }
     }, // END scrollTo
     // -------------------------------------------------------------------------
     //  authEnabled:

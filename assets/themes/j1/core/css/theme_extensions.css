@@ -260,43 +260,6 @@ img.emoji {
 
 /*
  # -----------------------------------------------------------------------------
- #  ~/theme_uno/helpers/sticky.scss
- #  Provides additional body styles
- #
- #  Product/Info:
- #  https://jekyll.one
- #  https://github.com/wilddeer/stickyfill
- #
- #  Copyright (C) 2020 Juergen Adams
- #  Copyright (C) 2017 Oleg Korsunsky
- #
- #  J1 Template is licensed under the MIT License.
- #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- #  Stickyfill is licensed under the MIT License.
- #  See: https://github.com/wilddeer/stickyfill/blob/master/LICENSE
- #
- # -----------------------------------------------------------------------------
- # TODO:
- # For style sticky, the top offset (top:) should be set by JS dynamically
- #
- # -----------------------------------------------------------------------------
-*/
-/* https://oxygen.wpdemos.net/tocbot/ */
-/* https://github.com/wilddeer/stickyfill */
-@media only screen and (min-width: 993px) {
-  .sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 100px;
-    align-self: flex-start; }
-  /* Clearfix */
-  .sticky:before,
-  .sticky:after {
-    content: '';
-    display: table; } }
-
-/*
- # -----------------------------------------------------------------------------
  #  ~/theme_uno/_components.scss
  #
  #  This is the (SASS) entry point for theme ADDONS
@@ -10129,7 +10092,7 @@ nav.navigator.navbar-full {
     left: 0;
     padding: 0;
     display: none !important;
-    z-index: 9; }
+    z-index: 99; }
     nav.navigator.navbar-full .navbar-collapse.in {
       display: block !important; }
     nav.navigator.navbar-full .navbar-collapse .nav-full {
@@ -10438,9 +10401,6 @@ nav.navbar.navigator {
     transition: all 1s ease-in-out;
     background-color: transparent;
     border-bottom: 0; }
-  nav.navbar.navigator.navbar-transparent .attr-nav {
-    padding-left: 15px;
-    margin-left: 30px; }
   nav.navbar.navigator.navbar-transparent.light {
     background-color: rgba(255, 255, 255, 0.3);
     border-bottom: solid 3px #fafafa; }
@@ -10490,12 +10450,12 @@ nav.navbar.navbar-inverse.navigator.navbar-transparent.dark {
   border-left: solid 1px #555; }
 
 .attr-nav {
-  margin-left: 13px;
+  margin-left: 0;
   margin-right: -20px;
   float: right;
   position: relative;
   display: inline-block;
-  margin-right: 20px; }
+  margin-right: 3.5rem; }
   .attr-nav > ul {
     list-style: none;
     overflow: hidden; }
@@ -10725,7 +10685,7 @@ body {
     nav.navigator.navbar-full ul.nav > li > a {
       border: none; }
   nav.navbar.navigator {
-    background-color: #3f51b5;
+    background-color: #607d8b;
     /*			.dropdown-menu .dropdown-item {
 				padding: .5rem;
 				max-width: unset;
@@ -10750,8 +10710,7 @@ body {
         nav.navbar.navigator .navbar-collapse.collapse.in {
           display: block !important; }
         nav.navbar.navigator .navbar-collapse.collapse.show {
-          display: block !important;
-          background-color: #3f51b5; }
+          display: block !important; }
     nav.navbar.navigator .navbar-nav {
       float: none !important;
       padding-left: 30px;
@@ -10875,7 +10834,7 @@ body {
       display: none !important; }
     nav.navbar.navigator .navbar-toggler {
       color: rgba(255, 255, 255, 0.5) !important;
-      padding: 1rem 1.75rem;
+      padding: 1rem 0.5rem 1rem 0.5rem;
       border: 0;
       border-color: transparent;
       border-radius: 0; }
@@ -10930,11 +10889,11 @@ body {
       nav.navbar.navigator .navbar-default .navbar-nav > li > a:hover {
         color: #2196f3 !important; }
     nav.navbar.navigator.navbar-transparent.light {
-      background-color: #3f51b5;
+      background-color: rgba(0, 0, 0, 0.4) !important;
       border-bottom: 0; }
   .attr-nav {
     position: absolute;
-    right: 120px;
+    right: 2.5rem;
     margin-right: 0;
     overflow: hidden; }
     .attr-nav > ul {
@@ -10996,7 +10955,7 @@ body {
     line-height: 24px !important;
     padding: 5px 10px !important; }
   .attr-nav {
-    right: 5rem; }
+    right: 2.5rem; }
     .attr-nav > ul {
       margin-right: -10px; }
       .attr-nav > ul > li > a {
@@ -11590,7 +11549,7 @@ h4.result-item > a:hover {
 
 /*
  # -----------------------------------------------------------------------------
- #  ~/theme_uno/modules/_toccer.scss
+ #  ~/theme_uno/modules/_toccer.scss (v4.11.2)
  #  Provides base styles for the toc navigation based on Tim Scanlin's Tocbot
  #
  #  Product/Info:
@@ -11600,34 +11559,31 @@ h4.result-item > a:hover {
  #  Copyright (C) 2016 Tim Scanlin
  #  Copyright (C) 2020 Juergen Adams
  #
- #  J1 Template is licensed under the MIT License.
+ #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- #  Tocbot: Licensed under Open Source Iniative MIT.
- #  See: http://opensource.org/licenses/MIT
+ #  Tocbot is licensed under MIT License.
+ #  See: https://github.com/tscanlin/tocbot/blob/master/LICENSE
  #
  # -----------------------------------------------------------------------------
 */
 .toc {
   overflow-y: auto; }
-  .toc ul {
-    overflow: hidden;
-    position: relative;
-    list-style: none;
-    list-style-type: none !important; }
+
+.toc > .toc-list {
+  overflow: hidden;
+  position: relative; }
+
+.toc > .toc-list li {
+  list-style: none; }
 
 .toc-list {
   margin: 0;
   padding-left: 10px; }
 
-.toc-link::before {
-  background-color: #E0E0E0;
-  content: ' ';
-  display: inline-block;
-  height: inherit;
-  left: 0;
-  margin-top: -1px;
-  position: absolute;
-  width: 2px; }
+a.toc-link {
+  color: #757575;
+  height: 100%;
+  font-size: 1rem; }
 
 .is-collapsible {
   max-height: 1000px;
@@ -11641,14 +11597,21 @@ h4.result-item > a:hover {
   position: fixed !important;
   top: 0; }
 
-.j1-sidebar.affix {
-  position: fixed !important; }
+.is-active-link {
+  font-weight: 700; }
 
-a.toc-link {
-  color: #757575;
-  height: 100%;
-  font-size: 1rem;
-  text-decoration: none !important; }
+.toc-link::before {
+  background-color: #E0E0E0;
+  content: ' ';
+  display: inline-block;
+  height: inherit;
+  left: 0;
+  margin-top: -1px;
+  position: absolute;
+  width: 2px; }
+
+.is-active-link::before {
+  background-color: #757575; }
 
 /*
  # -----------------------------------------------------------------------------

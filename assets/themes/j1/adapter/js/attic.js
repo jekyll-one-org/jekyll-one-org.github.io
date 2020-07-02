@@ -16,7 +16,7 @@
  # Backstretch is licensed under the MIT License.
  # For details, see https://github.com/jquery-backstretch/jquery-backstretch
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2020-06-30 20:47:02 +0200
+ #  Adapter generated: 2020-07-02 22:13:52 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -52,7 +52,7 @@ j1.adapter['attic'] = (function (j1, window) {
           // clear interval checking
           clearInterval(dependencies_met_attic_adapter);
         }
-      }, 50); // END 'dataLoaded'
+      }, 25); // END 'dataLoaded'
       return true;
     }, // END init
     // -------------------------------------------------------------------------
@@ -704,15 +704,16 @@ j1.adapter['attic'] = (function (j1, window) {
     // Set the current (processing) state of the module
     // -------------------------------------------------------------------------
     setState: function (stat) {
-      j1.adapter.scroller.state = stat;
+      j1.adapter.attic.state = stat;
     }, // END setState
     // -------------------------------------------------------------------------
     // getState
     // Returns the current (processing) state of the module
     // -------------------------------------------------------------------------
     getState: function () {
-      return j1.adapter.scroller.state;
+      return j1.adapter.attic.state;
     } // END state
   }; // END return
 })(j1, window);
+
 

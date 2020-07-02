@@ -20,7 +20,7 @@
  #  Setup of theme selectors (ThemeList|ThemeSelect) moved
  #  to j1_adapter_navigator.js
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-06-30 20:41:02 +0200
+ # Adapter generated: 2020-07-02 22:12:58 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -50,7 +50,7 @@ j1.adapter['themer'] = (function (j1, window) {
   var themeExtensionCssHtml;
   var logger;
   var logText;
-  var default_theme_css           = environment === 'production' ? '/assets/themes/j1/core/css/uno.min.css' : '/assets/themes/j1/core/css/uno.css';
+  var default_theme_css           = (environment == 'production') ? '/assets/themes/j1/core/css/uno.min.css' : '/assets/themes/j1/core/css/uno.css';
   var default_theme_extention_css = '/assets/themes/j1/core/css/theme_extensions.css';
   var default_theme_name          = 'Uno';
   var default_theme_author        = 'J1 Team';

@@ -18,7 +18,7 @@
  # NOTE: For getStyleValue helper see
  #  https://stackoverflow.com/questions/16965515/how-to-get-a-style-attribute-from-a-css-class-by-javascript-jquery
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-06-30 20:47:02 +0200
+ # Adapter generated: 2020-07-02 22:13:52 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -68,7 +68,7 @@ j1.adapter['navigator'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.navigator',
-        generated:   '2020-06-30 20:47:02 +0200'
+        generated:   '2020-07-02 22:13:52 +0200'
       }, options);
       _this         = j1.adapter.navigator;
       logger        = log4javascript.getLogger('j1.adapter.navigator');
@@ -88,7 +88,7 @@ j1.adapter['navigator'] = (function (j1, window) {
       var navTopsearchOptions                       = {};
       var navAuthClientOptions                      = {};
       var navAuthMAnagerConfig                      = {};
-      navDefaults                                   = $.extend({}, {"icon_family":"MDI", "nav_bar":{"enabled":false, "xhr_container_id":"navigator_nav_navbar", "media_breakpoint":"lg", "brand_position":"right", "brand_type":"image", "brand_type_collapsed":"text", "fixed":true, "style":"overlay", "color":"light", "position":"left", "bottom_line_height":1, "bottom_line_color":"md_grey_200", "background_color_full":"rgba_darken_400", "background_color_collapsed":"bg-primary", "background_color_scrolled":"bg-primary"}, "nav_mmenu":{"enabled":false, "mmenu_plugin":{"node":"null", "mediaQuery":"all", "max_width":100000}, "mmenu_navigator":{"selected":"Selected", "slidingSubmenus":true, "title":"Preview", "theme":"dark"}, "mmenu_drawer":{"position":"right"}}, "nav_menu":{"enabled":false, "xhr_container_id":"navigator_nav_menu", "xhr_data_path":"/assets/data/menu/index.html", "raised_level":15, "delay_menu_open":200, "max_height":550, "menu_font_size":"larger", "megamenu_font_size":"large", "icon_family":"MDI", "icon_style":"mdi", "icon_color":"#9E9E9E", "icon_size":"mdi-18px", "menu_item_color":"rgba_lighten", "menu_item_color_hover":"rgba_lighten_900", "dropdown_style":"raised", "dropdown_item_style":"flat", "dropdown_animate":false, "dropdown_animate_in":"slideInDown", "dropdown_animate_out":"fadeOutDown", "dropdown_animate_duration":0.75, "dropdown_item_width":15, "dropdown_menu_height_max":25, "dropdown_font_size":"small", "dropdown_padding_x":15, "dropdown_padding_y":10, "dropdown_item_color":"md_grey_900", "dropdown_border_color":"#3f51b5", "dropdown_border_top":3, "dropdown_border_radius":0, "dropdown_background_color_hover":"md_bluegrey_50", "dropdown_background_color_active":"md_bluegrey_100"}, "nav_quicklinks":{"enabled":false, "xhr_container_id":"navigator_nav_quicklinks", "xhr_data_path":"/assets/data/quicklinks/index.html", "icon_family":"MDI", "icon_color":"rgba_lighten", "icon_color_hover":"rgba_lighten_900", "icon_size":"larger", "cookies_icon":"cookie", "top_search_icon":"magnify", "translator_icon":"flag-variant", "toc_icon":"wrap", "home_icon":"home-variant", "home_url":"none", "r_text_sizer":false, "r_text_icon":"format-text", "back_icon":"subdirectory-arrow-left", "back_url":"none", "disqus_icon":"disqus", "disqus_url":"none", "github_icon":"github-circle", "github_url":"none", "patreon_icon":"patreon", "patreon_url":"none", "facebook_icon":"facebook", "facebook_url":"none", "twitter_icon":"twitter", "twitter_url":"none"}, "nav_topsearch":{"enabled":false, "xhr_container_id":"navigator_nav_topsearch", "type":"quicksearch", "icon_family":"MDI", "icon_color":"md_white", "icon_size":"xxxlarge", "search_icon":"magnify", "close_icon":"close", "input_color":"md_grey_900", "background_color":"md_grey_400", "placeholder":"QuickSearch", "search_heading_lead":"", "result_heading_lead":""}});
+      navDefaults                                   = $.extend({}, {"icon_family":"MDI", "nav_bar":{"enabled":false, "xhr_container_id":"navigator_nav_navbar", "media_breakpoint":"lg", "brand_position":"right", "brand_type":"image", "brand_type_collapsed":"text", "fixed":true, "style":"overlay", "color":"light", "position":"left", "bottom_line_height":1, "bottom_line_color":"md_grey_200", "background_color_full":"rgba_darken_400", "background_color_collapsed":"bg-primary", "background_color_scrolled":"bg-primary"}, "nav_mmenu":{"enabled":false, "mmenu_plugin":{"node":"null", "mediaQuery":"all", "max_width":100000}, "mmenu_navigator":{"selected":"Selected", "slidingSubmenus":true, "title":"Starter Web", "theme":"dark"}, "mmenu_drawer":{"position":"right"}}, "nav_menu":{"enabled":false, "xhr_container_id":"navigator_nav_menu", "xhr_data_path":"/assets/data/menu/index.html", "raised_level":15, "delay_menu_open":200, "max_height":550, "menu_font_size":"larger", "megamenu_font_size":"large", "icon_family":"MDI", "icon_style":"mdi", "icon_color":"#9E9E9E", "icon_size":"mdi-18px", "menu_item_color":"rgba_lighten", "menu_item_color_hover":"rgba_lighten_900", "dropdown_style":"raised", "dropdown_item_style":"flat", "dropdown_animate":false, "dropdown_animate_in":"slideInDown", "dropdown_animate_out":"fadeOutDown", "dropdown_animate_duration":0.75, "dropdown_item_width":15, "dropdown_menu_height_max":25, "dropdown_font_size":"small", "dropdown_padding_x":15, "dropdown_padding_y":10, "dropdown_item_color":"md_grey_900", "dropdown_border_color":"#3f51b5", "dropdown_border_top":3, "dropdown_border_radius":0, "dropdown_background_color_hover":"md_bluegrey_50", "dropdown_background_color_active":"md_bluegrey_100"}, "nav_quicklinks":{"enabled":false, "xhr_container_id":"navigator_nav_quicklinks", "xhr_data_path":"/assets/data/quicklinks/index.html", "icon_family":"MDI", "icon_color":"rgba_lighten", "icon_color_hover":"rgba_lighten_900", "icon_size":"larger", "cookies_icon":"cookie", "top_search_icon":"magnify", "translator_icon":"flag-variant", "toc_icon":"wrap", "home_icon":"home-variant", "home_url":"none", "r_text_sizer":false, "r_text_icon":"format-text", "back_icon":"subdirectory-arrow-left", "back_url":"none", "disqus_icon":"disqus", "disqus_url":"none", "github_icon":"github-circle", "github_url":"none", "patreon_icon":"patreon", "patreon_url":"none", "facebook_icon":"facebook", "facebook_url":"none", "twitter_icon":"twitter", "twitter_url":"none"}, "nav_topsearch":{"enabled":false, "xhr_container_id":"navigator_nav_topsearch", "type":"quicksearch", "icon_family":"MDI", "icon_color":"md_white", "icon_size":"xxxlarge", "search_icon":"magnify", "close_icon":"close", "input_color":"md_grey_900", "background_color":"md_grey_400", "placeholder":"QuickSearch", "search_heading_lead":"", "result_heading_lead":""}});
       navBarConfig                                  = $.extend({}, {"enabled":true, "xhr_container_id":"navigator_nav_navbar", "media_breakpoint":"lg", "brand_position":"right", "brand_type":"image", "brand_type_collapsed":"text", "fixed":true, "style":"overlay", "color":"light", "position":"left", "bottom_line_height":1, "bottom_line_color":"md_grey_200", "background_color_full":"rgba_darken_400", "background_color_collapsed":"bg-primary", "background_color_scrolled":"bg-primary"});
       navMenuConfig                                 = $.extend({}, {"enabled":true, "xhr_container_id":"navigator_nav_menu", "xhr_data_path":"/assets/data/menu/index.html", "raised_level":15, "delay_menu_open":200, "max_height":550, "menu_font_size":"larger", "megamenu_font_size":"large", "icon_family":"MDI", "icon_style":"mdi", "icon_color":"#9E9E9E", "icon_size":"mdi-18px", "menu_item_color":"rgba_lighten", "menu_item_color_hover":"rgba_lighten_900", "dropdown_style":"raised", "dropdown_item_style":"flat", "dropdown_animate":false, "dropdown_animate_in":"slideInDown", "dropdown_animate_out":"fadeOutDown", "dropdown_animate_duration":0.75, "dropdown_item_width":15, "dropdown_menu_height_max":25, "dropdown_font_size":"small", "dropdown_padding_x":15, "dropdown_padding_y":10, "dropdown_item_color":"md_grey_900", "dropdown_border_color":"#3f51b5", "dropdown_border_top":3, "dropdown_border_radius":0, "dropdown_background_color_hover":"md_bluegrey_50", "dropdown_background_color_active":"md_bluegrey_100", "delay_open_menu":250});
       navQuicklinksConfig                           = $.extend({}, {"enabled":true, "xhr_container_id":"navigator_nav_quicklinks", "xhr_data_path":"/assets/data/quicklinks/index.html", "icon_family":"MDI", "icon_color":"rgba_lighten", "icon_color_hover":"rgba_lighten_900", "icon_size":"larger", "cookies_icon":"cookie", "top_search_icon":"magnify", "translator_icon":"flag-variant", "toc_icon":"wrap", "home_icon":"home-variant", "home_url":"https://jekyll-one-org.github.io/", "r_text_sizer":false, "r_text_icon":"format-text", "back_icon":"subdirectory-arrow-left", "back_url":"https://preview.jekyll.one/", "disqus_icon":"disqus", "disqus_url":"none", "github_icon":"github-circle", "github_url":"https://github.com/jekyll-one", "patreon_icon":"patreon", "patreon_url":"none", "facebook_icon":"facebook", "facebook_url":"none", "twitter_icon":"twitter", "twitter_url":"none"});
@@ -118,6 +118,18 @@ j1.adapter['navigator'] = (function (j1, window) {
       logger.info('state: ' + _this.getState());
       logger.info('module is being initialized');
       // -----------------------------------------------------------------------
+      // Load HTML data (AJAX)
+      // -----------------------------------------------------------------------
+      // jadams, 202-06-24: Promise (chain) if $.when seems NOT to work correctly.
+      // It semms a chain using .then will be a better solution to make it sure
+      // that the last Deferred set the state to 'data_loaded'.
+      // Found the final state randomly set to 'null' what prevent the module
+      // to run mmenuInitializer.
+      // Workaround: Set 'data_loaded' to be returned by all Deferred in
+      // the chain.
+      // See: https://stackoverflow.com/questions/5436327/jquery-deferreds-and-promises-then-vs-done
+      //
+      // -----------------------------------------------------------------------
       // data loader
       // -----------------------------------------------------------------------
       logger.info('run deferred data load');
@@ -141,6 +153,10 @@ j1.adapter['navigator'] = (function (j1, window) {
         // ---------------------------------------------------------------------
         // core initializer
         // ---------------------------------------------------------------------
+        // Make sure that Load HTML data (AJAX) is finished
+        // setTimeout (function() {
+        //   _this.setState('data_loaded');
+        // }, 150);
         var dependencies_met_navigator_core = setInterval (function () {
           if (_this.getState() === 'data_loaded') {
             _this.setState('processing');
@@ -387,12 +403,12 @@ j1.adapter['navigator'] = (function (j1, window) {
 //    $('head').append("<style>@media (min-width: " +gridBreakpoint_lg+ ") { nav.navbar.navigator.navbar-scrolled.light { background-color: " +navBarOptions.background_color_scrolled+ " !important; } }</style>");
       $('head').append("<style>@media (min-width: " +gridBreakpoint_lg+ ") { nav.navbar.navigator.navbar-scrolled.light { background-color: " +bg_scrolled+ " !important; } }</style>");
       // Menubar collapsed (mobile)
-      $('head').append('<style>.navbar-collapse.collapse.show { background-color: ' +bg_scrolled+ ' !important; }</style>');
+//    $('head').append('<style>.navbar-collapse.collapse.show { background-color: ' +bg_scrolled+ ' !important; }</style>');
       /* Navbar media-queries, LARGE Window|Desktop (>= 1024) */
       /* jadams:  Oversized menu bar fixed by: overflow: hidden */
 //    $('head').append("<style>@media (max-width: " +gridBreakpoint_lg+ ") { nav.navbar.navigator { background-color: " +navBarOptions.background_color_collapsed+ " !important; overflow: hidden; } }</style>");
-      $('head').append("<style>@media (max-width: " +gridBreakpoint_lg+ ") { nav.navbar.navigator { background-color: " +bg_collapsed+ " !important; overflow: hidden; } }</style>");
-      //$('head').append("<style>@media (max-width: 1023px) { row { margin-left: 0 !important; margin-right: 0 !important; } }</style>");
+//    $('head').append("<style>@media (max-width: " +gridBreakpoint_lg+ ") { nav.navbar.navigator { background-color: " +bg_collapsed+ " !important; overflow: hidden; } }</style>");
+//    $('head').append("<style>@media (max-width: 1023px) { row { margin-left: 0 !important; margin-right: 0 !important; } }</style>");
       $('head').append("<style>.attr-nav> ul > li > a { color: " +navQuicklinksOptions.icon_color+ " !important; }</style>");
       $('head').append("<style>.attr-nav> ul > li > a:hover { color: " +navQuicklinksOptions.icon_color_hover+ " !important; }</style>");
       // TODO: Check if this style is needed for  MENU item (hover)

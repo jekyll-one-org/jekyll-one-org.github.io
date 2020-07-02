@@ -12,7 +12,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-06-30 20:47:02 +0200
+ # Adapter generated: 2020-07-02 22:13:52 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -52,7 +52,7 @@ j1.adapter['ssm'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.ssm',
-        generated:   '2020-06-30 20:47:02 +0200'
+        generated:   '2020-07-02 22:13:52 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // globals
@@ -65,7 +65,7 @@ j1.adapter['ssm'] = (function (j1, window) {
       // options loader
       // -----------------------------------------------------------------------
       var ssmMenuOptions = $.extend({}, );
-      var ssmOptions = $.extend({}, {"enabled":true, "xhr_container_id":"ssm-container", "xhr_data_path":"/assets/data/ssm/index.html", "icon_family":"MDI", "icon_color":"mdi-md-grey", "icon_size":"mdi-2x", "min_width":200, "margin":-150, "mode":"icon", "items":[{"item":"Table of Contents", "enabled":true, "id":"ssm_toc", "href":null, "target":null, "event_handler":"open_mmenu", "icon":"wrap", "icon_classes":null}, {"item":"To Top", "enabled":true, "id":"ssm_scroll_to_top", "event_handler":"scroll_to_top", "href":null, "target":null, "icon":"step-backward-2", "icon_classes":"mdi-rotate-90"}, {"item":"Previous Section", "enabled":true, "id":"ssm_previous_section", "event_handler":"scroll_previous_section", "href":null, "target":null, "icon":"step-backward", "icon_classes":"mdi-rotate-90"}, {"item":"Next Section", "enabled":true, "id":"ssm_next_section", "event_handler":"scroll_next_section", "href":null, "target":null, "icon":"step-forward", "icon_classes":"mdi-rotate-90"}, {"item":"To Bottom", "enabled":true, "id":"ssm_scroll_to_bottom", "event_handler":"scroll_to_bottom", "href":null, "target":null, "icon":"step-forward-2", "icon_classes":"mdi-rotate-90"}, {"item":"Leave a Comment", "enabled":false, "id":"ssm_scroll_to_comments", "event_handler":"scroll_to_comments", "href":null, "target":null, "icon":"comment", "icon_classes":null}, {"item":"Tester", "enabled":false, "id":"ssm_test", "href":null, "target":null, "event_handler":"alert_me", "icon":"alert", "icon_classes":null}, {"item":"Social Share", "enabled":false, "icon":"menu", "icon_classes":null, "sublevel":[{"title":"Facebook", "enabled":true, "id":"ssm_facebook", "href":"https://www.facebook.com/sharer/sharer.php?u=http://demo.enigmaweb.com.au/", "target":null, "event_handler":"window.open(this.href, 'facebook', 'left=60,top=40,width=500,height=500,toolbar=1,resizable=0'); return false;", "icon":"facebook", "icon_classes":null}, {"title":"Twitter", "enabled":true, "id":"ssm_twitter", "href":"https://twitter.com/home?status=http://demo.enigmaweb.com.au/", "target":null, "event_handler":"window.open(this.href, 'twitter', 'left=60,top=40,width=500,height=500,toolbar=1,resizable=0'); return false;", "icon":"twitter", "icon_classes":null}]}]});
+      var ssmOptions = $.extend({}, {"enabled":true, "xhr_container_id":"ssm-container", "xhr_data_path":"/assets/data/ssm/index.html", "icon_family":"MDI", "icon_color":"mdi-md-grey", "icon_size":"mdi-2x", "min_width":200, "margin":-140, "mode":"icon", "items":[{"item":"Table of Contents", "enabled":true, "id":"ssm_toc", "href":null, "target":null, "event_handler":"open_mmenu", "icon":"wrap", "icon_classes":null}, {"item":"To Top", "enabled":true, "id":"ssm_scroll_to_top", "event_handler":"scroll_to_top", "href":null, "target":null, "icon":"step-backward-2", "icon_classes":"mdi-rotate-90"}, {"item":"Previous Section", "enabled":true, "id":"ssm_previous_section", "event_handler":"scroll_previous_section", "href":null, "target":null, "icon":"step-backward", "icon_classes":"mdi-rotate-90"}, {"item":"Next Section", "enabled":true, "id":"ssm_next_section", "event_handler":"scroll_next_section", "href":null, "target":null, "icon":"step-forward", "icon_classes":"mdi-rotate-90"}, {"item":"To Bottom", "enabled":true, "id":"ssm_scroll_to_bottom", "event_handler":"scroll_to_bottom", "href":null, "target":null, "icon":"step-forward-2", "icon_classes":"mdi-rotate-90"}, {"item":"Leave a Comment", "enabled":false, "id":"ssm_scroll_to_comments", "event_handler":"scroll_to_comments", "href":null, "target":null, "icon":"comment", "icon_classes":null}, {"item":"Tester", "enabled":false, "id":"ssm_test", "href":null, "target":null, "event_handler":"alert_me", "icon":"alert", "icon_classes":null}, {"item":"Social Share", "enabled":false, "icon":"menu", "icon_classes":null, "sublevel":[{"title":"Facebook", "enabled":true, "id":"ssm_facebook", "href":"https://www.facebook.com/sharer/sharer.php?u=http://demo.enigmaweb.com.au/", "target":null, "event_handler":"window.open(this.href, 'facebook', 'left=60,top=40,width=500,height=500,toolbar=1,resizable=0'); return false;", "icon":"facebook", "icon_classes":null}, {"title":"Twitter", "enabled":true, "id":"ssm_twitter", "href":"https://twitter.com/home?status=http://demo.enigmaweb.com.au/", "target":null, "event_handler":"window.open(this.href, 'twitter', 'left=60,top=40,width=500,height=500,toolbar=1,resizable=0'); return false;", "icon":"twitter", "icon_classes":null}]}]});
       var xhr_data_path;
       var menu_id;
       // Load (individual) frontmatter options (currently NOT used)
@@ -97,8 +97,9 @@ j1.adapter['ssm'] = (function (j1, window) {
         if (interval_count > max_count) {
           logger.warn('dependency check failed for module: navigator');
           logger.warn('dependencies of module navigator met after: ' + interval_count * 25 + ' ms');
+          j1.core.ssm.init (moduleOptions);
+          _this.ssmLoader(moduleOptions);
           clearInterval(dependencies_met_navigator);
-          //j1.adapter.ssm.ssmLoader(ssmMenuOptions);
         }
       }, 25);
     }, // END init
@@ -123,7 +124,8 @@ j1.adapter['ssm'] = (function (j1, window) {
         // ---------------------------------------------------------------------
         var dependencies_met_mmenu_initialized = setInterval (function () {
           if (ssm) {
-            if (j1.getState() === 'finished') {
+           if (j1.getState() === 'finished') {
+//         if ( j1.adapter.navigator.getState() == 'finished' ) {
               logger.info('load HTML data (AJAX): finished');
               _this.setState('processing');
               logger.info('status: ' + _this.getState());
@@ -138,7 +140,7 @@ j1.adapter['ssm'] = (function (j1, window) {
           } else {
             logger.error('initialize ssm failed, HTML data NOT loaded');
           }
-        }); // END dependencies_met_mmenu_loaded
+        }, 25); // END dependencies_met_mmenu_loaded
       }); // END done
     }, // END dataLoader
     // -------------------------------------------------------------------------

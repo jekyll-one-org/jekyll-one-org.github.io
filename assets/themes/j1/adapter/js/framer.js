@@ -17,7 +17,7 @@
  #  For details, see http://davidjbradshaw.github.io/iframe-resizer/
  #
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2020-06-30 20:41:02 +0200
+ #  Adapter generated: 2020-07-02 22:12:58 +0200
  # -----------------------------------------------------------------------------
  */
 'use strict';
@@ -45,7 +45,7 @@ j1.adapter['framer'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.example',
-        generated:   '2020-06-30 20:41:02 +0200'
+        generated:   '2020-07-02 22:12:58 +0200'
       }, options);
       // Load  module DEFAULTS|CONFIG
       //
@@ -111,15 +111,16 @@ j1.adapter['framer'] = (function (j1, window) {
     // Set the current (processing) state of the module
     // -------------------------------------------------------------------------
     setState: function (stat) {
-      j1.adapter.scroller.state = stat;
+      j1.adapter.framer.state = stat;
     }, // END setState
     // -------------------------------------------------------------------------
     // getState
     // Returns the current (processing) state of the module
     // -------------------------------------------------------------------------
     getState: function () {
-      return j1.adapter.scroller.state;
+      return j1.adapter.framer.state;
     } // END state
   }; // END return
 })(j1, window);
+
 
