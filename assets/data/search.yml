@@ -7,8 +7,8 @@
     "tags":         "Example,Post",
     "index":         "",
     "categories":   "posts,public,featured",
-    "date":         "2020-07-02 21:41:15 +0200",
-    "url":          "/posts/public/featured/2020/07/02/welcome-to-J1-Template/",
+    "date":         "2020-07-05 16:33:56 +0200",
+    "url":          "/posts/public/featured/2020/07/05/welcome-to-J1-Template/",
     "target":       "",
     "excerpt":      "If you’re not familiar with Jekyll (or other site generators), Jekyll is a so-called static site generator. Think of it like a CMS but without all the complexity and headache. No need to build a giant content strangling Rube Goldberg machine to manage content. All you’re doing at the end..."
   },
@@ -140,22 +140,22 @@
     "excerpt":      "Introduction Videos - Learn the basics"
   },
   {
-    "title":        "Impressum",
-    "tagline":      "Angaben gemäß § 5 TMG",
-    "tags":         "Impressum",
-    "index":        "",
-    "categories":   "pages",
-    "url":          "/pages/public/legal/de/impress/",
-    "target":       "",
-    "excerpt":      "Impressum"
-  },
-  {
     "title":        "Impress",
     "tagline":      "Entries referred to § 5 TMG",
     "tags":         "Impressum",
     "index":        "",
     "categories":   "pages",
     "url":          "/pages/public/legal/en/impress/",
+    "target":       "",
+    "excerpt":      "Impressum"
+  },
+  {
+    "title":        "Impressum",
+    "tagline":      "Angaben gemäß § 5 TMG",
+    "tags":         "Impressum",
+    "index":        "",
+    "categories":   "pages",
+    "url":          "/pages/public/legal/de/impress/",
     "target":       "",
     "excerpt":      "Impressum"
   },
@@ -200,16 +200,6 @@
     "excerpt":      "Modern static website in a day"
   },
   {
-    "title":        "Terms of Use",
-    "tagline":      "Terms of Use for Software and Content",
-    "tags":         "Terms, Use, Software, Content",
-    "index":        "",
-    "categories":   "pages",
-    "url":          "/pages/public/legal/en/terms_of_use/",
-    "target":       "",
-    "excerpt":      "Terms of Use for Software and Content"
-  },
-  {
     "title":        "Nutzungsbedingungen",
     "tagline":      "Copyright für Software und Inhalte",
     "tags":         "Nutzungsbedingungen, Copyright",
@@ -218,6 +208,16 @@
     "url":          "/pages/public/legal/de/terms_of_use/",
     "target":       "",
     "excerpt":      "Copyright für Software und Inhalte"
+  },
+  {
+    "title":        "Terms of Use",
+    "tagline":      "Terms of Use for Software and Content",
+    "tags":         "Terms, Use, Software, Content",
+    "index":        "",
+    "categories":   "pages",
+    "url":          "/pages/public/legal/en/terms_of_use/",
+    "target":       "",
+    "excerpt":      "Terms of Use for Software and Content"
   },
   {
     "title":        "Roundtrip",
@@ -270,16 +270,6 @@
     "excerpt":      "Asciidoc Extensions (asciidoctor)"
   },
   {
-    "title":        "License",
-    "tagline":      "Software and their licenses used by this website",
-    "tags":         "License, Agreement",
-    "index":        "",
-    "categories":   "pages",
-    "url":          "/pages/public/legal/en/license_agreement/",
-    "target":       "",
-    "excerpt":      "License Agreement"
-  },
-  {
     "title":        "Lizensierung",
     "tagline":      "Lizenzvereinbarungen",
     "tags":         "Lizenzvereinbarungen, Lizenz",
@@ -288,6 +278,16 @@
     "url":          "/pages/public/legal/de/license_agreement/",
     "target":       "",
     "excerpt":      "Lizenzvereinbarungen"
+  },
+  {
+    "title":        "License",
+    "tagline":      "Software and their licenses used by this website",
+    "tags":         "License, Agreement",
+    "index":        "",
+    "categories":   "pages",
+    "url":          "/pages/public/legal/en/license_agreement/",
+    "target":       "",
+    "excerpt":      "License Agreement"
   },
   {
     "title":        "Roundtrip",
@@ -340,8 +340,8 @@
     "excerpt":      "J1 Template Roundtrip - Template Themes"
   },
   {
-    "title":        "Abouttt",
-    "tagline":      "J1 Template",
+    "title":        "J1 Template",
+    "tagline":      "about",
     "tags":         "About",
     "index":        "",
     "categories":   "pages",
@@ -350,8 +350,8 @@
     "excerpt":      "Things you should know about this site"
   },
   {
-    "title":        "Become a patron",
-    "tagline":      "help us to create premium content",
+    "title":        "J1 Template",
+    "tagline":      "become a patron",
     "tags":         "business",
     "index":        "Patron, Premium, Content",
     "categories":   "pages",
@@ -388,16 +388,6 @@
     "url":          "/pages/public/iframer/",
     "target":       "",
     "excerpt":      "Test page for J1 module framer"
-  },
-  {
-    "title":        "Control Center",
-    "tagline":      "site management",
-    "tags":         "App, Control Center",
-    "index":        "Control, Center, Netlify, CMS",
-    "categories":   "apps",
-    "url":          "/apps/public/cc/",
-    "target":       "",
-    "excerpt":      "A CMS environment based on Netlify CMS"
   },
   {
     "title":        "Gallery Previewer",

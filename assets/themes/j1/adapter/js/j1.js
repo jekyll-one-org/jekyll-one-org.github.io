@@ -17,7 +17,7 @@
  #    MANAGE themeExtensionCss is to be checked
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-07-02 22:13:52 +0200
+ # Adapter generated: 2020-07-05 17:03:52 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -94,7 +94,7 @@ var j1 = (function () {
     'theme_author':         default_theme_author,
     'theme_author_url':     'https://jekyll.one',
     'theme_link':           default_theme_link,
-    'theme_version':        '2020.0.6',
+    'theme_version':        '2020.0.9',
     'cookies_accepted':     'pending',
     'whitelistedPages':     default_white_listed_pages,
     'deleteOnDecline':      false,
@@ -837,7 +837,7 @@ var j1 = (function () {
     //  returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2020.0.6';
+      return '2020.0.9';
     }, // END getTemplateVersion
     // -------------------------------------------------------------------------
     // Scrolls smooth to any anchor referenced by an page URL on
@@ -848,18 +848,20 @@ var j1 = (function () {
       var anchor    = window.location.href.split("#")[1];
       var anchor_id = '#' + anchor;
       var selector;
-      if (anchor_id) {
+      if (anchor && anchor_id) {
         // scroll only, if an anchor is given with URL
         selector = $(anchor_id);
         if (selector.length) {
           j1.core.scrollSmooth.scroll( anchor_id, {
             duration: 300,
-            offset: -90,
+            offset: -80,
             callback: null
           });
         } else {
           // scroll the page one pixel back and forth (trigger)
-          // to get the right position for the Toccer
+          // to get the right position for the Toccer and adjust the
+          // Navigator to display the (tranparent) navbar correctly
+          //
           $(window).scrollTop($(window).scrollTop()+1);
           $(window).scrollTop($(window).scrollTop()-1);
         } // END if anchor_id

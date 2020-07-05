@@ -12,7 +12,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-07-02 22:13:52 +0200
+ # Adapter generated: 2020-07-05 17:03:52 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -52,7 +52,7 @@ j1.adapter['ssm'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.ssm',
-        generated:   '2020-07-02 22:13:52 +0200'
+        generated:   '2020-07-05 17:03:52 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // globals
@@ -65,7 +65,7 @@ j1.adapter['ssm'] = (function (j1, window) {
       // options loader
       // -----------------------------------------------------------------------
       var ssmMenuOptions = $.extend({}, );
-      var ssmOptions = $.extend({}, {"enabled":true, "xhr_container_id":"ssm-container", "xhr_data_path":"/assets/data/ssm/index.html", "icon_family":"MDI", "icon_color":"mdi-md-grey", "icon_size":"mdi-2x", "min_width":200, "margin":-140, "mode":"icon", "items":[{"item":"Table of Contents", "enabled":true, "id":"ssm_toc", "href":null, "target":null, "event_handler":"open_mmenu", "icon":"wrap", "icon_classes":null}, {"item":"To Top", "enabled":true, "id":"ssm_scroll_to_top", "event_handler":"scroll_to_top", "href":null, "target":null, "icon":"step-backward-2", "icon_classes":"mdi-rotate-90"}, {"item":"Previous Section", "enabled":true, "id":"ssm_previous_section", "event_handler":"scroll_previous_section", "href":null, "target":null, "icon":"step-backward", "icon_classes":"mdi-rotate-90"}, {"item":"Next Section", "enabled":true, "id":"ssm_next_section", "event_handler":"scroll_next_section", "href":null, "target":null, "icon":"step-forward", "icon_classes":"mdi-rotate-90"}, {"item":"To Bottom", "enabled":true, "id":"ssm_scroll_to_bottom", "event_handler":"scroll_to_bottom", "href":null, "target":null, "icon":"step-forward-2", "icon_classes":"mdi-rotate-90"}, {"item":"Leave a Comment", "enabled":false, "id":"ssm_scroll_to_comments", "event_handler":"scroll_to_comments", "href":null, "target":null, "icon":"comment", "icon_classes":null}, {"item":"Tester", "enabled":false, "id":"ssm_test", "href":null, "target":null, "event_handler":"alert_me", "icon":"alert", "icon_classes":null}, {"item":"Social Share", "enabled":false, "icon":"menu", "icon_classes":null, "sublevel":[{"title":"Facebook", "enabled":true, "id":"ssm_facebook", "href":"https://www.facebook.com/sharer/sharer.php?u=http://demo.enigmaweb.com.au/", "target":null, "event_handler":"window.open(this.href, 'facebook', 'left=60,top=40,width=500,height=500,toolbar=1,resizable=0'); return false;", "icon":"facebook", "icon_classes":null}, {"title":"Twitter", "enabled":true, "id":"ssm_twitter", "href":"https://twitter.com/home?status=http://demo.enigmaweb.com.au/", "target":null, "event_handler":"window.open(this.href, 'twitter', 'left=60,top=40,width=500,height=500,toolbar=1,resizable=0'); return false;", "icon":"twitter", "icon_classes":null}]}]});
+      var ssmOptions = $.extend({}, {"enabled":true, "xhr_container_id":"ssm-container", "xhr_data_path":"/assets/data/ssm/index.html", "menu_id":"ssm_menu", "icon_family":"MDI", "icon_color":"mdi-md-grey", "icon_size":"mdi-2x", "min_width":200, "margin":-140, "mode":"icon", "items":[{"item":"Reload Page", "enabled":true, "id":"ssm_reload_page", "href":null, "target":null, "event_handler":"reload_page", "icon":"reload", "icon_classes":null}, {"item":"Table of Contents", "enabled":true, "id":"ssm_toc", "href":null, "target":null, "event_handler":"open_ssm_toc", "icon":"wrap", "icon_classes":null}, {"item":"To Top", "enabled":true, "id":"ssm_scroll_to_top", "event_handler":"scroll_to_top", "href":null, "target":null, "icon":"step-backward-2", "icon_classes":"mdi-rotate-90"}, {"item":"Previous Section", "enabled":true, "id":"ssm_previous_section", "event_handler":"scroll_previous_section", "href":null, "target":null, "icon":"step-backward", "icon_classes":"mdi-rotate-90"}, {"item":"Next Section", "enabled":true, "id":"ssm_next_section", "event_handler":"scroll_next_section", "href":null, "target":null, "icon":"step-forward", "icon_classes":"mdi-rotate-90"}, {"item":"To Bottom", "enabled":true, "id":"ssm_scroll_to_bottom", "event_handler":"scroll_to_bottom", "href":null, "target":null, "icon":"step-forward-2", "icon_classes":"mdi-rotate-90"}, {"item":"Leave a Comment", "enabled":false, "id":"ssm_scroll_to_comments", "event_handler":"scroll_to_comments", "href":null, "target":null, "icon":"comment", "icon_classes":null}, {"item":"Tester", "enabled":false, "id":"ssm_test", "href":null, "target":null, "event_handler":"alert_me", "icon":"alert", "icon_classes":null}, {"item":"Social Share", "enabled":false, "icon":"menu", "icon_classes":null, "sublevel":[{"title":"Facebook", "enabled":true, "id":"ssm_facebook", "href":"https://www.facebook.com/sharer/sharer.php?u=http://demo.enigmaweb.com.au/", "target":null, "event_handler":"window.open(this.href, 'facebook', 'left=60,top=40,width=500,height=500,toolbar=1,resizable=0'); return false;", "icon":"facebook", "icon_classes":null}, {"title":"Twitter", "enabled":true, "id":"ssm_twitter", "href":"https://twitter.com/home?status=http://demo.enigmaweb.com.au/", "target":null, "event_handler":"window.open(this.href, 'twitter', 'left=60,top=40,width=500,height=500,toolbar=1,resizable=0'); return false;", "icon":"twitter", "icon_classes":null}]}]});
       var xhr_data_path;
       var menu_id;
       // Load (individual) frontmatter options (currently NOT used)
@@ -78,7 +78,7 @@ j1.adapter['ssm'] = (function (j1, window) {
       //
       j1.adapter.ssm['moduleOptions'] = moduleOptions;
       _this.setState('started');
-      logger.info('state: ' + _this.getState());
+      logger.info('set module state to: ' + _this.getState());
       logger.info('module is being initialized');
       // jadams, 2020-06-24: Set max_count to 100 what cause to wait 2.5s
       // for J1 Navigator to finish (init)
@@ -109,8 +109,10 @@ j1.adapter['ssm'] = (function (j1, window) {
     ssmLoader: function (ssmOptions) {
       var menu_id;
       var xhr_data_path;
+      // cast text-based booleans
+      var isToc = (ssmOptions.toc === 'true');
       _this.setState('loading');
-      logger.info('status: ' + _this.getState());
+      logger.info('set module state to: ' + _this.getState());
       logger.info('load HTML data for ssm');
       $.when (
         j1.xhrData (
@@ -118,27 +120,37 @@ j1.adapter['ssm'] = (function (j1, window) {
           xhr_container_id: "ssm-container",
           xhr_data_path:    "/assets/data/ssm/index.html" },
           'data_loaded')
-      ).done (function (ssm) {
+      ).done (function (ssm_html_loaded) {
         // ---------------------------------------------------------------------
         // Initialize MMenu Navs and Drawers
         // ---------------------------------------------------------------------
         var dependencies_met_mmenu_initialized = setInterval (function () {
-          if (ssm) {
-           if (j1.getState() === 'finished') {
-//         if ( j1.adapter.navigator.getState() == 'finished' ) {
-              logger.info('load HTML data (AJAX): finished');
-              _this.setState('processing');
-              logger.info('status: ' + _this.getState());
-              logger.info('initialize ssm menu');
-              if ( ssmOptions.mode === 'icon') {
-                logger.info('icon mode detected');
+          if (ssm_html_loaded && $('#ssm_menu').length) {
+            _this.setState('loaded');
+            logger.info('set module state to: ' + _this.getState());
+            logger.info('HTML data for ssm: ' + _this.getState());
+            if(isToc) {
+              logger.info('found toc in page: enabled');
+              if ( j1.adapter.toccer.getState() == 'finished' ) {
+                logger.info('dependency met for module : toccer');
+                _this.setState('processing');
+                logger.info('set module state to: ' + _this.getState());
+                logger.info('initialize ssm menu');
+                (ssmOptions.mode === 'icon')
+                  ? logger.info('ssm mode detected: icon')
+                  : logger.info('ssm mode detected: menu');
+                _this.scrollSpy(ssmOptions);
+                _this.buttonInitializer(ssmOptions);
+                clearInterval(dependencies_met_mmenu_initialized);
               }
+            } else {
+              logger.info('found toc in page: disabled');
+              logger.info('disable toc menu button');
+              $('#ssm_toc').closest('.ssm-btn').hide()
               _this.scrollSpy(ssmOptions);
               _this.buttonInitializer(ssmOptions);
               clearInterval(dependencies_met_mmenu_initialized);
             }
-          } else {
-            logger.error('initialize ssm failed, HTML data NOT loaded');
           }
         }, 25); // END dependencies_met_mmenu_loaded
       }); // END done
@@ -148,21 +160,43 @@ j1.adapter['ssm'] = (function (j1, window) {
     // -------------------------------------------------------------------------
     buttonInitializer: function (ssmOptions) {
       var eventHandler;
-      // Create an eventhandler instance if id exists: ssm_toc
-      if ($('#ssm_toc').length) {
-        eventHandler = "open_mmenu"
+      // Create an eventhandler instance if id exists: ssm_reload_page
+      if ($('#ssm_reload_page').length) {
+        eventHandler = "reload_page"
         // check if eventhandler configured is a SINGLE word
         if (eventHandler.split(" ").length == 1) {
-          logger.info('register pre-configured eventhandler open_mmenu on id: ssm_toc');
+          logger.info('register pre-configured eventhandler reload_page on id: ssm_reload_page');
+          $('#ssm_reload_page').each(function(e) {
+            var $this = $(this);
+            $this.on('click', function(e) {
+              j1.adapter.ssm.reload_page(sect1Nodes);
+            });
+          });
+        } else {
+          logger.info('register custom eventhandler on id: ssm_reload_page');
+        }
+      } else {
+        alert ("Creating Eventhandler failed on: #ssm_reload_page");
+      } // END items (buttons)
+       // menu_type 'top_level_item'
+       // ENDIF button_id enabled
+      // Create an eventhandler instance if id exists: ssm_toc
+      if ($('#ssm_toc').length) {
+        eventHandler = "open_ssm_toc"
+        // check if eventhandler configured is a SINGLE word
+        if (eventHandler.split(" ").length == 1) {
+          logger.info('register pre-configured eventhandler open_ssm_toc on id: ssm_toc');
           $('#ssm_toc').each(function(e) {
             var $this = $(this);
             $this.on('click', function(e) {
-              j1.adapter.ssm.open_mmenu(sect1Nodes);
+              j1.adapter.ssm.open_ssm_toc(sect1Nodes);
             });
           });
         } else {
           logger.info('register custom eventhandler on id: ssm_toc');
         }
+      } else {
+        alert ("Creating Eventhandler failed on: #ssm_toc");
       } // END items (buttons)
        // menu_type 'top_level_item'
        // ENDIF button_id enabled
@@ -181,6 +215,8 @@ j1.adapter['ssm'] = (function (j1, window) {
         } else {
           logger.info('register custom eventhandler on id: ssm_scroll_to_top');
         }
+      } else {
+        alert ("Creating Eventhandler failed on: #ssm_scroll_to_top");
       } // END items (buttons)
        // menu_type 'top_level_item'
        // ENDIF button_id enabled
@@ -199,6 +235,8 @@ j1.adapter['ssm'] = (function (j1, window) {
         } else {
           logger.info('register custom eventhandler on id: ssm_previous_section');
         }
+      } else {
+        alert ("Creating Eventhandler failed on: #ssm_previous_section");
       } // END items (buttons)
        // menu_type 'top_level_item'
        // ENDIF button_id enabled
@@ -217,6 +255,8 @@ j1.adapter['ssm'] = (function (j1, window) {
         } else {
           logger.info('register custom eventhandler on id: ssm_next_section');
         }
+      } else {
+        alert ("Creating Eventhandler failed on: #ssm_next_section");
       } // END items (buttons)
        // menu_type 'top_level_item'
        // ENDIF button_id enabled
@@ -235,6 +275,8 @@ j1.adapter['ssm'] = (function (j1, window) {
         } else {
           logger.info('register custom eventhandler on id: ssm_scroll_to_bottom');
         }
+      } else {
+        alert ("Creating Eventhandler failed on: #ssm_scroll_to_bottom");
       } // END items (buttons)
        // menu_type 'top_level_item'
        // ENDIF button_id enabled
@@ -248,9 +290,14 @@ j1.adapter['ssm'] = (function (j1, window) {
     // -------------------------------------------------------------------------
     // open mobile menu
     // -------------------------------------------------------------------------
-    open_mmenu: function (id) {
-      logger.info('eventhandler fired on id: ' + id );
-    }, // END open_mmenu
+    open_ssm_toc: function () {
+    }, // END open_ssm_toc
+    // -------------------------------------------------------------------------
+    // reload page
+    // -------------------------------------------------------------------------
+    reload_page: function () {
+      location.reload();
+    }, // END open_ssm_toc
     // -------------------------------------------------------------------------
     // scroll to previous section
     // -------------------------------------------------------------------------
@@ -258,30 +305,35 @@ j1.adapter['ssm'] = (function (j1, window) {
       var previous_header_id;
       var currentNode;
       var prev_node;
+      var anchor_id;
       var index             = 0;
       var maxNode           = $(nodes).length - 1;
       var $toc              = $("#sidebar");
       var current_header_id = $toc.find(".is-active-link").attr('href');
-      // logger.info('eventhandler fired on id: ' + id );
       nodes.each(function() {
         currentNode = $(this).find(current_header_id);
         if (currentNode.length) {
           if (index > maxNode) {
             return false
           } else {
-            prev_node = (index > 0) ? nodes[index-1] : nodes[index];
-            previous_header_id = $(prev_node).find(":header").first()[0].id;
+            prev_node           = (index > 0) ? nodes[index-1] : nodes[index];
+            previous_header_id  = $(prev_node).find(":header").first()[0].id;
+            anchor_id           = '#' + previous_header_id;
             $('a[href*="' + current_header_id + '"]').removeClass('is-active-link');
             $('a[href*="' + previous_header_id + '"]').addClass('is-active-link');
-            var dest = $('body').scrollTop() + $('#' + previous_header_id).offset().top - 100;
-            $('html, body').animate({
-              scrollTop: dest
-            }, 500);
-            return false;
+            j1.core.scrollSmooth.scroll( anchor_id, {
+              duration: 300,
+              offset: -80,
+              callback: null
+            });
+            // scroll the page one pixel back and forth (trigger)
+            // to get the right position for the Toccer
+            //
+            // $(window).scrollTop($(window).scrollTop()+1);
+            // $(window).scrollTop($(window).scrollTop()-1);
           }
         }
         (index < maxNode) ? index++ : index;
-        // (index = 0) ? index : index++;
       });
     }, // END scroll_previous_section
     // -------------------------------------------------------------------------
@@ -291,28 +343,33 @@ j1.adapter['ssm'] = (function (j1, window) {
       var next_header_id;
       var currentNode;
       var nextNode;
+      var anchor_id;
       var index             = 0;
       var maxNode           = $(nodes).length -1;
       var $toc              = $("#sidebar");
       var current_header_id = $toc.find(".is-active-link").attr('href');
-      // logger.info('eventhandler fired on id: ' + id );
       nodes.each(function() {
-        // currentNode = $(this).find(current_header_id);
         currentNode = $(this).find(current_header_id);
         if (currentNode.length) {
           if (index == maxNode) {
             return false
           } else {
             nextNode = nodes[index+1];
-            next_header_id = $(nextNode).closest().find(":header").first();
-            next_header_id = $(nextNode).find(":header").first()[0].id;
+            next_header_id  = $(nextNode).closest().find(":header").first();
+            next_header_id  = $(nextNode).find(":header").first()[0].id;
+            anchor_id       = '#' + next_header_id;
             $('a[href*="' + current_header_id + '"]').removeClass('is-active-link');
             $('a[href*="' + next_header_id + '"]').addClass('is-active-link');
-            var dest = $('body').scrollTop() + $('#' + next_header_id).offset().top - 100;
-            $('html, body').animate({
-              scrollTop: dest
-            }, 500);
-            return false;
+            j1.core.scrollSmooth.scroll( anchor_id, {
+              duration: 300,
+              offset: -80,
+              callback: null
+            });
+            // scroll the page one pixel back and forth (trigger)
+            // to get the right position for the Toccer
+            //
+            // $(window).scrollTop($(window).scrollTop()+1);
+            // $(window).scrollTop($(window).scrollTop()-1);
           }
         }
         (index < maxNode) ? index++ : index;
@@ -323,10 +380,14 @@ j1.adapter['ssm'] = (function (j1, window) {
     // -------------------------------------------------------------------------
     scroll_to_top: function () {
       var dest = 0;
-      // logger.info('eventhandler fired on id: ' + id );
       $('html, body').animate({
         scrollTop: dest
       }, 500);
+      // scroll the page one pixel back and forth (trigger)
+      // to get the right position for the Toccer
+      //
+      // $(window).scrollTop($(window).scrollTop()+1);
+      // $(window).scrollTop($(window).scrollTop()-1);
     }, // END scroll_top
     // -------------------------------------------------------------------------
     // scroll to bottom
@@ -337,22 +398,24 @@ j1.adapter['ssm'] = (function (j1, window) {
       var f               = $footer.length ? $footer.outerHeight() : 0;
       var pageHeight      = $page.height() - f - 400;
       var pageHeightOuter = $page.outerHeight()
-      // logger.info('eventhandler fired on id: ' + id );
       $('html, body').animate({
         scrollTop: pageHeight
       }, 500);
+      // scroll the page one pixel back and forth (trigger)
+      // to get the right position for the Toccer
+      //
+      // $(window).scrollTop($(window).scrollTop()+1);
+      // $(window).scrollTop($(window).scrollTop()-1);
     }, // END scroll_bottom
     // -------------------------------------------------------------------------
     // scroll to comments (Disqus)
     // -------------------------------------------------------------------------
     scroll_to_comments: function () {
-      // logger.info('eventhandler fired on id: ' + id );
     }, // END scroll_comments
     // -------------------------------------------------------------------------
     // create generic alert
     // -------------------------------------------------------------------------
-    alert_me: function (id) {
-      // logger.info('eventhandler fired on id: ' + id );
+    alert_me: function () {
       alert ("Hello world!");
     }, // END alert_me
     // -------------------------------------------------------------------------

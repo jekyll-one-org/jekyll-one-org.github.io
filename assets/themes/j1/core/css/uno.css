@@ -9278,6 +9278,16 @@ a.bg-pink:focus, a.bg-pink:hover {
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
 */
+*:focus {
+  outline: none; }
+
+label {
+  margin-bottom: 0.25rem !important; }
+
+.bmd-form-group .bmd-label-floating,
+.bmd-form-group .bmd-label-placeholder {
+  top: 10px !important; }
+
 /*
  # -----------------------------------------------------------------------------
  # ~/theme_uno/_helpers.scss
@@ -10237,6 +10247,501 @@ html.lb-disable-scrolling {
 
 /*
  # -----------------------------------------------------------------------------
+ #  ~/theme_uno/modules/_mmenu-light.scss (v3.0.5)
+ #  Provides base styles for mobile menu light
+ #
+ #  Product/Info:
+ #  https://jekyll.one
+ #  https://github.com/FrDH/mmenu-light
+ #
+ #  Copyright (C) 2020 Fred Heusschen
+ #  Copyright (C) 2020 Juergen Adams
+ #
+ #  J1 Template is licensed under MIT License.
+ #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ #  MMenu is licensed under CC-BY-4.0 License.
+ #  See: http://creativecommons.org/licenses/by/4.0/
+ #
+ # -----------------------------------------------------------------------------
+*/
+:root {
+  --mm-ocd-width: 80%;
+  --mm-ocd-min-width: 200px;
+  --mm-ocd-max-width: 440px
+; }
+
+body.mm-ocd-opened {
+  overflow-y: hidden;
+  -ms-scroll-chaining: none;
+  overscroll-behavior: none; }
+
+/*
+  jadams, 2020-06-20: CSS/Offset to the NAV bar should be calculted
+  at runtime as a dyn style
+*/
+.mm-ocd {
+  position: fixed;
+  top: 80px;
+  /* jadams, 2020-06-20: offset to the NAV bar */
+  right: 0;
+  bottom: 100%;
+  left: 0;
+  z-index: 9999;
+  overflow: hidden;
+  -ms-scroll-chaining: none;
+  overscroll-behavior: contain;
+  background: rgba(0, 0, 0, 0);
+  -webkit-transition-property: bottom, background-color;
+  -o-transition-property: bottom, background-color;
+  transition-property: bottom, background-color;
+  -webkit-transition-duration: 0s, .3s;
+  -o-transition-duration: 0s, .3s;
+  transition-duration: 0s, .3s;
+  -webkit-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -webkit-transition-delay: .45s, .15s;
+  -o-transition-delay: .45s, .15s;
+  transition-delay: .45s, .15s; }
+
+.mm-ocd--open {
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.25);
+  -webkit-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s; }
+
+.mm-ocd__content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  width: 80%;
+  width: var(--mm-ocd-width);
+  min-width: 200px;
+  min-width: var(--mm-ocd-min-width);
+  max-width: 440px;
+  max-width: var(--mm-ocd-max-width);
+  background: #fff;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  -o-transition-property: transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-transition-duration: .3s;
+  -o-transition-duration: .3s;
+  transition-duration: .3s;
+  -webkit-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease; }
+
+.mm-ocd--left .mm-ocd__content {
+  left: 0;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0); }
+
+.mm-ocd--right .mm-ocd__content {
+  right: 0;
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0); }
+
+.mm-ocd--open .mm-ocd__content {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }
+
+.mm-ocd__backdrop {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  width: calc(100% - 80%);
+  width: calc(100% - var(--mm-ocd-width));
+  min-width: calc(100% - 440px);
+  min-width: calc(100% - var(--mm-ocd-max-width));
+  max-width: calc(100% - 200px);
+  max-width: calc(100% - var(--mm-ocd-min-width));
+  background: rgba(3, 2, 1, 0); }
+
+.mm-ocd--left .mm-ocd__backdrop {
+  right: 0; }
+
+.mm-ocd--right .mm-ocd__backdrop {
+  left: 0; }
+
+.mm-spn,
+.mm-spn a,
+.mm-spn li,
+.mm-spn span,
+.mm-spn ul {
+  display: block;
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+:root {
+  --mm-spn-item-height: 50px;
+  --mm-spn-item-indent: 20px;
+  --mm-spn-line-height: 24px
+; }
+
+.mm-spn {
+  width: 100%;
+  height: 100%;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
+  -webkit-clip-path: inset(0 0 0 0);
+  clip-path: inset(0 0 0 0);
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0); }
+
+.mm-spn ul {
+  -webkit-overflow-scrolling: touch;
+  position: fixed;
+  top: 0;
+  left: 100%;
+  bottom: 0;
+  z-index: 2;
+  width: 130%;
+  padding-right: 30%;
+  line-height: 24px;
+  line-height: var(--mm-spn-line-height);
+  overflow: visible;
+  overflow-y: auto;
+  background: inherit;
+  -webkit-transition: left .3s ease 0s;
+  -o-transition: left .3s ease 0s;
+  transition: left .3s ease 0s;
+  cursor: default; }
+
+.mm-spn ul:after {
+  content: '';
+  display: block;
+  height: 50px;
+  height: var(--mm-spn-item-height); }
+
+.mm-spn > ul {
+  left: 0; }
+
+.mm-spn ul.mm-spn--open {
+  left: 0; }
+
+.mm-spn ul.mm-spn--parent {
+  left: -30%;
+  overflow-y: hidden; }
+
+.mm-spn li {
+  position: relative;
+  background: inherit;
+  cursor: pointer; }
+
+.mm-spn li:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 25px;
+  top: calc(var(--mm-spn-item-height)/ 2);
+  right: 25px;
+  right: calc(var(--mm-spn-item-height)/ 2);
+  z-index: 0;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid;
+  border-right: 2px solid;
+  -webkit-transform: rotate(45deg) translate(0, -50%);
+  -ms-transform: rotate(45deg) translate(0, -50%);
+  transform: rotate(45deg) translate(0, -50%);
+  opacity: .4; }
+
+.mm-spn li:after {
+  content: '';
+  display: block;
+  margin-left: 20px;
+  margin-left: var(--mm-spn-item-indent);
+  border-top: 1px solid;
+  opacity: .15; }
+
+.mm-spn a,
+.mm-spn span {
+  position: relative;
+  z-index: 1;
+  padding: 13px 20px;
+  padding: calc((var(--mm-spn-item-height) - var(--mm-spn-line-height))/ 2) var(--mm-spn-item-indent); }
+
+.mm-spn a {
+  background: inherit;
+  color: inherit;
+  text-decoration: none; }
+
+.mm-spn a:not(:last-child) {
+  width: calc(100% - 50px);
+  width: calc(100% - var(--mm-spn-item-height)); }
+
+.mm-spn a:not(:last-child):after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-right: 1px solid;
+  opacity: .15; }
+
+.mm-spn span {
+  background: 0 0; }
+
+.mm-spn.mm-spn--navbar {
+  cursor: pointer; }
+
+.mm-spn.mm-spn--navbar:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 25px;
+  top: calc(var(--mm-spn-item-height)/ 2);
+  left: 20px;
+  left: var(--mm-spn-item-indent);
+  width: 10px;
+  height: 10px;
+  margin-top: 2px;
+  border-top: 2px solid;
+  border-left: 2px solid;
+  -webkit-transform: rotate(-45deg) translate(50%, -50%);
+  -ms-transform: rotate(-45deg) translate(50%, -50%);
+  transform: rotate(-45deg) translate(50%, -50%);
+  opacity: .4; }
+
+.mm-spn.mm-spn--navbar.mm-spn--main {
+  cursor: default; }
+
+.mm-spn.mm-spn--navbar.mm-spn--main:before {
+  content: none;
+  display: none; }
+
+.mm-spn.mm-spn--navbar:after {
+  content: attr(data-mm-spn-title);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  height: var(--mm-spn-item-height);
+  padding: 0 40px;
+  padding: 0 calc(var(--mm-spn-item-indent) * 2);
+  line-height: 50px;
+  line-height: var(--mm-spn-item-height);
+  opacity: .4;
+  text-align: left;
+  /* jadams, 2020-06-20: set menu title to the left */
+  overflow: hidden;
+  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  font-size: x-large;
+  /* jadams, 2020-06-20: increase size of the menu title */ }
+
+.mm-spn.mm-spn--navbar.mm-spn--main:after {
+  padding-left: 20px;
+  padding-left: var(--mm-spn-item-indent); }
+
+.mm-spn.mm-spn--navbar ul {
+  top: 51px;
+  top: calc(var(--mm-spn-item-height) + 1px); }
+
+.mm-spn.mm-spn--navbar ul:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: inherit;
+  z-index: 2;
+  width: 100%;
+  border-top: 1px solid currentColor;
+  opacity: .15; }
+
+.mm-spn.mm-spn--light {
+  color: #444;
+  background: #f3f3f3; }
+
+/* jadams, 2020-06-20: set j1 template colors (dark theme) */
+.mm-spn.mm-spn--dark {
+  color: #e3e3e3;
+  background: #191919; }
+
+.mm-spn.mm-spn--vertical {
+  overflow-y: auto; }
+
+.mm-spn.mm-spn--vertical ul {
+  width: 100%;
+  padding-right: 0;
+  position: static; }
+
+.mm-spn.mm-spn--vertical ul ul {
+  display: none;
+  padding-left: 20px;
+  padding-left: var(--mm-spn-item-indent); }
+
+.mm-spn.mm-spn--vertical ul ul:after {
+  height: 25px;
+  height: calc(var(--mm-spn-item-height)/ 2); }
+
+.mm-spn.mm-spn--vertical ul.mm-spn--open {
+  display: block; }
+
+.mm-spn.mm-spn--vertical li.mm-spn--open:before {
+  -webkit-transform: rotate(135deg) translate(-50%, 0);
+  -ms-transform: rotate(135deg) translate(-50%, 0);
+  transform: rotate(135deg) translate(-50%, 0); }
+
+.mm-spn.mm-spn--vertical ul ul li:last-child:after {
+  content: none;
+  display: none; }
+
+/*
+ # -----------------------------------------------------------------------------
+ #  ~/theme_uno/modules/_mmenu-theme-uno.scss
+ #  Provides theme styles (Uno) for mobile menu
+ #
+ #  Product/Info:
+ #  https://jekyll.one
+ #
+ #  Copyright (C) 2020 Juergen Adams
+ #
+ #  J1 Template is licensed under MIT License.
+ #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # -----------------------------------------------------------------------------
+*/
+/*
+  jadams, 2020-06-20: CSS/Offset to the NAV bar should be calculated
+  at runtime as a dyn style
+*/
+/* CSS overwrites
+   ----------------------------------------------------------------------------- */
+/* Drawer */
+.mm-ocd--left .mm-ocd__content {
+  background-color: #212121; }
+
+.mm-ocd--right .mm-ocd__content {
+  background-color: #212121; }
+
+/* Responsive */
+/* jadams, 2020-07-02: media query for MMenu
+--------------------------------------------------------------------------------
+NOTE: For unknown reason, style "mm-ocd--left" is NOT applied correctly
+      like "mm-ocd--right" what cause the wrong background-color
+      As a workaround, the background-color is added to the media
+      queries as well (but MUST be removed if fixed!!!)
+-------------------------------------------------------------------------------- */
+/* Large desktop */
+@media only screen and (min-width: 1200px) {
+  .mm-ocd {
+    top: 80px;
+    /* drawer top offset to NAV bar */ }
+  .mm-ocd__content {
+    background-color: #212121; } }
+
+/* Desktop */
+@media only screen and (min-width: 992px) {
+  .mm-ocd {
+    top: 80px;
+    /* drawer top offset to NAV bar */ }
+  .mm-ocd__content {
+    background-color: #212121; } }
+
+/* Desktop 2 (intermediate|responsive size) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .mm-ocd {
+    top: 68px;
+    /* drawer top offset to NAV bar */ }
+  .mm-ocd__content {
+    background-color: #212121; } }
+
+/* Landscape iPad, 768px */
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+  .mm-ocd {
+    top: 68px;
+    /* drawer top offset to NAV bar */ }
+  .mm-ocd__content {
+    background-color: #212121; } }
+
+/* Small devices (landscape phones, up to 576px) */
+@media only screen and (max-width: 576px) {
+  .mm-ocd {
+    top: 68px;
+    /* drawer top offset to NAV bar */ }
+  .mm-ocd__content {
+    background-color: #212121; } }
+
+/* Navigator */
+.mm-spn.mm-spn--navbar:after {
+  text-align: left;
+  /* jadams, 2020-06-20: set menu title to the left */
+  font-size: x-large;
+  /* jadams, 2020-06-20: increase size of the menu title */ }
+
+/* Themes */
+/* jadams, 2020-06-20: set j1 template colors (dark theme) */
+.mm-spn.mm-spn--dark {
+  color: #e3e3e3;
+  background: #191919; }
+
+/* Sidebar (Drawer)
+   ----------------------------------------------------------------------------- */
+.mm-side {
+  margin: 1.5rem; }
+
+.mm-side .widget {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 25px; }
+
+.mm-side .widget .title {
+  color: #fff;
+  margin-bottom: 15px;
+  border-left: 3px solid #204a87;
+  padding-left: 5px; }
+
+.mm-side .widget .heading {
+  text-align: left;
+  color: #eee;
+  font-size: 18px;
+  text-transform: uppercase;
+  position: relative;
+  margin-bottom: 10px;
+  padding-bottom: 10px; }
+
+.mm-side .widget ul.link {
+  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+  list-style: none; }
+
+.mm-side .widget ul.link li a {
+  color: #aaa; }
+
+.mm-side .widget ul.link li a:focus, .mm-side .widget ul.link li a:hover {
+  color: #fafafa;
+  text-decoration: none;
+  font-weight: 700; }
+
+/* Navigation (Menu)
+   ----------------------------------------------------------------------------- */
+.mm-spn a:hover {
+  color: #fafafa;
+  text-decoration: none;
+  font-weight: 700; }
+
+/* jadams, 2020-07-03: added hover to global style */
+a.toc-link:hover {
+  color: #fafafa;
+  text-decoration: none;
+  font-weight: 700; }
+
+/*
+ # -----------------------------------------------------------------------------
  #  ~/theme_uno/modules/_navigator.scss
  #  Styles for J1 Navigator (NAV Module)
  #
@@ -11098,11 +11603,15 @@ body {
     nav.navbar.navigator.navbar-fixed .logo-display {
       display: none !important; }
     nav.navbar.navigator .navbar-toggler {
-      color: rgba(255, 255, 255, 0.5) !important;
+      color: rgba(255, 255, 255, 0.5);
       padding: 1rem 0.5rem 1rem 0.5rem;
       border: 0;
       border-color: transparent;
       border-radius: 0; }
+      nav.navbar.navigator .navbar-toggler:hover {
+        color: rgba(255, 255, 255, 0.9); }
+      nav.navbar.navigator .navbar-toggler:focus {
+        color: rgba(255, 255, 255, 0.9); }
     nav.navbar.navigator .dropdown-item:focus {
       background-color: rgba(0, 0, 0, 0.5) !important; }
     nav.navbar.navigator .dropdown-item:hover {
@@ -11850,6 +12359,11 @@ a.toc-link {
   height: 100%;
   font-size: 1rem; }
 
+a.toc-link:hover {
+  color: #fafafa;
+  text-decoration: none;
+  font-weight: 700; }
+
 .is-collapsible {
   max-height: 1000px;
   overflow: hidden;
@@ -11877,44 +12391,3 @@ a.toc-link {
 
 .is-active-link::before {
   background-color: #757575; }
-
-/*
- # -----------------------------------------------------------------------------
- # ~/theme_uno/modules/_totop.scss
- # Provides CSS styles for J1 Back2Top
- #
- #  Product/Info:
- #  https://jekyll.one
- #
- #  Copyright (C) 2020 Juergen Adams
- #
- #  J1 Template is licensed under the MIT License.
- #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- #
- # -----------------------------------------------------------------------------
- # NOTE: Styles
- #
- #	topcontrol.position,
- #	topcontrol.background,
- #	topcontrol.content:after,
- #	topcontrol.font-family:after
- #	topcontrol.background:hover
- #
- #  set dynamically via adapter back2top.js
- # -----------------------------------------------------------------------------
-*/
-#topcontrol {
-  color: white;
-  z-index: 99;
-  width: 30px;
-  height: 30px;
-  font-size: 20px;
-  border-radius: 3px !important; }
-  #topcontrol:after {
-    top: 0;
-    left: 5px;
-    position: absolute;
-    text-align: center; }
-  #topcontrol:hover {
-    color: white;
-    transition: all 0.3s ease-in-out; }
