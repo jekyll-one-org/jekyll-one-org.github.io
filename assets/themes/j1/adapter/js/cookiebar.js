@@ -17,7 +17,7 @@
  # For details, see http://www.primebox.co.uk/projects/jquery-cookiebar/
  #
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2020-07-25 00:00:17 +0200
+ #  Adapter generated: 2020-07-25 00:45:21 +0200
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -49,30 +49,30 @@ j1.adapter['cookiebar'] = (function (j1, window) {
       $.cookieBar ({
         stopScrolling:          true,
         autoEnable:             true,
-        message:                '</br>\n  <p>\n  Some of these pages use so-called Cookies,\n  which serve the content of this site to be\n  user-friendly, more effective and safer.\n  </p>\n</br>\n',
+        message:                "</br>\n  <p>\n  Some of these pages use so-called Cookies,\n  which serve the content of this site to be\n  user-friendly, more effective and safer.\n  </p>\n</br>\n",
         acceptButton:           true,
-        acceptText:             'I understand and agree',
+        acceptText:             "I understand and agree",
         acceptFunction:         null,
         declineButton:          false,
-        declineText:            'Disable Cookies',
+        declineText:            "Disable Cookies",
         declineFunction:        null,
         policyButton:           true,
-        policyText:             'Privacy',
-        policyURL:              '/pages/public/legal/en/privacy/',
+        policyText:             "Privacy",
+        policyURL:              "/pages/public/legal/en/privacy/",
         acceptOnContinue:       false,
         acceptOnScroll:         false,
         acceptAnyClick:         false,
         expireDays:             3650,
         renewOnVisit:           false,
         forceShow:              false,
-        effect:                 'slide',
-        element:                '#no_flicker',
+        effect:                 "slide",
+        element:                "#no_flicker",
         append:                 false,
         fixed:                  false,
         bottom:                 false,
         zindex:                 99999,
-        domain:                 'www.example.com',
-        referrer:               'www.example.com'
+        domain:                 "www.example.com",
+        referrer:               "www.example.com"
       });
       _this.setState('finished');
       logger.info('state: ' + _this.getState());
