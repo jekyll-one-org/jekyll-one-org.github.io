@@ -1,5 +1,6 @@
 
-/*
+
+  /*
  # -----------------------------------------------------------------------------
  # ~/assets/themes/j1/adapter/js/searcher.js
  # JS Adapter for J1 Searcher (SimpleJekyllSearch)
@@ -16,101 +17,9 @@
  # SimpleJekyllSearch is licensed under the MIT License.
  # For details, see https://github.com/christian-fei/Simple-Jekyll-Search
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2020-07-05 17:03:52 +0200
+ #  Adapter generated: 2020-07-24 20:31:38 +0200
  # -----------------------------------------------------------------------------
 */
-'use strict';
-j1.adapter['searcher'] = (function (j1, window) {
-  var environment   = 'production';
-  var moduleOptions = {};
-  var _this;
-  var logger;
-  var logText;
-  // ---------------------------------------------------------------------------
-  // Main object
-  // ---------------------------------------------------------------------------
-  return {
-    // -------------------------------------------------------------------------
-    // Initializer
-    // -------------------------------------------------------------------------
-    init: function (options) {
-      // initialize state flag
-      j1.adapter.searcher.state = 'pending';
-      // -----------------------------------------------------------------------
-      // Default module settings
-      // -----------------------------------------------------------------------
-      var settings = $.extend({
-        module_name: 'j1.adapter.searcher',
-        generated:   '2020-07-05 17:03:52 +0200'
-      }, options);
-      _this   = j1.adapter.searcher;
-      logger  = log4javascript.getLogger('j1.adapter.searcher');
-      // Load  module DEFAULTS|CONFIG
-      moduleOptions = $.extend({}, {"enabled":true, "placement":"navbar", "target":"_blank", "search_input":"jss-input", "results_output":"jss-panel", "results_container":"jss-results", "index_data":"/assets/data/search.yml", "result_limit":1000, "no_results_text":"The search has no results", "min_search_item_len":3, "search_fuzzy":false, "search_exlude":["Impress"], "result_template":"<li>\n  <div>\n    <h4 class=\"result-item\"> <a href=\"{url}\" target=\"{target}\">{title}</a> </h4>\n    <h6 class=\"result-item\">{tagline}</h6>\n    <p class=\"result-group-item-text\">{excerpt}</p>\n    <p> <small class=\"result-group-item-text\">{tags}</small></p>\n  </div>\n</li>\n"});
-      if (typeof settings !== 'undefined') {
-        moduleOptions = j1.mergeData(moduleOptions, settings);
-      }
-      if (moduleOptions.enabled) {
-        _this.setState('started');
-        logger.info('state: ' + _this.getState());
-        logger.info('Module is being initialized');
-        var jekyllSearch = SimpleJekyllSearch({
-          searchInput:          document.getElementById(moduleOptions.search_input),
-          resultsOutput:        document.getElementById(moduleOptions.results_output),
-          resultsContainer:     document.getElementById(moduleOptions.results_container),
-          json:                 moduleOptions.index_data,
-          searchResultTemplate: moduleOptions.result_template,
-          limit:                moduleOptions.result_limit,
-          minSearchItemLen:     moduleOptions.min_search_item_len,
-          fuzzy:                moduleOptions.search_fuzzy,
-          exclude:              moduleOptions.search_exlude,
-          noResultsText:        moduleOptions.no_results_text
-        });
-        _this.setState('finished');
-        logger.info('state: ' + _this.getState());
-      } else {
-        _this.setState('finished');
-        logger.info('state: ' + _this.getState());
-        logger.info("module disabled");
-      }
-      return true;
-    }, // END init
-    // -------------------------------------------------------------------------
-    // messageHandler: MessageHandler for J1 CookieConsent module
-    // Manage messages send from other J1 modules
-    // -------------------------------------------------------------------------
-    messageHandler: function (sender, message) {
-      var json_message = JSON.stringify(message, undefined, 2);
-      logText = 'received message from ' + sender + ': ' + json_message;
-      logger.info(logText);
-      // -----------------------------------------------------------------------
-      //  Process commands|actions
-      // -----------------------------------------------------------------------
-      if (message.type === 'command' && message.action === 'module_initialized') {
-        //
-        // Place handling of command|action here
-        //
-        logger.info(message.text);
-      }
-      //
-      // Place handling of other command|action here
-      //
-      return true;
-    }, // END messageHandler
-    // -------------------------------------------------------------------------
-    // setState
-    // Set the current (processing) state of the module
-    // -------------------------------------------------------------------------
-    setState: function (stat) {
-      j1.adapter.searcher.state = stat;
-    }, // END setState
-    // -------------------------------------------------------------------------
-    // getState
-    // Returns the current (processing) state of the module
-    // -------------------------------------------------------------------------
-    getState: function () {
-      return j1.adapter.searcher.state;
-    } // END state
-  }; // END return
-})(j1, window);
+'use strict';j1.adapter.searcher=function(e){var t,s,a,n={};return{init:function(a){t=e.adapter.searcher,s=log4javascript.getLogger('j1.adapter.searcher'),t.setState('pending'),s.info('state: '+t.getState()),s.info('Module is being started');var i=$.extend({module_name:'j1.adapter.searcher',generated:'2020-07-24 20:31:38 +0200'},a);if(n=$.extend({},{enabled:!0,placement:'navbar',target:'_blank',search_input:'jss-input',results_output:'jss-panel',results_container:'jss-results',index_data:'/assets/data/search.json',result_limit:1e3,result_truncate:100,no_results_text:'The search has no results',min_search_item_len:3,search_fuzzy:!1,search_exlude:['Impress','License'],result_template:'<li>\n  <div>\n    <h4 class="result-item"> <a href="{url}" target="{target}">{title} - {tagline}</a> </h4>\n    <p class="result-group-item-text">{excerpt}</p>\n    <p class="result-group-item-text small text-muted mb-3"><i class="mdi mdi-18px mdi-tag mr-2"></i>{tags}</p>\n  </div>\n</li>\n'}),void 0!==i&&(n=e.mergeData(n,i)),n.enabled){t.setState('started'),s.info('state: '+t.getState()),s.info('Module is being initialized');SimpleJekyllSearch({searchInput:document.getElementById(n.search_input),resultsOutput:document.getElementById(n.results_output),resultsContainer:document.getElementById(n.results_container),json:n.index_data,searchResultTemplate:n.result_template,results_output:n.results_output,limit:n.result_limit,minSearchItemLen:n.min_search_item_len,fuzzy:n.search_fuzzy,exclude:n.search_exlude,noResultsText:n.no_results_text});t.setState('finished'),s.info('state: '+t.getState()),s.info('module initialized successfully');}else t.setState('finished'),s.info('state: '+t.getState()),s.info('module disabled');return!0;},messageHandler:function(e,t){var n=JSON.stringify(t,undefined,2);return a='received message from '+e+': '+n,s.info(a),'command'===t.type&&'module_initialized'===t.action&&s.info(t.text),!0;},setState:function(e){t.state=e;},getState:function(){return t.state;}};}(j1,window);
+
 
