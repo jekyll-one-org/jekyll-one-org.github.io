@@ -13,8 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 (function(factory,root){if(typeof define=="function"&&define.amd){define(factory);}else if(typeof module!="undefined"&&typeof exports=="object"){module.exports=factory();}else{root.log4javascript=factory();}})(function(){if(!Array.prototype.push){Array.prototype.push=function(){for(var i=0,len=arguments.length;i<len;i++){this[this.length]=arguments[i];}
 return this.length;};}
 if(!Array.prototype.shift){Array.prototype.shift=function(){if(this.length>0){var firstItem=this[0];for(var i=0,len=this.length-1;i<len;i++){this[i]=this[i+1];}
