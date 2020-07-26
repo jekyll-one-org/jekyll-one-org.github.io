@@ -18,7 +18,7 @@
  # NOTE: For getStyleValue helper see
  #  https://stackoverflow.com/questions/16965515/how-to-get-a-style-attribute-from-a-css-class-by-javascript-jquery
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-07-25 00:45:21 +0200
+ # Adapter generated: 2020-07-26 04:39:28 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -79,7 +79,7 @@ j1.adapter['navigator'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.navigator',
-        generated:   '2020-07-25 00:45:21 +0200'
+        generated:   '2020-07-26 04:39:28 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // options loader
@@ -155,12 +155,20 @@ j1.adapter['navigator'] = (function (j1, window) {
         xhr_data_path:    navMenuOptions.xhr_data_path },
         'j1.adapter.navigator',
         'null');
-      // continue if all AJAX loads (xhrData) has finished
       var dependencies_met_load_menu_finished = setInterval (function () {
-        if (j1.xhrDOMState['#navigator_nav_quicklinks'] == 'success' && j1.xhrDOMState['#navigator_nav_menu'] == 'success' ){
-          _this.setState('data_loaded');
+        if (j1.xhrDOMState['#'+navQuicklinksOptions.xhr_container_id] == 'not loaded' ||
+            j1.xhrDOMState['#'+navAuthClientConfig.xhr_container_id] == 'not loaded' ||
+            j1.xhrDOMState['#'+navMenuOptions.xhr_container_id] == 'not loaded' ){
+          logger.error('load HTML data (AJAX): failed');
+          _this.setState('finished');
+          logger.info('state: ' + _this.getState());
+          logger.info('initializing module: failed');
+          clearInterval(dependencies_met_load_menu_finished);
         }
-       if (_this.getState() === 'data_loaded') {
+        // continue if all AJAX loads (xhrData) has finished
+        if (j1.xhrDOMState['#'+navQuicklinksOptions.xhr_container_id] == 'success' &&
+            j1.xhrDOMState['#'+navAuthClientConfig.xhr_container_id] == 'success' &&
+            j1.xhrDOMState['#'+navMenuOptions.xhr_container_id] == 'success' ){
           _this.setState('processing');
           logger.info('status: ' + _this.getState());
           logger.info('initialize navigator core');

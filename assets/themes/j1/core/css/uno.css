@@ -1686,7 +1686,7 @@ a.timeline-list-unstyled:hover {
 -------------------------------------------------------------------------------- */
 /* jadams: background md_grey_900 */
 .footer {
-  padding: 70px 0;
+  padding-top: 2em;
   background: #212121; }
 
 .footer p {
@@ -2050,7 +2050,7 @@ a.timeline-list-unstyled:hover {
 
 .post-headline h1 {
   color: rgba(0, 0, 0, 0.9);
-  font-size: 3.5rem;
+  font-size: 3.5rem !important;
   font-weight: 400;
   margin: 0 0 -1px 0;
   padding-bottom: 5px;
@@ -2060,7 +2060,7 @@ a.timeline-list-unstyled:hover {
 
 .post-headline h2 {
   color: rgba(0, 0, 0, 0.9);
-  font-size: 3.5rem;
+  font-size: 3rem !important;
   font-weight: 400;
   margin: 0 0 -1px 0;
   padding-bottom: 5px;
@@ -3338,7 +3338,7 @@ ul.posts li a:hover {
   border-radius: 30px; }
 
 .btn.btn-flex {
-  display: inline-flex;
+  display: inline-flex !important;
   align-items: center; }
 
 /* jadams: social media button styles */
@@ -8885,12 +8885,9 @@ nav.navbar.navigator {
     background-color: transparent;
     border-bottom: 0; }
   nav.navbar.navigator.navbar-transparent.light {
-    background-color: rgba(255, 255, 255, 0.3);
-    border-bottom: solid 3px #fafafa; }
+    background-color: rgba(255, 255, 255, 0.3); }
   nav.navbar.navigator.navbar-transparent.dark {
-    background-color: rgba(0, 0, 0, 0.3);
-    border-bottom: solid 3px #555;
-    border-left: solid 1px #555; }
+    background-color: rgba(0, 0, 0, 0.3); }
   nav.navbar.navigator.menu-center .container {
     position: relative; }
   nav.navbar.navigator.menu-center .navbar-header {
