@@ -271,6 +271,7 @@
         var cssClass;
         var iconColor = '#9E9E9E';
         $.each(this.themesList, function (i, value) {
+          // Use DIFFERENT class for MobileMenu
           if (base.$element[0].id.includes('MMenu')) {
             cssClass = 'mmenu-item';
           } else {

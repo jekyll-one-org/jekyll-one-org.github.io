@@ -1,17 +1,11 @@
 /*!
-  * Simple-Jekyll-Search
+  * Simple-Jekyll-Search v1.7.12
   * Copyright 2015-2020, Christian Fei
   * Licensed under the MIT License.
   */
 
-(function(){
-// -----------------------------------------------------------------------------
-// ESLint shimming
-// -----------------------------------------------------------------------------
-/* eslint indent: "off"                                                       */
-/* eslint no-undef: "off"                                                     */
-// -----------------------------------------------------------------------------
-'use strict';
+;(function(){
+
 var _$Templater_7 = {
   compile: compile,
 
@@ -52,23 +46,17 @@ function compile(data) {
       tags = data[prop].replace(/\s+/g, '');
       data[prop] = tags.replace(/,/g, ' · ');
     }
+    if ( prop == 'date' ) {
+      if (data[prop].length) {
+        data[prop] = data[prop].substring(0,10);
+      } else {
+        data[prop] = '2020-01-01';
+      }
+    }
+
     return data[prop] || match;
   });
 }
-
-/*
-function compile (data) {
-  return options.template.replace(options.pattern, function (match, prop) {
-    var value = options.middleware(prop, data[prop], options.template)
-    if (value !== undefined) {
-      return value
-    }
-    return data[prop] || match
-  })
-}
-*/
-
-'use strict';
 
 function fuzzysearch (needle, haystack) {
   var tlen = haystack.length;
@@ -93,34 +81,6 @@ function fuzzysearch (needle, haystack) {
 
 var _$fuzzysearch_1 = fuzzysearch;
 
-/*
- # -----------------------------------------------------------------------------
- #  ~/src/jekyll_search/SearchStrategies/FuzzySearchStrategy.js
- #  Simple Jekyll Search v1.1.5 implementation for J1 template
- #
- #  Product/Info:
- #  https://jekyll.one
- #  https://github.com/christian-fei/Simple-Jekyll-Search
- #
- #  Copyright (C) 2020 Juergen Adams
- #  Copyright (C) 2015 Christian Fei
- #
- #  J1 Template is licensed under MIT License.
- #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- #  SimpleJekyllSearch is licensed under MIT License.
- #  See: https://github.com/christian-fei/Simple-Jekyll-Search
- #
- # -----------------------------------------------------------------------------
-*/
-
-// -----------------------------------------------------------------------------
-// ESLint shimming
-// -----------------------------------------------------------------------------
-/* eslint no-undef: "off"                                                     */
-// -----------------------------------------------------------------------------
-
-'use strict';
-
 /* removed: var _$fuzzysearch_1 = require('fuzzysearch'); */;
 
 var _$FuzzySearchStrategy_5 = new FuzzySearchStrategy();
@@ -131,33 +91,6 @@ function FuzzySearchStrategy () {
   };
 }
 
-/*
- # -----------------------------------------------------------------------------
- #  ~/src/jekyll_search/SearchStrategies/LiteralSearchStrategy.js
- #  Simple Jekyll Search v1.1.5 implementation for J1 template
- #
- #  Product/Info:
- #  https://jekyll.one
- #  https://github.com/christian-fei/Simple-Jekyll-Search
- #
- #  Copyright (C) 2020 Juergen Adams
- #  Copyright (C) 2015 Christian Fei
- #
- #  J1 Template is licensed under MIT License.
- #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- #  SimpleJekyllSearch is licensed under MIT License.
- #  See: https://github.com/christian-fei/Simple-Jekyll-Search
- #
- # -----------------------------------------------------------------------------
-*/
-
-// -----------------------------------------------------------------------------
-// ESLint shimming
-// -----------------------------------------------------------------------------
-/* eslint no-undef: "off"                                                     */
-// -----------------------------------------------------------------------------
-
-'use strict';
 var _$LiteralSearchStrategy_6 = new LiteralSearchStrategy();
 
 function LiteralSearchStrategy () {
@@ -170,13 +103,6 @@ function LiteralSearchStrategy () {
   };
 }
 
-// -----------------------------------------------------------------------------
-// ESLint shimming
-// -----------------------------------------------------------------------------
-/* eslint indent: "off"                                                       */
-/* eslint no-undef: "off"                                                     */
-// -----------------------------------------------------------------------------
-'use strict';
 var _$Repository_4 = {
   put: put,
   clear: clear,
@@ -308,19 +234,9 @@ function isExcluded (term, excludedTerms) {
   return excluded;
 }
 
-// -----------------------------------------------------------------------------
-// ESLint shimming
-// -----------------------------------------------------------------------------
-/* eslint indent: "off"                                                       */
-/* eslint no-undef: "off"                                                     */
-// -----------------------------------------------------------------------------
-'use strict';
 var _$JSONLoader_2 = {
   load: load
 };
-
-// var yaml = require('js-yaml');                                                  // See: https://www.npmjs.com/package/js-yaml
-
 
 function load (location, callback) {
   var xhr = getXHR();
@@ -328,25 +244,6 @@ function load (location, callback) {
   xhr.onreadystatechange = createStateChangeListener(xhr, callback);
   xhr.send();
 }
-
-// J1 version using js-yaml to parse JSON data (search index)
-// -----------------------------------------------------------------------------
-// function createStateChangeListener (xhr, callback) {
-//   return function () {
-//     if (xhr.readyState === 4 && xhr.status === 200) {
-//       try {
-//           yaml.safeLoadAll(xhr.responseText, function (dataObj) {               // See: https://stackoverflow.com/questions/36973736/convert-yaml-to-json
-//           //console.log(dataObj);
-//           callback(null, dataObj);
-//         });
-//         /* jadams, 2019-03-10, moved data callback to YAML parser */
-//         /* callback(null, JSON.parse(xhr.responseText)); */
-//       } catch (e) {
-//         callback(null, e);
-//       }
-//     }
-//   };
-// }
 
 function createStateChangeListener (xhr, callback) {
   return function () {
@@ -364,13 +261,6 @@ function getXHR () {
   return (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
 }
 
-// -----------------------------------------------------------------------------
-// ESLint shimming
-// -----------------------------------------------------------------------------
-/* eslint indent: "off"                                                       */
-/* eslint no-undef: "off"                                                     */
-// -----------------------------------------------------------------------------
-'use strict';
 var _$OptionsValidator_3 = function OptionsValidator (params) {
   if (!validateParams(params)) {
     throw new Error('-- OptionsValidator: required options missing');
@@ -403,13 +293,6 @@ var _$OptionsValidator_3 = function OptionsValidator (params) {
   }
 };
 
-// -----------------------------------------------------------------------------
-// ESLint shimming
-// -----------------------------------------------------------------------------
-/* eslint indent: "off"                                                       */
-/* eslint no-undef: "off"                                                     */
-// -----------------------------------------------------------------------------
-'use strict';
 var _$utils_9 = {
   merge: merge,
   isJSON: isJSON
@@ -438,38 +321,6 @@ function isJSON (json) {
 }
 
 var _$src_8 = {};
-/*
- # -----------------------------------------------------------------------------
- # ~/jekyll_search/jekyll_search.js
- # Simple Jekyll Search v1.1.5 implementation for J1 template
- #
- # Product/Info:
- # https://jekyll.one
- # https://github.com/christian-fei/Simple-Jekyll-Search
- #
- # Copyright (C) 2020 Juergen Adams
- # Copyright (C) 2015 Christian Fei
- #
- # J1 Template is licensed under MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- # SimpleJekyllSearch is licensed under MIT License.
- # See: https://github.com/christian-fei/Simple-Jekyll-Search
- # -----------------------------------------------------------------------------
-*/
-
-// -----------------------------------------------------------------------------
-// ESLint shimming
-// -----------------------------------------------------------------------------
-/* eslint no-unused-vars: "off"                                               */
-/* eslint indent: "off"                                                       */
-/* eslint no-undef: "off"                                                     */
-// -----------------------------------------------------------------------------
-'use strict'
-/*!
- * Simple Jekyll Search
- * 2015 Christian Fei
- * Licensed under MIT License.
- */
 
 ;(function (window, document) {
   // Global variables
@@ -528,13 +379,6 @@ var _$src_8 = {};
     } else {
       initWithURL(options.json);
     }
-
-    // message.type    = 'command';
-    // message.action  = 'module_initialized';
-    // message.text    = 'Module initialized successfully';
-    //j1.sendMessage( 'Searcher', 'SimpleJekyllSearch', message );
-
-    // logger.info('initialization finished successfully');
 
     return true;
   };

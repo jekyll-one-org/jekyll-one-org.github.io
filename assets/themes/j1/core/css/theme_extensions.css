@@ -9165,7 +9165,8 @@ h4.result-item > a:hover {
 
 p.result-group-item-text {
   font-size: .875rem;
-  margin-bottom: .5rem; }
+  margin-bottom: .5rem;
+  text-align: justify; }
 
 #jss-results li {
   padding-top: .2rem;
@@ -9196,6 +9197,12 @@ p.result-group-item-text {
   margin-bottom: .5rem !important;
   font-weight: 400;
   color: #424242; }
+
+.form-clear-searcher {
+  margin: .5rem .5rem 0 .5rem; }
+
+.search-list-item {
+  margin-right: 3.5rem; }
 
 /*
  # -----------------------------------------------------------------------------
@@ -9337,74 +9344,3 @@ span.ssm-btn-text {
   .container, .container-fluid {
     padding-right: 30px !important;
     /* space for ssm */ } }
-
-/*
- # -----------------------------------------------------------------------------
- #  ~/theme_uno/modules/_toccer.scss (v4.11.2)
- #  Provides base styles for the toc navigation based on Tim Scanlin's Tocbot
- #
- #  Product/Info:
- #  https://jekyll.one
- #  https://tscanlin.github.io/tocbot
- #
- #  Copyright (C) 2016 Tim Scanlin
- #  Copyright (C) 2020 Juergen Adams
- #
- #  J1 Template is licensed under MIT License.
- #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- #  Tocbot is licensed under MIT License.
- #  See: https://github.com/tscanlin/tocbot/blob/master/LICENSE
- #
- # -----------------------------------------------------------------------------
-*/
-.toc {
-  overflow-y: auto; }
-
-.toc > .toc-list {
-  overflow: hidden;
-  position: relative; }
-
-.toc > .toc-list li {
-  list-style: none; }
-
-.toc-list {
-  margin: 0;
-  padding-left: 10px; }
-
-a.toc-link {
-  color: #757575;
-  height: 100%;
-  font-size: 1rem; }
-
-a.toc-link:hover {
-  color: #fafafa;
-  text-decoration: none;
-  font-weight: 700; }
-
-.is-collapsible {
-  max-height: 1000px;
-  overflow: hidden;
-  transition: all 300ms ease-in-out; }
-
-.is-collapsed {
-  max-height: 0; }
-
-.is-position-fixed {
-  position: fixed !important;
-  top: 0; }
-
-.is-active-link {
-  font-weight: 700; }
-
-.toc-link::before {
-  background-color: #E0E0E0;
-  content: ' ';
-  display: inline-block;
-  height: inherit;
-  left: 0;
-  margin-top: -1px;
-  position: absolute;
-  width: 2px; }
-
-.is-active-link::before {
-  background-color: #757575; }
