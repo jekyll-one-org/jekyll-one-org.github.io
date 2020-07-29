@@ -2076,6 +2076,12 @@ a.timeline-list-unstyled:hover {
   margin-bottom: 2rem;
   border-bottom: 1px solid #E5E5E5; }
 
+h4.post-headline > a {
+  color: #0d47a1; }
+
+h4.post-headline > a:hover {
+  color: #212121; }
+
 .post-headline h1 {
   color: rgba(0, 0, 0, 0.9);
   font-size: 3.5rem !important;
@@ -2578,7 +2584,7 @@ h2.featured-headline, h3.featured-headline {
         display: inline-block;
         line-height: 1.75rem;
         padding: 0 2em 0 1em;
-        background-color: #37474f;
+        background-color: #212121;
         border-radius: 3px;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -2589,9 +2595,9 @@ h2.featured-headline, h3.featured-headline {
         text-decoration: none;
         transition: .2s; }
         .tag-cloud ul li a:hover {
-          background-color: #90a4ae; }
+          background-color: #0d47a1; }
           .tag-cloud ul li a:hover span {
-            color: #7986cb; }
+            color: #0d47a1; }
       .tag-cloud ul li span {
         position: absolute;
         top: 5px;
@@ -3552,7 +3558,7 @@ ul.posts li a:hover {
 
 /*
  # -----------------------------------------------------------------------------
- #  ~/vendor/asciidoc/_md_color_palette.scss
+ #  ~/theme_uno/components/mde/_md_color_palette.scss
  #  Bootstrap MDE - Color Palette for MD Icons
  #
  #  Product/Info:
@@ -4689,7 +4695,7 @@ a.md-blue-800:focus {
 
 a.md-blue-900:hover,
 a.md-blue-900:focus {
-  color: #093272 !important; }
+  color: #212121 !important; }
 
 .md-blue-A100 {
   color: #82b1ff !important; }
@@ -8143,10 +8149,10 @@ body.scrollable {
     width: 400px; } }
 
 .modal-dialog.modal-notify.modal-info .badge {
-  background-color: #03a9f4; }
+  background-color: #0d47a1; }
 
 .modal-dialog.modal-notify.modal-info .modal-header {
-  background-color: #03a9f4; }
+  background-color: #0d47a1; }
 
 .modal-dialog.modal-notify.modal-info .fa, .modal-dialog.modal-notify.modal-info .mdi {
   color: #757575; }
@@ -8193,6 +8199,9 @@ body.scrollable {
  #
  # -----------------------------------------------------------------------------
 */
+.nav-primary {
+  background-color: #0D47A1; }
+
 .stop-scrolling {
   overflow-y: hidden;
   -ms-scroll-chaining: none;
@@ -8256,7 +8265,7 @@ li.close-full-menu {
   height: 2px;
   width: 50px;
   content: " ";
-  background: #204a87;
+  background: #0D47A1;
   position: absolute; }
 
 .heading-footer h2 {
@@ -8897,7 +8906,7 @@ body {
     nav.navigator.navbar-full ul.nav > li > a {
       border: none; }
   nav.navbar.navigator {
-    background-color: #607d8b;
+    background-color: #0D47A1;
     /*			.dropdown-menu .dropdown-item {
 				padding: .5rem;
 				max-width: unset;

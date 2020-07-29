@@ -18,7 +18,7 @@
  # NOTE: For getStyleValue helper see
  #  https://stackoverflow.com/questions/16965515/how-to-get-a-style-attribute-from-a-css-class-by-javascript-jquery
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-07-29 10:22:23 +0200
+ # Adapter generated: 2020-07-29 20:05:37 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -79,7 +79,7 @@ j1.adapter['navigator'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.navigator',
-        generated:   '2020-07-29 10:22:23 +0200'
+        generated:   '2020-07-29 20:05:37 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // options loader
@@ -212,7 +212,7 @@ j1.adapter['navigator'] = (function (j1, window) {
                 // set general|global theme colors
                 logger.info('apply dynamic CSS styles');
                 _this.setCSS (
-                  navBarOptions, navMenuOptions,
+                  navDefaults, navBarOptions, navMenuOptions,
                   navQuicklinksOptions, navTopsearchOptions
                 );
                 logger.info('init auth client');
@@ -229,7 +229,7 @@ j1.adapter['navigator'] = (function (j1, window) {
               // set general|global theme colors
               logger.info('apply dynamic CSS styles');
               _this.setCSS (
-                navBarOptions, navMenuOptions,
+                navDefaults, navBarOptions, navMenuOptions,
                 navQuicklinksOptions, navTopsearchOptions
               );
               logger.info('init auth client');
@@ -410,11 +410,12 @@ j1.adapter['navigator'] = (function (j1, window) {
     // setCSS
     // Set dynamic CSS styles
     // -------------------------------------------------------------------------
-    setCSS: function (navBarOptions, navMenuOptions, navQuicklinksOptions, navTopsearchOptions) {
+    setCSS: function (navDefaults, navBarOptions, navMenuOptions, navQuicklinksOptions, navTopsearchOptions) {
       var logger              = log4javascript.getLogger('j1.adapter.navigator.setCSS');
       var gridBreakpoint_lg   = '992px';
       var gridBreakpoint_md   = '768px';
       var gridBreakpoint_sm   = '576px';
+      var navPrimaryColor     = navDefaults.nav_primary_color;
       navMenuOptions.dropdown_font_size               = navMenuOptions.dropdown_font_size;
       navMenuOptions.megamenu_font_size               = navMenuOptions.megamenu_font_size;
       navBarOptions.background_color_full             = navBarOptions.background_color_full;
@@ -430,7 +431,8 @@ j1.adapter['navigator'] = (function (j1, window) {
       navQuicklinksOptions.background_color           = navQuicklinksOptions.background_color;
       navTopsearchOptions.input_color                 = navTopsearchOptions.input_color;
       navTopsearchOptions.background_color            = navTopsearchOptions.background_color;
-      var bg_primary    = j1.getStyleValue('bg-primary', 'background-color');
+      $('nav-primary').css({"background-color": "navPrimaryColor"});
+      var bg_primary    = j1.getStyleValue('nav-primary', 'background-color');
       var bg_scrolled   = bg_primary;
       var bg_collapsed  = bg_primary;
       $('head').append('<style>.mdi-bg-primary {color: ' +bg_scrolled+ ';}</style>');
