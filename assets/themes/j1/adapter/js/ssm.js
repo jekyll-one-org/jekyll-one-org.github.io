@@ -12,7 +12,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-07-29 20:42:50 +0200
+ # Adapter generated: 2020-08-02 17:07:36 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -67,7 +67,7 @@ j1.adapter['ssm'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.ssm',
-        generated:   '2020-07-29 20:42:50 +0200'
+        generated:   '2020-08-02 17:07:36 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // options loader
@@ -87,24 +87,9 @@ j1.adapter['ssm'] = (function (j1, window) {
       // save config settings into the mmenu object for global access
       //
       _this['moduleOptions'] = moduleOptions;
-      // jadams, 2020-06-24: Set max_count to 100 what cause to wait 2.5s
-      // for J1 Navigator to finish (init)
-      //
-      var interval_count = 0;
-      var max_count      = 100;
       var dependencies_met_navigator = setInterval(function() {
-        interval_count += 1;
-        if ( j1.adapter.navigator.getState() == 'finished' ) {
-          logger.info('dependencies of module navigator met for: mmenu');
-          logger.info('dependencies of module navigator met after: ' + interval_count * 25 + ' ms');
-          // j1.core.ssm.init (moduleOptions);
-          _this.ssmLoader(moduleOptions);
-          clearInterval(dependencies_met_navigator);
-        }
-        if (interval_count > max_count) {
-          logger.warn('dependency check failed for module: navigator');
-          logger.warn('dependencies of module navigator met after: ' + interval_count * 25 + ' ms');
-          // j1.core.ssm.init (moduleOptions);
+        if (j1.adapter.navigator.getState() == 'finished') {
+          logger.info('met dependencies for: navigator');
           _this.ssmLoader(moduleOptions);
           clearInterval(dependencies_met_navigator);
         }
@@ -138,7 +123,7 @@ j1.adapter['ssm'] = (function (j1, window) {
           if(isToc) {
             logger.info('found toc in page: enabled');
             if ( j1.adapter.toccer.getState() == 'finished' ) {
-              logger.info('dependency met for module : toccer');
+              logger.info('met dependencies for: toccer');
               _this.setState('processing');
               logger.info('set module state to: ' + _this.getState());
               logger.info('initialize ssm menu');
@@ -150,6 +135,7 @@ j1.adapter['ssm'] = (function (j1, window) {
               _this.setState('finished');
               logger.info('state: ' + _this.getState());
               logger.info('module initialized successfully');
+              logger.info('met dependencies for: xhrData');
               clearInterval(dependencies_met_mmenu_initialized);
             }
           } else {
@@ -160,6 +146,7 @@ j1.adapter['ssm'] = (function (j1, window) {
             $('#ssm_next_section').closest('.ssm-btn').hide();
             _this.scrollSpy(ssmOptions);
             _this.buttonInitializer(ssmOptions);
+            logger.info('met dependencies for: xhrData');
             clearInterval(dependencies_met_mmenu_initialized);
           }
         }

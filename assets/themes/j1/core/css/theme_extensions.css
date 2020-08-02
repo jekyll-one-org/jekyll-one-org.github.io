@@ -8001,6 +8001,290 @@ body.scrollable {
   border-radius: 0.1rem !important;
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.5) !important; }
 
+.modal .modal-header .modal-title {
+  font-weight: 300; }
+
+.modal .modal-header .lead {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #fafafa; }
+
+.modal .modal-header .close {
+  padding-top: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1.75rem;
+  padding-left: 1rem; }
+
+.modal .modal-footer {
+  padding: 2rem 2rem 2rem 2rem !important;
+  border-top: 1px solid #e0e0e0 !important; }
+
+.modal .modal-footer-show {
+  padding: 1rem 2rem 1.75rem 2rem; }
+
+.modal .modal-footer-hidden {
+  padding: 0; }
+
+@media (min-width: 768px) {
+  .modal .modal-dialog.modal-top {
+    top: 0; }
+  .modal .modal-dialog.modal-left {
+    left: 0; }
+  .modal .modal-dialog.modal-right {
+    right: 0; }
+  .modal .modal-dialog.modal-bottom {
+    bottom: 0; }
+  .modal .modal-dialog.modal-top-left {
+    top: 10px;
+    left: 10px; }
+  .modal .modal-dialog.modal-top-right {
+    top: 10px;
+    right: 10px; }
+  .modal .modal-dialog.modal-bottom-left {
+    left: 10px;
+    bottom: 10px; }
+  .modal .modal-dialog.modal-bottom-right {
+    right: 10px;
+    bottom: 10px; } }
+
+.modal.fade.top:not(.show) .modal-dialog {
+  transform: translate3d(0, -25%, 0); }
+
+.modal.fade.left:not(.show) .modal-dialog {
+  transform: translate3d(-25%, 0, 0); }
+
+.modal.fade.right:not(.show) .modal-dialog {
+  transform: translate3d(25%, 0, 0); }
+
+.modal.fade.bottom:not(.show) .modal-dialog {
+  transform: translate3d(0, 25%, 0); }
+
+@media (min-width: 576px) {
+  .modal.modal-scrolling {
+    position: relative; }
+    .modal.modal-scrolling .modal-dialog {
+      position: fixed;
+      z-index: 1050; }
+  .modal .modal-fluid {
+    width: 100%;
+    max-width: 100%; }
+    .modal .modal-fluid .modal-content {
+      width: 100%;
+      border-radius: 0.3rem !important;
+      box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.5); }
+  .modal .modal-frame {
+    position: absolute;
+    width: 100%;
+    max-width: 100%;
+    margin: 0; }
+    .modal .modal-frame.modal-bottom {
+      bottom: 0; }
+  .modal .modal-full-height {
+    display: flex;
+    position: absolute;
+    width: 400px;
+    height: 100%;
+    margin: 0;
+    top: 0;
+    bottom: 0;
+    right: 0; }
+    .modal .modal-full-height.modal-top, .modal .modal-full-height.modal-bottom {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto; }
+    .modal .modal-full-height.modal-top {
+      bottom: auto; }
+    .modal .modal-full-height.modal-bottom {
+      top: auto; }
+  .modal .modal-side {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    margin: 0;
+    width: 400px; } }
+
+@media (min-width: 768px) {
+  .modal.modal-scrolling {
+    position: relative; }
+    .modal.modal-scrolling .modal-dialog {
+      position: fixed;
+      z-index: 1050; }
+  .modal .modal-fluid {
+    width: 100%;
+    max-width: 100%; }
+    .modal .modal-fluid .modal-content {
+      width: 100%;
+      border-radius: 0.3rem !important; }
+  .modal .modal-frame {
+    position: absolute;
+    width: 100%;
+    max-width: 100%;
+    margin: 0; }
+    .modal .modal-frame.modal-bottom {
+      bottom: 0; }
+  .modal .modal-full-height {
+    display: flex;
+    position: absolute;
+    width: 400px;
+    height: 100%;
+    margin: 0;
+    top: 0;
+    bottom: 0;
+    right: 0; }
+    .modal .modal-full-height.modal-top, .modal .modal-full-height.modal-bottom {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto; }
+    .modal .modal-full-height.modal-top {
+      bottom: auto; }
+    .modal .modal-full-height.modal-bottom {
+      top: auto; }
+  .modal .modal-side {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    margin: 0;
+    width: 400px; } }
+
+.modal-dialog.modal-notify .btn {
+  padding: .5rem 1.25rem .5rem 1rem; }
+
+.modal-dialog.modal-notify .btn-outline-modal {
+  background-color: transparent; }
+
+.modal-dialog.modal-notify.modal-info .badge {
+  background-color: #5c6bc0; }
+
+.modal-dialog.modal-notify.modal-info .modal-header {
+  background-color: #5c6bc0; }
+
+.modal-dialog.modal-notify.modal-info .fa, .modal-dialog.modal-notify.modal-info .mdi {
+  color: #9e9e9e; }
+
+.modal-dialog.modal-notify.modal-info .btn-primary-modal {
+  color: #f5f5f5;
+  background: #3f51b5; }
+  .modal-dialog.modal-notify.modal-info .btn-primary-modal:active {
+    background-color: #5c6bc0 !important; }
+  .modal-dialog.modal-notify.modal-info .btn-primary-modal:focus {
+    background-color: #5c6bc0 !important; }
+  .modal-dialog.modal-notify.modal-info .btn-primary-modal:hover {
+    background-color: #5c6bc0 !important; }
+
+.modal-dialog.modal-notify.modal-info .btn-secondary-modal {
+  color: #f5f5f5;
+  background: #9e9e9e; }
+  .modal-dialog.modal-notify.modal-info .btn-secondary-modal:active {
+    background-color: #bdbdbd !important; }
+  .modal-dialog.modal-notify.modal-info .btn-secondary-modal:focus {
+    background-color: #bdbdbd !important; }
+  .modal-dialog.modal-notify.modal-info .btn-secondary-modal:hover {
+    background-color: #bdbdbd !important; }
+
+.modal-dialog.modal-notify.modal-info .btn-outline-modal {
+  /* border: 2px solid; */
+  /* border: 2px solid $pink; */
+  /* color: $pink!important; */ }
+
+.modal-dialog.modal-notify.modal-warning {
+  /*
+		.btn-outline-modal {
+			border: 2px solid $color_neon_carrot_approx;
+			color: $color_neon_carrot_approx !important;
+		}
+		*/ }
+  .modal-dialog.modal-notify.modal-warning .badge {
+    background-color: #ff8e38; }
+  .modal-dialog.modal-notify.modal-warning .modal-header {
+    background-color: #ff8e38; }
+  .modal-dialog.modal-notify.modal-warning .fa, .modal-dialog.modal-notify.modal-warning .mdi {
+    color: #9e9e9e;
+    /* color: $color_neon_carrot_approx; */ }
+  .modal-dialog.modal-notify.modal-warning .btn-primary-modal {
+    color: #f5f5f5;
+    background: #ff8e38; }
+    .modal-dialog.modal-notify.modal-warning .btn-primary-modal:active {
+      background-color: #ff9c52 !important; }
+    .modal-dialog.modal-notify.modal-warning .btn-primary-modal:focus {
+      background-color: #ff9c52 !important; }
+    .modal-dialog.modal-notify.modal-warning .btn-primary-modal:hover {
+      background-color: #ff9c52 !important; }
+
+.modal-dialog.modal-notify.modal-success {
+  /*
+		.btn-outline-modal {
+			border: 2px solid $color_malachite_approx;
+			color: $color_malachite_approx !important;
+		}
+		*/ }
+  .modal-dialog.modal-notify.modal-success .badge {
+    background-color: #01d36b; }
+  .modal-dialog.modal-notify.modal-success .modal-header {
+    background-color: #01d36b; }
+  .modal-dialog.modal-notify.modal-success .fa, .modal-dialog.modal-notify.modal-success .mdi {
+    color: #9e9e9e;
+    /* color: $color_malachite_approx; */ }
+  .modal-dialog.modal-notify.modal-success .btn-primary-modal {
+    color: #f5f5f5;
+    background: #01d36b; }
+    .modal-dialog.modal-notify.modal-success .btn-primary-modal:active {
+      background-color: #01ec78 !important; }
+    .modal-dialog.modal-notify.modal-success .btn-primary-modal:focus {
+      background-color: #01ec78 !important; }
+    .modal-dialog.modal-notify.modal-success .btn-primary-modal:hover {
+      background-color: #01ec78 !important; }
+
+.modal-dialog.modal-notify.modal-danger {
+  /*
+		.btn-outline-modal {
+			border: 2px solid $color_sunset_orange_approx;
+			color: $color_sunset_orange_approx !important;
+		}
+		*/ }
+  .modal-dialog.modal-notify.modal-danger .badge {
+    background-color: #ff4b4b; }
+  .modal-dialog.modal-notify.modal-danger .modal-header {
+    background-color: #ff4b4b; }
+  .modal-dialog.modal-notify.modal-danger .fa, .modal-dialog.modal-notify.modal-danger .mdi {
+    /* color: $color_sunset_orange_approx; */
+    color: #9e9e9e; }
+  .modal-dialog.modal-notify.modal-danger .btn-primary-modal {
+    color: #f5f5f5;
+    background: #ff4b4b; }
+    .modal-dialog.modal-notify.modal-danger .btn-primary-modal:active {
+      background-color: #ff6565 !important; }
+    .modal-dialog.modal-notify.modal-danger .btn-primary-modal:focus {
+      background-color: #ff6565 !important; }
+    .modal-dialog.modal-notify.modal-danger .btn-primary-modal:hover {
+      background-color: #ff6565 !important; }
+
+/*
+ # -----------------------------------------------------------------------------
+ #  ~/theme_uno/modules/_enhanced-modals.scss
+ #  Provides CSS styles for J1 Enhanced Bootstrap Modals
+ #
+ #  Product/Info:
+ #  https://jekyll.one
+ #
+ #  Copyright (C) 2020 Juergen Adams
+ #
+ #  J1 Template is licensed under the MIT License.
+ #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ #
+ # -----------------------------------------------------------------------------
+*/
+body.modal-open {
+  padding-right: 0 !important; }
+
+body.scrollable {
+  overflow-y: auto; }
+
+.modal .modal-content {
+  border-radius: 0.1rem !important;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.5) !important; }
+
 .modal .modal-header {
   border-top-left-radius: 0;
   border-top-right-radius: 0; }
@@ -8154,8 +8438,8 @@ body.scrollable {
 .modal-dialog.modal-notify.modal-info .modal-header {
   background-color: #0d47a1; }
 
-.modal-dialog.modal-notify.modal-info .fa, .modal-dialog.modal-notify.modal-info .mdi {
-  color: #757575; }
+.modal-dialog.modal-notify.modal-info .mdi {
+  color: #f5f5f5 !important; }
 
 .modal-dialog.modal-notify.modal-warning .badge {
   background-color: #ff5722; }
@@ -8163,8 +8447,8 @@ body.scrollable {
 .modal-dialog.modal-notify.modal-warning .modal-header {
   background-color: #ff5722; }
 
-.modal-dialog.modal-notify.modal-warning .fa, .modal-dialog.modal-notify.modal-warning .mdi {
-  color: #757575; }
+.modal-dialog.modal-notify.modal-warning .mdi {
+  color: #f5f5f5 !important; }
 
 .modal-dialog.modal-notify.modal-success .badge {
   background-color: #4caf50; }
@@ -8172,8 +8456,8 @@ body.scrollable {
 .modal-dialog.modal-notify.modal-success .modal-header {
   background-color: #4caf50; }
 
-.modal-dialog.modal-notify.modal-success .fa, .modal-dialog.modal-notify.modal-success .mdi {
-  color: #757575; }
+.modal-dialog.modal-notify.modal-success .mdi {
+  color: #f5f5f5 !important; }
 
 .modal-dialog.modal-notify.modal-danger .badge {
   background-color: #f44336; }
@@ -8181,8 +8465,8 @@ body.scrollable {
 .modal-dialog.modal-notify.modal-danger .modal-header {
   background-color: #f44336; }
 
-.modal-dialog.modal-notify.modal-danger .fa, .modal-dialog.modal-notify.modal-danger .mdi {
-  color: #757575; }
+.modal-dialog.modal-notify.modal-danger .mdi {
+  color: #f5f5f5 !important; }
 
 /*
  # -----------------------------------------------------------------------------
@@ -9484,3 +9768,45 @@ span.ssm-btn-text {
   .container, .container-fluid {
     padding-right: 30px !important;
     /* space for ssm */ } }
+
+/*
+ # -----------------------------------------------------------------------------
+ # ~/theme_uno/modules/_totop.scss
+ # Provides CSS styles for J1 Back2Top
+ #
+ # Product/Info:
+ # https://jekyll-one.com
+ #
+ # Copyright (C) 2019 Juergen Adams
+ #
+ # J1 Template is licensed under the MIT License.
+ # See: https://github.com/jekyll-one/j1_template_mde/blob/master/LICENSE
+ #
+ # -----------------------------------------------------------------------------
+*/
+/*
+ ---------------------------------------------------------------------
+    NOTE: Styles
+            #topcontrol.position,
+            #topcontrol.background,
+            #topcontrol.content:after,
+            #topcontrol.font-family:after
+            #topcontrol.background:hover
+          set dynamically via  j1_adapter_back_to_top.js
+  --------------------------------------------------------------------
+*/
+#topcontrol {
+  color: #fff;
+  z-index: 99;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 3px !important; }
+  #topcontrol:after {
+    top: 0;
+    left: 5px;
+    position: absolute;
+    text-align: center; }
+  #topcontrol:hover {
+    color: #fff;
+    transition: all 0.3s ease-in-out; }
