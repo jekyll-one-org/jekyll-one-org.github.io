@@ -1693,6 +1693,30 @@ a.timeline-list-unstyled:hover {
 
 /*
  # -----------------------------------------------------------------------------
+ #  ~/theme_uno/components/_container.scss
+ #  Provides all general container styles for J1 Template
+ #
+ #  Product/Info:
+ #  https://jekyll.one
+ #
+ #  Copyright (C) 2020 Juergen Adams
+ #
+ #  J1 Template is licensed under the MIT License.
+ #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ #
+ # -----------------------------------------------------------------------------
+*/
+/* CONTAINER layout helper classes
+ ------------------------------------------------------------------------------- */
+#content {
+  padding-right: initial; }
+
+.no-padding {
+  padding-right: 0 !important;
+  padding-left: 0 !important; }
+
+/*
+ # -----------------------------------------------------------------------------
  #  ~/theme_uno/components/_footer.scss
  #  Provides general styles for footers used by J1 Template
  #
@@ -8262,18 +8286,21 @@ body.scrollable {
 
 /*
  # -----------------------------------------------------------------------------
- #  ~/theme_uno/modules/_enhanced-modals.scss
- #  Provides CSS styles for J1 Enhanced Bootstrap Modals
+ # ~/theme_uno/modules/_enhanced-modals.scss
+ # Provides CSS styles for J1 Enhanced Bootstrap Modals
  #
- #  Product/Info:
- #  https://jekyll.one
+ # Product/Info:
+ # https://jekyll.one
  #
- #  Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2020 Juergen Adams
  #
- #  J1 Template is licensed under the MIT License.
- #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- #
+ # J1 Template is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
+ # NOTE: NO fa icons should be used with enhanced modals to NOT conflict
+ # with asciidoc ICON colors
+ # -----------------------------------------------------------------------------
+
 */
 body.modal-open {
   padding-right: 0 !important; }
@@ -9754,21 +9781,29 @@ span.ssm-btn-text {
     transform: translate(15px, 0);
 }
 */
+/* jadams, 2020-08-07: media query WRONG on the container class.
+Padding on CONTAINER cause irritating paddings on HOME page
+TODO: Padding needs to be isolated on SSM (if used)
+See: packages\200_template_js\js\sticky-side-menu\ssm.js
+-------------------------------------------------------------------------------- */
 /* Responsive */
-/* jadams, 2020-06-29: media query for SSM
+/* jadams, 2020-06-29: media query for SSM (space for ssm)
 -------------------------------------------------------------------------------- */
 /* Landscape iPad, 768px */
-@media only screen and (min-width: 576px) and (max-width: 768px) {
+/*
+@media only screen and (min-width: 576px) and (max-width: 768px){
   .container, .container-fluid {
     padding-right: 30px !important;
-    /* space for ssm */ } }
-
+  }
+}
+*/
 /* Small devices (landscape phones, up to 576px) */
-@media only screen and (max-width: 576px) {
+/* @media only screen and (max-width: 576px) {
   .container, .container-fluid {
     padding-right: 30px !important;
-    /* space for ssm */ } }
-
+  }
+}
+*/
 /*
  # -----------------------------------------------------------------------------
  # ~/theme_uno/modules/_totop.scss
