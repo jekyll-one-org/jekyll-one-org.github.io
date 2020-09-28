@@ -1,29 +1,21 @@
-
 /*
  # -----------------------------------------------------------------------------
- #  ~/twemoji/twemoji.js
- #  Twemoji v13.0.0 implementation for J1 template
+ # ~/assets/themes/j1/modules/twemoji/js/twemoji.js
+ # Twemoji v13.0.0 implementation for J1 template
  #
- #  Product/Info:
- #  https://jekyll.one
- #  https://github.com/twitter/twemoji
+ # Product/Info:
+ # https://jekyll.one
+ # https://github.com/twitter/twemoji
  #
- #  Copyright (C) 2020 Juergen Adams
- #  Copyright (C) 2018 Twitter, Inc and other contributors
+ # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2018 Twitter, Inc and other contributors
  #
- #  J1 Template is licensed under the MIT License.
- #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- #  Twemoji is licensed under under the MIT License.
- #  See: https://github.com/twitter/twemoji/blob/gh-pages/LICENSE
- #
+ # J1 Template is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # Twemoji is licensed under under the MIT License.
+ # See: https://github.com/twitter/twemoji/blob/gh-pages/LICENSE
  # -----------------------------------------------------------------------------
 */
-
-/*! Copyright Twitter Inc. and other contributors. Licensed under MIT *//*
-  https://github.com/twitter/twemoji/blob/gh-pages/LICENSE
-*/
-
-/*jslint indent: 2, browser: true, bitwise: true, plusplus: true */
 
 var twemoji = (function (
   // WARNING:   this file is generated automatically via
@@ -39,7 +31,6 @@ var twemoji = (function (
   var
     // the exported module object
     twemoji = {
-
 
     /////////////////////////
     //      properties     //

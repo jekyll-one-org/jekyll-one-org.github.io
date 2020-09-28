@@ -5,12 +5,12 @@
  # JS Adapter for J1 Navigator
  #
  # Product/Info:
- # https://jekyll.one
+ # 
  #
  # Copyright (C) 2020 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
- # For details, see https://jekyll.one
+ # For details, see 
  # -----------------------------------------------------------------------------
  # NOTE: For AJAX (XHR) loads see
  #  https://stackoverflow.com/questions/3709597/wait-until-all-jquery-ajax-requests-are-done
@@ -18,7 +18,7 @@
  # NOTE: For getStyleValue helper see
  #  https://stackoverflow.com/questions/16965515/how-to-get-a-style-attribute-from-a-css-class-by-javascript-jquery
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-08-08 16:11:54 +0200
+ # Adapter generated: 2020-09-28 18:21:02 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -37,8 +37,8 @@ j1.adapter['navigator'] = (function (j1, window) {
   var nav_menu_id                 = '';
   var nav_quicklinks_id           = '';
   var authclient_modals_id        = '';
-  var colors_data_path            = '/assets/data/colors.json';
-  var font_size_data_path         = '/assets/data/font_sizes.json';
+  var colors_data_path            = '';
+  var font_size_data_path         = '';
   var nav_menu_data_path          = '';
   var nav_quicklinks_data_path    = '';
   var authclient_modals_data_path = '/assets/data/authclient/index.html';
@@ -47,7 +47,7 @@ j1.adapter['navigator'] = (function (j1, window) {
   var user_session                = {};
   var user_session_merged         = {};
   var session_state               = {};
-  var themerEnabled               = false;
+  var themerEnabled               = true;                 //was (test): false;
   var authClientEnabled;
   var appDetected;
   var json_data;
@@ -79,7 +79,7 @@ j1.adapter['navigator'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.navigator',
-        generated:   '2020-08-08 16:11:54 +0200'
+        generated:   '2020-09-28 18:21:02 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // options loader
@@ -98,14 +98,16 @@ j1.adapter['navigator'] = (function (j1, window) {
       var navTopsearchOptions                       = {};
       var navAuthClientOptions                      = {};
       var navAuthMAnagerConfig                      = {};
-      navDefaults                                   = $.extend({}, {"icon_family":"MDI", "icon_style":"mdi", "icon_color":"mdi-grey", "icon_size":"mdi-sm", "nav_primary_color":"#0D47A1", "nav_bar":{"enabled":false, "xhr_container_id":"navigator_nav_navbar", "media_breakpoint":"lg", "brand_position":"right", "brand_type":"image", "brand_type_collapsed":"text", "fixed":true, "style":"overlay", "color":"light", "position":"left", "bottom_line_height":1, "bottom_line_color":"#EEEEEE", "background_color_full":"rgba(0, 0, 0, 0.4)", "background_color_collapsed":"#3F51B5", "background_color_scrolled":"#3F51B5"}, "nav_mmenu":{"enabled":false, "mmenu_plugin":{"node":"null", "mediaQuery":"all", "max_width":100000}, "mmenu_navigator":{"selected":"Selected", "slidingSubmenus":true, "title":"Navigation", "theme":"dark"}, "mmenu_drawer":{"position":"right"}}, "nav_menu":{"enabled":false, "xhr_container_id":"navigator_nav_menu", "xhr_data_path":"/assets/data/menu/index.html", "raised_level":15, "delay_menu_open":200, "max_height":550, "menu_font_size":"larger", "megamenu_font_size":"small", "icon_family":"MDI", "icon_style":"mdi", "icon_color":"#9E9E9E", "icon_size":"mdi-sm", "menu_item_color":"rgba(255, 255, 255, 0.5)", "menu_item_color_hover":"rgba(255, 255, 255, 0.9)", "dropdown_style":"raised", "dropdown_item_style":"flat", "dropdown_animate":false, "dropdown_animate_in":"slideInDown", "dropdown_animate_out":"fadeOutDown", "dropdown_animate_duration":0.75, "dropdown_item_min_width":15, "dropdown_menu_max_height":25, "dropdown_font_size":"small", "dropdown_padding_x":15, "dropdown_padding_y":10, "dropdown_item_color":"#212121", "dropdown_border_color":"#3f51b5", "dropdown_border_top":3, "dropdown_border_radius":0, "dropdown_background_color_hover":"#ECEFF1", "dropdown_background_color_active":"#CFD8DC"}, "nav_quicklinks":{"enabled":false, "xhr_container_id":"navigator_nav_quicklinks", "xhr_data_path":"/assets/data/quicklinks/index.html", "icon_family":"MDI", "icon_color":"rgba(255, 255, 255, 0.5)", "icon_color_hover":"rgba(255, 255, 255, 0.9)", "icon_size":"mdi-2x", "cookies_icon":"cookie", "top_search_icon":"magnify", "translator_icon":"flag-variant", "toc_icon":"wrap", "home_icon":"home-variant", "home_url":"none", "r_text_sizer":false, "r_text_icon":"format-text", "back_icon":"subdirectory-arrow-left", "back_url":"none", "disqus_icon":"disqus", "disqus_url":"none", "github_icon":"github-circle", "github_url":"none", "patreon_icon":"patreon", "patreon_url":"none", "facebook_icon":"facebook", "facebook_url":"none", "twitter_icon":"twitter", "twitter_url":"none"}, "nav_topsearch":{"enabled":false, "xhr_container_id":"navigator_nav_topsearch", "type":"quicksearch", "icon_family":"MDI", "icon_color":"#FFFFFF", "icon_size":"mdi-2x", "search_icon":"magnify", "close_icon":"close", "clear_icon":"filter-remove", "input_color":"rgba(0, 0, 0, 0.7)", "background_color":"#FAFAFA", "placeholder":"QuickSearch", "search_heading_lead":"", "result_heading_lead":""}});
-      navBarConfig                                  = $.extend({}, {"enabled":true, "xhr_container_id":"navigator_nav_navbar", "media_breakpoint":"lg", "brand_position":"right", "brand_type":"image", "brand_type_collapsed":"text", "fixed":true, "style":"overlay", "color":"light", "position":"left", "bottom_line_height":1, "bottom_line_color":"#EEEEEE", "background_color_full":"rgba(0, 0, 0, 0.4)", "background_color_collapsed":"#3F51B5", "background_color_scrolled":"#3F51B5"});
+      var themerOptions                             = {};
+      navDefaults                                   = $.extend({}, {"icon_family":"MDI", "icon_style":"mdi", "icon_color":"mdi-grey", "icon_size":"mdi-sm", "nav_primary_color":"#2196F3", "nav_bar":{"enabled":false, "xhr_container_id":"navigator_nav_navbar", "media_breakpoint":"lg", "brand_position":"right", "brand_type":"image", "brand_type_collapsed":"text", "fixed":true, "style":"overlay", "color":"light", "position":"left", "bottom_line_height":1, "bottom_line_color":"#EEEEEE", "background_color_full":"rgba(0, 0, 0, 0.4)", "background_color_collapsed":"#2196F3", "background_color_scrolled":"#2196F3"}, "nav_mmenu":{"enabled":false, "mmenu_plugin":{"node":"null", "mediaQuery":"all", "max_width":100000}, "mmenu_navigator":{"selected":"Selected", "slidingSubmenus":true, "title":"Navigation", "theme":"dark"}, "mmenu_drawer":{"position":"right"}}, "nav_menu":{"enabled":false, "xhr_container_id":"navigator_nav_menu", "xhr_data_path":"/assets/data/menu/index.html", "raised_level":15, "delay_menu_open":200, "max_height":550, "menu_font_size":"larger", "megamenu_font_size":"small", "icon_family":"MDI", "icon_style":"mdi", "icon_color":"#9E9E9E", "icon_size":"mdi-sm", "menu_item_color":"rgba(255, 255, 255, 0.5)", "menu_item_color_hover":"rgba(255, 255, 255, 0.9)", "dropdown_style":"raised", "dropdown_item_style":"flat", "dropdown_animate":false, "dropdown_animate_in":"slideInDown", "dropdown_animate_out":"fadeOutDown", "dropdown_animate_duration":0.75, "dropdown_item_min_width":15, "dropdown_menu_max_height":25, "dropdown_font_size":"small", "dropdown_padding_x":15, "dropdown_padding_y":10, "dropdown_item_color":"#212121", "dropdown_border_color":"#3f51b5", "dropdown_border_top":3, "dropdown_border_radius":0, "dropdown_background_color_hover":"#ECEFF1", "dropdown_background_color_active":"#CFD8DC"}, "nav_quicklinks":{"enabled":false, "xhr_container_id":"navigator_nav_quicklinks", "xhr_data_path":"/assets/data/quicklinks/index.html", "icon_family":"MDI", "icon_color":"rgba(255, 255, 255, 0.5)", "icon_color_hover":"rgba(255, 255, 255, 0.9)", "icon_size":"mdi-2x", "cookies_icon":"cookie", "top_search_icon":"magnify", "translator_icon":"flag-variant", "toc_icon":"wrap", "home_icon":"home-variant", "home_url":"none", "r_text_sizer":false, "r_text_icon":"format-text", "back_icon":"subdirectory-arrow-left", "back_url":"none", "disqus_icon":"disqus", "disqus_url":"none", "github_icon":"github-circle", "github_url":"none", "patreon_icon":"patreon", "patreon_url":"none", "facebook_icon":"facebook", "facebook_url":"none", "twitter_icon":"twitter", "twitter_url":"none"}, "nav_topsearch":{"enabled":false, "xhr_container_id":"navigator_nav_topsearch", "type":"quicksearch", "icon_family":"MDI", "icon_color":"#FFFFFF", "icon_size":"mdi-2x", "search_icon":"magnify", "close_icon":"close", "clear_icon":"filter-remove", "input_color":"rgba(0, 0, 0, 0.7)", "background_color":"#FAFAFA", "placeholder":"QuickSearch", "search_heading_lead":"", "result_heading_lead":""}});
+      navBarConfig                                  = $.extend({}, {"enabled":true, "xhr_container_id":"navigator_nav_navbar", "media_breakpoint":"lg", "brand_position":"right", "brand_type":"image", "brand_type_collapsed":"text", "fixed":true, "style":"overlay", "color":"light", "position":"left", "bottom_line_height":1, "bottom_line_color":"#EEEEEE", "background_color_full":"rgba(0, 0, 0, 0.4)", "background_color_collapsed":"#2196F3", "background_color_scrolled":"#2196F3"});
       navMenuConfig                                 = $.extend({}, {"enabled":true, "xhr_container_id":"navigator_nav_menu", "xhr_data_path":"/assets/data/menu/index.html", "raised_level":15, "delay_menu_open":200, "max_height":550, "menu_font_size":"larger", "megamenu_font_size":"small", "icon_family":"MDI", "icon_style":"mdi", "icon_color":"#9E9E9E", "icon_size":"mdi-sm", "menu_item_color":"rgba(255, 255, 255, 0.5)", "menu_item_color_hover":"rgba(255, 255, 255, 0.9)", "dropdown_style":"raised", "dropdown_item_style":"flat", "dropdown_animate":false, "dropdown_animate_in":"slideInDown", "dropdown_animate_out":"fadeOutDown", "dropdown_animate_duration":0.75, "dropdown_item_min_width":15, "dropdown_menu_max_height":25, "dropdown_font_size":"small", "dropdown_padding_x":15, "dropdown_padding_y":10, "dropdown_item_color":"#212121", "dropdown_border_color":"#3f51b5", "dropdown_border_top":3, "dropdown_border_radius":0, "dropdown_background_color_hover":"#ECEFF1", "dropdown_background_color_active":"#CFD8DC", "delay_open_menu":250});
       navQuicklinksConfig                           = $.extend({}, {"enabled":true, "xhr_container_id":"navigator_nav_quicklinks", "xhr_data_path":"/assets/data/quicklinks/index.html", "icon_family":"MDI", "icon_color":"rgba(255, 255, 255, 0.5)", "icon_color_hover":"rgba(255, 255, 255, 0.9)", "icon_size":"mdi-2x", "cookies_icon":"cookie", "top_search_icon":"magnify", "translator_icon":"flag-variant", "toc_icon":"wrap", "home_icon":"home-variant", "home_url":"https://jekyll-one-org.github.io/", "r_text_sizer":false, "r_text_icon":"format-text", "back_icon":"subdirectory-arrow-left", "back_url":"https://preview.jekyll.one/", "disqus_icon":"disqus", "disqus_url":"none", "github_icon":"github-circle", "github_url":"https://github.com/jekyll-one", "patreon_icon":"patreon", "patreon_url":"none", "facebook_icon":"facebook", "facebook_url":"none", "twitter_icon":"twitter", "twitter_url":"none"});
       navTopsearchConfig                            = $.extend({}, {"enabled":true, "xhr_container_id":"navigator_nav_topsearch", "type":"quicksearch", "icon_family":"MDI", "icon_color":"#FFFFFF", "icon_size":"mdi-2x", "search_icon":"magnify", "close_icon":"close", "clear_icon":"filter-remove", "input_color":"rgba(0, 0, 0, 0.7)", "background_color":"#FAFAFA", "placeholder":"QuickSearch", "search_heading_lead":"", "result_heading_lead":""});
       navAuthClientConfig                           = $.extend({}, {"enabled":true, "xhr_container_id":"authclient_modals", "xhr_data_path":"/assets/data/authclient/index.html", "signin_modal_id":"modalOmniSignIn", "hide_on_cookies_declined":true, "icon_family":"MDI", "signin_icon":"login", "signout_icon":"logout", "auth_signin_modal":{"title":"SignIn", "body_text":"In order to get *signed in*, check one of the options below and mark a provider for authentication. You'll be *redirected* to authenticate with the provider *selected*. If signed in *successfully*, you get back to this site for the page requested.\n\nNOTE: To get access to secured pages of this site, authentication with a provider is needed only *once*.\n"}, "auth_disqus":{"id":1, "title":"Disqus", "text":"SignIn to Disqus. Get access to all *PROTECTED* content pages of this site.\n"}, "auth_facebook":{"id":2, "title":"Facebook", "text":"SignIn to Facebook. Get access to all *PROTECTED* content pages of this site.\n"}, "auth_github":{"id":3, "title":"Github", "text":"SignIn to Github. Get access to all *PROTECTED* content pages of this site.\n"}, "auth_patreon":{"id":4, "title":"Patreon", "text":"SignIn to Patreon. Get access to all *PROTECTED* and *PRIVATE* content pages of this site.\n"}, "auth_twitter":{"id":5, "title":"Twitter", "text":"SignIn to Twitter. Get access to all *PROTECTED* content pages of this site.\n"}, "auth_signout_modal":{"title":"SignOut", "body_text":"After signing out from this site, you'll be *redirected* to the *provider* you're currently authenticated. From your home page at the *provider*, you can *sign out* completely.\n\nNOTE: In order to signing out *completely*, check the switch below to *on*.\n"}});
       navAuthMAnagerConfig                          = $.extend({}, {"j1_auth":{"enabled":false, "ssl":false, "content":{"public":["\\W*((?i)assets(?-i))\\W*", "\\W*((?i)public(?-i))\\W*"], "protected":["\\W*((?i)protected(?-i))\\W*"], "private":["\\W*((?i)private(?-i))\\W*"]}, "providers":{"activated":["github", "disqus"], "disqus":{"provider_url":"https://disqus.com", "strategy":"member", "scope":[], "users":["all"], "permissions":["protected"], "data_fields":[], "conditions":{"protected":{"enabled":true, "users":{"blacklist":[]}}, "private":{"enabled":false, "users":{"whitelist":["all"], "blacklist":[]}}}}, "github":{"provider_url":"https://github.com", "strategy":"member", "scope":[], "users":["all"], "permissions":["protected", "private"], "data_fields":[], "conditions":{"protected":{"enabled":true, "users":{"blacklist":[]}}, "private":{"enabled":true, "users":{"whitelist":["all"], "blacklist":[]}}}}}}, "auth_client":{"enabled":true, "auth_signin_modal":{"title":"SignIn", "body_text":"In order to get *signed in*, check one of the options below and mark a provider for authentication. You'll be *redirected* to authenticate with the provider *selected*. If signed in *successfully*, you get back to this site for the page requested.\n\nNOTE: To get access to secured pages of this site, authentication with a provider is needed only *once*.\n"}, "auth_disqus":{"id":1, "title":"Disqus", "text":"SignIn to Disqus. Get access to all *PROTECTED* content pages of this site.\n"}, "auth_facebook":{"id":2, "title":"Facebook", "text":"SignIn to Facebook. Get access to all *PROTECTED* content pages of this site.\n"}, "auth_github":{"id":3, "title":"Github", "text":"SignIn to Github. Get access to all *PROTECTED* content pages of this site.\n"}, "auth_patreon":{"id":4, "title":"Patreon", "text":"SignIn to Patreon. Get access to all *PROTECTED* and *PRIVATE* content pages of this site.\n"}, "auth_twitter":{"id":5, "title":"Twitter", "text":"SignIn to Twitter. Get access to all *PROTECTED* content pages of this site.\n"}, "auth_signout_modal":{"title":"SignOut", "body_text":"After signing out from this site, you'll be *redirected* to the *provider* you're currently authenticated. From your home page at the *provider*, you can *sign out* completely.\n\nNOTE: In order to signing out *completely*, check the switch below to *on*.\n"}}});
       authClientEnabled                             = navAuthMAnagerConfig.enabled;
+      themerOptions                                 = $.extend({}, {"enabled":true, "saveToCookie":true, "debug":false, "preview_page":"/pages/public/previewer/theme/", "menu_icon_family":"MDI", "menu_icon_color":"#9E9E9E", "menu_icon_size":"mdi-sm", "cssThemeLink":"bootstrapTheme", "defaultCssFile":"https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css", "bootswatchApiUrl":"https://bootswatch.com/api", "bootswatchApiVersion":4, "loadFromBootswatch":true, "localThemes":"/assets/data/themes.json", "excludeBootswatch":"Default, default, Lux, Sketchy", "includeBootswatch":"", "skipIncludeBootswatch":""});
       // Merge|Overload module CONFIG by DEFAULTS
       //
       navBarOptions                                 = j1.mergeData(navBarConfig, navDefaults.nav_bar);
@@ -183,23 +185,29 @@ j1.adapter['navigator'] = (function (j1, window) {
           );
           // cast text-based booleans
           // themerEnabled = (true === 'true');
-          if (true) {
-            logText = 'theme switcher detect: enabled';
-            logger.info(logText);
-            // initialize theme switcher menu
-            // load themes from Bootswatch API (set localFeed EMPTY)
-            $('#ThemeList').bootstrapThemeSwitcher({
-                localFeed: ''
-            });
-            // load (local) J1 themes (default settings)
-            $('#ThemeSelect').bootstrapThemeSwitcher();
-            logText = 'theme switcher menu loaded successfully';
-            logger.info(logText);
-          } else {
-            logText = 'theme switcher detect: disabled';
-            logger.info(logText);
-          }
-          _this.setState('initialized');
+          // load themes (to menu) if page is finished
+          var dependencies_met_page_finished = setInterval(function() {
+            if (j1.getState() == 'finished') {
+              if (true) {
+                // initialize theme switcher menus
+                logText = 'theme switcher detect: enabled';
+                logger.info(logText);
+                // load remote themes (Bootswatch API)
+                logText = 'load remote themes (Bootswatch API)';
+                logger.info(logText);
+                $('#remote_themes').bootstrapThemeSwitcher({localFeed: ''});
+                // load local themes (json file)
+                logText = 'load local themes (json file)';
+                logger.info(logText);
+                $('#local_themes').bootstrapThemeSwitcher({localFeed: themerOptions.localThemes});
+              } else {
+                logText = 'theme switcher detect: disabled';
+                logger.info(logText);
+              }
+              clearInterval(dependencies_met_page_finished);
+            }
+            _this.setState('initialized');
+          }, 25); // END 'dependencies_met_page_finished'
           // -----------------------------------------------------------------
           // event handler|css styles
           // -----------------------------------------------------------------
@@ -210,12 +218,18 @@ j1.adapter['navigator'] = (function (j1, window) {
                 _this.setState('processing');
                 logger.info('initialize eventHandler');
                 j1.core.navigator.eventHandler();
-                // set general|global theme colors
-                logger.info('apply dynamic CSS styles');
-                _this.setCSS (
-                  navDefaults, navBarOptions, navMenuOptions,
-                  navQuicklinksOptions, navTopsearchOptions
-                );
+                var dependencies_met_page_finished = setInterval(function() {
+                  if (j1.getState() == 'finished') {
+                    // set general|global theme colors
+                    logger.info('initializing dynamic CSS styles: started');
+                    _this.setCSS (
+                      navDefaults, navBarOptions, navMenuOptions,
+                      navQuicklinksOptions, navTopsearchOptions
+                    );
+                    clearInterval(dependencies_met_page_finished);
+                  }
+                  logger.info('initializing dynamic CSS styles: finished');
+                }, 25); // END 'dependencies_met_page_finished'
                 logger.info('init auth client');
                 _this.initAuthClient(_this.navAuthManagerConfig);
                 _this.setState('finished');
@@ -435,16 +449,22 @@ j1.adapter['navigator'] = (function (j1, window) {
       navQuicklinksOptions.background_color           = navQuicklinksOptions.background_color;
       navTopsearchOptions.input_color                 = navTopsearchOptions.input_color;
       navTopsearchOptions.background_color            = navTopsearchOptions.background_color;
-      $('nav-primary').css({"background-color": "navPrimaryColor"});
-      var bg_primary    = j1.getStyleValue('nav-primary', 'background-color');
+      // $('nav-primary').css({"background-color": "navPrimaryColor"});
+      var bg_primary    = j1.getStyleValue('bg-primary', 'background-color');
       var bg_scrolled   = bg_primary;
       var bg_collapsed  = bg_primary;
       $('head').append('<style>.mdi-bg-primary {color: ' +bg_scrolled+ ';}</style>');
       // Size of brand image
-      $('head').append('<style>.navbar-brand > img { height: 64px !important; }</style>');
+      $('head').append('<style>.navbar-brand > img { height: 48px !important; }</style>');
       // Navbar transparent-light (light)
       $('head').append('<style>@media (min-width: ' +gridBreakpoint_lg+ ') { nav.navbar.navigator.navbar-transparent.light { background-color: ' +navBarOptions.background_color_full+ ' !important; border-bottom: solid 0px !important; } }</style>');
       $('head').append('<style>@media (min-width: ' +gridBreakpoint_lg+ ') { nav.navbar.navigator.navbar-scrolled.light { background-color: ' +bg_scrolled+ ' !important; } }</style>');
+      $('head').append('<style id="dynNav">@media (max-width: ' +gridBreakpoint_md+ ') { nav.navbar.navigator.navbar-transparent.light { background-color: ' +navBarOptions.background_color_full+ ' !important; border-bottom: solid 0px !important; } }</style>');
+      $('head').append('<style id="dynNav">@media (max-width: ' +gridBreakpoint_md+ ') { nav.navbar.navigator.navbar-scrolled.light { background-color: ' +bg_scrolled+ ' !important; } }</style>');
+      $('head').append('<style id="dynNav">@media (min-width: ' +gridBreakpoint_md+ ') { nav.navbar.navigator.navbar-transparent.light { background-color: ' +navBarOptions.background_color_full+ ' !important; border-bottom: solid 0px !important; } }</style>');
+      $('head').append('<style id="dynNav">@media (min-width: ' +gridBreakpoint_md+ ') { nav.navbar.navigator.navbar-scrolled.light { background-color: ' +bg_scrolled+ ' !important; } }</style>');
+      $('head').append('<style id="dynNav">@media (max-width: ' +gridBreakpoint_sm+ ') { nav.navbar.navigator.navbar-transparent.light { background-color: ' +navBarOptions.background_color_full+ ' !important; border-bottom: solid 0px !important; } }</style>');
+      $('head').append('<style id="dynNav">@media (max-width: ' +gridBreakpoint_sm+ ') { nav.navbar.navigator.navbar-scrolled.light { background-color: ' +bg_scrolled+ ' !important; } }</style>');
       $('head').append('<style>.attr-nav> ul > li > a { color: ' +navQuicklinksOptions.icon_color+ ' !important; }</style>');
       $('head').append('<style>.attr-nav> ul > li > a:hover { color: ' +navQuicklinksOptions.icon_color_hover+ ' !important; }</style>');
       // Remove background for anchor
@@ -468,6 +488,14 @@ j1.adapter['navigator'] = (function (j1, window) {
 //    $('head').append('<style>.top-search .input-group-addon { color: ' +navTopsearchOptions.input_color+ ' !important; }</style>');
       $('head').append('<style>.top-search { background-color: ' +navTopsearchOptions.background_color+ ' !important; }</style>');
       $('head').append('<style>.top-search input.form-control { color: ' +navTopsearchOptions.input_color+ ' !important; }</style>');
+  	  $('head').append('<style>.timeline > li > .timeline-panel:after {border-right-color: ' +bg_scrolled+ '; border-left-color: ' +bg_scrolled+ ';}</style>');
+      $('head').append('<style>.tmicon {background: ' +bg_scrolled+ ';}</style>');
+      $('head').append('<style>.heading:after {background: ' +bg_scrolled+ ' !important;}</style>');
+      $('head').append('<style>.tag-cloud ul li a {background-color: ' +bg_scrolled+ ' !important;}</style>');
+      // $('head').append('<style>.tag-cloud ul li a:hover {background-color: #212121 !important;}</style>');
+      $('head').append('<style>.is-active-link::before {background-color: ' +bg_scrolled+ ' !important;}</style>');
+      $('head').append('<style>.modal-dialog.modal-notify.modal-primary .modal-header {background-color: ' +bg_scrolled+ ';}</style>');
+      $('head').append('<style>.nav-pills .nav-link.active, .nav-pills .show > .nav-link {background-color: ' +bg_scrolled+ ' !important;}</style>');
       return true;
     }, // END setCSS
     // -------------------------------------------------------------------------

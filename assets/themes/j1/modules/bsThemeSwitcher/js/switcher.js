@@ -1,20 +1,19 @@
 /*
  # -----------------------------------------------------------------------------
- #  ~/assets/themes/j1/modules/bsThemeSwitcher/js/switcher.js
- #  Provides Javascript functions for Bootstrap ThemeSwitcher
+ # ~/assets/themes/j1/modules/bsThemeSwitcher/js/switcher.js
+ # Provides Javascript functions for Bootstrap ThemeSwitcher
  #
- #  Product/Info:
- #  https://jekyll.one
- #  https://github.com/jguadagno/bootstrapThemeSwitcher
+ # Product/Info:
+ # https://jekyll.one
+ # https://github.com/jguadagno/bootstrapThemeSwitcher
  #
- #  Copyright (C) 2020 Juergen Adams
- #  Copyright (C) 2014 Joseph Guadagno
+ # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2014 Joseph Guadagno
  #
- #  J1 Template is licensed under the MIT License.
- #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- #  Bootstrap Theme Switcher is licensed under the MIT License.
- #  See: https://github.com/jguadagno/bootstrapThemeSwitcher
- #
+ # J1 Template is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # Bootstrap Theme Switcher is licensed under the MIT License.
+ # See: https://github.com/jguadagno/bootstrapThemeSwitcher
  # -----------------------------------------------------------------------------
 */
 'use strict';
@@ -63,8 +62,18 @@
     this.$element = $(element);
     this.settings = $.extend({}, $.fn.bootstrapThemeSwitcher.defaults, options);
     this.themesList = [];
-    this.getThemes();
 
+    // $.when (
+    //   this.getThemes()
+    // )
+    // .then(function(data) {
+    //   logger.info('loading local themes (json) finished');
+    // })
+    // .catch(function(error) {
+    //   logger.error('loading local themes (json) failed: ' + error);
+    // });
+
+    this.getThemes();
     return this;
   };
 
@@ -149,12 +158,12 @@
         j1_user_state.theme_name  = name;
         j1_user_state.theme_css   = cssFile;
 
-        if ( name != 'Uno' && name != 'Bootstrap' ) {
+        if (!(j1_user_state.theme_name.includes('Uno') || j1_user_state.theme_name == 'Bootstrap')) {
           j1_user_state.theme_author = 'Bootswatch';
-          j1_user_state.theme_link   = 'https://bootswatch.com/';
+          j1_user_state.theme_author_url   = 'https://bootswatch.com/';
         } else {
           j1_user_state.theme_author = 'J1 Team';
-          j1_user_state.theme_link   = 'https://jekyll.one/';
+          j1_user_state.theme_author_url   = 'https://jekyll.one/';
         }
 
         j1.writeCookie({
@@ -226,7 +235,7 @@
         var excludeBootswatchs;
         // split the string on ,
         if(this.settings.excludeBootswatch.indexOf(',') !== -1){
-          excludeBootswatchs = this.settings.excludeBootswatch.split(',');
+          excludeBootswatchs = this.settings.excludeBootswatch.replace(/ /g, '').split(',');
         } else {
           excludeBootswatchs = [];
           excludeBootswatchs.push(this.settings.excludeBootswatch);
@@ -337,7 +346,7 @@
       var base = this;
 
       if (this.settings.localFeed !== null && this.settings.localFeed !== '') {
-        // Get the file
+        // Deferred loading themes from local themes (json file)
         $.ajax({
           url: this.settings.localFeed,
           // jadams 2016-10-10: removed the setting for sychronous XMLHttpRequest
@@ -353,27 +362,26 @@
             logger.error('Failed to retrieve the local feed from: \'' + base.settings.localFeed + '\'');
           }
         });
-        return true;
-      }
-
-      // Deferred loading the CSS file from 'bootswatchApiUrl'
-      // -----------------------------------------------------------------------
-      $.ajax({
-        url: this.settings.bootswatchApiUrl + '/' + this.settings.bootswatchApiVersion + '.json',
-        // jadams 2016-10-10: removed the setting for sychronous XMLHttpRequest
-        // because deprecated by jQuery on the main thread. Because the Theme Manager
-        // is initialized very early, no blocking|sychronous AJAX call is needed
-        // async: false,
-        dataType: 'json',
-        success: function (data) {
-          if (data.themes === undefined) {
-            return null;
+      } else {
+        // Deferred loading remote themes from Bootswatch API
+        // -----------------------------------------------------------------------
+        $.ajax({
+          url: this.settings.bootswatchApiUrl + '/' + this.settings.bootswatchApiVersion + '.json',
+          // jadams 2016-10-10: removed the setting for sychronous XMLHttpRequest
+          // because deprecated by jQuery on the main thread. Because the Theme Manager
+          // is initialized very early, no blocking|sychronous AJAX call is needed
+          // async: false,
+          dataType: 'json',
+          success: function (data) {
+            if (data.themes === undefined) {
+              return null;
+            }
+            base.themesList = data.themes;
+            base.themesList.splice(0,0, {name: 'default', css: base.settings.defaultCssFile});
+            base.addThemesToControl();
           }
-          base.themesList = data.themes;
-          base.themesList.splice(0,0, {name: 'default', css: base.settings.defaultCssFile});
-          base.addThemesToControl();
-        }
-      });
+        });
+      }
     }, // END getThemes
 
     // -------------------------------------------------------------------------

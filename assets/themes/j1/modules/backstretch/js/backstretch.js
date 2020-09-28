@@ -1,21 +1,20 @@
 /*
  # -----------------------------------------------------------------------------
- #  ~/js/backstretch/backstretch.js
- #  Backstretch v.2.1.16 implementation for J1 Template.
+ # ~/assets/themes/j1/modules/backstretch/js/backstretch.js
+ # Backstretch v.2.1.16 implementation for J1 Template.
  #
- #  Product/Info:
- #  https://jekyll.one
- #  http://srobbin.com/jquery-plugins/backstretch/
+ # Product/Info:
+ # https://jekyll.one
+ # http://srobbin.com/jquery-plugins/backstretch/
  #
- #  Copyright (C) 2020 Juergen Adams
- #  Copyright (C) 2017 Daniel Cohen Gindi
- #  Copyright (C) 2012 Scott Robbin
+ # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2017 Daniel Cohen Gindi
+ # Copyright (C) 2012 Scott Robbin
  #
- #  J1 Template is licensed under the MIT License.
- #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- #  Backstretch is licensed under the MIT License.
- #  See: https://github.com/danielgindi/jquery-backstretch
- #
+ # J1 Template is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # Backstretch is licensed under the MIT License.
+ # See: https://github.com/danielgindi/jquery-backstretch
  # -----------------------------------------------------------------------------
 */
 

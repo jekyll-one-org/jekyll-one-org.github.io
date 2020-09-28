@@ -1,20 +1,19 @@
 /*
  # -----------------------------------------------------------------------------
- #  ~/twemoji/twemoji-picker.js
- #  Twemoji-Picker v2017-06-03 implementation for J1 template
+ # ~/assets/themes/j1/modules/twemoji/js/picker/twemoji-picker.js
+ # Twemoji-Picker v2017-06-03 implementation for J1 template
  #
- #  Product/Info:
- #  https://jekyll.one
- #  https://github.com/xLs51/Twemoji-Picker
+ # Product/Info:
+ # https://jekyll.one
+ # https://github.com/xLs51/Twemoji-Picker
  #
- #  Copyright (C) 2020 Juergen Adams
- #  Copyright (C) 2015 xLs51
+ # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2015 xLs51
  #
- #  J1 Template is licensed under the MIT License.
- #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- #  Twemoji-Picker is licensed under under the MIT License.
- #  For details, https://github.com/xLs51/Twemoji-Picker
- #
+ # J1 Template is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # Twemoji-Picker is licensed under under the MIT License.
+ # For details, https://github.com/xLs51/Twemoji-Picker
  # -----------------------------------------------------------------------------
 */
 (function (e, c, g) {
@@ -73,7 +72,7 @@
       h.$wrapper = h.$el.wrap('<div class="twemoji-wrap"></div>').parent();
       h.$wrapper.append('<div class="twemoji-textarea" contentEditable="true" placeholder="' + h.options.placeholder + '"></div>');
       h.$wrapper.append('<div class="twemoji-textarea-duplicate"></div>');
-      h.$wrapper.append('<div class="twemoji-icon-picker"> <span id="open-group" class="mr-2"><button type="button" name="open-group" class="btn btn-raised btn-flex btn-info mr-2"><i class="toggle-button mdi mdi-lg mr-1 mdi-toggle-switch-off"></i> Picker </button></span><span id="clear-textarea"><button type="button" name="clear-textarea" class="btn btn-raised btn-flex btn-secondary"><i class="mdi mdi-sticker-emoji mdi-lg mr-1"></i> Clear </button></span></div>');
+      h.$wrapper.append('<div class="twemoji-icon-picker"> <span id="open-group" class="mr-2"><button type="button" name="open-group" class="btn btn-raised btn-flex btn-primary mr-2"><i class="toggle-button mdi mdi-lg mr-1 mdi-toggle-switch-off"></i> Picker </button></span><span id="clear-textarea"><button type="button" name="clear-textarea" class="btn btn-raised btn-flex btn-secondary"><i class="mdi mdi-sticker-emoji mdi-lg mr-1"></i> Clear </button></span></div>');
       h.$wrapper.append('<div class="twemoji-picker"></div>');
       h.$el.hide();
       h.$textarea = h.$wrapper.find(".twemoji-textarea");

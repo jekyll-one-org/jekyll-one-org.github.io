@@ -1031,7 +1031,7 @@ function destroy() {
 /**
  * Get the window associated with the element
  * @argument {Element} element
- * @returns {Window}
+ * @returns {browser-window--new}
  */
 function getWindow(element) {
   var ownerDocument = element.ownerDocument;

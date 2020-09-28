@@ -1,26 +1,19 @@
 /*
  # -----------------------------------------------------------------------------
- #  ~/assets/themes/j1/modules/tocbot/css/theme/uno.css
- #  Provides theme styles for the toc navigation based on Tim Scanlin's Tocbot
+ # ~/assets/themes/j1/modules/tocbot/css/theme/uno.css
+ # Provides Tocbot styles for theme Uno
  #
- #  Product/Info:
- #  https://jekyll.one
- #  https://tscanlin.github.io/tocbot
+ # Product/Info:
+ # https://jekyll.one
  #
- #  Copyright (C) 2016 Tim Scanlin
- #  Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2020 Juergen Adams
  #
- #  J1 Template is licensed under MIT License.
- #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- #  Tocbot is licensed under MIT License.
- #  See: https://github.com/tscanlin/tocbot/blob/master/LICENSE
+ # J1 Template is licensed under MIT License.
+ # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
-*/
-
-/* STYLES
- * NOTE: Several styles are moved to ~/assets/themes/j1/adapter/js/toccer.js
- * 			 to set CSS styles fo selected theme dynamically
- * -----------------------------------------------------------------------------
+ # NOTE: Several styles are moved to ~/assets/themes/j1/adapter/js/toccer.js
+ # 			 to set CSS styles fo selected theme dynamically
+ # -----------------------------------------------------------------------------
 */
 
 .toc {
@@ -42,14 +35,14 @@
 }
 
 a.toc-link {
-  color: #757575;	                                                              /* md-grey-600 */
+  color: #BDBDBD;	                                                              /* md-grey-400 */
   height: 100%;
   font-size: 1rem;                                                              /* jadams, 2017-12-13: added font-size for toc-link */
 }
 
 /* jadams, 2020-07-03: added hover to global style */
 a.toc-link:hover {
-  color: #fafafa;
+  color: #757575 !important;                                                    /* md-grey-600 */
   text-decoration: none;
   font-weight: 700;
 }

@@ -1,19 +1,15 @@
 /*
  # -----------------------------------------------------------------------------
- #  ~/assets/themes/j1/modules/mmenu_light/css/theme/uno.css
- #  Provides theme styles (Uno) for Mobile Menu light (v3.0.5)
+ # ~/theme_uno/modules/mmenuLight/css/theme/mmenu.css
+ # Provides MMenu styles for theme Uno
  #
- #  Product/Info:
- #  https://jekyll.one
- #  https://github.com/FrDH/mmenu-light
+ # Product/Info:
+ # https://jekyll.one
  #
- #  Copyright (C) 2020 Juergen Adams
- #  Copyright (C) 2015-2020 Fred Heusschen
+ # Copyright (C) 2020 Juergen Adams
  #
- #  J1 Template is licensed under the MIT License.
- #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- #  Mmenu Light is licensed under the CC-BY-4.0 License.
- #  See: http://creativecommons.org/licenses/by/4.0/
+ # J1 Template is licensed under MIT License.
+ # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
 */
 
@@ -53,7 +49,7 @@ NOTE: For unknown reason, style "mm-ocd--left" is NOT applied correctly
 -------------------------------------------------------------------------------- */
 
 /* Large desktop */
-@media only screen and (min-width: 1200px) {
+@media (min-width: 1200px) {
   .mm-ocd {
     top: 80px; /* drawer top offset to NAV bar */
   }
@@ -63,7 +59,7 @@ NOTE: For unknown reason, style "mm-ocd--left" is NOT applied correctly
 }
 
 /* Desktop */
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   .mm-ocd {
     top: 80px; /* drawer top offset to NAV bar */
   }
@@ -73,18 +69,18 @@ NOTE: For unknown reason, style "mm-ocd--left" is NOT applied correctly
 }
 
 /* Desktop 2 (intermediate|responsive size) */
-@media only screen and (min-width: 768px) and (max-width: 992px) {
+@media (min-width: 768px) and (max-width: 992px) {
   .mm-ocd {
-    top: 64px; /* drawer top offset to NAV bar */
+    top: 48px; /* drawer top offset to NAV bar */
   }
   .mm-ocd__content {
       background-color: #191919;
   }
 }
 /* Landscape iPad, 768px */
-@media only screen and (min-width: 576px) and (max-width: 768px){
+@media (min-width: 576px) and (max-width: 768px){
   .mm-ocd {
-    top: 64px; /* drawer top offset to NAV bar */
+    top: 48px; /* drawer top offset to NAV bar */
   }
   .mm-ocd__content {
       background-color: #191919;
@@ -92,9 +88,9 @@ NOTE: For unknown reason, style "mm-ocd--left" is NOT applied correctly
 }
 
 /* Small devices (landscape phones, up to 576px) */
-@media only screen and (max-width: 576px) {
+@media (max-width: 576px) {
   .mm-ocd {
-    top: 64px; /* drawer top offset to NAV bar */
+    top: 48px; /* drawer top offset to NAV bar */
   }
   .mm-ocd__content {
       background-color: #191919;

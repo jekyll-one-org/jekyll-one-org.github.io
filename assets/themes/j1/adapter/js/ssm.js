@@ -12,7 +12,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-08-08 16:11:54 +0200
+ # Adapter generated: 2020-09-28 18:21:02 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -25,7 +25,7 @@ j1.adapter['ssm'] = (function (j1, window) {
   // ---------------------------------------------------------------------------
   // globals
   // ---------------------------------------------------------------------------
-  const isMobile    = j1.core.isMobile();
+  var isMobile      = j1.core.isMobile();
   var environment   = 'production';
   var dclFinished   = false;
   var moduleOptions = {};
@@ -67,7 +67,7 @@ j1.adapter['ssm'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.ssm',
-        generated:   '2020-08-08 16:11:54 +0200'
+        generated:   '2020-09-28 18:21:02 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // options loader
@@ -110,7 +110,8 @@ j1.adapter['ssm'] = (function (j1, window) {
         xhr_container_id: 'ssm-container',
         xhr_data_path:    '/assets/data/ssm/index.html' },
         'j1.adapter.ssm',
-        'data_loaded');
+        'data_loaded'
+      );
       // ---------------------------------------------------------------------
       // Initialize MMenu Navs and Drawers
       // ---------------------------------------------------------------------
@@ -127,7 +128,7 @@ j1.adapter['ssm'] = (function (j1, window) {
               _this.setState('processing');
               logger.info('set module state to: ' + _this.getState());
               logger.info('initialize ssm menu');
-              (ssmOptions.mode === 'icon')
+              ssmOptions.mode === 'icon'
                 ? logger.info('ssm mode detected: icon')
                 : logger.info('ssm mode detected: menu');
               _this.scrollSpy(ssmOptions);
@@ -311,7 +312,7 @@ j1.adapter['ssm'] = (function (j1, window) {
       var scrollOffset      = -80;
       // Correction if mobile (offset: desktop -90px, mobile -80px)
       scrollOffset          = j1.core.isMobile() ? scrollOffset + 10 : scrollOffset;
-      nodes.each(function() {
+      nodes.each(function () {
         currentNode = $(this).find(current_header_id);
         if (currentNode.length) {
           if (index > maxNode) {
@@ -348,7 +349,7 @@ j1.adapter['ssm'] = (function (j1, window) {
       var scrollOffset      = -80;
       // Correction if mobile (offset: desktop -90px, mobile -80px)
       scrollOffset          = j1.core.isMobile() ? scrollOffset + 10 : scrollOffset;
-      nodes.each(function() {
+      nodes.each(function () {
         currentNode = $(this).find(current_header_id);
         if (currentNode.length) {
           if (index == maxNode) {
@@ -366,7 +367,7 @@ j1.adapter['ssm'] = (function (j1, window) {
             });
           }
         }
-        (index < maxNode) ? index++ : index;
+        index < maxNode ? index++ : index;
       });
     }, // END scroll_next_section
     // -------------------------------------------------------------------------
@@ -467,7 +468,7 @@ j1.adapter['ssm'] = (function (j1, window) {
         }
         // show|hide ssm container on scroll position in page
         //
-        ( scrollPos >= showSsmPos ) && ( scrollPos <= hideSsmPos )
+        scrollPos >= showSsmPos && scrollPos <= hideSsmPos
           ? $ssmContainer.css('display','block')
           : $ssmContainer.css('display','none');
         // logger.debug('content pos detected as: ' + m + 'px');

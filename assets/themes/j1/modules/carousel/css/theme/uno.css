@@ -1,16 +1,15 @@
 /*
  # -----------------------------------------------------------------------------
- #  ~/assets/themes/j1/modules/carousel/css/theme/uno.css
- #  J1 Carousel styles for J1 Theme Uno
+ # ~/assets/themes/j1/modules/carousel/css/theme/uno.css
+ # J1 Carousel styles for Theme Uno
  #
- #  Product/Info:
- #  https://jekyll.one
+ # Product/Info:
+ # https://jekyll.one
  #
- #  Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2020 Juergen Adams
  #
- #  J1 Template is licensed under the MIT License.
- #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- #
+ # J1 Template is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
 */
 
@@ -53,15 +52,21 @@ padding-left: 1px;
 }
 
 /* Carousel title */
-.slider-title {
+/* .slider-title {
   color: rgba(0, 0, 0, 0.6);
   line-height: 1.25;
   font-size: 1.25rem;
   font-weight: 500;
   font-style: italic;
   margin: 0 0 .25rem .25rem;
-}
+} */
 
+.slider-title {
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: .25rem;
+    margin-left: .25rem;
+}
 /* Carousel caption text
  ------------------------------------------------------------------ */
 
