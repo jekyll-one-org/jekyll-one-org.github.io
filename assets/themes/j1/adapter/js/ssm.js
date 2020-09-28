@@ -12,7 +12,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-09-28 19:58:45 +0200
+ # Adapter generated: 2020-09-28 20:12:46 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -26,7 +26,7 @@ j1.adapter['ssm'] = (function (j1, window) {
   // globals
   // ---------------------------------------------------------------------------
   var isMobile      = j1.core.isMobile();
-  var environment   = 'development';
+  var environment   = 'production';
   var dclFinished   = false;
   var moduleOptions = {};
   var cookie_names  = j1.getCookieNames();
@@ -67,7 +67,7 @@ j1.adapter['ssm'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.ssm',
-        generated:   '2020-09-28 19:58:45 +0200'
+        generated:   '2020-09-28 20:12:46 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // options loader
