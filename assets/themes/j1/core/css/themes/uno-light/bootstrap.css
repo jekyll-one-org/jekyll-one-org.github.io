@@ -21349,7 +21349,7 @@ body.scrollable {
             color: #fafafa;
             text-decoration: none; } }
 
-@media screen and (min-width: 991px), screen and (orientation: portrait) and (min-width: 1023px) {
+@media screen and (min-width: 991px) {
   .dropdown-submenu {
     position: relative; }
     .dropdown-submenu > a::after {

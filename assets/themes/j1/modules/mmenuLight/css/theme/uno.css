@@ -23,12 +23,16 @@
 
 /* Drawer */
 
+  .mm-ocd__content {
+      background-color: #191919 !important;
+  }
+
 .mm-ocd--left .mm-ocd__content {
-  background-color: #191919;
+  background-color: #191919 !important;
 }
 
 .mm-ocd--right .mm-ocd__content {
-  background-color: #191919;
+  background-color: #191919 !important;
 }
 
 /* Additional CSS styles for BS Theme Switcher
@@ -36,7 +40,7 @@
 .mmenu-item.active, .mmenu-item:active {
     /* color: #fff; */
     text-decoration: none;
-    background-color: #607d8b;
+    background-color: #607d8b !important;
 }
 
 /* Responsive */
@@ -53,9 +57,6 @@ NOTE: For unknown reason, style "mm-ocd--left" is NOT applied correctly
   .mm-ocd {
     top: 80px; /* drawer top offset to NAV bar */
   }
-  .mm-ocd__content {
-      background-color: #191919;
-  }
 }
 
 /* Desktop */
@@ -63,37 +64,30 @@ NOTE: For unknown reason, style "mm-ocd--left" is NOT applied correctly
   .mm-ocd {
     top: 80px; /* drawer top offset to NAV bar */
   }
-  .mm-ocd__content {
-      background-color: #191919;
-  }
 }
 
+/* jadams, 2020-09-29: blödsinn ??? */
 /* Desktop 2 (intermediate|responsive size) */
+/*
 @media (min-width: 768px) and (max-width: 992px) {
   .mm-ocd {
-    top: 48px; /* drawer top offset to NAV bar */
-  }
-  .mm-ocd__content {
-      background-color: #191919;
+    top: 48px;
   }
 }
+*/
+
 /* Landscape iPad, 768px */
-@media (min-width: 576px) and (max-width: 768px){
+/* jadams, 2020-09-29: blödsinn ??? @media (min-width: 576px) and (max-width: 768px){ */
+@media (min-width: 576px) {
   .mm-ocd {
     top: 48px; /* drawer top offset to NAV bar */
-  }
-  .mm-ocd__content {
-      background-color: #191919;
   }
 }
 
 /* Small devices (landscape phones, up to 576px) */
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   .mm-ocd {
     top: 48px; /* drawer top offset to NAV bar */
-  }
-  .mm-ocd__content {
-      background-color: #191919;
   }
 }
 
@@ -106,8 +100,8 @@ NOTE: For unknown reason, style "mm-ocd--left" is NOT applied correctly
 /* Themes */
 /* jadams, 2020-06-20: set j1 template colors (dark theme) */
 .mm-spn.mm-spn--dark {
-  color: #e3e3e3;
-  background: #191919
+  color: #e3e3e3 !important;
+  background: #191919 !important;
 }
 
 /* Sidebar (Drawer)
@@ -125,7 +119,7 @@ NOTE: For unknown reason, style "mm-ocd--left" is NOT applied correctly
 .mm-side .widget .title {
     color: #fff;
     margin-bottom: 15px;
-    border-left: 3px solid #204a87;
+    border-left: 3px solid #204a87 !important;
     padding-left: 5px
 }
 
@@ -161,14 +155,14 @@ NOTE: For unknown reason, style "mm-ocd--left" is NOT applied correctly
 /* Navigation (Menu)
    ----------------------------------------------------------------------------- */
 .mm-spn a:hover {
-    color: #fafafa;
+    color: #fafafa !important;
     text-decoration: none;
     font-weight: 500;
 }
 
 /* jadams, 2020-07-03: added hover to global style */
 a.toc-link:hover {
-    color: #fafafa;
+    color: #fafafa !important;
     text-decoration: none;
     font-weight: 500;
 }

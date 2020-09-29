@@ -328,8 +328,9 @@ body.mm-ocd-opened {
   padding-left: var(--mm-spn-item-indent)
 }
 
+/* jadams, 2020-09-29: deactivated fix top position, blödsinn ??? */
 .mm-spn.mm-spn--navbar ul {
-  top: 51px;
+  /* top: 51px; */
   top: calc(var(--mm-spn-item-height) + 1px)
 }
 
