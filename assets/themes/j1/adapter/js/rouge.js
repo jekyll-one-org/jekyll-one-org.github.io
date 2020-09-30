@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2020-09-30 19:13:17 +0200
+ #  Adapter generated: 2020-09-30 20:17:37 +0200
  # -----------------------------------------------------------------------------
 */
 // https://github.com/jirutka/asciidoctor-rouge/issues/9
@@ -66,7 +66,7 @@ j1.adapter['rouge'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.rouge',
-        generated:   '2020-09-30 19:13:17 +0200'
+        generated:   '2020-09-30 20:17:37 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // rouge initializer
