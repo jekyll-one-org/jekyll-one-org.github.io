@@ -28,11 +28,19 @@
 /* Drawer */
 
 .mm-ocd--left .mm-ocd__content {
-  background-color: #212121;
+  background-color: #191919;
 }
 
 .mm-ocd--right .mm-ocd__content {
-  background-color: #212121;
+  background-color: #191919;
+}
+
+/* Additional CSS styles for BS Theme Switcher
+   ----------------------------------------------------------------------------- */
+.mmenu-item.active, .mmenu-item:active {
+    /* color: #fff; */
+    text-decoration: none;
+    background-color: #607d8b;
 }
 
 /* Responsive */
@@ -50,7 +58,7 @@ NOTE: For unknown reason, style "mm-ocd--left" is NOT applied correctly
     top: 80px; /* drawer top offset to NAV bar */
   }
   .mm-ocd__content {
-      background-color: #212121;
+      background-color: #191919;
   }
 }
 
@@ -60,7 +68,7 @@ NOTE: For unknown reason, style "mm-ocd--left" is NOT applied correctly
     top: 80px; /* drawer top offset to NAV bar */
   }
   .mm-ocd__content {
-      background-color: #212121;
+      background-color: #191919;
   }
 }
 
@@ -70,7 +78,7 @@ NOTE: For unknown reason, style "mm-ocd--left" is NOT applied correctly
     top: 64px; /* drawer top offset to NAV bar */
   }
   .mm-ocd__content {
-      background-color: #212121;
+      background-color: #191919;
   }
 }
 /* Landscape iPad, 768px */
@@ -79,7 +87,7 @@ NOTE: For unknown reason, style "mm-ocd--left" is NOT applied correctly
     top: 64px; /* drawer top offset to NAV bar */
   }
   .mm-ocd__content {
-      background-color: #212121;
+      background-color: #191919;
   }
 }
 
@@ -89,7 +97,7 @@ NOTE: For unknown reason, style "mm-ocd--left" is NOT applied correctly
     top: 64px; /* drawer top offset to NAV bar */
   }
   .mm-ocd__content {
-      background-color: #212121;
+      background-color: #191919;
   }
 }
 
@@ -157,7 +165,7 @@ NOTE: For unknown reason, style "mm-ocd--left" is NOT applied correctly
 /* Navigation (Menu)
    ----------------------------------------------------------------------------- */
 .mm-spn a:hover {
-    /* color: #fafafa; */
+    color: #fafafa;
     text-decoration: none;
     font-weight: 500;
 }

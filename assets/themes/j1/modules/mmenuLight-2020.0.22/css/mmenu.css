@@ -1,19 +1,19 @@
 /*
  # -----------------------------------------------------------------------------
- #  ~/assets/themes/j1/modules/mmenu_light/css/mmenu.css
- #  Provides base styles for Mobile Menu light (v3.0.5)
+ # ~/theme_uno/modules/mmenuLight/css/mmenu.css
+ # Provides base styles for mobile menu light (v3.0.5)
  #
- #  Product/Info:
- #  https://jekyll.one
- #  https://github.com/FrDH/mmenu-light
+ # Product/Info:
+ # https://jekyll.one
+ # https://github.com/FrDH/mmenu-light
  #
- #  Copyright (C) 2020 Fred Heusschen
- #  Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2020 Fred Heusschen
+ # Copyright (C) 2020 Juergen Adams
  #
- #  J1 Template is licensed under MIT License.
- #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- #  MMenu is licensed under CC-BY-4.0 License.
- #  See: http://creativecommons.org/licenses/by/4.0/
+ # J1 Template is licensed under MIT License.
+ # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # MMenu is licensed under CC-BY-4.0 License.
+ # See: http://creativecommons.org/licenses/by/4.0/
  # -----------------------------------------------------------------------------
 */
 
@@ -328,8 +328,9 @@ body.mm-ocd-opened {
   padding-left: var(--mm-spn-item-indent)
 }
 
+/* jadams, 2020-09-29: deactivated fix top position, blödsinn ??? */
 .mm-spn.mm-spn--navbar ul {
-  top: 51px;
+  /* top: 51px; */
   top: calc(var(--mm-spn-item-height) + 1px)
 }
 

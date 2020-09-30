@@ -1,15 +1,19 @@
 /*
  # -----------------------------------------------------------------------------
- # ~/theme_uno/modules/mmenuLight/css/theme/mmenu.css
- # Provides MMenu styles for theme Uno
+ #  ~/assets/themes/j1/modules/mmenu_light/css/theme/uno.css
+ #  Provides theme styles (Uno) for Mobile Menu light (v3.0.5)
  #
- # Product/Info:
- # https://jekyll.one
+ #  Product/Info:
+ #  https://jekyll.one
+ #  https://github.com/FrDH/mmenu-light
  #
- # Copyright (C) 2020 Juergen Adams
+ #  Copyright (C) 2020 Juergen Adams
+ #  Copyright (C) 2015-2020 Fred Heusschen
  #
- # J1 Template is licensed under MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ #  J1 Template is licensed under the MIT License.
+ #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ #  Mmenu Light is licensed under the CC-BY-4.0 License.
+ #  See: http://creativecommons.org/licenses/by/4.0/
  # -----------------------------------------------------------------------------
 */
 
@@ -23,16 +27,12 @@
 
 /* Drawer */
 
-  .mm-ocd__content {
-      background-color: #191919 !important;
-  }
-
 .mm-ocd--left .mm-ocd__content {
-  background-color: #191919 !important;
+  background-color: #191919;
 }
 
 .mm-ocd--right .mm-ocd__content {
-  background-color: #191919 !important;
+  background-color: #191919;
 }
 
 /* Additional CSS styles for BS Theme Switcher
@@ -40,7 +40,7 @@
 .mmenu-item.active, .mmenu-item:active {
     /* color: #fff; */
     text-decoration: none;
-    background-color: #607d8b !important;
+    background-color: #607d8b;
 }
 
 /* Responsive */
@@ -53,41 +53,51 @@ NOTE: For unknown reason, style "mm-ocd--left" is NOT applied correctly
 -------------------------------------------------------------------------------- */
 
 /* Large desktop */
-@media (min-width: 1200px) {
+@media only screen and (min-width: 1200px) {
   .mm-ocd {
     top: 80px; /* drawer top offset to NAV bar */
+  }
+  .mm-ocd__content {
+      background-color: #191919;
   }
 }
 
 /* Desktop */
-@media (min-width: 992px) {
+@media only screen and (min-width: 992px) {
   .mm-ocd {
     top: 80px; /* drawer top offset to NAV bar */
   }
-}
-
-/* jadams, 2020-09-29: blödsinn ??? */
-/* Desktop 2 (intermediate|responsive size) */
-/*
-@media (min-width: 768px) and (max-width: 992px) {
-  .mm-ocd {
-    top: 48px;
+  .mm-ocd__content {
+      background-color: #191919;
   }
 }
-*/
 
-/* Landscape iPad, 768px */
-/* jadams, 2020-09-29: blödsinn ??? @media (min-width: 576px) and (max-width: 768px){ */
-@media (min-width: 576px) {
+/* Desktop 2 (intermediate|responsive size) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
   .mm-ocd {
     top: 48px; /* drawer top offset to NAV bar */
+  }
+  .mm-ocd__content {
+      background-color: #191919;
+  }
+}
+/* Landscape iPad, 768px */
+@media only screen and (min-width: 576px) and (max-width: 768px){
+  .mm-ocd {
+    top: 48px; /* drawer top offset to NAV bar */
+  }
+  .mm-ocd__content {
+      background-color: #191919;
   }
 }
 
 /* Small devices (landscape phones, up to 576px) */
-@media (max-width: 575px) {
+@media only screen and (max-width: 576px) {
   .mm-ocd {
     top: 48px; /* drawer top offset to NAV bar */
+  }
+  .mm-ocd__content {
+      background-color: #191919;
   }
 }
 
@@ -100,8 +110,8 @@ NOTE: For unknown reason, style "mm-ocd--left" is NOT applied correctly
 /* Themes */
 /* jadams, 2020-06-20: set j1 template colors (dark theme) */
 .mm-spn.mm-spn--dark {
-  color: #e3e3e3 !important;
-  background: #191919 !important;
+  color: #e3e3e3;
+  background: #191919
 }
 
 /* Sidebar (Drawer)
@@ -119,7 +129,7 @@ NOTE: For unknown reason, style "mm-ocd--left" is NOT applied correctly
 .mm-side .widget .title {
     color: #fff;
     margin-bottom: 15px;
-    border-left: 3px solid #204a87 !important;
+    border-left: 3px solid #204a87;
     padding-left: 5px
 }
 
@@ -155,14 +165,14 @@ NOTE: For unknown reason, style "mm-ocd--left" is NOT applied correctly
 /* Navigation (Menu)
    ----------------------------------------------------------------------------- */
 .mm-spn a:hover {
-    color: #fafafa !important;
+    color: #fafafa;
     text-decoration: none;
     font-weight: 500;
 }
 
 /* jadams, 2020-07-03: added hover to global style */
 a.toc-link:hover {
-    color: #fafafa !important;
+    color: #fafafa;
     text-decoration: none;
     font-weight: 500;
 }
