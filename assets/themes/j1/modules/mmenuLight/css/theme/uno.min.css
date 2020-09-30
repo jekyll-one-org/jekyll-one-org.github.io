@@ -16,6 +16,24 @@
  #  See: http://creativecommons.org/licenses/by/4.0/
  # -----------------------------------------------------------------------------
 */
+/*
+ # -----------------------------------------------------------------------------
+ #  ~/assets/themes/j1/modules/mmenu_light/css/theme/uno.css
+ #  Provides theme styles (Uno) for Mobile Menu light (v3.0.5)
+ #
+ #  Product/Info:
+ #  https://jekyll.one
+ #  https://github.com/FrDH/mmenu-light
+ #
+ #  Copyright (C) 2020 Juergen Adams
+ #  Copyright (C) 2015-2020 Fred Heusschen
+ #
+ #  J1 Template is licensed under the MIT License.
+ #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ #  Mmenu Light is licensed under the CC-BY-4.0 License.
+ #  See: http://creativecommons.org/licenses/by/4.0/
+ # -----------------------------------------------------------------------------
+*/
 
 /*
   jadams, 2020-06-20: CSS/Offset to the NAV bar should be calculated
@@ -28,11 +46,19 @@
 /* Drawer */
 
 .mm-ocd--left .mm-ocd__content {
-  background-color: #212121;
+  background-color: #191919;
 }
 
 .mm-ocd--right .mm-ocd__content {
-  background-color: #212121;
+  background-color: #191919;
+}
+
+/* Additional CSS styles for BS Theme Switcher
+   ----------------------------------------------------------------------------- */
+.mmenu-item.active, .mmenu-item:active {
+    /* color: #fff; */
+    text-decoration: none;
+    background-color: #607d8b;
 }
 
 /* Responsive */
@@ -50,7 +76,7 @@ NOTE: For unknown reason, style "mm-ocd--left" is NOT applied correctly
     top: 80px; /* drawer top offset to NAV bar */
   }
   .mm-ocd__content {
-      background-color: #212121;
+      background-color: #191919;
   }
 }
 
@@ -60,36 +86,36 @@ NOTE: For unknown reason, style "mm-ocd--left" is NOT applied correctly
     top: 80px; /* drawer top offset to NAV bar */
   }
   .mm-ocd__content {
-      background-color: #212121;
+      background-color: #191919;
   }
 }
 
 /* Desktop 2 (intermediate|responsive size) */
 @media only screen and (min-width: 768px) and (max-width: 992px) {
   .mm-ocd {
-    top: 64px; /* drawer top offset to NAV bar */
+    top: 48px; /* drawer top offset to NAV bar */
   }
   .mm-ocd__content {
-      background-color: #212121;
+      background-color: #191919;
   }
 }
 /* Landscape iPad, 768px */
 @media only screen and (min-width: 576px) and (max-width: 768px){
   .mm-ocd {
-    top: 64px; /* drawer top offset to NAV bar */
+    top: 48px; /* drawer top offset to NAV bar */
   }
   .mm-ocd__content {
-      background-color: #212121;
+      background-color: #191919;
   }
 }
 
 /* Small devices (landscape phones, up to 576px) */
 @media only screen and (max-width: 576px) {
   .mm-ocd {
-    top: 64px; /* drawer top offset to NAV bar */
+    top: 48px; /* drawer top offset to NAV bar */
   }
   .mm-ocd__content {
-      background-color: #212121;
+      background-color: #191919;
   }
 }
 
@@ -157,7 +183,7 @@ NOTE: For unknown reason, style "mm-ocd--left" is NOT applied correctly
 /* Navigation (Menu)
    ----------------------------------------------------------------------------- */
 .mm-spn a:hover {
-    /* color: #fafafa; */
+    color: #fafafa;
     text-decoration: none;
     font-weight: 500;
 }
