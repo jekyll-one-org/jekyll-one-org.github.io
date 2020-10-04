@@ -954,7 +954,7 @@ ul.disc {
 .j1-tooltip + .tooltip > .tooltip-arrow {
   background-color: #f00; }
 
-@media (min-width: 320px) and (max-width: 767px) {
+@media screen and (min-width: 320px) and (max-width: 767px) {
   .j1-viewer {
     display: none; } }
 

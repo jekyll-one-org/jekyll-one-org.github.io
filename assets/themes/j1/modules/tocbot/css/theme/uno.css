@@ -17,12 +17,18 @@
 */
 
 .toc {
-  overflow-y: auto;
+  overflow: hidden;
 }
 
+/*
+    jadams, 2020-10-05: styles for FF scrollbar should be
+    applied dynamically|configurable
+*/
 .toc > .toc-list {
-  overflow: hidden;
+  overflow-y: scroll;
   position: relative;
+  scrollbar-color: #e0e0e0 #2196f3;   /* FF, $md-grey-300|$md-blue */
+  scrollbar-width: thin;              /* FF */
 }
 
 .toc > .toc-list li {

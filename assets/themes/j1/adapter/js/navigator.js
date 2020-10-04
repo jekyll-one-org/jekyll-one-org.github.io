@@ -18,7 +18,7 @@
  # NOTE: For getStyleValue helper see
  #  https://stackoverflow.com/questions/16965515/how-to-get-a-style-attribute-from-a-css-class-by-javascript-jquery
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-09-30 20:42:14 +0200
+ # Adapter generated: 2020-10-04 21:21:22 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -79,7 +79,7 @@ j1.adapter['navigator'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.navigator',
-        generated:   '2020-09-30 20:42:14 +0200'
+        generated:   '2020-10-04 21:21:22 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // options loader
@@ -183,12 +183,15 @@ j1.adapter['navigator'] = (function (j1, window) {
             _this.navDefaults,
             _this.navMenuOptions
           );
+          // _this.delayShowMenu( 200 );
           // cast text-based booleans
           // themerEnabled = (true === 'true');
-          // load themes (to menu) if page is finished
-          var dependencies_met_page_finished = setInterval(function() {
-            if (j1.getState() == 'finished') {
-              if (true) {
+          // load themes (to menu) if themer is enabled|finished
+          if (themerEnabled) {
+            var dependencies_met_page_finished = setInterval(function() {
+              // jadams, 2020-10-03: NOT needed to wait for j1 finished
+//            if (j1.getState() == 'finished') {
+              if (j1.adapter.themer.getState() == 'finished') {
                 // initialize theme switcher menus
                 logText = 'theme switcher detect: enabled';
                 logger.info(logText);
@@ -200,19 +203,19 @@ j1.adapter['navigator'] = (function (j1, window) {
                 logText = 'load local themes (json file)';
                 logger.info(logText);
                 $('#local_themes').bootstrapThemeSwitcher({localFeed: themerOptions.localThemes});
-              } else {
-                logText = 'theme switcher detect: disabled';
-                logger.info(logText);
+                clearInterval(dependencies_met_page_finished);
               }
-              clearInterval(dependencies_met_page_finished);
-            }
-            _this.setState('initialized');
-          }, 25); // END 'dependencies_met_page_finished'
+              _this.setState('initialized');
+            }, 25); // END 'dependencies_met_page_finished'
+          } else {
+            logText = 'theme switcher detected as: disabled';
+            logger.info(logText);
+          }
           // -----------------------------------------------------------------
           // event handler|css styles
           // -----------------------------------------------------------------
           // continue if Theme CSS is applied
-          var dependencies_met_adapter_finished = setInterval(function() {
+          var dependencies_met_themer_finished = setInterval(function() {
             if (themerEnabled) {
               if (j1.adapter.themer.getState() === 'finished') {
                 _this.setState('processing');
@@ -236,7 +239,7 @@ j1.adapter['navigator'] = (function (j1, window) {
                 logger.info('state: ' + _this.getState());
                 logger.info('module initialized successfully');
                 logger.info('met dependencies for: j1');
-                clearInterval(dependencies_met_adapter_finished);
+                clearInterval(dependencies_met_themer_finished);
               }
             } else {
               _this.setState('processing');
@@ -253,9 +256,9 @@ j1.adapter['navigator'] = (function (j1, window) {
               _this.setState('finished');
               logger.info('state: ' + _this.getState());
               logger.info('met dependencies for: themer');
-              clearInterval(dependencies_met_adapter_finished);
+              clearInterval(dependencies_met_themer_finished);
             }
-          }, 25); // END 'dependencies_met_adapter_finished'
+          }, 25); // END 'dependencies_met_themer_finished'
           logger.info('met dependencies for: themer');
           clearInterval(dependencies_met_load_menu_finished);
         }
@@ -503,45 +506,45 @@ j1.adapter['navigator'] = (function (j1, window) {
     //  delay all dropdown menu to open for "delay" time
     //  See: http://jsfiddle.net/AndreasPizsa/NzvKC/
     // -------------------------------------------------------------------------
-    delayShowMenu: function () {
+    delayShowMenu: function ( menuOpenDelay ) {
       var logger      = log4javascript.getLogger('j1.adapter.navigator.delayShowMenu');
-      var theTimer    = 0;
-      var theElement  = null;
+      var theTimer = 0;
+      var theElement = null;
+      var theLastPosition = {x:0,y:0};
       logText ='entered delayShowMenu';
       logger.info(logText);
-      $('#navigator_nav_menu')
-        .find('li.dropdown.nav-item')
-        .on('mouseenter', function (inEvent) {
-          theElement = $(this);
-          if (theElement) theElement.removeClass('open');
-          //if (theElement) theElement.css("display", "none");
-          //window.clearTimeout(theTimer);
-          //theTimer = window.setTimeout (function () {
-           setTimeout (function () {
-            theElement.addClass('open');
-            //theElement.css("display", "block");
-            //window.clearTimeout(theTimer);
-          }, );
-        })
-        .on('mousemove', function (inEvent) {
-          if (theElement.hasClass('open')) return true;
-          //window.clearTimeout(theTimer);
-          //theTimer = window.setTimeout (function () {
-           setTimeout (function () {
-            theElement.addClass('open');
-            //window.clearTimeout(theTimer);
-          }, );
-        })
-        .on('mouseleave', function (inEvent) {
-          //window.clearTimeout(theTimer);
-          theElement = $(this);
-          //theTimer = window.setTimeout (function () {
-           setTimeout (function () {
-            theElement.removeClass('open');
-            //window.clearTimeout(theTimer);
-          }, );
-        });
-        return true;
+      // $('#navigator_nav_menu')
+      //   .find('li.dropdown.nav-item')
+      $('[data-toggle]').closest('li')
+      .on('mouseenter', function (inEvent) {
+        if (theElement) theElement.removeClass('open');
+        window.clearTimeout(theTimer);
+        theElement = $(this);
+        theTimer = window.setTimeout(function () {
+          theElement.addClass('open');
+        }, menuOpenDelay);
+      })
+      .on('mousemove', function (inEvent) {
+        if(Math.abs(theLastPosition.x - inEvent.ScreenX) > 4 ||
+           Math.abs(theLastPosition.y - inEvent.ScreenY) > 4) {
+          theLastPosition.x = inEvent.ScreenX;
+          theLastPosition.y = inEvent.ScreenY;
+          return;
+        }
+        if (theElement.hasClass('open')) return;
+        window.clearTimeout(theTimer);
+        theTimer = window.setTimeout(function () {
+          theElement.addClass('open');
+        }, menuOpenDelay);
+      })
+      .on('mouseleave', function (inEvent) {
+        window.clearTimeout(theTimer);
+        theElement = $(this);
+        theTimer = window.setTimeout(function () {
+          theElement.removeClass('open');
+        }, menuOpenDelay);
+      });
+      return true;
     }, // END delayShowMenu
     // -------------------------------------------------------------------------
     // messageHandler
