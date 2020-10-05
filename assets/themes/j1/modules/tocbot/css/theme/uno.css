@@ -16,19 +16,26 @@
  # -----------------------------------------------------------------------------
 */
 
+/* overload settings for class toc */
 .toc {
   overflow: hidden;
 }
 
-/*
-    jadams, 2020-10-05: styles for FF scrollbar should be
-    applied dynamically|configurable
-*/
+/* enable scrollbar for toccer */
 .toc > .toc-list {
   overflow-y: scroll;
   position: relative;
-  scrollbar-color: #e0e0e0 #2196f3;   /* FF, $md-grey-300|$md-blue */
-  scrollbar-width: thin;              /* FF */
+}
+
+/* hide scrollbar for FF browser */
+.toc > .toc-list {
+  scrollbar-width: none;
+}
+
+/* hide scrollbar for webkit based browsers */
+.toc-list::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
 }
 
 .toc > .toc-list li {
