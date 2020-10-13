@@ -12,7 +12,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-10-05 20:14:17 +0200
+ # Adapter generated: 2020-10-13 19:03:49 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -67,14 +67,14 @@ j1.adapter['ssm'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.ssm',
-        generated:   '2020-10-05 20:14:17 +0200'
+        generated:   '2020-10-13 19:03:49 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // options loader
       // -----------------------------------------------------------------------
       /* eslint-disable */
       var ssmMenuOptions = $.extend({}, );
-      var ssmOptions = $.extend({}, {"enabled":true, "xhr_container_id":"ssm-container", "xhr_data_path":"/assets/data/ssm/index.html", "menu_id":"ssm_menu", "icon_family":"MDI", "icon_color":"mdi-md-grey", "icon_size":"mdi-2x", "min_width":200, "margin":-140, "mode":"icon", "items":[{"item":"Reload Page", "enabled":true, "id":"ssm_reload_page", "href":null, "target":null, "event_handler":"reload_page", "icon":"reload", "icon_classes":null}, {"item":"Table of Contents", "enabled":true, "id":"ssm_toc", "href":null, "target":null, "event_handler":"open_ssm_toc", "icon":"wrap", "icon_classes":null}, {"item":"To Top", "enabled":true, "id":"ssm_scroll_to_top", "event_handler":"scroll_to_top", "href":null, "target":null, "icon":"step-backward-2", "icon_classes":"mdi-rotate-90"}, {"item":"Previous Section", "enabled":true, "id":"ssm_previous_section", "event_handler":"scroll_previous_section", "href":null, "target":null, "icon":"step-backward", "icon_classes":"mdi-rotate-90"}, {"item":"Next Section", "enabled":true, "id":"ssm_next_section", "event_handler":"scroll_next_section", "href":null, "target":null, "icon":"step-forward", "icon_classes":"mdi-rotate-90"}, {"item":"To Bottom", "enabled":true, "id":"ssm_scroll_to_bottom", "event_handler":"scroll_to_bottom", "href":null, "target":null, "icon":"step-forward-2", "icon_classes":"mdi-rotate-90"}, {"item":"Leave a Comment", "enabled":false, "id":"ssm_scroll_to_comments", "event_handler":"scroll_to_comments", "href":null, "target":null, "icon":"comment", "icon_classes":null}, {"item":"Tester", "enabled":false, "id":"ssm_test", "href":null, "target":null, "event_handler":"alert_me", "icon":"alert", "icon_classes":null}, {"item":"Social Share", "enabled":false, "icon":"menu", "icon_classes":null, "sublevel":[{"title":"Facebook", "enabled":true, "id":"ssm_facebook", "href":"https://www.facebook.com/sharer/sharer.php?u=http://demo.enigmaweb.com.au/", "target":null, "event_handler":"window.open(this.href, 'facebook', 'left=60,top=40,width=500,height=500,toolbar=1,resizable=0'); return false;", "icon":"facebook", "icon_classes":null}, {"title":"Twitter", "enabled":true, "id":"ssm_twitter", "href":"https://twitter.com/home?status=http://demo.enigmaweb.com.au/", "target":null, "event_handler":"window.open(this.href, 'twitter', 'left=60,top=40,width=500,height=500,toolbar=1,resizable=0'); return false;", "icon":"twitter", "icon_classes":null}]}]});
+      var ssmOptions = $.extend({}, {"enabled":true, "xhr_container_id":"ssm-container", "xhr_data_path":"/assets/data/ssm/index.html", "menu_id":"ssm_menu", "icon_family":"MDI", "icon_color":"mdi-md-grey", "icon_size":"mdi-2x", "min_width":200, "margin":-140, "mode":"icon", "items":[{"item":"Reload Page", "enabled":true, "id":"ssm_reload_page", "href":null, "target":null, "event_handler":"reload_page", "icon":"reload", "icon_classes":null}, {"item":"Table of Contents", "enabled":true, "id":"open_mmenu_toc", "href":null, "target":null, "event_handler":"open_ssm_toc", "icon":"wrap", "icon_classes":null}, {"item":"To Top", "enabled":true, "id":"ssm_scroll_to_top", "event_handler":"scroll_to_top", "href":null, "target":null, "icon":"step-backward-2", "icon_classes":"mdi-rotate-90"}, {"item":"Previous Section", "enabled":true, "id":"ssm_previous_section", "event_handler":"scroll_previous_section", "href":null, "target":null, "icon":"step-backward", "icon_classes":"mdi-rotate-90"}, {"item":"Next Section", "enabled":true, "id":"ssm_next_section", "event_handler":"scroll_next_section", "href":null, "target":null, "icon":"step-forward", "icon_classes":"mdi-rotate-90"}, {"item":"To Bottom", "enabled":true, "id":"ssm_scroll_to_bottom", "event_handler":"scroll_to_bottom", "href":null, "target":null, "icon":"step-forward-2", "icon_classes":"mdi-rotate-90"}, {"item":"Leave a Comment", "enabled":false, "id":"ssm_scroll_to_comments", "event_handler":"scroll_to_comments", "href":null, "target":null, "icon":"comment", "icon_classes":null}, {"item":"Tester", "enabled":false, "id":"ssm_test", "href":null, "target":null, "event_handler":"alert_me", "icon":"alert", "icon_classes":null}, {"item":"Social Share", "enabled":false, "icon":"menu", "icon_classes":null, "sublevel":[{"title":"Facebook", "enabled":true, "id":"ssm_facebook", "href":"https://www.facebook.com/sharer/sharer.php?u=http://demo.enigmaweb.com.au/", "target":null, "event_handler":"window.open(this.href, 'facebook', 'left=60,top=40,width=500,height=500,toolbar=1,resizable=0'); return false;", "icon":"facebook", "icon_classes":null}, {"title":"Twitter", "enabled":true, "id":"ssm_twitter", "href":"https://twitter.com/home?status=http://demo.enigmaweb.com.au/", "target":null, "event_handler":"window.open(this.href, 'twitter', 'left=60,top=40,width=500,height=500,toolbar=1,resizable=0'); return false;", "icon":"twitter", "icon_classes":null}]}]});
       /* eslint-enable */
       var xhr_data_path;
       var menu_id;
@@ -178,23 +178,23 @@ j1.adapter['ssm'] = (function (j1, window) {
       } // END items (buttons)
        // menu_type 'top_level_item'
        // ENDIF button_id enabled
-      // Create an eventhandler instance if id exists: ssm_toc
-      if ($('#ssm_toc').length) {
+      // Create an eventhandler instance if id exists: open_mmenu_toc
+      if ($('#open_mmenu_toc').length) {
         eventHandler = 'open_ssm_toc';
         // check if eventhandler configured is a SINGLE word
         if (eventHandler.split(' ').length == 1) {
-          logger.info('register pre-configured eventhandler open_ssm_toc on id: ssm_toc');
-          $('#ssm_toc').each(function(e) {
+          logger.info('register pre-configured eventhandler open_ssm_toc on id: open_mmenu_toc');
+          $('#open_mmenu_toc').each(function(e) {
             var $this = $(this);
             $this.on('click', function(e) {
               _this.open_ssm_toc(sect1Nodes);
             });
           });
         } else {
-          logger.info('register custom eventhandler on id: ssm_toc');
+          logger.info('register custom eventhandler on id: open_mmenu_toc');
         }
       } else {
-        alert ('Creating Eventhandler failed on: #ssm_toc');
+        alert ('Creating Eventhandler failed on: #open_mmenu_toc');
       } // END items (buttons)
        // menu_type 'top_level_item'
        // ENDIF button_id enabled

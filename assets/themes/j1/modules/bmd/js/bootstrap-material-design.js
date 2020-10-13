@@ -6168,6 +6168,9 @@
           return;
         }
 
+        // jadams, 2020-10-10
+        // $('body').addClass('mm-ocd-opened');
+
         $(".bmd-layout-drawer").hide();
         this.$element.show();
         this.$toggles.attr("aria-expanded", true);
@@ -6189,6 +6192,9 @@
         if (!this._isOpen()) {
           return;
         }
+
+        // jadams, 2020-10-10
+        // $('body').removeClass('mm-ocd-opened');
 
         this.$toggles.attr("aria-expanded", false);
         this.$element.attr("aria-expanded", false);
