@@ -8,7 +8,7 @@
  # http://jekyll.one
  # http://www.primebox.co.uk/projects/jquery-cookiebar/
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  # Copyright (C) 2016 Ant Parsons (primebox.co.uk)
  #
  # J1 Template is licensed under the MIT License.
@@ -17,9 +17,15 @@
  # For details, see http://www.primebox.co.uk/projects/jquery-cookiebar/
  #
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2020-10-13 19:03:49 +0200
+ #  Adapter generated: 2021-01-10 15:15:58 +0000
  # -----------------------------------------------------------------------------
 */
+// -----------------------------------------------------------------------------
+// ESLint shimming
+// -----------------------------------------------------------------------------
+/* eslint indent: "off"                                                       */
+/* eslint quotes: "off"                                                       */
+// -----------------------------------------------------------------------------
 'use strict';
 j1.adapter['cookiebar'] = (function (j1, window) {
   var environment   = 'production';
@@ -43,7 +49,7 @@ j1.adapter['cookiebar'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.algolia',
-        generated:   '2020-10-13 19:03:49 +0200'
+        generated:   '2021-01-10 15:15:58 +0000'
       }, options);
       // Load  module DEFAULTS|CONFIG
       /* eslint-disable */

@@ -8,12 +8,12 @@
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2020-10-13 19:03:49 +0200
+ #  Adapter generated: 2021-01-10 15:15:58 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -53,7 +53,7 @@ j1.adapter['bmd'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.bmd',
-        generated:   '2020-10-13 19:03:49 +0200'
+        generated:   '2021-01-10 15:15:58 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // BMD initializer

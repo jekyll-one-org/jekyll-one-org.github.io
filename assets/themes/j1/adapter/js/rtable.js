@@ -8,12 +8,12 @@
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2020-10-13 19:03:49 +0200
+ #  Adapter generated: 2021-01-10 15:15:58 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -53,7 +53,7 @@ j1.adapter['rtable'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.rtable',
-        generated:   '2020-10-13 19:03:49 +0200'
+        generated:   '2021-01-10 15:15:58 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // rtable initializer
@@ -69,9 +69,11 @@ j1.adapter['rtable'] = (function (j1, window) {
         // jadams, 2020-09-16: class 'rtable' indicate use of 'tablesaw'
         if ($(curTable).hasClass('rtable')) {
           // jadams, 2020-09-17: add BS responsive class in case of an overflow
-          $(curTable).addClass('table-responsive')
+          // jadams, 2020-11-21: BS responsive class disabled, bcause the
+          // table doesn't stretch full page width
+          //$(curTable).addClass('table-responsive')
           // jadams, 2020-09-16: add needed CSS class/attribute for tablesaw
-          $(curTable).addClass('tablesaw')
+          $(curTable).addClass('tablesaw');
           $(curTable).attr('data-tablesaw-mode','stack');
         }
       });

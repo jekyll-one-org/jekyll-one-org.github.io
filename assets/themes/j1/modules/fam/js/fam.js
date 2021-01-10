@@ -6,7 +6,7 @@
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -473,5 +473,5 @@
 
   //  jadams, 2020-10-10: TODO: check if anime could be a replacement
   //  for (huge) animate.css
-
+// })($, j1.anime);
 })(cash, j1.anime);

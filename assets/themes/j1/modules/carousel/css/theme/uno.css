@@ -6,7 +6,7 @@
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -14,7 +14,7 @@
 */
 
 /* Gutter styles
- ------------------------------------------------------------------ */
+ ------------------------------------------------------------------------------- */
 
 /* NO gutter for the row the slider is placed */
 .j1-owl-gutter.row {
@@ -37,9 +37,8 @@ padding-right: 1px;
 padding-left: 1px;
 }
 
-
 /* Carousel items (text|image)
- ------------------------------------------------------------------ */
+ ------------------------------------------------------------------------------- */
 
 .owl-carousel .item p {
   margin: 3px;
@@ -51,60 +50,28 @@ padding-left: 1px;
   height: auto;
 }
 
-/* Carousel title */
-/* .slider-title {
-  color: rgba(0, 0, 0, 0.6);
-  line-height: 1.25;
-  font-size: 1.25rem;
-  font-weight: 500;
-  font-style: italic;
-  margin: 0 0 .25rem .25rem;
-} */
-
 .slider-title {
-    font-weight: 600;
-    font-style: italic;
-    margin-bottom: .25rem;
-    margin-left: .25rem;
-}
-/* Carousel caption text
- ------------------------------------------------------------------ */
-
-/* jadams, 2018-02-10: add caption styles */
-.owl-item .carousel-caption {
-  opacity: 0;
-  position: absolute;
-  bottom: 3px;
-  left: 3px;
-  right: 3px;
-  color: white;
-  font-size: 1rem;
-  font-weight: 300;
-  font-family: sans-serif;
-  z-index: 10;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  color: #fff;
-  text-align: center;
-}
-
-.owl-item .carousel-caption:hover   {
-  opacity: 1;
-  -webkit-transition: opacity 500ms;
-  -moz-transition: opacity 500ms;
-  -o-transition: opacity 500ms;
-  transition: opacity 500ms;
-  background: rgba(0,0,0,0.5);
-}
-
-span.carousel-caption a {
-  color: #fff;
-  text-decoration: none;
+  color: #212121;
+  line-height: 1.25rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: .5rem;
 }
 
 
-/* Carousel navigation (buttons)
- ------------------------------------------------------------------ */
+/*
+.owl-carousel .owl-item img {
+   display: block;
+   width: 100%;
+   height: auto;
+   -webkit-border-radius: 3px;
+   -moz-border-radius: 3px;
+   border-radius: 3px;
+ }
+*/
+
+/* Navigation (buttons)
+ ------------------------------------------------------------------------------- */
 
 .owl-btn {
   color: #777;
@@ -125,55 +92,49 @@ span.carousel-caption a {
 	text-align: center;
 }
 
-.owl-theme .owl-controls .owl-buttons div{
-	color: #FFF;
-	display: inline-block;
-	zoom: 1;
-	*display: inline;/*IE7 life-saver */
-	margin: 5px;
-	padding: 3px 10px;
-	font-size: 12px;
-	-webkit-border-radius: 30px;
-	-moz-border-radius: 30px;
-	border-radius: 30px;
-	background: #869791;
-	filter: Alpha(Opacity=50);/*IE7 fix*/
-	opacity: 0.5;
+.owl-theme .owl-controls .owl-buttons div {
+    color: #212121;
+    display: inline-block;
+    zoom: 1;
+    margin: 5px;
+    padding: 3px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    background: #2196f3;
 }
 
 /* Clickable class fix problem with hover on touch devices */
 /* Use it for non-touch hover action */
-.owl-theme .owl-controls.clickable .owl-buttons div:hover{
-	filter: Alpha(Opacity=100);/*IE7 fix*/
+.owl-theme .owl-controls.clickable .owl-buttons div:hover {
 	opacity: 1;
 	text-decoration: none;
 }
 
 /* Pagination
- ------------------------------------------------------------------ */
+ ------------------------------------------------------------------------------- */
 
 .owl-theme .owl-controls .owl-page{
 	display: inline-block;
 	zoom: 1;
-	*display: inline;/*IE7 life-saver */
 }
 
-.owl-theme .owl-controls .owl-page span{
-	display: block;
-	width: 12px;
-	height: 12px;
-	margin: 5px 7px;
-	filter: Alpha(Opacity=50);/*IE7 fix*/
-	opacity: 0.5;
-	-webkit-border-radius: 20px;
-	-moz-border-radius: 20px;
-	border-radius: 20px;
-	background: #869791;
+.owl-theme .owl-controls .owl-page span {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 5px 7px;
+  filter: Alpha(Opacity=50);
+  opacity: 0.5;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  background: #2196f3;
 }
 
 .owl-theme .owl-controls .owl-page.active span,
 .owl-theme .owl-controls.clickable .owl-page:hover span{
-	filter: Alpha(Opacity=100);/*IE7 fix*/
 	opacity: 1;
 }
 
@@ -194,3 +155,81 @@ span.carousel-caption a {
 	min-height: 150px;
 	background: url(../../images/ajax-loader.gif) no-repeat center center
 }
+
+/* Caption
+ ------------------------------------------------------------------------------- */
+
+ .owl-carousel .container {
+   display: table;
+   height: inherit;
+ }
+
+ .owl-carousel .caption {
+   display: table-cell;
+ }
+
+ .owl-carousel .caption h1,
+ .owl-carousel .caption p,
+ .owl-carousel .caption div {
+   position: relative;
+   margin-top: 2rem;
+   margin-right: 2rem;
+   margin-left: 2rem;
+ }
+
+ .owl-carousel .caption h1 span {
+   padding: 0.25em 0;
+   line-height: 180%;
+ }
+
+
+ /* Carousel caption text
+  ------------------------------------------------------------------------------- */
+
+ /* jadams, 2018-02-10: add caption styles */
+ .owl-item .carousel-caption {
+   opacity: 0;
+   position: absolute;
+   bottom: 3px;
+   left: 3px;
+   right: 3px;
+   color: white;
+   font-size: 1rem;
+   font-weight: 300;
+   font-family: sans-serif;
+   z-index: 10;
+   padding-top: 20px;
+   padding-bottom: 20px;
+   color: #fff;
+   text-align: center;
+ }
+
+ .owl-item .carousel-caption:hover   {
+   opacity: 1;
+   -webkit-transition: opacity 500ms;
+   -moz-transition: opacity 500ms;
+   -o-transition: opacity 500ms;
+   transition: opacity 500ms;
+   background: rgba(0,0,0,0.5);
+ }
+
+ span.carousel-caption a {
+   color: #fff;
+   text-decoration: none;
+ }
+
+
+
+/* see. https://github.com/OwlCarousel2/OwlCarousel2/issues/2199 */
+
+/*
+.owl-carousel .owl-wrapper {
+    display: flex !important;
+}
+.owl-carousel .owl-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: initial;
+}
+*/

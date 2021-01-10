@@ -6,7 +6,7 @@
  #   Product/Info:
  #   https://jekyll.one
  #
- #   Copyright (C) 2020 Juergen Adams
+ #   Copyright (C) 2021 Juergen Adams
  #
  #   J1 Template is licensed under the MIT License.
  #   See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -20,7 +20,7 @@
 // Product/Info:
 // https://jekyll.one
 //
-// Copyright (C) 2020 Juergen Adams
+// Copyright (C) 2021 Juergen Adams
 //
 // J1 Template is licensed under the MIT License.
 // See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -33,7 +33,7 @@
 // Product/Info:
 // https://jekyll.one
 //
-// Copyright (C) 2020 Juergen Adams
+// Copyright (C) 2021 Juergen Adams
 //
 // J1 Template is licensed under the MIT License.
 // See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -46,7 +46,7 @@
 // Product/Info:
 // https://jekyll.one
 //
-// Copyright (C) 2020 Juergen Adams
+// Copyright (C) 2021 Juergen Adams
 //
 // J1 Template is licensed under the MIT License.
 // See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -59,14 +59,14 @@
 // Product/Info:
 // https://jekyll.one
 //
-// Copyright (C) 2020 Juergen Adams
+// Copyright (C) 2021 Juergen Adams
 //
 // J1 Template is licensed under the MIT License.
 // See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
 // -----------------------------------------------------------------------------
 */
 /*!
- * Bootstrap v4.5.2 (https://getbootstrap.com/)
+ * Bootstrap v4.5.3 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -246,7 +246,8 @@ caption {
   caption-side: bottom; }
 
 th {
-  text-align: inherit; }
+  text-align: inherit;
+  text-align: -webkit-match-parent; }
 
 label {
   display: inline-block;
@@ -2710,7 +2711,8 @@ input[type="button"].btn-block {
   z-index: 1;
   display: block;
   min-height: 1.40625rem;
-  padding-left: 1.5rem; }
+  padding-left: 1.5rem;
+  color-adjust: exact; }
 
 .custom-control-inline {
   display: inline-flex;
@@ -3769,6 +3771,7 @@ input[type="button"].btn-block {
     position: absolute;
     top: 0;
     right: 0;
+    z-index: 2;
     padding: 0.75rem 1.25rem;
     color: inherit; }
 
@@ -7151,7 +7154,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 .text-break {
   word-break: break-word !important;
-  overflow-wrap: break-word !important; }
+  word-wrap: break-word !important; }
 
 .text-reset {
   color: inherit !important; }
@@ -7228,7 +7231,7 @@ a.text-dark:hover, a.text-dark:focus {
 // Product/Info:
 // https://jekyll.one
 //
-// Copyright (C) 2020 Juergen Adams
+// Copyright (C) 2021 Juergen Adams
 //
 // J1 Template is licensed under the MIT License.
 // See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7241,7 +7244,7 @@ a.text-dark:hover, a.text-dark:focus {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7287,7 +7290,7 @@ a.text-dark:hover, a.text-dark:focus {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7303,7 +7306,7 @@ a.text-dark:hover, a.text-dark:focus {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7323,7 +7326,7 @@ a.text-dark:hover, a.text-dark:focus {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7416,7 +7419,7 @@ a.text-dark:hover, a.text-dark:focus {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7438,7 +7441,7 @@ a.text-dark:hover, a.text-dark:focus {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7454,7 +7457,7 @@ a.text-dark:hover, a.text-dark:focus {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7497,7 +7500,7 @@ select.form-control[size], select.form-control[multiple] {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7514,7 +7517,7 @@ select.form-control[size], select.form-control[multiple] {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7538,7 +7541,7 @@ li > a:hover {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7614,7 +7617,7 @@ li > a:hover {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7732,7 +7735,7 @@ li > a:hover {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7756,7 +7759,7 @@ button:focus {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7861,7 +7864,7 @@ table tr.even, table tr.alt, table tr:nth-of-type(even) {
 // Product/Info:
 // https://jekyll.one
 //
-// Copyright (C) 2020 Juergen Adams
+// Copyright (C) 2021 Juergen Adams
 //
 // J1 Template is licensed under the MIT License.
 // See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7890,7 +7893,7 @@ table tr.even, table tr.alt, table tr:nth-of-type(even) {
  # Product/Info:
  # https:#jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7908,7 +7911,7 @@ table tr.even, table tr.alt, table tr:nth-of-type(even) {
  # Product/Info:
  # https:#jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7925,7 +7928,7 @@ table tr.even, table tr.alt, table tr:nth-of-type(even) {
  # Product/Info:
  # https:#jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7941,7 +7944,7 @@ table tr.even, table tr.alt, table tr:nth-of-type(even) {
  # Product/Info:
  # https:#jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7966,7 +7969,7 @@ table tr.even, table tr.alt, table tr:nth-of-type(even) {
 // Product/Info:
 // https://jekyll.one
 //
-// Copyright (C) 2020 Juergen Adams
+// Copyright (C) 2021 Juergen Adams
 //
 // J1 Template is licensed under the MIT License.
 // See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7979,7 +7982,7 @@ table tr.even, table tr.alt, table tr:nth-of-type(even) {
  # Product/Info:
  # http://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7997,7 +8000,7 @@ table tr.even, table tr.alt, table tr:nth-of-type(even) {
  # Product/Info:
  # http://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -8015,7 +8018,7 @@ table tr.even, table tr.alt, table tr:nth-of-type(even) {
  # Product/Info:
  # http://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -8034,7 +8037,7 @@ a.toc-link:hover {
 // Product/Info:
 // https://jekyll.one
 //
-// Copyright (C) 2020 Juergen Adams
+// Copyright (C) 2021 Juergen Adams
 //
 // J1 Template is licensed under the MIT License.
 // See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -8048,7 +8051,7 @@ a.toc-link:hover {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -8100,7 +8103,7 @@ table tr th, table tr td {
  # https://jekyll.one
  # https://github.com/xLs51/Twemoji-Picker
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  # Copyright (C) 2015 xLs51
  #
  # J1 Template is licensed under the MIT License.

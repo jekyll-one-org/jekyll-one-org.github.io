@@ -6,7 +6,7 @@
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -15,10 +15,11 @@
 
  /* Gallery title */
  .jg-gallery-title {
-   font-style: italic;
-   font-weight: 400;
-   color: rgba(0, 0, 0, 0.5);
-   overflow: hidden;
+   color: #212121;
+   line-height: 1.25rem;
+   font-size: 1.125rem;
+   font-weight: 500;
+   margin-bottom: .5rem;
  }
 
 .justified-gallery img.img-overlay {

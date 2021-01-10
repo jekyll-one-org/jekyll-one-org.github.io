@@ -6,7 +6,7 @@
  #   Product/Info:
  #   https://jekyll.one
  #
- #   Copyright (C) 2020 Juergen Adams
+ #   Copyright (C) 2021 Juergen Adams
  #
  #   J1 Template is licensed under the MIT License.
  #   See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -20,7 +20,7 @@
 // Product/Info:
 // https://jekyll.one
 //
-// Copyright (C) 2020 Juergen Adams
+// Copyright (C) 2021 Juergen Adams
 //
 // J1 Template is licensed under the MIT License.
 // See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -33,7 +33,7 @@
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -72,7 +72,7 @@
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -98,7 +98,7 @@
   font-weight: normal; }
 
 /*!
- * Bootstrap v4.5.2 (https://getbootstrap.com/)
+ * Bootstrap v4.5.3 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -278,7 +278,8 @@ caption {
   caption-side: bottom; }
 
 th {
-  text-align: inherit; }
+  text-align: inherit;
+  text-align: -webkit-match-parent; }
 
 label {
   display: inline-block;
@@ -2763,7 +2764,8 @@ input[type="button"].btn-block {
   z-index: 1;
   display: block;
   min-height: 1.5rem;
-  padding-left: 1.5rem; }
+  padding-left: 1.5rem;
+  color-adjust: exact; }
 
 .custom-control-inline {
   display: inline-flex;
@@ -3834,6 +3836,7 @@ input[type="button"].btn-block {
     position: absolute;
     top: 0;
     right: 0;
+    z-index: 2;
     padding: 0.75rem 1.25rem;
     color: inherit; }
 
@@ -7233,7 +7236,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 .text-break {
   word-break: break-word !important;
-  overflow-wrap: break-word !important; }
+  word-wrap: break-word !important; }
 
 .text-reset {
   color: inherit !important; }
@@ -7309,7 +7312,7 @@ a.text-dark:hover, a.text-dark:focus {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7324,7 +7327,7 @@ a.text-dark:hover, a.text-dark:focus {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7341,7 +7344,7 @@ a.text-dark:hover, a.text-dark:focus {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7367,7 +7370,7 @@ a.text-dark:hover, a.text-dark:focus {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7390,7 +7393,7 @@ a.text-dark:hover, a.text-dark:focus {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -7399,6 +7402,24 @@ a.text-dark:hover, a.text-dark:focus {
 .close {
   text-shadow: unset !important;
   opacity: .7 !important; }
+
+.mr-1,
+.mx-1 {
+  margin-right: 0.25rem !important; }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; }
+
+user agent stylesheet i {
+  font-style: italic; }
+
+.btn.bmd-btn-fab.btn-primary, .btn.btn-raised.btn-primary, .btn-group-raised .btn.btn-primary {
+  color: #212121 !important; }
+
+.btn.bmd-btn-fab:hover, .btn.bmd-btn-fab:focus, .btn.btn-raised:hover, .btn.btn-raised:focus, .btn-group-raised .btn:hover, .btn-group-raised .btn:focus {
+  color: rgba(255, 255, 255, 0.8) !important; }
 
 button:focus {
   outline: none; }
@@ -8065,8 +8086,7 @@ a.btn:hover {
         border-color: #ccc; }
     .btn.btn-dark.btn-link {
       background-color: transparent; }
-  .btn.bmd-btn-fab.btn-primary, .btn.btn-raised.btn-primary,
-  .btn-group-raised .btn.btn-primary {
+  .btn.bmd-btn-fab.btn-primary, .btn.btn-raised.btn-primary, .btn-group-raised .btn.btn-primary {
     color: #fff;
     background-color: #2196f3;
     border-color: #2196f3; }
@@ -8601,9 +8621,7 @@ a.btn:hover {
     .btn-group-raised .btn.btn-dark:disabled:hover {
       background-color: #424242;
       border-color: #424242; }
-  .btn.bmd-btn-fab:hover, .btn.bmd-btn-fab:focus, .btn.btn-raised:hover, .btn.btn-raised:focus,
-  .btn-group-raised .btn:hover,
-  .btn-group-raised .btn:focus {
+  .btn.bmd-btn-fab:hover, .btn.bmd-btn-fab:focus, .btn.btn-raised:hover, .btn.btn-raised:focus, .btn-group-raised .btn:hover, .btn-group-raised .btn:focus {
     z-index: 1;
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2); }
   .btn.bmd-btn-fab.active, .btn.bmd-btn-fab:active, .btn.btn-raised.active, .btn.btn-raised:active,
@@ -9407,7 +9425,7 @@ fieldset[disabled][disabled] .btn, .btn.disabled, .btn:disabled, .btn[disabled],
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -9460,7 +9478,7 @@ fieldset[disabled][disabled] .btn, .btn.disabled, .btn:disabled, .btn[disabled],
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -9596,19 +9614,46 @@ label.checkbox-inline {
 
 /*
  # -----------------------------------------------------------------------------
+ # ~/scss/theme_uno/bootstrap/_code.scss
+ # Provides custom styles and overloads
+ #
+ # Product/Info:
+ # https://jekyll.one
+ #
+ # Copyright (C) 2021 Juergen Adams
+ #
+ # J1 Template is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # -----------------------------------------------------------------------------
+*/
+/*
+code {
+  font-weight: bold;
+  word-break: break-word;
+  background-color: $grey-300 !important;
+  padding: 0.125em 0.275em 0.125em 0.275em !important;
+  border-radius: 2px;
+}
+*/
+code {
+  color: #212121; }
+
+/*
+ # -----------------------------------------------------------------------------
  # ~/scss/theme_uno/bootstrap/_links.scss
  # Provides custom styles and overloads
  #
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
 */
 a {
+  color: #424242;
   font-weight: 500 !important;
   text-decoration: none !important; }
 
@@ -10875,7 +10920,7 @@ li > a:hover {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -10904,7 +10949,8 @@ li > a:hover {
 .bmd-form-group .is-focused .bmd-label-floating,
 .bmd-form-group.is-filled .bmd-label-floating,
 .bmd-form-group .is-filled .bmd-label-floating {
-  top: .5rem !important; }
+  top: .5rem !important;
+  margin-left: unset !important; }
 
 form {
   margin-bottom: 1.125rem; }
@@ -10955,7 +11001,7 @@ form {
 .switch label,
 .is-focused
 .switch label {
-  color: rgba(0, 0, 0, 0.26); }
+  color: #616161; }
   .radio label:hover, .radio label:focus, .radio label:active,
   .is-focused .radio label:hover,
   .is-focused .radio label:focus,
@@ -11148,11 +11194,11 @@ form {
   fieldset[disabled]
   .is-focused
   .switch label:focus {
-    color: rgba(0, 0, 0, 0.26); }
+    color: #616161; }
 
 [class^='bmd-label'],
 [class*=' bmd-label'] {
-  color: rgba(0, 0, 0, 0.26); }
+  color: #616161; }
 
 .form-control,
 .is-focused .form-control {
@@ -11187,7 +11233,7 @@ fieldset[disabled][disabled] .form-control, .form-control.disabled, .form-contro
   width: 100%;
   margin-top: 0.25rem;
   font-size: 80%;
-  color: rgba(0, 0, 0, 0.26); }
+  color: #616161; }
 
 .is-focused .valid-tooltip,
 .is-focused .valid-tooltip {
@@ -11202,7 +11248,7 @@ fieldset[disabled][disabled] .form-control, .form-control.disabled, .form-contro
   font-size: 0.875rem;
   line-height: 1.5;
   color: #fff;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(97, 97, 97, 0.9);
   border-radius: 0.1rem; }
 
 .was-validated .is-focused:valid ~ .valid-feedback,
@@ -11218,7 +11264,7 @@ fieldset[disabled][disabled] .form-control, .form-control.disabled, .form-contro
 .was-validated .is-focused .form-control:valid, .is-focused .form-control.is-valid, .was-validated
 .is-focused .form-control:valid,
 .is-focused .form-control.is-valid {
-  border-color: rgba(0, 0, 0, 0.26);
+  border-color: #616161;
   padding-right: calc(1.5em + 0.875rem);
   background-image: "";
   background-repeat: no-repeat;
@@ -11227,8 +11273,8 @@ fieldset[disabled][disabled] .form-control, .form-control.disabled, .form-contro
   .was-validated .is-focused .form-control:valid:focus, .is-focused .form-control.is-valid:focus, .was-validated
   .is-focused .form-control:valid:focus,
   .is-focused .form-control.is-valid:focus {
-    border-color: rgba(0, 0, 0, 0.26);
-    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25); }
+    border-color: #616161;
+    box-shadow: 0 0 0 0.2rem rgba(97, 97, 97, 0.25); }
 
 .was-validated .is-focused textarea.form-control:valid, .is-focused textarea.form-control.is-valid, .was-validated
 .is-focused textarea.form-control:valid,
@@ -11239,19 +11285,19 @@ fieldset[disabled][disabled] .form-control, .form-control.disabled, .form-contro
 .was-validated .is-focused .custom-select:valid, .is-focused .custom-select.is-valid, .was-validated
 .is-focused .custom-select:valid,
 .is-focused .custom-select.is-valid {
-  border-color: rgba(0, 0, 0, 0.26);
+  border-color: #616161;
   padding-right: calc(0.75em + 1.65625rem);
   background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23424242' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0 center/8px 10px, "" rgba(0, 0, 0, 0) no-repeat center right 1rem/calc(0.75em + 0.4375rem) calc(0.75em + 0.4375rem); }
   .was-validated .is-focused .custom-select:valid:focus, .is-focused .custom-select.is-valid:focus, .was-validated
   .is-focused .custom-select:valid:focus,
   .is-focused .custom-select.is-valid:focus {
-    border-color: rgba(0, 0, 0, 0.26);
-    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25); }
+    border-color: #616161;
+    box-shadow: 0 0 0 0.2rem rgba(97, 97, 97, 0.25); }
 
 .was-validated .is-focused .form-check-input:valid ~ .form-check-label, .is-focused .form-check-input.is-valid ~ .form-check-label, .was-validated
 .is-focused .form-check-input:valid ~ .form-check-label,
 .is-focused .form-check-input.is-valid ~ .form-check-label {
-  color: rgba(0, 0, 0, 0.26); }
+  color: #616161; }
 
 .was-validated .is-focused .form-check-input:valid ~ .valid-feedback,
 .was-validated .is-focused .form-check-input:valid ~ .valid-tooltip, .is-focused .form-check-input.is-valid ~ .valid-feedback,
@@ -11266,38 +11312,38 @@ fieldset[disabled][disabled] .form-control, .form-control.disabled, .form-contro
 .was-validated .is-focused .custom-control-input:valid ~ .custom-control-label, .is-focused .custom-control-input.is-valid ~ .custom-control-label, .was-validated
 .is-focused .custom-control-input:valid ~ .custom-control-label,
 .is-focused .custom-control-input.is-valid ~ .custom-control-label {
-  color: rgba(0, 0, 0, 0.26); }
+  color: #616161; }
   .was-validated .is-focused .custom-control-input:valid ~ .custom-control-label::before, .is-focused .custom-control-input.is-valid ~ .custom-control-label::before, .was-validated
   .is-focused .custom-control-input:valid ~ .custom-control-label::before,
   .is-focused .custom-control-input.is-valid ~ .custom-control-label::before {
-    border-color: rgba(0, 0, 0, 0.26); }
+    border-color: #616161; }
 
 .was-validated .is-focused .custom-control-input:valid:checked ~ .custom-control-label::before, .is-focused .custom-control-input.is-valid:checked ~ .custom-control-label::before, .was-validated
 .is-focused .custom-control-input:valid:checked ~ .custom-control-label::before,
 .is-focused .custom-control-input.is-valid:checked ~ .custom-control-label::before {
-  border-color: rgba(26, 26, 26, 0.26);
-  background-color: rgba(26, 26, 26, 0.26); }
+  border-color: #7b7b7b;
+  background-color: #7b7b7b; }
 
 .was-validated .is-focused .custom-control-input:valid:focus ~ .custom-control-label::before, .is-focused .custom-control-input.is-valid:focus ~ .custom-control-label::before, .was-validated
 .is-focused .custom-control-input:valid:focus ~ .custom-control-label::before,
 .is-focused .custom-control-input.is-valid:focus ~ .custom-control-label::before {
-  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25); }
+  box-shadow: 0 0 0 0.2rem rgba(97, 97, 97, 0.25); }
 
 .was-validated .is-focused .custom-control-input:valid:focus:not(:checked) ~ .custom-control-label::before, .is-focused .custom-control-input.is-valid:focus:not(:checked) ~ .custom-control-label::before, .was-validated
 .is-focused .custom-control-input:valid:focus:not(:checked) ~ .custom-control-label::before,
 .is-focused .custom-control-input.is-valid:focus:not(:checked) ~ .custom-control-label::before {
-  border-color: rgba(0, 0, 0, 0.26); }
+  border-color: #616161; }
 
 .was-validated .is-focused .custom-file-input:valid ~ .custom-file-label, .is-focused .custom-file-input.is-valid ~ .custom-file-label, .was-validated
 .is-focused .custom-file-input:valid ~ .custom-file-label,
 .is-focused .custom-file-input.is-valid ~ .custom-file-label {
-  border-color: rgba(0, 0, 0, 0.26); }
+  border-color: #616161; }
 
 .was-validated .is-focused .custom-file-input:valid:focus ~ .custom-file-label, .is-focused .custom-file-input.is-valid:focus ~ .custom-file-label, .was-validated
 .is-focused .custom-file-input:valid:focus ~ .custom-file-label,
 .is-focused .custom-file-input.is-valid:focus ~ .custom-file-label {
-  border-color: rgba(0, 0, 0, 0.26);
-  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25); }
+  border-color: #616161;
+  box-shadow: 0 0 0 0.2rem rgba(97, 97, 97, 0.25); }
 
 .is-focused [class^='bmd-label'],
 .is-focused [class*=' bmd-label'],
@@ -11307,7 +11353,7 @@ fieldset[disabled][disabled] .form-control, .form-control.disabled, .form-contro
 
 .is-focused .bmd-label-placeholder,
 .is-focused .bmd-label-placeholder {
-  color: rgba(0, 0, 0, 0.26); }
+  color: #616161; }
 
 .is-focused .form-control,
 .is-focused .form-control {
@@ -12132,7 +12178,7 @@ select, select.form-control {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -12229,7 +12275,7 @@ select, select.form-control {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -12285,12 +12331,31 @@ select, select.form-control {
 
 /*
  # -----------------------------------------------------------------------------
+ # ~/scss/theme_uno/bootstrap/_links.scss
+ # Provides custom styles and overloads
+ #
+ # Product/Info:
+ # https://jekyll.one
+ #
+ # Copyright (C) 2021 Juergen Adams
+ #
+ # J1 Template is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # -----------------------------------------------------------------------------
+*/
+dd {
+  margin-bottom: .5rem;
+  margin-left: .875rem;
+  margin-top: .5rem; }
+
+/*
+ # -----------------------------------------------------------------------------
  # ~/scss/theme_uno/bootstrap/_modal.scss
  #
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -12317,7 +12382,7 @@ select, select.form-control {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -12330,6 +12395,10 @@ select, select.form-control {
 
 .nav-pills > li > a:hover {
   background-color: rgba(0, 0, 0, 0.5); }
+
+.navbar-text {
+  font-weight: 500;
+  color: #424242; }
 
 .nav-link {
   text-transform: uppercase; }
@@ -12433,7 +12502,7 @@ select, select.form-control {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -12466,7 +12535,7 @@ select, select.form-control {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -12507,7 +12576,7 @@ select, select.form-control {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -12618,7 +12687,7 @@ label.radio-inline {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -12753,7 +12822,7 @@ a:focus {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -12763,6 +12832,7 @@ table.tableblock > .title {
   padding-left: 5px !important;
   border-top: unset !important;
   border-right: 1px solid #9e9e9e;
+  border-left: 1px solid #9e9e9e;
   border-bottom: 1px solid #9e9e9e; }
 
 /*
@@ -12773,7 +12843,7 @@ table.tableblock > .title {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -12847,7 +12917,7 @@ table.tableblock > .title {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -12862,7 +12932,7 @@ table.tableblock > .title {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -12886,7 +12956,7 @@ table.tableblock > .title {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -12903,11 +12973,12 @@ table.tableblock > .title {
 .attic .j1-booticon {
   margin: 0 auto 30px; }
 
+/* jadams, 2020-12-25: added line-height */
 .attic .head-title h2 {
-  margin-top: 0;
+  margin-top: -1.2rem;
   margin-bottom: 0 !important;
   font-weight: 600;
-  line-height: 1; }
+  line-height: 1.2; }
 
 .attic .head-tagline h3 {
   margin-top: 0;
@@ -13022,7 +13093,7 @@ table.tableblock > .title {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -13044,7 +13115,7 @@ table.tableblock > .title {
 // Product/Info:
 // https://jekyll.one
 //
-// Copyright (C) 2020 Juergen Adams
+// Copyright (C) 2021 Juergen Adams
 //
 // J1 Template is licensed under the MIT License.
 // See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -13069,7 +13140,7 @@ table.tableblock > .title {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -13079,7 +13150,7 @@ table.tableblock > .title {
 */
 /*
 .card {
-  border: 1px solid $grey-300 !important;
+  border: 1px solid $white !important;
   border-radius: 0.125rem !important;
 }
 */
@@ -13146,7 +13217,7 @@ table.tableblock > .title {
 .card h4.card-header,
 .card h5.card-header,
 .card h6.card-header {
-  color: #e0e0e0; }
+  color: #fff; }
 
 .card [data-background-color="purple"] {
   background: linear-gradient(60deg, #ab47bc, #8e24aa);
@@ -13196,7 +13267,7 @@ a.card-title:hover {
   position: absolute;
   bottom: 16px;
   left: 18px;
-  color: #e0e0e0;
+  color: #fff;
   font-size: 2em; }
 
 .card .card-content {
@@ -13281,7 +13352,7 @@ a.card-title:hover {
   border-bottom: 0px; }
 
 .card .header .title {
-  color: #e0e0e0; }
+  color: #fff; }
 
 .card .header-primary,
 .card .content-primary {
@@ -13406,6 +13477,9 @@ a.card-title:hover {
 .card .radio {
   margin-top: 16px; }
 
+.card-footer-text {
+  color: #212121; }
+
 /*  SignUp Cards
 ------------------------------------------------------------------- */
 .card-signup .header {
@@ -13438,7 +13512,7 @@ a.card-title:hover {
   padding: 0; }
 
 .card-signup .social-line .btn {
-  color: #e0e0e0;
+  color: #fff;
   margin-left: 5px;
   margin-right: 5px; }
 
@@ -13634,16 +13708,16 @@ a.card-title:hover {
 
 .card-pricing.card-background ul li,
 .card-pricing [class*="content-"] ul li {
-  color: #e0e0e0;
+  color: #fff;
   border-color: rgba(255, 255, 255, 0.3); }
 
 .card-pricing.card-background ul li b,
 .card-pricing [class*="content-"] ul li b {
-  color: #e0e0e0; }
+  color: #fff; }
 
 .card-pricing.card-background [class*="text-"],
 .card-pricing [class*="content-"] [class*="text-"] {
-  color: #e0e0e0; }
+  color: #fff; }
 
 .card-pricing.card-background:after {
   background-color: darken-700; }
@@ -13671,7 +13745,7 @@ a.card-title:hover {
   color: rgba(255, 255, 255, 0.7); }
 
 .card-background .card-title {
-  color: #e0e0e0;
+  color: #fff;
   margin-top: 10px; }
 
 .card-background:not(.card-pricing) .btn {
@@ -13722,7 +13796,7 @@ a.card-title:hover {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -13761,7 +13835,7 @@ a.card-title:hover {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -13776,15 +13850,11 @@ a.card-title:hover {
 */
 @media screen and (min-width: 992px) {
   #content {
-    padding-left: 0px; } }
+    padding-right: 2.5rem; } }
 
 @media screen and (max-width: 992px) {
   #content {
-    padding-left: 0px; } }
-
-@media screen and (max-width: 768px) {
-  #content {
-    padding-left: 15px; } }
+    padding-right: 2.5rem; } }
 
 .no-padding {
   padding-right: 0 !important;
@@ -13797,7 +13867,7 @@ a.card-title:hover {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -13871,7 +13941,7 @@ a.card-title:hover {
   text-decoration: none; }
 
 .footer .link-news li small {
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.8);
   display: block; }
 
 /*Link List*/
@@ -13996,7 +14066,7 @@ a.card-title:hover {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -14026,7 +14096,7 @@ a.card-title:hover {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -14264,7 +14334,7 @@ a.card-title:hover {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -14312,7 +14382,7 @@ h2.featured-headline, h3.featured-headline {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -14523,7 +14593,7 @@ a.news-link {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -14552,7 +14622,7 @@ a.news-link {
   background-color: #e0e0e0; }
 
 ::-webkit-scrollbar {
-  width: 3px;
+  width: 12px;
   background-color: #2196f3; }
 
 ::-webkit-scrollbar-thumb {
@@ -14778,12 +14848,43 @@ a.news-link {
 
 /*
  # -----------------------------------------------------------------------------
+ # ~/theme_uno/extentions/sticky.scss
+ #
+ # Product/Info:
+ # https://jekyll.one
+ # https://github.com/wilddeer/stickyfill
+ #
+ # Copyright (C) 2021 Juergen Adams
+ #
+ #  J1 Template is licensed under the MIT License.
+ #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ #
+ # -----------------------------------------------------------------------------
+ # TODO:
+ # For style sticky, the top offset (top:) should be set by JS dynamically
+ #
+ # -----------------------------------------------------------------------------
+*/
+@media only screen and (min-width: 993px) {
+  .sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 100px;
+    align-self: flex-start; }
+  /* Clearfix */
+  .sticky:before,
+  .sticky:after {
+    content: '';
+    display: table; } }
+
+/*
+ # -----------------------------------------------------------------------------
  # ~/theme_uno/extentions/_tags.scss
  #
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -14860,7 +14961,7 @@ a.news-link {
         width: 20px;
         height: 20px;
         line-height: 1.5;
-        background-color: #e8eaf6;
+        background-color: #fafafa;
         border-radius: 100%;
         color: #000;
         font-size: 11px;
@@ -14966,7 +15067,7 @@ ul.posts li a:hover {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -15310,7 +15411,7 @@ a.timeline-list-unstyled:hover {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -15972,7 +16073,7 @@ a.timeline-list-unstyled:hover {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -15987,7 +16088,7 @@ a.timeline-list-unstyled:hover {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -16107,7 +16208,7 @@ a.timeline-list-unstyled:hover {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -16314,7 +16415,7 @@ a.timeline-list-unstyled:hover {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -16327,7 +16428,7 @@ a.timeline-list-unstyled:hover {
 
 a.md-white:hover,
 a.md-white:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-black {
   color: #000 !important; }
@@ -16341,210 +16442,210 @@ a.md-black:focus {
 
 a.md-red:hover,
 a.md-red:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-red-50 {
   color: #ffebee !important; }
 
 a.md-red-50:hover,
 a.md-red-50:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-red-100 {
   color: #ffcdd2 !important; }
 
 a.md-red-100:hover,
 a.md-red-100:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-red-200 {
   color: #ef9a9a !important; }
 
 a.md-red-200:hover,
 a.md-red-200:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-red-300 {
   color: #e57373 !important; }
 
 a.md-red-300:hover,
 a.md-red-300:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-red-400 {
   color: #ef5350 !important; }
 
 a.md-red-400:hover,
 a.md-red-400:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-red-500 {
   color: #f44336 !important; }
 
 a.md-red-500:hover,
 a.md-red-500:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-red-600 {
   color: #e53935 !important; }
 
 a.md-red-600:hover,
 a.md-red-600:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-red-700 {
   color: #d32f2f !important; }
 
 a.md-red-700:hover,
 a.md-red-700:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-red-800 {
   color: #c62828 !important; }
 
 a.md-red-800:hover,
 a.md-red-800:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-red-900 {
   color: #b71c1c !important; }
 
 a.md-red-900:hover,
 a.md-red-900:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-red-A100 {
   color: #ff8a80 !important; }
 
 a.md-red-A100:hover,
 a.md-red-A100:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-red-A200 {
   color: #ff5252 !important; }
 
 a.md-red-A200:hover,
 a.md-red-A200:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-red-A400 {
   color: #ff1744 !important; }
 
 a.md-red-A400:hover,
 a.md-red-A400:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-red-A700 {
   color: #d50000 !important; }
 
 a.md-red-A700:hover,
 a.md-red-A700:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-bg-red {
   background-color: #f44336 !important; }
 
 a.md-bg-red:hover,
 a.md-bg-red:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-red-50 {
   background-color: #ffebee !important; }
 
 a.md-bg-red-50:hover,
 a.md-bg-red-50:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-red-100 {
   background-color: #ffcdd2 !important; }
 
 a.md-bg-red-100:hover,
 a.md-bg-red-100:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-red-200 {
   background-color: #ef9a9a !important; }
 
 a.md-bg-red-200:hover,
 a.md-bg-red-200:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-red-300 {
   background-color: #e57373 !important; }
 
 a.md-bg-red-300:hover,
 a.md-bg-red-300:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-red-400 {
   background-color: #ef5350 !important; }
 
 a.md-bg-red-400:hover,
 a.md-bg-red-400:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-red-500 {
   background-color: #f44336 !important; }
 
 a.md-bg-red-500:hover,
 a.md-bg-red-500:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-red-600 {
   background-color: #e53935 !important; }
 
 a.md-bg-red-600:hover,
 a.md-bg-red-600:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-red-700 {
   background-color: #d32f2f !important; }
 
 a.md-bg-red-700:hover,
 a.md-bg-red-700:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-red-800 {
   background-color: #c62828 !important; }
 
 a.md-bg-red-800:hover,
 a.md-bg-red-800:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-red-900 {
   background-color: #b71c1c !important; }
 
 a.md-bg-red-900:hover,
 a.md-bg-red-900:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-red-A100 {
   background-color: #ff8a80 !important; }
 
 a.md-bg-red-A100:hover,
 a.md-bg-red-A100:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-red-A200 {
   background-color: #ff5252 !important; }
 
 a.md-bg-red-A200:hover,
 a.md-bg-red-A200:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-red-A400 {
   background-color: #ff1744 !important; }
 
 a.md-bg-red-A400:hover,
 a.md-bg-red-A400:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-red-A700 {
   background-color: #d50000 !important; }
 
 a.md-bg-red-A700:hover,
 a.md-bg-red-A700:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-pink {
   color: #e91e63 !important; }
@@ -17391,210 +17492,210 @@ a.md-bg-indigo-A700:focus {
 
 a.md-blue:hover,
 a.md-blue:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-blue-50 {
   color: #e3f2fd !important; }
 
 a.md-blue-50:hover,
 a.md-blue-50:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-blue-100 {
   color: #bbdefb !important; }
 
 a.md-blue-100:hover,
 a.md-blue-100:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-blue-200 {
   color: #90caf9 !important; }
 
 a.md-blue-200:hover,
 a.md-blue-200:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-blue-300 {
   color: #64b5f6 !important; }
 
 a.md-blue-300:hover,
 a.md-blue-300:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-blue-400 {
   color: #42a5f5 !important; }
 
 a.md-blue-400:hover,
 a.md-blue-400:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-blue-500 {
   color: #2196f3 !important; }
 
 a.md-blue-500:hover,
 a.md-blue-500:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-blue-600 {
   color: #1e88e5 !important; }
 
 a.md-blue-600:hover,
 a.md-blue-600:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-blue-700 {
   color: #1976d2 !important; }
 
 a.md-blue-700:hover,
 a.md-blue-700:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-blue-800 {
   color: #1565c0 !important; }
 
 a.md-blue-800:hover,
 a.md-blue-800:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-blue-900 {
   color: #0d47a1 !important; }
 
 a.md-blue-900:hover,
 a.md-blue-900:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-blue-A100 {
   color: #82b1ff !important; }
 
 a.md-blue-A100:hover,
 a.md-blue-A100:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-blue-A200 {
   color: #448aff !important; }
 
 a.md-blue-A200:hover,
 a.md-blue-A200:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-blue-A400 {
   color: #2979ff !important; }
 
 a.md-blue-A400:hover,
 a.md-blue-A400:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-blue-A700 {
   color: #2962ff !important; }
 
 a.md-blue-A700:hover,
 a.md-blue-A700:focus {
-  color: #424242 !important; }
+  color: #424242; }
 
 .md-bg-blue {
   background-color: #2196f3 !important; }
 
 a.md-bg-blue:hover,
 a.md-bg-blue:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-blue-50 {
   background-color: #e3f2fd !important; }
 
 a.md-bg-blue-50:hover,
 a.md-bg-blue-50:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-blue-100 {
   background-color: #bbdefb !important; }
 
 a.md-bg-blue-100:hover,
 a.md-bg-blue-100:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-blue-200 {
   background-color: #90caf9 !important; }
 
 a.md-bg-blue-200:hover,
 a.md-bg-blue-200:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-blue-300 {
   background-color: #64b5f6 !important; }
 
 a.md-bg-blue-300:hover,
 a.md-bg-blue-300:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-blue-400 {
   background-color: #42a5f5 !important; }
 
 a.md-bg-blue-400:hover,
 a.md-bg-blue-400:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-blue-500 {
   background-color: #2196f3 !important; }
 
 a.md-bg-blue-500:hover,
 a.md-bg-blue-500:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-blue-600 {
   background-color: #1e88e5 !important; }
 
 a.md-bg-blue-600:hover,
 a.md-bg-blue-600:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-blue-700 {
   background-color: #1976d2 !important; }
 
 a.md-bg-blue-700:hover,
 a.md-bg-blue-700:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-blue-800 {
   background-color: #1565c0 !important; }
 
 a.md-bg-blue-800:hover,
 a.md-bg-blue-800:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-blue-900 {
   background-color: #0d47a1 !important; }
 
 a.md-bg-blue-900:hover,
 a.md-bg-blue-900:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-blue-A100 {
   background-color: #82b1ff !important; }
 
 a.md-bg-blue-A100:hover,
 a.md-bg-blue-A100:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-blue-A200 {
   background-color: #448aff !important; }
 
 a.md-bg-blue-A200:hover,
 a.md-bg-blue-A200:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-blue-A400 {
   background-color: #2979ff !important; }
 
 a.md-bg-blue-A400:hover,
 a.md-bg-blue-A400:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-bg-blue-A700 {
   background-color: #2962ff !important; }
 
 a.md-bg-blue-A700:hover,
 a.md-bg-blue-A700:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .md-light-blue {
   color: #03a9f4 !important; }
@@ -19918,21 +20019,21 @@ a.md-grey-700:focus {
 
 a.md-grey-800:hover,
 a.md-grey-800:focus {
-  color: #212121 !important; }
+  color: #2196f3 !important; }
 
 .md-grey-900 {
   color: #212121 !important; }
 
 a.md-grey-900:hover,
 a.md-grey-900:focus {
-  color: #080808 !important; }
+  color: #2196f3 !important; }
 
 .md-bg-grey {
   background-color: #9e9e9e !important; }
 
 a.md-bg-grey:hover,
 a.md-bg-grey:focus {
-  background-color: #757575 !important; }
+  background-color: #fafafa !important; }
 
 .md-bg-grey-50 {
   background-color: #fafafa !important; }
@@ -19995,14 +20096,14 @@ a.md-bg-grey-700:focus {
 
 a.md-bg-grey-800:hover,
 a.md-bg-grey-800:focus {
-  background-color: #212121 !important; }
+  background-color: #2196f3 !important; }
 
 .md-bg-grey-900 {
   background-color: #212121 !important; }
 
 a.md-bg-grey-900:hover,
 a.md-bg-grey-900:focus {
-  background-color: #080808 !important; }
+  background-color: #2196f3 !important; }
 
 .md-blue-grey {
   color: #607d8b !important; }
@@ -20072,14 +20173,14 @@ a.md-blue-grey-700:focus {
 
 a.md-blue-grey-800:hover,
 a.md-blue-grey-800:focus {
-  color: #263238 !important; }
+  color: #2196f3 !important; }
 
 .md-blue-grey-900 {
   color: #263238 !important; }
 
 a.md-blue-grey-900:hover,
 a.md-blue-grey-900:focus {
-  color: #11171a !important; }
+  color: #2196f3 !important; }
 
 .md-bg-blue-grey {
   background-color: #607d8b !important; }
@@ -20149,14 +20250,14 @@ a.md-bg-blue-grey-700:focus {
 
 a.md-bg-blue-grey-800:hover,
 a.md-bg-blue-grey-800:focus {
-  background-color: #263238 !important; }
+  background-color: #2196f3 !important; }
 
 .md-bg-blue-grey-900 {
   background-color: #263238 !important; }
 
 a.md-bg-blue-grey-900:hover,
 a.md-bg-blue-grey-900:focus {
-  background-color: #11171a !important; }
+  background-color: #2196f3 !important; }
 
 .md-white-lighter {
   color: rgba(255, 255, 255, 0.12) !important; }
@@ -20275,161 +20376,161 @@ a.md-black-darker:focus {
 
 .btn-md-red:hover,
 .btn-md-red:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .btn-md-pink {
   background-color: #e91e63 !important; }
 
 .btn-md-pink:hover,
 .btn-md-pink:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .btn-md-purple {
   background-color: #9c27b0 !important; }
 
 .btn-md-purple:hover,
 .btn-md-purple:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .btn-md-deep-purple {
   background-color: #673ab7 !important; }
 
 .btn-md-deep-purple:hover,
 .btn-md-deep-purple:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .btn-md-indigo {
   background-color: #3f51b5 !important; }
 
 .btn-md-indigo:hover,
 .btn-md-indigo:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .btn-md-blue {
   background-color: #2196f3 !important; }
 
 .btn-md-blue:hover,
 .btn-md-blue:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .btn-md-light-blue {
   background-color: #03a9f4 !important; }
 
 .btn-md-light-blue:hover,
 .btn-md-light-blue:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .btn-md-cyan {
   background-color: #00bcd4 !important; }
 
 .btn-md-cyan:hover,
 .btn-md-cyan:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .btn-md-teal {
   background-color: #009688 !important; }
 
 .btn-md-teal:hover,
 .btn-md-teal:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .btn-md-green {
   background-color: #4caf50 !important; }
 
 .btn-md-green:hover,
 .btn-md-green:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .btn-md-light-green {
   background-color: #8bc34a !important; }
 
 .btn-md-light-green:hover,
 .btn-md-light-green:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .btn-md-lime {
   background-color: #cddc39 !important; }
 
 .btn-md-lime:hover,
 .btn-md-lime:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .btn-md-yellow {
   background-color: #ffeb3b !important; }
 
 .btn-md-yellow:hover,
 .btn-md-yellow:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .btn-md-amber {
   background-color: #ffc107 !important; }
 
 .btn-md-amber:hover,
 .btn-md-amber:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .btn-md-orange {
   background-color: #ff9800 !important; }
 
 .btn-md-orange:hover,
 .btn-md-orange:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .btn-md-deep-orange {
   background-color: #ff5722 !important; }
 
 .btn-md-deep-orange:hover,
 .btn-md-deep-orange:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .btn-md-brown {
   background-color: #795548 !important; }
 
 .btn-md-brown:hover,
 .btn-md-brown:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .btn-md-grey {
   background-color: #9e9e9e !important; }
 
 .btn-md-grey:hover,
 .btn-md-grey:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .btn-md-blue-grey {
   background-color: #607d8b !important; }
 
 .btn-md-blue-grey:hover,
 .btn-md-blue-grey:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .btn-md-gray {
   background-color: #9e9e9e !important; }
 
 .btn-md-gray:hover,
 .btn-md-gray:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .btn-md-blue-gray {
   background-color: #607d8b !important; }
 
 .btn-md-blue-gray:hover,
 .btn-md-blue-gray:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .btn-md-black {
   background-color: #000 !important; }
 
 .btn-md-black:hover,
 .btn-md-black:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 .btn-md-white {
   background-color: #fff !important; }
 
 .btn-md-white:hover,
 .btn-md-white:focus {
-  background-color: #424242 !important; }
+  background-color: #424242; }
 
 /*
  # -----------------------------------------------------------------------------
@@ -20438,7 +20539,7 @@ a.md-black-darker:focus {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -20713,7 +20814,7 @@ figcaption .caption-title {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -20813,7 +20914,7 @@ figcaption .caption-title {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -20925,7 +21026,7 @@ figcaption .caption-title {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -20941,7 +21042,7 @@ figcaption .caption-title {
  # http://jekyll.one
  # http://www.primebox.co.uk/projects/jquery-cookiebar/
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  # Copyright (C) 2016 Ant Parsons (primebox.co.uk)
  #
  # J1 Template is licensed under the MIT License
@@ -20998,7 +21099,7 @@ figcaption .caption-title {
  # Product/Info:
  # http://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -21215,7 +21316,7 @@ body.scrollable {
  # Product/Info:
  # http://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -21224,9 +21325,11 @@ body.scrollable {
  # -----------------------------------------------------------------------------
 */
 .gallery-title {
-  font-weight: 600;
-  font-style: italic;
-  margin-bottom: .25rem; }
+  color: #212121;
+  line-height: 1.25rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: .5rem; }
 
 /*
  # -----------------------------------------------------------------------------
@@ -21235,7 +21338,7 @@ body.scrollable {
  # Product/Info:
  # http://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -21678,9 +21781,7 @@ body.scrollable {
       margin-top: -1px;
       min-width: 350px;
       background: #ffffff;
-      border-top: solid 8px;
-      border-right: solid 1px;
-      border-left: solid 1px; }
+      border-top: solid 8px; }
       nav.navbar.navigator li.dropdown ul.dropdown-menu > li a:hover {
         background-color: transparent; }
       nav.navbar.navigator li.dropdown ul.dropdown-menu > li:last-child > a {
@@ -21877,7 +21978,7 @@ body.scrollable {
   nav.navbar.navigator ul.nav .dropdown-menu .dropdown-menu {
     margin-top: -2px;
     max-height: 350px;
-    overflow-y: auto; }
+    overflow-y: inherit; }
   nav.navbar.navigator li.dropdown ul.dropdown-menu.megamenu-content {
     left: 0; }
   nav.navbar.navigator li.dropdown ul.dropdown-menu > li > a {
@@ -22232,7 +22333,7 @@ body.scrollable {
  # Product/Info:
  # http://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -22247,300 +22348,155 @@ code[class^="language-"] {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/modules/_searcher.scss
+ #  ~/scss/theme_uno/modules/tocbot.scss
+ #  Provides base styles for Tim Scanlin's Tocbot
  #
- # Product/Info:
- # http://jekyll.one
- # https://github.com/christian-fei/Simple-Jekyll-Search
+ #  Product/Info:
+ #  https://jekyll.one
+ #  https://tscanlin.github.io/tocbot
  #
- # Copyright (C) 2020 Juergen Adams
- # Copyright (C) 2015 Christian Fei
+ #  Copyright (C) 2016 Tim Scanlin
+ #  Copyright (C) 2021 Juergen Adams
  #
- # J1 Template is licensed under the MIT License
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- # Simple-Jekyll-Search is licensed under the MIT License.
- # See: https://github.com/christian-fei/Simple-Jekyll-Search/
- # -----------------------------------------------------------------------------
- # NOTE: Provides styles for the J1 Simple-Jekyll-Search
- # -----------------------------------------------------------------------------
-*/
-#jekyll-search-container {
-  list-style: none;
-  font-size: 12px;
-  background-color: white;
-  position: absolute;
-  top: 40px;
-  left: 20px;
-  z-index: -1;
-  width: 223px;
-  border-left: 1px solid #dedede;
-  box-shadow: 2px 3px 2px #dedede; }
-
-#jss-input-sidebar {
-  padding: .5em;
-  margin-left: 20px;
-  margin-right: 20px;
-  width: 20em;
-  font-size: 0.8em;
-  box-sizing: border-box;
-  float: right;
-  margin-top: 15px; }
-
-#jss-input-index {
-  padding: .5em;
-  margin-left: 0;
-  margin-right: 20px;
-  width: 20em;
-  font-size: 0.8em;
-  box-sizing: border-box;
-  float: right;
-  margin-top: 15px; }
-
-.top-search .form-control::placeholder {
-  color: rgba(255, 255, 255, 0.5); }
-
-h4.result-item {
-  font-size: 1.5rem !important; }
-
-h5.result-item {
-  font-size: .875rem !important; }
-
-h4.result-item > a {
-  color: #3949AB; }
-
-h4.result-item > a:hover {
-  color: #212121;
-  text-decoration: none; }
-
-.panel-search {
-  scrollbar-width: none;
-  /* Firefox */
-  -ms-overflow-style: none;
-  /* IE 10+ */ }
-
-.panel-search::-webkit-scrollbar {
-  width: 0px;
-  /* WebKit */ }
-
-.panel-search {
-  max-height: 350px;
-  width: 98%;
-  margin-left: .25rem;
-  background-color: unset;
-  overflow-y: scroll !important; }
-  .panel-search p {
-    /* font-size: 1.1em; */
-    /* margin-left: .5em; */
-    /* margin-bottom: 0 !important; */ }
-  .panel-search > .panel-heading {
-    color: #424242 !important;
-    /* background-color: $color_star_dust_approx !important; */
-    /* border-color: $black !important; */ }
-
-.panel-search-index {
-  margin-left: 0; }
-
-.panel-heading {
-  padding: 10px 15px;
-  margin-left: 1.5rem;
-  font-weight: 400; }
-
-.result-group-item-text {
-  /* color: $color_cerulean_blue_approx !important; */
-  line-height: 1.25; }
-
-p.result-group-item-text {
-  font-size: .875rem;
-  margin-bottom: .5rem;
-  text-align: justify; }
-
-#jss-results li {
-  padding-top: .2rem;
-  padding-bottom: .2rem;
-  display: inherit; }
-  #jss-results li:last-child {
-    padding-bottom: 2rem; }
-  #jss-results li > a {
-    text-decoration: none;
-    color: rgba(0, 0, 0, 0.5); }
-  #jss-results li > a:hover {
-    color: rgba(0, 0, 0, 0.9); }
-
-.result-item {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  line-height: 1; }
-
-.result-group-item p {
-  color: rgba(0, 0, 0, 0.8);
-  font-size: 1.75rem;
-  line-height: 1.25; }
-
-.panel-body p {
-  font-size: 1.1em;
-  margin-left: 1.5em;
-  margin-bottom: .5rem !important;
-  font-weight: 400;
-  color: #424242; }
-
-.form-clear-searcher {
-  margin: .5rem .5rem 0 .5rem; }
-
-/*
-.search-list-item {
-  margin-right: 3.5rem;
-}
-*/
-/*
- # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/modules/_ssm.scss
- #
- # Product/Info:
- # http://jekyll.one
- #
- # Copyright (C) 2020 Juergen Adams
- #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- # -----------------------------------------------------------------------------
- # NOTE: Styles for J1 Sticky Side Menu
+ #  J1 Template is licensed under MIT License.
+ #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ #  Tocbot is licensed under MIT License.
+ #  See: https://github.com/tscanlin/tocbot/blob/master/LICENSE
  # -----------------------------------------------------------------------------
 */
-#ssm-container {
-  position: fixed;
-  top: 0;
-  z-index: 4;
-  display: none; }
+.toc {
+  overflow-y: auto; }
 
-.ssm-btns-right {
-  right: 0; }
-
-.ssm-btns-left {
-  left: 0; }
-
-/* jadams, 2020-06-16: */
-.ssm-btn {
-  background: #212121; }
-
-.ssm-share-btn {
-  background: #212121; }
-
-.ssm-sub-menu {
-  background: #212121; }
-
-span.ssm-btn-text {
-  margin-top: 8px; }
-
-#ssm-container ul {
-  padding: 0;
-  margin: 0; }
-
-#ssm-container ul li {
-  list-style: none;
-  line-height: 45px;
-  margin: 0; }
-
-#ssm-container ul li a {
-  color: #9e9e9e;
-  padding: 0 13px 0 0;
-  display: inline-flex;
-  line-height: 45px;
-  text-align: left;
-  white-space: nowrap;
-  text-decoration: none; }
-
-#ssm-container.ssm-btns-left ul li a {
-  text-align: right;
-  padding: 0 0 0 15px; }
-
-#ssm-container ul li:hover {
-  text-decoration: none;
-  background: #d2d4dc; }
-
-#ssm-container .ssm-share-btn {
+.toc > .toc-list {
+  overflow: hidden;
   position: relative; }
 
-#ssm-container .ssm-share-btn a {
-  padding: 0; }
+.toc > .toc-list li {
+  list-style: none; }
 
-#ssm-container.ssm-btns-left .ssm-share-btn i.ssm-share-icon {
-  float: right !important; }
+.toc-list {
+  margin: 0;
+  padding-left: 10px; }
 
-#ssm-container ul li.ssm-share-btn:hover .ssm-sub-menu {
-  display: block; }
+a.toc-link {
+  color: currentColor;
+  height: 100%; }
 
-.ssm-sub-menu {
+.is-collapsible {
+  max-height: 1000px;
+  overflow: hidden;
+  transition: all 300ms ease-in-out; }
+
+.is-collapsed {
+  max-height: 0; }
+
+.is-position-fixed {
+  position: fixed !important;
+  top: 0; }
+
+.is-active-link {
+  font-weight: 700; }
+
+.toc-link::before {
+  background-color: #EEE;
+  content: ' ';
+  display: inline-block;
+  height: inherit;
+  left: 0;
+  margin-top: -1px;
   position: absolute;
-  top: 100%;
-  left: 100%;
-  margin: 0 0 0 -50px;
-  width: 155px;
-  display: none; }
+  width: 2px; }
 
-#ssm-container.ssm-btns-right .ssm-sub-menu {
-  right: -100%;
-  margin: 0 0 0 -110px;
-  left: 0; }
+.is-active-link::before {
+  background-color: #54BC4B; }
 
-#ssm-container .ssm-sub-menu a {
-  padding: 0 !important;
-  text-align: left !important; }
-
-/* Old icon font styles */
 /*
-#ssm-container ul li span {
-    line-height: 45px;
-    width: 50px;
-    text-align: center;
-    display: inline-block;
-}
-
-#ssm-container.ssm-btns-left ul li span {
-    float: right;
-}
-
-#ssm-container .ssm-share-btn span,
-#ssm-container.ssm-btns-left .ssm-share-btn span {
-    float: none;
-}
+ # -----------------------------------------------------------------------------
+ # ~/scss/theme_uno/modules/toccer.css
+ # Provides Tocbot styles for theme Uno
+ #
+ # Product/Info:
+ # https://jekyll.one
+ #
+ # Copyright (C) 2021 Juergen Adams
+ #
+ # J1 Template is licensed under MIT License.
+ # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # -----------------------------------------------------------------------------
+ # NOTE: Several styles are moved to ~/assets/themes/j1/adapter/js/toccer.js
+ # 			 to set CSS styles fo selected theme dynamically
+ # -----------------------------------------------------------------------------
 */
-/*
-#ssm-container.ssm-anim-icons ul li {
-    transition: transform 100ms;
-}
+/* overload settings for class toc */
+.toc {
+  overflow: hidden; }
 
-#ssm-container.ssm-anim-icons.ssm-btns-right ul li:hover {
-    transform: translate(-15px, 0);
-}
+/* enable scrollbar for toccer */
+.toc > .toc-list {
+  overflow-y: scroll;
+  position: relative; }
 
-#ssm-container.ssm-anim-icons.ssm-btns-left ul li:hover {
-    transform: translate(15px, 0);
-}
-*/
-/* jadams, 2020-08-07: media query WRONG on the container class.
-Padding on CONTAINER cause irritating paddings on HOME page
-TODO: Padding needs to be isolated on SSM (if used)
-See: packages\200_template_js\js\sticky-side-menu\ssm.js
--------------------------------------------------------------------------------- */
-/* Responsive */
-/* jadams, 2020-06-29: media query for SSM (space for ssm)
--------------------------------------------------------------------------------- */
-/* Landscape iPad, 768px */
-/*
-@media only screen and (min-width: 576px) and (max-width: 768px){
-  .container, .container-fluid {
-    padding-right: 30px !important;
-  }
-}
-*/
-/* Small devices (landscape phones, up to 576px) */
-/* @media only screen and (max-width: 576px) {
-  .container, .container-fluid {
-    padding-right: 30px !important;
-  }
-}
-*/
+/* hide scrollbar for FF browser */
+.toc > .toc-list {
+  scrollbar-width: none; }
+
+/* hide scrollbar for webkit based browsers */
+.toc-list::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; }
+
+.toc > .toc-list li {
+  list-style: none; }
+
+.toc-list {
+  margin: 0;
+  padding-left: 10px; }
+
+a.toc-link {
+  color: #BDBDBD;
+  /* md-grey-400 */
+  height: 100%;
+  font-size: 1rem;
+  /* jadams, 2017-12-13: added font-size for toc-link */ }
+
+/* jadams, 2020-07-03: added hover to global style */
+a.toc-link:hover {
+  color: #757575 !important;
+  /* md-grey-600 */
+  text-decoration: none;
+  font-weight: 700; }
+
+.is-collapsible {
+  max-height: 1000px;
+  overflow: hidden;
+  transition: all 300ms ease-in-out; }
+
+.is-collapsed {
+  max-height: 0; }
+
+.is-position-fixed {
+  position: fixed !important;
+  top: 0; }
+
+.is-active-link {
+  font-weight: 700 !important;
+  color: #2196f3 !important; }
+
+.toc-link::before {
+  background-color: #E0E0E0;
+  /* md-grey-300 */
+  content: ' ';
+  display: inline-block;
+  height: inherit;
+  left: 0;
+  margin-top: -1px;
+  position: absolute;
+  width: 2px; }
+
+.is-active-link::before {
+  background-color: #757575;
+  /* md-grey-600, was: #54BC4B */ }
+
 /*
  # -----------------------------------------------------------------------------
  # ~/scss/theme_uno/modules/_totop.scss
@@ -22548,7 +22504,7 @@ See: packages\200_template_js\js\sticky-side-menu\ssm.js
  # Product/Info:
  # http://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE

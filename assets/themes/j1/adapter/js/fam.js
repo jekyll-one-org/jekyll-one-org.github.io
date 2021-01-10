@@ -7,12 +7,12 @@
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- # Adapter generated: 2020-10-13 19:03:49 +0200
+ # Adapter generated: 2021-01-10 15:15:58 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -30,11 +30,15 @@ j1.adapter['fam'] = (function (j1, window) {
   var dclFinished   = false;
   var moduleOptions = {};
   var cookie_names  = j1.getCookieNames();
+  var famOptions;
+  var frontmatterOptions;
   var user_state;
   var user_session;
   var user_data;
   var sect1Nodes;
+  var sect3Nodes;
   var sect12Nodes;
+  var sect123Nodes;
   var _this;
   var logger;
   var logText;
@@ -54,7 +58,8 @@ j1.adapter['fam'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       _this         = j1.adapter.fam;
       logger        = log4javascript.getLogger('j1.adapter.fam');
-      sect12Nodes   = $('[class$="sect1"],[class$="sect2"');
+      sect123Nodes  = $('[class$="sect1"],[class$="sect2"],[class$="sect3"]');
+      sect12Nodes   = $('[class$="sect1"],[class$="sect2"]');
       sect1Nodes    = $('[class$="sect1"]');
       // initialize state flag
       _this.setState('started');
@@ -67,25 +72,20 @@ j1.adapter['fam'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.fam',
-        generated:   '2020-10-13 19:03:49 +0200'
+        generated:   '2021-01-10 15:15:58 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // options loader
       // -----------------------------------------------------------------------
       /* eslint-disable */
-      var famMenuOptions = $.extend({}, );
-      var famOptions = $.extend({}, {"enabled":true, "xhr_container_id":"fam-container", "xhr_data_path":"/assets/data/fam/index.html", "menu_id":"ssm_menu", "icon_family":"MDI", "icon_color":"mdi-md-grey", "icon_size":"mdi-2x", "min_width":200, "margin":-140, "mode":"icon", "items":[{"item":"Reload Page", "enabled":true, "id":"fam_reload_page", "href":null, "target":null, "event_handler":"reload_page", "icon":"reload", "icon_classes":null}, {"item":"Table of Contents", "enabled":true, "id":"open_mmenu_toc", "href":null, "target":null, "event_handler":"open_mmenu_toc", "icon":"wrap", "icon_classes":null}, {"item":"To Top", "enabled":true, "id":"fam_scroll_to_top", "event_handler":"scroll_to_top", "href":null, "target":null, "icon":"step-backward-2", "icon_classes":"mdi-rotate-90"}, {"item":"Next Section", "enabled":true, "id":"fam_next_section", "event_handler":"scroll_next_section", "href":null, "target":null, "icon":"step-forward", "icon_classes":"mdi-rotate-90"}, {"item":"Previous Section", "enabled":true, "id":"fam_previous_section", "event_handler":"scroll_previous_section", "href":null, "target":null, "icon":"step-backward", "icon_classes":"mdi-rotate-90"}]});
-      /* eslint-enable */
-      var xhr_data_path;
-      var menu_id;
+      famOptions = $.extend({}, {"enabled":true, "mode":"icon", "xhr_container_id":"fam-container", "xhr_data_path":"/assets/data/fam/index.html", "icon_family":"MDI", "icon_color":"mdi-md-grey", "icon_size":"mdi-2x", "raised_level":5, "menu_options":{"hoverEnabled":true}, "menus":[{"name":"Scroll to top", "enabled":true, "id":"default", "icon":"plus", "icon_hover":"chevron-up", "color":"md-blue", "items":[{"item":null, "enabled":true, "event_handler":"scroll_to_top"}]}, {"name":"Open TOC", "enabled":true, "id":"open_toc", "icon":"plus", "icon_hover":"wrap", "color":"md-blue", "items":[{"item":null, "enabled":true, "event_handler":"open_mmenu_toc"}]}, {"name":"in-page control", "enabled":true, "id":"page_ctrl_simple", "icon":"plus", "icon_hover":"cursor-pointer", "color":"md-blue", "items":[{"item":"Previous Section", "enabled":true, "id":"fam_previous_section", "color":"md-green", "event_handler":"scroll_previous_section", "icon":"step-backward", "icon_properties":"rotate-90"}, {"item":"Next Section", "enabled":true, "id":"fam_next_section", "color":"md-green", "event_handler":"scroll_next_section", "icon":"step-forward", "icon_properties":"rotate-90"}, {"item":"Table of Contents", "enabled":true, "id":"open_mmenu_toc", "color":"md-blue", "event_handler":"open_mmenu_toc", "icon":"wrap"}]}, {"name":"in-page control", "enabled":true, "id":"page_ctrl", "icon":"plus", "icon_hover":"cursor-pointer", "color":"md-blue", "items":[{"item":"Reload Page", "enabled":true, "id":"fam_reload_page", "color":"md-red", "event_handler":"reload_page", "icon":"reload"}, {"item":"To Top", "enabled":true, "id":"fam_scroll_to_top", "color":"md-green", "event_handler":"scroll_to_top", "icon":"step-backward-2", "icon_properties":"rotate-90"}, {"item":"Previous Section", "enabled":true, "id":"fam_previous_section", "color":"md-green", "event_handler":"scroll_previous_section", "icon":"step-backward", "icon_properties":"rotate-90"}, {"item":"Next Section", "enabled":true, "id":"fam_next_section", "color":"md-green", "event_handler":"scroll_next_section", "icon":"step-forward", "icon_properties":"rotate-90"}, {"item":"To bottom", "enabled":true, "id":"fam_scroll_to_bottom", "color":"md-green", "event_handler":"scroll_to_bottom", "icon":"step-forward-2", "icon_properties":"rotate-90"}, {"item":"Table of Contents", "enabled":true, "id":"open_mmenu_toc", "color":"md-blue", "event_handler":"open_mmenu_toc", "icon":"wrap"}]}]});
       // Load (individual) frontmatter options (currently NOT used)
-      //
-      if (options != null) { var frontmatterOptions = $.extend({}, options); }
+      if (options != null) { frontmatterOptions = $.extend({}, options); }
       if (typeof frontmatterOptions !== 'undefined') {
         moduleOptions = j1.mergeData(famOptions, frontmatterOptions);
       }
-      _this.buttonInitializer(famOptions);
-      // save config settings into the mmenu object for global access
+      /* eslint-enable */
+      // save config settings into the fam object for global access
       //
       _this['moduleOptions'] = moduleOptions;
       var dependencies_met_navigator = setInterval(function() {
@@ -100,167 +100,174 @@ j1.adapter['fam'] = (function (j1, window) {
     // FAM Loader
     // -------------------------------------------------------------------------
     famLoader: function (famOptions) {
-      var menu_id;
-      var xhr_data_path;
-      // cast text-based booleans
-      // var isToc = (famOptions.toc === 'true');
-      var isToc = true;
       _this.setState('loading');
       logger.info('set module state to: ' + _this.getState());
       logger.info('load HTML data for fam');
-      // j1.xhrData ({
-      //   xhr_container_id: 'fam-container',
-      //   xhr_data_path:    '/assets/data/fam/index.html' },
-      //   'j1.adapter.fam',
-      //   'data_loaded'
-      // );
+      j1.xhrData ({
+        xhr_container_id: famOptions.xhr_container_id,
+        xhr_data_path:    famOptions.xhr_data_path,
+        xhr_data_element: famOptions.fam_menu_id },
+        'j1.adapter.fam',
+        'data_loaded'
+      );
       // ---------------------------------------------------------------------
-      // Initialize MMenu Navs and Drawers
+      // Initialize FAM button
       // ---------------------------------------------------------------------
-      var dependencies_met_mmenu_initialized = setInterval (function () {
-//      if (j1.xhrDOMState['#fam-container'] == 'success') {
+      var dependencies_met_fam_initialized = setInterval (function () {
+        if (j1.xhrDOMState['#' + famOptions.xhr_container_id] == 'success' && j1.getState() == 'finished') {
           _this.setState('loaded');
           logger.info('set module state to: ' + _this.getState());
           logger.info('HTML data for fam: ' + _this.getState());
-//        j1.core.ssm.init (moduleOptions);
-          if(isToc) {
-            logger.info('found toc in page: enabled');
-            if ( j1.adapter.toccer.getState() == 'finished' ) {
-              logger.info('met dependencies for: toccer');
-              _this.setState('processing');
-              logger.info('set module state to: ' + _this.getState());
-              logger.info('initialize fam menu');
-              famOptions.mode === 'icon'
-                ? logger.info('fam mode detected: icon')
-                : logger.info('fam mode detected: menu');
-              _this.scrollSpy(famOptions);
-              _this.buttonInitializer(famOptions);
-              _this.setState('finished');
-              logger.info('state: ' + _this.getState());
-              logger.info('module initialized successfully');
-              logger.info('met dependencies for: xhrData');
-              clearInterval(dependencies_met_mmenu_initialized);
-            }
-          } else {
-            logger.info('found toc in page: disabled');
-            logger.info('disable toc menu and prev|next section buttons');
-            $('#fam_toc').closest('.fam-btn').hide();
-            $('#fam_previous_section').closest('.fam-btn').hide();
-            $('#fam_next_section').closest('.fam-btn').hide();
-            _this.scrollSpy(famOptions);
-            _this.buttonInitializer(famOptions);
-            logger.info('met dependencies for: xhrData');
-            clearInterval(dependencies_met_mmenu_initialized);
-          }
-//      }
-      }, 25); // END dependencies_met_mmenu_initialized
+//        _this.scrollSpy(famOptions);
+          _this.buttonInitializer(famOptions);
+          _this.setState('finished');
+          logger.info('state: ' + _this.getState());
+          logger.info('module initialized successfully');
+          $('.fam-btn').show();
+          clearInterval(dependencies_met_fam_initialized);
+        }
+      }, 25); // END dependencies_met_fam_initialized
     }, // END dataLoader
     // -------------------------------------------------------------------------
     // Button Initializer
     // -------------------------------------------------------------------------
     buttonInitializer: function (famOptions) {
       var eventHandler;
-      // Create an eventhandler instance if id exists: fam_reload_page
-      if ($('#fam_reload_page').length) {
-        eventHandler = 'reload_page';
-        // check if eventhandler configured is a SINGLE word
-        if (eventHandler.split(' ').length == 1) {
-          logger.info('register pre-configured eventhandler reload_page on id: fam_reload_page');
-          $('#fam_reload_page').each(function(e) {
-            var $this = $(this);
-            $this.on('click', function(e) {
-              _this.reload_page(sect1Nodes);
-            });
+      var actionMenuId;
+      var actionMenuOptions;
+      var actionButtonId;
+      var instances;
+      var $actionButton;
+      var toggleIcons;
+      var famActions;
+      var $famContainer         = $('#' + famOptions.xhr_container_id);
+      var iconFamily            = famOptions.icon_family.toLowerCase();
+      var floatingActionOptions = famOptions.menu_options;
+      var famButtons            = document.querySelectorAll('.fam-btn');
+      // check if multiple buttons detected
+      if ( famButtons.length == 1 ) {
+        _this.setState('processing');
+        logger.info('set module state to: ' + _this.getState());
+        logger.info('initialize fam menu');
+        actionButtonId  = famButtons[0].firstElementChild.id;
+        actionMenuId    = actionButtonId.replace('_button', '');
+        instances       = j1.fam.init(famButtons, floatingActionOptions);
+        $actionButton   = $('#' + actionButtonId);
+        famOptions.menus.forEach(function (menu, index) {
+          if (menu.id === actionMenuId) {
+            actionMenuOptions = famOptions.menus[index];
+          };
+        });
+        // count number of menu actions for the button. If only one action
+        // found the FAM button gets created as a FAB (no menu) that has the
+        // the action bound directly to the button
+        //
+        famActions = actionMenuOptions.items.length;
+        toggleIcons = iconFamily + '-' + actionMenuOptions.icon + ' ' + iconFamily + '-' + actionMenuOptions.icon_hover;
+        // toggle the icon for the FAB if configured
+        if (floatingActionOptions.hoverEnabled) {
+          $actionButton.hover(
+            function() {
+              $('#fam-icon').toggleClass(toggleIcons);
+            }, function() {
+              $('#fam-icon').toggleClass(toggleIcons);
+            }
+          );
+        } else {
+          $actionButton.on('click', function (e) {
+            $('#fam-icon').toggleClass(toggleIcons);
+          });
+        }
+        if (famActions > 1) {
+          actionMenuOptions.items.forEach(function (item, index) {
+            // Bind an eventhandler instance if item id exists
+            if ($('#' + item.id).length) {
+              eventHandler = item.event_handler;
+              // check if eventhandler configured is a SINGLE word
+              if (eventHandler.split(' ').length == 1) {
+                logger.info('register pre-configured eventhandler ' +eventHandler+ ' on id: #' + item.id);
+                if ( eventHandler === 'open_mmenu_toc' ) {
+                  if ($('#j1-toc-mgr').length) {
+                    logger.info('found toc in page: enabled');
+                    var dependencies_met_toccer_finished = setInterval (function () {
+                      if ( j1.adapter.toccer.getState() == 'finished' ) {
+                        logger.info('met dependencies for: toccer');
+                        // famOptions.mode === 'icon'
+                        //   ? logger.info('fam mode detected: icon')
+                        //   : logger.info('fam mode detected: menu');
+                        $('#open_mmenu_toc').show();
+                        clearInterval(dependencies_met_toccer_finished);
+                      }
+                    }, 25); // END dependencies_met_toccer_finished
+                  } else {
+                    logger.info('found toc in page: disabled');
+                  }
+                } else {
+                  $('#' + item.id).show();
+                } // END eventHandler 'open_mmenu_toc'
+                $('#' + item.id).each(function(e) {
+                  var $this = $(this);
+                  $this.on('click', function(e) {
+                  _this[item.event_handler](sect123Nodes);
+  //              _this[item.event_handler](sect12Nodes);
+                  });
+                });
+              } else {
+                logger.info('register custom eventhandler on id: #' + item.id);
+              }
+            } else {
+  //          alert ('Creating Eventhandler failed on id: #' + item.id);
+              logger.error('Creating Eventhandler failed on id: #' + item.id);
+            } // END if items (action buttons)
           });
         } else {
-          logger.info('register custom eventhandler on id: fam_reload_page');
-        }
-      } else {
-        alert ('Creating Eventhandler failed on: #fam_reload_page');
-      } // END items (buttons)
-       // menu_type 'top_level_item'
-       // ENDIF button_id enabled
-      // Create an eventhandler instance if id exists: open_mmenu_toc
-      if ($('#open_mmenu_toc').length) {
-        eventHandler = 'open_mmenu_toc';
-        // check if eventhandler configured is a SINGLE word
-        if (eventHandler.split(' ').length == 1) {
-          logger.info('register pre-configured eventhandler open_mmenu_toc on id: open_mmenu_toc');
-          $('#open_mmenu_toc').each(function(e) {
-            var $this = $(this);
-            $this.on('click', function(e) {
-              _this.open_mmenu_toc(sect1Nodes);
-            });
+          // single action, create FAB
+          logger.info('single action found for FAM, create: FAB');
+          // disable hover event (CSS)
+          // $actionButton.css({'pointer-events': 'none'})
+          actionMenuOptions.items.forEach(function (item, index) {
+            eventHandler = item.event_handler;
+            // check if eventhandler configured is a SINGLE word
+            if (eventHandler.split(' ').length == 1) {
+              logger.info('register pre-configured eventhandler ' +eventHandler+ ' on id: #' + actionButtonId);
+              if (eventHandler === 'scroll_to_top') {
+                // register click event
+                $actionButton.on('click', function(e) {
+                  var dest = 0;
+                  $('html, body').animate({
+                    scrollTop: dest
+                  }, 500);
+                });
+              } // END if eventHandler == scroll_to_top
+              if ( eventHandler === 'open_mmenu_toc' ) {
+                // check if toccer (toc_mgr) is available
+                if ($('#j1-toc-mgr').length) {
+                  logger.info('found toc in page: enabled');
+                  var dependencies_met_toccer_finished = setInterval (function () {
+                    if ( j1.adapter.toccer.getState() == 'finished' ) {
+                      logger.info('met dependencies for toccer: finished');
+                      // change the id of the $actionButton to the already
+                      // registered id by mmenu adapter of ('open_mmenu_toc')
+                      // to open the TOC sidebar
+                      //
+                      $actionButton.prop('id', 'open_mmenu_toc');
+                      clearInterval(dependencies_met_toccer_finished);
+                    }
+                  }, 25); // END dependencies_met_toccer_finished
+                } else {
+                  logger.info('found toc in page: disabled');
+                  logger.info('eventhandler: disabled');
+                }
+              } // END if eventHandler == open_mmenu_toc
+            }
           });
-        } else {
-          logger.info('register custom eventhandler on id: open_mmenu_toc');
-        }
+        } // END else
       } else {
-        alert ('Creating Eventhandler failed on: #open_mmenu_toc');
-      } // END items (buttons)
-       // menu_type 'top_level_item'
-       // ENDIF button_id enabled
-      // Create an eventhandler instance if id exists: fam_scroll_to_top
-      if ($('#fam_scroll_to_top').length) {
-        eventHandler = 'scroll_to_top';
-        // check if eventhandler configured is a SINGLE word
-        if (eventHandler.split(' ').length == 1) {
-          logger.info('register pre-configured eventhandler scroll_to_top on id: fam_scroll_to_top');
-          $('#fam_scroll_to_top').each(function(e) {
-            var $this = $(this);
-            $this.on('click', function(e) {
-              _this.scroll_to_top(sect1Nodes);
-            });
-          });
-        } else {
-          logger.info('register custom eventhandler on id: fam_scroll_to_top');
-        }
-      } else {
-        alert ('Creating Eventhandler failed on: #fam_scroll_to_top');
-      } // END items (buttons)
-       // menu_type 'top_level_item'
-       // ENDIF button_id enabled
-      // Create an eventhandler instance if id exists: fam_next_section
-      if ($('#fam_next_section').length) {
-        eventHandler = 'scroll_next_section';
-        // check if eventhandler configured is a SINGLE word
-        if (eventHandler.split(' ').length == 1) {
-          logger.info('register pre-configured eventhandler scroll_next_section on id: fam_next_section');
-          $('#fam_next_section').each(function(e) {
-            var $this = $(this);
-            $this.on('click', function(e) {
-              _this.scroll_next_section(sect1Nodes);
-            });
-          });
-        } else {
-          logger.info('register custom eventhandler on id: fam_next_section');
-        }
-      } else {
-        alert ('Creating Eventhandler failed on: #fam_next_section');
-      } // END items (buttons)
-       // menu_type 'top_level_item'
-       // ENDIF button_id enabled
-      // Create an eventhandler instance if id exists: fam_previous_section
-      if ($('#fam_previous_section').length) {
-        eventHandler = 'scroll_previous_section';
-        // check if eventhandler configured is a SINGLE word
-        if (eventHandler.split(' ').length == 1) {
-          logger.info('register pre-configured eventhandler scroll_previous_section on id: fam_previous_section');
-          $('#fam_previous_section').each(function(e) {
-            var $this = $(this);
-            $this.on('click', function(e) {
-              _this.scroll_previous_section(sect1Nodes);
-            });
-          });
-        } else {
-          logger.info('register custom eventhandler on id: fam_previous_section');
-        }
-      } else {
-        alert ('Creating Eventhandler failed on: #fam_previous_section');
-      } // END items (buttons)
-       // menu_type 'top_level_item'
-       // ENDIF button_id enabled
-       // ENDFOR items
+//      alert ('Multiple FAM buttons found: ' + famButtons.length);
+        logger.error('Multiple FAM buttons found: ' + famButtons.length);
+        logger.info('FAM container set to hidden: ' + $famContainer);
+        $famContainer.hide();
+      } // END if famButton
     }, // END buttonInitializer
     // -------------------------------------------------------------------------
     // Eventhandler
@@ -268,11 +275,13 @@ j1.adapter['fam'] = (function (j1, window) {
     // open mmenu TOC
     // -------------------------------------------------------------------------
     open_mmenu_toc: function () {
-      // Event configured with Navigator module (navigator.yml)
-      // with DRAWER TOC: menu.content.button (#open_mmenu_toc)
-      // NOTE: no handling needed for this event by FAM module
-      //
-    }, // END open_mmenu_toc
+        // Event configured with Navigator module (navigator.yml)
+        // with content section DRAWER TOC. Event registered at
+        // runtime on element with id '#open_mmenu_toc' by Mobile Menu
+        // module ADAPTER (mmenu.js)
+        //
+        // NOTE: no further handling needed for this event
+    },  // END open_mmenu_toc
     // -------------------------------------------------------------------------
     // reload page
     // -------------------------------------------------------------------------
@@ -292,7 +301,7 @@ j1.adapter['fam'] = (function (j1, window) {
       var $toc              = $('#sidebar');
       var current_header_id = $toc.find('.is-active-link').attr('href');
       var scrollDuration    = 300;
-      var scrollOffset      = -80;
+      var scrollOffset      = -90;
       // Correction if mobile (offset: desktop -90px, mobile -80px)
       scrollOffset          = j1.core.isMobile() ? scrollOffset + 10 : scrollOffset;
       nodes.each(function () {
@@ -304,8 +313,6 @@ j1.adapter['fam'] = (function (j1, window) {
             prev_node           = (index > 0) ? nodes[index-1] : nodes[index];
             previous_header_id  = $(prev_node).find(':header').first()[0].id;
             anchor_id           = '#' + previous_header_id;
-            $('a[href*="' + current_header_id + '"]').removeClass('is-active-link');
-            $('a[href*="' + previous_header_id + '"]').addClass('is-active-link');
             j1.core.scrollSmooth.scroll( anchor_id, {
               duration: scrollDuration,
               offset: scrollOffset,
@@ -321,29 +328,39 @@ j1.adapter['fam'] = (function (j1, window) {
     // -------------------------------------------------------------------------
     scroll_next_section: function (nodes) {
       var next_header_id;
+      var next_header_plus_id;
       var currentNode;
+      var current_header_id;
       var nextNode;
-      var anchor_id;
+      var next_header_id;
+      var next_anchor_id;
       var index             = 0;
-      var maxNode           = $(nodes).length -1;
+      var maxNode           = $(nodes).length-1;
+//    var maxNode           = $(nodes).length;
       var $toc              = $('#sidebar');
-      var current_header_id = $toc.find('.is-active-link').attr('href');
       var scrollDuration    = 300;
-      var scrollOffset      = -80;
-      // Correction if mobile (offset: desktop -90px, mobile -80px)
-      scrollOffset          = j1.core.isMobile() ? scrollOffset + 10 : scrollOffset;
+      var scrollOffset      = -90;
+      current_header_id = $toc.find('.is-active-link').attr('href');
       nodes.each(function () {
         currentNode = $(this).find(current_header_id);
         if (currentNode.length) {
           if (index == maxNode) {
             return false;
           } else {
-            nextNode = nodes[index+1];
-            next_header_id  = $(nextNode).find(':header').first()[0].id;
-            anchor_id       = '#' + next_header_id;
-            $('a[href*="' + current_header_id + '"]').removeClass('is-active-link');
-            $('a[href*="' + next_header_id + '"]').addClass('is-active-link');
-            j1.core.scrollSmooth.scroll( anchor_id, {
+//          nextNode              = nodes[index];
+//          next_header_id        = $(nextNode).find(':header').first()[0].id;
+//          anchor_id             = '#' + next_header_id;
+            nextNode              = nodes[index+1];
+            next_header_id        = $(nextNode).find(':header').first()[0].id;
+            next_anchor_id        = '#' + next_header_id;
+            // Correction if mobile (offset: desktop -90px, mobile -80px)
+            scrollOffset          = j1.core.isMobile() ? scrollOffset + 10 : scrollOffset;
+            // j1.core.scrollSmooth.scroll( next_anchor_id, {
+            //   duration: scrollDuration,
+            //   offset: scrollOffset,
+            //   callback: tocbot.refresh()
+            // });
+            j1.core.scrollSmooth.scroll( next_anchor_id, {
               duration: scrollDuration,
               offset: scrollOffset,
               callback: null
@@ -361,6 +378,7 @@ j1.adapter['fam'] = (function (j1, window) {
       $('html, body').animate({
         scrollTop: dest
       }, 500);
+      // tocbot.refresh();
     }, // END scroll_top
     // -------------------------------------------------------------------------
     // scroll to bottom
@@ -374,6 +392,7 @@ j1.adapter['fam'] = (function (j1, window) {
       $('html, body').animate({
         scrollTop: pageHeight
       }, 500);
+      // tocbot.refresh();
     }, // END scroll_bottom
     // -------------------------------------------------------------------------
     // scroll to comments (Disqus)
