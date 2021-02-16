@@ -143,11 +143,11 @@ div.copied {
     left: 50%;
     width: 200px;
     text-align: center;
-    color: $grey-50;
-    background-color: $blue;
-//  border: 1px solid $indigo;
+    color: #FAFAFA;
+    background-color: #2196F3;
+    border: 1px solid #0D47A1;
     padding: 10px 15px;
     border-radius: 4px;
     margin-left: -100px;
-//  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }

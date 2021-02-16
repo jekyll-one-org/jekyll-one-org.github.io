@@ -8,7 +8,7 @@
  #  https://github.com/FrDH/mmenu-light
  #
  #  Copyright (C) 2021 Juergen Adams
- #  Copyright (C) 2015-2020 Fred Heusschen
+ #  Copyright (C) 2015-2021 Fred Heusschen
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -19,7 +19,7 @@
 
 /*!
  * Mmenu Light
- * mmenujs.com/mmenu-light v3.0.5
+ * mmenujs.com/mmenu-light v3.0.8
  *
  * Copyright (c) Fred Heusschen
  * www.frebsite.nl

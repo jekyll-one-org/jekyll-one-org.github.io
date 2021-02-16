@@ -5,14 +5,14 @@
  # JS Adapter for J1 FAM (Floating Button Menu)
  #
  # Product/Info:
- # https://jekyll.one
+ # http://jekyll.one
  #
  # Copyright (C) 2021 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
- # For details, see https://jekyll.one
+ # For details, see http://jekyll.one
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-01-29 16:45:47 +0000
+ # Adapter generated: 2021-02-16 23:48:48 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -72,7 +72,7 @@ j1.adapter['fam'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.fam',
-        generated:   '2021-01-29 16:45:47 +0000'
+        generated:   '2021-02-16 23:48:48 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // options loader

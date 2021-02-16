@@ -44,17 +44,17 @@
 .icons div code:hover,
 .icons div span:hover,
 .icons div i:hover {
-    color: rgba(0, 0, 0, 0.9);
+    color: rgba(0, 0, 0, 0.5);
 }
 
 .icons div code:hover {
-    border-color: $indigo;
+    border-color: #2196F3;
 }
 
 .icons div code {
-    color:  $grey-800;
-    background-color: $grey-300;
-    border: 1px solid $grey;
+    color:  #424242;
+    background-color: #E0E0E0;
+    border: 1px solid #9E9E9E;
     width: 80px;
     margin-left: 2px;
     margin-right: 4px;
@@ -79,4 +79,19 @@
 
 .icons .mdi:before {
     font-size: 24px;
+}
+
+div.copied {
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    width: 200px;
+    text-align: center;
+    color: #FAFAFA;
+    background-color: #2196F3;
+    border: 1px solid #0D47A1;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-left: -100px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }

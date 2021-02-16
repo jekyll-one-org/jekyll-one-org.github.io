@@ -16,18 +16,19 @@
  # For details, https://github.com/xLs51/Twemoji-Picker
  # -----------------------------------------------------------------------------
 */
-(function (e, c, g) {
+(function ($, window, undefined) {
   var b = 150;
   var d = {};
-  var a = "/assets/data/twa_v1.json";
-  e.TwemojiPicker = function (j, i) {
+  var twa_database = "/assets/data/twa_v1.json";
+
+  $.TwemojiPicker = function (element, options) {
     var h = this;
-    e.when(h._loadDatabase()).done(function (k) {
-      h.$el = e(j);
-      h._init(i)
+    $.when(this._loadDatabase()).done(function (e) {
+      h.$el = $(element);
+      h._init(options)
     })
   };
-  e.TwemojiPicker.defaults = {
+  $.TwemojiPicker.defaults = {
     init: null,
     size: 25,
     icon: "grinning",
@@ -41,9 +42,9 @@
     pickerWidth: null,
     placeholder: "",
   };
-  e.TwemojiPicker.prototype = {
+  $.TwemojiPicker.prototype = {
     _init: function (h) {
-      this.options = e.extend(true, {}, e.TwemojiPicker.defaults, h);
+      this.options = $.extend(true, {}, $.TwemojiPicker.defaults, h);
       this._initPicker();
       this._initCategory();
       this._initTwemoji();
@@ -52,8 +53,8 @@
       this._initEvents()
     },
     _loadDatabase: function f() {
-      return e.ajax({
-        url: a,
+      return $.ajax({
+        url: twa_database,
         success: function (h) {
           if (typeof h == "string") {
             d = JSON.parse(h)
@@ -87,16 +88,16 @@
       this.categoryName = ["people", "nature", "object", "place", "symbol"];
       this.$picker.append('<div class="twemoji-picker-category"></div>');
       this.$pickerCategory = this.$picker.find(".twemoji-picker-category");
-      e.each(this.categoryName, function (j, k) {
+      $.each(this.categoryName, function (j, k) {
         h.$pickerCategory.append('<span data-category="' + k + '">' + h.imageFromName(i[j]) + "</span>")
       });
       this.$pickerCategory.find("span:first").addClass("active")
     },
     _initTwemoji: function () {
       var h = this;
-      e.each(this.categoryName, function (j, k) {
+      $.each(this.categoryName, function (j, k) {
         h.$picker.append('<div class="twemoji-list ' + k + '"></div>');
-        e.each(d, function (i, l) {
+        $.each(d, function (i, l) {
           if (l.category === k) {
             h.$wrapper.find(".twemoji-picker ." + k).append('<span><img class="emoji" draggable="false" src="' + l.base64 + '" alt="' + l.value + '" title="' + l.name + '"></span>')
           }
@@ -146,27 +147,27 @@
     _initEvents: function () {
       var h = this;
       this.$textarea.on("keyup", function () {
-        h.copyTextArea(e(this).html())
+        h.copyTextArea($(this).html())
       });
       this.$iconPicker.on("click", function () {
-        var i = e(".twemoji-picker").height() + b;
-        e("#picker").height(i);
-        e(".toggle-button").toggleClass("mdi-toggle-switch-off mdi-toggle-switch");
+        var i = $(".twemoji-picker").height() + b;
+        $("#picker").height(i);
+        $(".toggle-button").toggleClass("mdi-toggle-switch-off mdi-toggle-switch");
         if (!h.openedPicker) {
           h.openPicker()
         } else {
           h.closePicker();
-          e("#picker").height(h.$pickerHeigth)
+          $("#picker").height(h.$pickerHeigth)
         }
       });
       this.$clearTextarea.on("click", function () {
         h.copyTextArea("");
-        e(h.$id).val("");
-        e(".twemoji-textarea > .emoji-span").remove()
+        $(h.$id).val("");
+        $(".twemoji-textarea > .emoji-span").remove()
       });
       this.$pickerCategory.find("span").on("click", function () {
-        var i = e(this).data("category");
-        h.openCategory(e(this), i)
+        var i = $(this).data("category");
+        h.openCategory($(this), i)
       });
       this.$pickerCategory.find(".close").on("click", function () {
         if (h.openedPicker) {
@@ -174,24 +175,24 @@
         }
       });
       this.$twemojiList.find("img").on("click", function () {
-        h.copyTwemoji(e(this))
+        h.copyTwemoji($(this))
       })
     },
-    copyText: function (j) {
-      var i = document.createElement("textarea");
-      i.setAttribute("style", "position:fixed;opacity:0;top:100px;left:100px");
-      i.value = j;
-      document.body.appendChild(i);
-      i.select();
-      document.execCommand("copy");
-      var h = document.createElement("div");
-      h.setAttribute("class", "copied");
-      h.appendChild(document.createTextNode("Copied to Clipboard"));
-      document.body.appendChild(h);
-      setTimeout(function () {
-        document.body.removeChild(i);
-        document.body.removeChild(h)
-      }, 1500)
+    copyText: function (text) {
+        var copyFrom = document.createElement('textarea');
+        copyFrom.setAttribute("style", "position:fixed;opacity:0;top:100px;left:100px;");
+        copyFrom.value = text;
+        document.body.appendChild(copyFrom);
+        copyFrom.select();
+        document.execCommand('copy');
+        var copied = document.createElement('div');
+        copied.setAttribute('class', 'copied');
+        copied.appendChild(document.createTextNode('Copied to Clipboard'));
+        document.body.appendChild(copied);
+        setTimeout(function () {
+            document.body.removeChild(copyFrom);
+            document.body.removeChild(copied);
+        }, 1500);
     },
     openPicker: function () {
       this.$picker.show();
@@ -226,7 +227,7 @@
       this.$el.text(i)
     },
     imageFromName: function (i, j) {
-      var h = e.grep(d, function (k) {
+      var h = $.grep(d, function (k) {
         return k.name == i
       });
       if (j) {
@@ -236,8 +237,8 @@
     },
     pasteAtCursor: function (m) {
       var l, h;
-      if (c.getSelection) {
-        l = c.getSelection();
+      if (window.getSelection) {
+        l = window.getSelection();
         if (l.getRangeAt && l.rangeCount) {
           h = l.getRangeAt(0);
           h.deleteContents();
@@ -264,10 +265,10 @@
       }
     }
   };
-  e.fn.twemojiPicker = function (i) {
-    var h = e.data(this, "twemojiPicker");
+  $.fn.twemojiPicker = function (i) {
+    var h = $.data(this, "twemojiPicker");
     this.each(function () {
-      h ? h._init() : h = e.data(this, "twemojiPicker", new e.TwemojiPicker(this, i))
+      h ? h._init() : h = $.data(this, "twemojiPicker", new $.TwemojiPicker(this, i))
     });
     return h
   }

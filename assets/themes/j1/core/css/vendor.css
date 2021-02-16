@@ -742,11 +742,11 @@ td.hdlist2 {
   margin-top: -0.5em; }
 
 .colist > table tr > td:first-of-type {
-  padding: 0 0.75em;
+  padding: 0 0.5rem 0 0.5rem;
   line-height: 1; }
 
 .colist > table tr > td:last-of-type {
-  padding: 0.25em 0; }
+  padding: 0.25rem 0; }
 
 .conum[data-value] {
   display: inline-block;
