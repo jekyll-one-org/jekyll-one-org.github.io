@@ -12,7 +12,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see http://jekyll.one
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-02-19 23:38:28 +0000
+ # Adapter generated: 2021-02-22 17:23:35 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -72,13 +72,13 @@ j1.adapter['fam'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.fam',
-        generated:   '2021-02-19 23:38:28 +0000'
+        generated:   '2021-02-22 17:23:35 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // options loader
       // -----------------------------------------------------------------------
       /* eslint-disable */
-      famOptions = $.extend({}, {"enabled":true, "mode":"icon", "xhr_container_id":"fam-container", "xhr_data_path":"/assets/data/fam/index.html", "icon_family":"MDI", "icon_color":"mdi-md-grey", "icon_size":"mdi-2x", "raised_level":5, "menu_options":{"hoverEnabled":true}, "menus":[{"name":"Scroll to top", "enabled":true, "id":"default", "icon":"plus", "icon_hover":"chevron-up", "color":"md-blue", "items":[{"item":null, "enabled":true, "event_handler":"scroll_to_top"}]}, {"name":"Open TOC", "enabled":true, "id":"open_toc", "icon":"plus", "icon_hover":"wrap", "color":"md-blue", "items":[{"item":null, "enabled":true, "event_handler":"open_mmenu_toc"}]}, {"name":"in-page control", "enabled":true, "id":"page_ctrl_simple", "icon":"plus", "icon_hover":"cursor-pointer", "color":"md-blue", "items":[{"item":"Previous Section", "enabled":true, "id":"fam_previous_section", "color":"md-green", "event_handler":"scroll_previous_section", "icon":"step-backward", "icon_properties":"rotate-90"}, {"item":"Next Section", "enabled":true, "id":"fam_next_section", "color":"md-green", "event_handler":"scroll_next_section", "icon":"step-forward", "icon_properties":"rotate-90"}, {"item":"Table of Contents", "enabled":true, "id":"open_mmenu_toc", "color":"md-blue", "event_handler":"open_mmenu_toc", "icon":"wrap"}]}, {"name":"in-page control", "enabled":true, "id":"page_ctrl", "icon":"plus", "icon_hover":"cursor-pointer", "color":"md-blue", "items":[{"item":"Reload Page", "enabled":true, "id":"fam_reload_page", "color":"md-red", "event_handler":"reload_page", "icon":"reload"}, {"item":"To Top", "enabled":true, "id":"fam_scroll_to_top", "color":"md-green", "event_handler":"scroll_to_top", "icon":"step-backward-2", "icon_properties":"rotate-90"}, {"item":"Previous Section", "enabled":true, "id":"fam_previous_section", "color":"md-green", "event_handler":"scroll_previous_section", "icon":"step-backward", "icon_properties":"rotate-90"}, {"item":"Next Section", "enabled":true, "id":"fam_next_section", "color":"md-green", "event_handler":"scroll_next_section", "icon":"step-forward", "icon_properties":"rotate-90"}, {"item":"To bottom", "enabled":true, "id":"fam_scroll_to_bottom", "color":"md-green", "event_handler":"scroll_to_bottom", "icon":"step-forward-2", "icon_properties":"rotate-90"}, {"item":"Table of Contents", "enabled":true, "id":"open_mmenu_toc", "color":"md-blue", "event_handler":"open_mmenu_toc", "icon":"wrap"}]}]});
+      famOptions = $.extend({}, {"enabled":true, "mode":"icon", "xhr_container_id":"fam-container", "xhr_data_path":"/assets/data/fam/index.html", "icon_family":"MDI", "icon_color":"mdi-md-grey", "icon_size":"mdi-2x", "raised_level":5, "menu_options":{"hoverEnabled":true}, "menus":[{"name":"Scroll to top", "enabled":true, "id":"default", "icon":"plus", "icon_hover":"chevron-up", "color":"md-blue", "items":[{"item":null, "enabled":true, "event_handler":"scroll_to_top"}]}, {"name":"Open TOC", "enabled":true, "id":"open_toc", "icon":"plus", "icon_hover":"wrap", "color":"md-blue", "items":[{"item":null, "enabled":true, "event_handler":"open_mmenu_toc"}]}, {"name":"in-page control", "enabled":true, "id":"page_ctrl_simple", "icon":"plus", "icon_hover":"cursor-pointer", "color":"md-blue", "items":[{"item":"To Top", "enabled":true, "id":"fam_scroll_to_top", "color":"md-green", "event_handler":"scroll_to_top", "icon":"step-backward-2", "icon_properties":"rotate-90"}, {"item":"Previous Section", "enabled":true, "id":"fam_previous_section", "color":"md-green", "event_handler":"scroll_previous_section", "icon":"step-backward", "icon_properties":"rotate-90"}, {"item":"Next Section", "enabled":true, "id":"fam_next_section", "color":"md-green", "event_handler":"scroll_next_section", "icon":"step-forward", "icon_properties":"rotate-90"}, {"item":"Table of Contents", "enabled":true, "id":"open_mmenu_toc", "color":"md-blue", "event_handler":"open_mmenu_toc", "icon":"wrap"}]}, {"name":"in-page control", "enabled":true, "id":"page_ctrl", "icon":"plus", "icon_hover":"cursor-pointer", "color":"md-blue", "items":[{"item":"Reload Page", "enabled":true, "id":"fam_reload_page", "color":"md-red", "event_handler":"reload_page", "icon":"reload"}, {"item":"To Top", "enabled":true, "id":"fam_scroll_to_top", "color":"md-green", "event_handler":"scroll_to_top", "icon":"step-backward-2", "icon_properties":"rotate-90"}, {"item":"Previous Section", "enabled":true, "id":"fam_previous_section", "color":"md-green", "event_handler":"scroll_previous_section", "icon":"step-backward", "icon_properties":"rotate-90"}, {"item":"Next Section", "enabled":true, "id":"fam_next_section", "color":"md-green", "event_handler":"scroll_next_section", "icon":"step-forward", "icon_properties":"rotate-90"}, {"item":"To bottom", "enabled":true, "id":"fam_scroll_to_bottom", "color":"md-green", "event_handler":"scroll_to_bottom", "icon":"step-forward-2", "icon_properties":"rotate-90"}, {"item":"Table of Contents", "enabled":true, "id":"open_mmenu_toc", "color":"md-blue", "event_handler":"open_mmenu_toc", "icon":"wrap"}]}]});
       // Load (individual) frontmatter options (currently NOT used)
       if (options != null) { frontmatterOptions = $.extend({}, options); }
       if (typeof frontmatterOptions !== 'undefined') {
@@ -296,14 +296,32 @@ j1.adapter['fam'] = (function (j1, window) {
       var currentNode;
       var prev_node;
       var anchor_id;
-      var index             = 0;
-      var maxNode           = $(nodes).length - 1;
-      var $toc              = $('#sidebar');
-      var current_header_id = $toc.find('.is-active-link').attr('href');
-      var scrollDuration    = 300;
-      var scrollOffset      = -90;
-      // Correction if mobile (offset: desktop -90px, mobile -80px)
-      scrollOffset          = j1.core.isMobile() ? scrollOffset + 10 : scrollOffset;
+      var index                = 0;
+      var maxNode              = $(nodes).length-1;
+      var $toc                 = $('#sidebar');
+      var current_header_id    = $toc.find('.is-active-link').attr('href');
+      var toccerScrollDuration = 300;
+      var toccerScrollOffset   = 10;
+      // Scroll offset correction if mobile or window width <= 992
+      // For smaller window sizes, the height of the menubar changes
+      //
+      // if (j1.core.isMobile() || $(window).width() <= 992) { scrollOffset += 30; }
+      // calculate offset for correct (smooth) scroll position
+      //
+      var $pagehead       = $('.attic');
+      var $navbar         = $('nav.navbar');
+      var $adblock        = $('#adblock');
+      var navbarType      = $navbar.hasClass('navbar-fixed') ? 'fixed' : 'scrolled';
+      var fontSize        = $('body').css('font-size').replace('px','');
+      var start           = window.pageYOffset;
+      var l               = parseInt(fontSize);
+      var h               = $pagehead.length ? $pagehead.height() : 0;
+      var n               = $navbar.length ? $navbar.height() : 0;
+      var a               = $adblock.length ? $adblock.height() : 0;
+      var scrollOffset    = navbarType == 'fixed' ? -1*(n + a + l) : -1*(h + n + a + l);
+      // static offset, to be checked why this is needed
+      //
+      scrollOffset        = scrollOffset + toccerScrollOffset;
       nodes.each(function () {
         currentNode = $(this).find(current_header_id);
         if (currentNode.length) {
@@ -314,7 +332,7 @@ j1.adapter['fam'] = (function (j1, window) {
             previous_header_id  = $(prev_node).find(':header').first()[0].id;
             anchor_id           = '#' + previous_header_id;
             j1.core.scrollSmooth.scroll( anchor_id, {
-              duration: scrollDuration,
+              duration: toccerScrollDuration,
               offset: scrollOffset,
               callback: null
             });
@@ -334,12 +352,12 @@ j1.adapter['fam'] = (function (j1, window) {
       var nextNode;
       var next_header_id;
       var next_anchor_id;
-      var index             = 0;
-      var maxNode           = $(nodes).length-1;
-//    var maxNode           = $(nodes).length;
-      var $toc              = $('#sidebar');
-      var scrollDuration    = 300;
-      var scrollOffset      = -90;
+      var index                 = 0;
+      var maxNode               = $(nodes).length-1;
+      var $toc                  = $('#sidebar');
+      var scrollDuration        = 300;
+      var toccerScrollDuration  = 300;
+      var toccerScrollOffset    = 10;
       current_header_id = $toc.find('.is-active-link').attr('href');
       nodes.each(function () {
         currentNode = $(this).find(current_header_id);
@@ -347,21 +365,27 @@ j1.adapter['fam'] = (function (j1, window) {
           if (index == maxNode) {
             return false;
           } else {
-//          nextNode              = nodes[index];
-//          next_header_id        = $(nextNode).find(':header').first()[0].id;
-//          anchor_id             = '#' + next_header_id;
             nextNode              = nodes[index+1];
             next_header_id        = $(nextNode).find(':header').first()[0].id;
             next_anchor_id        = '#' + next_header_id;
-            // Correction if mobile (offset: desktop -90px, mobile -80px)
-            scrollOffset          = j1.core.isMobile() ? scrollOffset + 10 : scrollOffset;
-            // j1.core.scrollSmooth.scroll( next_anchor_id, {
-            //   duration: scrollDuration,
-            //   offset: scrollOffset,
-            //   callback: tocbot.refresh()
-            // });
+            // calculate offset for correct (smooth) scroll position
+            //
+            var $pagehead       = $('.attic');
+            var $navbar         = $('nav.navbar');
+            var $adblock        = $('#adblock');
+            var navbarType      = $navbar.hasClass('navbar-fixed') ? 'fixed' : 'scrolled';
+            var fontSize        = $('body').css('font-size').replace('px','');
+            var start           = window.pageYOffset;
+            var l               = parseInt(fontSize);
+            var h               = $pagehead.length ? $pagehead.height() : 0;
+            var n               = $navbar.length ? $navbar.height() : 0;
+            var a               = $adblock.length ? $adblock.height() : 0;
+            var scrollOffset    = navbarType == 'fixed' ? -1*(n + a + l) : -1*(h + n + a + l);
+            // static offset, to be checked why this is needed
+            //
+            scrollOffset        = scrollOffset + toccerScrollOffset;
             j1.core.scrollSmooth.scroll( next_anchor_id, {
-              duration: scrollDuration,
+              duration: toccerScrollDuration,
               offset: scrollOffset,
               callback: null
             });

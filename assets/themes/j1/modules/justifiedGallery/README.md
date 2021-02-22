@@ -1,9 +1,11 @@
 ## Release History
 
-### 4.0.0-alpha
+### 3.8.0
 
+* Added maxRowCount parameter
 * Added support for SVG images
 * .entry-visible renamed to .jg-entry-visible to avoid too generic css classes
+* .caption renamed to jg-caption
 * Various fixes
 
 ### 3.7
@@ -22,7 +24,7 @@
 
 ### 3.6.4
 
-* semplified the possibility to have a gallery of `<figure>`. 
+* semplified the possibility to have a gallery of `<figure>`.
 
 ### 3.6.3
 
@@ -91,7 +93,7 @@
 
 <details>
 	<summary>Older versions</summary>
-	
+
 ### 3.5.4
 
 * Added the border option
