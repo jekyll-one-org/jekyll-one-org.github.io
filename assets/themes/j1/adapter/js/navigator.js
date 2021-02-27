@@ -18,7 +18,7 @@
  # NOTE: For getStyleValue helper see
  #  https://stackoverflow.com/questions/16965515/how-to-get-a-style-attribute-from-a-css-class-by-javascript-jquery
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-02-26 16:54:45 +0000
+ # Adapter generated: 2021-02-27 13:33:09 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -79,7 +79,7 @@ j1.adapter['navigator'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.navigator',
-        generated:   '2021-02-26 16:54:45 +0000'
+        generated:   '2021-02-27 13:33:09 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // options loader
@@ -195,14 +195,19 @@ j1.adapter['navigator'] = (function (j1, window) {
                 // initialize theme switcher menus
                 logText = 'theme switcher detect: enabled';
                 logger.info(logText);
-                // load remote themes (Bootswatch API)
-                logText = 'load remote themes (Bootswatch API)';
+                logText = 'load themes';
                 logger.info(logText);
-                $('#remote_themes').bootstrapThemeSwitcher({localFeed: ''});
-                // load local themes (json file)
+                // load REMOTE themes from Bootswatch API (localFeed EMPTY!)
+                $('#remote_themes').bootstrapThemeSwitcher({
+                  localFeed: '',
+                  bootswatchApiVersion: themerOptions.bootswatchApiVersion
+                });
+                // load LOCAL themes from JSON data
                 logText = 'load local themes (json file)';
                 logger.info(logText);
-                $('#local_themes').bootstrapThemeSwitcher({localFeed: themerOptions.localThemes});
+                $('#local_themes').bootstrapThemeSwitcher({
+                  localFeed: themerOptions.localThemes
+                });
                 clearInterval(dependencies_met_page_finished);
               }
               _this.setState('initialized');

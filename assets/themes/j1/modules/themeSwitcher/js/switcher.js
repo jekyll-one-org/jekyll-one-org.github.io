@@ -15,6 +15,9 @@
  # Bootstrap Theme Switcher is licensed under the MIT License.
  # See: https://github.com/jguadagno/bootstrapThemeSwitcher
  # -----------------------------------------------------------------------------
+ # NOTE: This modules is MODIFIED to be used with MobileMenu (mmenuLight).
+ #       The original version cannot be used with J1 for theme menu creation!
+ # -----------------------------------------------------------------------------
 */
 'use strict';
 
@@ -281,14 +284,16 @@
         var iconColor = '#9E9E9E';
         $.each(this.themesList, function (i, value) {
           // Use DIFFERENT class for MobileMenu
-          if (base.$element[0].id.includes('MMenu')) {
+          //if (base.$element[0].id.includes('MMenu')) {
+          if (base.$element[0].id.includes('mmenu')) {
             cssClass = 'mmenu-item';
           } else {
             cssClass = 'dropdown-item';
           }
           // Add class "active" to the current theme selected
           if ( value.name === themeName ) {
-            if (base.$element[0].id.includes('MMenu')) {
+            // if (base.$element[0].id.includes('MMenu')) {
+            if (base.$element[0].id.includes('mmenu')) {
               cssClass = 'mmenu-item active';
             } else {
               cssClass = 'dropdown-item active';
@@ -423,11 +428,11 @@
     cssThemeLink:           'bootstrapTheme',
     cookieThemeName:        'bootstrapTheme.name',
     cookieThemeCss:         'boostrapTheme.css',
-    cookieExpiration:       7,
+    cookieExpiration:       365,
     cookiePath:             '/',
     defaultCssFile:         'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css',
     bootswatchApiUrl:       'https://bootswatch.com/api/',
-    bootswatchApiVersion:   '3',
+    bootswatchApiVersion:   '4',
     loadFromBootswatch:     true,
     localFeed:              '',
     excludeBootswatch:      ''

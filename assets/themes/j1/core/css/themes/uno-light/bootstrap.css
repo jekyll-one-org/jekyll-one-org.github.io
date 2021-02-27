@@ -20768,16 +20768,19 @@ figcaption .caption-title {
 @media screen and (max-width: 1240px) {
   .color-palette {
     padding-right: 0;
+    padding-left: 0;
     width: 760px; } }
 
 @media screen and (max-width: 800px) {
   .color-palette {
     padding-right: 0;
+    padding-left: 0;
     width: 360px; } }
 
 @media screen and (max-width: 360px) {
   .color-palette {
     padding-right: 0;
+    padding-left: 0;
     width: 100%; } }
 
 .color-palette .module-end {
@@ -20804,15 +20807,14 @@ figcaption .caption-title {
 .color-palette .color-group,
 .color-palette .color-group:last-child {
   float: left;
-  padding-bottom: 40px;
-  width: 360px; }
+  padding-bottom: 40px; }
 
 @media screen and (max-width: 800px) {
   .color-palette .color-group,
   .color-palette .color-group:last-child {
     margin-left: 0;
     padding-right: 0;
-    width: 360px; } }
+    width: 450px; } }
 
 @media screen and (max-width: 360px) {
   .color-palette .color-group,
