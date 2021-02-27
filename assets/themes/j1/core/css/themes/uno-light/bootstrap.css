@@ -20767,13 +20767,13 @@ figcaption .caption-title {
 
 @media screen and (max-width: 1240px) {
   .color-palette {
-    padding-right: 0;
+    padding-right: 25px;
     padding-left: 0;
     width: 760px; } }
 
 @media screen and (max-width: 800px) {
   .color-palette {
-    padding-right: 0;
+    padding-right: 25px;
     padding-left: 0;
     width: 360px; } }
 
