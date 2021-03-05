@@ -14622,7 +14622,7 @@ a.news-link {
   font-family: inherit;
   font-weight: 400;
   line-height: 1.1;
-  color: #444; }
+  /* color: #444; */ }
 
 .series-navigator .series-navigator-footer {
   height: 10%;
