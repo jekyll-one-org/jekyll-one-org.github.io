@@ -21433,6 +21433,22 @@ body.scrollable {
   bottom: 0;
   left: 0; }
 
+li.dropdown.nav-item.nav-sub-item:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  z-index: 0;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid;
+  border-right: 2px solid;
+  opacity: .4;
+  -webkit-transform: rotate(45deg) translate(0, -50%);
+  -ms-transform: rotate(45deg) translate(0, -50%);
+  transform: rotate(45deg) translate(0, -50%); }
+
 .dropdown-menu {
   padding-bottom: 0.1rem; }
 
@@ -22043,7 +22059,7 @@ body.scrollable {
   nav.navbar.navigator ul.nav .dropdown-menu .dropdown-menu {
     margin-top: -2px;
     max-height: 350px;
-    overflow-y: auto; }
+    /* overflow-y: auto; */ }
   nav.navbar.navigator li.dropdown ul.dropdown-menu.megamenu-content {
     left: 0; }
   nav.navbar.navigator li.dropdown ul.dropdown-menu > li > a {
