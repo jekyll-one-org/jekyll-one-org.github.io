@@ -12,7 +12,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see http://jekyll.one
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-03-06 16:57:48 +0000
+ # Adapter generated: 2021-03-07 12:51:26 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -72,7 +72,7 @@ j1.adapter['fam'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.fam',
-        generated:   '2021-03-06 16:57:48 +0000'
+        generated:   '2021-03-07 12:51:26 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // options loader
@@ -144,6 +144,13 @@ j1.adapter['fam'] = (function (j1, window) {
       var iconFamily            = famOptions.icon_family.toLowerCase();
       var floatingActionOptions = famOptions.menu_options;
       var famButtons            = document.querySelectorAll('.fam-btn');
+      // bind click event to all links with "#void" to suppress default action
+      // See: https://stackoverflow.com/questions/134845/which-href-value-should-i-use-for-javascript-links-or-javascriptvoid0
+      //
+      $('a[href="#void"]').click(function(e) {
+        e.preventDefault ? e.preventDefault() : e.returnValue = false;
+        logger.info('bound click event to "#void", suppress default action');
+      });
       // check if multiple buttons detected
       if ( famButtons.length == 1 ) {
         _this.setState('processing');
