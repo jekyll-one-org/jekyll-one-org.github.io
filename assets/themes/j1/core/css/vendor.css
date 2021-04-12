@@ -476,7 +476,7 @@ div.admonitionblock.warning, div.admonitionblock.caution {
 
 .admonitionblock td.icon .icon-answer:before {
   content: "\f0a4";
-  color: #2196f3; }
+  color: #4caf50; }
 
 .exampleblock {
   margin-bottom: 1.25rem;
@@ -553,7 +553,7 @@ span.footnoteref a:active {
 .mono {
   font-family: "Droid Sans Mono", "DejaVu Sans Mono", "Monospace", monospace; }
 
-div.unbreakable {
+.unbreakable {
   page-break-inside: avoid; }
 
 .big {
@@ -561,6 +561,12 @@ div.unbreakable {
 
 .small {
   font-size: smaller; }
+
+.bold {
+  font-weight: bold; }
+
+.italic {
+  font-style: italic; }
 
 .underline {
   text-decoration: underline; }
@@ -599,6 +605,12 @@ div.unbreakable {
   color: #606060; }
 
 .gray-background {
+  background-color: #7d7d7d; }
+
+.grey {
+  color: #606060; }
+
+.grey-background {
   background-color: #7d7d7d; }
 
 .green {
