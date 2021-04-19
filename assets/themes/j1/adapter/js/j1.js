@@ -17,7 +17,7 @@
  #    MANAGE themeExtensionCss is to be checked
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-04-19 18:54:40 +0000
+ # Adapter generated: 2021-04-19 19:12:05 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -800,7 +800,7 @@ var j1 = (function () {
     // -------------------------------------------------------------------------
     authEnabled: function () {
       var logger      = log4javascript.getLogger('j1.authentication');
-      var authEnabled = false;
+      var authEnabled = true;
       return authEnabled;
     }, // END authEnabled
     // -------------------------------------------------------------------------
@@ -967,7 +967,7 @@ var j1 = (function () {
           expires: 0,
           path: '/',
 //        SameSite: 'Strict',
-          SameSite: 'Lax',
+//        SameSite: 'Lax',
           http_only: false,
           secure: false
       };
