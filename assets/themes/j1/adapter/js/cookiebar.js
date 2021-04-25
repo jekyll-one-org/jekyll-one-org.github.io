@@ -17,7 +17,7 @@
  # For details, see http://www.primebox.co.uk/projects/jquery-cookiebar/
  #
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-04-25 22:04:22 +0000
+ #  Adapter generated: 2021-04-25 22:15:07 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -49,7 +49,7 @@ j1.adapter['cookiebar'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.algolia',
-        generated:   '2021-04-25 22:04:22 +0000'
+        generated:   '2021-04-25 22:15:07 +0000'
       }, options);
       // Load  module DEFAULTS|CONFIG
       /* eslint-disable */
