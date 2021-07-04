@@ -7269,7 +7269,7 @@ a.text-dark:hover, a.text-dark:focus {
 */
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/theme/_alert.scss
+ # ~/100_template_css/scss/theme_uno_dark/bootstrap/_alert.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -7315,7 +7315,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/theme/_badge.scss
+ # ~/100_template_css/scss/theme_uno_dark/bootstrap/_badge.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -7351,7 +7351,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/theme/_buttons.scss
+ # ~/100_template_css/scss/theme_uno_dark/bootstrap/_buttons.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -7444,7 +7444,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/theme/_cards.scss
+ # ~/100_template_css/scss/theme_uno_dark/bootstrap/_cards.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -7459,14 +7459,16 @@ a.text-dark:hover, a.text-dark:focus {
   border: 0;
   border-radius: 0; }
   .card .card-header {
-    border-bottom: 1px solid #757575; }
+    border-bottom: 0; }
   .card .card-footer {
-    background-color: #1565c0 !important;
-    border-top: 1px solid #757575; }
+    background-color: transparent !important;
+    border-top: 0; }
+  .card hr {
+    border-top: 1px solid #757575 !important; }
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/theme/_dropdowns.scss
+ # ~/100_template_css/scss/theme_uno_dark/bootstrap/_dropdowns.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -7482,7 +7484,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/theme/_forms.scss
+ # ~/100_template_css/scss/theme_uno_dark/bootstrap/_forms.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -7525,7 +7527,7 @@ select.form-control[size], select.form-control[multiple] {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/theme/_jumbotron.scss
+ # ~/100_template_css/scss/theme_uno_dark/bootstrap/_jumbotron.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -7566,7 +7568,7 @@ li > a:hover {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/theme/_navbar.scss
+ # ~/100_template_css/scss/theme_uno_dark/bootstrap/_navbar.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -7642,7 +7644,7 @@ li > a:hover {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/theme/_navs.scss
+ # ~/100_template_css/scss/theme_uno_dark/bootstrap/_navs.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -7784,7 +7786,7 @@ button:focus {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/theme/_tables.scss
+ # ~/100_template_css/scss/theme_uno_dark/bootstrap/_tables.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -7949,7 +7951,8 @@ table tr.even, table tr.alt, table tr:nth-of-type(even) {
 */
 .post-headline h1,
 .post-headline h2 {
-  border-bottom: 1px dotted  #0d47a1 !important; }
+  color: #bdbdbd;
+  border-bottom: 1px dotted #424242 !important; }
 
 /*
  # -----------------------------------------------------------------------------
