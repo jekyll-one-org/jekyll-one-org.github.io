@@ -46,6 +46,9 @@ function BootstrapCookieConsent(props) {
   var self                  = this
   var detailedSettingsShown = false
 
+  logger.info('Initializing core module: started');
+  logger.info('state: started');
+
   this.props = {
     autoShowDialog:         true,                                               // disable autoShowModal on the privacy policy and legal notice pages, to make these pages readable
     language:               navigator.language,                                 // the language, in which the modal is shown
@@ -112,9 +115,10 @@ function BootstrapCookieConsent(props) {
 
   function showDialog(options) {
     Events.documentReady(function () {
-      self.modal = document.getElementById(modalId);
 
+      self.modal = document.getElementById(modalId);
       if (!self.modal) {
+        logger.info('Load consent modal');
         self.modal = document.createElement("div");
         self.modal.id = modalId;
         self.modal.setAttribute("class", "modal fade");
@@ -135,6 +139,7 @@ function BootstrapCookieConsent(props) {
         var templateUrl = self.props.contentURL + '/' + 'index.html';
         $.get(templateUrl)
         .done(function (data) {
+          logger.info('Loading Consent modal: successfully');
           self.modal.innerHTML = data;
           self.modal.innerHTML = $('#' + self.props.xhr_data_element).eq(0).html();
 
@@ -148,6 +153,8 @@ function BootstrapCookieConsent(props) {
           self.$buttonSave = $("#bccs-buttonSave");
           self.$buttonAgreeAll = $("#bccs-buttonAgreeAll");
 
+          logger.info('Load/Initialze options from cookie');
+
           updateButtons();
           updateOptionsFromCookie();
 
@@ -158,6 +165,9 @@ function BootstrapCookieConsent(props) {
             detailedSettingsShown = true;
             updateButtons();
           });
+
+          logger.info('Initialze event handler');
+
           self.$buttonDoNotAgree.click(function () {
             doNotAgree();
           });
@@ -176,7 +186,8 @@ function BootstrapCookieConsent(props) {
           });
         })
         .fail(function () {
-          logger.error('You probably need to set `contentURL` in the props');
+          logger.error('Loading Consent modal: failed');
+          logger.info('Probably no `contentURL` set');
         })
       } else {
         self.$modal.modal("show")
@@ -253,10 +264,13 @@ function BootstrapCookieConsent(props) {
   }
 
   // API functions
-  // -------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
+
+  logger.info('Initializing core module finished');
+  logger.info('state: finished');
 
   // show the consent dialog (modal)
-  // -------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
   this.showDialog = function () {
     whitelisted  = (this.props.whitelisted.indexOf(window.location.pathname) > -1);
     if (!whitelisted) {
@@ -265,7 +279,7 @@ function BootstrapCookieConsent(props) {
   }
 
   // collect settings from consent cookie
-  // -------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
   this.getSettings = function (optionName) {
     var cookie = Cookie.get(self.props.cookieName);
     if (cookie) {
@@ -282,5 +296,6 @@ function BootstrapCookieConsent(props) {
     } else {
       return undefined;
     }
-  }
-}
+  } // END getSettings
+
+} // END BootstrapCookieConsent

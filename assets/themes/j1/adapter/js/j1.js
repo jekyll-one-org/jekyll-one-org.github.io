@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-07-04 10:08:37 +0000
+ # Adapter generated: 2021-07-11 14:52:45 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -38,6 +38,10 @@ var j1 = (function () {
   // Status information
   var state                     = 'not_started';
   var mode                      = 'not_detected';
+  // Tracking information (GA)
+  var tracking_enabled          = ('true' === 'true') ? true: false;
+  var tracking_id               = 'G-8ZGNE0WE42';
+  var tracking_id_valid         = (tracking_id.includes('tracking-id')) ? false : true;
   var current_user_data;
   var current_page;
   var previous_page;
@@ -46,7 +50,7 @@ var j1 = (function () {
   var app_detected;
   var user_session_detected;
   // Translatior settings (currently NOT supported)
-  // var translation_enabled       = false;
+  // var translation_enabled       = ;
   // Theme information
   var themeName;
   var themeCss;
@@ -67,13 +71,13 @@ var j1 = (function () {
   var ep;
   var baseUrl;
   var referrer;
+  // initial cookie values
   var cookie_names = {
     'app_session':  'j1.app.session',
     'user_session': 'j1.user.session',
     'user_state':   'j1.user.state',
     'user_consent': 'j1.user.consent'
   };
-  // user SESSION cookie (initial values)
   var user_session = {
     'mode':                 'web',
     'writer':               'web',
@@ -95,11 +99,11 @@ var j1 = (function () {
     'theme_css':            '',
     'theme_name':           '',
     'theme_author':         '',
-    'theme_version':        '2021.1.8',
+    'theme_version':        '2021.1.10',
     'session_active':       false,
     'last_session_ts':      ''
   };
-  var user_consent;
+  var user_consent = {};
   // ---------------------------------------------------------------------------
   // helper functions
   // ---------------------------------------------------------------------------
@@ -125,12 +129,12 @@ var j1 = (function () {
       // -----------------------------------------------------------------------
       // global var (function)
       // -----------------------------------------------------------------------
-      var logger        = log4javascript.getLogger('j1.init');
-      var url           = new liteURL(window.location.href);
-      var baseUrl       = url.origin;
-      var date          = new Date();
-      var timestamp_now = date.toISOString();
-      var curr_state    = 'started';
+      var logger            = log4javascript.getLogger('j1.init');
+      var url               = new liteURL(window.location.href);
+      var baseUrl           = url.origin;
+      var date              = new Date();
+      var timestamp_now     = date.toISOString();
+      var curr_state        = 'started';
       // -----------------------------------------------------------------------
       // options loader
       // -----------------------------------------------------------------------
@@ -204,7 +208,15 @@ var j1 = (function () {
                             samesite: 'Strict',
                             expires:  365
                           });
-      user_state.session_active = true;
+      // jadams, 2021-07-11: Found situation that user_state NOT initialized
+      // correctly (user_state == false).
+      // TODO: Check if/why user state (cookie NOT created?) NOT initialized
+      // for what reason.
+      if (!user_state) {
+        logger.warn('user session cookie NOT found');
+        user_state = j1.readCookie(cookie_names.user_state);
+        user_state.session_active = true;
+      }
       if (!user_consent.analyses || !user_consent.personalization)  {
         // expire consent|state cookies to session
         j1.writeCookie({
@@ -524,7 +536,7 @@ var j1 = (function () {
     // -------------------------------------------------------------------------
     displayPage: function (options) {
       var logger              = log4javascript.getLogger('j1.adapter.displayPage');
-      var flickerTimeout      = 250;
+      var flickerTimeout      = 150;
       var url                 = new liteURL(window.location.href);
       var baseUrl             = url.origin;
       var ep_status           = baseUrl + '/status' + '?page=' + window.location.pathname;
@@ -576,6 +588,14 @@ var j1 = (function () {
           setTimeout (function() {
             // display page
             $('#no_flicker').css('display', 'block');
+            // NOTE: Placed tracking warning/info here because page may reloaded
+            // after cookie consent selection
+            //
+            if (tracking_enabled && !tracking_id_valid) {
+              logger.error('tracking enabled, but invalid tracking id found: ' + tracking_id);
+            } else {
+              logger.warn('tracking enabled, tracking id found: ' + tracking_id);
+            }
             // show|hide cookie icon (should MOVED to Cookiebar ???)
             if (j1.existsCookie(cookie_names.user_consent)) {
               // Display cookie icon
@@ -643,6 +663,14 @@ var j1 = (function () {
           logger.info('page initialization: finished');
           // display page
           $('#no_flicker').css('display', 'block');
+          // NOTE: Placed tracking warning/info here because page may reloaded
+          // after cookie consent selection
+          //
+          if (tracking_enabled && !tracking_id_valid) {
+            logger.error('tracking enabled, but invalid tracking id found: ' + tracking_id);
+          } else {
+            logger.warn('tracking enabled, tracking id found: ' + tracking_id);
+          }
           logger.info('mode detected: web');
           logger.info('hide signin icon');
           $('#quickLinksSignInOutButton').css('display', 'none');
@@ -736,7 +764,7 @@ var j1 = (function () {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2021.1.8';
+      return '2021.1.10';
     }, // END getTemplateVersion
     // -------------------------------------------------------------------------
     // scrollTo()
