@@ -16,7 +16,7 @@
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-07-11 16:34:22 +0000
+ #  Adapter generated: 2021-07-13 14:15:59 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -27,7 +27,7 @@
 // -----------------------------------------------------------------------------
 'use strict';
 j1.adapter['cookieConsent'] = (function (j1, window) {
-  var environment       = 'production';
+  var environment       = 'development';
   var tracking_enabled  = ('true' === 'true') ? true: false;
   var tracking_id       = 'G-8ZGNE0WE42';
   var tracking_id_valid = (tracking_id.includes('tracking-id')) ? false : true;
@@ -37,6 +37,7 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
   var user_cookie;
   var logger;
   var logText;
+  var cookie_written;
   // NOTE: RegEx for tracking_id: ^(G|UA|YT|MO)-[a-zA-Z0-9-]+$
   // See: https://stackoverflow.com/questions/20411767/how-to-validate-google-analytics-tracking-id-using-a-javascript-function/20412153
   // ---------------------------------------------------------------------------
@@ -62,7 +63,7 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.cookieConsent',
-        generated:   '2021-07-11 16:34:22 +0000'
+        generated:   '2021-07-13 14:15:59 +0000'
       }, options);
       // Load  module DEFAULTS|CONFIG
       /* eslint-disable */
@@ -138,8 +139,9 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
     // -------------------------------------------------------------------------
     cbCookie: function () {
       var gaCookies           = j1.findCookie('_ga');
-      var user_state          = j1.readCookie('j1.user.state');
-      var user_consent        = j1.readCookie('j1.user.consent');
+      var cookie_names        = j1.getCookieNames();
+      var user_state          = j1.readCookie(cookie_names.user_state);
+      var user_consent        = j1.readCookie(cookie_names.user_consent);
       var json                = JSON.stringify(user_consent);
       var user_agent          = platform.ua;
       logger.info('Entered post selection callback from CookieConsent');
@@ -185,16 +187,22 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
         }
         if (!user_consent.analyses || !user_consent.personalization)  {
           // expire consent|state cookies to session
-          j1.writeCookie({
-            name:     'j1.user.state',
+          cookie_written = j1.writeCookie({
+            name:     cookie_names.user_state,
             data:     user_state,
             samesite: 'Strict'
           });
-          j1.writeCookie({
-            name:     'j1.user.consent',
+          if (!cookie_written) {
+          	logger.error('failed to write cookie: ' + cookie_names.user_state);
+          }
+          cookie_written = j1.writeCookie({
+            name:     cookie_names.user_consent,
             data:     user_consent,
             samesite: 'Strict'
           });
+          if (!cookie_written) {
+          	logger.error('failed to write cookie: ' + cookie_names.user_consent);
+          }
         }
         if (moduleOptions.reloadPageOnChange)  {
           // reload current page (skip cache)
