@@ -18,7 +18,7 @@
  #  For details, see http://davidjbradshaw.github.io/iframe-resizer/
  #
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-07-13 14:15:59 +0000
+ #  Adapter generated: 2021-07-13 14:50:30 +0000
  # -----------------------------------------------------------------------------
  */
 // -----------------------------------------------------------------------------
@@ -60,7 +60,7 @@ j1.adapter['framer'] = (function (j1, window) {
             // -----------------------------------------------------------------------
             var settings = $.extend({
               module_name: 'j1.adapter.example',
-              generated:   '2021-07-13 14:15:59 +0000'
+              generated:   '2021-07-13 14:50:30 +0000'
             }, options);
             // Load  module DEFAULTS|CONFIG
             /* eslint-disable */
