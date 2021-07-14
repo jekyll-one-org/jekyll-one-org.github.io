@@ -21,7 +21,7 @@
  #  Setup of theme loaders for local_themes|remote_themes moved
  #  to adapter navigator.js
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-07-13 14:50:30 +0000
+ # Adapter generated: 2021-07-14 11:51:45 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -59,6 +59,8 @@ j1.adapter['themer'] = (function (j1, window) {
   var default_theme_css         = '/assets/themes/j1/core/css/themes/' + default_theme_css_name + '/bootstrap' + cssExtension;
   var interval_count            = 0;
   var max_count                 = themerOptions.retries;
+  var j1Cookies;
+  var gaCookies;
   var url;
   var baseUrl;
   var error_page;
@@ -90,11 +92,13 @@ j1.adapter['themer'] = (function (j1, window) {
       url         = new liteURL(window.location.href);
       baseUrl     = url.origin;
       error_page  = url.origin + '/204.html';
+      j1Cookies   = j1.findCookie('j1');
+      gaCookies   = j1.findCookie('_ga');
       logger      = log4javascript.getLogger('j1.adapter.themer');
       // initialize state flag
       _this.state = 'started';
       logger.info('state: ' + _this.getState());
-      // jadams, 2021-07-11: added dependecy on the user stae cookie
+      // jadams, 2021-07-11: added dependecy on the user state cookie
       // Found timing issues testing mobile devices (iPad)
       var dependencies_met_user_state_available = setInterval (function () {
         user_state_detected = j1.existsCookie(cookie_names.user_state);
@@ -191,6 +195,11 @@ j1.adapter['themer'] = (function (j1, window) {
           logger.error('interval max count loading cookie reached: ' + interval_count);
           logger.error('check failed after: ' + interval_count * 25 + ' ms');
           logger.fatal('loading cookie failed: ' + cookie_names.user_state);
+          // for development only
+          if (environment === 'development') {
+            gaCookies.forEach(item => console.log('cookieConsent: ' + item));
+            j1Cookies.forEach(item => console.log('cookieConsent: ' + item));
+          }
           // jadams, 2021-07-13: display error page instead to continue
           //
           logger.warn('redirect to error page');
