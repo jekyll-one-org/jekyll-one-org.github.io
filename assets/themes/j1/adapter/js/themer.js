@@ -21,7 +21,7 @@
  #  Setup of theme loaders for local_themes|remote_themes moved
  #  to adapter navigator.js
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-07-15 16:38:24 +0000
+ # Adapter generated: 2021-07-15 16:53:22 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -58,7 +58,8 @@ j1.adapter['themer'] = (function (j1, window) {
   var default_theme_css_name    = default_theme_name.toLowerCase().replace(' ', '-');
   var default_theme_css         = '/assets/themes/j1/core/css/themes/' + default_theme_css_name + '/bootstrap' + cssExtension;
   var interval_count            = 0;
-  var max_count                 = themerOptions.retries;
+//var max_count                 = themerOptions.retries;
+  var max_count                 = 200;
   var j1Cookies;
   var gaCookies;
   var url;
@@ -188,8 +189,6 @@ j1.adapter['themer'] = (function (j1, window) {
            logger.info('themes detected as: disabled');
          }
           clearInterval(dependencies_met_user_state_available);
-        } else {
-          logger.info('wait for cookie to be loaded: ' + cookie_names.user_state);
         }
         if (interval_count > max_count) {
           logger.error('interval max count loading cookie reached: ' + interval_count);
