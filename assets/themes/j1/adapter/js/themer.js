@@ -21,7 +21,7 @@
  #  Setup of theme loaders for local_themes|remote_themes moved
  #  to adapter navigator.js
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-07-15 16:53:22 +0000
+ # Adapter generated: 2021-07-15 17:07:07 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -202,7 +202,8 @@ j1.adapter['themer'] = (function (j1, window) {
           // jadams, 2021-07-13: display error page instead to continue
           //
           logger.warn('redirect to error page');
-          window.location.href = error_page;
+//        window.location.href = error_page;
+          window.location.href = '/';
           clearInterval(dependencies_met_user_state_available);
         }
       }, 25); // END dependencies_met_user_state_available
