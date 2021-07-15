@@ -21,7 +21,7 @@
  #  Setup of theme loaders for local_themes|remote_themes moved
  #  to adapter navigator.js
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-07-15 17:19:42 +0000
+ # Adapter generated: 2021-07-15 17:42:26 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -36,7 +36,7 @@ j1.adapter['themer'] = (function (j1, window) {
   // globals
   // ---------------------------------------------------------------------------
   var environment               = 'development';
-  var themerOptions             = $.extend({}, {"enabled":true, "retries":30, "saveToCookie":true, "debug":false, "preview_page":"/pages/public/previewer/theme/", "menu_icon_family":"MDI", "menu_icon_color":"#9E9E9E", "menu_icon_size":"mdi-sm", "cssThemeLink":"bootstrapTheme", "defaultCssFile":"https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css", "bootswatchApiUrl":"https://bootswatch.com/api", "bootswatchApiVersion":4, "loadFromBootswatch":true, "localThemes":"/assets/data/themes.json", "excludeBootswatch":"Default, default, Lux, Sketchy", "includeBootswatch":"", "skipIncludeBootswatch":""});
+  var themerOptions             = $.extend({}, {"enabled":true, "retries":20, "saveToCookie":true, "debug":false, "preview_page":"/pages/public/previewer/theme/", "menu_icon_family":"MDI", "menu_icon_color":"#9E9E9E", "menu_icon_size":"mdi-sm", "cssThemeLink":"bootstrapTheme", "defaultCssFile":"https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css", "bootswatchApiUrl":"https://bootswatch.com/api", "bootswatchApiVersion":4, "loadFromBootswatch":true, "localThemes":"/assets/data/themes.json", "excludeBootswatch":"Default, default, Lux, Sketchy", "includeBootswatch":"", "skipIncludeBootswatch":""});
   var user_state                = {};
   var user_consent              = {};
   var cookie_names              = j1.getCookieNames();
@@ -58,8 +58,7 @@ j1.adapter['themer'] = (function (j1, window) {
   var default_theme_css_name    = default_theme_name.toLowerCase().replace(' ', '-');
   var default_theme_css         = '/assets/themes/j1/core/css/themes/' + default_theme_css_name + '/bootstrap' + cssExtension;
   var interval_count            = 0;
-//var max_count                 = themerOptions.retries;
-  var max_count                 = 200;
+  var max_count                 = themerOptions.retries;
   var j1Cookies;
   var gaCookies;
   var url;
@@ -191,17 +190,19 @@ j1.adapter['themer'] = (function (j1, window) {
           clearInterval(dependencies_met_user_state_available);
         }
         if (interval_count > max_count) {
-          logger.error('interval max count loading cookie reached: ' + interval_count);
-          logger.error('check failed after: ' + interval_count * 25 + ' ms');
+          logger.error('interval max count reached: ' + max_count);
+          logger.error('check failed after: ' + max_count * 25 + ' ms');
           logger.fatal('loading cookie failed: ' + cookie_names.user_state);
           // for development only
           if (environment === 'development') {
             gaCookies.forEach(item => console.log('cookieConsent: ' + item));
             j1Cookies.forEach(item => console.log('cookieConsent: ' + item));
           }
-          // jadams, 2021-07-13: display error page instead to continue
+          // jadams, 2021-07-15: redirect to homepage
+          // NOTE: UNCLEAR why it is needed to create the user state
+          // cookie THIS way
           //
-          logger.warn('redirect to error page');
+          logger.warn('redirect to home page');
 //        window.location.href = error_page;
           window.location.href = '/';
           clearInterval(dependencies_met_user_state_available);
