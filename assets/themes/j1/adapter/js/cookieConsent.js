@@ -16,7 +16,7 @@
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-07-14 16:27:07 +0000
+ #  Adapter generated: 2021-07-15 16:38:24 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -63,7 +63,7 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.cookieConsent',
-        generated:   '2021-07-14 16:27:07 +0000'
+        generated:   '2021-07-15 16:38:24 +0000'
       }, options);
       // Load  module DEFAULTS|CONFIG
       /* eslint-disable */
@@ -87,6 +87,7 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
             whitelisted:            moduleOptions.whitelisted,
             reloadPageOnChange:     moduleOptions.reloadPageOnChange,
             xhr_data_element:       moduleOptions.xhr_data_element + '-' + moduleOptions.language,
+            sameSite:               moduleOptions.sameSite,
             postSelectionCallback:  function () {j1.adapter.cookieConsent.cbCookie()}
           });
           _this.setState('finished');
@@ -182,30 +183,16 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
           if (!user_agent.includes('iPad')) {
             gaCookies.forEach(function (item) {
               logger.warn('Delete GA cookie: ' + item);
-              j1.removeCookie({name: item, path: '/'});
+              j1.removeCookie(item);
             });
           }
         }
         if (!user_consent.analyses || !user_consent.personalization)  {
           // expire consent|state cookies to session
-          cookie_written = j1.writeCookie({
-            name:     cookie_names.user_state,
-            data:     user_state,
-            samesite: 'Strict'
-          });
-          if (!cookie_written) {
-          	logger.error('failed to write cookie: ' + cookie_names.user_state);
-          }
-          cookie_written = j1.writeCookie({
-            name:     cookie_names.user_consent,
-            data:     user_consent,
-            samesite: 'Strict'
-          });
-          if (!cookie_written) {
-          	logger.error('failed to write cookie: ' + cookie_names.user_consent);
-          }
+          j1.expireCookie({ name: cookie_names.user_state });
+          j1.expireCookie({ name: cookie_names.user_consent });
         }
-        if (moduleOptions.reloadPageOnChange)  {
+        if (moduleOptions.reloadPageOnChange) {
           // reload current page (skip cache)
           location.reload(true);
         }
