@@ -16,7 +16,7 @@
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-07-20 12:10:55 +0000
+ #  Adapter generated: 2021-07-20 12:49:08 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -41,6 +41,7 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
   var baseUrl;
   var hostname;
   var domain;
+  var cookie_domain;
   var secure;
   var logText;
   var cookie_written;
@@ -60,13 +61,19 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       // globals
       // -----------------------------------------------------------------------
-      _this     = j1.adapter.cookieConsent;
-      logger    = log4javascript.getLogger('j1.adapter.cookieConsent');
-      url       = new liteURL(window.location.href);
-      baseUrl   = url.origin;
-      hostname  = url.hostname;
-      domain    = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
-      secure    = (url.protocol.includes('https')) ? true : false;
+      _this         = j1.adapter.cookieConsent;
+      logger        = log4javascript.getLogger('j1.adapter.cookieConsent');
+      url           = new liteURL(window.location.href);
+      baseUrl       = url.origin;
+      hostname      = url.hostname;
+      domain        = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
+      secure        = (url.protocol.includes('https')) ? true : false;
+      // set domain used by cookies
+      if(domain !== 'localhost') {
+        cookie_domain = '.' + hostname;
+      } else {
+        cookie_domain = hostname;
+      }
       // initialize state flag
       _this.state = 'pending';
       // -----------------------------------------------------------------------
@@ -74,7 +81,7 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.cookieConsent',
-        generated:   '2021-07-20 12:10:55 +0000'
+        generated:   '2021-07-20 12:49:08 +0000'
       }, options);
       // Load  module DEFAULTS|CONFIG
       /* eslint-disable */
@@ -194,7 +201,7 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
           if (!user_agent.includes('iPad')) {
             gaCookies.forEach(function (item) {
               logger.warn('\n' + 'delete GA cookie: ' + item);
-              j1.removeCookie({ name: item, domain: domain });
+              j1.removeCookie({ name: item, domain: cookie_domain });
             });
           }
         }

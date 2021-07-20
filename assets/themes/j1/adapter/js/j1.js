@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-07-20 12:10:55 +0000
+ # Adapter generated: 2021-07-20 12:49:08 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -593,8 +593,6 @@ var j1 = (function () {
       var user_session        = j1.readCookie(cookie_names.user_session);
       var user_state          = j1.readCookie(cookie_names.user_state);
       var user_consent        = j1.readCookie(cookie_names.user_consent);
-//    var tracking_enabled    = (user_consent.analyses === 'true') ? true : false;
-//    var tracking_enabled    = user_consent.analyses;
       var current_url         = new liteURL(window.location.href);
       var providerPermissions = {};
       var provider;
