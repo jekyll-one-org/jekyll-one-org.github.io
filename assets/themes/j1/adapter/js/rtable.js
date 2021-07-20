@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-07-16 07:33:28 +0000
+ #  Adapter generated: 2021-07-20 12:10:55 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -46,19 +46,19 @@ j1.adapter['rtable'] = (function (j1, window) {
       logger  = log4javascript.getLogger('j1.adapter.rtable');
       // initialize state flag
       _this.setState('started');
-      logger.info('state: ' + _this.getState());
-      logger.info('module is being initialized');
+      logger.info('\n' + 'state: ' + _this.getState());
+      logger.info('\n' + 'module is being initialized');
       // -----------------------------------------------------------------------
       // Default module settings
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.rtable',
-        generated:   '2021-07-16 07:33:28 +0000'
+        generated:   '2021-07-20 12:10:55 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // rtable initializer
       // -----------------------------------------------------------------------
-      var log_text = 'rtable is being initialized';
+      var log_text = '\n' + 'rtable is being initialized';
       logger.info(log_text);
       // Add data attribute for tablesaw to all tables of a page
       // as Asciidoctor has NO option to pass 'data attributes'
@@ -81,7 +81,7 @@ j1.adapter['rtable'] = (function (j1, window) {
         if (j1.getState() == 'finished') {
         	Tablesaw.init();
           _this.setState('finished');
-          logger.info('state: ' + _this.getState());
+          logger.info('\n' + 'state: ' + _this.getState());
           clearInterval(dependencies_met_j1_finished);
         } // END dependencies_met_j1_finished
       }, 25);
@@ -92,7 +92,7 @@ j1.adapter['rtable'] = (function (j1, window) {
     // -------------------------------------------------------------------------
     messageHandler: function (sender, message) {
       var json_message = JSON.stringify(message, undefined, 2);
-      logText = 'received message from ' + sender + ': ' + json_message;
+      logText = '\n' + 'received message from ' + sender + ': ' + json_message;
       logger.debug(logText);
       // -----------------------------------------------------------------------
       //  Process commands|actions
@@ -101,7 +101,7 @@ j1.adapter['rtable'] = (function (j1, window) {
         //
         // Place handling of command|action here
         //
-        logger.info(message.text);
+        logger.info('\n' + message.text);
       }
       //
       // Place handling of other command|action here

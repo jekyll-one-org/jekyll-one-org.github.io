@@ -16,7 +16,7 @@
  # Note:
  #  https://github.com/jirutka/asciidoctor-rouge/issues/9
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-07-16 07:33:28 +0000
+ #  Adapter generated: 2021-07-20 12:10:55 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -30,7 +30,7 @@ j1.adapter['rouge'] = (function (j1, window) {
   // ---------------------------------------------------------------------------
   // globals
   // ---------------------------------------------------------------------------
-  var environment             = 'development';
+  var environment             = 'production';
   var moduleOptions           = {};
   var user_state              = {};
   var cookie_names            = j1.getCookieNames();
@@ -40,7 +40,7 @@ j1.adapter['rouge'] = (function (j1, window) {
   var _this;
   var logger;
   var logText;
-  var templateOptions = $.extend({}, {"theme":{"name":"Uno light", "author":"J1 Team", "author_url":"https://jekyll.one/"}, "css":{"custom_scss":false, "custom_css":false}, "typography":{"rtext":true, "rtext_size":300}, "asset_path":"/assets/themes/j1", "app_path":"/assets/apps", "image_path":"/assets/images", "archive_path":"/builder/posts/timeline", "categories_path":"/builder/categories", "tags_path":"/builder/tags", "about-site-url":"/pages/public/about/site/", "user_info_url":"/pages/public/legal/en/privacy/", "theme_author_url":"https://jekyll.one", "runtime_data_path":"/assets/data/runtime-data.yml", "message_catalog_data_path":"/assets/data/messages.yml", "colors_data_path":"/assets/data/colors.json", "font_size_data_path":"/assets/data/font_sizes.json", "country_data_path":"/assets/data/countries.json", "cookies":{"app_session":"j1.app.session", "user_session":"j1.user.session", "user_state":"j1.user.state", "user_consent":"j1.user.consent"}, "flicker_timeout":150, "prettify":true, "user":{"provider":"j1", "provider_site_url":"https://jekyll.one", "provider_home_url":"https://jekyll.one", "provider_blog_url":"/pages/public/blog/navigator/", "provider_member_url":"/pages/public/learn/whats_up/", "provider_privacy_url":"/pages/public/legal/en/privacy/", "user_name":"guest", "status":"active", "provider_membership":"guest", "provider_permissions":["public"]}, "bootstrap":{"default_theme":"bootstrap", "cards":{"card_deck":{"break_on_sm":1, "break_on_md":2, "break_on_lg":3, "break_on_xl":3}}, "tooltips":{"enabled":true, "trigger":"hover"}, "popovers":{"enabled":true, "trigger":"hover"}}, "rouge":{"theme_light":"igorpro", "theme_dark":"monokai.sublime"}, "preload":{"font":{"preload":false, "cors":"crossorigin", "fonts":[]}, "css":{"preload":true, "css":["/assets/themes/j1/core/css/themes/uno-light/bootstrap", "/assets/themes/j1/core/css/vendor"], "files":[]}, "js":{"preload":true, "js":["/assets/themes/j1/modules/bmd/js/bootstrap-material-design", "/assets/themes/j1/modules/backstretch/js/backstretch", "/assets/themes/j1/core/js/template"], "files":["/assets/themes/j1/adapter/js/attic.js", "/assets/themes/j1/adapter/js/logger.js", "/assets/themes/j1/adapter/js/bmd.js", "/assets/themes/j1/adapter/js/navigator.js"]}, "image":{"preload":false, "files":["/assets/images/modules/icons/j1/j1-512x512.png"]}}, "preconnect":{"enabled":true, "urls":["https://bootswatch.com"]}, "fa":{"color":"default"}, "body":{"scrollbar":false, "background-color":"md_gray_50", "font-color":"md_gray_900", "font-size":"1em", "font-weight":400, "line-height":1.5}, "comments":{"enabled":false, "provider":"disqus", "disqus":{"short_name":"jekyll-one"}}, "analytics":{"enabled":true, "provider":"google", "google":{"tracking_id":"G-8ZGNE0WE42"}}, "advertising":{"enabled":false, "provider":"google", "google":{"publisher_id":"<your-publisher-id>"}}});
+  var templateOptions = $.extend({}, {"theme":{"name":"Uno light", "author":"J1 Team", "author_url":"https://jekyll.one/"}, "css":{"custom_scss":false, "custom_css":false}, "typography":{"rtext":true, "rtext_size":300}, "asset_path":"/assets/themes/j1", "app_path":"/assets/apps", "image_path":"/assets/images", "archive_path":"/builder/posts/timeline", "categories_path":"/builder/categories", "tags_path":"/builder/tags", "about-site-url":"/pages/public/about/site/", "user_info_url":"/pages/public/legal/en/privacy/", "theme_author_url":"https://jekyll.one", "runtime_data_path":"/assets/data/runtime-data.yml", "message_catalog_data_path":"/assets/data/messages.yml", "colors_data_path":"/assets/data/colors.json", "font_size_data_path":"/assets/data/font_sizes.json", "country_data_path":"/assets/data/countries.json", "cookies":{"app_session":"j1.app.session", "user_session":"j1.user.session", "user_state":"j1.user.state", "user_consent":"j1.user.consent"}, "flicker_timeout":150, "prettify":true, "user":{"provider":"j1", "provider_site_url":"https://jekyll.one", "provider_home_url":"https://jekyll.one", "provider_blog_url":"/pages/public/blog/navigator/", "provider_member_url":"/pages/public/learn/whats_up/", "provider_privacy_url":"/pages/public/legal/en/privacy/", "user_name":"guest", "status":"active", "provider_membership":"guest", "provider_permissions":["public"]}, "bootstrap":{"default_theme":"bootstrap", "cards":{"card_deck":{"break_on_sm":1, "break_on_md":2, "break_on_lg":3, "break_on_xl":3}}, "tooltips":{"enabled":true, "trigger":"hover"}, "popovers":{"enabled":true, "trigger":"hover"}}, "rouge":{"theme_light":"igorpro", "theme_dark":"monokai.sublime"}, "preload":{"font":{"preload":false, "cors":"crossorigin", "fonts":[]}, "css":{"preload":true, "css":["/assets/themes/j1/core/css/themes/uno-light/bootstrap", "/assets/themes/j1/core/css/vendor"], "files":[]}, "js":{"preload":true, "js":["/assets/themes/j1/modules/bmd/js/bootstrap-material-design", "/assets/themes/j1/modules/backstretch/js/backstretch", "/assets/themes/j1/core/js/template"], "files":["/assets/themes/j1/adapter/js/attic.js", "/assets/themes/j1/adapter/js/logger.js", "/assets/themes/j1/adapter/js/bmd.js", "/assets/themes/j1/adapter/js/navigator.js"]}, "image":{"preload":false, "files":["/assets/images/modules/icons/j1/j1-512x512.png"]}}, "preconnect":{"enabled":true, "urls":["https://bootswatch.com"]}, "fa":{"color":"default"}, "body":{"scrollbar":false, "background-color":"md_gray_50", "font-color":"md_gray_900", "font-size":"1em", "font-weight":400, "line-height":1.5}, "comments":{"enabled":true, "xhr_data_path":"/assets/data", "provider":"hyvor", "disqus":{"site_id":"jekyll-one"}, "hyvor":{"site_id":4612}}, "analytics":{"enabled":true, "provider":"google", "google":{"tracking_id":"G-8ZGNE0WE42"}}, "advertising":{"enabled":false, "provider":"google", "google":{"publisher_id":"<your-publisher-id>"}}});
   // ---------------------------------------------------------------------------
   // Helper functions
   // ---------------------------------------------------------------------------
@@ -62,19 +62,19 @@ j1.adapter['rouge'] = (function (j1, window) {
       logger  = log4javascript.getLogger('j1.adapter.rouge');
       // initialize state flag
       _this.setState('started');
-      logger.info('state: ' + _this.getState());
-      logger.info('module is being initialized');
+      logger.info('\n' + 'state: ' + _this.getState());
+      logger.info('\n' + 'module is being initialized');
       // -----------------------------------------------------------------------
       // Default module settings
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.rouge',
-        generated:   '2021-07-16 07:33:28 +0000'
+        generated:   '2021-07-20 12:10:55 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // rouge initializer
       // -----------------------------------------------------------------------
-      var log_text = 'Rouge is being initialized';
+      var log_text = '\n' + 'module is being initialized';
       logger.info(log_text);
       // Detect|Set J1 UserState
       user_state_detected = j1.existsCookie(cookie_user_state_name);
@@ -87,7 +87,7 @@ j1.adapter['rouge'] = (function (j1, window) {
                                 themeCss.includes('slate') ||
                                 themeCss.includes('superhero');
       } else {
-        log_text = 'user_state cookie not found';
+        log_text = '\n' + 'user_state cookie not found';
         logger.warn(log_text);
       }
       var dependencies_met_j1_finished = setInterval(function() {
@@ -96,7 +96,7 @@ j1.adapter['rouge'] = (function (j1, window) {
             $('#selected').html("Current Selection: <div class='bg-primary mt-1 p-2'>"+$(this).text()+"</div>");
          });
           _this.setState('finished');
-          logger.info('state: ' + _this.getState());
+          logger.info('\n' + 'state: ' + _this.getState());
           clearInterval(dependencies_met_j1_finished);
         } // END dependencies_met_j1_finished
       }, 25);
@@ -140,7 +140,7 @@ j1.adapter['rouge'] = (function (j1, window) {
     // -------------------------------------------------------------------------
     messageHandler: function (sender, message) {
       var json_message = JSON.stringify(message, undefined, 2);
-      logText = 'received message from ' + sender + ': ' + json_message;
+      logText = '\n' + 'received message from ' + sender + ': ' + json_message;
       logger.debug(logText);
       // -----------------------------------------------------------------------
       //  Process commands|actions
@@ -149,7 +149,7 @@ j1.adapter['rouge'] = (function (j1, window) {
         //
         // Place handling of command|action here
         //
-        logger.info(message.text);
+        logger.info('\n' + message.text);
       }
       //
       // Place handling of other command|action here

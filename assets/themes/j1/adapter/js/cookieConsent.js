@@ -16,7 +16,7 @@
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-07-16 07:33:28 +0000
+ #  Adapter generated: 2021-07-20 12:10:55 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -27,15 +27,21 @@
 // -----------------------------------------------------------------------------
 'use strict';
 j1.adapter['cookieConsent'] = (function (j1, window) {
-  var environment       = 'development';
+  var environment       = 'production';
   var tracking_enabled  = ('true' === 'true') ? true: false;
   var tracking_id       = 'G-8ZGNE0WE42';
   var tracking_id_valid = (tracking_id.includes('tracking-id')) ? false : true;
+  var comment_provider  = 'hyvor';
   var moduleOptions     = {};
   var _this;
   var $modal;
   var user_cookie;
   var logger;
+  var url;
+  var baseUrl;
+  var hostname;
+  var domain;
+  var secure;
   var logText;
   var cookie_written;
   // NOTE: RegEx for tracking_id: ^(G|UA|YT|MO)-[a-zA-Z0-9-]+$
@@ -54,8 +60,13 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       // globals
       // -----------------------------------------------------------------------
-      _this   = j1.adapter.cookieConsent;
-      logger  = log4javascript.getLogger('j1.adapter.cookieConsent');
+      _this     = j1.adapter.cookieConsent;
+      logger    = log4javascript.getLogger('j1.adapter.cookieConsent');
+      url       = new liteURL(window.location.href);
+      baseUrl   = url.origin;
+      hostname  = url.hostname;
+      domain    = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
+      secure    = (url.protocol.includes('https')) ? true : false;
       // initialize state flag
       _this.state = 'pending';
       // -----------------------------------------------------------------------
@@ -63,7 +74,7 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.cookieConsent',
-        generated:   '2021-07-16 07:33:28 +0000'
+        generated:   '2021-07-20 12:10:55 +0000'
       }, options);
       // Load  module DEFAULTS|CONFIG
       /* eslint-disable */
@@ -78,8 +89,8 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
       var dependencies_met_page_ready = setInterval (function (options) {
         if ( j1.getState() === 'finished' ) {
           _this.setState('started');
-          logger.info('state: ' + _this.getState());
-          logger.info('module is being initialized');
+          logger.info('\n' + 'state: ' + _this.getState());
+          logger.info('\n' + 'module is being initialized');
           j1.cookieConsent = new BootstrapCookieConsent({
             contentURL:             moduleOptions.contentURL,
             cookieName:             moduleOptions.cookieName,
@@ -91,8 +102,8 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
             postSelectionCallback:  function () {j1.adapter.cookieConsent.cbCookie()}
           });
           _this.setState('finished');
-          logger.info('state: ' + _this.getState());
-          logger.debug('module initialized successfully');
+          logger.info('\n' + 'state: ' + _this.getState());
+          logger.debug('\n' + 'module initialized successfully');
           clearInterval(dependencies_met_page_ready);
         }
       });
@@ -103,7 +114,7 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
     // -------------------------------------------------------------------------
     messageHandler: function (sender, message) {
       var json_message = JSON.stringify(message, undefined, 2);
-      logText = 'received message from ' + sender + ': ' + json_message;
+      logText = '\n' + 'received message from ' + sender + ': ' + json_message;
       logger.debug(logText);
       // -----------------------------------------------------------------------
       //  Process commands|actions
@@ -112,7 +123,7 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
         //
         // Place handling of command|action here
         //
-        logger.info(message.text);
+        logger.info('\n' + message.text);
       }
       //
       // Place handling of other command|action here
@@ -146,8 +157,8 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
       var user_consent        = j1.readCookie(cookie_names.user_consent);
       var json                = JSON.stringify(user_consent);
       var user_agent          = platform.ua;
-      logger.info('Entered post selection callback from CookieConsent');
-      logger.info('Current values from CookieConsent: ' + json);
+      logger.info('\n' + 'entered post selection callback from CookieConsent');
+      logger.info('\n' + 'current values from CookieConsent: ' + json);
       // enable cookie button if not visible
       if ($('#quickLinksCookieButton').css('display') === 'none')  {
         $('#quickLinksCookieButton').css('display', 'block');
@@ -157,9 +168,9 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
       // because page is reloaded after selection
       //
       // if (tracking_enabled && !tracking_id_valid) {
-      //   logger.error('tracking enabled, but invalid tracking id found: ' + tracking_id);
+      //   logger.error('\n' + 'tracking enabled, but invalid tracking id found: ' + tracking_id);
       // } else {
-      //   logger.warn('tracking enabled, tracking id found: ' + tracking_id);
+      //   logger.warn('\n' + 'tracking enabled, tracking id found: ' + tracking_id);
       // }
       // for development only
       if (environment === 'development') {
@@ -167,27 +178,29 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
         j1Cookies.forEach(item => console.log('cookieConsent: ' + item));
       }
       if (user_agent.includes('iPad'))  {
-        logger.warn('Product detected : ' + platform.product);
-        logger.warn('Skip deleting (unwanted) cookies for this platform');
+        logger.warn('\n' + 'product detected : ' + platform.product);
+        logger.warn('\n' + 'skip deleting (unwanted) cookies for this platform');
       }
       // Manage Google Analytics OptIn/Out
       // See: https://github.com/luciomartinez/gtag-opt-in/wiki
       if (tracking_enabled && tracking_id_valid) {
         GTagOptIn.register(tracking_id);
         if (user_consent.analyses)  {
-          logger.info('Enable: GA');
+          logger.info('\n' + 'enable: GA');
           GTagOptIn.optIn();
         } else {
-          logger.warn('Disable: GA');
+          logger.warn('\n' + 'disable: GA');
           GTagOptIn.optOut();
           if (!user_agent.includes('iPad')) {
             gaCookies.forEach(function (item) {
-              logger.warn('Delete GA cookie: ' + item);
-              j1.removeCookie(item);
+              logger.warn('\n' + 'delete GA cookie: ' + item);
+              j1.removeCookie({ name: item, domain: domain });
             });
           }
         }
-        if (!user_consent.analyses || !user_consent.personalization)  {
+        // Managing providers for personalization OptIn/Out (Comments|Ads)
+        // moved to J1 adapter
+        if (!user_consent.analyses || !user_consent.personalization) {
           // expire consent|state cookies to session
           j1.expireCookie({ name: cookie_names.user_state });
           j1.expireCookie({ name: cookie_names.user_consent });
