@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-07-22 14:45:52 +0000
+ # Adapter generated: 2021-07-22 16:11:46 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -149,7 +149,9 @@ var j1 = (function () {
             expires:  365
           });
         if (!cookie_written) {
-        console.error('j1.adapter, failed to write cookie: j1.user.state');
+          console.error('j1.adapter, failed to write cookie: j1.user.state');
+          console.warn('redirect to home page');
+          window.location.href = '/';
         }
       } else {
         console.warn('j1.adapter: cookies found');
