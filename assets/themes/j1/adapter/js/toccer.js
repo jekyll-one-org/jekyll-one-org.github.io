@@ -16,9 +16,239 @@
  # Tocbot is licensed under under the MIT License.
  # For details, see https://tscanlin.github.io/tocbot
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-07-22 08:01:18 +0000
+ # Adapter generated: 2021-07-22 10:28:20 +0000
  # -----------------------------------------------------------------------------
 */
-'use strict';j1.adapter.toccer=function(){var e,t,o,l={},i={};return{init:function(o){e=j1.adapter.toccer,t=log4javascript.getLogger('j1.adapter.toccer'),e.setState('started'),t.info("\nstate: "+e.getState()),t.info("\nmodule is being initialized");var n=null!=o?$.extend({},o):{};$.extend({module_name:'j1.adapter.toccer',generated:'2021-07-22 08:01:18 +0000'},o);i=$.extend({},{enabled:!0,log:!1,tocSelector:".js-toc",contentSelector:".js-toc-content",headingSelector:"h2, h3, h4, h5, h6",ignoreSelector:".notoc",collapseDepth:4,activeLinkColor:"#f44336",throttleTimeout:150,scrollSmooth:!0,scrollSmoothDuration:300,scrollSmoothOffset:10,scrollContainer:null,delay:400}),null!=o&&(n=$.extend({},o)),void 0!==n&&(l=j1.mergeData(n,i)),e.moduleOptions=l;var s='true'===l.toc;l.comments;if('undefined'==typeof l.collapseDepth&&(l.collapseDepth=3),s)var a=setInterval(function(){if('finished'==j1.getState()){var o=j1.adapter.toccer.moduleOptions;e.initToccerCore(o),e.setState('finished'),t.info("\nstate: "+e.getState()),t.info("\nmodule initialized successfully"),t.info("\nmet dependencies for: j1"),clearInterval(a)}},25)},initToccerCore:function(o){var i;if(o!==undefined)$.extend({},o);else;var n=$('.attic'),s=$('nav.navbar'),a=$('#adblock'),r=s.hasClass('navbar-fixed')?'fixed':'scrolled',c=$('body').css('font-size').replace('px',''),d=(window.pageYOffset,parseInt(c)),h=n.length?n.height():0,f=s.length?s.height():0,u=a.length?a.height():0;i='fixed'==r?-1*(f+u+d):-1*(h+f+u+d),i+=l.scrollSmoothOffset,e.setState('running'),t.info("\nstate: "+e.getState());var g=setInterval(function(){$('#toc_mmenu').length&&(tocbot.init({log:l.log,activeLinkColor:l.activeLinkColor,tocSelector:l.tocSelector,headingSelector:l.headingSelector,ignoreSelector:l.ignoreSelector,contentSelector:l.contentSelector,collapseDepth:l.collapseDepth,throttleTimeout:l.throttleTimeout,hasInnerContainers:!1,includeHtml:!1,linkClass:'toc-link',extraLinkClasses:'',activeLinkClass:'is-active-link',listClass:'toc-list',extraListClasses:'',isCollapsedClass:'is-collapsed',collapsibleClass:'is-collapsible',listItemClass:'toc-list-item',positionFixedSelector:'',positionFixedClass:'is-position-fixed',fixedSidebarOffset:'auto',scrollContainer:null,scrollSmooth:l.scrollSmooth,scrollSmoothDuration:l.scrollSmoothDuration,scrollSmoothOffset:i,headingsOffset:1,throttleTimeout:l.throttleTimeout}),t.info("\nmet dependencies for: loadHTML"),clearInterval(g))},25);$(window).on('resize',function(){var e,t=$('.attic'),o=$('nav.navbar'),i=$('#adblock'),n=o.hasClass('navbar-fixed')?'fixed':'scrolled',s=$('body').css('font-size').replace('px',''),a=(window.pageYOffset,parseInt(s)),r=t.length?t.height():0,c=o.length?o.height():0,d=i.length?i.height():0;e='fixed'==n?-1*(c+d+a):-1*(r+c+d+a),e+=l.scrollSmoothOffset,tocbot.refresh({log:l.log,activeLinkColor:l.activeLinkColor,tocSelector:l.tocSelector,headingSelector:l.headingSelector,ignoreSelector:l.ignoreSelector,contentSelector:l.contentSelector,collapseDepth:l.collapseDepth,throttleTimeout:l.throttleTimeout,hasInnerContainers:!1,includeHtml:!1,linkClass:'toc-link',extraLinkClasses:'',activeLinkClass:'is-active-link',listClass:'toc-list',extraListClasses:'',isCollapsedClass:'is-collapsed',collapsibleClass:'is-collapsible',listItemClass:'toc-list-item',positionFixedSelector:'',positionFixedClass:'is-position-fixed',fixedSidebarOffset:'auto',scrollContainer:null,scrollSmooth:l.scrollSmooth,scrollSmoothDuration:l.scrollSmoothDuration,scrollSmoothOffset:e,headingsOffset:1,throttleTimeout:l.throttleTimeout})})},messageHandler:function(e,l){var i=JSON.stringify(l,undefined,2);return o="\nreceived message from "+e+': '+i,t.debug(o),'command'===l.type&&'module_initialized'===l.action&&t.info('\n'+l.text),!0},setState:function(t){e.state=t},getState:function(){return e.state}}}(j1,window);
+// -----------------------------------------------------------------------------
+// ESLint shimming
+// -----------------------------------------------------------------------------
+/* eslint indent: "off"                                                       */
+// -----------------------------------------------------------------------------
+'use strict';
+j1.adapter['toccer'] = (function () {
+  var environment         = 'development';                                  // Set environment
+  var moduleOptions       = {};
+  var toccerOptions       = {};
+  var frontmatterOptions  = {};
+  var _this;
+  var logger;
+  var logText;
+  // ---------------------------------------------------------------------------
+  // helper functions
+  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
+  // main object
+  // ---------------------------------------------------------------------------
+  return {
+    // -------------------------------------------------------------------------
+    // initializer
+    // -------------------------------------------------------------------------
+    init: function (options) {
+      // -----------------------------------------------------------------------
+      // globals
+      // -----------------------------------------------------------------------
+      _this   = j1.adapter.toccer;
+      logger  = log4javascript.getLogger('j1.adapter.toccer');
+      // initialize state flag
+      _this.setState('started');
+      logger.info('\n' + 'state: ' + _this.getState());
+      logger.info('\n' + 'module is being initialized');
+      // create settings object from frontmatterOptions
+      var frontmatterOptions = options != null ? $.extend({}, options) : {};
+      // -----------------------------------------------------------------------
+      // defaults
+      // -----------------------------------------------------------------------
+      var settings  = $.extend({
+        module_name: 'j1.adapter.toccer',
+        generated:   '2021-07-22 10:28:20 +0000'
+      }, options);
+      // -----------------------------------------------------------------------
+      // options loader
+      // -----------------------------------------------------------------------
+      /* eslint-disable */
+      toccerOptions = $.extend({}, {"enabled":true, "log":false, "tocSelector":".js-toc", "contentSelector":".js-toc-content", "headingSelector":"h2, h3, h4, h5, h6", "ignoreSelector":".notoc", "collapseDepth":4, "activeLinkColor":"#f44336", "throttleTimeout":150, "scrollSmooth":true, "scrollSmoothDuration":300, "scrollSmoothOffset":10, "scrollContainer":null, "delay":400});
+      // Load (individual) frontmatter options (currently NOT used)
+      if (options != null) { frontmatterOptions = $.extend({}, options); }
+      if (typeof frontmatterOptions !== 'undefined') {
+        moduleOptions = j1.mergeData(frontmatterOptions, toccerOptions);
+      }
+      /* eslint-enable */
+      // save config settings into the toccer object for global access
+      _this['moduleOptions'] = moduleOptions;
+      // cast text-based booleans
+      var isToc = (moduleOptions.toc === 'true');
+      var isComments = (moduleOptions.comments === 'true');
+      if ( typeof moduleOptions.collapseDepth === 'undefined') {
+        moduleOptions.collapseDepth = 3;
+      }
+      if (isToc) {
+        var dependencies_met_navigator = setInterval(function() {
+//        if ( j1.adapter.navigator.getState() == 'finished' ) {
+          if ( j1.getState() == 'finished' ) {
+            var settings = j1.adapter.toccer.moduleOptions;
+            _this.initToccerCore(settings);
+            _this.setState('finished');
+            logger.info('\n' + 'state: ' + _this.getState());
+            logger.info('\n' + 'module initialized successfully');
+            logger.info('\n' + 'met dependencies for: j1');
+            clearInterval(dependencies_met_navigator);
+          }
+        }, 25);
+      }
+    }, // END init
+    // -------------------------------------------------------------------------
+    // Set Toccer options
+    // -------------------------------------------------------------------------
+    initToccerCore: function (options) {
+      var scrollOffset;
+      if (options  !== undefined) {
+        var settings = $.extend({}, options);
+      } else {
+        var settings = false;
+      }
+      // calculate offset for correct (smooth) scroll position
+      //
+      var $pagehead       = $('.attic');
+      var $navbar         = $('nav.navbar');
+      var $adblock        = $('#adblock');
+      var navbarType      = $navbar.hasClass('navbar-fixed') ? 'fixed' : 'scrolled';
+      var fontSize        = $('body').css('font-size').replace('px','');
+      var start           = window.pageYOffset;
+      var l               = parseInt(fontSize);
+      var h               = $pagehead.length ? $pagehead.height() : 0;
+      var n               = $navbar.length ? $navbar.height() : 0;
+      var a               = $adblock.length ? $adblock.height() : 0;
+      scrollOffset        = navbarType == 'fixed' ? -1*(n + a + l) : -1*(h + n + a + l);
+      // static offset, to be checked why this is needed
+      //
+      scrollOffset        = scrollOffset + moduleOptions.scrollSmoothOffset
+      _this.setState('running');
+      logger.info('\n' + 'state: ' + _this.getState());
+      // tocbot get fired if HTML portion is loaded (AJAX load finished)
+      //
+      var dependencies_met_ajax_load_finished = setInterval (function () {
+        if ($('#toc_mmenu').length) {
+          /* eslint-disable */
+          tocbot.init({
+            log:                    moduleOptions.log,
+            activeLinkColor:        moduleOptions.activeLinkColor,
+            tocSelector:            moduleOptions.tocSelector,
+            headingSelector:        moduleOptions.headingSelector,
+            ignoreSelector:         moduleOptions.ignoreSelector,
+            contentSelector:        moduleOptions.contentSelector,
+            collapseDepth:          moduleOptions.collapseDepth,
+            throttleTimeout:        moduleOptions.throttleTimeout,
+            hasInnerContainers:     false,
+            includeHtml:            false,
+            linkClass:              'toc-link',
+            extraLinkClasses:       '',
+            activeLinkClass:        'is-active-link',
+            listClass:              'toc-list',
+            extraListClasses:       '',
+            isCollapsedClass:       'is-collapsed',
+            collapsibleClass:       'is-collapsible',
+            listItemClass:          'toc-list-item',
+            positionFixedSelector:  '',
+            positionFixedClass:     'is-position-fixed',
+            fixedSidebarOffset:     'auto',
+            scrollContainer:        null,
+            scrollSmooth:           moduleOptions.scrollSmooth,
+            scrollSmoothDuration:   moduleOptions.scrollSmoothDuration,
+            scrollSmoothOffset:     scrollOffset,
+            headingsOffset:         1,
+            throttleTimeout:        moduleOptions.throttleTimeout
+          });
+          /* eslint-enable */
+          logger.info('\n' + 'met dependencies for: loadHTML');
+          clearInterval(dependencies_met_ajax_load_finished);
+        } // END AJAX load finished
+      }, 25); // END dependencies_met_ajax_load_finished
+      $(window).on('resize', function() {
+        var scrollOffset;
+        // re-calculate offset for correct (smooth) scroll position
+        //
+        var $pagehead       = $('.attic');
+        var $navbar         = $('nav.navbar');
+        var $adblock        = $('#adblock');
+        var navbarType      = $navbar.hasClass('navbar-fixed') ? 'fixed' : 'scrolled';
+        var fontSize        = $('body').css('font-size').replace('px','');
+        var start           = window.pageYOffset;
+        var l               = parseInt(fontSize);
+        var h               = $pagehead.length ? $pagehead.height() : 0;
+        var n               = $navbar.length ? $navbar.height() : 0;
+        var a               = $adblock.length ? $adblock.height() : 0;
+        scrollOffset        = navbarType == 'fixed' ? -1*(n + a + l) : -1*(h + n + a + l);
+        // static offset, to be checked why this is needed
+        scrollOffset        = scrollOffset + moduleOptions.scrollSmoothOffset
+        tocbot.refresh({
+          log:                    moduleOptions.log,
+          activeLinkColor:        moduleOptions.activeLinkColor,
+          tocSelector:            moduleOptions.tocSelector,
+          headingSelector:        moduleOptions.headingSelector,
+          ignoreSelector:         moduleOptions.ignoreSelector,
+          contentSelector:        moduleOptions.contentSelector,
+          collapseDepth:          moduleOptions.collapseDepth,
+          throttleTimeout:        moduleOptions.throttleTimeout,
+          hasInnerContainers:     false,
+          includeHtml:            false,
+          linkClass:              'toc-link',
+          extraLinkClasses:       '',
+          activeLinkClass:        'is-active-link',
+          listClass:              'toc-list',
+          extraListClasses:       '',
+          isCollapsedClass:       'is-collapsed',
+          collapsibleClass:       'is-collapsible',
+          listItemClass:          'toc-list-item',
+          positionFixedSelector:  '',
+          positionFixedClass:     'is-position-fixed',
+          fixedSidebarOffset:     'auto',
+          scrollContainer:        null,
+          scrollSmooth:           moduleOptions.scrollSmooth,
+          scrollSmoothDuration:   moduleOptions.scrollSmoothDuration,
+          scrollSmoothOffset:     scrollOffset,
+          headingsOffset:         1,
+          throttleTimeout:        moduleOptions.throttleTimeout
+        });
+      });
+    }, // END initToccerCore
+    // -------------------------------------------------------------------------
+    // messageHandler: MessageHandler for J1 NAV module
+    // Manage messages (paylods) send from other J1 modules
+    // -------------------------------------------------------------------------
+    messageHandler: function (sender, message) {
+      var json_message = JSON.stringify(message, undefined, 2);
+      logText = '\n' + 'received message from ' + sender + ': ' + json_message;
+      logger.debug(logText);
+      // -----------------------------------------------------------------------
+      //  Process commands|actions
+      // -----------------------------------------------------------------------
+      if (message.type === 'command' && message.action === 'module_initialized') {
+        //
+        // Place handling of command|action here
+        //
+        logger.info('\n' + message.text);
+      }
+      //
+      // Place handling of other command|action here
+      //
+      return true;
+    }, // END messageHandler
+    // -------------------------------------------------------------------------
+    // setState()
+    // Sets the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    setState: function (stat) {
+      _this.state = stat;
+    }, // END setState
+    // -------------------------------------------------------------------------
+    // getState()
+    // Returns the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    getState: function () {
+      return _this.state;
+    } // END getState
+  }; // END return
+})(j1, window);
+
 
 

@@ -4,18 +4,1688 @@
 
   
 
-      <!DOCTYPE html> <html lang="en"> <head data-proofer-ignore> <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" /> <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <title>asciidoc extensions</title> <meta name="description" content="J1 Template implements some incubating Ruby-based extensions for Asciidoctor. Most extensions are based on the examples given with the Asciidoctor Extensions Lab. All implemented Asciidoctor Extensions can be found in this article. " /> <link rel="icon" type="image/ico" href="/assets/images/modules/icons/j1/j1-32x32.ico" /> <meta name="author" content="J1 Team" /> <meta name="keywords" content="Jekyll, One, Template, Ruby, Asciidoctor, Asciidoc, Bootstrap, Javascript, JS, JS3, CSS, CSS3, HTML5, Material, Design" /> <meta name="robots" content="noindex" /> <meta name="robots" content="nofollow" /> <meta name="analytics" content="true" /> <meta name="comments" content="true" /> <meta name="advertising" content="false" /> <meta name="youtube" content="true" /> <meta name="vimeo" content="true" /> <meta name="personalization" content="false" /> <link rel="preload" as="style" href="/assets/themes/j1/core/css/themes/uno-light/bootstrap.min.css" /> <link rel="preload" as="style" href="/assets/themes/j1/core/css/vendor.min.css" /> <link rel="preload" as="script" href="/assets/themes/j1/modules/bmd/js/bootstrap-material-design.min.js" /> <link rel="preload" as="script" href="/assets/themes/j1/modules/backstretch/js/backstretch.min.js" /> <link rel="preload" as="script" href="/assets/themes/j1/core/js/template.min.js" /> <link rel="preload" as="script" href="/assets/themes/j1/adapter/js/attic.js" /> <link rel="preload" as="script" href="/assets/themes/j1/adapter/js/logger.js" /> <link rel="preload" as="script" href="/assets/themes/j1/adapter/js/bmd.js" /> <link rel="preload" as="script" href="/assets/themes/j1/adapter/js/navigator.js" /> <link rel="dns-prefetch" href="https://bootswatch.com" /> <link rel="preconnect" href="https://bootswatch.com" /> <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZGNE0WE42"></script> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/themes/uno-light/bootstrap.min.css" /> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/icon-fonts/materialdesign.min.css" /> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/icon-fonts/fontawesome.min.css" /> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/vendor.min.css" /> <script sync src="/assets/themes/j1/modules/util/js/gtag-opt-in.js"></script> <script sync src="/assets/themes/j1/adapter/js/j1.js"></script> <script sync src="/assets/themes/j1/modules/jquery/js/jquery.min.js"></script> <script sync src="/assets/themes/j1/modules/jquery/js/jqueryUI.min.js"></script> <script sync src="/assets/themes/j1/modules/popper/js/popper.min.js"></script> <script sync src="/assets/themes/j1/core/js/template.min.js"></script> <script sync src="/assets/themes/j1/adapter/js/logger.js"></script> <script sync src="/assets/themes/j1/modules/log4javascript/js/log4javascript.min.js"></script> <script sync src="/assets/themes/j1/modules/backstretch/js/backstretch.min.js"></script> <script sync src="/assets/themes/j1/adapter/js/attic.js"></script> <script sync src="/assets/themes/j1/adapter/js/navigator.js"></script> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/mmenuLight/css/mmenu-light.min.css" /> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/mmenuLight/css/theme/uno/mmenu.min.css" /> <script sync src="/assets/themes/j1/modules/mmenuLight/js/mmenu.js"></script> <script sync src="/assets/themes/j1/adapter/js/mmenu.js"></script> <script sync src="/assets/themes/j1/adapter/js/themer.js"></script> <script sync src="/assets/themes/j1/adapter/js/toccer.js"></script> <script sync src="/assets/themes/j1/adapter/js/cookieConsent.js"></script> <script sync src="/assets/themes/j1/modules/cookieConsent/js/cookieConsent.min.js"></script> <script sync src="/assets/themes/j1/modules/themeSwitcher/js/switcher.min.js"></script> <script sync src="/assets/themes/j1/adapter/js/bmd.js"></script> <script sync src="/assets/themes/j1/modules/bmd/js/bootstrap-material-design.min.js"></script> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/rtable/css/theme/uno/rtable.min.css" /> <script sync src="/assets/themes/j1/adapter/js/rtable.js"></script> <script sync src="/assets/themes/j1/modules/rtable/js/rtable.min.js"></script> <script defer src="/assets/themes/j1/adapter/js/asciidoctor.js"></script> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/rouge/css/base16/theme.css" /> <script defer src="/assets/themes/j1/adapter/js/rouge.js"></script> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/lightbox/css/lightbox.min.css" /> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/lightbox/css/theme/uno.min.css" /> <script defer src="/assets/themes/j1/adapter/js/lightbox.js"></script> <script defer src="/assets/themes/j1/modules/lightbox/js/lightbox.min.js"></script> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/icon-fonts/twemoji.min.css" /> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/icon-fonts/iconify.min.css" /> <script defer src="/assets/themes/j1/modules/iconifyAPI/js/iconify.min.js"></script> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/fam/css/theme/uno/fam.min.css" /> <script sync src="/assets/themes/j1/modules/materialize/js/cash.js"></script> <script sync src="/assets/themes/j1/modules/fam/js/fam.js"></script> <script sync src="/assets/themes/j1/adapter/js/fam.js"></script> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/lunrSearch/css/quicksearch.min.css" /> <script defer src="/assets/themes/j1/adapter/js/quicksearch.js"></script> <script defer src="/assets/themes/j1/modules/lunrSearch/js/lunr.min.js"></script> <script defer src="/assets/themes/j1/modules/lunrSearch/js/mustache.min.js"></script> <script defer src="/assets/themes/j1/modules/lunrSearch/js/dateformat.min.js"></script> <script defer src="/assets/themes/j1/modules/lunrSearch/js/uri.min.js"></script> <script defer src="/assets/themes/j1/modules/lunrSearch/js/quicksearch.min.js"></script> </head> <body> <div id="no_flicker" style="display: none"> <div id="navigator_nav_topsearch" class="top-search ml-4 mr-4" style="display: none;"> <div class="input-group"> <span class="input-group-addon"><i class="mdi mdi-magnify mdi-2x" style="color:#9E9E9E"></i></span> <input id="search-query" type="text" name="q" placeholder="QuickSearch" autocomplete="off" class="form-control"> <span id="clear-topsearch" class="form-clear form-clear-searcher d-none mt-2"><i class="mdi mdi-format-clear mdi-2x" style="color:#9E9E9E"></i></span> <span class="input-group-addon close-search"><i class="mdi mdi-close mdi-3x" style="color:#9E9E9E"></i></span> </div> <div class="search-results hide-scrollbar"> <section id="search-results" style="display: none"></section> </div> <script id="search-results-template" type="text/mustache"> <ul style="list-style: none; margin-left: .5rem; margin-right: 4.25rem"> {{#docs}} <li> <h4 class="result-item"> <a href="{{url}}" target="_blank">{{title}} · {{tagline}}</a> </h4> <p class="result-item-text small text-muted mt-2 mb-0"> <i class="mdi mdi-calendar-blank mdi-18px mr-1"></i>{{displaydate}} </p> <p class="result-item-text">{{description}}</p> <p class="result-item-text small text-muted mb-3"> <i class="mdi mdi-tag mdi-18px mr-1"></i><span class="sr-tags">{{#tags}} {{.}} · {{/tags}}</span> <i class="mdi mdi-tag-text-outline mdi-18px mr-1 ml-2"></i><span class="sr-categories">{{#categories}} {{.}} · {{/categories}}</span> </p> </li> {{/docs}} <ul> </script> </div> <nav id="navigator_nav_mmenu"></nav> <nav id="navigator_toc_mmenu"></nav> <nav id="navigator_sidebar_mmenu"></nav> <nav id="" class="navbar navigator navbar-expand-lg navbar-default light navbar-fixed navbar-transparent"> <a href="#" id="navbar-brand" class="navbar-brand"> <img src="/assets/images/modules/icons/j1/j1-512x512.png" height="48" alt="Starter@Netlify"></a> <button id="mmenu-button" type="button" class="navigator navbar-toggler animated fadeIn" data-toggle="collapse" data-target="#navigator_nav_menu" aria-controls="navigator_nav_menu" aria-expanded="false" aria-label="Toggle navigation"> <i class="mdi mdi-menu mdi-36px"></i> </button> <div id="navigator_nav_menu" class="collapse"></div> <div id="navigator_nav_quicklinks" class="attr-nav collapse navbar-collapse justify-content-end"></div> </nav> <div id="authclient_modals" class="authclient_modals"></div> <header id="header"> <div id="image_attic" class="attic"> <div class="container"> <div id="head-title" class="head-title animated"> <h2 id="head-title-text" class="notoc">Roundtrip</h2></div> <div id="head-tagline" class="head-tagline animated"> <h3 id="head-tagline-tagline" class="notoc">asciidoc extensions</h3></div> <div class="attic-caption"></div> </div> </div> </header> <div id="content" class="container mb-5"> <main id="main-content" class="r-text-300 js-toc-content"> <div class="paragraph"> <p>J1 Template implements some incubating Ruby-based extensions for Asciidoctor. Most extensions are based on the examples given with the <a href="https://github.com/asciidoctor/asciidoctor-extensions-lab" target="_blank" rel="noopener">Asciidoctor Extensions Lab</a>. If you simply want to use the extensions from this repository, go ahead to <a href="https://github.com/asciidoctor/asciidoctor-extensions-lab#using-an-extension" target="_blank" rel="noopener">Using an extension</a>.</p> </div> <div class="paragraph"> <p>To create extensions on your own, it is highly recommended to read the <a href="http://asciidoctor.org/docs/user-manual/#extensions" target="_blank" rel="noopener">extensions section</a> in the Asciidoctor user manual.</p> </div> <div class="sect1"> <h2 id="asciidoc-extensions">Asciidoc Extensions</h2> <div class="sectionbody"> <div class="paragraph"> <p>All already implemented Asciidoctor Extensions can be found below. Additional valuable extensions to the Markup language Asciidoc to the Markup language Asciidoc are made especially for documents of the Jekyll content type pages (but can be used for posts or collections as well).</p> </div> </div> </div> <div class="sect1"> <h2 id="asciidoc-code">Asciidoc Code</h2> <div class="sectionbody"> <div class="paragraph"> <p>J1 Template adds a simple Javascript based on the <code>View Result Extension</code> to any <code>listingblock</code>. The extension adds an interactive toggle button <code>VIEW</code> to the output of an Asciidoc listing block box placed to the top right of the example box. If a result block <code>[.result]</code> is placed under a <code>listingblock</code>, clicking the toggle button <code>VIEW</code> displays (or hide) the content given by the <code>result block</code>.</p> </div> <div class="paragraph"> <p>The <code>View Result Extension</code> is quite helpful, for sections discussing Asciidoc code and how the resulting (HTML) code would look alike.</p> </div> <div class="listingblock noclip"> <div class="title">This example place a button <code>VIEW</code> top right of the example box</div> <div class="content"><pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="o">*</span> <span class="n">displayed</span> <span class="n">always</span></span></code></pre></div> </div> <div class="exampleblock result"> <div class="content"> <div class="literalblock"> <div class="content"><pre>displayed till clicked, but closed on second click</pre></div> </div> </div> </div> </div> </div> <div class="sect1"> <h2 id="asciidoc-admonitions">Asciidoc Admonitions</h2> <div class="sectionbody"> <div class="paragraph"> <p>All colors for all default admonition blocks set to the standard MD color set. Find available block types an their colors below.</p> </div> <div class="admonitionblock note"> <table> <tr> <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> <td class="content"> <div class="title">NOTE block</div> Icon background-color: indigo </td> </tr> </table> </div> <div class="admonitionblock tip"> <table> <tr> <td class="icon"> <i class="fa icon-tip" title="Tip"></i> </td> <td class="content"> <div class="title">TIP block</div> Icon background-color: green </td> </tr> </table> </div> <div class="admonitionblock important"> <table> <tr> <td class="icon"> <i class="fa icon-important" title="Important"></i> </td> <td class="content"> <div class="title">IMPORTANT block</div> Icon background-color: orange </td> </tr> </table> </div> <div class="admonitionblock warning"> <table> <tr> <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> <td class="content"> <div class="title">WARNING block</div> Icon background-color: yellow </td> </tr> </table> </div> <div class="admonitionblock caution"> <table> <tr> <td class="icon"> <i class="fa icon-caution" title="Caution"></i> </td> <td class="content"> <div class="title">CAUTION block</div> Icon background-color: red </td> </tr> </table> </div> </div> </div> <div class="sect1"> <h2 id="lightboxes">Lightboxes</h2> <div class="sectionbody"> <div class="paragraph"> <p>To make the use of the built-in Lightbox easier, the J1 Template offers an Asciidoc extension: the LightBox block macro. The <code>lightbox::</code> block macro embeds one or more images into the output document and puts the default Lightbox for J1 automatically on. For all images, the <code>size</code> (width) and individual <code>caption text</code> can be configured.</p> </div> <div class="listingblock noclip"> <div class="title">Lightbox Block</div> <div class="content"><pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="p">.</span><span class="n">block_title</span></span>
-<span id="L2" class="line"><span class="n">lightbox::block_id</span><span class="p">[</span> <span class="n">images_width</span><span class="p">,</span> <span class="n">images_data</span> <span class="p">[,</span> <span class="n">group_name</span><span class="p">]</span> <span class="p">]</span></span></code></pre></div> </div> <div class="admonitionblock note"> <table> <tr> <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> <td class="content"> For a <code>lightbox::</code> block, images are placed in the output document without any other scaling than in width - they are placed using simple HTML <code>img</code> tags. This is fine for images that are even in size. For images in different sizes, a gallery should be used as a J1 Gallery Apps to rearrange images and make them fit at their best for the available space. </td> </tr> </table> </div> <div class="sect2"> <h3 id="standalone-images">Standalone Images</h3> <div class="paragraph"> <p>For your convenience and better readability, the image data should be defined as Asciidoc attributes. The image data is given as a string of data pairs:</p> </div> <div class="listingblock noclip"> <div class="title">Paired attributes</div> <div class="content"><pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="s2">"path/to/image-1, image-caption-1, ..."</span></span></code></pre></div> </div> <div class="listingblock noclip"> <div class="title">Example of an data attribute for a lightbox block</div> <div class="content"><pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="n">:data</span><span class="o">-</span><span class="n">images:</span> <span class="s2">"pages/image-1.jpg, Description 1, "</span><span class="n">pages</span><span class="o">/</span><span class="n">image</span><span class="mi">-2</span><span class="p">.</span><span class="n">jpg</span><span class="p">,</span> <span class="n">Description</span> <span class="mi">2</span><span class="s2">"</span></span></code></pre></div> </div> <div class="paragraph"> <p>The base path for all image-related data is a side-wide (Asciidoc) configuration (see <code>_config.yml</code>) and points per default to <code>/assets/images</code>. The base path is automatically added to each image. If you want to use the default asset path for images, a relative path needs to be given for <code>path/to/image</code>.</p> </div> <div class="admonitionblock warning"> <table> <tr> <td class="icon"> <i class="fa icon-warning" title="Warning"></i> </td> <td class="content"> If an absolute path is configured, like <code>/path/to/image</code>, the base path gets ignored - this is the default behavior of the Asciidoc Markup processor. If an absolute path is given, the full path to the images used has to be configured. </td> </tr> </table> </div> <div class="paragraph"> <p>The parameter <code>group</code> for the <code>lightbox::</code> block is an option. If no <code>group</code> parameter is given for a block, the related images are treated as standalone.</p> </div> <div class="listingblock noclip"> <div class="title">Lightbox block for standalone images</div> <div class="content"><pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="n">lightbox::images</span><span class="o">-</span><span class="n">standalone</span><span class="p">[</span> <span class="mi">400</span><span class="p">,</span> <span class="p">{</span><span class="na">data-images-standalone</span><span class="p">}</span> <span class="p">]</span></span></code></pre></div> </div> <div id="lb-images-standalone" class="imageblock mb-3"> <div class="title">Lightbox block for standalone images</div> <div class="content"> <a class="notoc" href="/assets/images/pages/roundtrip/100_present_images/lightbox-image-1.jpg" data-lightbox="pages/roundtrip/100_present_images/lightbox-image-1.jpg" data-title="Golden Gate Bridge with San Francisco in distance"> <img class="img-fluid" src="/assets/images/pages/roundtrip/100_present_images/lightbox-image-1.jpg" alt="Lightbox block for standalone images" width="400"/> </a> <a class="notoc" href="/assets/images/pages/roundtrip/100_present_images/lightbox-image-2.jpg" data-lightbox="pages/roundtrip/100_present_images/lightbox-image-2.jpg" data-title="Forest with mountains behind"> <img class="img-fluid" src="/assets/images/pages/roundtrip/100_present_images/lightbox-image-2.jpg" alt="Lightbox block for standalone images" width="400"/> </a> </div> </div> </div> <div class="sect2"> <h3 id="grouped-images">Grouped Images</h3> <div class="paragraph"> <p>If more than a single image is given for a <code>lightbox::</code> block, the images can be grouped together to enable a simple sliding functionality through this group of related images. To enable grouping, the option <code>group</code> needs to be configured for the block.</p> </div> <div class="listingblock noclip"> <div class="title">Lightbox block for grouped images</div> <div class="content"><pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="n">lightbox::images</span><span class="o">-</span><span class="n">group</span><span class="p">[</span> <span class="mi">400</span><span class="p">,</span> <span class="p">{</span><span class="na">data-images-group</span><span class="p">},</span> <span class="n">group_name</span> <span class="p">]</span></span></code></pre></div> </div> <div id="lb-images-group" class="imageblock mb-3"> <div class="title">Lightbox block for grouped images</div> <div class="content"> <a class="notoc" href="/assets/images/pages/roundtrip/100_present_images/lightbox-image-1.jpg" data-lightbox="lb-images-group" data-title="Golden Gate Bridge with San Francisco in distance"> <img class="img-fluid" src="/assets/images/pages/roundtrip/100_present_images/lightbox-image-1.jpg" alt="Lightbox block for grouped images" width="400"/> </a> <a class="notoc" href="/assets/images/pages/roundtrip/100_present_images/lightbox-image-2.jpg" data-lightbox="lb-images-group" data-title="Forest with mountains behind"> <img class="img-fluid" src="/assets/images/pages/roundtrip/100_present_images/lightbox-image-2.jpg" alt="Lightbox block for grouped images" width="400"/> </a> </div> </div> </div> </div> </div> <div class="sect1"> <h2 id="icon-fonts">Icon Fonts</h2> <div class="sectionbody"> <div class="paragraph"> <p>The J1 Template comes with full icon support for Asciidoc documents included. All icon fonts are supported:</p> </div> <div class="ulist"> <ul> <li> <p>FA (FontAwesome)</p> </li> <li> <p>MDI (MaterialDesign icons)</p> </li> <li> <p>Iconify</p> </li> <li> <p>Twitter Emoji</p> </li> </ul> </div> </div> </div> <div class="sect1"> <h2 id="material-designs-icons">Material Designs Icons</h2> <div class="sectionbody"> <div class="paragraph"> <p>Material Designs Icons can be used as inline icons by using the <code>mdi:</code> inline macro:</p> </div> <div class="listingblock noclip"> <div class="content"><pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="n">mdi:icon_name</span><span class="p">[</span><span class="n">icon_size</span><span class="p">,</span> <span class="n">modifier</span><span class="p">]</span>   <i class="conum" data-value="1"></i><b>(1)</b> <i class="conum" data-value="2"></i><b>(2)</b> <i class="conum" data-value="3"></i><b>(3)</b></span></code></pre></div> </div> <div class="colist arabic"> <table> <tr> <td><i class="conum" data-value="1"></i><b>1</b></td> <td>All <code>icon_name</code> can be found on the Preview page for MDI Icon Previewer</td> </tr> <tr> <td><i class="conum" data-value="2"></i><b>2</b></td> <td>The <code>icon_size</code> attribute can be one of: <code>xs</code>, <code>sm</code>, <code>lg</code> and <code>1x</code> to <code>10x</code></td> </tr> <tr> <td><i class="conum" data-value="3"></i><b>3</b></td> <td>The <code>modifier</code> can be used to set the e.g the color (md-blue), an animation (fa-pulsed) or the orientation (fa-rotate-45)</td> </tr> </table> </div> <div class="listingblock noclip"> <div class="title">Click on <em>view result</em> to see how it&#8217;s looks alike</div> <div class="content"><pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="n">mdi:home</span><span class="p">[</span><span class="mi">2</span><span class="n">x</span><span class="p">,</span> <span class="n">mdi</span><span class="o">-</span><span class="n">pulsed</span> <span class="n">ml</span><span class="mi">-3</span> <span class="n">mr</span><span class="mi">-2</span> <span class="n">mb</span><span class="mi">-2</span><span class="p">]</span> <span class="n">Symbol</span> <span class="n">icon</span> <span class="p">(</span><span class="n">pulsed</span><span class="p">)</span> <span class="o">+</span></span>
+            <!DOCTYPE html>
+<html lang="en">
+  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2021-07-22 10:28:20 +0000 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ environment detected as: development ] -->
+  <head data-proofer-ignore>
+    <!-- [INFO   ] [j1.layout.default.html                ] [ call default_writer for region: 'head' ] -->
+    <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: page ] -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ start processing: place meta tags (taken from site config|page frontmatter) ] -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ page|content encoding ] -->
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ added for MS Edge Browser ] -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ initial zoom level when the page is first loaded by the browser ] -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>asciidoc extensions</title>
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ SIZE of page description: 36 ] -->
+    <!-- [SEO    ] [j1.layout.meta_data_generator.html    ] [ GRATULATIONS. Your page description has more than 15 word. (Recommended: 70-160 characters  ) ] -->
+    <meta name="description" content="J1 Template implements some incubating Ruby-based extensions for Asciidoctor. Most extensions are based on the examples given with the Asciidoctor Extensions Lab. All implemented Asciidoctor Extensions can be found in this article.
+">
+    <link rel="icon" type="image/ico" href="/assets/images/modules/icons/j1/j1-32x32.ico">
+    <meta name="author" content="J1 Team">
+    <meta name="keywords" content="Jekyll, One, Template, Ruby, Asciidoctor, Asciidoc, Bootstrap, Javascript, JS, JS3, CSS, CSS3, HTML5, Material, Design">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ Check robot settings from SITE configuration ] -->
+    <!-- [DEBUG  ] [j1.layout.meta_data_generator.html    ] [ Set DEFAULT configuration robots_index: noindex  ] -->
+    <!-- [DEBUG  ] [j1.layout.meta_data_generator.html    ] [ Set DEFAULT configuration robots_follow: nofollow  ] -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ Check robot settings from PAGE configuration ] -->
+    <!-- [DEBUG  ] [j1.layout.meta_data_generator.html    ] [ Found PAGE configuration robots_index: false ] -->
+    <!-- [DEBUG  ] [j1.layout.meta_data_generator.html    ] [ Found PAGE configuration robots_follow: false ] -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ Place detected/overloaded meta tags for robots ] -->
+    <meta name="robots" content="noindex">
+    <meta name="robots" content="nofollow">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for provider APIs: analytics ] -->
+    <meta name="analytics" content="true">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for provider APIs: comments ] -->
+    <meta name="comments" content="true">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for provider APIs: advertising ] -->
+    <meta name="advertising" content="false">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for provider APIs: youtube ] -->
+    <meta name="youtube" content="true">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for provider APIs: vimeo ] -->
+    <meta name="vimeo" content="true">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for privacy settings: personalization ] -->
+    <meta name="personalization" content="false">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ PRELOAD of fonts: disabled ] -->
+    <!-- [SEO    ] [j1.layout.meta_data_generator.html    ] [ Consider! PRELOAD primary used fonts to prioritize fetching ] -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ Gratulations! PRELOAD of css: enabled ] -->
+    <!-- [SEO    ] [j1.layout.meta_data_generator.html    ] [ request PRELOAD of font to prioritize fetching ] -->
+    <link rel="preload" as="style" href="/assets/themes/j1/core/css/themes/uno-light/bootstrap.css">
+    <link rel="preload" as="style" href="/assets/themes/j1/core/css/vendor.css">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ Gratulations! PRELOAD of js: enabled ] -->
+    <!-- [SEO    ] [j1.layout.meta_data_generator.html    ] [ request PRELOAD of font to prioritize fetching ] -->
+    <link rel="preload" as="script" href="/assets/themes/j1/modules/bmd/js/bootstrap-material-design.js">
+    <link rel="preload" as="script" href="/assets/themes/j1/modules/backstretch/js/backstretch.js">
+    <link rel="preload" as="script" href="/assets/themes/j1/core/js/template.js">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ PRELOAD js as FILE ] -->
+    <link rel="preload" as="script" href="/assets/themes/j1/adapter/js/attic.js">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ PRELOAD js as FILE ] -->
+    <link rel="preload" as="script" href="/assets/themes/j1/adapter/js/logger.js">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ PRELOAD js as FILE ] -->
+    <link rel="preload" as="script" href="/assets/themes/j1/adapter/js/bmd.js">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ PRELOAD js as FILE ] -->
+    <link rel="preload" as="script" href="/assets/themes/j1/adapter/js/navigator.js">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ PRELOAD of images: disabled ] -->
+    <!-- [SEO    ] [j1.layout.meta_data_generator.html    ] [ Consider! PRELOAD primary|globally used image files to prioritize fetching ] -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ Gratulations! PRECONNECT of remote URLs: enabled ] -->
+    <!-- [SEO    ] [j1.layout.meta_data_generator.html    ] [ request PRECONNECT of 3rd party origins to speed up remote connections ] -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ establish early connection: https://bootswatch.com ] -->
+    <link rel="dns-prefetch" href="https://bootswatch.com">
+    <link rel="preconnect" href="https://bootswatch.com">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ end processing ] -->
+    <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
+    <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: page ] -->
+    <!-- [INFO   ] [j1.modules.connectors.analytics       ] [ Check analytics settings from SITE configuration ] -->
+    <!-- [INFO   ] [j1.modules.connectors.analytics       ] [ detected analytics (site): true ] -->
+    <!-- [INFO   ] [j1.modules.connectors.analytics       ] [ Check analytics settings from PAGE configuration ] -->
+    <!-- [INFO   ] [j1.modules.connectors.analytics       ] [ detected analytics (page): true ] -->
+    <!-- [INFO   ] [j1.modules.connectors.analytics       ] [ detected analytics provider (j1_config): google} ] -->
+    <!-- [INFO   ] [j1.modules.connectors.analytics       ] [ start processing load region head, layout: page ] -->
+    <!-- [INFO   ] [j1.modules.connectors.analytics       ] [ place Google Analytics ] -->
+    <!-- load the GA library -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZGNE0WE42"></script>
+    <!-- GA depends on the cookie consent and is enabled/disabled on OptIn/Out-->
+    <!--
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8ZGNE0WE42');
+</script>
+-->
+    <!-- [INFO   ] [j1.modules.connectors.analytics       ] [ end processing ] -->
+    <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
+    <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: page ] -->
+    <!-- [INFO   ] [j1.modules.connectors.translation     ] [ Check translation settings from SITE configuration ] -->
+    <!-- [INFO   ] [j1.modules.connectors.translation     ] [ detected translation (site):  ] -->
+    <!-- [INFO   ] [j1.modules.connectors.translation     ] [ Check translation settings from PAGE configuration ] -->
+    <!-- [INFO   ] [j1.modules.connectors.translation     ] [ detected translation (page):  ] -->
+    <!-- [INFO   ] [j1.modules.connectors.translation     ] [ end processing ] -->
+    <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
+    <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: page ] -->
+    <!-- [INFO   ] [j1.modules.connectors.ads             ] [ Check ads settings from SITE configuration ] -->
+    <!-- [INFO   ] [j1.modules.connectors.ads             ] [ detected ads (site): false ] -->
+    <!-- [INFO   ] [j1.modules.connectors.ads             ] [ Check ads settings from PAGE configuration ] -->
+    <!-- [INFO   ] [j1.modules.connectors.ads             ] [ detected ads (page): false ] -->
+    <!-- [INFO   ] [j1.modules.connectors.ads             ] [ end processing ] -->
+    <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
+    <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: page ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ start processing region: head, layout: page ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: core ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, template core ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place css files for resource ID: core ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/themes/uno-light/bootstrap.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, template core ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place css files for resource ID: core ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/icon-fonts/materialdesign.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, template core ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place css files for resource ID: core ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/icon-fonts/fontawesome.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, template core ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place css files for resource ID: core ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/vendor.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, template core ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: core ] -->
+    <script sync src="/assets/themes/j1/modules/util/js/gtag-opt-in.js"></script>
+    <script sync src="/assets/themes/j1/adapter/js/j1.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all template core ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: core ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script sync src="/assets/themes/j1/modules/jquery/js/jquery.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all template core ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: core ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script sync src="/assets/themes/j1/modules/jquery/js/jqueryUI.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all template core ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: core ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script sync src="/assets/themes/j1/modules/popper/js/popper.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all template core ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: core ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script sync src="/assets/themes/j1/core/js/template.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: logger ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, module logger ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: logger ] -->
+    <script sync src="/assets/themes/j1/adapter/js/logger.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all module logger ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: logger ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script sync src="/assets/themes/j1/modules/log4javascript/js/log4javascript.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: backstretch ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Backstretch ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: backstretch ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all Backstretch ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: backstretch ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script sync src="/assets/themes/j1/modules/backstretch/js/backstretch.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: attic ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, module attic ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: attic ] -->
+    <script sync src="/assets/themes/j1/adapter/js/attic.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: navigator ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, module navigator ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: navigator ] -->
+    <script sync src="/assets/themes/j1/adapter/js/navigator.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: mmenu ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, module mmenu ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place css files for resource ID: mmenu ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/mmenuLight/css/mmenu-light.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, module mmenu ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place css files for resource ID: mmenu ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/mmenuLight/css/theme/uno/mmenu.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, module mmenu ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: mmenu ] -->
+    <script sync src="/assets/themes/j1/modules/mmenuLight/js/mmenu.js"></script>
+    <script sync src="/assets/themes/j1/adapter/js/mmenu.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: themer ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, module themer ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: themer ] -->
+    <script sync src="/assets/themes/j1/adapter/js/themer.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: toccer ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive, module toccer ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive, place general file resources for resource_settings.id: toccer ] -->
+    <script sync src="/assets/themes/j1/adapter/js/toccer.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: back2top ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: cookieConsent ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, module cookieConsent ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: cookieConsent ] -->
+    <script sync src="/assets/themes/j1/adapter/js/cookieConsent.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all module cookieConsent ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: cookieConsent ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script sync src="/assets/themes/j1/modules/cookieConsent/js/cookieConsent.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: jq_mouse_wheel ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: theme_switcher ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, module theme_switcher ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: theme_switcher ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all module theme_switcher ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: theme_switcher ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script sync src="/assets/themes/j1/modules/themeSwitcher/js/switcher.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: bmd ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Material Design for Bootstrap ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: bmd ] -->
+    <script sync src="/assets/themes/j1/adapter/js/bmd.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all Material Design for Bootstrap ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: bmd ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script sync src="/assets/themes/j1/modules/bmd/js/bootstrap-material-design.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: materialze ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: rtable ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, module rtable ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place css files for resource ID: rtable ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/rtable/css/theme/uno/rtable.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, module rtable ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: rtable ] -->
+    <script sync src="/assets/themes/j1/adapter/js/rtable.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all module rtable ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: rtable ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script sync src="/assets/themes/j1/modules/rtable/js/rtable.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: asciidoctor ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: collection, HTML modifier for Asciidoctor ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: collection, place general file resources for resource_settings.id: asciidoctor ] -->
+    <script defer src="/assets/themes/j1/adapter/js/asciidoctor.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: rouge ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: collection, theme rouge ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: collection, place general file resources for resource_settings.id: rouge ] -->
+    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/rouge/css/base16/theme.css">
+    <script defer src="/assets/themes/j1/adapter/js/rouge.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: animate ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: justifiedGalleryCustomizer ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: framer ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: lightbox ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: collection, module lightbox ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: collection, place css files for resource ID: lightbox ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/lightbox/css/lightbox.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: collection, module lightbox ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: collection, place css files for resource ID: lightbox ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/lightbox/css/theme/uno.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: collection, module lightbox ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: collection, place general file resources for resource_settings.id: lightbox ] -->
+    <script defer src="/assets/themes/j1/adapter/js/lightbox.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: collection module lightbox ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout collection, place js files for resource ID: lightbox ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script defer src="/assets/themes/j1/modules/lightbox/js/lightbox.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: twemoji ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: collection, module twemoji ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: collection, place css files for resource ID: twemoji ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/icon-fonts/twemoji.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: collection, module twemoji ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: collection, place general file resources for resource_settings.id: twemoji ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: twemoji_picker ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: mdi_previewer ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: iconify ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: collection, Iconify framework ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: collection, place css files for resource ID: iconify ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/icon-fonts/iconify.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: collection, Iconify framework ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: collection, place general file resources for resource_settings.id: iconify ] -->
+    <script defer src="/assets/themes/j1/modules/iconifyAPI/js/iconify.min.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: algolia ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: clipboard ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: carousel ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: justifiedGallery ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: lightGallery ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: video_js ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: vimeo_froogaloop ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: vimeo_player ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: nouislider ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: stacker ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: fam ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive, Floating Button Menu ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive, place css files for resource ID: fam ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/fam/css/theme/uno/fam.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive, Floating Button Menu ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive, place general file resources for resource_settings.id: fam ] -->
+    <script sync src="/assets/themes/j1/modules/materialize/js/cash.js"></script>
+    <script sync src="/assets/themes/j1/modules/fam/js/fam.js"></script>
+    <script sync src="/assets/themes/j1/adapter/js/fam.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: quicksearch ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, J1 QuickSearch ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place css files for resource ID: quicksearch ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/lunrSearch/css/quicksearch.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, J1 QuickSearch ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: quicksearch ] -->
+    <script defer src="/assets/themes/j1/adapter/js/quicksearch.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all J1 QuickSearch ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: quicksearch ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script defer src="/assets/themes/j1/modules/lunrSearch/js/lunr.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all J1 QuickSearch ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: quicksearch ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script defer src="/assets/themes/j1/modules/lunrSearch/js/mustache.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all J1 QuickSearch ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: quicksearch ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script defer src="/assets/themes/j1/modules/lunrSearch/js/dateformat.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all J1 QuickSearch ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: quicksearch ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script defer src="/assets/themes/j1/modules/lunrSearch/js/uri.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all J1 QuickSearch ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: quicksearch ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script defer src="/assets/themes/j1/modules/lunrSearch/js/quicksearch.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: datatables ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ end processing ] -->
+    <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
+    <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ placement for all lane items finished ] -->
+    <!-- [DEBUG  ] [j1.layout.default_writer.proc         ] [ reset all lane items ] -->
+    <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing ] -->
+    <!-- [INFO   ] [j1.layout.default.html                ] [ end default_writer for region: 'head' ] -->
+  </head>
+  <body>
+    <!-- [INFO   ] [j1.layout.default.html                ] [ start page processing for region: 'body' ] -->
+    <!-- [INFO   ] [j1.layout.default.html                ] [ place wrapper to prevent "DOM flicker" ] -->
+    <!-- [INFO   ] [j1.layout.default.html                ] [ make page hidden ] -->
+    <!-- div id="no_flicker" class="nojs" -->
+    <div id="no_flicker" style="display: none">
+      <!-- [INFO   ] [j1.layout.default.html                ] [ call default_writer for region: 'body-navigation' ] -->
+      <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region body-navigation, layout: page ] -->
+      <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ check for topsearch ] -->
+      <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ start processing: topsearch ] -->
+      <!-- [INFO   ] [j1.modules.navigator.topsearch.proc   ] [ start processing: top search ] -->
+      <div id="navigator_nav_topsearch" class="top-search ml-4 mr-4" style="display: none;">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="mdi mdi-magnify mdi-2x" style="color:#9E9E9E"></i></span>
+          <input id="search-query" type="text" name="q" placeholder="QuickSearch" autocomplete="off" class="form-control">
+          <span id="clear-topsearch" class="form-clear form-clear-searcher d-none mt-2"><i class="mdi mdi-format-clear mdi-2x" style="color:#9E9E9E"></i></span>
+          <span class="input-group-addon close-search"><i class="mdi mdi-close mdi-3x" style="color:#9E9E9E"></i></span>
+        </div>
+        <!-- [INFO   ] [j1.modules.navigator.topsearch.proc   ] [ place: results container ] -->
+        <div class="search-results hide-scrollbar">
+          <section id="search-results" style="display: none"></section>
+        </div>
+        <!-- [INFO   ] [j1.modules.navigator.topsearch.proc   ] [ place: mustache template ] -->
+        <script id="search-results-template" type="text/mustache">
+          <ul style="list-style: none; margin-left: .5rem; margin-right: 4.25rem">
+          {{#docs}}
+            <li>
+              <h4 class="result-item"> <a href="{{url}}" target="_blank">{{title}} · {{tagline}}</a> </h4>
+              <p class="result-item-text small text-muted mt-2 mb-0">
+                <i class="mdi mdi-calendar-blank mdi-18px mr-1"></i>{{displaydate}}
+              </p>
+              <p class="result-item-text">{{description}}</p>
+              <p class="result-item-text small text-muted mb-3">
+                <i class="mdi mdi-tag mdi-18px mr-1"></i><span class="sr-tags">{{#tags}} {{.}} · {{/tags}}</span>
+                <i class="mdi mdi-tag-text-outline mdi-18px mr-1 ml-2"></i><span class="sr-categories">{{#categories}} {{.}} · {{/categories}}</span>
+              </p>
+            </li>
+          {{/docs}}
+          <ul>
+        </script>
+      </div>
+      <!-- [INFO   ] [j1.modules.navigator.topsearch.proc   ] [ end processing: top search ] -->
+      <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ end processing: topsearch ] -->
+      <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ start processing: mmenu ] -->
+      <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ place mmenu container navigator_nav_mmenu for AJAX load ] -->
+      <nav id="navigator_nav_mmenu"></nav>
+      <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ place mmenu container navigator_toc_mmenu for AJAX load ] -->
+      <nav id="navigator_toc_mmenu"></nav>
+      <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ place mmenu container navigator_sidebar_mmenu for AJAX load ] -->
+      <nav id="navigator_sidebar_mmenu"></nav>
+      <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ start processing: navigation ] -->
+      <nav id="" class="navbar navigator navbar-expand-lg navbar-default light navbar-fixed navbar-transparent">
+        <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ start processing: main menue ] -->
+        <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ place brand to the: right ] -->
+        <a href="#" id="navbar-brand" class="navbar-brand"> <img src="/assets/images/modules/icons/j1/j1-512x512.png" height="48" alt="Starter@Netlify"></a>
+        <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ place mobile menu button to the: left ] -->
+        <button id="mmenu-button" type="button" class="navigator navbar-toggler animated fadeIn" data-toggle="collapse" data-target="#navigator_nav_menu" aria-controls="navigator_nav_menu" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="mdi mdi-menu mdi-36px"></i>
+        </button>
+        <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ start processing: nav bar ] -->
+        <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ place nav menu container for AJAX load (desktop) ] -->
+        <div id="navigator_nav_menu" class="collapse"></div>
+        <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ check for quicklinks ] -->
+        <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ quicklinks enabled: true ] -->
+        <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ place container for: quicklinks ] -->
+        <div id="navigator_nav_quicklinks" class="attr-nav collapse navbar-collapse justify-content-end"></div>
+        <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ end processing for: quicklinks ] -->
+      </nav>
+      <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ check for: authclient ] -->
+      <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ authclient enabled: false ] -->
+      <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ place container for: authclient ] -->
+      <div id="authclient_modals" class="authclient_modals"></div>
+      <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ end processing: auth_client ] -->
+      <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ end processing: navigation ] -->
+      <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
+      <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ placement for all lane items finished ] -->
+      <!-- [DEBUG  ] [j1.layout.default_writer.proc         ] [ reset all lane items ] -->
+      <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing ] -->
+      <!-- [INFO   ] [j1.layout.default.html                ] [ end processing default_writer for region: 'body-navigation' ] -->
+      <!-- [INFO   ] [j1.layout.default.html                ] [ place content inherited by layout: page ] -->
+      <!-- [INFO   ]  [j1.layout.page.html                   ] [ start content processing ] -->
+      <!-- [INFO   ] [j1.layout.page.html                    ] [ call default_writer for region: 'body-header' ] -->
+      <header id="header">
+        <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region body-header, layout: page ] -->
+        <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ load page specific header data from yaml data file ] -->
+        <!-- [INFO   ] [j1.modules.attics.generator.html             ] [ place attic detected: image_attic ] -->
+        <div id="image_attic" class="attic">
+          <div class="container">
+            <div id="head-title" class="head-title animated"> 
+              <h2 id="head-title-text" class="notoc">Roundtrip</h2>
+            </div>
+            <div id="head-tagline" class="head-tagline animated"> 
+              <h3 id="head-tagline-tagline" class="notoc">asciidoc extensions</h3>
+            </div>
+            <!-- Image caption container (display: none per default) -->
+            <!-- div class="attic-caption text-emphasis-"></div -->
+            <div class="attic-caption"></div>
+          </div>
+        </div>
+        <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
+        <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
+        <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ placement for all lane items finished ] -->
+        <!-- [DEBUG  ] [j1.layout.default_writer.proc         ] [ reset all lane items ] -->
+        <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing ] -->
+      </header>
+      <!-- [INFO   ] [j1.layout.page.html                    ] [ end default_writer processing for region: 'body-header' ] -->
+      <!-- [INFO   ] [j1.layout.page.html                    ] [ call content_writer for region: 'body-main' ] -->
+      <div id="content" class="container mb-5">
+        <!-- [INFO   ] [j1.layout.content_writer.proc         ] [ start processing: load CONTENT portion for layout: page ] -->
+        <!-- [INFO   ] [j1.layout.content_writer.proc         ] [ load region 'body-main' for layout: page ] -->
+        <!-- [INFO   ] [j1.layout.content_generator_page.html ] [ start main for full page ] -->
+        <main id="main-content" class="r-text-300 js-toc-content">
+          <!-- [INFO   ] [j1.layout.content_generator_page.html ] [ begin place content ] -->
+          <div class="paragraph">
+            <p>J1 Template implements some incubating Ruby-based extensions for Asciidoctor.
+              Most extensions are based on the examples given with the
+              <a href="https://github.com/asciidoctor/asciidoctor-extensions-lab" target="_blank" rel="noopener">Asciidoctor Extensions Lab</a>.
+              If you simply want to use the extensions from this repository, go ahead to
+              <a href="https://github.com/asciidoctor/asciidoctor-extensions-lab#using-an-extension" target="_blank" rel="noopener">Using an extension</a>.</p>
+          </div>
+          <div class="paragraph">
+            <p>To create extensions on your own, it is highly recommended to read the
+              <a href="http://asciidoctor.org/docs/user-manual/#extensions" target="_blank" rel="noopener">extensions section</a> in
+              the Asciidoctor user manual.</p>
+          </div>
+          <div class="sect1">
+            <h2 id="asciidoc-extensions">Asciidoc Extensions</h2>
+            <div class="sectionbody">
+              <div class="paragraph">
+                <p>All already implemented Asciidoctor Extensions can be found below. Additional
+                  valuable extensions to the Markup language Asciidoc to the Markup language
+                  Asciidoc are made especially for documents of the Jekyll content type pages
+                  (but can be used for posts or collections as well).</p>
+              </div>
+            </div>
+          </div>
+          <div class="sect1">
+            <h2 id="asciidoc-code">Asciidoc Code</h2>
+            <div class="sectionbody">
+              <div class="paragraph">
+                <p>J1 Template adds a simple Javascript based on the <code>View Result Extension</code> to
+                  any <code>listingblock</code>. The extension adds an interactive toggle button <code>VIEW</code>
+                  to the output of an Asciidoc listing block box placed to the top right of
+                  the example box. If a result block <code>[.result]</code> is placed under a <code>listingblock</code>,
+                  clicking the toggle button <code>VIEW</code> displays (or hide) the content given by the
+                  <code>result block</code>.</p>
+              </div>
+              <div class="paragraph">
+                <p>The <code>View Result Extension</code> is quite helpful, for sections discussing
+                  Asciidoc code and how the resulting (HTML) code would look alike.</p>
+              </div>
+              <div class="listingblock noclip">
+                <div class="title">This example place a button <code>VIEW</code> top right of the example box</div>
+                <div class="content">
+                  <pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="o">*</span> <span class="n">displayed</span> <span class="n">always</span></span></code></pre>
+                </div>
+              </div>
+              <div class="exampleblock result">
+                <div class="content">
+                  <div class="literalblock">
+                    <div class="content">
+                      <pre>displayed till clicked, but closed on second click</pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sect1">
+            <h2 id="asciidoc-admonitions">Asciidoc Admonitions</h2>
+            <div class="sectionbody">
+              <div class="paragraph">
+                <p>All colors for all default admonition blocks set to the standard MD color
+                  set. Find available block types an their colors below.</p>
+              </div>
+              <div class="admonitionblock note">
+                <table>
+                  <tr>
+                    <td class="icon">
+                      <i class="fa icon-note" title="Note"></i>
+                    </td>
+                    <td class="content">
+                      <div class="title">NOTE block</div>
+                      Icon background-color: indigo
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="admonitionblock tip">
+                <table>
+                  <tr>
+                    <td class="icon">
+                      <i class="fa icon-tip" title="Tip"></i>
+                    </td>
+                    <td class="content">
+                      <div class="title">TIP block</div>
+                      Icon background-color: green
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="admonitionblock important">
+                <table>
+                  <tr>
+                    <td class="icon">
+                      <i class="fa icon-important" title="Important"></i>
+                    </td>
+                    <td class="content">
+                      <div class="title">IMPORTANT block</div>
+                      Icon background-color: orange
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="admonitionblock warning">
+                <table>
+                  <tr>
+                    <td class="icon">
+                      <i class="fa icon-warning" title="Warning"></i>
+                    </td>
+                    <td class="content">
+                      <div class="title">WARNING block</div>
+                      Icon background-color: yellow
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="admonitionblock caution">
+                <table>
+                  <tr>
+                    <td class="icon">
+                      <i class="fa icon-caution" title="Caution"></i>
+                    </td>
+                    <td class="content">
+                      <div class="title">CAUTION block</div>
+                      Icon background-color: red
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="sect1">
+            <h2 id="lightboxes">Lightboxes</h2>
+            <div class="sectionbody">
+              <div class="paragraph">
+                <p>To make the use of the built-in Lightbox easier, the J1 Template offers an
+                  Asciidoc extension: the LightBox block macro. The <code>lightbox::</code> block macro
+                  embeds one or more images into the output document and puts the default
+                  Lightbox for J1 automatically on. For all images, the <code>size</code> (width) and
+                  individual <code>caption text</code> can be configured.</p>
+              </div>
+              <div class="listingblock noclip">
+                <div class="title">Lightbox Block</div>
+                <div class="content">
+                  <pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="p">.</span><span class="n">block_title</span></span>
+<span id="L2" class="line"><span class="n">lightbox::block_id</span><span class="p">[</span> <span class="n">images_width</span><span class="p">,</span> <span class="n">images_data</span> <span class="p">[,</span> <span class="n">group_name</span><span class="p">]</span> <span class="p">]</span></span></code></pre>
+                </div>
+              </div>
+              <div class="admonitionblock note">
+                <table>
+                  <tr>
+                    <td class="icon">
+                      <i class="fa icon-note" title="Note"></i>
+                    </td>
+                    <td class="content">
+                      For a <code>lightbox::</code> block, images are placed in the output document
+                      without any other scaling than in width - they are placed using simple
+                      HTML <code>img</code> tags. This is fine for images that are even in size. For images in
+                      different sizes, a gallery should be used as a J1 Gallery Apps to rearrange
+                      images and make them fit at their best for the available space.
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="sect2">
+                <h3 id="standalone-images">Standalone Images</h3>
+                <div class="paragraph">
+                  <p>For your convenience and better readability, the image data should be
+                    defined as Asciidoc attributes. The image data is given as a string
+                    of data pairs:</p>
+                </div>
+                <div class="listingblock noclip">
+                  <div class="title">Paired attributes</div>
+                  <div class="content">
+                    <pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="s2">"path/to/image-1, image-caption-1, ..."</span></span></code></pre>
+                  </div>
+                </div>
+                <div class="listingblock noclip">
+                  <div class="title">Example of an data attribute for a lightbox block</div>
+                  <div class="content">
+                    <pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="n">:data</span><span class="o">-</span><span class="n">images:</span> <span class="s2">"pages/image-1.jpg, Description 1, "</span><span class="n">pages</span><span class="o">/</span><span class="n">image</span><span class="mi">-2</span><span class="p">.</span><span class="n">jpg</span><span class="p">,</span> <span class="n">Description</span> <span class="mi">2</span><span class="s2">"</span></span></code></pre>
+                  </div>
+                </div>
+                <div class="paragraph">
+                  <p>The base path for all image-related data is a side-wide (Asciidoc)
+                    configuration (see <code>_config.yml</code>) and points per default to <code>/assets/images</code>.
+                    The base path is automatically added to each image. If you want to use the
+                    default asset path for images, a relative path needs to be given for
+                    <code>path/to/image</code>.</p>
+                </div>
+                <div class="admonitionblock warning">
+                  <table>
+                    <tr>
+                      <td class="icon">
+                        <i class="fa icon-warning" title="Warning"></i>
+                      </td>
+                      <td class="content">
+                        If an absolute path is configured, like <code>/path/to/image</code>, the base
+                        path gets ignored - this is the default behavior of the Asciidoc Markup
+                        processor. If an absolute path is given, the full path to the images
+                        used has to be configured.
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="paragraph">
+                  <p>The parameter <code>group</code> for the <code>lightbox::</code> block is an option. If no
+                    <code>group</code> parameter is given for a block, the related images are treated as
+                    standalone.</p>
+                </div>
+                <div class="listingblock noclip">
+                  <div class="title">Lightbox block for standalone images</div>
+                  <div class="content">
+                    <pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="n">lightbox::images</span><span class="o">-</span><span class="n">standalone</span><span class="p">[</span> <span class="mi">400</span><span class="p">,</span> <span class="p">{</span><span class="na">data-images-standalone</span><span class="p">}</span> <span class="p">]</span></span></code></pre>
+                  </div>
+                </div>
+                <div id="lb-images-standalone" class="imageblock mb-3">
+                  <div class="title">Lightbox block for standalone images</div>
+                  <div class="content">
+                    <a class="notoc" href="/assets/images/pages/roundtrip/100_present_images/lightbox-image-1.jpg" data-lightbox="pages/roundtrip/100_present_images/lightbox-image-1.jpg" data-title="Golden Gate Bridge with San Francisco in distance">
+                      <img class="img-fluid" src="/assets/images/pages/roundtrip/100_present_images/lightbox-image-1.jpg" alt="Lightbox block for standalone images" width="400">
+                    </a>
+                    <a class="notoc" href="/assets/images/pages/roundtrip/100_present_images/lightbox-image-2.jpg" data-lightbox="pages/roundtrip/100_present_images/lightbox-image-2.jpg" data-title="Forest with mountains behind">
+                      <img class="img-fluid" src="/assets/images/pages/roundtrip/100_present_images/lightbox-image-2.jpg" alt="Lightbox block for standalone images" width="400">
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="sect2">
+                <h3 id="grouped-images">Grouped Images</h3>
+                <div class="paragraph">
+                  <p>If more than a single image is given for a <code>lightbox::</code> block, the images can be
+                    grouped together to enable a simple sliding functionality through this group
+                    of related images. To enable grouping, the option <code>group</code> needs to be
+                    configured for the block.</p>
+                </div>
+                <div class="listingblock noclip">
+                  <div class="title">Lightbox block for grouped images</div>
+                  <div class="content">
+                    <pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="n">lightbox::images</span><span class="o">-</span><span class="n">group</span><span class="p">[</span> <span class="mi">400</span><span class="p">,</span> <span class="p">{</span><span class="na">data-images-group</span><span class="p">},</span> <span class="n">group_name</span> <span class="p">]</span></span></code></pre>
+                  </div>
+                </div>
+                <div id="lb-images-group" class="imageblock mb-3">
+                  <div class="title">Lightbox block for grouped images</div>
+                  <div class="content">
+                    <a class="notoc" href="/assets/images/pages/roundtrip/100_present_images/lightbox-image-1.jpg" data-lightbox="lb-images-group" data-title="Golden Gate Bridge with San Francisco in distance">
+                      <img class="img-fluid" src="/assets/images/pages/roundtrip/100_present_images/lightbox-image-1.jpg" alt="Lightbox block for grouped images" width="400">
+                    </a>
+                    <a class="notoc" href="/assets/images/pages/roundtrip/100_present_images/lightbox-image-2.jpg" data-lightbox="lb-images-group" data-title="Forest with mountains behind">
+                      <img class="img-fluid" src="/assets/images/pages/roundtrip/100_present_images/lightbox-image-2.jpg" alt="Lightbox block for grouped images" width="400">
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sect1">
+            <h2 id="icon-fonts">Icon Fonts</h2>
+            <div class="sectionbody">
+              <div class="paragraph">
+                <p>The J1 Template comes with full icon support for Asciidoc documents included.
+                  All icon fonts are supported:</p>
+              </div>
+              <div class="ulist">
+                <ul>
+                  <li>
+                    <p>FA (FontAwesome)</p>
+                  </li>
+                  <li>
+                    <p>MDI (MaterialDesign icons)</p>
+                  </li>
+                  <li>
+                    <p>Iconify</p>
+                  </li>
+                  <li>
+                    <p>Twitter Emoji</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="sect1">
+            <h2 id="material-designs-icons">Material Designs Icons</h2>
+            <div class="sectionbody">
+              <div class="paragraph">
+                <p>Material Designs Icons can be used as inline icons by using
+                  the <code>mdi:</code> inline macro:</p>
+              </div>
+              <div class="listingblock noclip">
+                <div class="content">
+                  <pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="n">mdi:icon_name</span><span class="p">[</span><span class="n">icon_size</span><span class="p">,</span> <span class="n">modifier</span><span class="p">]</span>   <i class="conum" data-value="1"></i><b>(1)</b> <i class="conum" data-value="2"></i><b>(2)</b> <i class="conum" data-value="3"></i><b>(3)</b></span></code></pre>
+                </div>
+              </div>
+              <div class="colist arabic">
+                <table>
+                  <tr>
+                    <td>
+                      <i class="conum" data-value="1"></i><b>1</b>
+                    </td>
+                    <td>All <code>icon_name</code> can be found on the Preview page for MDI Icon Previewer</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="conum" data-value="2"></i><b>2</b>
+                    </td>
+                    <td>The <code>icon_size</code> attribute can be one of: <code>xs</code>, <code>sm</code>, <code>lg</code> and <code>1x</code> to <code>10x</code>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="conum" data-value="3"></i><b>3</b>
+                    </td>
+                    <td>The <code>modifier</code> can be used to set the e.g the color (md-blue), an
+                      animation (fa-pulsed) or the orientation (fa-rotate-45)</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="listingblock noclip">
+                <div class="title">Click on <em>view result</em> to see how it’s looks alike</div>
+                <div class="content">
+                  <pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="n">mdi:home</span><span class="p">[</span><span class="mi">2</span><span class="n">x</span><span class="p">,</span> <span class="n">mdi</span><span class="o">-</span><span class="n">pulsed</span> <span class="n">ml</span><span class="mi">-3</span> <span class="n">mr</span><span class="mi">-2</span> <span class="n">mb</span><span class="mi">-2</span><span class="p">]</span> <span class="n">Symbol</span> <span class="n">icon</span> <span class="p">(</span><span class="n">pulsed</span><span class="p">)</span> <span class="o">+</span></span>
 <span id="L2" class="line"><span class="n">mdi:font</span><span class="o">-</span><span class="n">awesome</span><span class="p">[</span><span class="mi">2</span><span class="n">x</span><span class="p">,</span> <span class="n">ml</span><span class="mi">-3</span> <span class="n">mr</span><span class="mi">-2</span> <span class="n">mb</span><span class="mi">-2</span><span class="p">]</span> <span class="n">Brand</span> <span class="n">icon</span> <span class="o">+</span></span>
-<span id="L3" class="line"><span class="n">mdi:apple</span><span class="p">[</span><span class="mi">2</span><span class="n">x</span><span class="p">,</span> <span class="n">md</span><span class="o">-</span><span class="n">indigo</span> <span class="n">ml</span><span class="mi">-3</span> <span class="n">mr</span><span class="mi">-2</span><span class="p">]</span> <span class="n">Brand</span> <span class="n">icon</span> <span class="p">(</span><span class="n">colored</span><span class="p">)</span></span></code></pre></div> </div> <div class="exampleblock result"> <div class="content"> <div class="paragraph"> <p><i class="mdi mdi-2x mdi-pulsed ml-3 mr-2 mb-2 mdi-home"></i> Symbol icon (pulsed)<br> <i class="mdi mdi-2x ml-3 mr-2 mb-2 mdi-font-awesome"></i> Brand icon<br> <i class="mdi mdi-2x md-indigo ml-3 mr-2 mdi-apple"></i> Brand icon (colored)</p> </div> </div> </div> <div class="admonitionblock note"> <table> <tr> <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> <td class="content"> Parameters <code>icon_size</code> and <code>modifier</code> are optional. If not given, the icons <code>size</code> is set to default (<code>1x</code>), the color to <code>black</code> and no settings for the <code>modifier</code> are applied. </td> </tr> </table> </div> </div> </div> <div class="sect1"> <h2 id="font-awesome-icons">Font Awesome Icons</h2> <div class="sectionbody"> <div class="paragraph"> <p>Font Awesome Icons can be used as inline icons by using the <code>fas:</code> (solid icons) or <code>fab</code> (brand icons) inline macro:</p> </div> <div class="listingblock noclip"> <div class="content"><pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="n">fas:icon_name</span><span class="p">[</span><span class="n">icon_size</span><span class="p">,</span> <span class="n">modifier</span><span class="p">]</span>   <i class="conum" data-value="1"></i><b>(1)</b> <i class="conum" data-value="2"></i><b>(2)</b> <i class="conum" data-value="3"></i><b>(3)</b></span></code></pre></div> </div> <div class="colist arabic"> <table> <tr> <td><i class="conum" data-value="1"></i><b>1</b></td> <td>All <code>icon_name</code> can be found on the Preview page for FA Icon Previewer</td> </tr> <tr> <td><i class="conum" data-value="2"></i><b>2</b></td> <td>The <code>icon_size</code> attribute can be one of: <code>xs</code>, <code>sm</code>, <code>lg</code> and <code>1x</code> to <code>10x</code></td> </tr> <tr> <td><i class="conum" data-value="3"></i><b>3</b></td> <td>The <code>modifier</code> can be used to set e.g the color (md-blue), an animation (fa-pulsed) or the orientation (fa-rotate-45) of an icon</td> </tr> </table> </div> <div class="listingblock noclip"> <div class="title">Click on <em>view result</em> to see how it&#8217;s looks alike</div> <div class="content"><pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="n">fas:home</span><span class="p">[</span><span class="mi">2</span><span class="n">x</span><span class="p">,</span> <span class="n">fa</span><span class="o">-</span><span class="n">pulsed</span> <span class="n">ml</span><span class="mi">-2</span> <span class="n">mr</span><span class="mi">-2</span> <span class="n">mb</span><span class="mi">-2</span><span class="p">]</span> <span class="n">Solid</span> <span class="n">icon</span> <span class="p">(</span><span class="n">pulsed</span><span class="p">)</span> <span class="o">+</span></span>
+<span id="L3" class="line"><span class="n">mdi:apple</span><span class="p">[</span><span class="mi">2</span><span class="n">x</span><span class="p">,</span> <span class="n">md</span><span class="o">-</span><span class="n">indigo</span> <span class="n">ml</span><span class="mi">-3</span> <span class="n">mr</span><span class="mi">-2</span><span class="p">]</span> <span class="n">Brand</span> <span class="n">icon</span> <span class="p">(</span><span class="n">colored</span><span class="p">)</span></span></code></pre>
+                </div>
+              </div>
+              <div class="exampleblock result">
+                <div class="content">
+                  <div class="paragraph">
+                    <p><i class="mdi mdi-2x mdi-pulsed ml-3 mr-2 mb-2 mdi-home"></i> Symbol icon (pulsed)<br>
+                      <i class="mdi mdi-2x ml-3 mr-2 mb-2 mdi-font-awesome"></i> Brand icon<br>
+                      <i class="mdi mdi-2x md-indigo ml-3 mr-2 mdi-apple"></i> Brand icon (colored)</p>
+                  </div>
+                </div>
+              </div>
+              <div class="admonitionblock note">
+                <table>
+                  <tr>
+                    <td class="icon">
+                      <i class="fa icon-note" title="Note"></i>
+                    </td>
+                    <td class="content">
+                      Parameters <code>icon_size</code> and <code>modifier</code> are optional. If not given,
+                      the icons <code>size</code> is set to default  (<code>1x</code>), the color to <code>black</code> and no
+                      settings for the <code>modifier</code> are applied.
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="sect1">
+            <h2 id="font-awesome-icons">Font Awesome Icons</h2>
+            <div class="sectionbody">
+              <div class="paragraph">
+                <p>Font Awesome Icons can be used as inline icons by using
+                  the <code>fas:</code> (solid icons) or <code>fab</code> (brand icons) inline macro:</p>
+              </div>
+              <div class="listingblock noclip">
+                <div class="content">
+                  <pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="n">fas:icon_name</span><span class="p">[</span><span class="n">icon_size</span><span class="p">,</span> <span class="n">modifier</span><span class="p">]</span>   <i class="conum" data-value="1"></i><b>(1)</b> <i class="conum" data-value="2"></i><b>(2)</b> <i class="conum" data-value="3"></i><b>(3)</b></span></code></pre>
+                </div>
+              </div>
+              <div class="colist arabic">
+                <table>
+                  <tr>
+                    <td>
+                      <i class="conum" data-value="1"></i><b>1</b>
+                    </td>
+                    <td>All <code>icon_name</code> can be found on the Preview page for FA Icon Previewer</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="conum" data-value="2"></i><b>2</b>
+                    </td>
+                    <td>The <code>icon_size</code> attribute can be one of: <code>xs</code>, <code>sm</code>, <code>lg</code> and <code>1x</code> to <code>10x</code>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="conum" data-value="3"></i><b>3</b>
+                    </td>
+                    <td>The <code>modifier</code> can be used to set e.g the color (md-blue), an
+                      animation (fa-pulsed) or the orientation (fa-rotate-45) of an icon</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="listingblock noclip">
+                <div class="title">Click on <em>view result</em> to see how it’s looks alike</div>
+                <div class="content">
+                  <pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="n">fas:home</span><span class="p">[</span><span class="mi">2</span><span class="n">x</span><span class="p">,</span> <span class="n">fa</span><span class="o">-</span><span class="n">pulsed</span> <span class="n">ml</span><span class="mi">-2</span> <span class="n">mr</span><span class="mi">-2</span> <span class="n">mb</span><span class="mi">-2</span><span class="p">]</span> <span class="n">Solid</span> <span class="n">icon</span> <span class="p">(</span><span class="n">pulsed</span><span class="p">)</span> <span class="o">+</span></span>
 <span id="L2" class="line"><span class="n">fab:font</span><span class="o">-</span><span class="n">awesome</span><span class="p">[</span><span class="mi">2</span><span class="n">x</span><span class="p">,</span> <span class="n">ml</span><span class="mi">-3</span> <span class="n">mr</span><span class="mi">-2</span> <span class="n">mb</span><span class="mi">-2</span><span class="p">]</span> <span class="n">Brand</span> <span class="n">icon</span> <span class="o">+</span></span>
-<span id="L3" class="line"><span class="n">fab:apple</span><span class="p">[</span><span class="mi">2</span><span class="n">x</span><span class="p">,</span> <span class="n">md</span><span class="o">-</span><span class="n">indigo</span> <span class="n">ml</span><span class="mi">-3</span> <span class="n">mr</span><span class="mi">-2</span><span class="p">]</span> <span class="n">Brand</span> <span class="n">icon</span> <span class="p">(</span><span class="n">colored</span><span class="p">)</span></span></code></pre></div> </div> <div class="exampleblock result"> <div class="content"> <div class="paragraph"> <p><i class="fas fa-home fa-2x fa-pulsed ml-2 mr-2 mb-2"></i> Solid icon (pulsed)<br> <i class="fab fa-font-awesome fa-2x ml-3 mr-2 mb-2"></i> Brand icon<br> <i class="fab fa-apple fa-2x md-indigo ml-3 mr-2"></i> Brand icon (colored)</p> </div> </div> </div> <div class="admonitionblock note"> <table> <tr> <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> <td class="content"> Parameters <code>icon_size</code> and <code>modifier</code> are optional. If not given, the icons <code>size</code> is set to default (<code>1x</code>), the color to <code>black</code> and no settings for the <code>modifier</code> are applied. </td> </tr> </table> </div> </div> </div> <div class="sect1"> <h2 id="iconify-icons">Iconify Icons</h2> <div class="sectionbody"> <div class="paragraph"> <p>Iconify Icons can be used as inline icons by using the <code>iconify:</code> inline macro:</p> </div> <div class="listingblock noclip"> <div class="content"><pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="n">iconify:icon_name</span><span class="p">[</span><span class="n">icon_size</span><span class="p">,</span> <span class="n">modifier</span><span class="p">]</span>   <i class="conum" data-value="1"></i><b>(1)</b> <i class="conum" data-value="2"></i><b>(2)</b> <i class="conum" data-value="3"></i><b>(3)</b></span></code></pre></div> </div> <div class="colist arabic"> <table> <tr> <td><i class="conum" data-value="1"></i><b>1</b></td> <td>All <code>icon_name</code> can be found on the Preview page for FA Icon Previewer</td> </tr> <tr> <td><i class="conum" data-value="2"></i><b>2</b></td> <td>The <code>icon_size</code> attribute can be one of: <code>xs</code>, <code>sm</code>, <code>lg</code> and <code>1x</code> to <code>10x</code></td> </tr> <tr> <td><i class="conum" data-value="3"></i><b>3</b></td> <td>The <code>modifier</code> can be used to set e.g the color (md-blue) or additional positioning classes for margings and padding</td> </tr> </table> </div> <div class="listingblock noclip"> <div class="title">Click on <em>view result</em> to see how it&#8217;s looks alike</div> <div class="content"><pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="n">iconify:logos:opensource</span><span class="p">[</span><span class="mi">2</span><span class="n">x</span><span class="p">,</span> <span class="n">ml</span><span class="mi">-4</span> <span class="n">mr</span><span class="mi">-2</span> <span class="n">mb</span><span class="mi">-2</span><span class="p">]</span> <span class="n">Brand</span> <span class="n">icon</span> <span class="n">OpenSource</span>  <span class="o">+</span></span>
+<span id="L3" class="line"><span class="n">fab:apple</span><span class="p">[</span><span class="mi">2</span><span class="n">x</span><span class="p">,</span> <span class="n">md</span><span class="o">-</span><span class="n">indigo</span> <span class="n">ml</span><span class="mi">-3</span> <span class="n">mr</span><span class="mi">-2</span><span class="p">]</span> <span class="n">Brand</span> <span class="n">icon</span> <span class="p">(</span><span class="n">colored</span><span class="p">)</span></span></code></pre>
+                </div>
+              </div>
+              <div class="exampleblock result">
+                <div class="content">
+                  <div class="paragraph">
+                    <p><i class="fas fa-home fa-2x fa-pulsed ml-2 mr-2 mb-2"></i> Solid icon (pulsed)<br>
+                      <i class="fab fa-font-awesome fa-2x ml-3 mr-2 mb-2"></i> Brand icon<br>
+                      <i class="fab fa-apple fa-2x md-indigo ml-3 mr-2"></i> Brand icon (colored)</p>
+                  </div>
+                </div>
+              </div>
+              <div class="admonitionblock note">
+                <table>
+                  <tr>
+                    <td class="icon">
+                      <i class="fa icon-note" title="Note"></i>
+                    </td>
+                    <td class="content">
+                      Parameters <code>icon_size</code> and <code>modifier</code> are optional. If not given,
+                      the icons <code>size</code> is set to default (<code>1x</code>), the color to <code>black</code> and no
+                      settings for the <code>modifier</code> are applied.
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="sect1">
+            <h2 id="iconify-icons">Iconify Icons</h2>
+            <div class="sectionbody">
+              <div class="paragraph">
+                <p>Iconify Icons can be used as inline icons by using the <code>iconify:</code>
+                  inline macro:</p>
+              </div>
+              <div class="listingblock noclip">
+                <div class="content">
+                  <pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="n">iconify:icon_name</span><span class="p">[</span><span class="n">icon_size</span><span class="p">,</span> <span class="n">modifier</span><span class="p">]</span>   <i class="conum" data-value="1"></i><b>(1)</b> <i class="conum" data-value="2"></i><b>(2)</b> <i class="conum" data-value="3"></i><b>(3)</b></span></code></pre>
+                </div>
+              </div>
+              <div class="colist arabic">
+                <table>
+                  <tr>
+                    <td>
+                      <i class="conum" data-value="1"></i><b>1</b>
+                    </td>
+                    <td>All <code>icon_name</code> can be found on the Preview page for FA Icon Previewer</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="conum" data-value="2"></i><b>2</b>
+                    </td>
+                    <td>The <code>icon_size</code> attribute can be one of: <code>xs</code>, <code>sm</code>, <code>lg</code> and <code>1x</code> to <code>10x</code>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="conum" data-value="3"></i><b>3</b>
+                    </td>
+                    <td>The <code>modifier</code> can be used to set e.g the color (md-blue) or additional
+                      positioning classes for margings and padding</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="listingblock noclip">
+                <div class="title">Click on <em>view result</em> to see how it’s looks alike</div>
+                <div class="content">
+                  <pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="n">iconify:logos:opensource</span><span class="p">[</span><span class="mi">2</span><span class="n">x</span><span class="p">,</span> <span class="n">ml</span><span class="mi">-4</span> <span class="n">mr</span><span class="mi">-2</span> <span class="n">mb</span><span class="mi">-2</span><span class="p">]</span> <span class="n">Brand</span> <span class="n">icon</span> <span class="n">OpenSource</span>  <span class="o">+</span></span>
 <span id="L2" class="line"><span class="n">iconify:logos:netlify</span><span class="p">[</span><span class="mi">2</span><span class="n">x</span><span class="p">,</span> <span class="n">ml</span><span class="mi">-4</span> <span class="n">mr</span><span class="mi">-2</span> <span class="n">mb</span><span class="mi">-2</span><span class="p">]</span> <span class="n">Brand</span> <span class="n">icon</span> <span class="n">Netlify</span> <span class="o">+</span></span>
-<span id="L3" class="line"><span class="n">iconify:simple</span><span class="o">-</span><span class="n">icons:netlify</span><span class="p">[</span><span class="mi">2</span><span class="n">x</span><span class="p">,</span> <span class="n">md</span><span class="o">-</span><span class="n">red</span> <span class="n">ml</span><span class="mi">-4</span> <span class="n">mr</span><span class="mi">-2</span><span class="p">]</span> <span class="n">Brand</span> <span class="n">icon</span> <span class="n">Netlify</span></span></code></pre></div> </div> <div class="exampleblock result"> <div class="content"> <div class="paragraph"> <p><span class="iconify iconify-2x ml-4 mb-2" data-icon="logos:opensource" data-inline="false"></span> Brand icon OpenSource <br> <span class="iconify iconify-2x ml-4 mb-2" data-icon="logos:netlify" data-inline="false"></span> Brand icon Netlify<br> <span class="iconify iconify-2x md-red ml-4" data-icon="simple-icons:netlify" data-inline="false"></span> Brand icon Netlify, colored</p> </div> </div> </div> <div class="paragraph"> <p>Find all Iconify Icons available on page <a href="https://iconify.design/icon-sets/" target="_blank" rel="noopener">Iconify Icon Sets</a>.</p> </div> <div class="admonitionblock note"> <table> <tr> <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> <td class="content"> <div class="paragraph"> <p>Parameters <code>icon_size</code> and <code>modifier</code> are optional. If not given, the icons <code>size</code> is set to default (<code>1x</code>), the color to <code>black</code> and no settings for the <code>modifier</code> are applied.</p> </div> <div class="paragraph"> <p>Not all icon sets support the color settings for the <code>modifier</code>. If applied, the color settings will have no effect.</p> </div> </td> </tr> </table> </div> </div> </div> <div class="sect1"> <h2 id="twitter-emoji-icons">Twitter Emoji Icons</h2> <div class="sectionbody"> <div class="paragraph"> <p>Twitter Emoji&#8217;s can be used as inline icons by using the <code>emoji:</code> inline macro:</p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="n">emoji:icon_name</span><span class="p">[</span><span class="n">icon_size</span><span class="p">]</span>  <i class="conum" data-value="1"></i><b>(1)</b> <i class="conum" data-value="2"></i><b>(2)</b></span></code></pre></div> </div> <div class="colist arabic"> <table> <tr> <td><i class="conum" data-value="1"></i><b>1</b></td> <td>All <code>icon_name</code> can be found on the Preview page for Twitter Emoji&#8217;s</td> </tr> <tr> <td><i class="conum" data-value="2"></i><b>2</b></td> <td>The <code>icon_size</code> attribute can be one of: <code>xs</code>, <code>sm</code>, <code>lg</code> and <code>1x</code> to <code>5x</code></td> </tr> </table> </div> <div class="listingblock noclip"> <div class="title">Click on <em>view result</em> to see how it&#8217;s look alike</div> <div class="content"><pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="n">This</span> <span class="n">is</span> <span class="n">an</span> <span class="n">example</span> <span class="n">of</span> <span class="n">how</span> <span class="n">you</span> <span class="n">can</span> <span class="n">emoji:heart</span><span class="p">[</span><span class="mi">2</span><span class="n">x</span><span class="p">,</span> <span class="n">pulsed</span> <span class="n">mt</span><span class="mi">-1</span><span class="p">]</span> <span class="n">Asciidoctor</span></span>
-<span id="L2" class="line"><span class="o">and</span> <span class="n">Twitter</span> <span class="n">Emoji</span> <span class="n">emoji:smile</span><span class="p">[].</span></span></code></pre></div> </div> <div class="exampleblock result"> <div class="content"> <div class="paragraph"> <p>This is an example of how you can <i class="twa twa-2x twa-heart twa-pulsed mt-1"></i> Asciidoctor and Twitter Emoji <i class="twa twa-1x twa-smile twa-"></i>.</p> </div> </div> </div> </div> </div> <div class="sect1"> <h2 id="blind-text-lorem">Blind Text (Lorem)</h2> <div class="sectionbody"> <div class="paragraph"> <p>The Ruby Gem Middleman, a Ruby-based static site generator, provides a set of great helpers for generating random text content. The Lorem inline macro <code>lorem:</code> adapted this functionality from Middleman for the use of Asciidoc-based documents processed by Jekyll.</p> </div> <div class="paragraph"> <p>If you start writing larger documents having several chapters, not all of the content is available at the beginning. It is quite useful to place blind text first to get a better impression of how a page will look-alike that is not finished yet.</p> </div> <div class="paragraph"> <p>Placeholders for blind text comes in several flavors given by <code>macro</code>. The syntax for the <code>lorem:</code> inline macro is simple like this:</p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="n">lorem:macro</span><span class="p">[]</span></span>
-<span id="L2" class="line"><span class="n">lorem:macro</span><span class="p">[</span><span class="n">size</span><span class="p">]</span></span></code></pre></div> </div> <div class="listingblock noclip"> <div class="title">Example of a lorem sentences macro</div> <div class="content"><pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="n">lorem:sentences</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span></span></code></pre></div> </div> <div class="exampleblock result"> <div class="content"> <div class="paragraph"> <p>Eos officiis excepturi fuga sunt voluptas et est ut dignissimos iure suscipit iste repellat. Ea et sint ullam explicabo omnis nam temporibus. Facilis vero aliquid quia et accusantium laborum ipsa. Quod ad ut sint eveniet quibusdam iure. Possimus quos et similique et ipsa ea rerum.</p> </div> </div> </div> <div class="sect2"> <h3 id="lorem-types">Lorem Types</h3> <div class="paragraph"> <p>All macro types available for <code>lorem:</code> to be used for blind text can be found with the following table below.</p> </div> <table class="tableblock frame-all grid-all stretch rtable mb-2"> <colgroup> <col style="width: 41.6666%;"> <col style="width: 16.6666%;"> <col style="width: 41.6668%;"> </colgroup> <thead> <tr> <th class="tableblock halign-left valign-top">Macro</th> <th class="tableblock halign-left valign-top">Type</th> <th class="tableblock halign-left valign-top">Example</th> </tr> </thead> <tbody> <tr> <td class="tableblock halign-left valign-top"><p class="tableblock"><code>word[]</code></p></td> <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>dolore</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><p class="tableblock"><code>words[5]</code></p></td> <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>perspiciatis adipisci autem libero reprehenderit</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><p class="tableblock"><code>sentence[]</code></p></td> <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>Optio occaecati ad culpa inventore dolor nisi maxime.</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><p class="tableblock"><code>sentences[5]</code></p></td> <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>Temporibus odio consectetur sunt eligendi quasi architecto occaecati dolores ea sunt doloribus temporibus voluptas repudiandae. Ea cupiditate ut est qui vero est quisquam. Nam soluta alias quam ex. Excepturi et facilis debitis qui eius voluptatem. Incidunt enim itaque quam saepe facilis tempora nihil possimus perspiciatis harum omnis consequatur sed.</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><p class="tableblock"><code>date[]</code></p></td> <td class="tableblock halign-left valign-top"><p class="tableblock">date</p></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>Tue Feb 17, 1953</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><p class="tableblock"><code>date[strftime]</code> e.g. <code>date[%Y-%m-%d]`</code></p></td> <td class="tableblock halign-left valign-top"><p class="tableblock">date</p></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>1968-12-17</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><p class="tableblock"><code>name[]</code></p></td> <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>Cindy Bender</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><p class="tableblock"><code>first_name[]</code></p></td> <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>Alexis</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><p class="tableblock"><code>last_name[]</code></p></td> <td class="tableblock halign-left valign-top"><p class="tableblock">text</p></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>Farrell</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><p class="tableblock"><code>email[]</code></p></td> <td class="tableblock halign-left valign-top"><p class="tableblock">email</p></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><a href="mailto:judith_vick@mac.com">judith_vick@mac.com</a></p> </div></div></td> </tr> </tbody> </table> </div> </div> </div> <div class="sect1"> <h2 id="github-gist">Github Gist</h2> <div class="sectionbody"> <div class="paragraph"> <p>Code snippets may helpful to support your readers for existing code examples. An excellent place for code snippets is Gist at Github. To embed an existing gist into your documents, the Asciidoc Extention <strong>Gist block</strong> provides the block macro <code>gist::</code> to do so.</p> </div> <div class="paragraph"> <p>The following gist snippet is taken from <a href="https://gist.github.com/mojavelinux/5546622" target="_blank" rel="noopener">this example</a>:</p> </div> <div class="listingblock noclip"> <div class="content"><pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="p">.</span><span class="n">Gist</span> <span class="n">title</span></span>
-<span id="L2" class="line"><span class="n">gist::git_address</span><span class="p">[]</span> <i class="conum" data-value="1"></i><b>(1)</b></span></code></pre></div> </div> <div class="colist arabic"> <table> <tr> <td><i class="conum" data-value="1"></i><b>1</b></td> <td>For <code>git_address</code>, <a href="https://gist.github.com/" class="bare" target="_blank" rel="noopener">https://gist.github.com/</a> is prepended automatically</td> </tr> </table> </div> <div class="listingblock noclip"> <div class="title">Example of a gist block</div> <div class="content"><pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="p">.</span><span class="n">Guard</span> <span class="n">setup</span> <span class="n">to</span> <span class="n">live</span> <span class="n">preview</span> <span class="n">AsciiDoc</span> <span class="n">output</span></span>
-<span id="L2" class="line"><span class="n">gist::mojavelinux</span><span class="o">/</span><span class="mi">5546622</span><span class="p">[]</span></span></code></pre></div> </div> <div class="exampleblock result"> <div class="content"> <div class="openblock gist mt-4 mb-5"> <div class="title">Guard setup to live preview AsciiDoc output</div> <div class="content"> <script src="https://gist.github.com/mojavelinux/5546622.js"></script> </div> </div> </div> </div> </div> </div> <div class="sect1"> <h2 id="whats-next">Whats next</h2> <div class="sectionbody"> <div class="paragraph"> <p>Asciidoc, respectively Asciidoctor, extensions open up the Markup language to new use cases. Using the full power of programming languages to extend what&#8217;s needed, whether it be Ruby, Java, Groovy, or JavaScript. The number of extensions will grow - to get handy and powerful functionality that is needed for modern web pages based on the Asciidoc Markup language generated by Jekyll. For sure!</p> </div> <div class="paragraph"> <p>The next preview is focussing on advanced Bootstrap Modals. The modals feature is currently in beta status, but it is a great option to customize your user dialogues using them!</p> </div> <div class="paragraph"> <p>Have a look for the <a href="/pages/public/learn/roundtrip/modals/">BS modal extensions</a> feature of J1 Template.</p> </div> </div> </div> </main> <div id="hyvor-talk-view"></div> <section id="fam-container" class=""></section> </div> <footer id="exception_container" class="container-fluid no-padding"></footer> <footer id="j1_footer" class="mt-5"></footer> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'template core is being initialized'; logger.info(log_text); var settings = $.extend({}, {"layout": "page", "fam_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": "true"}); j1.init(settings); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'module logger is being initialized'; logger.info(log_text); j1.adapter.logger.init(); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'Backstretch is being initialized'; logger.info(log_text); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'module attic is being initialized'; logger.info(log_text); var settings = $.extend({}, {"padding_top":400, "padding_bottom":50, "opacity":0.5, "slides":[{"url":"/assets/images/pages/roundtrip/puzzle-1920x1280-bw.jpg", "alt":"puzzle-1920x1280-bw"}]}, {"layout": "page", "scrollbar": "false", "toc": "true", "comments": "true"}); j1.adapter.attic.init(settings); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'module navigator is being initialized'; logger.info(log_text); j1.adapter.navigator.init(); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'module mmenu is being initialized'; logger.info(log_text); j1.adapter.mmenu.init(); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'module themer is being initialized'; logger.info(log_text); j1.adapter.themer.init(); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'module toccer is being initialized'; logger.info(log_text); var settings = $.extend({}, {"layout": "page", "fam_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": "true"}); j1.adapter.toccer.init(settings); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'module cookieConsent is being initialized'; logger.info(log_text); j1.adapter.cookieConsent.init(); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'module theme_switcher is being initialized'; logger.info(log_text); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'Material Design for Bootstrap is being initialized'; logger.info(log_text); j1.adapter.bmd.init(); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'module rtable is being initialized'; logger.info(log_text); j1.adapter.rtable.init(); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'HTML modifier for Asciidoctor is being initialized'; logger.info(log_text); j1.adapter.asciidoctor.init(); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'theme rouge is being initialized'; logger.info(log_text); j1.adapter.rouge.init(); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'module lightbox is being initialized'; logger.info(log_text); var settings = $.extend({}, {"layout": "page", "fam_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": "true"}); j1.adapter.lightbox.init(settings); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'module twemoji is being initialized'; logger.info(log_text); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'Iconify framework is being initialized'; logger.info(log_text); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'Floating Button Menu is being initialized'; logger.info(log_text); var settings = $.extend({}, {"layout": "page", "fam_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": "true"}); j1.adapter.fam.init(settings); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'J1 QuickSearch is being initialized'; logger.info(log_text); j1.adapter.quicksearch.init(); }); </script> </div> <noscript> <html lang="en"> <head> <meta charset="utf-8" /> <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <meta name="viewport" content="width=device-width, initial-scale=1" /> <meta name="robots" content="noindex, nofollow"> <link rel="icon" type="image/ico" href="modules/icons/j1/j1-32x32.ico"> <title>Javascript disabled · 444</title> <style> .my { margin-top: 8.5rem !important;} </style> <style type="text/css">/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{cursor: pointer}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{cursor: pointer ;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}body,html{width:100%;height:100%;background-color:#21232a}body{color:#fff;text-align:center;text-shadow:0 2px 4px rgba(0,0,0,.5);padding:0;min-height:100%;-webkit-box-shadow:inset 0 0 100px rgba(0,0,0,.8);box-shadow:inset 0 0 100px rgba(0,0,0,.8);display:table;font-family:"Open Sans",Arial,sans-serif}h1{font-family:inherit;font-weight:500;line-height:1.1;color:inherit;font-size:36px}h1 small{font-size:68%;font-weight:400;line-height:1;color:#777}a{text-decoration:none;color:#fff;font-size:inherit;border-bottom:dotted 1px #707070}.lead{color:silver;font-size:21px;line-height:1.4}.cover{display:table-cell;vertical-align:middle;padding:0 20px}footer{position:fixed;width:100%;height:40px;left:0;bottom:0;color:#a0a0a0;font-size:14px}</style> </head> <body> <div class="header my"> <h1>Javascript disabled <small>444</small></h1> <p class="lead">Your current browser settings reject the use of Javascript.</p> <div><a href="about:blank">Cannot continue</a></div> </div> <footer> <p>J1 · Copyright © 2021 · Technical Contact: <a href="mailto:webmaster@example.domain?subject=Javascript disabled">webmaster@example.domain</a></p> </footer> </body> </html> </noscript> </body> <script> $(function() { $('[data-toggle="tooltip"').tooltip({ trigger: 'hover' }); $('[data-toggle="popover"').popover({ trigger: 'hover' }); }); </script> <script> window.onkeyup = function (e) { if (e.keyCode == 27) window.history.back(); } </script> </html>
+<span id="L3" class="line"><span class="n">iconify:simple</span><span class="o">-</span><span class="n">icons:netlify</span><span class="p">[</span><span class="mi">2</span><span class="n">x</span><span class="p">,</span> <span class="n">md</span><span class="o">-</span><span class="n">red</span> <span class="n">ml</span><span class="mi">-4</span> <span class="n">mr</span><span class="mi">-2</span><span class="p">]</span> <span class="n">Brand</span> <span class="n">icon</span> <span class="n">Netlify</span></span></code></pre>
+                </div>
+              </div>
+              <div class="exampleblock result">
+                <div class="content">
+                  <div class="paragraph">
+                    <p><span class="iconify iconify-2x ml-4 mb-2" data-icon="logos:opensource" data-inline="false"></span> Brand icon OpenSource <br>
+                      <span class="iconify iconify-2x ml-4 mb-2" data-icon="logos:netlify" data-inline="false"></span> Brand icon Netlify<br>
+                      <span class="iconify iconify-2x md-red ml-4" data-icon="simple-icons:netlify" data-inline="false"></span> Brand icon Netlify, colored</p>
+                  </div>
+                </div>
+              </div>
+              <div class="paragraph">
+                <p>Find all Iconify Icons available on page
+                  <a href="https://iconify.design/icon-sets/" target="_blank" rel="noopener">Iconify Icon Sets</a>.</p>
+              </div>
+              <div class="admonitionblock note">
+                <table>
+                  <tr>
+                    <td class="icon">
+                      <i class="fa icon-note" title="Note"></i>
+                    </td>
+                    <td class="content">
+                      <div class="paragraph">
+                        <p>Parameters <code>icon_size</code> and <code>modifier</code> are optional. If not given,
+                          the icons <code>size</code> is set to default  (<code>1x</code>), the color to <code>black</code> and no
+                          settings for the <code>modifier</code> are applied.</p>
+                      </div>
+                      <div class="paragraph">
+                        <p>Not all icon sets support the color settings for the <code>modifier</code>. If
+                          applied, the color settings will have no effect.</p>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="sect1">
+            <h2 id="twitter-emoji-icons">Twitter Emoji Icons</h2>
+            <div class="sectionbody">
+              <div class="paragraph">
+                <p>Twitter Emoji’s can be used as inline icons by using the <code>emoji:</code>
+                  inline macro:</p>
+              </div>
+              <div class="listingblock">
+                <div class="content">
+                  <pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="n">emoji:icon_name</span><span class="p">[</span><span class="n">icon_size</span><span class="p">]</span>  <i class="conum" data-value="1"></i><b>(1)</b> <i class="conum" data-value="2"></i><b>(2)</b></span></code></pre>
+                </div>
+              </div>
+              <div class="colist arabic">
+                <table>
+                  <tr>
+                    <td>
+                      <i class="conum" data-value="1"></i><b>1</b>
+                    </td>
+                    <td>All <code>icon_name</code> can be found on the Preview page for Twitter Emoji’s</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="conum" data-value="2"></i><b>2</b>
+                    </td>
+                    <td>The <code>icon_size</code> attribute can be one of: <code>xs</code>, <code>sm</code>, <code>lg</code> and <code>1x</code> to <code>5x</code>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="listingblock noclip">
+                <div class="title">Click on <em>view result</em> to see how it’s look alike</div>
+                <div class="content">
+                  <pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="n">This</span> <span class="n">is</span> <span class="n">an</span> <span class="n">example</span> <span class="n">of</span> <span class="n">how</span> <span class="n">you</span> <span class="n">can</span> <span class="n">emoji:heart</span><span class="p">[</span><span class="mi">2</span><span class="n">x</span><span class="p">,</span> <span class="n">pulsed</span> <span class="n">mt</span><span class="mi">-1</span><span class="p">]</span> <span class="n">Asciidoctor</span></span>
+<span id="L2" class="line"><span class="o">and</span> <span class="n">Twitter</span> <span class="n">Emoji</span> <span class="n">emoji:smile</span><span class="p">[].</span></span></code></pre>
+                </div>
+              </div>
+              <div class="exampleblock result">
+                <div class="content">
+                  <div class="paragraph">
+                    <p>This is an example of how you can <i class="twa twa-2x twa-heart twa-pulsed mt-1"></i> Asciidoctor
+                      and Twitter Emoji <i class="twa twa-1x twa-smile twa-"></i>.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sect1">
+            <h2 id="blind-text-lorem">Blind Text (Lorem)</h2>
+            <div class="sectionbody">
+              <div class="paragraph">
+                <p>The Ruby Gem Middleman, a Ruby-based static site generator, provides a
+                  set of great helpers for generating random text content. The Lorem
+                  inline macro <code>lorem:</code> adapted this functionality from Middleman for the use
+                  of Asciidoc-based documents processed by Jekyll.</p>
+              </div>
+              <div class="paragraph">
+                <p>If you start writing larger documents having several chapters, not all of the
+                  content is available at the beginning. It is quite useful to place blind text
+                  first to get a better impression of how a page will look-alike that is not
+                  finished yet.</p>
+              </div>
+              <div class="paragraph">
+                <p>Placeholders for blind text comes in several flavors given by <code>macro</code>. The
+                  syntax for the <code>lorem:</code> inline macro is simple like this:</p>
+              </div>
+              <div class="listingblock">
+                <div class="content">
+                  <pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="n">lorem:macro</span><span class="p">[]</span></span>
+<span id="L2" class="line"><span class="n">lorem:macro</span><span class="p">[</span><span class="n">size</span><span class="p">]</span></span></code></pre>
+                </div>
+              </div>
+              <div class="listingblock noclip">
+                <div class="title">Example of a lorem sentences macro</div>
+                <div class="content">
+                  <pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="n">lorem:sentences</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span></span></code></pre>
+                </div>
+              </div>
+              <div class="exampleblock result">
+                <div class="content">
+                  <div class="paragraph">
+                    <p>Ut dolor nobis ea minima ut id delectus minus incidunt aut labore autem atque sed. Labore et ratione aut minima quos nesciunt earum hic explicabo sequi cupiditate commodi suscipit aspernatur. Eos consequuntur quas tempore asperiores voluptate et officiis minima veniam. Accusamus asperiores doloribus eveniet natus repudiandae reiciendis placeat neque rerum dolores dolor. Consequatur animi repellendus ad voluptatem ex.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="sect2">
+                <h3 id="lorem-types">Lorem Types</h3>
+                <div class="paragraph">
+                  <p>All macro types available for <code>lorem:</code> to be used for blind text can be
+                    found with the following table below.</p>
+                </div>
+                <table class="tableblock frame-all grid-all stretch rtable mb-2">
+                  <colgroup>
+                    <col style="width: 41.6666%;">
+                    <col style="width: 16.6666%;">
+                    <col style="width: 41.6668%;">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th class="tableblock halign-left valign-top">Macro</th>
+                      <th class="tableblock halign-left valign-top">Type</th>
+                      <th class="tableblock halign-left valign-top">Example</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock"><code>word[]</code></p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock">text</p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p>reprehenderit</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock"><code>words[5]</code></p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock">text</p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p>asperiores aut itaque ipsa sunt</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock"><code>sentence[]</code></p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock">text</p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p>Eos magni cupiditate autem eos.</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock"><code>sentences[5]</code></p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock">text</p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p>Molestias laudantium eos eveniet autem quisquam iure pariatur incidunt sed modi id incidunt. Optio nobis deserunt esse. Id voluptatibus cupiditate ratione eos voluptate. Nobis laboriosam labore maiores perferendis vel aspernatur impedit dignissimos minus et magni temporibus cumque. Officiis suscipit molestiae atque.</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock"><code>date[]</code></p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock">date</p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p>Fri Jan 02, 1970</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock"><code>date[strftime]</code> e.g. <code>date[%Y-%m-%d]`</code></p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock">date</p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p>2009-08-11</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock"><code>name[]</code></p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock">text</p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p>Neil Abbott</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock"><code>first_name[]</code></p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock">text</p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p>Colton</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock"><code>last_name[]</code></p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock">text</p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p>Cross</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock"><code>email[]</code></p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock">email</p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p><a href="mailto:peggygray@yahoo.com">peggygray@yahoo.com</a></p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="sect1">
+            <h2 id="github-gist">Github Gist</h2>
+            <div class="sectionbody">
+              <div class="paragraph">
+                <p>Code snippets may helpful to support your readers for existing code examples.
+                  An excellent place for code snippets is Gist at Github. To embed an existing
+                  gist into your documents, the Asciidoc Extention <strong>Gist block</strong> provides the
+                  block macro <code>gist::</code> to do so.</p>
+              </div>
+              <div class="paragraph">
+                <p>The following gist snippet is taken from <a href="https://gist.github.com/mojavelinux/5546622" target="_blank" rel="noopener">this example</a>:</p>
+              </div>
+              <div class="listingblock noclip">
+                <div class="content">
+                  <pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="p">.</span><span class="n">Gist</span> <span class="n">title</span></span>
+<span id="L2" class="line"><span class="n">gist::git_address</span><span class="p">[]</span> <i class="conum" data-value="1"></i><b>(1)</b></span></code></pre>
+                </div>
+              </div>
+              <div class="colist arabic">
+                <table>
+                  <tr>
+                    <td>
+                      <i class="conum" data-value="1"></i><b>1</b>
+                    </td>
+                    <td>For <code>git_address</code>, <a href="https://gist.github.com/" class="bare" target="_blank" rel="noopener">https://gist.github.com/</a> is prepended automatically</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="listingblock noclip">
+                <div class="title">Example of a gist block</div>
+                <div class="content">
+                  <pre class="highlight"><code class="language-prometheus" data-lang="prometheus"><span id="L1" class="line"><span class="p">.</span><span class="n">Guard</span> <span class="n">setup</span> <span class="n">to</span> <span class="n">live</span> <span class="n">preview</span> <span class="n">AsciiDoc</span> <span class="n">output</span></span>
+<span id="L2" class="line"><span class="n">gist::mojavelinux</span><span class="o">/</span><span class="mi">5546622</span><span class="p">[]</span></span></code></pre>
+                </div>
+              </div>
+              <div class="exampleblock result">
+                <div class="content">
+                  <div class="openblock gist mt-4 mb-5">
+                    <div class="title">Guard setup to live preview AsciiDoc output</div>
+                    <div class="content">
+                      <script src="https://gist.github.com/mojavelinux/5546622.js"></script>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sect1">
+            <h2 id="whats-next">Whats next</h2>
+            <div class="sectionbody">
+              <div class="paragraph">
+                <p>Asciidoc, respectively Asciidoctor, extensions open up the Markup language to
+                  new use cases. Using the full power of programming languages to extend what’s
+                  needed, whether it be Ruby, Java, Groovy, or JavaScript. The number of
+                  extensions will grow - to get handy and powerful functionality that is needed
+                  for modern web pages based on the Asciidoc Markup language generated by Jekyll.
+                  For sure!</p>
+              </div>
+              <div class="paragraph">
+                <p>The next preview is focussing on advanced Bootstrap Modals. The modals feature
+                  is currently in beta status, but it is a great option to customize your
+                  user dialogues using them!</p>
+              </div>
+              <div class="paragraph">
+                <p>Have a look for the <a href="/pages/public/learn/roundtrip/modals/">BS modal extensions</a>
+                  feature of J1 Template.</p>
+              </div>
+            </div>
+          </div>
+          <!-- [INFO   ] [j1.layout.content_generator_page.html ] [ end place content ] -->
+        </main>
+        <!-- [INFO   ] [j1.layout.content_generator_page.html ] [ end main for full page ] -->
+        <!-- [INFO   ] [j1.page.Roundtrip                   ] [Save the current page to UserState cookie] -->
+        <!-- script>
+        var logger   = log4javascript.getLogger("j1.page.roundtrip.init");
+        var cookieUserState = 'j1.user.state'
+        var log_text = 'Save the current browser page (roundtrip) to cookie: ' +cookieUserState;
+        var j1_user_state = {
+          'authenticated' : 'false',
+          'cookies_accepted' : 'false',
+          'theme_css' : 'unknown',
+          'theme_extension_css' : 'unknown',
+          'theme_name' : 'unknown',
+          'last_page' : 'unknown',
+          'last_provider' : 'unknown',
+          'last_signin' : 'unknown',
+          'provider' : 'unknown',
+          'user_name' : 'unknown',
+          'user_id' : 'unknown'
+        };
+        // Set|Detect J1 App status
+        j1_user_state.last_page = "/pages/public/learn/roundtrip/asciidoc_extensions/"
+        j1.setUserState( j1_user_state );
+        logger.info(log_text);
+        </script -->
+        <!-- [INFO   ] [j1.layout.content_writer.proc         ] [ load region 'body-main' for layout: page ] -->
+        <!-- [INFO   ] [j1.modules.connectors.comments      ] [ Check comments settings from SITE configuration ] -->
+        <!-- [INFO   ] [j1.modules.connectors.comments      ] [ detected comments (site): true ] -->
+        <!-- [INFO   ] [j1.modules.connectors.comments      ] [ Check comments settings from PAGE configuration ] -->
+        <!-- [INFO   ] [j1.modules.connectors.comments      ] [ detected comments (page): true ] -->
+        <!-- [INFO   ] [j1.modules.connectors.comments      ] [ start processing load region head, layout: page ] -->
+        <!-- [INFO   ] [j1.modules.connectors.comments      ] [ place comment provider HYVOR ] -->
+        <!-- [INFO   ] [j1.modules.connectors.hyvor           ] [ place the thread container: start ] -->
+        <div id="hyvor-talk-view"></div>
+        <!-- [INFO   ] [j1.modules.connectors.hyvor           ] [ connector depends on the cookie consent (personalization) ] -->
+        <!-- [INFO   ] [j1.modules.connectors.hyvor           ] [ connector (dynamic) JS is enabled/disabled on OptIn/Out ] -->
+        <!-- [INFO   ] [j1.modules.connectors.hyvor           ] [ place the thread container: end ] -->
+        <!-- [INFO   ] [j1.modules.connectors.comments      ] [ end processing ] -->
+        <!-- [INFO   ] [j1.layout.content_writer.proc         ] [ load region 'body-main' for layout: page ] -->
+        <section id="fam-container" class=""></section>
+        <!-- [INFO   ] [j1.layout.content_writer.proc         ] [ placement for all lane items finished ] -->
+        <!-- [DEBUG  ] [j1.layout.content_writer.proc         ] [ reset all lane items ] -->
+        <!-- [INFO   ] [j1.layout.content_writer.proc         ] [ end processing ] -->
+      </div>
+      <!-- [INFO   ] [j1.layout.page.html                    ] [ end content_writer processing for region: 'body-main' ] -->
+      <!-- [INFO   ] [j1.layout.default.html                ] [ end content inherited by layout: page ] -->
+      <!-- [INFO   ] [j1.layout.default.html                ] [ call default_writer for region: 'body-footer' ] -->
+      <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region body-footer, layout: page ] -->
+      <footer id="exception_container" class="container-fluid no-padding"></footer>
+      <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
+      <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region body-footer, layout: page ] -->
+      <footer id="j1_footer" class="mt-5"></footer>
+      <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
+      <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region body-footer, layout: page ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ start processing. collect data for region: body-footer, layout: page ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: core ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: core ] -->
+      <script>
+        $(document).ready(function() {
+          var logger = log4javascript.getLogger("j1.module_loader");
+          var log_text = 'template core is being initialized';
+          logger.info(log_text);
+                // [INFO   ] [j1.layout.module_writer.proc          ] [ pass init data for: core ]
+                var settings = $.extend({}, {"layout": "page", "fam_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": "true"});
+                  j1.init(settings);
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: logger ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: logger ] -->
+      <script>
+        $(document).ready(function() {
+          var logger = log4javascript.getLogger("j1.module_loader");
+          var log_text = 'module logger is being initialized';
+          logger.info(log_text);
+                  j1.adapter.logger.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: backstretch ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: backstretch ] -->
+      <script>
+        $(document).ready(function() {
+          var logger = log4javascript.getLogger("j1.module_loader");
+          var log_text = 'Backstretch is being initialized';
+          logger.info(log_text);
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: attic ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: attic ] -->
+      <script>
+        $(document).ready(function() {
+          var logger = log4javascript.getLogger("j1.module_loader");
+          var log_text = 'module attic is being initialized';
+          logger.info(log_text);
+              // [INFO   ] [j1.layout.module_writer.proc          ] [ pass module specific frontmatter options for: attic ]
+              var settings = $.extend({}, {"padding_top":400, "padding_bottom":50, "opacity":0.5, "slides":[{"url":"/assets/images/pages/roundtrip/puzzle-1920x1280-bw.jpg", "alt":"puzzle-1920x1280-bw"}]}, {"layout": "page", "scrollbar": "false", "toc": "true", "comments": "true"});
+                j1.adapter.attic.init(settings);
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: navigator ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: navigator ] -->
+      <script>
+        $(document).ready(function() {
+          var logger = log4javascript.getLogger("j1.module_loader");
+          var log_text = 'module navigator is being initialized';
+          logger.info(log_text);
+                  j1.adapter.navigator.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: mmenu ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: mmenu ] -->
+      <script>
+        $(document).ready(function() {
+          var logger = log4javascript.getLogger("j1.module_loader");
+          var log_text = 'module mmenu is being initialized';
+          logger.info(log_text);
+                  j1.adapter.mmenu.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: themer ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: themer ] -->
+      <script>
+        $(document).ready(function() {
+          var logger = log4javascript.getLogger("j1.module_loader");
+          var log_text = 'module themer is being initialized';
+          logger.info(log_text);
+                  j1.adapter.themer.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: toccer ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: toccer ] -->
+      <script>
+        $(document).ready(function() {
+          var logger = log4javascript.getLogger("j1.module_loader");
+          var log_text = 'module toccer is being initialized';
+          logger.info(log_text);
+                // [INFO   ] [j1.layout.module_writer.proc          ] [ pass init data for: toccer ]
+                var settings = $.extend({}, {"layout": "page", "fam_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": "true"});
+                  j1.adapter.toccer.init(settings);
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: back2top ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ back2top module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: cookieConsent ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: cookieConsent ] -->
+      <script>
+        $(document).ready(function() {
+          var logger = log4javascript.getLogger("j1.module_loader");
+          var log_text = 'module cookieConsent is being initialized';
+          logger.info(log_text);
+                  j1.adapter.cookieConsent.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: jq_mouse_wheel ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ jq_mouse_wheel module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: theme_switcher ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: theme_switcher ] -->
+      <script>
+        $(document).ready(function() {
+          var logger = log4javascript.getLogger("j1.module_loader");
+          var log_text = 'module theme_switcher is being initialized';
+          logger.info(log_text);
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: bmd ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: bmd ] -->
+      <script>
+        $(document).ready(function() {
+          var logger = log4javascript.getLogger("j1.module_loader");
+          var log_text = 'Material Design for Bootstrap is being initialized';
+          logger.info(log_text);
+                  j1.adapter.bmd.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: materialze ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ materialze module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: rtable ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: rtable ] -->
+      <script>
+        $(document).ready(function() {
+          var logger = log4javascript.getLogger("j1.module_loader");
+          var log_text = 'module rtable is being initialized';
+          logger.info(log_text);
+                  j1.adapter.rtable.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: asciidoctor ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: asciidoctor ] -->
+      <script>
+        $(document).ready(function() {
+          var logger = log4javascript.getLogger("j1.module_loader");
+          var log_text = 'HTML modifier for Asciidoctor is being initialized';
+          logger.info(log_text);
+                  j1.adapter.asciidoctor.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: rouge ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: rouge ] -->
+      <script>
+        $(document).ready(function() {
+          var logger = log4javascript.getLogger("j1.module_loader");
+          var log_text = 'theme rouge is being initialized';
+          logger.info(log_text);
+                  j1.adapter.rouge.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: animate ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: justifiedGalleryCustomizer ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: framer ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: lightbox ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: lightbox ] -->
+      <script>
+        $(document).ready(function() {
+          var logger = log4javascript.getLogger("j1.module_loader");
+          var log_text = 'module lightbox is being initialized';
+          logger.info(log_text);
+                // [INFO   ] [j1.layout.module_writer.proc          ] [ pass init data for: lightbox ]
+                var settings = $.extend({}, {"layout": "page", "fam_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": "true"});
+                  j1.adapter.lightbox.init(settings);
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: twemoji ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: twemoji ] -->
+      <script>
+        $(document).ready(function() {
+          var logger = log4javascript.getLogger("j1.module_loader");
+          var log_text = 'module twemoji is being initialized';
+          logger.info(log_text);
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: twemoji_picker ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: mdi_previewer ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: iconify ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: iconify ] -->
+      <script>
+        $(document).ready(function() {
+          var logger = log4javascript.getLogger("j1.module_loader");
+          var log_text = 'Iconify framework is being initialized';
+          logger.info(log_text);
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: algolia ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: clipboard ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: carousel ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: justifiedGallery ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: lightGallery ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: video_js ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: vimeo_froogaloop ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: vimeo_player ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: nouislider ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ nouislider module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: stacker ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ stacker module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: fam ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: fam ] -->
+      <script>
+        $(document).ready(function() {
+          var logger = log4javascript.getLogger("j1.module_loader");
+          var log_text = 'Floating Button Menu is being initialized';
+          logger.info(log_text);
+                // [INFO   ] [j1.layout.module_writer.proc          ] [ pass init data for: fam ]
+                var settings = $.extend({}, {"layout": "page", "fam_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": "true"});
+                  j1.adapter.fam.init(settings);
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: quicksearch ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: quicksearch ] -->
+      <script>
+        $(document).ready(function() {
+          var logger = log4javascript.getLogger("j1.module_loader");
+          var log_text = 'J1 QuickSearch is being initialized';
+          logger.info(log_text);
+                  j1.adapter.quicksearch.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: datatables ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ datatables module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ end processing ] -->
+      <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
+      <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ placement for all lane items finished ] -->
+      <!-- [DEBUG  ] [j1.layout.default_writer.proc         ] [ reset all lane items ] -->
+      <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing ] -->
+      <!-- [INFO   ] [j1.layout.default.html                ] [ end content_writer default_writer for region: 'body-footer' ] -->
+    </div>
+    <!-- [INFO   ] [j1.layout.default.html                ] [ end default writer] -->
+    <!-- [INFO   ] [j1.layout.default.html                ] [ place noscript info|error page ] -->
+    <noscript>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="robots" content="noindex, nofollow">
+      <link rel="icon" type="image/ico" href="modules/icons/j1/j1-32x32.ico">
+      <title>Javascript disabled · 444</title>
+      <style>
+        .my { margin-top: 8.5rem !important;}
+      </style>
+      <style type="text/css">
+        /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{cursor: pointer}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{cursor: pointer ;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}body,html{width:100%;height:100%;background-color:#21232a}body{color:#fff;text-align:center;text-shadow:0 2px 4px rgba(0,0,0,.5);padding:0;min-height:100%;-webkit-box-shadow:inset 0 0 100px rgba(0,0,0,.8);box-shadow:inset 0 0 100px rgba(0,0,0,.8);display:table;font-family:"Open Sans",Arial,sans-serif}h1{font-family:inherit;font-weight:500;line-height:1.1;color:inherit;font-size:36px}h1 small{font-size:68%;font-weight:400;line-height:1;color:#777}a{text-decoration:none;color:#fff;font-size:inherit;border-bottom:dotted 1px #707070}.lead{color:silver;font-size:21px;line-height:1.4}.cover{display:table-cell;vertical-align:middle;padding:0 20px}footer{position:fixed;width:100%;height:40px;left:0;bottom:0;color:#a0a0a0;font-size:14px}
+      </style>
+      <div class="header my">
+        <h1>Javascript disabled <small>444</small>
+        </h1>
+        <p class="lead">Your current browser settings reject the use of Javascript.</p>
+        <div><a href="about:blank">Cannot continue</a></div>
+      </div>
+      <footer>
+        <p>J1 · Copyright © 2021 · Technical Contact: <a href="mailto:webmaster@example.domain?subject=Javascript%20disabled">webmaster@example.domain</a></p>
+      </footer>
+    </noscript>
+  </body>
+  <!-- [INFO   ] [j1.layout.default.html                ] [ initialize BS tooltips|popovers ] -->
+  <script>
+    $(function() {
+      $('[data-toggle="tooltip"').tooltip({
+        trigger: 'hover'
+      });
+      $('[data-toggle="popover"').popover({
+        trigger: 'hover'
+      });
+    });
+  </script>
+  <!-- [INFO   ] [j1.layout.default.html                ] [ initialize window.history.back ] -->
+  <script>
+    // Redirect on KEY <ESC>
+    window.onkeyup = function (e)
+    {
+     if (e.keyCode == 27) window.history.back();
+    }
+  </script>
+  <!-- [INFO   ] [j1.layout.default.html                ] [ end page processing ] -->
+</html>
 
-    
-    
+
+  
