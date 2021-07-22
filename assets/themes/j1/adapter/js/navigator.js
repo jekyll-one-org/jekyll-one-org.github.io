@@ -19,7 +19,7 @@
  # NOTE: For getStyleValue helper see
  #  https://stackoverflow.com/questions/16965515/how-to-get-a-style-attribute-from-a-css-class-by-javascript-jquery
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-07-22 10:28:20 +0000
+ # Adapter generated: 2021-07-22 11:03:28 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -81,7 +81,7 @@ j1.adapter['navigator'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.navigator',
-        generated:   '2021-07-22 10:28:20 +0000'
+        generated:   '2021-07-22 11:03:28 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // options loader
@@ -108,6 +108,8 @@ j1.adapter['navigator'] = (function (j1, window) {
       var user_state_detected;
       var themes_count;
       var max_count                                 = 100;
+      var gaCookies                                 = j1.findCookie('_ga');
+      var j1Cookies                                 = j1.findCookie('j1');
       navDefaults                                   = $.extend({}, {"icon_family":"MDI", "icon_style":"mdi", "icon_color":"mdi-grey", "icon_size":"mdi-sm", "nav_primary_color":"#2196F3", "nav_bar":{"enabled":false, "media_breakpoint":"lg", "brand_position":"right", "brand_type":"image", "brand_type_collapsed":"text", "fixed":true, "style":"overlay", "color":"light", "position":"left", "bottom_line_height":1, "bottom_line_color":"#EEEEEE", "background_color_full":"rgba(0, 0, 0, 0.4)", "background_color_collapsed":"#2196F3", "background_color_scrolled":"#2196F3"}, "nav_mmenu":{"enabled":false, "mmenu_plugin":{"node":"null", "mediaQuery":"all", "max_width":100000}, "mmenu_navigator":{"selected":"Selected", "slidingSubmenus":true, "title":"Navigation", "theme":"dark"}, "mmenu_drawer":{"position":"right"}}, "nav_menu":{"enabled":false, "xhr_container_id":"navigator_nav_menu", "xhr_data_element":"desktop_menu", "xhr_data_path":"/assets/data/menu/index.html", "raised_level":5, "delay_menu_open":200, "max_height":550, "menu_font_size":"larger", "megamenu_font_size":"small", "icon_family":"MDI", "icon_style":"mdi", "icon_color":"#9E9E9E", "icon_size":"mdi-sm", "menu_item_color":"rgba(255, 255, 255, 0.5)", "menu_item_color_hover":"rgba(255, 255, 255, 0.9)", "dropdown_style":"raised", "dropdown_item_style":"flat", "dropdown_animate":false, "dropdown_animate_in":"slideInDown", "dropdown_animate_out":"fadeOutDown", "dropdown_animate_duration":0.75, "dropdown_item_min_width":15, "dropdown_menu_max_height":25.5, "dropdown_font_size":"small", "dropdown_padding_x":18, "dropdown_padding_y":10, "dropdown_item_color":"#212121", "dropdown_border_color":"#3f51b5", "dropdown_border_top":0, "dropdown_border_radius":0, "dropdown_background_color_hover":"#ECEFF1", "dropdown_background_color_active":"#CFD8DC"}, "nav_quicklinks":{"enabled":false, "xhr_container_id":"navigator_nav_quicklinks", "xhr_data_element":"quicklinks", "xhr_data_path":"/assets/data/quicklinks/index.html", "icon_family":"MDI", "icon_color":"rgba(255, 255, 255, 0.5)", "icon_color_hover":"rgba(255, 255, 255, 0.9)", "icon_size":"mdi-2x", "cookies_icon":"cookie", "top_search_icon":"magnify", "translator_icon":"flag-variant", "toc_icon":"wrap", "home_icon":"home-variant", "home_url":"none", "r_text_sizer":false, "r_text_icon":"format-text", "back_icon":"subdirectory-arrow-left", "back_url":"none", "disqus_icon":"disqus", "disqus_url":"none", "github_icon":"github-circle", "github_url":"none", "patreon_icon":"patreon", "patreon_url":"none", "facebook_icon":"facebook", "facebook_url":"none", "twitter_icon":"twitter", "twitter_url":"none"}, "nav_topsearch":{"enabled":false, "container_id":"navigator_nav_topsearch", "type":"quicksearch", "icon_family":"MDI", "icon_color":"#FFFFFF", "icon_size":"mdi-2x", "search_icon":"magnify", "close_icon":"close", "clear_icon":"format-clear", "input_color":"rgba(0, 0, 0, 0.7)", "background_color":"#FAFAFA", "placeholder":"QuickSearch", "search_heading_lead":"", "result_heading_lead":""}});
       navBarConfig                                  = $.extend({}, {"enabled":true, "media_breakpoint":"lg", "brand_position":"right", "brand_type":"image", "brand_type_collapsed":"text", "fixed":true, "style":"overlay", "color":"light", "position":"left", "bottom_line_height":1, "bottom_line_color":"#EEEEEE", "background_color_full":"rgba(0, 0, 0, 0.4)", "background_color_collapsed":"#2196F3", "background_color_scrolled":"#2196F3"});
       navMenuConfig                                 = $.extend({}, {"enabled":true, "xhr_container_id":"navigator_nav_menu", "xhr_data_element":"desktop_menu", "xhr_data_path":"/assets/data/menu/index.html", "raised_level":5, "delay_menu_open":200, "max_height":550, "menu_font_size":"larger", "megamenu_font_size":"small", "icon_family":"MDI", "icon_style":"mdi", "icon_color":"#9E9E9E", "icon_size":"mdi-sm", "menu_item_color":"rgba(255, 255, 255, 0.5)", "menu_item_color_hover":"rgba(255, 255, 255, 0.9)", "dropdown_style":"raised", "dropdown_item_style":"flat", "dropdown_animate":false, "dropdown_animate_in":"slideInDown", "dropdown_animate_out":"fadeOutDown", "dropdown_animate_duration":0.75, "dropdown_item_min_width":15, "dropdown_menu_max_height":25.5, "dropdown_font_size":"small", "dropdown_padding_x":18, "dropdown_padding_y":10, "dropdown_item_color":"#212121", "dropdown_border_color":"#3f51b5", "dropdown_border_top":0, "dropdown_border_radius":0, "dropdown_background_color_hover":"#ECEFF1", "dropdown_background_color_active":"#CFD8DC", "delay_open_menu":250});
@@ -192,6 +194,8 @@ j1.adapter['navigator'] = (function (j1, window) {
                 user_state        = j1.readCookie(cookie_user_state_name);
               }  else {
                 logger.error('\n' + 'cookie not found: j1.user.state');
+                gaCookies.forEach(item => console.log('j1.adapter.navigator: ' + item));
+                j1Cookies.forEach(item => console.log('j1.adapter.navigator: ' + item));
               }
               // jadams, 2021-07-03: wait until navigator CORE get finished
               var dependencies_met_page_finished = setInterval(function() {

@@ -21,7 +21,7 @@
  #  Setup of theme loaders for local_themes|remote_themes moved
  #  to adapter navigator.js
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-07-22 10:28:20 +0000
+ # Adapter generated: 2021-07-22 11:03:28 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -197,11 +197,8 @@ j1.adapter['themer'] = (function (j1, window) {
           logger.error('\n' + 'interval max count reached: ' + max_count);
           logger.error('\n' + 'check failed after: ' + max_count * 25 + ' ms');
           logger.error('\n' + 'loading cookie failed: ' + cookie_names.user_state);
-          // for development only
-          if (environment === 'development') {
-            gaCookies.forEach(item => console.log('cookieConsent: ' + item));
-            j1Cookies.forEach(item => console.log('cookieConsent: ' + item));
-          }
+          gaCookies.forEach(item => console.log('j1.adapter.themer: ' + item));
+          j1Cookies.forEach(item => console.log('j1.adapter.themer: ' + item));
           // jadams, 2021-07-15: redirect to homepage
           // NOTE: UNCLEAR why it is needed to create the user state
           // cookie THIS way
