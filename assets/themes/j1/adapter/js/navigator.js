@@ -19,7 +19,7 @@
  # NOTE: For getStyleValue helper see
  #  https://stackoverflow.com/questions/16965515/how-to-get-a-style-attribute-from-a-css-class-by-javascript-jquery
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-07-22 11:03:28 +0000
+ # Adapter generated: 2021-07-22 11:33:34 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -81,7 +81,7 @@ j1.adapter['navigator'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.navigator',
-        generated:   '2021-07-22 11:03:28 +0000'
+        generated:   '2021-07-22 11:33:34 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // options loader
@@ -194,8 +194,10 @@ j1.adapter['navigator'] = (function (j1, window) {
                 user_state        = j1.readCookie(cookie_user_state_name);
               }  else {
                 logger.error('\n' + 'cookie not found: j1.user.state');
-                gaCookies.forEach(item => console.log('j1.adapter.navigator: ' + item));
-                j1Cookies.forEach(item => console.log('j1.adapter.navigator: ' + item));
+                logger.debug('\n' + 'j1 cookies found:' + j1Cookies.length);
+                j1Cookies.forEach(item => console.log('j1.core.switcher: ' + item));
+                logger.debug('\n' + 'ga cookies found:' + gaCookies.length);
+                gaCookies.forEach(item => console.log('j1.core.switcher: ' + item));
               }
               // jadams, 2021-07-03: wait until navigator CORE get finished
               var dependencies_met_page_finished = setInterval(function() {
