@@ -21,7 +21,7 @@
  #  Setup of theme loaders for local_themes|remote_themes moved
  #  to adapter navigator.js
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-07-24 13:25:53 +0000
+ # Adapter generated: 2021-07-24 15:00:20 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -108,7 +108,6 @@ j1.adapter['themer'] = (function (j1, window) {
         // of the user state cookie
         interval_count += 1;
         if (user_state_detected) {
-//        if (j1.getState() === 'finished') {
            user_state        = j1.readCookie(cookie_names.user_state);
            user_consent      = j1.readCookie(cookie_names.user_consent);
            logger.info('\n' + 'cookie ' +  cookie_names.user_state + ' successfully loaded after: ' + interval_count * 25 + ' ms');
@@ -139,7 +138,8 @@ j1.adapter['themer'] = (function (j1, window) {
                name:     cookie_names.user_state,
                data:     user_state,
                samesite: 'Strict',
-               secure:   secure
+               secure:   secure,
+               expires:  1
              });
              if (!cookie_written) {
              	logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_state);
