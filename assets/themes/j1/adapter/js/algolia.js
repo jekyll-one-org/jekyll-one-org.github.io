@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-08-05 19:04:05 +0000
+ #  Adapter generated: 2021-08-05 19:50:46 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -51,7 +51,7 @@ j1.adapter['algolia'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.algolia',
-        generated:   '2021-08-05 19:04:05 +0000'
+        generated:   '2021-08-05 19:50:46 +0000'
       }, options);
       _this.setState('started');
       logger.info('\n' + 'state: ' + _this.getState());
