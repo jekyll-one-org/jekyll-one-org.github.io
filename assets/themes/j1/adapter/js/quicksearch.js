@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-07-25 08:45:27 +0000
+ #  Adapter generated: 2021-08-05 18:49:51 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -53,13 +53,13 @@ j1.adapter['quicksearch'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.quicksearch',
-        generated:   '2021-07-25 08:45:27 +0000'
+        generated:   '2021-08-05 18:49:51 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // options loader
       // -----------------------------------------------------------------------
       /* eslint-disable */
-      searchOptions = $.extend({}, {"enabled":true, "placement":"navbar", "target":"_blank", "rebuild":false, "full_index":false, "excludes":["/assets/*", "/apps/*", "/log/*", "/node_modules/*", "/*\\.htm*/"], "stopwords":"/assets/themes/j1/modules/lunrSearch/stopwords/en.txt", "stopwords_locale":"en", "strip_index_html":false, "strip_categories":["pages", "posts", "series", "public", "featured", "wikipedia"], "min_length":3, "date_format":"mmm dd, yyyy", "module_dir":"/assets/themes/j1/modules/lunrSearch/js", "index_dir":"/assets/data", "index_name":"lunr-index.json", "index_file":"/assets/data/lunr-index.json", "search_input":"#search-query", "results":"#search-results", "template":"#search-results-template", "titleMsg":"", "emptyMsg":""});
+      searchOptions = $.extend({}, {"enabled":true, "placement":"navbar", "target":"_blank", "rebuild":true, "full_index":false, "stopwords":"/assets/themes/j1/modules/lunrSearch/stopwords/en.txt", "stopwords_locale":"en", "strip_index_html":false, "strip_categories":["pages", "posts", "series", "public", "featured", "wikipedia"], "min_length":3, "date_format":"mmm dd, yyyy", "module_dir":"/assets/themes/j1/modules/lunrSearch/js", "index_dir":"/assets/data", "index_name":"lunr-index.json", "index_file":"/assets/data/lunr-index.json", "search_input":"#search-query", "results":"#search-results", "template":"#search-results-template", "titleMsg":"", "emptyMsg":""});
       // -----------------------------------------------------------------------
       // lunr_search initializer
       // -----------------------------------------------------------------------

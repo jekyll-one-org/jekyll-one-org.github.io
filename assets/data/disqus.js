@@ -3,7 +3,7 @@
 $(document).ready(function() {
   var dependencies_met_page_finished = setInterval (function () {
     if (j1.getState() === 'finished') {
-      var disqus_shortname = 'jekyll-one';
+      var disqus_shortname = '<your-site-short-name>';
       // -----------------------------------------------------------------
       // RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE
       // SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.

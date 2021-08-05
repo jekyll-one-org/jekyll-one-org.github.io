@@ -21,7 +21,7 @@
  #  Setup of theme loaders for local_themes|remote_themes moved
  #  to adapter navigator.js
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-07-25 08:45:27 +0000
+ # Adapter generated: 2021-08-05 18:49:51 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -36,7 +36,7 @@ j1.adapter['themer'] = (function (j1, window) {
   // globals
   // ---------------------------------------------------------------------------
   var environment               = 'development';
-  var themerOptions             = $.extend({}, {"enabled":true, "retries":30, "saveToCookie":true, "debug":false, "preview_page":"/pages/public/previewer/theme/", "menu_icon_family":"MDI", "menu_icon_color":"#9E9E9E", "menu_icon_size":"mdi-sm", "cssThemeLink":"bootstrapTheme", "defaultCssFile":"https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css", "bootswatchApiUrl":"https://bootswatch.com/api", "bootswatchApiVersion":4, "loadFromBootswatch":true, "localThemes":"/assets/data/themes.json", "excludeBootswatch":"Default, default, Lux, Sketchy", "includeBootswatch":"", "skipIncludeBootswatch":""});
+  var themerOptions             = $.extend({}, {"enabled":true, "reloadPageOnChange":false, "retries":30, "saveToCookie":true, "debug":false, "preview_page":"/pages/public/previewer/theme/", "menu_icon_family":"MDI", "menu_icon_color":"#9E9E9E", "menu_icon_size":"mdi-sm", "cssThemeLink":"bootstrapTheme", "defaultCssFile":"https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css", "bootswatchApiUrl":"https://bootswatch.com/api", "bootswatchApiVersion":4, "loadFromBootswatch":true, "localThemes":"/assets/data/themes.json", "excludeBootswatch":"Default, default, Lux, Sketchy", "includeBootswatch":"", "skipIncludeBootswatch":""});
   var url                       = new liteURL(window.location.href);
   var secure                    = (url.protocol.includes('https')) ? true : false;
   var user_state                = {};
@@ -100,6 +100,10 @@ j1.adapter['themer'] = (function (j1, window) {
       // initialize state flag
       _this.state = 'started';
       logger.info('\n' + 'state: ' + _this.getState());
+      // jadams, 2021-07-25: problem seems NOT an timing issue on the iPad
+      // platform. (General) Dependency should be REMOVED!!!
+      // TODO: Isolate redirect for iPad ONLY!!!
+      //
       // jadams, 2021-07-11: added dependecy on the user state cookie
       // Found timing issues testing mobile devices (iPad)
       var dependencies_met_user_state_available = setInterval (function () {
@@ -131,32 +135,16 @@ j1.adapter['themer'] = (function (j1, window) {
            }
            // set the theme switcher state
            user_state.theme_switcher = themerOptions.enabled;
-           // jadams, 2021-07-11: unclear why the cookie consent is checked here
+           // jadams, 2021-07-25: hide|show themes menu on cookie consent
+           // (analyses|personalization) settings. BootSwatch is a 3rd party
+           // is using e.g GA. Because NO control is possible on 3rd parties,
+           // for GDPR compliance, themes feature may disabled on
+           // privacy settings
            if (!user_consent.analyses || !user_consent.personalization)  {
-             // expire state cookie to session
-             logger.debug('\n' + 'write to cookie : ' + cookie_names.user_state);
-             cookie_written = j1.writeCookie({
-               name:     cookie_names.user_state,
-               data:     user_state,
-               samesite: 'Strict',
-               secure:   secure,
-               expires:  0
-             });
-             if (!cookie_written) {
-             	logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_state);
-             }
+             logger.warn('\n' + 'disable themes feature because of privacy settings');
+             $("#themes_menu").hide();
            } else {
-             logger.debug('\n' + 'write to cookie : ' + cookie_names.user_state);
-             cookie_written = j1.writeCookie({
-               name:     cookie_names.user_state,
-               data:     user_state,
-               samesite: 'Strict',
-               secure:   secure,
-               expires:  365
-             });
-             if (!cookie_written) {
-             	logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_state);
-             }
+             $("#themes_menu").show();
            }
            if (themerOptions.enabled) {
            // enable BS ThemeSwitcher

@@ -6,7 +6,7 @@
 
             <!DOCTYPE html>
 <html lang="en">
-  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2021-07-25 08:45:27 +0000 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2021-08-05 18:49:51 +0000 ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ environment detected as: development ] -->
   <head data-proofer-ignore>
     <!-- [INFO   ] [j1.layout.default.html                ] [ call default_writer for region: 'head' ] -->
@@ -19,27 +19,30 @@
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ initial zoom level when the page is first loaded by the browser ] -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>posts by date</title>
-    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ SIZE of page description: 36 ] -->
-    <!-- [SEO    ] [j1.layout.meta_data_generator.html    ] [ GRATULATIONS. Your page description has more than 15 word. (Recommended: 70-160 characters  ) ] -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ detected content type: PAGE ] -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ SIZE of page description: 36 chars ] -->
+    <!-- [SEO    ] [j1.layout.meta_data_generator.html    ] [ Consider to IMPROVE|INCREASE your page description! ] -->
     <meta name="description" content="Browse articles by date">
     <link rel="icon" type="image/ico" href="/assets/images/modules/icons/j1/j1-32x32.ico">
     <meta name="author" content="J1 Team">
     <meta name="keywords" content="Jekyll, One, Template, Ruby, Asciidoctor, Asciidoc, Bootstrap, Javascript, JS, JS3, CSS, CSS3, HTML5, Material, Design">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ Check robot settings from SITE configuration ] -->
-    <!-- [DEBUG  ] [j1.layout.meta_data_generator.html    ] [ Set DEFAULT configuration robots_index: noindex  ] -->
-    <!-- [DEBUG  ] [j1.layout.meta_data_generator.html    ] [ Set DEFAULT configuration robots_follow: nofollow  ] -->
+    <!-- [DEBUG  ] [j1.layout.meta_data_generator.html    ] [ Found SITE configuration robots_index: true ] -->
+    <!-- [DEBUG  ] [j1.layout.meta_data_generator.html    ] [ Found SITE configuration robots_follow: true ] -->
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ Check robot settings from PAGE configuration ] -->
-    <!-- [DEBUG  ] [j1.layout.meta_data_generator.html    ] [ Found PAGE configuration robots_index: false ] -->
-    <!-- [DEBUG  ] [j1.layout.meta_data_generator.html    ] [ Found PAGE configuration robots_follow: false ] -->
+    <!-- [DEBUG  ] [j1.layout.meta_data_generator.html    ] [ Found PAGE configuration robots_index: true ] -->
+    <!-- [DEBUG  ] [j1.layout.meta_data_generator.html    ] [ Found PAGE configuration robots_follow: true ] -->
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ Place detected/overloaded meta tags for robots ] -->
-    <meta name="robots" content="noindex">
-    <meta name="robots" content="nofollow">
+    <meta name="robots" content="index">
+    <meta name="robots" content="follow">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for provider APIs: analytics ] -->
     <meta name="analytics" content="true">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for provider APIs: comments ] -->
     <meta name="comments" content="false">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for provider APIs: advertising ] -->
     <meta name="advertising" content="false">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for provider APIs: advertising ] -->
+    <meta name="translation" content="false">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for provider APIs: youtube ] -->
     <meta name="youtube" content="true">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for provider APIs: vimeo ] -->
@@ -97,7 +100,7 @@
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: page ] -->
     <!-- [INFO   ] [j1.modules.connectors.translation     ] [ Check translation settings from SITE configuration ] -->
-    <!-- [INFO   ] [j1.modules.connectors.translation     ] [ detected translation (site):  ] -->
+    <!-- [INFO   ] [j1.modules.connectors.translation     ] [ detected translation (site): false ] -->
     <!-- [INFO   ] [j1.modules.connectors.translation     ] [ Check translation settings from PAGE configuration ] -->
     <!-- [INFO   ] [j1.modules.connectors.translation     ] [ detected translation (page):  ] -->
     <!-- [INFO   ] [j1.modules.connectors.translation     ] [ end processing ] -->
@@ -371,8 +374,8 @@
               </p>
               <p class="result-item-text">{{description}}</p>
               <p class="result-item-text small text-muted mb-3">
-                <i class="mdi mdi-tag mdi-18px mr-1"></i><span class="sr-tags">{{#tags}} {{.}} · {{/tags}}</span>
-                <i class="mdi mdi-tag-text-outline mdi-18px mr-1 ml-2"></i><span class="sr-categories">{{#categories}} {{.}} · {{/categories}}</span>
+                <i class="mdi mdi-tag-text-outline mdi-18px mr-1"></i><span class="sr-categories">{{#categories}} {{.}} · {{/categories}}</span>
+                <i class="mdi mdi-tag mdi-18px mr-1 ml-2"></i><span class="sr-tags">{{#tags}} {{.}} · {{/tags}}</span>
               </p>
             </li>
           {{/docs}}
@@ -392,7 +395,7 @@
       <nav id="" class="navbar navigator navbar-expand-lg navbar-default light navbar-fixed navbar-transparent">
         <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ start processing: main menue ] -->
         <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ place brand to the: right ] -->
-        <a href="#" id="navbar-brand" class="navbar-brand"> <img src="/assets/images/modules/icons/j1/j1-512x512.png" height="48" alt="Starter@Netlify"></a>
+        <a href="#" id="navbar-brand" class="navbar-brand"> <img src="/assets/images/modules/icons/j1/j1-512x512.png" height="48" alt="Starter@Github"></a>
         <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ place mobile menu button to the: left ] -->
         <button id="mmenu-button" type="button" class="navigator navbar-toggler animated fadeIn" data-toggle="collapse" data-target="#navigator_nav_menu" aria-controls="navigator_nav_menu" aria-expanded="false" aria-label="Toggle navigation">
           <i class="mdi mdi-menu mdi-36px"></i>
@@ -454,28 +457,28 @@
           <!-- [INFO   ] [ /pages/public/blog/navigator/archive/dateview/ ] [Generate HTML}] -->
           <div class="paginator ml-3">
             <ul class="pagination raised-z0">
-              <li class="page-item"><a class="page-link" href="/pages/public/blog/navigator/" title="Blog View">Navigator</a></li>
-              <li class="page-item"><a class="page-link" href="/pages/public/blog/navigator/archive/categoryview/" title="View by Category">By Category</a></li>
-              <li class="page-item"><a class="page-link" href="/pages/public/blog/navigator/archive/" title="View All">All Posts</a></li>
+              <li class="page-item"><a class="page-link" href="/pages/public/blog/navigator/" alt="Blog Navigator">Navigator</a></li>
+              <li class="page-item"><a class="page-link" href="/pages/public/blog/navigator/archive/categoryview/" alt="View by Category">By Category</a></li>
+              <li class="page-item"><a class="page-link" href="/pages/public/blog/navigator/archive/" alt="View All">All Posts</a></li>
             </ul>
           </div>
           <div id="index" class="post-search-results ml-3">
-            <div class="view-description">Check out <b>all</b> articles in the blog posts <b>archive</b>. Below, find articles available this site <b>grouped</b> by <b>categoy</b>. On the right, a table of contents list all articles same order. <br>
+            <div class="view-description">On this page you will find all articles from the <b>archive</b> of the blog posts. The articles are grouped by <b>Date</b>. From the FAM button <a href="#void" class="btn-fab-floating btn-small btn-md-blue"> <i class="mdi mdi-plus"></i>FAM button</a> you can reach a table of contents <a href="#void" class="btn-fab-floating btn-small btn-md-blue"> <i class="mdi mdi-wrap mdi-"></i>open_mmenu_toc</a> of all available articles in the same order. <br>
               <br>
-               From the navigation line, go back to the <b>Navigator</b> page or go for the <b>Date Viewer</b> to find articles by <b>date</b>. You can search articles for keywords by the <b>Tag View</b> of a specific <b>topic</b> or find articles using the <b>All Posts View</b>.
+               From the navigation bar, <b>Navigator</b> takes you back to the <b>main page</b> of the Navigator. To search for articles in the archive by category, go for the view <b>By Category</b>. All articles in reverse order of appearance can be found in the view <b>All Posts</b>.
             </div>
             <div class="post-headline">
-              <h2 id="post-headline" class="mt-5">Posts by Date</h2>
+              <h1 id="post-headline notoc" class="mt-5">Posts by date</h1>
             </div>
             <!-- Collect comment provider details -->
-            <h3 id="73193" class="toc-link mt-5 mb-3">
+            <h2 id="43206" class="toc-link mt-5 mb-3">
               <i class="mdi mdi-calendar-blank"></i>
-              July 2021
-            </h3>
+              August 2021
+            </h2>
             <ul class="list-unstyled link-news">
               <li>
                 <article class="card raised-z3 mb-5">
-                  <h4 id="30428" class="card-header bg-primary">Welcome</h4>
+                  <h3 id="13453" class="card-header bg-primary">Welcome</h3>
                   <div class="row mx-0">
                     <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                     <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image is available] -->
@@ -486,10 +489,10 @@
                       <div class="card-footer r-text-200">
                         <div class="card-footer-text">
                           <hr class="my-3">
-                          <i class="mdi mdi-calendar-blank mr-1"></i> 2021 July, 20
+                          <i class="mdi mdi-calendar-blank md-grey-600 mr-1"></i>2021 August,  5
                         </div>
-                        <a class="card-link text-muted text-lowercase" href="/posts/public/featured/post/2021/07/20/welcome-to-j1/#readmore">
-                          Read · jekyll for everyone
+                        <a class="card-link text-muted text-lowercase" href="/posts/public/featured/post/2021/08/05/welcome-to-j1/#readmore">
+                          read · jekyll for everyone
                         </a>
                       </div>
                     </div>
@@ -498,14 +501,14 @@
               </li>
               <!-- Collect comment provider details -->
             </ul>
-            <h3 id="60349" class="toc-link mt-5 mb-3">
+            <h2 id="88243" class="toc-link mt-5 mb-3">
               <i class="mdi mdi-calendar-blank"></i>
               March 2021
-            </h3>
+            </h2>
             <ul class="list-unstyled link-news">
               <li>
                 <article class="card raised-z3 mb-5">
-                  <h4 id="26729" class="card-header bg-primary">J1 Template</h4>
+                  <h3 id="36139" class="card-header bg-primary">J1 Template</h3>
                   <div class="row mx-0">
                     <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                     <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image is available] -->
@@ -516,10 +519,10 @@
                       <div class="card-footer r-text-200">
                         <div class="card-footer-text">
                           <hr class="my-3">
-                          <i class="mdi mdi-calendar-blank mr-1"></i> 2021 March,  3
+                          <i class="mdi mdi-calendar-blank md-grey-600 mr-1"></i>2021 March,  3
                         </div>
-                        <a class="card-link text-muted text-lowercase" href="/posts/public/featured/post/2021/03/03/about-j1/#readmore">
-                          Read · first version is out
+                        <a class="card-link text-muted text-lowercase" href="/posts/public/featured/knowledge/2021/03/03/about-j1/#readmore">
+                          read · first version is out
                         </a>
                       </div>
                     </div>
@@ -529,7 +532,7 @@
               <!-- Collect comment provider details -->
               <li>
                 <article class="card raised-z3 mb-5">
-                  <h4 id="79040" class="card-header bg-primary">Site Generators</h4>
+                  <h3 id="90535" class="card-header bg-primary">Site Generators</h3>
                   <div class="row mx-0">
                     <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                     <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image is available] -->
@@ -540,10 +543,10 @@
                       <div class="card-footer r-text-200">
                         <div class="card-footer-text">
                           <hr class="my-3">
-                          <i class="mdi mdi-calendar-blank mr-1"></i> 2021 March,  1
+                          <i class="mdi mdi-calendar-blank md-grey-600 mr-1"></i>2021 March,  1
                         </div>
-                        <a class="card-link text-muted text-lowercase" href="/posts/public/featured/post/2021/03/01/site-generators/#readmore">
-                          Read · top open source tools
+                        <a class="card-link text-muted text-lowercase" href="/posts/public/featured/knowledge/2021/03/01/site-generators/#readmore">
+                          read · top open source tools
                         </a>
                       </div>
                     </div>
@@ -552,14 +555,14 @@
               </li>
               <!-- Collect comment provider details -->
             </ul>
-            <h3 id="80792" class="toc-link mt-5 mb-3">
+            <h2 id="86994" class="toc-link mt-5 mb-3">
               <i class="mdi mdi-calendar-blank"></i>
               January 2020
-            </h3>
+            </h2>
             <ul class="list-unstyled link-news">
               <li>
                 <article class="card raised-z3 mb-5">
-                  <h4 id="69351" class="card-header bg-primary">Test Post 4</h4>
+                  <h3 id="11446" class="card-header bg-primary">Test Post 4</h3>
                   <div class="row mx-0">
                     <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                     <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image missing, using configured default image] -->
@@ -570,10 +573,10 @@
                       <div class="card-footer r-text-200">
                         <div class="card-footer-text">
                           <hr class="my-3">
-                          <i class="mdi mdi-calendar-blank mr-1"></i> 2020 January,  4
+                          <i class="mdi mdi-calendar-blank md-grey-600 mr-1"></i>2020 January,  4
                         </div>
-                        <a class="card-link text-muted text-lowercase" href="/posts/public/series/2020/01/04/post-test-series/#readmore">
-                          Read · testing series elements
+                        <a class="card-link text-muted text-lowercase" href="/posts/public/series/examples/2020/01/04/post-test-series/#readmore">
+                          read · testing series elements
                         </a>
                       </div>
                     </div>
@@ -583,7 +586,7 @@
               <!-- Collect comment provider details -->
               <li>
                 <article class="card raised-z3 mb-5">
-                  <h4 id="46072" class="card-header bg-primary">Test Post 3</h4>
+                  <h3 id="531" class="card-header bg-primary">Test Post 3</h3>
                   <div class="row mx-0">
                     <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                     <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image missing, using configured default image] -->
@@ -594,10 +597,10 @@
                       <div class="card-footer r-text-200">
                         <div class="card-footer-text">
                           <hr class="my-3">
-                          <i class="mdi mdi-calendar-blank mr-1"></i> 2020 January,  3
+                          <i class="mdi mdi-calendar-blank md-grey-600 mr-1"></i>2020 January,  3
                         </div>
-                        <a class="card-link text-muted text-lowercase" href="/posts/public/series/2020/01/03/post-test-series/#readmore">
-                          Read · testing series elements
+                        <a class="card-link text-muted text-lowercase" href="/posts/public/series/examples/2020/01/03/post-test-series/#readmore">
+                          read · testing series elements
                         </a>
                       </div>
                     </div>
@@ -607,7 +610,7 @@
               <!-- Collect comment provider details -->
               <li>
                 <article class="card raised-z3 mb-5">
-                  <h4 id="18645" class="card-header bg-primary">Test Post 2</h4>
+                  <h3 id="42849" class="card-header bg-primary">Test Post 2</h3>
                   <div class="row mx-0">
                     <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                     <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image missing, using configured default image] -->
@@ -618,10 +621,10 @@
                       <div class="card-footer r-text-200">
                         <div class="card-footer-text">
                           <hr class="my-3">
-                          <i class="mdi mdi-calendar-blank mr-1"></i> 2020 January,  2
+                          <i class="mdi mdi-calendar-blank md-grey-600 mr-1"></i>2020 January,  2
                         </div>
-                        <a class="card-link text-muted text-lowercase" href="/posts/public/series/2020/01/02/post-test-series/#readmore">
-                          Read · testing series elements
+                        <a class="card-link text-muted text-lowercase" href="/posts/public/series/examples/2020/01/02/post-test-series/#readmore">
+                          read · testing series elements
                         </a>
                       </div>
                     </div>
@@ -631,7 +634,7 @@
               <!-- Collect comment provider details -->
               <li>
                 <article class="card raised-z3 mb-5">
-                  <h4 id="98352" class="card-header bg-primary">Test Post 1</h4>
+                  <h3 id="6847" class="card-header bg-primary">Test Post 1</h3>
                   <div class="row mx-0">
                     <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                     <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image missing, using configured default image] -->
@@ -642,10 +645,10 @@
                       <div class="card-footer r-text-200">
                         <div class="card-footer-text">
                           <hr class="my-3">
-                          <i class="mdi mdi-calendar-blank mr-1"></i> 2020 January,  1
+                          <i class="mdi mdi-calendar-blank md-grey-600 mr-1"></i>2020 January,  1
                         </div>
-                        <a class="card-link text-muted text-lowercase" href="/posts/public/series/2020/01/01/post-test-series/#readmore">
-                          Read · testing series elements
+                        <a class="card-link text-muted text-lowercase" href="/posts/public/series/examples/2020/01/01/post-test-series/#readmore">
+                          read · testing series elements
                         </a>
                       </div>
                     </div>
@@ -655,7 +658,7 @@
               <!-- Collect comment provider details -->
               <li>
                 <article class="card raised-z3 mb-5">
-                  <h4 id="99271" class="card-header bg-primary">Cookies</h4>
+                  <h3 id="82628" class="card-header bg-primary">Cookies</h3>
                   <div class="row mx-0">
                     <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                     <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image is available] -->
@@ -666,10 +669,10 @@
                       <div class="card-footer r-text-200">
                         <div class="card-footer-text">
                           <hr class="my-3">
-                          <i class="mdi mdi-calendar-blank mr-1"></i> 2020 January,  1
+                          <i class="mdi mdi-calendar-blank md-grey-600 mr-1"></i>2020 January,  1
                         </div>
-                        <a class="card-link text-muted text-lowercase" href="/posts/public/featured/post/2020/01/01/about-cookies/#readmore">
-                          Read · good to know
+                        <a class="card-link text-muted text-lowercase" href="/posts/public/featured/knowledge/2020/01/01/about-cookies/#readmore">
+                          read · good to know
                         </a>
                       </div>
                     </div>
@@ -678,14 +681,14 @@
               </li>
               <!-- Collect comment provider details -->
             </ul>
-            <h3 id="54579" class="toc-link mt-5 mb-3">
+            <h2 id="60893" class="toc-link mt-5 mb-3">
               <i class="mdi mdi-calendar-blank"></i>
               November 2016
-            </h3>
+            </h2>
             <ul class="list-unstyled link-news">
               <li>
                 <article class="card raised-z3 mb-5">
-                  <h4 id="91060" class="card-header bg-primary">Columbia River</h4>
+                  <h3 id="84225" class="card-header bg-primary">Columbia River</h3>
                   <div class="row mx-0">
                     <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                     <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image is available] -->
@@ -696,10 +699,10 @@
                       <div class="card-footer r-text-200">
                         <div class="card-footer-text">
                           <hr class="my-3">
-                          <i class="mdi mdi-calendar-blank mr-1"></i> 2016 November, 26
+                          <i class="mdi mdi-calendar-blank md-grey-600 mr-1"></i>2016 November, 26
                         </div>
                         <a class="card-link text-muted text-lowercase" href="/posts/public/wikipedia/2016/11/26/columbia-river/#readmore">
-                          Read · largest river in the pacific northwest region
+                          read · largest river in the pacific northwest region
                         </a>
                       </div>
                     </div>
@@ -709,7 +712,7 @@
               <!-- Collect comment provider details -->
               <li>
                 <article class="card raised-z3 mb-5">
-                  <h4 id="88323" class="card-header bg-primary">Narcisse Snake Dens</h4>
+                  <h3 id="42463" class="card-header bg-primary">Narcisse Snake Dens</h3>
                   <div class="row mx-0">
                     <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                     <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image is available] -->
@@ -720,10 +723,10 @@
                       <div class="card-footer r-text-200">
                         <div class="card-footer-text">
                           <hr class="my-3">
-                          <i class="mdi mdi-calendar-blank mr-1"></i> 2016 November, 24
+                          <i class="mdi mdi-calendar-blank md-grey-600 mr-1"></i>2016 November, 24
                         </div>
                         <a class="card-link text-muted text-lowercase" href="/posts/public/wikipedia/2016/11/24/narcisse-snake-dens/#readmore">
-                          Read · largest snake population
+                          read · largest snake population
                         </a>
                       </div>
                     </div>
@@ -733,7 +736,7 @@
               <!-- Collect comment provider details -->
               <li>
                 <article class="card raised-z3 mb-5">
-                  <h4 id="46359" class="card-header bg-primary">Minneapolis</h4>
+                  <h3 id="31710" class="card-header bg-primary">Minneapolis</h3>
                   <div class="row mx-0">
                     <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                     <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image is available] -->
@@ -744,10 +747,10 @@
                       <div class="card-footer r-text-200">
                         <div class="card-footer-text">
                           <hr class="my-3">
-                          <i class="mdi mdi-calendar-blank mr-1"></i> 2016 November, 20
+                          <i class="mdi mdi-calendar-blank md-grey-600 mr-1"></i>2016 November, 20
                         </div>
                         <a class="card-link text-muted text-lowercase" href="/posts/public/wikipedia/2016/11/20/minneapolis/#readmore">
-                          Read · largest city in the state of minnesota
+                          read · largest city in the state of minnesota
                         </a>
                       </div>
                     </div>
@@ -1059,7 +1062,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="noindex, nofollow">
-      <link rel="icon" type="image/ico" href="modules/icons/j1/j1-32x32.ico">
+      <link rel="icon" type="image/ico" href="/assets/images/modules/icons/j1/j1-32x32.ico">
       <title>Javascript disabled · 444</title>
       <style>
         .my { margin-top: 8.5rem !important;}

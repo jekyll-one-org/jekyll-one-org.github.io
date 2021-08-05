@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-07-25 08:45:27 +0000
+ # Adapter generated: 2021-08-05 18:49:51 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -46,7 +46,7 @@ var j1 = (function () {
   var comment_provider          = 'hyvor';
   var site_id                   = '4612';
   // Default translator settings (currently NOT supported)
-  // var translation_enabled       = ;
+  // var translation_enabled       = false;
   var current_user_data;
   var current_page;
   var previous_page;
@@ -60,7 +60,7 @@ var j1 = (function () {
   var themeCss;
   var cssExtension              = (environment === 'production')
                                   ? '.min.css'
-                                  : '.css';
+                                  : '.css'
    // Pathes of J1 data files
   var colors_data_path          = '/assets/data/colors.json';
   var font_size_data_path       = '/assets/data/font_sizes.json';
@@ -104,7 +104,7 @@ var j1 = (function () {
     'theme_name':           '',
     'theme_css':            '',
     'theme_author':         '',
-    'theme_version':        '2021.1.14',
+    'theme_version':        '2021.1.18',
     'session_active':       false,
     'last_session_ts':      ''
   };
@@ -145,6 +145,7 @@ var j1 = (function () {
       var curr_state        = 'started';
       var gaCookies         = j1.findCookie('_ga');
       var j1Cookies         = j1.findCookie('j1');
+      var themerOptions     = $.extend({}, {"enabled":true, "reloadPageOnChange":false, "retries":30, "saveToCookie":true, "debug":false, "preview_page":"/pages/public/previewer/theme/", "menu_icon_family":"MDI", "menu_icon_color":"#9E9E9E", "menu_icon_size":"mdi-sm", "cssThemeLink":"bootstrapTheme", "defaultCssFile":"https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css", "bootswatchApiUrl":"https://bootswatch.com/api", "bootswatchApiVersion":4, "loadFromBootswatch":true, "localThemes":"/assets/data/themes.json", "excludeBootswatch":"Default, default, Lux, Sketchy", "includeBootswatch":"", "skipIncludeBootswatch":""});
       // -----------------------------------------------------------------------
       // options loader
       // -----------------------------------------------------------------------
@@ -729,6 +730,15 @@ var j1 = (function () {
             } // END personalization
             // display page
            $('#no_flicker').css('display', 'block');
+             // add recommended title to hyvor iframe for SEO optimization (if loadad)
+            if (comment_provider === 'hyvor') {
+              var dependencies_met_load_finished = setInterval (function () {
+              	if ($('#hyvor-talk-view').children().length) {
+              		$('#hyvor-talk-iframe').prop('title', 'Hyvor talk iframe');
+              		clearInterval(dependencies_met_load_finished);
+              	}
+              }, 25);
+            }
             // NOTE: Placed tracking warning/info here because page may reloaded
             // after cookie consent selection
             if (user_consent.analyses) {
@@ -842,6 +852,15 @@ var j1 = (function () {
           } // END personalization
           // display page
           $('#no_flicker').css('display', 'block');
+            // add recommended title to hyvor iframe for SEO optimization (if loadad)
+           if (comment_provider === 'hyvor') {
+             var dependencies_met_load_finished = setInterval (function () {
+               if ($('#hyvor-talk-view').children().length) {
+                 $('#hyvor-talk-iframe').prop('title', 'Hyvor talk iframe');
+                 clearInterval(dependencies_met_load_finished);
+               }
+             }, 25);
+           }
           // NOTE: Placed tracking warning/info here because page may reloaded
           // after cookie consent selection
           if (user_consent.analyses) {
@@ -955,7 +974,7 @@ var j1 = (function () {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2021.1.14';
+      return '2021.1.18';
     }, // END getTemplateVersion
     // -------------------------------------------------------------------------
     // scrollTo()

@@ -6,7 +6,7 @@
 
             <!DOCTYPE html>
 <html lang="en">
-  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2021-07-25 08:45:27 +0000 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2021-08-05 18:49:51 +0000 ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ environment detected as: development ] -->
   <head data-proofer-ignore>
     <!-- [INFO   ] [j1.layout.default.html                ] [ call default_writer for region: 'head' ] -->
@@ -19,27 +19,31 @@
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ initial zoom level when the page is first loaded by the browser ] -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>explore posts</title>
-    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ SIZE of page description: 36 ] -->
-    <!-- [SEO    ] [j1.layout.meta_data_generator.html    ] [ GRATULATIONS. Your page description has more than 15 word. (Recommended: 70-160 characters  ) ] -->
-    <meta name="description" content="Navigate  all articles">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ detected content type: PAGE ] -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ SIZE of page description: 36 chars ] -->
+    <!-- [SEO    ] [j1.layout.meta_data_generator.html    ] [ Consider to IMPROVE|INCREASE your page description! ] -->
+    <meta name="description" content="Navigate through all articles tis website
+">
     <link rel="icon" type="image/ico" href="/assets/images/modules/icons/j1/j1-32x32.ico">
     <meta name="author" content="J1 Team">
     <meta name="keywords" content="Jekyll, One, Template, Ruby, Asciidoctor, Asciidoc, Bootstrap, Javascript, JS, JS3, CSS, CSS3, HTML5, Material, Design">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ Check robot settings from SITE configuration ] -->
-    <!-- [DEBUG  ] [j1.layout.meta_data_generator.html    ] [ Set DEFAULT configuration robots_index: noindex  ] -->
-    <!-- [DEBUG  ] [j1.layout.meta_data_generator.html    ] [ Set DEFAULT configuration robots_follow: nofollow  ] -->
+    <!-- [DEBUG  ] [j1.layout.meta_data_generator.html    ] [ Found SITE configuration robots_index: true ] -->
+    <!-- [DEBUG  ] [j1.layout.meta_data_generator.html    ] [ Found SITE configuration robots_follow: true ] -->
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ Check robot settings from PAGE configuration ] -->
-    <!-- [DEBUG  ] [j1.layout.meta_data_generator.html    ] [ Found PAGE configuration robots_index: false ] -->
-    <!-- [DEBUG  ] [j1.layout.meta_data_generator.html    ] [ Found PAGE configuration robots_follow: false ] -->
+    <!-- [DEBUG  ] [j1.layout.meta_data_generator.html    ] [ Found PAGE configuration robots_index: true ] -->
+    <!-- [DEBUG  ] [j1.layout.meta_data_generator.html    ] [ Found PAGE configuration robots_follow: true ] -->
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ Place detected/overloaded meta tags for robots ] -->
-    <meta name="robots" content="noindex">
-    <meta name="robots" content="nofollow">
+    <meta name="robots" content="index">
+    <meta name="robots" content="follow">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for provider APIs: analytics ] -->
     <meta name="analytics" content="true">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for provider APIs: comments ] -->
     <meta name="comments" content="false">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for provider APIs: advertising ] -->
     <meta name="advertising" content="false">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for provider APIs: advertising ] -->
+    <meta name="translation" content="false">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for provider APIs: youtube ] -->
     <meta name="youtube" content="true">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for provider APIs: vimeo ] -->
@@ -97,7 +101,7 @@
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: blog_archive ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: blog_archive ] -->
     <!-- [INFO   ] [j1.modules.connectors.translation     ] [ Check translation settings from SITE configuration ] -->
-    <!-- [INFO   ] [j1.modules.connectors.translation     ] [ detected translation (site):  ] -->
+    <!-- [INFO   ] [j1.modules.connectors.translation     ] [ detected translation (site): false ] -->
     <!-- [INFO   ] [j1.modules.connectors.translation     ] [ Check translation settings from PAGE configuration ] -->
     <!-- [INFO   ] [j1.modules.connectors.translation     ] [ detected translation (page):  ] -->
     <!-- [INFO   ] [j1.modules.connectors.translation     ] [ end processing ] -->
@@ -367,8 +371,8 @@
               </p>
               <p class="result-item-text">{{description}}</p>
               <p class="result-item-text small text-muted mb-3">
-                <i class="mdi mdi-tag mdi-18px mr-1"></i><span class="sr-tags">{{#tags}} {{.}} · {{/tags}}</span>
-                <i class="mdi mdi-tag-text-outline mdi-18px mr-1 ml-2"></i><span class="sr-categories">{{#categories}} {{.}} · {{/categories}}</span>
+                <i class="mdi mdi-tag-text-outline mdi-18px mr-1"></i><span class="sr-categories">{{#categories}} {{.}} · {{/categories}}</span>
+                <i class="mdi mdi-tag mdi-18px mr-1 ml-2"></i><span class="sr-tags">{{#tags}} {{.}} · {{/tags}}</span>
               </p>
             </li>
           {{/docs}}
@@ -388,7 +392,7 @@
       <nav id="" class="navbar navigator navbar-expand-lg navbar-default light navbar-fixed navbar-transparent">
         <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ start processing: main menue ] -->
         <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ place brand to the: right ] -->
-        <a href="#" id="navbar-brand" class="navbar-brand"> <img src="/assets/images/modules/icons/j1/j1-512x512.png" height="48" alt="Starter@Netlify"></a>
+        <a href="#" id="navbar-brand" class="navbar-brand"> <img src="/assets/images/modules/icons/j1/j1-512x512.png" height="48" alt="Starter@Github"></a>
         <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ place mobile menu button to the: left ] -->
         <button id="mmenu-button" type="button" class="navigator navbar-toggler animated fadeIn" data-toggle="collapse" data-target="#navigator_nav_menu" aria-controls="navigator_nav_menu" aria-expanded="false" aria-label="Toggle navigation">
           <i class="mdi mdi-menu mdi-36px"></i>
@@ -444,57 +448,40 @@
         <!-- [INFO   ] [j1.layout.content_writer.proc         ] [ start processing: load CONTENT portion for layout: blog_archive ] -->
         <!-- [INFO   ] [j1.layout.content_writer.proc         ] [ load region 'body-main' for layout: blog_archive ] -->
         <!-- [INFO   ] [j1.layout.content_generator_blog.html  ] [Begin content] -->
-        <!-- split page to place a sidebar e.g. the document TOC -->
-        <!-- no sidebar, mr-* disabled -->
-        <!-- div class="container mr-5 mb-5" -->
-        <!-- div class="container mb-5" -->
-        <!-- div class="row" -->
-        <!-- main class="col-md-9 col-xs-12 r-text-300 js-toc-content" -->
         <main id="main-content" class="container r-text-300 js-toc-content mb-5">
           <!-- Content placed by layouts/content_generator_blog_archive.html -->
-          <!-- div id="blog_navigator" class="row" -->
           <div id="blog_navigator">
-            <!-- div class="col-md-12" role="main" -->
             <div id="article_navigator">
               <div class="navigator-headline">
-                <!-- <div id="navigator" class="post-headline">
-                  <h2 id="post-headline" class="mt-4">Navigator</h2>
-                </div> -->
-                <!-- nav class="paginator ml-3" -->
                 <nav class="paginator">
                   <ul class="pagination raised-z0">
-                    <li class="page-item"><a class="page-link" href="/pages/public/blog/navigator/archive/categoryview/" title="View by Category">By Category</a></li>
-                    <li class="page-item"><a class="page-link" href="/pages/public/blog/navigator/archive/dateview/" title="View by Date">By Date</a></li>
-                    <!-- li class="page-item"><a class="page-link" href="/pages/public/blog/navigator/archive/tagview/" title="View by Tag">By Tag</a></li -->
-                    <li class="page-item"><a class="page-link" href="/pages/public/blog/navigator/archive/" title="View All">All Posts</a></li>
+                    <li class="page-item"><a class="page-link" href="/pages/public/blog/navigator/archive/categoryview/" alt="View by Category">By Category</a></li>
+                    <li class="page-item"><a class="page-link" href="/pages/public/blog/navigator/archive/dateview/" alt="View by Date">By Date</a></li>
+                    <!-- li class="page-item"><a class="page-link" href="/pages/public/blog/navigator/archive/tagview/" alt="By Tag">By Tag</a></li -->
+                    <li class="page-item"><a class="page-link" href="/pages/public/blog/navigator/archive/" alt="View All">All Posts</a></li>
                   </ul>
                 </nav> <!-- end paginator -->
-                <!-- <div class="view-description ml-3 mb-3">
-                  Navigate through all articles available this site. Go for the various views to find what your are interested in. Go for the <b>Category Viewer</b> to find articles of a specific <b>topic</b>. You can search for articles by date using the <b>Date View</b> or search for keywords by the <b>Tag View</b>. <br /> <br /> <i>Happy Jekylling!</i>
-                </div> -->
               </div>
                <!-- end navigator headline -->
+              <div class="view-description">Navigate through all of the articles available on this site. To do this, use the various display pages to find the articles that interest you. The <b>By Category</b> page lists articles on a specific <b>topic</b>. If you are looking for articles by publication date, you can use the view Use <b>By Date</b>. All articles in reverse order of appearance can be found in the view <b>All Posts</b>.
+              </div>
             </div>
-             <!-- end blog navigator -->
-            <!-- Add Article Previewer if paginator is enabled -->
+             <!-- end article_navigator -->
+            <!-- Add article previewer if paginator is enabled -->
             <div id="article_previewer">
               <div class="previewer-headline">
                 <div class="post-headline">
-                  <h2 id="previewer" class="mt-4">Preview</h2>
+                  <h1 id="previewer" class="notoc mt-4">Preview</h1>
                 </div>
                 <nav class="paginator mb-4">
                   <ul class="pagination raised-z0">
                     <li class="page-item">
                       <a class="page-link" href="/pages/public/blog/navigator/index.html#article_navigator">Newer Posts</a>
                     </li>
-                    <li class="page-item">
-                      <a class="page-link" href="/pages/public/blog/navigator/page3/index.html#article_navigator">Older Posts</a>
-                    </li>
+                    <li class="page-item disabled"><a href="#" class="page-link">Last Page</a></li>
                   </ul>
                 </nav>
-                <!-- div class="view-description ml-3 mb-3" -->
-                <div class="view-description mb-3">
-                  All articles are reverse ordered by date. The current articles are displayed first. To preview older posts, use the button <b>Older Posts</b> from the Preview Bar. For newer posts use the button <b>Newer Posts</b> for more recent articles.
+                <div class="view-description mb-3">All articles are reverse ordered by date. The current articles are displayed first. From the FAM button <a href="#void" class="btn-fab-floating btn-small btn-md-blue"> <i class="mdi mdi-plus"></i>FAM button</a> you can reach a table of contents <a href="#void" class="btn-fab-floating btn-small btn-md-blue"> <i class="mdi mdi-wrap mdi-"></i>open_mmenu_toc</a> of all available articles in the same order. To preview older posts, use the button <b>Older Posts</b> from the Preview Bar. For newer posts use the button <b>Newer Posts</b> for more recent articles.
                 </div>
               </div>
               <div id="article_preview">
@@ -509,9 +496,7 @@
                       <div class="card raised-z5 timeline-panel">
                         <!-- div class="timeline-title" -->
                         <div class="card-header bg-primary pt-4 pb-3">
-                          <!-- a href="/posts/public/series/2020/01/03/post-test-series/" -->
-                          <h3 id="501394" class="md-white">Test Post 3</h3>
-                          <!-- /a -->
+                          <h2 id="489691" class="md-white">Columbia River</h2>
                         </div>
                         <!-- Collect icon data from frontmatter -->
                         <!-- Collect image data from frontmatter (overload icon data if configured) -->
@@ -519,20 +504,20 @@
                         <!-- div class="timeline-body" -->
                         <div class="card-body r-text-300">
                           <!-- div class="tagline">
-                <p class="card-subtitle text-muted">testing series elements</p>
+                <p class="card-subtitle text-muted">largest river in the pacific northwest region</p>
               </div -->
                           <div class="excerpt">
-                            This post is a test series element. Post series can help to split largerposts into a group of smaller articles. This may helpful, if a large postshould be split into several main chapters but grouped together.
+                            The Columbia River is the largest river in the Pacific Northwest region ofNorth America. It flows northwest and then south into the US state of Washington,then turns west to form most of the border between Washington and the state ofOregon before emptying into the Pacific Ocean.
                           </div>
                         </div>
                         <!-- Collect comment provider details -->
-                        <div class="card-footer r-text-200 text-lowercase">
+                        <div class="card-footer r-text-200">
                           <hr class="my-3">
                           <div class="card-footer-text">
-                            <i class="mdi mdi-calendar-blank md-grey-600 mr-1"></i> 2020 January,  3
+                            <i class="mdi mdi-calendar-blank md-grey-600 mr-1"></i>2016 November, 26
                           </div>
-                          <a class="card-link text-muted text-lowercase" href="/posts/public/series/2020/01/03/post-test-series/#readmore">
-                            Read · testing series elements
+                          <a class="card-link text-muted text-lowercase" href="/posts/public/wikipedia/2016/11/26/columbia-river/#readmore">
+                            read · largest river in the pacific northwest region
                           </a>
                         </div>
                       </div>
@@ -544,9 +529,7 @@
                       <div class="card raised-z5 timeline-panel">
                         <!-- div class="timeline-title" -->
                         <div class="card-header bg-primary pt-4 pb-3">
-                          <!-- a href="/posts/public/series/2020/01/02/post-test-series/" -->
-                          <h3 id="556945" class="md-white">Test Post 2</h3>
-                          <!-- /a -->
+                          <h2 id="104712" class="md-white">Narcisse Snake Dens</h2>
                         </div>
                         <!-- Collect icon data from frontmatter -->
                         <!-- Collect image data from frontmatter (overload icon data if configured) -->
@@ -554,20 +537,20 @@
                         <!-- div class="timeline-body" -->
                         <div class="card-body r-text-300">
                           <!-- div class="tagline">
-                <p class="card-subtitle text-muted">testing series elements</p>
+                <p class="card-subtitle text-muted">largest snake population</p>
               </div -->
                           <div class="excerpt">
-                            This post is a test series element. Post series can help to split largerposts into a group of smaller articles. This may helpful, if a large postshould be split into several main chapters but grouped together.
+                            The Narcisse Snake Pits are located in the Rural Municipality of Armstrongabout 6 kilometres (3.7 mi) north of Narcisse, Manitoba, Canada. The densare the winter home of tens of thousands of red-sided garter snakes(Thamnophis sirtalis parietalis).
                           </div>
                         </div>
                         <!-- Collect comment provider details -->
-                        <div class="card-footer r-text-200 text-lowercase">
+                        <div class="card-footer r-text-200">
                           <hr class="my-3">
                           <div class="card-footer-text">
-                            <i class="mdi mdi-calendar-blank md-grey-600 mr-1"></i> 2020 January,  2
+                            <i class="mdi mdi-calendar-blank md-grey-600 mr-1"></i>2016 November, 24
                           </div>
-                          <a class="card-link text-muted text-lowercase" href="/posts/public/series/2020/01/02/post-test-series/#readmore">
-                            Read · testing series elements
+                          <a class="card-link text-muted text-lowercase" href="/posts/public/wikipedia/2016/11/24/narcisse-snake-dens/#readmore">
+                            read · largest snake population
                           </a>
                         </div>
                       </div>
@@ -579,9 +562,7 @@
                       <div class="card raised-z5 timeline-panel">
                         <!-- div class="timeline-title" -->
                         <div class="card-header bg-primary pt-4 pb-3">
-                          <!-- a href="/posts/public/featured/post/2020/01/01/about-cookies/" -->
-                          <h3 id="914644" class="md-white">Cookies</h3>
-                          <!-- /a -->
+                          <h2 id="984995" class="md-white">Minneapolis</h2>
                         </div>
                         <!-- Collect icon data from frontmatter -->
                         <!-- Collect image data from frontmatter (overload icon data if configured) -->
@@ -589,55 +570,20 @@
                         <!-- div class="timeline-body" -->
                         <div class="card-body r-text-300">
                           <!-- div class="tagline">
-                <p class="card-subtitle text-muted">good to know</p>
+                <p class="card-subtitle text-muted">largest city in the state of minnesota</p>
               </div -->
                           <div class="excerpt">
-                            Is it needed for visitors to know what cookies are about? No doubts, you’rerequested to inform - in Europe for legal reasons. All users visiting websitesare bothered all the time to accept cookies. For good reasons?
+                            Minneapolis is the largest city in the state of Minnesota in the United States,and the county seat of Hennepin County. According to the United States CensusBureau, the city has a total area of 151.3 km² (58.4 mi²). 142.2 km² (54.9 mi²)of it is land and 9.1 km² (3.5 mi²) of it (6.01%) is water.
                           </div>
                         </div>
                         <!-- Collect comment provider details -->
-                        <div class="card-footer r-text-200 text-lowercase">
+                        <div class="card-footer r-text-200">
                           <hr class="my-3">
                           <div class="card-footer-text">
-                            <i class="mdi mdi-calendar-blank md-grey-600 mr-1"></i> 2020 January,  1
+                            <i class="mdi mdi-calendar-blank md-grey-600 mr-1"></i>2016 November, 20
                           </div>
-                          <a class="card-link text-muted text-lowercase" href="/posts/public/featured/post/2020/01/01/about-cookies/#readmore">
-                            Read · good to know
-                          </a>
-                        </div>
-                      </div>
-                    </li>
-                    <!-- Calculate left|right placement -->
-                    <!-- right -->
-                    <li class="timeline-inverted">
-                      <div class="timeline-badge"><i class="tmicon rounded-x hidden-xs"></i></div>
-                      <div class="card raised-z5 timeline-panel">
-                        <!-- div class="timeline-title" -->
-                        <div class="card-header bg-primary pt-4 pb-3">
-                          <!-- a href="/posts/public/series/2020/01/01/post-test-series/" -->
-                          <h3 id="213381" class="md-white">Test Post 1</h3>
-                          <!-- /a -->
-                        </div>
-                        <!-- Collect icon data from frontmatter -->
-                        <!-- Collect image data from frontmatter (overload icon data if configured) -->
-                        <!-- !place_icon && !place_image -->
-                        <!-- div class="timeline-body" -->
-                        <div class="card-body r-text-300">
-                          <!-- div class="tagline">
-                <p class="card-subtitle text-muted">testing series elements</p>
-              </div -->
-                          <div class="excerpt">
-                            This post is a test series element. Post series can help to split largerposts into a group of smaller articles. This may helpful, if a large postshould be split into several main chapters but grouped together.
-                          </div>
-                        </div>
-                        <!-- Collect comment provider details -->
-                        <div class="card-footer r-text-200 text-lowercase">
-                          <hr class="my-3">
-                          <div class="card-footer-text">
-                            <i class="mdi mdi-calendar-blank md-grey-600 mr-1"></i> 2020 January,  1
-                          </div>
-                          <a class="card-link text-muted text-lowercase" href="/posts/public/series/2020/01/01/post-test-series/#readmore">
-                            Read · testing series elements
+                          <a class="card-link text-muted text-lowercase" href="/posts/public/wikipedia/2016/11/20/minneapolis/#readmore">
+                            read · largest city in the state of minnesota
                           </a>
                         </div>
                       </div>
@@ -651,15 +597,12 @@
                 </div>
               </div>
               <!-- end article previewer -->
-              <!-- /div --> <!-- end col-md-12 -->
             </div>
-             <!-- end row blog_navigator -->
-            <!-- End Content placed by blog_archive_content.html -->
-          </main> <!-- end main for split page -->
-          <!-- NOTE: BS or Tocbot Affix is not used anymore. Replaced by CSS style "sticky" -->
+             <!-- end blog_navigator -->
+          </main> <!-- end main -->
           <!-- [INFO   ] [j1.content_generator_blog_archive        ] [ Creators Blog - save the current page to cookieUserState cookie: /pages/public/blog/navigator/page2/index.html ] -->
           <script>
-            /* Manage the current page settings */
+            // Manage current page settings
             $(document).ready(function() {
               var dependencies_blog_generator = setInterval(function() {
                 if ( j1.adapter.themer.getState() == 'finished' ) {
@@ -679,8 +622,6 @@
                 }, 25);
             });
           </script>
-          <!-- /div --> <!-- end row -->
-          <!-- /div --> <!-- end container -->
           <!-- [INFO   ] [j1.layout.content_generator_blog.html  ] [ end content ] -->
           <!-- [INFO   ] [j1.layout.content_writer.proc         ] [ load region 'body-main' for layout: blog_archive ] -->
           <section id="fam-container" class=""></section>
@@ -917,7 +858,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noindex, nofollow">
-        <link rel="icon" type="image/ico" href="modules/icons/j1/j1-32x32.ico">
+        <link rel="icon" type="image/ico" href="/assets/images/modules/icons/j1/j1-32x32.ico">
         <title>Javascript disabled · 444</title>
         <style>
           .my { margin-top: 8.5rem !important;}
