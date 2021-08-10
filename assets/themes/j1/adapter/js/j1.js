@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-08-05 19:50:46 +0000
+ # Adapter generated: 2021-08-10 13:44:20 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -104,7 +104,7 @@ var j1 = (function () {
     'theme_name':           '',
     'theme_css':            '',
     'theme_author':         '',
-    'theme_version':        '2021.1.18',
+    'theme_version':        '2021.1.19',
     'session_active':       false,
     'last_session_ts':      ''
   };
@@ -788,6 +788,17 @@ var j1 = (function () {
               logger.info('\n' + 'authentication detected as: ' + user_session.authenticated);
               $('#quickLinksSignInOutButton').css('display', 'block');
             }
+            // jadams, 2021-07-25: hide|show themes menu on cookie consent
+            // (analyses|personalization) settings. BootSwatch is a 3rd party
+            // is using e.g GA. Because NO control is possible on 3rd parties,
+            // for GDPR compliance, themes feature may disabled on
+            // privacy settings
+            if (!user_consent.analyses || !user_consent.personalization)  {
+              logger.warn('\n' + 'disable themes feature because of privacy settings');
+              $("#themes_menu").hide();
+            } else {
+              $("#themes_menu").show();
+            }
             // if the page requested contains an anchor element,
             // do a smooth scroll to
             j1.scrollTo();
@@ -910,6 +921,17 @@ var j1 = (function () {
             // Display cookie icon
             $('#quickLinksCookieButton').css('display', 'none');
           }
+          // jadams, 2021-07-25: hide|show themes menu on cookie consent
+          // (analyses|personalization) settings. BootSwatch is a 3rd party
+          // is using e.g GA. Because NO control is possible on 3rd parties,
+          // for GDPR compliance, themes feature may disabled on
+          // privacy settings
+          if (!user_consent.analyses || !user_consent.personalization)  {
+            logger.warn('\n' + 'disable themes feature because of privacy settings');
+            $("#themes_menu").hide();
+          } else {
+            $("#themes_menu").show();
+          }
           // If the page requested contains an anchor element,
           // do a smooth scroll
           j1.scrollTo();
@@ -974,7 +996,7 @@ var j1 = (function () {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2021.1.18';
+      return '2021.1.19';
     }, // END getTemplateVersion
     // -------------------------------------------------------------------------
     // scrollTo()
