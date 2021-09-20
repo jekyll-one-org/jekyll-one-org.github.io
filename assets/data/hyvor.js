@@ -5,7 +5,7 @@ $(document).ready(function() {
     if (j1.getState() === 'finished') {
       // DON'T EDIT BELOW THIS LINE
       // -----------------------------------------------------------------------
-      var site_id = 4612;
+      var site_id = hyvor-site-id;
       (function() {
         var HYVOR_TALK_WEBSITE = site_id;
         var HYVOR_TALK_CONFIG = {

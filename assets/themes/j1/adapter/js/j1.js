@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-08-10 13:44:20 +0000
+ # Adapter generated: 2021-09-20 18:19:50 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -32,19 +32,19 @@ var j1 = (function () {
   // globals
   // ---------------------------------------------------------------------------
   var rePager                   =  new RegExp('navigator|dateview|tagview|archive');
-  var environment               = 'development';
+  var environment               = 'production';
   var moduleOptions             = {};
   var j1_runtime_data           = {};
   // Status information
   var state                     = 'not_started';
   var mode                      = 'not_detected';
   // Default tracking provider information
-  var tracking_enabled          = ('true' === 'true') ? true: false;
-  var tracking_id               = 'G-8ZGNE0WE42';
+  var tracking_enabled          = ('false' === 'true') ? true: false;
+  var tracking_id               = '<your-tracking-id>';
   var tracking_id_valid         = (tracking_id.includes('tracking-id')) ? false : true;
   // Default comment provider information
   var comment_provider          = 'hyvor';
-  var site_id                   = '4612';
+  var site_id                   = 'hyvor-site-id';
   // Default translator settings (currently NOT supported)
   // var translation_enabled       = false;
   var current_user_data;
@@ -104,7 +104,7 @@ var j1 = (function () {
     'theme_name':           '',
     'theme_css':            '',
     'theme_author':         '',
-    'theme_version':        '2021.1.19',
+    'theme_version':        '2021.1.28',
     'session_active':       false,
     'last_session_ts':      ''
   };
@@ -538,7 +538,6 @@ var j1 = (function () {
         };
       };
       panel.push('home_intro_panel');
-      panel.push('home_service_panel');
       panel.push('home_news_panel');
       if (panel.length) {
         for (var i in panel) {
@@ -730,6 +729,8 @@ var j1 = (function () {
             } // END personalization
             // display page
            $('#no_flicker').css('display', 'block');
+           // initialize backdrops
+           j1.core.createDropCap();
              // add recommended title to hyvor iframe for SEO optimization (if loadad)
             if (comment_provider === 'hyvor') {
               var dependencies_met_load_finished = setInterval (function () {
@@ -863,6 +864,17 @@ var j1 = (function () {
           } // END personalization
           // display page
           $('#no_flicker').css('display', 'block');
+          // Add minus icon for collapse element which is open by default
+        	$(".collapse.show").each(function(){
+        		$(this).prev(".card-header").addClass("highlight");
+        	});
+        	// Highlight open collapsed element
+        	$(".card-header .btn").click(function(){
+        		$(".card-header").not($(this).parents()).removeClass("highlight");
+        		$(this).parents(".card-header").toggleClass("highlight");
+        	});
+          // initialize backdrops
+          j1.core.createDropCap();
             // add recommended title to hyvor iframe for SEO optimization (if loadad)
            if (comment_provider === 'hyvor') {
              var dependencies_met_load_finished = setInterval (function () {
@@ -996,7 +1008,7 @@ var j1 = (function () {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2021.1.19';
+      return '2021.1.28';
     }, // END getTemplateVersion
     // -------------------------------------------------------------------------
     // scrollTo()
@@ -1006,7 +1018,8 @@ var j1 = (function () {
     // -------------------------------------------------------------------------
     scrollTo: function () {
       var anchor    = window.location.href.split('#')[1];
-      var anchor_id = '#' + anchor;
+      var anchor_id = typeof anchor !== 'undefined' ? '#' + anchor : false;
+      var isSlider  = false;
       var selector;
       var logger        = log4javascript.getLogger('j1.scrollTo');
       var toccerScrollDuration = 300;
@@ -1025,7 +1038,11 @@ var j1 = (function () {
       var scrollOffset    = navbarType == 'fixed' ? -1*(n + a + l) : -1*(h + n + a + l);
       // static offset, to be checked why this is needed
       scrollOffset        = scrollOffset + toccerScrollOffset;
-      if (anchor_id && anchor_id !== '#') {
+      // Check if the anchor is an slider/gallery element
+      if (typeof anchor !== 'undefined') {
+        isSlider  = anchor.includes('slide');
+      }
+      if (anchor_id && anchor_id !== '#' && !isSlider) {
         // scroll only, if an anchor is given with URL
         selector = $(anchor_id);
         if (selector.length) {
