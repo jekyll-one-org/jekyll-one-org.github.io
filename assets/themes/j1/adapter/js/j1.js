@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-09-22 10:38:53 +0000
+ # Adapter generated: 2021-09-27 16:14:28 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -104,7 +104,7 @@ var j1 = (function () {
     'theme_name':           '',
     'theme_css':            '',
     'theme_author':         '',
-    'theme_version':        '2021.1.28',
+    'theme_version':        '2021.2.0',
     'session_active':       false,
     'last_session_ts':      ''
   };
@@ -709,7 +709,7 @@ var j1 = (function () {
               }
             } else {
               if (comments) {
-                logger.warn('\n' + 'enable comment provider: ' + comment_provider);
+                logger.info('\n' + 'enable comment provider: ' + comment_provider);
                 $('#main-content').append('<h2 id="leave-a-comment" class="mt-4">Leave a comment</h2>');
                 if (comment_provider === 'disqus') {
                   logger.info('\n' + 'load comment provider code: ' + comment_provider);
@@ -747,9 +747,9 @@ var j1 = (function () {
               if (tracking_enabled && !tracking_id_valid) {
                 logger.error('\n' + 'tracking enabled, but invalid tracking id found: ' + tracking_id);
               } else if (tracking_enabled && tracking_id_valid) {
-                logger.warn('\n' + 'tracking enabled, tracking id found: ' + tracking_id);
+                logger.info('\n' + 'tracking enabled, tracking id found: ' + tracking_id);
               } else {
-                logger.warn('\n' + 'tracking disabled, tracking id found: ' + tracking_id);
+                logger.info('\n' + 'tracking disabled, tracking id found: ' + tracking_id);
               }
             } else {
               logger.warn('\n' + 'tracking not allowed, privacy settings for analysis: ' + user_consent.analyses);
@@ -844,7 +844,7 @@ var j1 = (function () {
             }
           } else {
             if (comments) {
-              logger.warn('\n' + 'enable comment provider: ' + comment_provider);
+              logger.info('\n' + 'enable comment provider: ' + comment_provider);
               $('#main-content').append('<h2 id="leave-a-comment" class="mt-4">Leave a comment</h2>');
               if (comment_provider === 'disqus') {
                 logger.info('\n' + 'load comment provider code: ' + comment_provider);
@@ -891,9 +891,9 @@ var j1 = (function () {
             if (tracking_enabled && !tracking_id_valid) {
               logger.error('\n' + 'tracking enabled, but invalid tracking id found: ' + tracking_id);
             } else if (tracking_enabled && tracking_id_valid) {
-              logger.warn('\n' + 'tracking enabled, tracking id found: ' + tracking_id);
+              logger.info('\n' + 'tracking enabled, tracking id found: ' + tracking_id);
             } else {
-              logger.warn('\n' + 'tracking disabled, tracking id found: ' + tracking_id);
+              logger.info('\n' + 'tracking disabled, tracking id found: ' + tracking_id);
             }
           } else {
             logger.warn('\n' + 'tracking not allowed, privacy settings for analysis: ' + user_consent.analyses);
@@ -1008,7 +1008,7 @@ var j1 = (function () {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2021.1.28';
+      return '2021.2.0';
     }, // END getTemplateVersion
     // -------------------------------------------------------------------------
     // scrollTo()

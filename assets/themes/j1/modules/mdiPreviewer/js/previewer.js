@@ -14,10 +14,8 @@
 */
 ;(function () {
 
-  var icons         = {};
+  var icons = {};
   var icon_database = '/assets/data/mdi_icons.json';
-  var language      = document.documentElement.lang;
-  var responseText;
 
   function load_data_database() {
     // Returns the icon database object
@@ -49,14 +47,6 @@
         //          var reference = document.querySelector("#mdi-icon");
         //          var popper = document.querySelector(".my-popper");
 
-        if (language == 'en') {
-          responseText = 'Copied to Clipboard';
-        } else if (language == 'de') {
-          responseText = 'Kopiert zur Zwischenablage';
-        } else {
-          responseText = 'Copied to Clipboard';
-        }
-
         var copyFrom = document.createElement('textarea');
         copyFrom.setAttribute("style", "position:fixed;opacity:0;top:100px;left:100px;");
         copyFrom.value = text;
@@ -65,7 +55,7 @@
         document.execCommand('copy');
         var copied = document.createElement('div');
         copied.setAttribute('class', 'copied');
-        copied.appendChild(document.createTextNode(responseText));
+        copied.appendChild(document.createTextNode('Copied to Clipboard'));
         document.body.appendChild(copied);
 
         //          Popper currently NOT used
@@ -81,8 +71,8 @@
           document.body.removeChild(copied);
         }, 1500);
       };
-      // Skip info record 0 (j=1)
-      for (var j = 1; j < icons.length; j++) {
+      // Skip info record 0 (j=1) ???
+      for (var j=0; j<icons.length; j++) {
         var div = document.createElement('div'),
           i = document.createElement('i');
         div.setAttribute("id", "mdi-icon");
@@ -118,7 +108,7 @@
           };
         })(icons[j]);
 
-        document.getElementById('icons').appendChild(div);
+        document.getElementById('mdi-icons').appendChild(div);
       }
     });
 
