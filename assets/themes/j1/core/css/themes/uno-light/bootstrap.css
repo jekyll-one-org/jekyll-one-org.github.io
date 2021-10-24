@@ -13817,7 +13817,7 @@ label.radio-inline {
 
 b,
 strong {
-  font-weight: 400 !important; }
+  font-weight: 500 !important; }
 
 a:focus {
   outline: none; }
@@ -25014,8 +25014,6 @@ figcaption .caption-title {
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- # NOTE: Styles for enhanced BS Modals
- # -----------------------------------------------------------------------------
 */
 body.modal-open {
   padding-right: 0 !important; }
@@ -25029,7 +25027,8 @@ body.scrollable {
 
 .modal .modal-header {
   border-top-left-radius: 0;
-  border-top-right-radius: 0; }
+  border-top-right-radius: 0;
+  height: 80px; }
   .modal .modal-header .modal-title {
     font-weight: 300; }
   .modal .modal-header .lead {

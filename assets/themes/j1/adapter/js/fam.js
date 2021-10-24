@@ -13,9 +13,520 @@
  # J1 Template is licensed under the MIT License.
  # For details, see http://jekyll.one
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-09-30 21:53:41 +0000
+ # Adapter generated: 2021-10-24 21:02:36 +0000
  # -----------------------------------------------------------------------------
 */
-'use strict';j1.adapter.fam=function(e,t){e.core.isMobile();var n,o,i,a,r,l={};e.getCookieNames();return{init:function(t){i=e.adapter.fam,a=log4javascript.getLogger('j1.adapter.fam'),o=$('[class$="sect1"],[class$="sect2"],[class$="sect3"]'),$('[class$="sect1"],[class$="sect2"]'),$('[class$="sect1"]'),i.setState('started'),a.info("\nset module state to: "+i.getState()),a.info("\nmodule is being initialized");var r=null!=t?$.extend({},t):{};$.extend({module_name:'j1.adapter.fam',generated:'2021-09-30 21:53:41 +0000'},t);n=$.extend({},{enabled:!0,mode:"icon",xhr_container_id:"fam-container",xhr_data_path:"/assets/data/fam/index.html",icon_family:"MDI",icon_color:"mdi-md-grey",icon_size:"mdi-2x",raised_level:5,menu_options:{hoverEnabled:!0},menus:[{name:"Scroll to top",enabled:!0,id:"default",icon:"plus",icon_hover:"chevron-up",color:"md-blue",items:[{item:null,enabled:!0,event_handler:"scroll_to_top"}]},{name:"Open TOC",enabled:!0,id:"open_toc",icon:"plus",icon_hover:"cursor-pointer",color:"md-blue",items:[{item:"To Top",enabled:!0,id:"fam_scroll_to_top",color:"md-green",event_handler:"scroll_to_top",icon:"step-backward-2",icon_properties:"rotate-90"},{item:"Table of Contents",enabled:!0,id:"open_mmenu_toc",color:"md-blue",event_handler:"open_mmenu_toc",icon:"wrap"}]},{name:"in-page control",enabled:!0,id:"page_ctrl_simple",icon:"plus",icon_hover:"cursor-pointer",color:"md-blue",items:[{item:"To Top",enabled:!0,id:"fam_scroll_to_top",color:"md-green",event_handler:"scroll_to_top",icon:"step-backward-2",icon_properties:"rotate-90"},{item:"Previous Section",enabled:!0,id:"fam_previous_section",color:"md-green",event_handler:"scroll_previous_section",icon:"step-backward",icon_properties:"rotate-90"},{item:"Next Section",enabled:!0,id:"fam_next_section",color:"md-green",event_handler:"scroll_next_section",icon:"step-forward",icon_properties:"rotate-90"},{item:"Table of Contents",enabled:!0,id:"open_mmenu_toc",color:"md-blue",event_handler:"open_mmenu_toc",icon:"wrap"}]},{name:"in-page control",enabled:!0,id:"page_ctrl",icon:"plus",icon_hover:"cursor-pointer",color:"md-blue",items:[{item:"Reload Page",enabled:!0,id:"fam_reload_page",color:"md-red",event_handler:"reload_page",icon:"reload"},{item:"To Top",enabled:!0,id:"fam_scroll_to_top",color:"md-green",event_handler:"scroll_to_top",icon:"step-backward-2",icon_properties:"rotate-90"},{item:"Previous Section",enabled:!0,id:"fam_previous_section",color:"md-green",event_handler:"scroll_previous_section",icon:"step-backward",icon_properties:"rotate-90"},{item:"Next Section",enabled:!0,id:"fam_next_section",color:"md-green",event_handler:"scroll_next_section",icon:"step-forward",icon_properties:"rotate-90"},{item:"To bottom",enabled:!0,id:"fam_scroll_to_bottom",color:"md-green",event_handler:"scroll_to_bottom",icon:"step-forward-2",icon_properties:"rotate-90"},{item:"Table of Contents",enabled:!0,id:"open_mmenu_toc",color:"md-blue",event_handler:"open_mmenu_toc",icon:"wrap"}]}]}),null!=t&&(r=$.extend({},t)),void 0!==r&&(l=e.mergeData(n,r)),i.moduleOptions=l;var c=setInterval(function(){'finished'==e.adapter.navigator.getState()&&(a.info("\nmet dependencies for: navigator"),i.famLoader(l),clearInterval(c))},25)},famLoader:function(t){i.setState('loading'),a.info("\nset module state to: "+i.getState()),a.info("\nload HTML data for fam"),e.loadHTML({xhr_container_id:t.xhr_container_id,xhr_data_path:t.xhr_data_path,xhr_data_element:t.fam_menu_id},'j1.adapter.fam','data_loaded');var n=setInterval(function(){'success'==e.xhrDOMState['#'+t.xhr_container_id]&&'finished'==e.getState()&&(i.setState('loaded'),a.info("\nset module state to: "+i.getState()),a.info("\nHTML data for fam: "+i.getState()),i.buttonInitializer(t),i.setState('finished'),a.info("\nstate: "+i.getState()),a.info("\nmodule initialized successfully"),$('.fam-btn').show(),clearInterval(n))},25)},buttonInitializer:function(t){var n,r,l,c,d,s,f,m=$('#'+t.xhr_container_id),_=t.icon_family.toLowerCase(),u=t.menu_options,p=document.querySelectorAll('.fam-btn');$('a[href="#void"]').click(function(e){e.preventDefault?e.preventDefault():e.returnValue=!1,a.info("\nbound click event to \"#void\", suppress default action")}),1==p.length?(i.setState('processing'),a.info("\nset module state to: "+i.getState()),a.info("\ninitialize fam menu"),c=p[0].firstElementChild.id,r=c.replace('_button',''),e.fam.init(p,u),d=$('#'+c),t.menus.forEach(function(e,n){e.id===r&&(l=t.menus[n])}),f=l.items.length,s=_+'-'+l.icon+' '+_+'-'+l.icon_hover,u.hoverEnabled?d.hover(function(){$('#fam-icon').toggleClass(s)},function(){$('#fam-icon').toggleClass(s)}):d.on('click',function(){$('#fam-icon').toggleClass(s)}),f>1?l.items.forEach(function(t){if($('#'+t.id).length)if(1==(n=t.event_handler).split(' ').length){if(a.info("\nregister pre-configured eventhandler "+n+' on id: #'+t.id),'open_mmenu_toc'===n)if($('#j1-toc-mgr').length){a.info("\nfound toc in page: enabled");var r=setInterval(function(){'finished'==e.adapter.toccer.getState()&&(a.info("\nmet dependencies for: toccer"),$('#open_mmenu_toc').show(),clearInterval(r))},25)}else a.info("\nfound toc in page: disabled");else $('#'+t.id).show();$('#'+t.id).each(function(){$(this).on('click',function(){i[t.event_handler](o)})})}else a.info("\nregister custom eventhandler on id: #"+t.id);else a.error("\ncreating Eventhandler failed on id: #"+t.id)}):(a.info("\nsingle action found for FAM, create: FAB"),l.items.forEach(function(t){if(1==(n=t.event_handler).split(' ').length&&(a.info("\nregister pre-configured eventhandler "+n+' on id: #'+c),'scroll_to_top'===n&&d.on('click',function(){var e=0;$('html, body').animate({scrollTop:e},500)}),'open_mmenu_toc'===n))if($('#j1-toc-mgr').length){a.info("\nfound toc in page: enabled");var o=setInterval(function(){'finished'==e.adapter.toccer.getState()&&(a.info("\nmet dependencies for toccer: finished"),d.prop('id','open_mmenu_toc'),clearInterval(o))},25)}else a.info("\nfound toc in page: disabled"),a.info("\neventhandler: disabled")}))):(a.error("\nmultiple FAM buttons found: "+p.length),a.info("\nFAM container set to hidden: "+m),m.hide())},open_mmenu_toc:function(){},reload_page:function(){location.reload(!0)},scroll_previous_section:function(n){var o,i,a,r=0,l=$(n).length-1,c=$('#sidebar').find('.is-active-link').attr('href'),d=300,s=10,f=$('.attic'),m=$('nav.navbar'),_=$('#adblock'),u=m.hasClass('navbar-fixed')?'fixed':'scrolled',p=$('body').css('font-size').replace('px',''),h=(t.pageYOffset,parseInt(p)),g=f.length?f.height():0,v=m.length?m.height():0,b=_.length?_.height():0,x='fixed'==u?-1*(v+b+h):-1*(g+v+b+h);x+=s,n.each(function(){if($(this).find(c).length){if(r>l)return!1;i=r>0?n[r-1]:n[r],o=$(i).find(':header').first()[0].id,a='#'+o,e.core.scrollSmooth.scroll(a,{duration:d,offset:x,callback:null})}r<l&&r++})},scroll_next_section:function(n){var o,i,a,r,l=0,c=$(n).length-1,d=$('#sidebar'),s=300,f=10;o=d.find('.is-active-link').attr('href'),n.each(function(){if($(this).find(o).length){if(l==c)return!1;i=n[l+1],a=$(i).find(':header').first()[0].id,r='#'+a;var d=$('.attic'),m=$('nav.navbar'),_=$('#adblock'),u=m.hasClass('navbar-fixed')?'fixed':'scrolled',p=$('body').css('font-size').replace('px',''),h=(t.pageYOffset,parseInt(p)),g=d.length?d.height():0,v=m.length?m.height():0,b=_.length?_.height():0,x='fixed'==u?-1*(v+b+h):-1*(g+v+b+h);x+=f,e.core.scrollSmooth.scroll(r,{duration:s,offset:x,callback:null})}l<c&&l++})},scroll_to_top:function(){var e=0;$('html, body').animate({scrollTop:e},500)},scroll_to_bottom:function(){var e=$(document),t=$('#j1_footer'),n=t.length?t.outerHeight():0,o=e.height()-n-400;e.outerHeight();$('html, body').animate({scrollTop:o},500)},scroll_to_comments:function(){},alert_me:function(){alert('Hello world!')},messageHandler:function(e,t){var n=JSON.stringify(t);return r="\nreceived message from "+e+': '+n,a.debug(r),'command'===t.type&&'module_initialized'===t.action&&a.info('\n'+t.text),'command'===t.type&&'status'===t.action&&a.info("\nmessageHandler: received - "+t.action),!0},scrollSpy:function(){a=log4javascript.getLogger('j1.adapter.fam.scrollSpy'),$(t).scroll(function(){var e=$('nav.navbar'),t=($('.attic'),$('.js-toc-content')),n=$('#adblock'),o=$('#j1_footer'),i=$('#fam-container'),a=$(document),r=0,l=$(document).width()>=992?-120:-116,c=$(document).scrollTop(),d=a.height(),s=(a.outerHeight(),t.offset().top),f=i.length?i.height():0,m=o.length?o.outerHeight():0,_=e.length?e.height():0,u=(n.length&&n.outerHeight(),_+r),p=s+l,h=d-f-m+l;e.hasClass('navbar-fixed')?$('#fam-container').css('top',u):$('#fam-container').css('top',s),c>=p&&c<=h?i.css('display','block'):i.css('display','none')})},setState:function(e){i.state=e},getState:function(){return i.state}}}(j1,window);
+// -----------------------------------------------------------------------------
+// ESLint shimming
+// -----------------------------------------------------------------------------
+/* eslint indent: "off"                                                       */
+// -----------------------------------------------------------------------------
+'use strict';
+j1.adapter['fam'] = (function (j1, window) {
+  // ---------------------------------------------------------------------------
+  // globals
+  // ---------------------------------------------------------------------------
+  var isMobile      = j1.core.isMobile();
+  var environment   = 'development';
+  var dclFinished   = false;
+  var moduleOptions = {};
+  var cookie_names  = j1.getCookieNames();
+  var famOptions;
+  var frontmatterOptions;
+  var user_state;
+  var user_session;
+  var user_data;
+  var sect1Nodes;
+  var sect3Nodes;
+  var sect12Nodes;
+  var sect123Nodes;
+  var _this;
+  var logger;
+  var logText;
+  // ---------------------------------------------------------------------------
+  // helper functions
+  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
+  // main object
+  // ---------------------------------------------------------------------------
+  return {
+    // -------------------------------------------------------------------------
+    // module initializer
+    // -------------------------------------------------------------------------
+    init: function (options) {
+      // -----------------------------------------------------------------------
+      // globals
+      // -----------------------------------------------------------------------
+      _this         = j1.adapter.fam;
+      logger        = log4javascript.getLogger('j1.adapter.fam');
+      sect123Nodes  = $('[class$="sect1"],[class$="sect2"],[class$="sect3"]');
+      sect12Nodes   = $('[class$="sect1"],[class$="sect2"]');
+      sect1Nodes    = $('[class$="sect1"]');
+      // initialize state flag
+      _this.setState('started');
+      logger.info('\n' + 'set module state to: ' + _this.getState());
+      logger.info('\n' + 'module is being initialized');
+      // create settings object from frontmatterOptions
+      var frontmatterOptions = options != null ? $.extend({}, options) : {};
+      // -----------------------------------------------------------------------
+      // defaults
+      // -----------------------------------------------------------------------
+      var settings  = $.extend({
+        module_name: 'j1.adapter.fam',
+        generated:   '2021-10-24 21:02:36 +0000'
+      }, options);
+      // -----------------------------------------------------------------------
+      // options loader
+      // -----------------------------------------------------------------------
+      /* eslint-disable */
+      famOptions = $.extend({}, {"enabled":true, "mode":"icon", "xhr_container_id":"fam-container", "xhr_data_path":"/assets/data/fam/index.html", "icon_family":"MDI", "icon_color":"mdi-md-grey", "icon_size":"mdi-2x", "raised_level":5, "menu_options":{"hoverEnabled":true}, "menus":[{"name":"Scroll to top", "enabled":true, "id":"default", "icon":"plus", "icon_hover":"chevron-up", "color":"md-blue", "items":[{"item":null, "enabled":true, "event_handler":"scroll_to_top"}]}, {"name":"Open TOC", "enabled":true, "id":"open_toc", "icon":"plus", "icon_hover":"cursor-pointer", "color":"md-blue", "items":[{"item":"To Top", "enabled":true, "id":"fam_scroll_to_top", "color":"md-green", "event_handler":"scroll_to_top", "icon":"step-backward-2", "icon_properties":"rotate-90"}, {"item":"Table of Contents", "enabled":true, "id":"open_mmenu_toc", "color":"md-blue", "event_handler":"open_mmenu_toc", "icon":"wrap"}]}, {"name":"in-page control", "enabled":true, "id":"page_ctrl_simple", "icon":"plus", "icon_hover":"cursor-pointer", "color":"md-blue", "items":[{"item":"To Top", "enabled":true, "id":"fam_scroll_to_top", "color":"md-green", "event_handler":"scroll_to_top", "icon":"step-backward-2", "icon_properties":"rotate-90"}, {"item":"Previous Section", "enabled":true, "id":"fam_previous_section", "color":"md-green", "event_handler":"scroll_previous_section", "icon":"step-backward", "icon_properties":"rotate-90"}, {"item":"Next Section", "enabled":true, "id":"fam_next_section", "color":"md-green", "event_handler":"scroll_next_section", "icon":"step-forward", "icon_properties":"rotate-90"}, {"item":"Table of Contents", "enabled":true, "id":"open_mmenu_toc", "color":"md-blue", "event_handler":"open_mmenu_toc", "icon":"wrap"}]}, {"name":"in-page control", "enabled":true, "id":"page_ctrl", "icon":"plus", "icon_hover":"cursor-pointer", "color":"md-blue", "items":[{"item":"Reload Page", "enabled":true, "id":"fam_reload_page", "color":"md-red", "event_handler":"reload_page", "icon":"reload"}, {"item":"To Top", "enabled":true, "id":"fam_scroll_to_top", "color":"md-green", "event_handler":"scroll_to_top", "icon":"step-backward-2", "icon_properties":"rotate-90"}, {"item":"Previous Section", "enabled":true, "id":"fam_previous_section", "color":"md-green", "event_handler":"scroll_previous_section", "icon":"step-backward", "icon_properties":"rotate-90"}, {"item":"Next Section", "enabled":true, "id":"fam_next_section", "color":"md-green", "event_handler":"scroll_next_section", "icon":"step-forward", "icon_properties":"rotate-90"}, {"item":"To bottom", "enabled":true, "id":"fam_scroll_to_bottom", "color":"md-green", "event_handler":"scroll_to_bottom", "icon":"step-forward-2", "icon_properties":"rotate-90"}, {"item":"Table of Contents", "enabled":true, "id":"open_mmenu_toc", "color":"md-blue", "event_handler":"open_mmenu_toc", "icon":"wrap"}]}]});
+      // Load (individual) frontmatter options (currently NOT used)
+      if (options != null) { frontmatterOptions = $.extend({}, options); }
+      if (typeof frontmatterOptions !== 'undefined') {
+        moduleOptions = j1.mergeData(famOptions, frontmatterOptions);
+      }
+      /* eslint-enable */
+      // save config settings into the fam object for global access
+      //
+      _this['moduleOptions'] = moduleOptions;
+      var dependencies_met_navigator = setInterval(function() {
+        if (j1.adapter.navigator.getState() == 'finished') {
+          logger.info('\n' + 'met dependencies for: navigator');
+          _this.famLoader(moduleOptions);
+          clearInterval(dependencies_met_navigator);
+        }
+      }, 25);
+    }, // END init
+    // -------------------------------------------------------------------------
+    // FAM Loader
+    // -------------------------------------------------------------------------
+    famLoader: function (famOptions) {
+      _this.setState('loading');
+      logger.info('\n' + 'set module state to: ' + _this.getState());
+      logger.info('\n' + 'load HTML data for fam');
+      j1.loadHTML({
+        xhr_container_id: famOptions.xhr_container_id,
+        xhr_data_path:    famOptions.xhr_data_path,
+        xhr_data_element: famOptions.fam_menu_id },
+        'j1.adapter.fam',
+        'data_loaded'
+      );
+      // ---------------------------------------------------------------------
+      // Initialize FAM button
+      // ---------------------------------------------------------------------
+      var dependencies_met_fam_initialized = setInterval (function () {
+        if (j1.xhrDOMState['#' + famOptions.xhr_container_id] == 'success' && j1.getState() == 'finished') {
+          _this.setState('loaded');
+          logger.info('\n' + 'set module state to: ' + _this.getState());
+          logger.info('\n' + 'HTML data for fam: ' + _this.getState());
+//        _this.scrollSpy(famOptions);
+          _this.buttonInitializer(famOptions);
+          _this.setState('finished');
+          logger.info('\n' + 'state: ' + _this.getState());
+          logger.info('\n' + 'module initialized successfully');
+          $('.fam-btn').show();
+          clearInterval(dependencies_met_fam_initialized);
+        }
+      }, 25); // END dependencies_met_fam_initialized
+    }, // END dataLoader
+    // -------------------------------------------------------------------------
+    // Button Initializer
+    // -------------------------------------------------------------------------
+    buttonInitializer: function (famOptions) {
+      var eventHandler;
+      var actionMenuId;
+      var actionMenuOptions;
+      var actionButtonId;
+      var instances;
+      var $actionButton;
+      var toggleIcons;
+      var famActions;
+      var $famContainer         = $('#' + famOptions.xhr_container_id);
+      var iconFamily            = famOptions.icon_family.toLowerCase();
+      var floatingActionOptions = famOptions.menu_options;
+      var famButtons            = document.querySelectorAll('.fam-btn');
+      // bind click event to all links with "#void" to suppress default action
+      // See: https://stackoverflow.com/questions/134845/which-href-value-should-i-use-for-javascript-links-or-javascriptvoid0
+      //
+      $('a[href="#void"]').click(function(e) {
+        e.preventDefault ? e.preventDefault() : e.returnValue = false;
+        logger.info('\n' + 'bound click event to "#void", suppress default action');
+        return false;
+      });
+      // check if multiple buttons detected
+      if ( famButtons.length == 1 ) {
+        _this.setState('processing');
+        logger.info('\n' + 'set module state to: ' + _this.getState());
+        logger.info('\n' + 'initialize fam menu');
+        actionButtonId  = famButtons[0].firstElementChild.id;
+        actionMenuId    = actionButtonId.replace('_button', '');
+        instances       = j1.fam.init(famButtons, floatingActionOptions);
+        $actionButton   = $('#' + actionButtonId);
+        famOptions.menus.forEach(function (menu, index) {
+          if (menu.id === actionMenuId) {
+            actionMenuOptions = famOptions.menus[index];
+          };
+        });
+        // count number of menu actions for the button. If only one action
+        // found the FAM button gets created as a FAB (no menu) that has the
+        // the action bound directly to the button
+        //
+        famActions = actionMenuOptions.items.length;
+        toggleIcons = iconFamily + '-' + actionMenuOptions.icon + ' ' + iconFamily + '-' + actionMenuOptions.icon_hover;
+        // toggle the icon for the FAB if configured
+        if (floatingActionOptions.hoverEnabled) {
+          $actionButton.hover(
+            function() {
+              $('#fam-icon').toggleClass(toggleIcons);
+            }, function() {
+              $('#fam-icon').toggleClass(toggleIcons);
+            }
+          );
+        } else {
+          $actionButton.on('click', function (e) {
+            $('#fam-icon').toggleClass(toggleIcons);
+          });
+        }
+        if (famActions > 1) {
+          actionMenuOptions.items.forEach(function (item, index) {
+            // Bind an eventhandler instance if item id exists
+            if ($('#' + item.id).length) {
+              eventHandler = item.event_handler;
+              // check if eventhandler configured is a SINGLE word
+              if (eventHandler.split(' ').length == 1) {
+                logger.info('\n' + 'register pre-configured eventhandler ' +eventHandler+ ' on id: #' + item.id);
+                if ( eventHandler === 'open_mmenu_toc' ) {
+                  if ($('#j1-toc-mgr').length) {
+                    logger.info('\n' + 'found toc in page: enabled');
+                    var dependencies_met_toccer_finished = setInterval (function () {
+                      if ( j1.adapter.toccer.getState() == 'finished' ) {
+                        logger.info('\n' + 'met dependencies for: toccer');
+                        // famOptions.mode === 'icon'
+                        //   ? logger.info('\n' + 'fam mode detected: icon')
+                        //   : logger.info('\n' + 'fam mode detected: menu');
+                        $('#open_mmenu_toc').show();
+                        clearInterval(dependencies_met_toccer_finished);
+                      }
+                    }, 25); // END dependencies_met_toccer_finished
+                  } else {
+                    logger.info('\n' + 'found toc in page: disabled');
+                  }
+                } else {
+                  $('#' + item.id).show();
+                } // END eventHandler 'open_mmenu_toc'
+                $('#' + item.id).each(function(e) {
+                  var $this = $(this);
+                  $this.on('click', function(e) {
+                  _this[item.event_handler](sect123Nodes);
+  //              _this[item.event_handler](sect12Nodes);
+                  });
+                });
+              } else {
+                logger.info('\n' + 'register custom eventhandler on id: #' + item.id);
+              }
+            } else {
+  //          alert ('Creating Eventhandler failed on id: #' + item.id);
+              logger.error('\n' + 'creating Eventhandler failed on id: #' + item.id);
+            } // END if items (action buttons)
+          });
+        } else {
+          // single action, create FAB
+          logger.info('\n' + 'single action found for FAM, create: FAB');
+          // disable hover event (CSS)
+          // $actionButton.css({'pointer-events': 'none'})
+          actionMenuOptions.items.forEach(function (item, index) {
+            eventHandler = item.event_handler;
+            // check if eventhandler configured is a SINGLE word
+            if (eventHandler.split(' ').length == 1) {
+              logger.info('\n' + 'register pre-configured eventhandler ' +eventHandler+ ' on id: #' + actionButtonId);
+              if (eventHandler === 'scroll_to_top') {
+                // register click event
+                $actionButton.on('click', function(e) {
+                  var dest = 0;
+                  $('html, body').animate({
+                    scrollTop: dest
+                  }, 500);
+                });
+              } // END if eventHandler == scroll_to_top
+              if ( eventHandler === 'open_mmenu_toc' ) {
+                // check if toccer (toc_mgr) is available
+                if ($('#j1-toc-mgr').length) {
+                  logger.info('\n' + 'found toc in page: enabled');
+                  var dependencies_met_toccer_finished = setInterval (function () {
+                    if ( j1.adapter.toccer.getState() == 'finished' ) {
+                      logger.info('\n' + 'met dependencies for toccer: finished');
+                      // change the id of the $actionButton to the already
+                      // registered id by mmenu adapter of ('open_mmenu_toc')
+                      // to open the TOC sidebar
+                      //
+                      $actionButton.prop('id', 'open_mmenu_toc');
+                      clearInterval(dependencies_met_toccer_finished);
+                    }
+                  }, 25); // END dependencies_met_toccer_finished
+                } else {
+                  logger.info('\n' + 'found toc in page: disabled');
+                  logger.info('\n' + 'eventhandler: disabled');
+                }
+              } // END if eventHandler == open_mmenu_toc
+            }
+          });
+        } // END else
+      } else {
+//      alert ('Multiple FAM buttons found: ' + famButtons.length);
+        logger.error('\n' + 'multiple FAM buttons found: ' + famButtons.length);
+        logger.info('\n' + 'FAM container set to hidden: ' + $famContainer);
+        $famContainer.hide();
+      } // END if famButton
+    }, // END buttonInitializer
+    // -------------------------------------------------------------------------
+    // Eventhandler
+    // -------------------------------------------------------------------------
+    // open mmenu TOC
+    // -------------------------------------------------------------------------
+    open_mmenu_toc: function () {
+        // Event configured with Navigator module (navigator.yml)
+        // with content section DRAWER TOC. Event registered at
+        // runtime on element with id '#open_mmenu_toc' by Mobile Menu
+        // module ADAPTER (mmenu.js)
+        //
+        // NOTE: no further handling needed for this event
+    },  // END open_mmenu_toc
+    // -------------------------------------------------------------------------
+    // reload page
+    // -------------------------------------------------------------------------
+    reload_page: function () {
+      // reload current page (skip cache)
+      location.reload(true);
+    }, // END reload_page
+    // -------------------------------------------------------------------------
+    // scroll to previous section
+    // -------------------------------------------------------------------------
+    scroll_previous_section: function (nodes) {
+      var previous_header_id;
+      var currentNode;
+      var prev_node;
+      var anchor_id;
+      var index                = 0;
+      var maxNode              = $(nodes).length-1;
+      var $toc                 = $('#sidebar');
+      var current_header_id    = $toc.find('.is-active-link').attr('href');
+      var toccerScrollDuration = 300;
+      var toccerScrollOffset   = 10;
+      // Scroll offset correction if mobile or window width <= 992
+      // For smaller window sizes, the height of the menubar changes
+      //
+      // if (j1.core.isMobile() || $(window).width() <= 992) { scrollOffset += 30; }
+      // calculate offset for correct (smooth) scroll position
+      //
+      var $pagehead       = $('.attic');
+      var $navbar         = $('nav.navbar');
+      var $adblock        = $('#adblock');
+      var navbarType      = $navbar.hasClass('navbar-fixed') ? 'fixed' : 'scrolled';
+      var fontSize        = $('body').css('font-size').replace('px','');
+      var start           = window.pageYOffset;
+      var l               = parseInt(fontSize);
+      var h               = $pagehead.length ? $pagehead.height() : 0;
+      var n               = $navbar.length ? $navbar.height() : 0;
+      var a               = $adblock.length ? $adblock.height() : 0;
+      var scrollOffset    = navbarType == 'fixed' ? -1*(n + a + l) : -1*(h + n + a + l);
+      // static offset, to be checked why this is needed
+      //
+      scrollOffset        = scrollOffset + toccerScrollOffset;
+      nodes.each(function () {
+        currentNode = $(this).find(current_header_id);
+        if (currentNode.length) {
+          if (index > maxNode) {
+            return false;
+          } else {
+            prev_node           = (index > 0) ? nodes[index-1] : nodes[index];
+            previous_header_id  = $(prev_node).find(':header').first()[0].id;
+            anchor_id           = '#' + previous_header_id;
+            j1.core.scrollSmooth.scroll( anchor_id, {
+              duration: toccerScrollDuration,
+              offset: scrollOffset,
+              callback: null
+            });
+          }
+        }
+        (index < maxNode) ? index++ : index;
+      });
+    }, // END scroll_previous_section
+    // -------------------------------------------------------------------------
+    // scroll to next section
+    // -------------------------------------------------------------------------
+    scroll_next_section: function (nodes) {
+      var next_header_id;
+      var next_header_plus_id;
+      var currentNode;
+      var current_header_id;
+      var nextNode;
+      var next_header_id;
+      var next_anchor_id;
+      var index                 = 0;
+      var maxNode               = $(nodes).length-1;
+      var $toc                  = $('#sidebar');
+      var scrollDuration        = 300;
+      var toccerScrollDuration  = 300;
+      var toccerScrollOffset    = 10;
+      current_header_id = $toc.find('.is-active-link').attr('href');
+      nodes.each(function () {
+        currentNode = $(this).find(current_header_id);
+        if (currentNode.length) {
+          if (index == maxNode) {
+            return false;
+          } else {
+            nextNode              = nodes[index+1];
+            next_header_id        = $(nextNode).find(':header').first()[0].id;
+            next_anchor_id        = '#' + next_header_id;
+            // calculate offset for correct (smooth) scroll position
+            //
+            var $pagehead       = $('.attic');
+            var $navbar         = $('nav.navbar');
+            var $adblock        = $('#adblock');
+            var navbarType      = $navbar.hasClass('navbar-fixed') ? 'fixed' : 'scrolled';
+            var fontSize        = $('body').css('font-size').replace('px','');
+            var start           = window.pageYOffset;
+            var l               = parseInt(fontSize);
+            var h               = $pagehead.length ? $pagehead.height() : 0;
+            var n               = $navbar.length ? $navbar.height() : 0;
+            var a               = $adblock.length ? $adblock.height() : 0;
+            var scrollOffset    = navbarType == 'fixed' ? -1*(n + a + l) : -1*(h + n + a + l);
+            // static offset, to be checked why this is needed
+            //
+            scrollOffset        = scrollOffset + toccerScrollOffset;
+            j1.core.scrollSmooth.scroll( next_anchor_id, {
+              duration: toccerScrollDuration,
+              offset: scrollOffset,
+              callback: null
+            });
+          }
+        }
+        index < maxNode ? index++ : index;
+      });
+    }, // END scroll_next_section
+    // -------------------------------------------------------------------------
+    // scroll to top
+    // -------------------------------------------------------------------------
+    scroll_to_top: function () {
+      var dest = 0;
+      $('html, body').animate({
+        scrollTop: dest
+      }, 500);
+      // tocbot.refresh();
+    }, // END scroll_top
+    // -------------------------------------------------------------------------
+    // scroll to bottom
+    // -------------------------------------------------------------------------
+    scroll_to_bottom: function () {
+      var $page           = $(document);
+      var $footer         = $('#j1_footer');
+      var f               = $footer.length ? $footer.outerHeight() : 0;
+      var pageHeight      = $page.height() - f - 400;
+      var pageHeightOuter = $page.outerHeight();
+      $('html, body').animate({
+        scrollTop: pageHeight
+      }, 500);
+      // tocbot.refresh();
+    }, // END scroll_bottom
+    // -------------------------------------------------------------------------
+    // scroll to comments (Disqus)
+    // -------------------------------------------------------------------------
+    scroll_to_comments: function () {
+    }, // END scroll_comments
+    // -------------------------------------------------------------------------
+    // create generic alert
+    // -------------------------------------------------------------------------
+    alert_me: function () {
+      alert ('Hello world!');
+    }, // END alert_me
+    // -------------------------------------------------------------------------
+    // messageHandler
+    // Manage messages (paylods) send from other J1 modules
+    // -------------------------------------------------------------------------
+    messageHandler: function (sender, message) {
+      // var json_message = JSON.stringify(message, undefined, 2);              // multiline
+      var json_message = JSON.stringify(message);
+      logText = '\n' + 'received message from ' + sender + ': ' + json_message;
+      logger.debug(logText);
+      // -----------------------------------------------------------------------
+      //  Process commands|actions
+      // -----------------------------------------------------------------------
+      if (message.type === 'command' && message.action === 'module_initialized') {
+        //
+        // Place handling of command|action here
+        //
+        logger.info('\n' + message.text);
+      }
+      if (message.type === 'command' && message.action === 'status') {
+        logger.info('\n' + 'messageHandler: received - ' + message.action);
+      }
+      //
+      // Place handling of other command|action here
+      //
+      return true;
+    }, // END messageHandler
+    // -------------------------------------------------------------------------
+    // Manage (top) position and sizes (@media breakpoints) of the
+    // FAM container depending on the size of the page header (attic)
+    // -------------------------------------------------------------------------
+    scrollSpy: function (options) {
+      logger = log4javascript.getLogger('j1.adapter.fam.scrollSpy');
+      $(window).scroll(function(event){
+        var $navbar         = $('nav.navbar');
+        var $pagehead       = $('.attic');
+        var $main_content   = $('.js-toc-content');
+        var $adblock        = $('#adblock');
+        var $footer         = $('#j1_footer');
+        var $famContainer   = $('#fam-container');
+        var $page           = $(document);
+        var offset          = 0;
+        var pageOffset      = $(document).width() >= 992 ? -120 : -116;
+        var scrollPos       = $(document).scrollTop();
+        var pageHeight      = $page.height();
+        var pageHeightOuter = $page.outerHeight();
+        var m               = $main_content.offset().top;
+        var s               = $famContainer.length ? $famContainer.height() : 0;
+        var f               = $footer.length   ? $footer.outerHeight() : 0;
+        var n               = $navbar.length   ? $navbar.height() : 0;
+//      var h               = $pagehead.length ? $pagehead.outerHeight() : 0;
+        var a               = $adblock.length  ? $adblock.outerHeight() : 0;
+        var o               = n + offset;
+        // space above the (fixed) fam container
+        var showSsmPos      = m + pageOffset;
+        // space below the (fixed) fam container
+        var hideSsmPos      = pageHeight - s - f + pageOffset;
+        // set the top position of fam container for navbar modes
+        // e.g. "sticky" (navbar-fixed)
+        if($navbar.hasClass('navbar-fixed')){
+          $('#fam-container').css('top', o);
+        } else {
+          $('#fam-container').css('top', m);
+        }
+        // show|hide fam container on scroll position in page
+        //
+        scrollPos >= showSsmPos && scrollPos <= hideSsmPos
+          ? $famContainer.css('display','block')
+          : $famContainer.css('display','none');
+        // logger.debug('\n' + 'content pos detected as: ' + m + 'px');
+        // logger.debug('\n' + 'scroll pos detected as: ' + scrollPos + 'px');
+      }); // END setTop on scroll
+    }, // END scrollSpy
+    // -------------------------------------------------------------------------
+    // setState()
+    // Sets the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    setState: function (stat) {
+      _this.state = stat;
+    }, // END setState
+    // -------------------------------------------------------------------------
+    // getState()
+    // Returns the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    getState: function () {
+      return _this.state;
+    } // END getState
+  }; // END return
+})(j1, window);
+
 
 

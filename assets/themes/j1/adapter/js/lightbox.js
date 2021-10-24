@@ -18,9 +18,102 @@
  # For details, see https://github.com/lokesh/lightbox2/
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-09-30 21:53:41 +0000
+ # Adapter generated: 2021-10-24 21:02:36 +0000
  # -----------------------------------------------------------------------------
 */
-'use strict';j1.adapter.lightbox=function(t){var e,i,n;return{init:function(){return t.adapter.lightbox.state='pending',e=t.adapter.lightbox,i=log4javascript.getLogger('j1.adapter.lightbox'),e.setState('started'),i.info("\nstate: "+e.getState()),i.info("\nmodule is being initialized"),lightbox.option({alwaysShowNavOnTouchDevices:!1,albumLabel:"Image %1 of %2",disableScrolling:!1,fadeDuration:600,fitImagesInViewport:!0,imageFadeDuration:600,maxWidth:null,maxHeight:null,positionFromTop:50,resizeDuration:250,showImageNumberLabel:!0,wrapAround:!0}),e.setState('finished'),i.info("\nstate: "+e.getState()),i.info("\ninitializing module finished"),!0},messageHandler:function(t,e){var a=JSON.stringify(e,undefined,2);return n="\nreceived message from "+t+': '+a,i.debug(n),'command'===e.type&&'module_initialized'===e.action&&i.info('\n'+e.text),!0},setState:function(t){e.state=t},getState:function(){return e.state}}}(j1,window);
+// -----------------------------------------------------------------------------
+// ESLint shimming
+// -----------------------------------------------------------------------------
+/* eslint indent: "off"                                                       */
+// -----------------------------------------------------------------------------
+'use strict';
+// j1.Lightbox = (function (j1, window) {
+j1.adapter['lightbox'] = (function (j1, window) {
+  var environment   = 'development';
+  var moduleOptions = {};
+  var _this;
+  var logger;
+  var logText;
+  // ---------------------------------------------------------------------------
+  // Helper functions
+  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
+  // Main object
+  // ---------------------------------------------------------------------------
+  return {
+    // -------------------------------------------------------------------------
+    // Initializer
+    // -------------------------------------------------------------------------
+    init: function () {
+      // initialize state flag
+      j1.adapter.lightbox.state = 'pending';
+      // -----------------------------------------------------------------------
+      // globals
+      // -----------------------------------------------------------------------
+      _this   = j1.adapter.lightbox;
+      logger  = log4javascript.getLogger('j1.adapter.lightbox');
+      _this.setState('started');
+      logger.info('\n' + 'state: ' + _this.getState());
+      logger.info('\n' + 'module is being initialized');
+      /* eslint-disable */
+      lightbox.option({
+        alwaysShowNavOnTouchDevices:  false,
+        albumLabel:                   "Image %1 of %2",
+        disableScrolling:             false,
+        fadeDuration:                 600,
+        fitImagesInViewport:          true,
+        imageFadeDuration:            600,
+        maxWidth:                     null,
+        maxHeight:                    null,
+        positionFromTop:              50,
+        resizeDuration:               250,
+        showImageNumberLabel:         true,
+        wrapAround:                   true
+      });
+      /* eslint-enable */
+      _this.setState('finished');
+      logger.info('\n' + 'state: ' + _this.getState());
+      logger.info('\n' + 'initializing module finished');
+      return true;
+    }, // END init lightbox
+    // -------------------------------------------------------------------------
+    // messageHandler: MessageHandler for J1 CookieConsent module
+    // Manage messages send from other J1 modules
+    // -------------------------------------------------------------------------
+    messageHandler: function (sender, message) {
+      var json_message = JSON.stringify(message, undefined, 2);
+      logText = '\n' + 'received message from ' + sender + ': ' + json_message;
+      logger.debug(logText);
+      // -----------------------------------------------------------------------
+      //  Process commands|actions
+      // -----------------------------------------------------------------------
+      if (message.type === 'command' && message.action === 'module_initialized') {
+        //
+        // Place handling of command|action here
+        //
+        logger.info('\n' + message.text);
+      }
+      //
+      // Place handling of other command|action here
+      //
+      return true;
+    }, // END messageHandler
+    // -------------------------------------------------------------------------
+    // setState()
+    // Sets the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    setState: function (stat) {
+      _this.state = stat;
+    }, // END setState
+    // -------------------------------------------------------------------------
+    // getState()
+    // Returns the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    getState: function () {
+      return _this.state;
+    } // END getState
+  }; // END return
+})(j1, window);
+
 
 

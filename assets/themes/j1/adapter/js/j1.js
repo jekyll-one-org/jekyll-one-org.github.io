@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-09-30 21:53:41 +0000
+ # Adapter generated: 2021-10-24 21:02:36 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -32,7 +32,7 @@ var j1 = (function () {
   // globals
   // ---------------------------------------------------------------------------
   var rePager                   =  new RegExp('navigator|dateview|tagview|archive');
-  var environment               = 'production';
+  var environment               = 'development';
   var moduleOptions             = {};
   var j1_runtime_data           = {};
   // Status information
@@ -46,7 +46,7 @@ var j1 = (function () {
   var comment_provider          = 'hyvor';
   var site_id                   = 'hyvor-site-id';
   // Default translator settings (currently NOT supported)
-  // var translation_enabled       = false;
+  // var translation_enabled       = true;
   var current_user_data;
   var current_page;
   var previous_page;
@@ -77,10 +77,11 @@ var j1 = (function () {
   var referrer;
   // initial cookie settings
   var cookie_names = {
-    'app_session':  'j1.app.session',
-    'user_session': 'j1.user.session',
-    'user_state':   'j1.user.state',
-    'user_consent': 'j1.user.consent'
+    'app_session':    'j1.app.session',
+    'user_session':   'j1.user.session',
+    'user_state':     'j1.user.state',
+    'user_consent':   'j1.user.consent',
+    'user_translate': 'j1.user.translate'
   };
   var user_session = {
     'mode':                 'web',
@@ -104,8 +105,11 @@ var j1 = (function () {
     'theme_name':           '',
     'theme_css':            '',
     'theme_author':         '',
-    'theme_version':        '2021.2.2',
+    'theme_version':        '2021.2.4',
     'session_active':       false,
+    'google_translate':     'disabled',
+    'translate_all_pages':  true,
+    'translate_locale':     navigator.language || navigator.userLanguage,
     'last_session_ts':      ''
   };
   var user_consent = {};
@@ -149,10 +153,9 @@ var j1 = (function () {
       // -----------------------------------------------------------------------
       // options loader
       // -----------------------------------------------------------------------
-      var settings = $.extend(
-        {
-          foo: 'foo_option',
-          bar: 'bar_option'
+      var settings = $.extend({
+        foo: 'foo_option',
+        bar: 'bar_option'
         },
         options
       );
@@ -180,7 +183,7 @@ var j1 = (function () {
         if (user_state) {
           user_state.session_active     = false;
           user_state.last_session_ts    = timestamp_now;
-          if (!user_consent.analyses || !user_consent.personalization)  {
+          if (!user_consent.analysis || !user_consent.personalization)  {
             // rewrite consent|state cookies to session
             logger.debug('\n' + 'write to cookie : ' + cookie_names.user_consent);
             cookie_written = j1.writeCookie({
@@ -202,7 +205,7 @@ var j1 = (function () {
               expires:  0
             });
             if (!cookie_written) {
-            	logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_consent);
+                logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_consent);
             }
           } else {
             logger.debug('\n' + 'write to cookie : ' + cookie_names.user_state);
@@ -214,7 +217,7 @@ var j1 = (function () {
               expires:  365
             });
             if (!cookie_written) {
-            	logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_state);
+                logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_state);
             }
           }
         } else {
@@ -238,7 +241,7 @@ var j1 = (function () {
                             expires:  0
                           });
       if (!cookie_written) {
-      	logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_session);
+        logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_session);
       }
       user_state    =  j1.existsCookie(cookie_names.user_state)
                         ? j1.readCookie(cookie_names.user_state)
@@ -250,7 +253,7 @@ var j1 = (function () {
                             expires:  365
                           });
       if (!cookie_written) {
-      	logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_state);
+        logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_state);
       }
       // jadams, 2021-07-11: Found situation that user_state NOT initialized
       // correctly (user_state == false).
@@ -265,7 +268,7 @@ var j1 = (function () {
         user_state = j1.readCookie(cookie_names.user_state);
         user_state.session_active = true;
       }
-      if (!user_consent.analyses || !user_consent.personalization)  {
+      if (!user_consent.analysis || !user_consent.personalization)  {
         // rewrite consent|state cookies to session
         logger.debug('\n' + 'write to cookie : ' + cookie_names.user_state);
         cookie_written = j1.writeCookie({
@@ -276,7 +279,7 @@ var j1 = (function () {
           expires:  0
         });
         if (!cookie_written) {
-        	logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_state);
+            logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_state);
         }
       } else {
         logger.debug('\n' + 'write to cookie : ' + cookie_names.user_state);
@@ -288,9 +291,55 @@ var j1 = (function () {
           expires:  365
         });
         if (!cookie_written) {
-        	logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_state);
+            logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_state);
         }
       }
+      // initialize event handler for smooth scroll on in-page anchors
+      // -----------------------------------------------------------------------
+      $('a[href*=\\#]').on('click', function (event) {
+        // ignore void links
+        if (window.location.href.includes('#void')||this.href.includes('#void')) {
+          return false;
+        }
+        // for external links, redirect to this page
+        if (window.location.pathname !== this.pathname) {
+          window.location.href = this.href;
+        } else {
+          // continue on in-page anchor
+          var toccerScrollDuration  = 300;
+          var toccerScrollOffset    = 10;
+          // calculate offset value for correct (smooth) scroll position
+          //
+          var $pagehead       = $('.attic');
+          var $navbar         = $('nav.navbar');
+          var $adblock        = $('#adblock');
+          var navbarType      = $navbar.hasClass('navbar-fixed') ? 'fixed' : 'scrolled';
+          var fontSize        = $('body').css('font-size').replace('px','');
+          var start           = window.pageYOffset;
+          var l               = parseInt(fontSize);
+          var h               = $pagehead.length ? $pagehead.height() : 0;
+          var n               = $navbar.length ? $navbar.height() : 0;
+          var a               = $adblock.length ? $adblock.height() : 0;
+          var scrollOffset    = navbarType == 'fixed' ? -1*(n + a + l) : -1*(h + n + a + l);
+          // TODO:  to be checked why this static offset (toccerScrollOffset)
+          //        is needed
+          scrollOffset        = scrollOffset + toccerScrollOffset;
+          logger.debug('\n' + 'scroll to anchor: ' + this.hash);
+          $("html, body").animate({
+            scrollTop: $($(this).attr("href")).offset().top + scrollOffset + "px"
+          }, {
+            duration: toccerScrollDuration,
+            easing: "swing"
+          });
+          // disable bubble up the event
+          return false;
+        } // End in-page link
+      }); // END click event on anchors
+      // initialize event handler for window/history/back on <ESC>
+      // -----------------------------------------------------------------------
+      window.onkeyup = function (event) {
+        if (event.keyCode == 27) window.history.back();
+      };
       // detect middleware (mode 'app') and update user session cookie
       // -----------------------------------------------------------------------
       if (user_session.mode === 'app') {
@@ -321,7 +370,7 @@ var j1 = (function () {
             expires:  0
           });
           if (!cookie_written) {
-          	logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_session);
+            logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_session);
           }
           j1.setState(curr_state);
           logger.info('\n' + 'state: ' + j1.getState());
@@ -345,7 +394,7 @@ var j1 = (function () {
                 clearInterval(dependencies_met_page_displayed);
               }
             }
-          }, 25); // END dependencies_met_page_displayed
+          }, 25);
         })
         .catch(function(error) {
           // jadams, 2018-08-31: Why a hell a setTimeout is needed ???
@@ -366,13 +415,14 @@ var j1 = (function () {
               expires:  0
             });
             if (!cookie_written) {
-            	logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_session);
+                logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_session);
             }
             j1.setState(curr_state);
             logger.info('\n' + 'state: ' + j1.getState());
           }, detectTimeout);
         });
-      } else { // web mode
+      } else {
+        // web mode
         state = 'started';
         logger.info('\n' + 'state: ' + state);
         logger.info('\n' + 'page is being initialized');
@@ -420,7 +470,7 @@ var j1 = (function () {
         expires:  0
       });
       if (!cookie_written) {
-      	logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_session);
+        logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_session);
       }
       // NOTE: asynchronous calls should be rewitten to xhrData
       // initialize page resources for blocks
@@ -440,7 +490,7 @@ var j1 = (function () {
         expires:  0
       });
       if (!cookie_written) {
-      	logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_session);
+        logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_session);
       }
       // -----------------------------------------------------------------------
       // additional BS helpers from j1.core
@@ -448,7 +498,7 @@ var j1 = (function () {
       j1.core.bsFormClearButton();
       // finalize and display page
       j1.displayPage();
-    }, // END init
+    },
     // -------------------------------------------------------------------------
     // initBanner()
     // AJAX fetcher to load and place all banner used for a page
@@ -498,14 +548,14 @@ var j1 = (function () {
             var banner_data_path = '/assets/data/banner/index.html ' + id;
             selector.load(banner_data_path, cb_load_closure(id));
           }
-        } // END for
+        }
       }  else {
         logText = '\n' + 'no banner found in site';
         logger.warn(logText);
         return false;
       }
       return true;
-    }, // END initBanner
+    },
     // -------------------------------------------------------------------------
     // initPanel()
     // AJAX fetcher to load and place all panel used for a page
@@ -549,14 +599,14 @@ var j1 = (function () {
             var panel_data_path = '/assets/data/panel/index.html ' + id;
             selector.load(panel_data_path, cb_load_closure(id));
           }
-        } // END for
+        }
       } else {
         logText = '\n' + 'no panel found in site';
         logger.warn(logText);
         return false;
       }
       return true;
-    }, // END initPanel
+    },
     // -------------------------------------------------------------------------
     // initFooter()
     // AJAX fetcher to load and place the footer used for a page
@@ -605,7 +655,7 @@ var j1 = (function () {
         return false;
       }
       return true;
-    }, // END initFooter
+    },
     // -------------------------------------------------------------------------
     // displayPage
     // show the page after timeout of  ms
@@ -671,7 +721,7 @@ var j1 = (function () {
             expires:  0
           });
           if (!cookie_written) {
-          	logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_session);
+            logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_session);
           }
           providerPermissions = user_session.provider_permissions;
           categoryAllowed     = providerPermissions.includes(user_session.page_permission);
@@ -692,12 +742,13 @@ var j1 = (function () {
               window.location.href = ep_page_validation;
               return false;
             }
-          } // END check protected pages
+          }
           // show the page delayed
           setTimeout (function() {
             // Manage providers for personalization OptIn/Out (Comments|Ads)
             if (!user_consent.personalization) {
               logger.warn('\n' + 'disable comment provider: ' + comment_provider);
+              logger.warn('\n' + 'personalization not allowed, privacy settings for personalization: ' + user_consent.personalization);
               $('#leave-a-comment').remove();
               if (comment_provider === 'disqus') {
                 $('#dsq-count-scr').remove();
@@ -725,8 +776,8 @@ var j1 = (function () {
                   $('#main-content').append('<div id="hyvor-talk-view"></div>');
                   $('body').append('<script async id="hyvor-embed" type="text/javascript" src="//talk.hyvor.com/web-api/embed.js"></script>');
                 }
-              } // END comments
-            } // END personalization
+              }
+            }
             // display page
            $('#no_flicker').css('display', 'block');
            // initialize backdrops
@@ -734,16 +785,16 @@ var j1 = (function () {
              // add recommended title to hyvor iframe for SEO optimization (if loadad)
             if (comment_provider === 'hyvor') {
               var dependencies_met_load_finished = setInterval (function () {
-              	if ($('#hyvor-talk-view').children().length) {
-              		$('#hyvor-talk-iframe').prop('title', 'Hyvor talk iframe');
-              		clearInterval(dependencies_met_load_finished);
-              	}
+                if ($('#hyvor-talk-view').children().length) {
+                    $('#hyvor-talk-iframe').prop('title', 'Hyvor talk iframe');
+                    clearInterval(dependencies_met_load_finished);
+                }
               }, 25);
             }
             // NOTE: Placed tracking warning/info here because page may reloaded
             // after cookie consent selection
-            if (user_consent.analyses) {
-              logger.info('\n' + 'tracking allowed, privacy settings for analysis: ' + user_consent.analyses);
+            if (user_consent.analysis) {
+              logger.info('\n' + 'tracking allowed, privacy settings for analysis: ' + user_consent.analysis);
               if (tracking_enabled && !tracking_id_valid) {
                 logger.error('\n' + 'tracking enabled, but invalid tracking id found: ' + tracking_id);
               } else if (tracking_enabled && tracking_id_valid) {
@@ -752,7 +803,7 @@ var j1 = (function () {
                 logger.info('\n' + 'tracking disabled, tracking id found: ' + tracking_id);
               }
             } else {
-              logger.warn('\n' + 'tracking not allowed, privacy settings for analysis: ' + user_consent.analyses);
+              logger.warn('\n' + 'tracking not allowed, privacy settings for analysis: ' + user_consent.analysis);
             }
             // show|hide cookie icon (should MOVED to Cookiebar ???)
             if (j1.existsCookie(cookie_names.user_consent)) {
@@ -790,12 +841,13 @@ var j1 = (function () {
               $('#quickLinksSignInOutButton').css('display', 'block');
             }
             // jadams, 2021-07-25: hide|show themes menu on cookie consent
-            // (analyses|personalization) settings. BootSwatch is a 3rd party
+            // (analysis|personalization) settings. BootSwatch is a 3rd party
             // is using e.g GA. Because NO control is possible on 3rd parties,
             // for GDPR compliance, themes feature may disabled on
             // privacy settings
-            if (!user_consent.analyses || !user_consent.personalization)  {
+            if (!user_consent.personalization)  {
               logger.warn('\n' + 'disable themes feature because of privacy settings');
+              logger.warn('\n' + 'personalization not allowed, privacy settings for personalization: ' + user_consent.personalization);
               $("#themes_menu").hide();
             } else {
               $("#themes_menu").show();
@@ -823,9 +875,9 @@ var j1 = (function () {
             logText = '\n' + 'page finalized successfully';
             logger.info(logText);
           }, flickerTimeout);
-        }); // END APP mode
-      } else { // web mode
-        // show the page delayed
+        });
+      } else {
+        // web mode
         setTimeout (function() {
           j1.setState('finished');
           logger.info('\n' + 'state: finished');
@@ -833,6 +885,7 @@ var j1 = (function () {
           // Manage providers for personalization OptIn/Out (Comments|Ads)
           if (!user_consent.personalization) {
             logger.warn('\n' + 'disable comment provider: ' + comment_provider);
+            logger.warn('\n' + 'personalization not allowed, privacy settings for personalization: ' + user_consent.personalization);
             $('#leave-a-comment').remove();
             if (comment_provider === 'disqus') {
               $('#dsq-count-scr').remove();
@@ -860,19 +913,19 @@ var j1 = (function () {
                 $('#main-content').append('<div id="hyvor-talk-view"></div>');
                 $('body').append('<script async id="hyvor-embed" type="text/javascript" src="//talk.hyvor.com/web-api/embed.js"></script>');
               }
-            } // END comments
-          } // END personalization
+            }
+          }
           // display page
           $('#no_flicker').css('display', 'block');
           // Add minus icon for collapse element which is open by default
-        	$(".collapse.show").each(function(){
-        		$(this).prev(".card-header").addClass("highlight");
-        	});
-        	// Highlight open collapsed element
-        	$(".card-header .btn").click(function(){
-        		$(".card-header").not($(this).parents()).removeClass("highlight");
-        		$(this).parents(".card-header").toggleClass("highlight");
-        	});
+            $(".collapse.show").each(function(){
+                $(this).prev(".card-header").addClass("highlight");
+            });
+            // Highlight open collapsed element
+            $(".card-header .btn").click(function(){
+                $(".card-header").not($(this).parents()).removeClass("highlight");
+                $(this).parents(".card-header").toggleClass("highlight");
+            });
           // initialize backdrops
           j1.core.createDropCap();
             // add recommended title to hyvor iframe for SEO optimization (if loadad)
@@ -886,8 +939,8 @@ var j1 = (function () {
            }
           // NOTE: Placed tracking warning/info here because page may reloaded
           // after cookie consent selection
-          if (user_consent.analyses) {
-            logger.info('\n' + 'tracking allowed, privacy settings for analysis: ' + user_consent.analyses);
+          if (user_consent.analysis) {
+            logger.info('\n' + 'tracking allowed, privacy settings for analysis: ' + user_consent.analysis);
             if (tracking_enabled && !tracking_id_valid) {
               logger.error('\n' + 'tracking enabled, but invalid tracking id found: ' + tracking_id);
             } else if (tracking_enabled && tracking_id_valid) {
@@ -896,7 +949,7 @@ var j1 = (function () {
               logger.info('\n' + 'tracking disabled, tracking id found: ' + tracking_id);
             }
           } else {
-            logger.warn('\n' + 'tracking not allowed, privacy settings for analysis: ' + user_consent.analyses);
+            logger.warn('\n' + 'tracking not allowed, privacy settings for analysis: ' + user_consent.analysis);
           }
           logger.info('\n' + 'mode detected: web');
           logger.info('\n' + 'hide signin icon');
@@ -911,7 +964,7 @@ var j1 = (function () {
               expires:  0
           });
           if (!cookie_written) {
-          	logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_session);
+            logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_session);
           }
           // show|hide translator icon (currently NOT supported)
           // if (translation_enabled) {
@@ -934,12 +987,13 @@ var j1 = (function () {
             $('#quickLinksCookieButton').css('display', 'none');
           }
           // jadams, 2021-07-25: hide|show themes menu on cookie consent
-          // (analyses|personalization) settings. BootSwatch is a 3rd party
+          // (analysis|personalization) settings. BootSwatch is a 3rd party
           // is using e.g GA. Because NO control is possible on 3rd parties,
           // for GDPR compliance, themes feature may disabled on
           // privacy settings
-          if (!user_consent.analyses || !user_consent.personalization)  {
+          if (!user_consent.personalization)  {
             logger.warn('\n' + 'disable themes feature because of privacy settings');
+            logger.warn('\n' + 'personalization not allowed, privacy settings for personalization: ' + user_consent.personalization);
             $("#themes_menu").hide();
           } else {
             $("#themes_menu").show();
@@ -966,10 +1020,9 @@ var j1 = (function () {
           logger.info(logText);
           logText = '\n' + 'page finalized successfully';
           logger.info(logText);
-//        }, flickerTimeout);
-        }, 500);
-      } // END WEB mode
-    }, // END displayPage
+        }, flickerTimeout);
+      }
+    },
     // -------------------------------------------------------------------------
     // Helper functions
     // -------------------------------------------------------------------------
@@ -987,14 +1040,14 @@ var j1 = (function () {
         }
       }
       return o;
-    },  // END mergeData
+    },
     // -------------------------------------------------------------------------
     // getPrevPage()
     // Returns the last vistited page
     // -------------------------------------------------------------------------
     getPrevPage: function () {
       return previous_page;
-    }, // END getPrevPage
+    },
     // -------------------------------------------------------------------------
     // getLanguage()
     // Returns the preferred language taken form window.navigator
@@ -1003,14 +1056,14 @@ var j1 = (function () {
     // -------------------------------------------------------------------------
     getLanguage: function () {
       var language = navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage);
-    }, // END getLanguage
+    },
     // -------------------------------------------------------------------------
     // getTemplateVersion()
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2021.2.2';
-    }, // END getTemplateVersion
+      return '2021.2.4';
+    },
     // -------------------------------------------------------------------------
     // scrollTo()
     // Scrolls smooth to any anchor referenced by an page URL on
@@ -1022,6 +1075,11 @@ var j1 = (function () {
       var anchor_id = typeof anchor !== 'undefined' ? '#' + anchor : false;
       var isSlider  = false;
       var selector;
+      if (typeof anchor === 'undefined') {
+        return false;
+      } else if (anchor.includes("googtrans")) {
+        return false;
+      }
       var logger        = log4javascript.getLogger('j1.scrollTo');
       var toccerScrollDuration = 300;
       var toccerScrollOffset   = 10;
@@ -1059,14 +1117,14 @@ var j1 = (function () {
           //
           $(window).scrollTop($(window).scrollTop()+1);
           $(window).scrollTop($(window).scrollTop()-1);
-        } // END if anchor_id
+        }
       } else if (anchor_id === '#') {
         logger.info('\n' + 'bound click event to "#", suppress default action');
         $(window).scrollTop($(window).scrollTop()+1);
         $(window).scrollTop($(window).scrollTop()-1);
         return false;
       }
-    }, // END scrollTo
+    },
     // -------------------------------------------------------------------------
     //  authEnabled()
     //  Returns the state of the authentication module
@@ -1075,7 +1133,7 @@ var j1 = (function () {
       var logger      = log4javascript.getLogger('j1.authentication');
       var authEnabled = false;
       return authEnabled;
-    }, // END authEnabled
+    },
     // -------------------------------------------------------------------------
     //  appDetected()
     //  Returns true if a web session cookie exists
@@ -1092,7 +1150,7 @@ var j1 = (function () {
         detected = false;
       }
       return detected;
-    }, // END appDetected
+    },
     // -------------------------------------------------------------------------
     // loadHTML()
     // Load HTML data asychronously using XHR|jQuery on an element (e.g. <div>)
@@ -1189,7 +1247,7 @@ var j1 = (function () {
         }
       }
       return state;
-    }, // END loadHTML
+    },
     // -------------------------------------------------------------------------
     // loadJS()
     // Load JS data asychronously using jQuery (XHR)
@@ -1223,7 +1281,23 @@ var j1 = (function () {
         success:  cb_load_closure(mod, options.xhr_data_element)
       });
       return state;
-    }, // END loadJS
+    },
+    // -------------------------------------------------------------------------
+    // removeRessource (Vanilla JS)
+    // -------------------------------------------------------------------------
+    removeRessource: function (filename, filetype) {
+      // determine element type to create nodelist from
+      var targetelement=(filetype=="js")? "script" : (filetype=="css")? "link" : "none"
+      // determine corresponding attribute to test for
+      var targetattr=(filetype=="js")? "src" : (filetype=="css")? "href" : "none"
+      var allsuspects=document.getElementsByTagName(targetelement)
+      // search backwards within nodelist for matching elements to remove
+      // remove element by calling parentNode.removeChild()
+      for (var i=allsuspects.length; i>=0; i--) {
+        if (allsuspects[i] && allsuspects[i].getAttribute(targetattr)!=null && allsuspects[i].getAttribute(targetattr).indexOf(filename)!=-1)
+            allsuspects[i].parentNode.removeChild(allsuspects[i])
+      }
+    },
     // -------------------------------------------------------------------------
     //  readCookie (Vanilla JS)
     // -------------------------------------------------------------------------
@@ -1242,7 +1316,7 @@ var j1 = (function () {
       } else {
         return false;
       }
-    }, // END readCookie
+    },
     // -------------------------------------------------------------------------
     // writeCookie (Cookie lib)
     // Write 'data' to a cookie 'name'. If not exists, the cookie gets
@@ -1324,7 +1398,7 @@ var j1 = (function () {
       } else {
         return false;
       }
-    }, // END writeCookie
+    },
     // -------------------------------------------------------------------------
     // findCookie (Vanilla JS)
     // Search for cookies (names) in the page header that matches a given
@@ -1338,7 +1412,7 @@ var j1 = (function () {
       var rCookie=[];
       document.cookie.replace(new RegExp(name + '[^= ]*', 'g'), function(a){ rCookie.push(a.trim()); });
       return rCookie;
-    }, // END findCookie
+    },
     // -------------------------------------------------------------------------
     // removeCookie (Vanilla JS)
     // -------------------------------------------------------------------------
@@ -1356,7 +1430,7 @@ var j1 = (function () {
       } else {
         return false;
       }
-    }, // END removeCookie
+    },
     // -------------------------------------------------------------------------
     // expireCookie (Vanilla JS)
     // Expires given cookies by name except cookies set to httpOnly. For all
@@ -1412,7 +1486,7 @@ var j1 = (function () {
         document.cookie = settings.name + '=' + content +'; path=' + settings.path + '; ' + 'SameSite=' + settings.samesite;
       }
       return true;
-    }, // END expireCookie
+    },
     // -------------------------------------------------------------------------
     // existsCookie (Vanilla JS)
     // returns true if a given cookie exists
@@ -1442,7 +1516,7 @@ var j1 = (function () {
       cookieContent = decodeURI(dc.substring(begin + prefix.length, end) ).replace(/"/g, '');
       cookieExists  = cookieContent.length ? true : false;
       return cookieExists;
-    }, // END existsCookie
+    },
     // -------------------------------------------------------------------------
     // Resolve MACROs
     //
@@ -1515,8 +1589,8 @@ var j1 = (function () {
             return false;
           }
         }
-      }, 25); // END 'sidebarLoaded'
-    }, // END resolveMacros
+      }, 25);
+    },
     // -------------------------------------------------------------------------
     // Update MACROs
     // Update the values, NOT the placeholders
@@ -1568,8 +1642,8 @@ var j1 = (function () {
             return false;
           }
         }
-      }, 25); // END 'sidebarLoaded'
-    }, // END updateMacros
+      }, 25);
+    },
     // -------------------------------------------------------------------------
     // getMessage
     // Get a log message from the log message catalog object
@@ -1577,7 +1651,7 @@ var j1 = (function () {
     getMessage: function (level, message, property) {
       var message = j1.messages[level][message]['message'][property];
       return message;
-    }, // END getMessage
+    },
     // -------------------------------------------------------------------------
     // logger
     // Log a message
@@ -1586,7 +1660,7 @@ var j1 = (function () {
       var logger = log4javascript.getLogger(logger);
       logger[level](message);
       return true;
-    }, // END logger
+    },
     // -------------------------------------------------------------------------
     // Send message
     // -------------------------------------------------------------------------
@@ -1604,7 +1678,7 @@ var j1 = (function () {
         //executeFunctionByName('j1.' + receiver + '.messageHandler', window, sender, message)
         executeFunctionByName(receiver + '.messageHandler', window, sender, message);
       }
-    }, // END sendMessage
+    },
     // -------------------------------------------------------------------------
     // messageHandler: MessageHandler for J1 CookieConsent module
     // Manage messages send from other J1 modules
@@ -1625,7 +1699,7 @@ var j1 = (function () {
       // Place handling of other command|action here
       //
       return true;
-    }, // END messageHandler
+    },
     // -------------------------------------------------------------------------
     // getStyleValue:
     // Returns the value of a style from a css class definition
@@ -1643,7 +1717,7 @@ var j1 = (function () {
       val = $(testElement).css(style);
       document.body.removeChild(testElement);
       return val;
-    }, // END getStyleValue
+    },
     // -------------------------------------------------------------------------
     // getStyleSheetLoaded:
     // NOTE:
@@ -1664,7 +1738,7 @@ var j1 = (function () {
     // -------------------------------------------------------------------------
     getCookieNames: function () {
       return cookie_names;
-    }, // end getCookieNames
+    },
     // -------------------------------------------------------------------------
     // Set dynamic styles
     // -------------------------------------------------------------------------
@@ -1716,35 +1790,35 @@ var j1 = (function () {
       // $('head').append('<style>.nav-link:hover { background-color: ' +tabs_pills_link_color_hover+ ' !important; }</style>');
       // $('head').append('<style>.nav-link.active { background-color: ' +tabs_pills_link_color_active+ ' !important; }</style>');
       return true;
-    }, // END setCss
+    },
     // -------------------------------------------------------------------------
     // setState()
     // Set the current (processing) state of the module
     // -------------------------------------------------------------------------
     setState: function (stat) {
       state = stat;
-    }, // end setState
+    },
     // -------------------------------------------------------------------------
     // getState()
     // Returns the current (processing) state of the module
     // -------------------------------------------------------------------------
     getState: function () {
       return state;
-    }, // end getState
+    },
     // -------------------------------------------------------------------------
     // setXhrDataState()
     // Set the final (loading) state of an element (partial) loaded via Xhr
     // -------------------------------------------------------------------------
     setXhrDataState: function (obj, stat) {
       j1.xhrDataState[obj] = stat;
-    }, // END setXhrDataState
+    },
     // -------------------------------------------------------------------------
     // getXhrDataState()
     // Returns the final (loading) state of an element (partial) loaded via Xhr
     // -------------------------------------------------------------------------
     getXhrDataState: function (obj) {
       return j1.xhrDataState[obj];
-    }, // END getXhrDataState
+    },
     // -------------------------------------------------------------------------
     // setXhrDomState()
     // Set the state of an element loaded via Xhr that is
@@ -1752,7 +1826,7 @@ var j1 = (function () {
     // -------------------------------------------------------------------------
     setXhrDomState: function (obj, stat) {
       j1.xhrDOMState[obj] = stat;
-    }, // END setXhrDomState
+    },
     // -------------------------------------------------------------------------
     // getXhrDataState()
     // Returns the state of an element loaded via Xhr that is
@@ -1760,21 +1834,21 @@ var j1 = (function () {
     // -------------------------------------------------------------------------
     getXhrDOMState: function (obj) {
       return j1.xhrDOMState[obj];
-    }, // END getXhrDOMState
+    },
     // -------------------------------------------------------------------------
     // setMode()
     // Set the current mode of the site (web|app)
     // -------------------------------------------------------------------------
     setMode: function (mod) {
       mode = mod;
-    }, // END setMode
+    },
     // -------------------------------------------------------------------------
     // getMode()
     // Returns the current mode of the site (web|app)
     // -------------------------------------------------------------------------
     getMode: function () {
       return mode;
-    }, // END getMode
+    },
     // -------------------------------------------------------------------------
     // checkUserAgent()
     // Returns the name (UA) of the web browser
@@ -1785,7 +1859,7 @@ var j1 = (function () {
       } else {
         return false;
       }
-    }, // END checkUserAgent
+    },
     // -------------------------------------------------------------------------
     // generateId()
     // Generate a unique (thread) id used by the logger
@@ -1798,21 +1872,21 @@ var j1 = (function () {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
      }
      return result;
-    }, // END generateId
+    },
     // -------------------------------------------------------------------------
     // getTrue()
     // Returns always true (for testing purposes)
     // -------------------------------------------------------------------------
     getTrue: function () {
       return true;
-    }, // END isTrue
+    },
     // -------------------------------------------------------------------------
     // getFalse()
     // Returns always false (for testing purposes)
     // -------------------------------------------------------------------------
     getFalse: function () {
       return false;
-    }, // END isTrue
+    },
     // -------------------------------------------------------------------------
     // goHome()
     // Redirect current page to the browser homepage
@@ -1827,7 +1901,7 @@ var j1 = (function () {
       } else {
         window.location.href = 'about:blank';
       }
-    }, // END gohome
+    },
     // -------------------------------------------------------------------------
     // goBack()
     // Redirect current page to last visited page (referrer)
@@ -1835,8 +1909,8 @@ var j1 = (function () {
     goBack: function () {
       // where visitor has come from
       window.location.href = document.referrer;
-    } // END goBack
-  }; // END j1 (return)
+    }
+  };
 }) (j1, window);
 
 

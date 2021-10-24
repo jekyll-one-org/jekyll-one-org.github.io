@@ -18,9 +18,138 @@
  #  For details, see http://davidjbradshaw.github.io/iframe-resizer/
  #
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-09-30 21:53:41 +0000
+ #  Adapter generated: 2021-10-24 21:02:36 +0000
  # -----------------------------------------------------------------------------
  */
-'use strict';j1.adapter.framer=function(e){var t,i,a,n={};return{init:function(a){var r=setInterval(function(){if('finished'===e.getState()){t=e.adapter.framer,i=log4javascript.getLogger('j1.adapter.framer'),t.setState('started'),i.info("\nstate: "+t.getState()),i.info("\nmodule is being initialized");var o=$.extend({module_name:'j1.adapter.example',generated:'2021-09-30 21:53:41 +0000'},a);return n=$.extend({},{enabled:!0,load:"sync",log:!1,autoResize:!0,bodyBackground:"",bodyMargin:0,checkOrigin:!0,inPageLinks:!1,interval:32,heightCalculationMethod:"bodyOffset",widthCalculationMethod:"scroll",maxHeight:1e8,minHeight:512,maxWidth:1e8,minWidth:0,resizeFrom:"parent",scrolling:!1,sizeHeight:!0,sizeWidth:!1,tolerance:0}),void 0!==o&&(n=e.mergeData(n,o)),iFrameResize({log:n.log,autoResize:n.autoResize,bodyBackground:n.bodyBackground,bodyMargin:n.bodyMargin,checkOrigin:n.checkOrigin,inPageLinks:n.inPageLinks,interval:n.interval,heightCalculationMethod:n.heightCalculationMethod,maxHeight:n.maxHeight,minWidth:n.minWidth,maxWidth:n.maxWidth,minHeight:n.minHeight,resizeFrom:n.resizeFrom,scrolling:n.scrolling,sizeHeight:n.sizeHeight,sizeWidth:n.sizeWidth,tolerance:n.tolerance,widthCalculationMethod:n.widthCalculationMethod,targetOrigin:n.checkOrigin}),t.setState('finished'),i.info("\nstate: "+t.getState()),i.info("\ninitializing module finished"),clearInterval(r),!0}},25)},messageHandler:function(e,t){var n=JSON.stringify(t,undefined,2);return a="\nreceived message from "+e+': '+n,i.debug(a),'command'===t.type&&'module_initialized'===t.action&&i.info('\n'+t.text),!0},setState:function(e){t.state=e},getState:function(){return e.adapter.navigator.state},setXhrState:function(t,i){e.adapter.navigator.xhrData[t]=i},getXhrState:function(t){return e.adapter.navigator.xhrData[t]}}}(j1,window);
+// -----------------------------------------------------------------------------
+// ESLint shimming
+// -----------------------------------------------------------------------------
+/* eslint indent: "off"                                                       */
+// -----------------------------------------------------------------------------
+'use strict';
+j1.adapter['framer'] = (function (j1, window) {
+  var environment   = 'development';
+  var moduleOptions = {};
+  var _this;
+  var logger;
+  var logText;
+  // ---------------------------------------------------------------------------
+  // Helper functions
+  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
+  // Main object
+  // ---------------------------------------------------------------------------
+  return {
+    // -------------------------------------------------------------------------
+    // Initializer
+    // -------------------------------------------------------------------------
+    init: function (options) {
+      var dependencies_met_page_finished = setInterval (function () {
+        if (j1.getState() === 'finished') {
+            // -----------------------------------------------------------------------
+            // globals
+            // -----------------------------------------------------------------------
+            _this   = j1.adapter.framer;
+            logger  = log4javascript.getLogger('j1.adapter.framer');
+            // initialize state flag
+            _this.setState('started');
+            logger.info('\n' + 'state: ' + _this.getState());
+            logger.info('\n' + 'module is being initialized');
+            // -----------------------------------------------------------------------
+            // Default module settings
+            // -----------------------------------------------------------------------
+            var settings = $.extend({
+              module_name: 'j1.adapter.example',
+              generated:   '2021-10-24 21:02:36 +0000'
+            }, options);
+            // Load  module DEFAULTS|CONFIG
+            /* eslint-disable */
+            moduleOptions = $.extend({}, {"enabled":true, "load":"sync", "log":false, "autoResize":true, "bodyBackground":"", "bodyMargin":0, "checkOrigin":true, "inPageLinks":false, "interval":32, "heightCalculationMethod":"bodyOffset", "widthCalculationMethod":"scroll", "maxHeight":100000000, "minHeight":512, "maxWidth":100000000, "minWidth":0, "resizeFrom":"parent", "scrolling":false, "sizeHeight":true, "sizeWidth":false, "tolerance":0});
+            /* eslint-enable */
+            if (typeof settings !== 'undefined') {
+              moduleOptions = j1.mergeData(moduleOptions, settings);
+            }
+            iFrameResize({
+              log:                      moduleOptions.log,
+              autoResize:               moduleOptions.autoResize,
+              bodyBackground:           moduleOptions.bodyBackground,
+              bodyMargin:               moduleOptions.bodyMargin,
+              checkOrigin:              moduleOptions.checkOrigin,
+              inPageLinks:              moduleOptions.inPageLinks,
+              interval:                 moduleOptions.interval,
+              heightCalculationMethod:  moduleOptions.heightCalculationMethod,
+              maxHeight:                moduleOptions.maxHeight,
+              minWidth:                 moduleOptions.minWidth,
+              maxWidth:                 moduleOptions.maxWidth,
+              minHeight:                moduleOptions.minHeight,
+              resizeFrom:               moduleOptions.resizeFrom,
+              scrolling:                moduleOptions.scrolling,
+              sizeHeight:               moduleOptions.sizeHeight,
+              sizeWidth:                moduleOptions.sizeWidth,
+              tolerance:                moduleOptions.tolerance,
+              widthCalculationMethod:   moduleOptions.widthCalculationMethod,
+              targetOrigin:             moduleOptions.checkOrigin
+            });
+            _this.setState('finished');
+            logger.info('\n' + 'state: ' + _this.getState());
+            logger.info('\n' + 'initializing module finished');
+            clearInterval(dependencies_met_page_finished);
+            return true;
+        }
+      }, 25);
+    }, // END init
+    // -------------------------------------------------------------------------
+    // messageHandler: MessageHandler for J1 CookieConsent module
+    // Manage messages send from other J1 modules
+    // -------------------------------------------------------------------------
+    messageHandler: function (sender, message) {
+      var json_message = JSON.stringify(message, undefined, 2);
+      logText = '\n' + 'received message from ' + sender + ': ' + json_message;
+      logger.debug(logText);
+      // -----------------------------------------------------------------------
+      //  Process commands|actions
+      // -----------------------------------------------------------------------
+      if (message.type === 'command' && message.action === 'module_initialized') {
+        //
+        // Place handling of command|action here
+        //
+        logger.info('\n' + message.text);
+      }
+      //
+      // Place handling of other command|action here
+      //
+      return true;
+    }, // END messageHandler
+    // -------------------------------------------------------------------------
+    // setState()
+    // Sets the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    setState: function (stat) {
+      _this.state = stat;
+    }, // END setState
+    // -------------------------------------------------------------------------
+    // getState
+    // Returns the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    getState: function () {
+      return j1.adapter.navigator.state;
+    }, // END getState
+    // -------------------------------------------------------------------------
+    // setXhrState
+    // Set the final (loading) state of an element (partial) loaded via Xhr
+    // -------------------------------------------------------------------------
+    setXhrState: function (obj, stat) {
+      j1.adapter.navigator.xhrData[obj] = stat;
+    }, // END setXhrState
+    // -------------------------------------------------------------------------
+    // getState
+    // Returns the final (loading) state of an element (partial) loaded via Xhr
+    // -------------------------------------------------------------------------
+    getXhrState: function (obj) {
+      return j1.adapter.navigator.xhrData[obj];
+    } // END getXhrState
+  }; // END return
+})(j1, window);
+
 
 
