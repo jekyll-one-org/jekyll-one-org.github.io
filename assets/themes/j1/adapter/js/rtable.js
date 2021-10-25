@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-10-24 21:02:36 +0000
+ #  Adapter generated: 2021-10-25 23:55:25 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -54,7 +54,7 @@ j1.adapter['rtable'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.rtable',
-        generated:   '2021-10-24 21:02:36 +0000'
+        generated:   '2021-10-25 23:55:25 +0000'
       }, options);
       // create settings object from frontmatterOptions
       frontmatterOptions = options != null ? $.extend({}, options) : {};
