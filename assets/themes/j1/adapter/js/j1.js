@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-11-01 17:44:43 +0000
+ # Adapter generated: 2021-11-01 19:48:18 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -105,7 +105,7 @@ var j1 = (function () {
     'theme_name':           '',
     'theme_css':            '',
     'theme_author':         '',
-    'theme_version':        '2021.2.10',
+    'theme_version':        '2021.2.11',
     'session_active':       false,
     'google_translate':     'disabled',
     'translate_all_pages':  true,
@@ -1077,7 +1077,7 @@ var j1 = (function () {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2021.2.10';
+      return '2021.2.11';
     },
     // -------------------------------------------------------------------------
     // scrollTo()
