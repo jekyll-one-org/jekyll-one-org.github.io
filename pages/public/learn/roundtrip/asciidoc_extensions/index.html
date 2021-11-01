@@ -6,9 +6,9 @@
 
             <!DOCTYPE html>
 <html lang="en">
-  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2021-10-25 23:54:32 +0000 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2021-11-01 15:35:16 +0000 ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ environment detected as: development ] -->
-  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2021.2.4 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2021.2.10 ] -->
   <head data-proofer-ignore>
     <!-- [INFO   ] [j1.layout.default.html                ] [ call default_writer for region: 'head' ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: page ] -->
@@ -20,7 +20,7 @@
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ initial zoom level when the page is first loaded by the browser ] -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ added version info for the templte ] -->
-    <meta name="template version" content="2021.2.4">
+    <meta name="template version" content="2021.2.10">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ add google translator meta tag to enable customized translations ] -->
     <meta name="translation" content="enabled">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ add google translator meta tag to enable customized translations ] -->
@@ -102,11 +102,12 @@
     <!-- [INFO   ] [j1.modules.connectors.translation     ] [ place callback for the Google Translator API ] -->
     <script>
       function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-          pageLanguage: 'en',
+        var gtAPI = new google.translate.TranslateElement({
+          pageLanguage: '',
           layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT
         },
         'google_translate_element');
+        j1.adapter.translator.postTranslateElementInit(gtAPI);
       }
     </script>
     <!-- [INFO   ] [j1.modules.connectors.translation     ] [ end processing ] -->
@@ -545,13 +546,13 @@
           <div class="paragraph">
             <p>J1 Template implements some incubating Ruby-based extensions for Asciidoctor.
               Most extensions are based on the examples given with the
-              {asciidoctor-extensions-lab}[Asciidoctor Extensions Lab, window="_blank"].
+              <a href="https://github.com/asciidoctor/asciidoctor-extensions-lab" target="_blank" rel="noopener">Asciidoctor Extensions Lab</a>.
               If you simply want to use the extensions from this repository, go ahead to
-              {asciidoctor-extensions-use-extension}[Using an extension, window="_blank"].</p>
+              <a href="https://github.com/asciidoctor/asciidoctor-extensions-lab#using-an-extension" target="_blank" rel="noopener">Using an extension</a>.</p>
           </div>
           <div class="paragraph">
             <p>To create Asciidoc extensions on your own, it is highly recommended to read the
-              {asciidoctor-user-manual-extensions}[extensions section, window="_blank"] in
+              <a href="http://asciidoctor.org/docs/user-manual/#extensions" target="_blank" rel="noopener">extensions section</a> in
               the Asciidoctor user manual.</p>
           </div>
           <div class="sect1">
@@ -1365,7 +1366,7 @@
               <div class="exampleblock result">
                 <div class="content">
                   <div class="paragraph">
-                    <p>Et voluptatum officia sunt est aperiam. Consequatur ipsum asperiores ab fuga consequatur omnis excepturi cum soluta ut. Et placeat aut cupiditate occaecati fugiat eos aut ipsam ipsam sequi. Temporibus adipisci optio voluptas vel eum eveniet id molestiae aut aliquam aut minus non et. Repellendus iusto consequuntur accusamus minus molestias reiciendis consectetur amet dolore aliquid ex architecto.</p>
+                    <p>Ex rerum voluptatem non dignissimos tempore. Deleniti quia nemo dolorum maiores vel recusandae minima omnis sint dolorem. Illum sint ut rerum accusantium aut est officia et non. Quaerat laudantium aperiam cum dolorem atque rerum aut. Amet maiores cumque eaque quia reiciendis rerum commodi omnis doloribus dignissimos.</p>
                   </div>
                 </div>
               </div>
@@ -1399,7 +1400,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>optio</p>
+                            <p>hic</p>
                           </div>
                         </div>
                       </td>
@@ -1414,7 +1415,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>minima facilis quo laudantium accusamus</p>
+                            <p>itaque voluptas eligendi voluptas aliquid</p>
                           </div>
                         </div>
                       </td>
@@ -1429,7 +1430,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Possimus quia est vel excepturi optio sit.</p>
+                            <p>Doloremque occaecati fugiat odit enim quaerat sapiente harum qui et est eos nihil voluptatibus repellat.</p>
                           </div>
                         </div>
                       </td>
@@ -1444,7 +1445,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Cupiditate voluptatem est quibusdam molestiae facere sequi repellat aut eum nulla et. Excepturi dolores voluptatem impedit at et fugiat maiores. Tempore voluptatum error id ea magni rem quam quaerat similique repellendus quia at. Odit saepe est culpa amet rerum qui delectus nam quas. Ratione nobis cupiditate vitae est iusto quia.</p>
+                            <p>Laudantium aut mollitia eos earum ipsum ut voluptas sequi dolores ad unde. Alias dicta dolorem et et sit voluptatem illum provident. Voluptatibus qui voluptatibus rerum iure cumque aut id repellat fuga dolorem veniam id. Fugit voluptatem sit animi cumque qui nisi. Consequatur molestiae adipisci aliquid dolor et.</p>
                           </div>
                         </div>
                       </td>
@@ -1459,7 +1460,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Wed Feb 13, 1991</p>
+                            <p>Fri Mar 09, 1984</p>
                           </div>
                         </div>
                       </td>
@@ -1474,7 +1475,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>1953-01-21</p>
+                            <p>1951-01-01</p>
                           </div>
                         </div>
                       </td>
@@ -1489,7 +1490,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Dora Gallagher</p>
+                            <p>John Glass</p>
                           </div>
                         </div>
                       </td>
@@ -1504,7 +1505,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Jacquelyn</p>
+                            <p>Andre</p>
                           </div>
                         </div>
                       </td>
@@ -1519,7 +1520,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Hodge</p>
+                            <p>Wallace</p>
                           </div>
                         </div>
                       </td>
@@ -1534,7 +1535,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p><a href="mailto:brycehanna@fastmail.com">brycehanna@fastmail.com</a></p>
+                            <p><a href="mailto:gordonbowman@me.com">gordonbowman@me.com</a></p>
                           </div>
                         </div>
                       </td>
@@ -1970,7 +1971,6 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="robots" content="noindex, nofollow">
       <link rel="icon" type="image/ico" href="/assets/images/modules/icons/j1/j1-32x32.ico">
       <title>Javascript disabled · 444</title>
       <style>

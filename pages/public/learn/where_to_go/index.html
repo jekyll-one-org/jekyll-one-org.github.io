@@ -6,9 +6,9 @@
 
             <!DOCTYPE html>
 <html lang="en">
-  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2021-10-25 23:54:32 +0000 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2021-11-01 15:35:16 +0000 ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ environment detected as: development ] -->
-  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2021.2.4 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2021.2.10 ] -->
   <head data-proofer-ignore>
     <!-- [INFO   ] [j1.layout.default.html                ] [ call default_writer for region: 'head' ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: page ] -->
@@ -20,7 +20,7 @@
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ initial zoom level when the page is first loaded by the browser ] -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ added version info for the templte ] -->
-    <meta name="template version" content="2021.2.4">
+    <meta name="template version" content="2021.2.10">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ add google translator meta tag to enable customized translations ] -->
     <meta name="translation" content="enabled">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ add google translator meta tag to enable customized translations ] -->
@@ -102,11 +102,12 @@
     <!-- [INFO   ] [j1.modules.connectors.translation     ] [ place callback for the Google Translator API ] -->
     <script>
       function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-          pageLanguage: 'en',
+        var gtAPI = new google.translate.TranslateElement({
+          pageLanguage: '',
           layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT
         },
         'google_translate_element');
+        j1.adapter.translator.postTranslateElementInit(gtAPI);
       }
     </script>
     <!-- [INFO   ] [j1.modules.connectors.translation     ] [ end processing ] -->
@@ -502,19 +503,22 @@
         <main id="main-content" class="r-text-300 js-toc-content">
           <!-- [INFO   ] [j1.layout.content_generator_page.html ] [ begin place content ] -->
           <div class="paragraph">
-            <p>Welcome to the pages of J1 Template. If you are here the first time, a good
-              decision you get on that page first. For sure, there is no better place to go.
-              The crucial first step in finding your way to Jekyll is done. Congratulations.
-              The <strong>Learn</strong> section contains all you need to learn what Jekyll and J1 can do
-              for your website. For your new static web - if you like.</p>
+            <p>Welcome to the pages of the J1 Template. If you are here the first time, a
+              good decision you get on that page first. For sure, there is no better place
+              to go. The crucial first step in finding your way to Jekyll is done.
+              Congratulations. The <strong>Learn</strong> section contains all you need to learn what
+              Jekyll and J1 can do for your website.</p>
+          </div>
+          <div class="paragraph">
+            <p>For your new static web. If you like.</p>
           </div>
           <div class="dlist">
             <dl>
               <dt class="hdlist1">Quickstart</dt>
               <dd>
                 <p>For experienced people familiar with using Jekyll, the <strong>Quickstart</strong> section
-                  may help start by creating a <strong>Starter Web</strong> - the build-in website for <strong>J1</strong>.
-                  This article gives an overview of what software is needed and how to run the
+                  may help start by creating a Starter Web. The build-in website for J1. This
+                  article gives an overview of what software is needed and how to run the
                   base (web development) commands for:</p>
                 <div class="ulist">
                   <ul>
@@ -537,7 +541,7 @@
           </div>
           <div class="paragraph">
             <p>Setting up a J1 project and creating the first website using J1 will take
-              about 15 minutes. But, you should know what you doing!</p>
+              about 15 minutes. But, you should know what you are doing!</p>
           </div>
           <div class="paragraph">
             <p>Go for <a href="https://jekyll.one/pages/public/learn/quickstart/" target="_blank" rel="noopener">the quick start</a>!</p>
@@ -546,12 +550,12 @@
             <dl>
               <dt class="hdlist1">Roundtrip</dt>
               <dd>
-                <p>With this section, you’ll find a <strong>tour</strong> to show some of the main features of
-                  the template system <strong>J1</strong>. This trip covers how image data can be managed
-                  using J1, some background of the template’s typography, discuss
-                  essential extensions, and what J1 can do. The roundtrip is a visual tour —
-                  no technical stuff, nothing academic. See what you will get as an overview
-                  of some of the top features of J1.</p>
+                <p>In this section, you’ll find a tour to show some of the main features of
+                  the template system J1. This trip covers how image data can be managed using
+                  J1, some background of the Template’s typography, discuss extensions, and
+                  what J1 can do in general. The roundtrip is a visual tour, no technical stuff,
+                  nothing academic. See what you will get as an overview of some of the top
+                  features of J1.</p>
               </dd>
             </dl>
           </div>
@@ -873,7 +877,6 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="robots" content="noindex, nofollow">
       <link rel="icon" type="image/ico" href="/assets/images/modules/icons/j1/j1-32x32.ico">
       <title>Javascript disabled · 444</title>
       <style>

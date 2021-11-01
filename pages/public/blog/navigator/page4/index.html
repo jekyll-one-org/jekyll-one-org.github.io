@@ -6,9 +6,9 @@
 
             <!DOCTYPE html>
 <html lang="en">
-  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2021-10-25 23:55:25 +0000 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2021-11-01 15:37:58 +0000 ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ environment detected as: development ] -->
-  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2021.2.4 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2021.2.10 ] -->
   <head data-proofer-ignore>
     <!-- [INFO   ] [j1.layout.default.html                ] [ call default_writer for region: 'head' ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: blog_archive ] -->
@@ -20,7 +20,7 @@
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ initial zoom level when the page is first loaded by the browser ] -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ added version info for the templte ] -->
-    <meta name="template version" content="2021.2.4">
+    <meta name="template version" content="2021.2.10">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ add google translator meta tag to enable customized translations ] -->
     <meta name="translation" content="enabled">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ add google translator meta tag to enable customized translations ] -->
@@ -102,11 +102,12 @@
     <!-- [INFO   ] [j1.modules.connectors.translation     ] [ place callback for the Google Translator API ] -->
     <script>
       function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-          pageLanguage: 'en',
+        var gtAPI = new google.translate.TranslateElement({
+          pageLanguage: '',
           layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT
         },
         'google_translate_element');
+        j1.adapter.translator.postTranslateElementInit(gtAPI);
       }
     </script>
     <!-- [INFO   ] [j1.modules.connectors.translation     ] [ end processing ] -->
@@ -559,7 +560,7 @@
                       <div class="card raised-z5 timeline-panel">
                         <!-- div class="timeline-title" -->
                         <div class="card-header bg-primary pt-4 pb-3">
-                          <h2 id="269431" class="md-white">Minneapolis</h2>
+                          <h2 id="783122" class="md-white">Minneapolis</h2>
                         </div>
                         <!-- Collect icon data from frontmatter -->
                         <!-- Collect image data from frontmatter (overload icon data if configured) -->
@@ -927,7 +928,6 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="robots" content="noindex, nofollow">
         <link rel="icon" type="image/ico" href="/assets/images/modules/icons/j1/j1-32x32.ico">
         <title>Javascript disabled · 444</title>
         <style>

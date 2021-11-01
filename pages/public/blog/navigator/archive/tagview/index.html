@@ -6,9 +6,9 @@
 
             <!DOCTYPE html>
 <html lang="en">
-  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2021-10-25 23:54:32 +0000 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2021-11-01 15:35:16 +0000 ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ environment detected as: development ] -->
-  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2021.2.4 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2021.2.10 ] -->
   <head data-proofer-ignore>
     <!-- [INFO   ] [j1.layout.default.html                ] [ call default_writer for region: 'head' ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: page ] -->
@@ -20,7 +20,7 @@
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ initial zoom level when the page is first loaded by the browser ] -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ added version info for the templte ] -->
-    <meta name="template version" content="2021.2.4">
+    <meta name="template version" content="2021.2.10">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ add google translator meta tag to enable customized translations ] -->
     <meta name="translation" content="enabled">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ add google translator meta tag to enable customized translations ] -->
@@ -102,11 +102,12 @@
     <!-- [INFO   ] [j1.modules.connectors.translation     ] [ place callback for the Google Translator API ] -->
     <script>
       function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-          pageLanguage: 'en',
+        var gtAPI = new google.translate.TranslateElement({
+          pageLanguage: '',
           layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT
         },
         'google_translate_element');
+        j1.adapter.translator.postTranslateElementInit(gtAPI);
       }
     </script>
     <!-- [INFO   ] [j1.modules.connectors.translation     ] [ end processing ] -->
@@ -616,7 +617,7 @@
               <a alt="Back to top" href="#"><i class="fa fa-tag mr-2"></i></a>Canada</h3>
             <!-- place post  -->
             <article class="card raised-z3 mb-5">
-              <h4 id="63135" class="card-header bg-primary">Narcisse Snake Dens</h4>
+              <h4 id="95082" class="card-header bg-primary">Narcisse Snake Dens</h4>
               <div class="row mx-0">
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image is available] -->
@@ -646,7 +647,7 @@
               <a alt="Back to top" href="#"><i class="fa fa-tag mr-2"></i></a>Cities</h3>
             <!-- place post  -->
             <article class="card raised-z3 mb-5">
-              <h4 id="86302" class="card-header bg-primary">Narcisse Snake Dens</h4>
+              <h4 id="97335" class="card-header bg-primary">Narcisse Snake Dens</h4>
               <div class="row mx-0">
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image is available] -->
@@ -674,7 +675,7 @@
             </article>
             <!-- place post  -->
             <article class="card raised-z3 mb-5">
-              <h4 id="70666" class="card-header bg-primary">Minneapolis</h4>
+              <h4 id="44852" class="card-header bg-primary">Minneapolis</h4>
               <div class="row mx-0">
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image is available] -->
@@ -704,7 +705,7 @@
               <a alt="Back to top" href="#"><i class="fa fa-tag mr-2"></i></a>Cookies</h3>
             <!-- place post  -->
             <article class="card raised-z3 mb-5">
-              <h4 id="15818" class="card-header bg-primary">Cookies</h4>
+              <h4 id="51207" class="card-header bg-primary">Cookies</h4>
               <div class="row mx-0">
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image is available] -->
@@ -738,7 +739,7 @@
               <a alt="Back to top" href="#"><i class="fa fa-tag mr-2"></i></a>Generators</h3>
             <!-- place post  -->
             <article class="card raised-z3 mb-5">
-              <h4 id="98406" class="card-header bg-primary">Site Generators</h4>
+              <h4 id="94597" class="card-header bg-primary">Site Generators</h4>
               <div class="row mx-0">
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image is available] -->
@@ -773,7 +774,7 @@
               <a alt="Back to top" href="#"><i class="fa fa-tag mr-2"></i></a>J1</h3>
             <!-- place post  -->
             <article class="card raised-z3 mb-5">
-              <h4 id="37139" class="card-header bg-primary">Welcome</h4>
+              <h4 id="58371" class="card-header bg-primary">Welcome</h4>
               <div class="row mx-0">
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image is available] -->
@@ -792,9 +793,9 @@
                   </div>
                   <div class="card-footer r-text-200">
                     <div class="card-footer-text">
-                      <i class="mdi mdi-calendar-blank md-grey-600 mr-1"></i>2021 October, 24
+                      <i class="mdi mdi-calendar-blank md-grey-600 mr-1"></i>2021 October, 31
                     </div>
-                    <a class="card-link text-muted text-lowercase" href="/posts/public/featured/post/2021/10/24/welcome-to-j1/#readmore">
+                    <a class="card-link text-muted text-lowercase" href="/posts/public/featured/post/2021/10/31/welcome-to-j1/#readmore">
                       read · jekyll for everyone
                     </a>
                   </div>
@@ -803,7 +804,7 @@
             </article>
             <!-- place post  -->
             <article class="card raised-z3 mb-5">
-              <h4 id="61174" class="card-header bg-primary">J1 Template</h4>
+              <h4 id="84898" class="card-header bg-primary">J1 Template</h4>
               <div class="row mx-0">
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image is available] -->
@@ -838,7 +839,7 @@
               <a alt="Back to top" href="#"><i class="fa fa-tag mr-2"></i></a>Jekyll</h3>
             <!-- place post  -->
             <article class="card raised-z3 mb-5">
-              <h4 id="25885" class="card-header bg-primary">Welcome</h4>
+              <h4 id="53592" class="card-header bg-primary">Welcome</h4>
               <div class="row mx-0">
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image is available] -->
@@ -857,9 +858,9 @@
                   </div>
                   <div class="card-footer r-text-200">
                     <div class="card-footer-text">
-                      <i class="mdi mdi-calendar-blank md-grey-600 mr-1"></i>2021 October, 24
+                      <i class="mdi mdi-calendar-blank md-grey-600 mr-1"></i>2021 October, 31
                     </div>
-                    <a class="card-link text-muted text-lowercase" href="/posts/public/featured/post/2021/10/24/welcome-to-j1/#readmore">
+                    <a class="card-link text-muted text-lowercase" href="/posts/public/featured/post/2021/10/31/welcome-to-j1/#readmore">
                       read · jekyll for everyone
                     </a>
                   </div>
@@ -868,7 +869,7 @@
             </article>
             <!-- place post  -->
             <article class="card raised-z3 mb-5">
-              <h4 id="5007" class="card-header bg-primary">Site Generators</h4>
+              <h4 id="57738" class="card-header bg-primary">Site Generators</h4>
               <div class="row mx-0">
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image is available] -->
@@ -903,7 +904,7 @@
               <a alt="Back to top" href="#"><i class="fa fa-tag mr-2"></i></a>Minneapolis</h3>
             <!-- place post  -->
             <article class="card raised-z3 mb-5">
-              <h4 id="66586" class="card-header bg-primary">Minneapolis</h4>
+              <h4 id="61313" class="card-header bg-primary">Minneapolis</h4>
               <div class="row mx-0">
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image is available] -->
@@ -938,7 +939,7 @@
               <a alt="Back to top" href="#"><i class="fa fa-tag mr-2"></i></a>Minnesota</h3>
             <!-- place post  -->
             <article class="card raised-z3 mb-5">
-              <h4 id="50954" class="card-header bg-primary">Minneapolis</h4>
+              <h4 id="2298" class="card-header bg-primary">Minneapolis</h4>
               <div class="row mx-0">
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image is available] -->
@@ -968,7 +969,7 @@
               <a alt="Back to top" href="#"><i class="fa fa-tag mr-2"></i></a>Narcisse</h3>
             <!-- place post  -->
             <article class="card raised-z3 mb-5">
-              <h4 id="3932" class="card-header bg-primary">Narcisse Snake Dens</h4>
+              <h4 id="37993" class="card-header bg-primary">Narcisse Snake Dens</h4>
               <div class="row mx-0">
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image is available] -->
@@ -1003,7 +1004,7 @@
               <a alt="Back to top" href="#"><i class="fa fa-tag mr-2"></i></a>Rivers</h3>
             <!-- place post  -->
             <article class="card raised-z3 mb-5">
-              <h4 id="39302" class="card-header bg-primary">Columbia River</h4>
+              <h4 id="20301" class="card-header bg-primary">Columbia River</h4>
               <div class="row mx-0">
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image is available] -->
@@ -1038,7 +1039,7 @@
               <a alt="Back to top" href="#"><i class="fa fa-tag mr-2"></i></a>Series</h3>
             <!-- place post  -->
             <article class="card raised-z3 mb-5">
-              <h4 id="4070" class="card-header bg-primary">Columbia River</h4>
+              <h4 id="14917" class="card-header bg-primary">Columbia River</h4>
               <div class="row mx-0">
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image is available] -->
@@ -1066,7 +1067,7 @@
             </article>
             <!-- place post  -->
             <article class="card raised-z3 mb-5">
-              <h4 id="61572" class="card-header bg-primary">Narcisse Snake Dens</h4>
+              <h4 id="71375" class="card-header bg-primary">Narcisse Snake Dens</h4>
               <div class="row mx-0">
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image is available] -->
@@ -1094,7 +1095,7 @@
             </article>
             <!-- place post  -->
             <article class="card raised-z3 mb-5">
-              <h4 id="49865" class="card-header bg-primary">Minneapolis</h4>
+              <h4 id="27158" class="card-header bg-primary">Minneapolis</h4>
               <div class="row mx-0">
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image is available] -->
@@ -1129,7 +1130,7 @@
               <a alt="Back to top" href="#"><i class="fa fa-tag mr-2"></i></a>Template</h3>
             <!-- place post  -->
             <article class="card raised-z3 mb-5">
-              <h4 id="30359" class="card-header bg-primary">J1 Template</h4>
+              <h4 id="30956" class="card-header bg-primary">J1 Template</h4>
               <div class="row mx-0">
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image is available] -->
@@ -1164,7 +1165,7 @@
               <a alt="Back to top" href="#"><i class="fa fa-tag mr-2"></i></a>USA</h3>
             <!-- place post  -->
             <article class="card raised-z3 mb-5">
-              <h4 id="92807" class="card-header bg-primary">Columbia River</h4>
+              <h4 id="22274" class="card-header bg-primary">Columbia River</h4>
               <div class="row mx-0">
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image is available] -->
@@ -1192,7 +1193,7 @@
             </article>
             <!-- place post  -->
             <article class="card raised-z3 mb-5">
-              <h4 id="13033" class="card-header bg-primary">Minneapolis</h4>
+              <h4 id="22657" class="card-header bg-primary">Minneapolis</h4>
               <div class="row mx-0">
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Check if post image is available] -->
                 <!-- [INFO   ] [j1.pages.blog.navigator.archive          ] [Post image is available] -->
@@ -1533,7 +1534,6 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="robots" content="noindex, nofollow">
       <link rel="icon" type="image/ico" href="/assets/images/modules/icons/j1/j1-32x32.ico">
       <title>Javascript disabled · 444</title>
       <style>
