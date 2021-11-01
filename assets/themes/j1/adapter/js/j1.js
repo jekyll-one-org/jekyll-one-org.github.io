@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-11-01 16:07:59 +0000
+ # Adapter generated: 2021-11-01 17:44:43 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -1134,7 +1134,7 @@ var j1 = (function () {
           $(window).scrollTop($(window).scrollTop()-1);
         }
       } else if (anchor_id === '#') {
-        logger.info('\n' + 'bound click event to "#", suppress default action');
+        logger.info('\n' + 'bound click event to "#void", suppress default action');
         $(window).scrollTop($(window).scrollTop()+1);
         $(window).scrollTop($(window).scrollTop()-1);
         return false;
