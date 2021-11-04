@@ -2,12 +2,566 @@
 
 
 
+
+
   
 
-      <!DOCTYPE html> <html lang="en"> <head data-proofer-ignore> <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" /> <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <meta name="template version" content="2021.2.12" /> <meta name="translation" content="enabled" /> <meta name="google-translate" content="enabled" /> <title>MsDropdown</title> <meta name="description" content="The template comes with a Web included, a skeleton for a new website created with J1 Template. This Web is called the "Starter web", a general-purpose scaffold to be modified for your needs. " /> <link rel="icon" type="image/ico" href="/assets/images/modules/icons/j1/j1-32x32.ico" /> <meta name="author" content="J1 Team" /> <meta name="keywords" content="Jekyll, One, Template, Ruby, Asciidoctor, Asciidoc, Bootstrap, Javascript, JS, JS3, CSS, CSS3, HTML5, Material, Design" /> <meta name="robots" content="index" /> <meta name="robots" content="follow" /> <meta name="analytics" content="false" /> <meta name="comments" content="false" /> <meta name="advertising" content="false" /> <meta name="translation" content="false" /> <meta name="youtube" content="true" /> <meta name="vimeo" content="true" /> <meta name="personalization" content="false" /> <link rel="preload" as="style" href="/assets/themes/j1/core/css/themes/uno-light/bootstrap.min.css" /> <link rel="preload" as="style" href="/assets/themes/j1/core/css/vendor.min.css" /> <link rel="preload" as="script" href="/assets/themes/j1/modules/bmd/js/bootstrap-material-design.min.js" /> <link rel="preload" as="script" href="/assets/themes/j1/modules/backstretch/js/backstretch.min.js" /> <link rel="preload" as="script" href="/assets/themes/j1/core/js/template.min.js" /> <link rel="preload" as="script" href="/assets/themes/j1/adapter/js/attic.js" /> <link rel="preload" as="script" href="/assets/themes/j1/adapter/js/logger.js" /> <link rel="preload" as="script" href="/assets/themes/j1/adapter/js/bmd.js" /> <link rel="preload" as="script" href="/assets/themes/j1/adapter/js/navigator.js" /> <link rel="dns-prefetch" href="https://bootswatch.com" /> <link rel="preconnect" href="https://bootswatch.com" /> <script> function googleTranslateElementInit() { var gtAPI = new google.translate.TranslateElement({ pageLanguage: '', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT }, 'google_translate_element'); j1.adapter.translator.postTranslateElementInit(gtAPI); } </script> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/themes/uno-light/bootstrap.min.css" /> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/icon-fonts/materialdesign.min.css" /> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/icon-fonts/materialdesign-light.min.css" /> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/icon-fonts/fontawesome.min.css" /> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/vendor.min.css" /> <script sync src="/assets/themes/j1/modules/util/js/gtag-opt-in.js"></script> <script sync src="/assets/themes/j1/adapter/js/j1.js"></script> <script sync src="/assets/themes/j1/modules/jquery/js/jquery.min.js"></script> <script sync src="/assets/themes/j1/modules/jquery/js/jqueryUI.min.js"></script> <script sync src="/assets/themes/j1/modules/popper/js/popper.min.js"></script> <script sync src="/assets/themes/j1/core/js/template.min.js"></script> <script sync src="/assets/themes/j1/adapter/js/logger.js"></script> <script sync src="/assets/themes/j1/modules/log4javascript/js/log4javascript.min.js"></script> <script sync src="/assets/themes/j1/modules/backstretch/js/backstretch.min.js"></script> <script sync src="/assets/themes/j1/adapter/js/attic.js"></script> <script sync src="/assets/themes/j1/adapter/js/navigator.js"></script> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/mmenuLight/css/mmenu-light.min.css" /> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/mmenuLight/css/theme/uno/mmenu.min.css" /> <script sync src="/assets/themes/j1/modules/mmenuLight/js/mmenu.js"></script> <script sync src="/assets/themes/j1/adapter/js/mmenu.js"></script> <script sync src="/assets/themes/j1/adapter/js/themer.js"></script> <script sync src="/assets/themes/j1/adapter/js/toccer.js"></script> <script sync src="/assets/themes/j1/adapter/js/cookieConsent.js"></script> <script sync src="/assets/themes/j1/modules/cookieConsent/js/cookieConsent.min.js"></script> <script sync src="/assets/themes/j1/modules/themeSwitcher/js/switcher.min.js"></script> <script sync src="/assets/themes/j1/adapter/js/bmd.js"></script> <script sync src="/assets/themes/j1/modules/bmd/js/bootstrap-material-design.min.js"></script> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/rtable/css/theme/uno/rtable.min.css" /> <script sync src="/assets/themes/j1/adapter/js/rtable.js"></script> <script sync src="/assets/themes/j1/modules/rtable/js/rtable.min.js"></script> <script defer src="/assets/themes/j1/adapter/js/asciidoctor.js"></script> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/rouge/css/base16/theme.css" /> <script defer src="/assets/themes/j1/adapter/js/rouge.js"></script> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/country-flags/css/theme/uno.css" /> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/clipboard/css/theme/uno.min.css" /> <script defer src="/assets/themes/j1/adapter/js/clipboard.js"></script> <script defer src="/assets/themes/j1/modules/clipboard/js/clipboard.min.js"></script> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/fam/css/theme/uno/fam.min.css" /> <script sync src="/assets/themes/j1/modules/materialize/js/cash.js"></script> <script sync src="/assets/themes/j1/modules/fam/js/fam.js"></script> <script sync src="/assets/themes/j1/adapter/js/fam.js"></script> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/lunrSearch/css/quicksearch.min.css" /> <script defer src="/assets/themes/j1/adapter/js/quicksearch.js"></script> <script defer src="/assets/themes/j1/modules/lunrSearch/js/lunr.min.js"></script> <script defer src="/assets/themes/j1/modules/lunrSearch/js/mustache.min.js"></script> <script defer src="/assets/themes/j1/modules/lunrSearch/js/dateformat.min.js"></script> <script defer src="/assets/themes/j1/modules/lunrSearch/js/uri.min.js"></script> <script defer src="/assets/themes/j1/modules/lunrSearch/js/quicksearch.min.js"></script> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/msDropdown/css/msDropdown.min.css" /> <script async src="/assets/themes/j1/modules/msDropdown/js/msDropdown.min.js"></script> <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/translator/css/translator.min.css" /> <script sync src="/assets/themes/j1/adapter/js/translator.js"></script> <script sync src="/assets/themes/j1/modules/translator/js/translator.min.js"></script> </head> <body> <div id="no_flicker" style="display: none"> <div id="navigator_nav_topsearch" class="top-search ml-4 mr-4" style="display: none;"> <div class="input-group"> <span class="input-group-addon"><i class="mdi mdi-magnify mdi-2x" style="color:#9E9E9E"></i></span> <input id="search-query" type="text" name="q" placeholder="QuickSearch" autocomplete="off" class="form-control"> <span id="clear-topsearch" class="form-clear form-clear-searcher d-none mt-2"><i class="mdi mdi-format-clear mdi-2x" style="color:#9E9E9E"></i></span> <span class="input-group-addon close-search"><i class="mdi mdi-close mdi-3x" style="color:#9E9E9E"></i></span> </div> <div class="search-results hide-scrollbar"> <section id="search-results" style="display: none"></section> </div> <script id="search-results-template" type="text/mustache"> <ul style="list-style: none; margin-left: .5rem; margin-right: 4.25rem"> {{#docs}} <li> <h4 class="result-item"> <a href="{{url}}" target="_blank">{{title}} · {{tagline}}</a> </h4> <p class="result-item-text small text-muted mt-2 mb-0"> <i class="mdi mdi-calendar-blank mdi-18px mr-1"></i>{{displaydate}} </p> <p class="result-item-text">{{description}}</p> <p class="result-item-text small text-muted mb-3"> <i class="mdi mdi-tag-text-outline mdi-18px mr-1"></i><span class="sr-categories">{{#categories}} {{.}} · {{/categories}}</span> <i class="mdi mdi-tag mdi-18px mr-1 ml-2"></i><span class="sr-tags">{{#tags}} {{.}} · {{/tags}}</span> </p> </li> {{/docs}} <ul> </script> </div> <nav id="navigator_nav_mmenu"></nav> <nav id="navigator_toc_mmenu"></nav> <nav id="navigator_sidebar_mmenu"></nav> <nav id="navigator_nav_navbar" class="navbar navigator navbar-expand-lg navbar-default light navbar-fixed navbar-transparent"> <a href="#void" id="navbar-brand" class="navbar-brand"> <img src="/assets/images/modules/icons/j1/j1-512x512.png" height="48" alt="Starter@Github"></a> <button id="mmenu-button" type="button" class="navigator navbar-toggler animated fadeIn" data-toggle="collapse" data-target="#navigator_nav_menu" aria-controls="navigator_nav_menu" aria-expanded="false" aria-label="Toggle navigation"> <i class="mdi mdi-menu mdi-36px"></i> </button> <div id="navigator_nav_menu" class="collapse"></div> <div id="navigator_nav_quicklinks" class="attr-nav collapse navbar-collapse justify-content-end"></div> </nav> <div id="authclient_modals" class="authclient_modals"></div> <header id="header"> <div id="image_attic" class="attic"> <div class="container"> <div id="head-title" class="head-title animated"> <h2 id="head-title-text" class="notoc">Manuals</h2></div> <div id="head-tagline" class="head-tagline animated"> <h3 id="head-tagline-tagline" class="notoc">MsDropdown</h3></div> <div class="attic-caption"></div> </div> </div> </header> <div id="content" class="container mb-5"> <main id="main-content" class="r-text-300 js-toc-content"> <div class="sect1"> <h2 id="msdropdown-properties">MsDropdown properties</h2> <div class="sectionbody"> <div class="sect2"> <h3 id="attributes">Attributes</h3> <div class="paragraph"> <p>Besides selectedIndex, options, name, size, multiple, etc attributes/properties, msDropdown reads below attributes too.</p> </div> <table class="tableblock frame-all grid-all stretch rtable mt-3"> <caption class="title">Table 1. msDropdown attributes</caption> <colgroup> <col style="width: 33.3333%;"> <col style="width: 66.6667%;"> </colgroup> <thead> <tr> <th class="tableblock halign-left valign-top">Name</th> <th class="tableblock halign-left valign-top">Description</th> </tr> </thead> <tbody> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>autofocus</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>As the name suggests, this attribute lets you choose that a form control should have autofocus when the page is loaded. Only one element can have autofocus.</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>disabled</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>If this property is enabled, you won&#8217;t be able to interact with the element.</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>form</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>It returns the name of the &lt;form&gt; element to associate the &lt;select&gt; with. This is readonly property.</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>name</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>It returns the name of the &lt;select&gt; element.</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>required</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>A Boolean attribute indicating that an option with a non-empty string value must be selected. Here is a surprise; you can change the default message too. Just set the <code>data-error-message="Your custom message here"</code> in <code>&lt;select&gt;</code>.</p> </div></div></td> </tr> </tbody> </table> </div> <div class="sect2"> <h3 id="data-attributes">Data attributes</h3> <table class="tableblock frame-all grid-all stretch rtable mt-3"> <caption class="title">Table 2. msDropdown Data attributes</caption> <colgroup> <col style="width: 33.3333%;"> <col style="width: 66.6667%;"> </colgroup> <thead> <tr> <th class="tableblock halign-left valign-top">Name</th> <th class="tableblock halign-left valign-top">Description</th> </tr> </thead> <tbody> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>data-main-css</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>This is the main CSS class. Default value is <code>ms-dd</code></p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>data-show-icon</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>If you are in need to hide the icon on the header. The default value is: <code>true</code></p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>data-event</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>To interact msDropdown with an event. The default value is: <code>click</code></p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>data-child-width</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>Sometimes you need a list of children bigger than the dropdown. This can help. The default value is: <code>null</code> or whatever is defined in the CSS.</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>data-child-height</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>By default, it shows all the options listed in the dropdown. If you need to show some rows you can use this attribute. The default value is: <code>null</code></p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>data-enable-checkbox</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>If you enable this; multiple will automatically set to true. It shows a checkbox with each list item. The default value is: <code>false</code></p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>data-checkbox-name-suffix</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>If the checkbox is enabled; there is an extra field will be posted with the form. Say &lt;select&gt; name is "tech" and checkbox is enabled, tech_mscheck[] will be posted as an array. The default value is: <code>{select_name}_mscheck</code></p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>data-enable-auto-filter</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>It lets you search by typing any key when msDropdown is open. Just like auto-suggest. The default value is: <code>true</code></p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>data-visible-rows</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>If you set this attribute, it calculates the max height of the items and sets the child height based on the number provided in value. You can also achieve this by using the data-child-height property, only that set in pixels. The default value is: <code>null</code></p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>data-show-plus-item-counter</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>If multiple is true and you select more than one item; it shows a text +N. N denotes numbers here. The default value is: <code>true</code></p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>data-error-message</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>If <code>required</code> is enabled in &lt;select&gt; it shows a required message. Guess what? You can change that by setting this attribute. The default value is: <code>Please select an item from this list</code></p> </div></div></td> </tr> </tbody> </table> </div> <div class="sect2"> <h3 id="option-attributes">Option attributes</h3> <div class="paragraph"> <p>Besides value, text, selected, disabled, class, and style attributes/properties. msDropdown reads the below attributes too.</p> </div> <table class="tableblock frame-all grid-all stretch rtable mt-3"> <caption class="title">Table 3. msDropdown Option attributes</caption> <colgroup> <col style="width: 33.3333%;"> <col style="width: 66.6667%;"> </colgroup> <thead> <tr> <th class="tableblock halign-left valign-top">Name</th> <th class="tableblock halign-left valign-top">Description</th> </tr> </thead> <tbody> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>data-image</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>This attribute is used to display an image in an item</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>data-title</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>If you need to display any text on hover of an item</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>data-description</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>To display a description along with the text in the next line.</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>data-image-css</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>You may use this if you want to display an image using CSS.</p> </div></div></td> </tr> </tbody> </table> </div> </div> </div> <div class="sect1"> <h2 id="msdropdown-api">MsDropdown API</h2> <div class="sectionbody"> <div class="paragraph"> <p>It&#8217;s always good to explore more and more. Let&#8217;s do it then.</p> </div> <div class="sect2"> <h3 id="set-and-get-properties">Set and get properties</h3> <table class="tableblock frame-all grid-all stretch rtable mt-3"> <caption class="title">Table 4. msDropdown properties</caption> <colgroup> <col style="width: 33.3333%;"> <col style="width: 66.6667%;"> </colgroup> <thead> <tr> <th class="tableblock halign-left valign-top">Name</th> <th class="tableblock halign-left valign-top">Description</th> </tr> </thead> <tbody> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>selectedIndex</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>This property is used to set and get the selected index.<br></p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="kd">let</span> <span class="nx">ddSelect</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">tech</span><span class="dl">"</span><span class="p">).</span><span class="nx">msDropdown</span><span class="p">;</span></span>
+    
+            <!DOCTYPE html>
+<html lang="en">
+  <head data-proofer-ignore>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="template version" content="2021.3.0" />
+<meta name="translation" content="enabled" />
+<meta name="google-translate" content="enabled" />
+  <title>MsDropdown</title>
+    <meta name="description" content="The template comes with a Web included, a skeleton for a new website created with J1 Template. This Web is called the "Starter web", a general-purpose scaffold to be modified for your needs.
+" />
+  <link rel="icon" type="image/ico" href="/assets/images/modules/icons/j1/j1-32x32.ico" />
+    <meta name="author" content="J1 Team" />
+      <meta name="keywords" content="Jekyll, One, Template, Ruby, Asciidoctor, Asciidoc, Bootstrap, Javascript, JS, JS3, CSS, CSS3, HTML5, Material, Design" />
+<meta name="robots" content="index" />
+<meta name="robots" content="follow" />
+<meta name="analytics" content="false" />
+<meta name="comments" content="false" />
+<meta name="advertising" content="false" />
+<meta name="translation" content="false" />
+<meta name="youtube" content="true" />
+<meta name="vimeo" content="true" />
+<meta name="personalization" content="false" />
+    <link rel="preload" as="style" href="/assets/themes/j1/core/css/themes/uno-light/bootstrap.min.css" />
+    <link rel="preload" as="style" href="/assets/themes/j1/core/css/vendor.min.css" />
+    <link rel="preload" as="script" href="/assets/themes/j1/modules/bmd/js/bootstrap-material-design.min.js" />
+    <link rel="preload" as="script" href="/assets/themes/j1/modules/backstretch/js/backstretch.min.js" />
+    <link rel="preload" as="script" href="/assets/themes/j1/core/js/template.min.js" />
+    <link rel="preload" as="script" href="/assets/themes/j1/adapter/js/attic.js" />
+    <link rel="preload" as="script" href="/assets/themes/j1/adapter/js/logger.js" />
+    <link rel="preload" as="script" href="/assets/themes/j1/adapter/js/bmd.js" />
+    <link rel="preload" as="script" href="/assets/themes/j1/adapter/js/navigator.js" />
+    <link rel="dns-prefetch" href="https://bootswatch.com" />
+    <link rel="preconnect"   href="https://bootswatch.com" />
+<script>
+  function googleTranslateElementInit() {
+    var gtAPI = new google.translate.TranslateElement({
+      pageLanguage: '',
+      layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT
+    },
+    'google_translate_element');
+    j1.adapter.translator.postTranslateElementInit(gtAPI);
+  }
+</script>
+             <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/themes/uno-light/bootstrap.min.css" /> 
+             <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/icon-fonts/materialdesign.min.css" /> 
+             <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/icon-fonts/materialdesign-light.min.css" /> 
+             <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/icon-fonts/fontawesome.min.css" /> 
+             <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/vendor.min.css" /> 
+                      <script sync  src="/assets/themes/j1/modules/util/js/gtag-opt-in.js"></script>
+                      <script sync  src="/assets/themes/j1/adapter/js/j1.js"></script>
+             <script sync  src="/assets/themes/j1/modules/jquery/js/jquery.min.js"></script> 
+             <script sync  src="/assets/themes/j1/modules/jquery/js/jqueryUI.min.js"></script> 
+             <script sync  src="/assets/themes/j1/modules/popper/js/popper.min.js"></script> 
+             <script sync  src="/assets/themes/j1/core/js/template.min.js"></script> 
+                      <script sync  src="/assets/themes/j1/adapter/js/logger.js"></script>
+             <script sync  src="/assets/themes/j1/modules/log4javascript/js/log4javascript.min.js"></script> 
+             <script sync  src="/assets/themes/j1/modules/backstretch/js/backstretch.min.js"></script> 
+                      <script sync  src="/assets/themes/j1/adapter/js/attic.js"></script>
+                      <script sync  src="/assets/themes/j1/adapter/js/navigator.js"></script>
+             <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/mmenuLight/css/mmenu-light.min.css" /> 
+             <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/mmenuLight/css/theme/uno/mmenu.min.css" /> 
+                      <script sync  src="/assets/themes/j1/modules/mmenuLight/js/mmenu.js"></script>
+                      <script sync  src="/assets/themes/j1/adapter/js/mmenu.js"></script>
+                      <script sync  src="/assets/themes/j1/adapter/js/themer.js"></script>
+                      <script sync  src="/assets/themes/j1/adapter/js/toccer.js"></script>
+                      <script sync  src="/assets/themes/j1/adapter/js/cookieConsent.js"></script>
+             <script sync  src="/assets/themes/j1/modules/cookieConsent/js/cookieConsent.min.js"></script> 
+             <script sync  src="/assets/themes/j1/modules/themeSwitcher/js/switcher.min.js"></script> 
+                      <script sync  src="/assets/themes/j1/adapter/js/bmd.js"></script>
+             <script sync  src="/assets/themes/j1/modules/bmd/js/bootstrap-material-design.min.js"></script> 
+             <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/rtable/css/theme/uno/rtable.min.css" /> 
+                      <script sync  src="/assets/themes/j1/adapter/js/rtable.js"></script>
+             <script sync  src="/assets/themes/j1/modules/rtable/js/rtable.min.js"></script> 
+                      <script defer  src="/assets/themes/j1/adapter/js/asciidoctor.js"></script>
+                    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/rouge/css/base16/theme.css" />
+                      <script defer  src="/assets/themes/j1/adapter/js/rouge.js"></script>
+                    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/country-flags/css/theme/uno.css" />
+             <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/clipboard/css/theme/uno.min.css" /> 
+                      <script defer  src="/assets/themes/j1/adapter/js/clipboard.js"></script>
+             <script defer  src="/assets/themes/j1/modules/clipboard/js/clipboard.min.js"></script> 
+             <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/fam/css/theme/uno/fam.min.css" /> 
+                      <script sync  src="/assets/themes/j1/modules/materialize/js/cash.js"></script>
+                      <script sync  src="/assets/themes/j1/modules/fam/js/fam.js"></script>
+                      <script sync  src="/assets/themes/j1/adapter/js/fam.js"></script>
+             <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/lunrSearch/css/quicksearch.min.css" /> 
+                      <script defer  src="/assets/themes/j1/adapter/js/quicksearch.js"></script>
+             <script defer  src="/assets/themes/j1/modules/lunrSearch/js/lunr.min.js"></script> 
+             <script defer  src="/assets/themes/j1/modules/lunrSearch/js/mustache.min.js"></script> 
+             <script defer  src="/assets/themes/j1/modules/lunrSearch/js/dateformat.min.js"></script> 
+             <script defer  src="/assets/themes/j1/modules/lunrSearch/js/uri.min.js"></script> 
+             <script defer  src="/assets/themes/j1/modules/lunrSearch/js/quicksearch.min.js"></script> 
+             <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/msDropdown/css/msDropdown.min.css" /> 
+             <script async  src="/assets/themes/j1/modules/msDropdown/js/msDropdown.min.js"></script> 
+             <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/translator/css/translator.min.css" /> 
+                      <script sync  src="/assets/themes/j1/adapter/js/translator.js"></script>
+             <script sync  src="/assets/themes/j1/modules/translator/js/translator.min.js"></script> 
+  </head>
+  <body>
+    <div id="no_flicker" style="display: none">
+    <div id="navigator_nav_topsearch" class="top-search ml-4 mr-4" style="display: none;">
+    	<div class="input-group">
+    	  <span class="input-group-addon"><i class="mdi mdi-magnify mdi-2x" style="color:#9E9E9E"></i></span>
+    	  <input id="search-query" type="text" name="q" placeholder="QuickSearch" autocomplete="off" class="form-control">
+    	  <span id="clear-topsearch" class="form-clear form-clear-searcher d-none mt-2"><i class="mdi mdi-format-clear mdi-2x" style="color:#9E9E9E"></i></span>
+    	  <span class="input-group-addon close-search"><i class="mdi mdi-close mdi-3x" style="color:#9E9E9E"></i></span>
+    	</div>
+      <div class="search-results hide-scrollbar">
+        <section id="search-results" style="display: none"></section>
+      </div>
+      <script id="search-results-template" type="text/mustache">
+        <ul style="list-style: none; margin-left: .5rem; margin-right: 4.25rem">
+        {{#docs}}
+          <li>
+            <h4 class="result-item"> <a href="{{url}}" target="_blank">{{title}} · {{tagline}}</a> </h4>
+            <p class="result-item-text small text-muted mt-2 mb-0">
+              <i class="mdi mdi-calendar-blank mdi-18px mr-1"></i>{{displaydate}}
+            </p>
+            <p class="result-item-text">{{description}}</p>
+            <p class="result-item-text small text-muted mb-3">
+              <i class="mdi mdi-tag-text-outline mdi-18px mr-1"></i><span class="sr-categories">{{#categories}} {{.}} · {{/categories}}</span>
+              <i class="mdi mdi-tag mdi-18px mr-1 ml-2"></i><span class="sr-tags">{{#tags}} {{.}} · {{/tags}}</span>
+            </p>
+          </li>
+        {{/docs}}
+        <ul>
+      </script>
+    </div>
+<nav id="navigator_nav_mmenu"></nav>
+<nav id="navigator_toc_mmenu"></nav>
+<nav id="navigator_sidebar_mmenu"></nav>
+<nav id="navigator_nav_navbar" class="navbar navigator navbar-expand-lg navbar-default light navbar-fixed navbar-transparent">
+      <a href="#void" id="navbar-brand" class="navbar-brand"> <img src="/assets/images/modules/icons/j1/j1-512x512.png" height="48" alt="Starter@Github"></a>
+    <button id="mmenu-button" type="button" class="navigator navbar-toggler animated fadeIn" data-toggle="collapse" data-target="#navigator_nav_menu" aria-controls="navigator_nav_menu" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="mdi mdi-menu mdi-36px"></i>
+    </button>
+  <div id="navigator_nav_menu" class="collapse"></div>
+  <div id="navigator_nav_quicklinks" class="attr-nav collapse navbar-collapse justify-content-end"></div>
+</nav>
+<div id="authclient_modals" class="authclient_modals"></div>
+  <header id="header">
+  <div id="image_attic" class="attic">
+    <div class="container">
+      <div id="head-title" class="head-title animated"> <h2 id="head-title-text" class="notoc">Manuals</h2></div>
+      <div id="head-tagline" class="head-tagline animated"> <h3 id="head-tagline-tagline" class="notoc">MsDropdown</h3></div>
+      <div class="attic-caption"></div>
+    </div>
+  </div>
+  </header>
+  <div id="content" class="container mb-5">
+<main id="main-content" class="r-text-300 js-toc-content">
+  <div class="sect1">
+<h2 id="msdropdown-properties">MsDropdown properties</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="attributes">Attributes</h3>
+<div class="paragraph">
+<p>Besides selectedIndex, options, name, size, multiple, etc attributes/properties,
+msDropdown reads below attributes too.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch rtable mt-3">
+<caption class="title">Table 1. msDropdown attributes</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>autofocus</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>As the name suggests, this attribute lets you choose that a form control
+should have autofocus when the page is loaded. Only one element can have
+autofocus.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>disabled</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>If this property is enabled, you won&#8217;t be able to interact with the
+element.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>form</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>It returns the name of the &lt;form&gt; element to associate the &lt;select&gt;
+with. This is readonly property.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>name</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>It returns the name of the &lt;select&gt; element.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>required</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A Boolean attribute indicating that an option with a non-empty string
+value must be selected. Here is a surprise; you can change the default
+message too. Just set the
+<code>data-error-message="Your custom message here"</code> in <code>&lt;select&gt;</code>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="data-attributes">Data attributes</h3>
+<table class="tableblock frame-all grid-all stretch rtable mt-3">
+<caption class="title">Table 2. msDropdown Data attributes</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>data-main-css</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>This is the main CSS class. Default value is <code>ms-dd</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>data-show-icon</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>If you are in need to hide the icon on the header. The default value
+is: <code>true</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>data-event</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>To interact msDropdown with an event. The default value is: <code>click</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>data-child-width</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Sometimes you need a list of children bigger than the dropdown. This can
+help. The default value is: <code>null</code> or whatever is defined in the CSS.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>data-child-height</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>By default, it shows all the options listed in the dropdown. If you
+need to show some rows you can use this attribute. The default value is:
+<code>null</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>data-enable-checkbox</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>If you enable this; multiple will automatically set to true. It shows a
+checkbox with each list item. The default value is: <code>false</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>data-checkbox-name-suffix</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>If the checkbox is enabled; there is an extra field will be posted
+with the form. Say &lt;select&gt; name is "tech" and checkbox is enabled,
+tech_mscheck[] will be posted as an array. The default value is:
+<code>{select_name}_mscheck</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>data-enable-auto-filter</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>It lets you search by typing any key when msDropdown is open. Just like
+auto-suggest. The default value is: <code>true</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>data-visible-rows</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>If you set this attribute, it calculates the max height of the items
+and sets the child height based on the number provided in value. You can
+also achieve this by using the data-child-height property, only that set
+in pixels. The default value is: <code>null</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>data-show-plus-item-counter</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>If multiple is true and you select more than one item; it shows a text
++N. N denotes numbers here. The default value is: <code>true</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>data-error-message</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>If <code>required</code> is enabled in &lt;select&gt; it shows a required message. Guess
+what? You can change that by setting this attribute. The default value
+is: <code>Please select an item from this list</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="option-attributes">Option attributes</h3>
+<div class="paragraph">
+<p>Besides value, text, selected, disabled, class, and style attributes/properties.
+msDropdown reads the below attributes too.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch rtable mt-3">
+<caption class="title">Table 3. msDropdown Option attributes</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>data-image</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>This attribute is used to display an image in an item</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>data-title</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>If you need to display any text on hover of an item</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>data-description</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>To display a description along with the text in the next line.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>data-image-css</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>You may use this if you want to display an image using CSS.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="msdropdown-api">MsDropdown API</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It&#8217;s always good to explore more and more. Let&#8217;s do it then.</p>
+</div>
+<div class="sect2">
+<h3 id="set-and-get-properties">Set and get properties</h3>
+<table class="tableblock frame-all grid-all stretch rtable mt-3">
+<caption class="title">Table 4. msDropdown properties</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>selectedIndex</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>This property is used to set and get the selected index.<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="kd">let</span> <span class="nx">ddSelect</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">tech</span><span class="dl">"</span><span class="p">).</span><span class="nx">msDropdown</span><span class="p">;</span></span>
 <span id="L2" class="line"><span class="nx">ddSelect</span><span class="p">.</span><span class="nx">selectedIndex</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span></span>
 <span id="L3" class="line"></span>
-<span id="L4" class="line"><span class="kd">let</span> <span class="nx">index</span> <span class="o">=</span> <span class="nx">ddSelect</span><span class="p">.</span><span class="nx">selectedIndex</span><span class="p">;</span></span></code></pre></div> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>options</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>This returns <code>&lt;option&gt;</code> (HTMLOptionsCollection) elements. You can set the length of option with this property too.<br></p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>length</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>To set and get the length of the options.</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>value</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>Returns the selected value</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>selectedText (readonly)</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>This returns the selected text of the dropdown.</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>disabled</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>To make dropdown enable or disabled. You won&#8217;t be able to interact with msDropdown when it is disabled.</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>form (readonly)</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>This returns the associated <code>&lt;form&gt;</code> else null.</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>multiple</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>This property is used to set or get the multiple. You may be able to select more than one item if multiple is true.</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>name</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>This returns the name of the &lt;select&gt;. I should mention here; msDropdown borrows the name from the original dropdown to work the "required" attribute.</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>required</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>A Boolean attribute indicating that an option with a non-empty string value must be selected. Here is a surprise; you can change the default message too. Just set the <code>data-error-message="Your custom message here"</code> in <code>&lt;select&gt;</code>.</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>size</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>If the size is greater than 1, It will be converted as a list. The size determines the number of rows to show.</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>selectedOptions (readonly)</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>It returns the selected &lt;option&gt;.</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>children (readonly)</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>It returns the list of options.</p> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>uiData (readonly)</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>It returns the selected data. You may find the following properties in this one object. <code>isArray</code> will be true if data,UI, index etc will be return as an array.<br></p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="p">{</span><span class="nl">data</span><span class="p">:</span> <span class="p">{</span></span>
+<span id="L4" class="line"><span class="kd">let</span> <span class="nx">index</span> <span class="o">=</span> <span class="nx">ddSelect</span><span class="p">.</span><span class="nx">selectedIndex</span><span class="p">;</span></span></code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>options</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>This returns <code>&lt;option&gt;</code> (HTMLOptionsCollection) elements. You can set
+the length of option with this property too.<br></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>length</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>To set and get the length of the options.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>value</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Returns the selected value</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>selectedText (readonly)</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>This returns the selected text of the dropdown.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>disabled</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>To make dropdown enable or disabled. You won&#8217;t be able to interact with
+msDropdown when it is disabled.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>form (readonly)</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>This returns the associated <code>&lt;form&gt;</code> else null.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>multiple</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>This property is used to set or get the multiple. You may be able to
+select more than one item if multiple is true.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>name</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>This returns the name of the &lt;select&gt;. I should mention here; msDropdown
+borrows the name from the original dropdown to work the "required"
+attribute.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>required</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A Boolean attribute indicating that an option with a non-empty string
+value must be selected. Here is a surprise; you can change the default
+message too. Just set the
+<code>data-error-message="Your custom message here"</code> in <code>&lt;select&gt;</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>size</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>If the size is greater than 1, It will be converted as a list. The size
+determines the number of rows to show.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>selectedOptions (readonly)</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>It returns the selected &lt;option&gt;.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>children (readonly)</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>It returns the list of options.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>uiData (readonly)</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>It returns the selected data. You may find the following properties in
+this one object. <code>isArray</code> will be true if data,UI, index etc will be
+return as an array.<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="p">{</span><span class="nl">data</span><span class="p">:</span> <span class="p">{</span></span>
 <span id="L2" class="line">        <span class="dl">"</span><span class="s2">image</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">../dist/images/icons/icon_games.gif</span><span class="dl">"</span><span class="p">,</span></span>
 <span id="L3" class="line">        <span class="dl">"</span><span class="s2">title</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span></span>
 <span id="L4" class="line">        <span class="dl">"</span><span class="s2">description</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span></span>
@@ -24,13 +578,95 @@
 <span id="L15" class="line">        <span class="nx">index</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span></span>
 <span id="L16" class="line">        <span class="nx">option</span><span class="p">:</span> <span class="o">&lt;</span><span class="nx">options</span><span class="o">&gt;</span><span class="p">,</span></span>
 <span id="L17" class="line">        <span class="nx">isArray</span><span class="p">:</span><span class="kc">false</span></span>
-<span id="L18" class="line"><span class="p">}</span></span></code></pre></div> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>version (readonly)</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>This returns the current version of the msDropdown.</p> </div></div></td> </tr> </tbody> </table> </div> <div class="sect2"> <h3 id="access-or-set-these-properties">Access or set these properties</h3> <div class="paragraph"> <p>Here is an example. The below dropdown id is "tech". Each element has a new property called "msDropdown" once it&#8217;s converted to msDropdown/image dropdown. You can access all the public properties and methods from that one.</p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="kd">let</span> <span class="nx">ddSelect</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">tech</span><span class="dl">"</span><span class="p">).</span><span class="nx">msDropdown</span><span class="p">;</span></span></code></pre></div> </div> <div class="paragraph"> <p>Select a property:</p> </div> <div class="paragraph"> <p>Reminder: I&#8217;ve made <code>ddSelect</code> as a global variable on this page. You can play with that in <code>console</code>.</p> </div> <div class="paragraph"> <p>selectedIndex options length selectedText disabled form multiple name required size selectedOptions children uiData</p> </div> <div class="paragraph"> <p>Try to copy-paste the below code in the console. You can set and get all the properties.</p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="nx">ddSelect</span><span class="p">.</span><span class="nx">selectedIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span></span></code></pre></div> </div> </div> <div class="sect2"> <h3 id="public-methods">Public methods</h3> <table class="tableblock frame-all grid-all stretch rtable mt-3"> <caption class="title">Table 5. Public methods</caption> <colgroup> <col style="width: 33.3333%;"> <col style="width: 66.6667%;"> </colgroup> <thead> <tr> <th class="tableblock halign-left valign-top">Name</th> <th class="tableblock halign-left valign-top">Description</th> </tr> </thead> <tbody> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>setSettingAttribute</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>Set the settings attributes, and you have an option to remake the msDropdown by passing <code>true</code> in the last argument.<br></p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="cm">/**</span></span>
+<span id="L18" class="line"><span class="p">}</span></span></code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>version (readonly)</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>This returns the current version of the msDropdown.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="access-or-set-these-properties">Access or set these properties</h3>
+<div class="paragraph">
+<p>Here is an example. The below dropdown id is "tech". Each element has a
+new property called "msDropdown" once it&#8217;s converted to msDropdown/image
+dropdown. You can access all the public properties and methods from that
+one.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="kd">let</span> <span class="nx">ddSelect</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">tech</span><span class="dl">"</span><span class="p">).</span><span class="nx">msDropdown</span><span class="p">;</span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Select a property:</p>
+</div>
+<div class="paragraph">
+<p>Reminder: I&#8217;ve made <code>ddSelect</code> as a global variable on this page. You
+can play with that in <code>console</code>.</p>
+</div>
+<div class="paragraph">
+<p>selectedIndex options length selectedText disabled form multiple name
+required size selectedOptions children uiData</p>
+</div>
+<div class="paragraph">
+<p>Try to copy-paste the below code in the console. You can set and get all
+the properties.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="nx">ddSelect</span><span class="p">.</span><span class="nx">selectedIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="public-methods">Public methods</h3>
+<table class="tableblock frame-all grid-all stretch rtable mt-3">
+<caption class="title">Table 5. Public methods</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>setSettingAttribute</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Set the settings attributes, and you have an option to remake the
+msDropdown by passing <code>true</code> in the last argument.<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="cm">/**</span></span>
 <span id="L2" class="line"><span class="cm">*</span></span>
 <span id="L3" class="line"><span class="cm">* @param key</span></span>
 <span id="L4" class="line"><span class="cm">* @param value</span></span>
 <span id="L5" class="line"><span class="cm">* @param shouldRefresh</span></span>
 <span id="L6" class="line"><span class="cm">*/</span></span>
-<span id="L7" class="line"><span class="nx">setSettingAttribute</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">shouldRefresh</span><span class="p">);</span></span></code></pre></div> </div> <div class="paragraph"> <p>Below are available keys and default values:<br></p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="p">{</span></span>
+<span id="L7" class="line"><span class="nx">setSettingAttribute</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">shouldRefresh</span><span class="p">);</span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Below are available keys and default values:<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="p">{</span></span>
 <span id="L2" class="line">  <span class="nl">byJson</span><span class="p">:</span> <span class="p">{</span></span>
 <span id="L3" class="line">      <span class="na">data</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span> <span class="na">selectedIndex</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span></span>
 <span id="L4" class="line">      <span class="na">size</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="na">multiple</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="na">width</span><span class="p">:</span> <span class="mi">250</span></span>
@@ -53,7 +689,21 @@
 <span id="L21" class="line">  <span class="nx">on</span><span class="p">:</span> <span class="p">{</span><span class="nl">create</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span><span class="nx">open</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span><span class="nx">close</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span><span class="nx">add</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span><span class="nx">remove</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span></span>
 <span id="L22" class="line">    <span class="nx">change</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span><span class="nx">blur</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span><span class="nx">click</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span><span class="nx">dblclick</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span><span class="nx">mousemove</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span></span>
 <span id="L23" class="line">    <span class="nx">mouseover</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span><span class="nx">mouseout</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span><span class="nx">focus</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span><span class="nx">mousedown</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span><span class="nx">mouseup</span><span class="p">:</span> <span class="kc">null</span><span class="p">}</span></span>
-<span id="L24" class="line"><span class="p">}</span></span></code></pre></div> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>add</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>Add an item to select. You can pass second param as index; where you want to insert this item.<br></p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="cm">/**</span></span>
+<span id="L24" class="line"><span class="p">}</span></span></code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>add</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Add an item to select. You can pass second param as index; where you
+want to insert this item.<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="cm">/**</span></span>
 <span id="L2" class="line"><span class="cm">* Object can be pass as below</span></span>
 <span id="L3" class="line"><span class="cm">* new Option("Label", "value") or</span></span>
 <span id="L4" class="line"><span class="cm">* {text:"Label", value:"value"}</span></span>
@@ -67,34 +717,261 @@
 <span id="L12" class="line"><span class="nx">ddSelect</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="dl">"</span><span class="s2">HashtagCms</span><span class="dl">"</span><span class="p">);</span></span>
 <span id="L13" class="line"><span class="nx">ddSelect</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Option</span><span class="p">(</span><span class="dl">"</span><span class="s2">HashtagCms</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">https://www.hashtagcms.org</span><span class="dl">"</span><span class="p">));</span></span>
 <span id="L14" class="line"><span class="nx">ddSelect</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span><span class="na">text</span><span class="p">:</span><span class="dl">"</span><span class="s2">HashtagCms</span><span class="dl">"</span><span class="p">,</span> <span class="na">value</span><span class="p">:</span><span class="dl">"</span><span class="s2">https://www.hashtagcms.org</span><span class="dl">"</span><span class="p">});</span></span>
-<span id="L15" class="line"><span class="nx">ddSelect</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span><span class="na">text</span><span class="p">:</span><span class="dl">"</span><span class="s2">HashtagCms</span><span class="dl">"</span><span class="p">,</span> <span class="na">value</span><span class="p">:</span><span class="dl">"</span><span class="s2">https://www.hashtagcms.org</span><span class="dl">"</span><span class="p">,</span> <span class="na">description</span><span class="p">:</span><span class="dl">"</span><span class="s2">Laravel open-source CMS</span><span class="dl">"</span><span class="p">});</span></span></code></pre></div> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>remove</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>Remove an item from &lt;select&gt;. And it returns the removed item with uiData.<br></p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="cm">/**</span></span>
+<span id="L15" class="line"><span class="nx">ddSelect</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span><span class="na">text</span><span class="p">:</span><span class="dl">"</span><span class="s2">HashtagCms</span><span class="dl">"</span><span class="p">,</span> <span class="na">value</span><span class="p">:</span><span class="dl">"</span><span class="s2">https://www.hashtagcms.org</span><span class="dl">"</span><span class="p">,</span> <span class="na">description</span><span class="p">:</span><span class="dl">"</span><span class="s2">Laravel open-source CMS</span><span class="dl">"</span><span class="p">});</span></span></code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>remove</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Remove an item from &lt;select&gt;. And it returns the removed item with
+uiData.<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="cm">/**</span></span>
 <span id="L2" class="line"><span class="cm">* @param index {int}</span></span>
 <span id="L3" class="line"><span class="cm">* @return uiData</span></span>
 <span id="L4" class="line"><span class="cm">*/</span></span>
-<span id="L5" class="line"><span class="nx">remove</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span></span></code></pre></div> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>next</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>Move to the next index/item<br></p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="nx">next</span><span class="p">()</span></span></code></pre></div> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>previous</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>Move to the previous index/item<br></p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="nx">previous</span><span class="p">()</span></span></code></pre></div> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>open</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>Open the dropdown<br></p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="nx">open</span><span class="p">()</span></span></code></pre></div> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>close</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>Close the dropdown<br></p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="nx">close</span><span class="p">()</span></span></code></pre></div> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>namedItem</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>If you have given any name of an option, will be returned. say, &lt;option name="cd"&gt;&lt;/option&gt;<br></p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="cm">/**</span></span>
+<span id="L5" class="line"><span class="nx">remove</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span></span></code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>next</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Move to the next index/item<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="nx">next</span><span class="p">()</span></span></code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>previous</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Move to the previous index/item<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="nx">previous</span><span class="p">()</span></span></code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>open</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Open the dropdown<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="nx">open</span><span class="p">()</span></span></code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>close</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Close the dropdown<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="nx">close</span><span class="p">()</span></span></code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>namedItem</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>If you have given any name of an option, will be returned. say, &lt;option
+name="cd"&gt;&lt;/option&gt;<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="cm">/**</span></span>
 <span id="L2" class="line"><span class="cm">* @param name {string}</span></span>
 <span id="L3" class="line"><span class="cm">* @param withData {boolean}</span></span>
 <span id="L4" class="line"><span class="cm">*/</span></span>
-<span id="L5" class="line"><span class="nx">namedItem</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">withData</span><span class="p">)</span></span></code></pre></div> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>item</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>Return <code>&lt;option&gt;</code> element based on the index that you have passed in the argument. <code>uiData</code> will also be returned if you pass withData=true<br></p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="cm">/**</span></span>
+<span id="L5" class="line"><span class="nx">namedItem</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">withData</span><span class="p">)</span></span></code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>item</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return <code>&lt;option&gt;</code> element based on the index that you have passed in the
+argument. <code>uiData</code> will also be returned if you pass withData=true<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="cm">/**</span></span>
 <span id="L2" class="line"><span class="cm">* @param index {int}</span></span>
 <span id="L3" class="line"><span class="cm">* @param withData {boolean}</span></span>
 <span id="L4" class="line"><span class="cm">*/</span></span>
-<span id="L5" class="line"><span class="nx">item</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">withData</span><span class="p">)</span></span></code></pre></div> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>visible</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>Show hide or get status of visibility.<br></p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="cm">/**</span></span>
+<span id="L5" class="line"><span class="nx">item</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">withData</span><span class="p">)</span></span></code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>visible</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Show hide or get status of visibility.<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="cm">/**</span></span>
 <span id="L2" class="line"><span class="cm">* @param isShow</span></span>
 <span id="L3" class="line"><span class="cm">* @return {boolean}</span></span>
 <span id="L4" class="line"><span class="cm">*/</span></span>
-<span id="L5" class="line"><span class="nx">visible</span></span></code></pre></div> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>showRows</code> | <code>visibleRows</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>Calculate first item height and set child height.<br></p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="cm">/**</span></span>
+<span id="L5" class="line"><span class="nx">visible</span></span></code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>showRows</code> | <code>visibleRows</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Calculate first item height and set child height.<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="cm">/**</span></span>
 <span id="L2" class="line"><span class="cm">* @param numberOfRows {int}</span></span>
 <span id="L3" class="line"><span class="cm">*/</span></span>
-<span id="L4" class="line"><span class="nx">showRows</span><span class="p">(</span><span class="nx">numberOfRows</span><span class="p">)</span></span></code></pre></div> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>on</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>Add an event on the dropdown. Below are possible event types you can pass in the argument:</p> </div> <div class="paragraph"> <p><code>create</code> | <code>open</code> | <code>close</code> | <code>add</code> | <code>remove</code> | <code>change</code> | <code>blur</code> | <code>click</code> | <code>dblclick</code> | <code>mousemove</code> | <code>mouseover</code> | <code>mouseout</code> | <code>focus</code> | <code>mousedown</code> | <code>mouseup</code><br></p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="cm">/**</span></span>
+<span id="L4" class="line"><span class="nx">showRows</span><span class="p">(</span><span class="nx">numberOfRows</span><span class="p">)</span></span></code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>on</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Add an event on the dropdown. Below are possible event types you can
+pass in the argument:</p>
+</div>
+<div class="paragraph">
+<p><code>create</code> | <code>open</code> | <code>close</code> | <code>add</code> | <code>remove</code> | <code>change</code> |
+<code>blur</code> | <code>click</code> | <code>dblclick</code> | <code>mousemove</code> | <code>mouseover</code> |
+<code>mouseout</code> | <code>focus</code> | <code>mousedown</code> | <code>mouseup</code><br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="cm">/**</span></span>
 <span id="L2" class="line"><span class="cm">* @param type {string}</span></span>
 <span id="L3" class="line"><span class="cm">* @param fn {function}</span></span>
 <span id="L4" class="line"><span class="cm">*/</span></span>
-<span id="L5" class="line"><span class="nx">on</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span> <span class="nx">fn</span><span class="p">)</span></span></code></pre></div> </div> <div class="listingblock"> <div class="title">Example</div> <div class="content"><pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="nx">ddSelect</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">"</span><span class="s2">change</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ddSelect</span><span class="p">.</span><span class="nx">uiData</span><span class="p">});</span></span></code></pre></div> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>off</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>Remove event listener.<br></p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="cm">/**</span></span>
+<span id="L5" class="line"><span class="nx">on</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span> <span class="nx">fn</span><span class="p">)</span></span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="nx">ddSelect</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">"</span><span class="s2">change</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ddSelect</span><span class="p">.</span><span class="nx">uiData</span><span class="p">});</span></span></code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>off</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Remove event listener.<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="cm">/**</span></span>
 <span id="L2" class="line"><span class="cm">* @param type {string}</span></span>
 <span id="L3" class="line"><span class="cm">* @param fn {function}</span></span>
 <span id="L4" class="line"><span class="cm">*/</span></span>
-<span id="L5" class="line"><span class="nx">off</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span> <span class="nx">fn</span><span class="p">);</span></span></code></pre></div> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>updateUiAndValue</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>In case there UI is not updated. You can call this method.<br></p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="nx">updateUiAndValue</span><span class="p">()</span></span></code></pre></div> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>refresh</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>Recreatea a msDropdown.<br></p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="nx">refresh</span><span class="p">()</span></span></code></pre></div> </div></div></td> </tr> <tr> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p><code>destroy</code></p> </div></div></td> <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph"> <p>Remove msDropdown and returns back to the original dropdown.<br></p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="nx">destroy</span><span class="p">()</span></span></code></pre></div> </div></div></td> </tr> </tbody> </table> </div> </div> </div> <div class="sect1"> <h2 id="examples">Examples</h2> <div class="sectionbody"> <div class="sect2"> <h3 id="simple-dropdown">Simple dropdown</h3> <div class="paragraph"> <p>Email FAQ Games Music Phone Graph Secured Video CD</p> </div> <div class="paragraph"> <p>There are two ways that you can apply msDropdown on &lt;select&gt; element</p> </div> <div class="olist arabic"> <ol class="arabic"> <li> <p>You can add `is="ms-dropdown"`attributes. Like we have in the below example.</p> </li> </ol> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-html" data-lang="html"><span id="L1" class="line"><span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">"tech"</span> <span class="na">name=</span><span class="s">"tech"</span> <span class="na">is=</span><span class="s">"ms-dropdown"</span><span class="nt">&gt;</span></span>
+<span id="L5" class="line"><span class="nx">off</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span> <span class="nx">fn</span><span class="p">);</span></span></code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>updateUiAndValue</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>In case there UI is not updated. You can call this method.<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="nx">updateUiAndValue</span><span class="p">()</span></span></code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>refresh</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Recreatea a msDropdown.<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="nx">refresh</span><span class="p">()</span></span></code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>destroy</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Remove msDropdown and returns back to the original dropdown.<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="nx">destroy</span><span class="p">()</span></span></code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="examples">Examples</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="simple-dropdown">Simple dropdown</h3>
+<div class="paragraph">
+<p>Email FAQ Games Music Phone Graph Secured Video CD</p>
+</div>
+<div class="paragraph">
+<p>There are two ways that you can apply msDropdown on &lt;select&gt; element</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>You can add `is="ms-dropdown"`attributes. Like we have in the
+below example.</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-html" data-lang="html"><span id="L1" class="line"><span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">"tech"</span> <span class="na">name=</span><span class="s">"tech"</span> <span class="na">is=</span><span class="s">"ms-dropdown"</span><span class="nt">&gt;</span></span>
 <span id="L2" class="line">    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">""</span> <span class="na">selected</span><span class="nt">&gt;</span>Please select one<span class="nt">&lt;/option&gt;</span></span>
 <span id="L3" class="line">    <span class="nt">&lt;option</span> <span class="na">data-image=</span><span class="s">"./dist/images/icons/icon_email.gif"</span> <span class="na">value=</span><span class="s">"email"</span><span class="nt">&gt;</span>Email<span class="nt">&lt;/option&gt;</span></span>
 <span id="L4" class="line">    <span class="nt">&lt;option</span> <span class="na">data-image=</span><span class="s">"./dist/images/icons/icon_faq.gif"</span> <span class="na">value=</span><span class="s">"faq"</span><span class="nt">&gt;</span>FAQ<span class="nt">&lt;/option&gt;</span></span>
@@ -105,9 +982,38 @@
 <span id="L9" class="line">    <span class="nt">&lt;option</span> <span class="na">data-image=</span><span class="s">"./dist/images/icons/icon_secure.gif"</span> <span class="na">value=</span><span class="s">"secured"</span><span class="nt">&gt;</span>Secured<span class="nt">&lt;/option&gt;</span></span>
 <span id="L10" class="line">    <span class="nt">&lt;option</span> <span class="na">data-image=</span><span class="s">"./dist/images/icons/icon_video.gif"</span> <span class="na">value=</span><span class="s">"video"</span><span class="nt">&gt;</span>Video<span class="nt">&lt;/option&gt;</span></span>
 <span id="L11" class="line">    <span class="nt">&lt;option</span> <span class="na">data-image=</span><span class="s">"./dist/images/icons/icon_cd.gif"</span> <span class="na">name=</span><span class="s">"cd"</span> <span class="na">value=</span><span class="s">"cd"</span><span class="nt">&gt;</span>CD<span class="nt">&lt;/option&gt;</span></span>
-<span id="L12" class="line"><span class="nt">&lt;/select&gt;</span></span></code></pre></div> </div> <div class="olist arabic"> <ol class="arabic" start="2"> <li> <p>You don&#8217;t need the below code if you have already included <code>dd.min.js</code> in the bottom of the page. Like I&#8217;ve mentioned in the installation section.<br></p> </li> </ol> </div> <div class="paragraph"> <p>In case you want to convert later by script, you can use the below code. You may use a CSS selector too.<br></p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="nx">MsDropdown</span><span class="p">.</span><span class="nx">make</span><span class="p">(</span><span class="dl">'</span><span class="s1">#select_element</span><span class="dl">'</span><span class="p">);</span></span>
+<span id="L12" class="line"><span class="nt">&lt;/select&gt;</span></span></code></pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>You don&#8217;t need the below code if you have already included
+<code>dd.min.js</code> in the bottom of the page. Like I&#8217;ve mentioned in the
+installation section.<br></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>In case you want to convert later by script, you can use the below code.
+You may use a CSS selector too.<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="nx">MsDropdown</span><span class="p">.</span><span class="nx">make</span><span class="p">(</span><span class="dl">'</span><span class="s1">#select_element</span><span class="dl">'</span><span class="p">);</span></span>
 <span id="L2" class="line"><span class="c1">//or</span></span>
-<span id="L3" class="line"><span class="k">new</span> <span class="nx">MsDropdown</span><span class="p">(</span><span class="dl">'</span><span class="s1">.select_elements</span><span class="dl">'</span><span class="p">);</span></span></code></pre></div> </div> </div> <div class="sect2"> <h3 id="dropdown-with-description">Dropdown with description</h3> <div class="paragraph"> <p>Did you notice? There is an extra attribute <code>data-description</code> in <code>&lt;option&gt;</code>.</p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-html" data-lang="html"><span id="L1" class="line"><span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">"payments"</span> <span class="na">name=</span><span class="s">"payments"</span> <span class="na">is=</span><span class="s">"ms-dropdown"</span> <span class="na">data-enable-auto-filter=</span><span class="s">"false"</span> <span class="na">required</span><span class="nt">&gt;</span></span>
+<span id="L3" class="line"><span class="k">new</span> <span class="nx">MsDropdown</span><span class="p">(</span><span class="dl">'</span><span class="s1">.select_elements</span><span class="dl">'</span><span class="p">);</span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="dropdown-with-description">Dropdown with description</h3>
+<div class="paragraph">
+<p>Did you notice? There is an extra attribute <code>data-description</code> in <code>&lt;option&gt;</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-html" data-lang="html"><span id="L1" class="line"><span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">"payments"</span> <span class="na">name=</span><span class="s">"payments"</span> <span class="na">is=</span><span class="s">"ms-dropdown"</span> <span class="na">data-enable-auto-filter=</span><span class="s">"false"</span> <span class="na">required</span><span class="nt">&gt;</span></span>
 <span id="L2" class="line">  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">""</span> <span class="na">data-description=</span><span class="s">"Choose your payment gateway"</span><span class="nt">&gt;</span>Payment Gateway<span class="nt">&lt;/option&gt;</span></span>
 <span id="L3" class="line">  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"amex"</span> <span class="na">data-image=</span><span class="s">"./dist/images/icons/Amex-56.png"</span> <span class="na">data-description=</span><span class="s">"My life. My card..."</span><span class="nt">&gt;</span>Amex<span class="nt">&lt;/option&gt;</span></span>
 <span id="L4" class="line">  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"Discover"</span> <span class="na">data-image=</span><span class="s">"./dist/images/icons/Discover-56.png"</span> <span class="na">data-description=</span><span class="s">"It pays to Discover..."</span><span class="nt">&gt;</span>Discover<span class="nt">&lt;/option&gt;</span></span>
@@ -115,7 +1021,18 @@
 <span id="L6" class="line">  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"cash"</span> <span class="na">data-image=</span><span class="s">"./dist/images/icons/Cash-56.png"</span> <span class="na">data-description=</span><span class="s">"Pay at your doorstep..."</span><span class="nt">&gt;</span>Cash on delivery<span class="nt">&lt;/option&gt;</span></span>
 <span id="L7" class="line">  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"Visa"</span> <span class="na">data-image=</span><span class="s">"./dist/images/icons/Visa-56.png"</span> <span class="na">data-description=</span><span class="s">"All you need..."</span><span class="nt">&gt;</span>Visa<span class="nt">&lt;/option&gt;</span></span>
 <span id="L8" class="line">  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"Paypal"</span> <span class="na">data-image=</span><span class="s">"./dist/images/icons/Paypal-56.png"</span> <span class="na">data-description=</span><span class="s">"Pay and get paid..."</span><span class="nt">&gt;</span>Paypal<span class="nt">&lt;/option&gt;</span></span>
-<span id="L9" class="line"><span class="nt">&lt;/select&gt;</span></span></code></pre></div> </div> </div> <div class="sect2"> <h3 id="dropdown-with-checkboxes">Dropdown with checkboxes</h3> <div class="paragraph"> <p>Email FAQ Games Music Phone Graph Secured Video CD</p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-html" data-lang="html"><span id="L1" class="line"><span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">"tech_with_checkbox"</span> <span class="na">is=</span><span class="s">"ms-dropdown"</span> <span class="na">data-enable-checkbox=</span><span class="s">"true"</span><span class="nt">&gt;</span></span>
+<span id="L9" class="line"><span class="nt">&lt;/select&gt;</span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="dropdown-with-checkboxes">Dropdown with checkboxes</h3>
+<div class="paragraph">
+<p>Email FAQ Games Music Phone Graph Secured Video CD</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-html" data-lang="html"><span id="L1" class="line"><span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">"tech_with_checkbox"</span> <span class="na">is=</span><span class="s">"ms-dropdown"</span> <span class="na">data-enable-checkbox=</span><span class="s">"true"</span><span class="nt">&gt;</span></span>
 <span id="L2" class="line">  <span class="nt">&lt;option</span> <span class="na">data-image=</span><span class="s">"./dist/images/icons/icon_email.gif"</span>  <span class="na">value=</span><span class="s">"email"</span><span class="nt">&gt;</span>Email<span class="nt">&lt;/option&gt;</span></span>
 <span id="L3" class="line">  <span class="nt">&lt;option</span> <span class="na">data-image=</span><span class="s">"./dist/images/icons/icon_faq.gif"</span>  <span class="na">value=</span><span class="s">"faq"</span><span class="nt">&gt;</span>FAQ<span class="nt">&lt;/option&gt;</span></span>
 <span id="L4" class="line">  <span class="nt">&lt;option</span> <span class="na">data-image=</span><span class="s">"./dist/images/icons/icon_games.gif"</span>  <span class="na">selected</span> <span class="na">value=</span><span class="s">"games"</span><span class="nt">&gt;</span>Games<span class="nt">&lt;/option&gt;</span></span>
@@ -125,7 +1042,15 @@
 <span id="L8" class="line">  <span class="nt">&lt;option</span> <span class="na">data-image=</span><span class="s">"./dist/images/icons/icon_secure.gif"</span> <span class="na">value=</span><span class="s">"secured"</span><span class="nt">&gt;</span>Secured<span class="nt">&lt;/option&gt;</span></span>
 <span id="L9" class="line">  <span class="nt">&lt;option</span> <span class="na">data-image=</span><span class="s">"./dist/images/icons/icon_video.gif"</span> <span class="na">value=</span><span class="s">"video"</span><span class="nt">&gt;</span>Video<span class="nt">&lt;/option&gt;</span></span>
 <span id="L10" class="line">  <span class="nt">&lt;option</span> <span class="na">data-image=</span><span class="s">"./dist/images/icons/icon_cd.gif"</span> <span class="na">name=</span><span class="s">"cd"</span> <span class="na">value=</span><span class="s">"cd"</span><span class="nt">&gt;</span>CD<span class="nt">&lt;/option&gt;</span></span>
-<span id="L11" class="line"><span class="nt">&lt;/select&gt;</span></span></code></pre></div> </div> </div> <div class="sect2"> <h3 id="option-groups">Option groups</h3> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-html" data-lang="html"><span id="L1" class="line"><span class="nt">&lt;select</span> <span class="na">is=</span><span class="s">"ms-dropdown"</span> <span class="na">name=</span><span class="s">"car_group"</span><span class="nt">&gt;</span></span>
+<span id="L11" class="line"><span class="nt">&lt;/select&gt;</span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="option-groups">Option groups</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-html" data-lang="html"><span id="L1" class="line"><span class="nt">&lt;select</span> <span class="na">is=</span><span class="s">"ms-dropdown"</span> <span class="na">name=</span><span class="s">"car_group"</span><span class="nt">&gt;</span></span>
 <span id="L2" class="line">  <span class="nt">&lt;optgroup</span> <span class="na">label=</span><span class="s">"Mercedes Benz"</span><span class="nt">&gt;</span></span>
 <span id="L3" class="line">    <span class="nt">&lt;option&gt;</span>Mercedes-Benz GLA<span class="nt">&lt;/option&gt;</span></span>
 <span id="L4" class="line">    <span class="nt">&lt;option&gt;</span>Mercedes-Benz S-Class<span class="nt">&lt;/option&gt;</span></span>
@@ -139,14 +1064,33 @@
 <span id="L12" class="line">    <span class="nt">&lt;option&gt;</span>Jaguar I-Pace<span class="nt">&lt;/option&gt;</span></span>
 <span id="L13" class="line">    <span class="nt">&lt;option&gt;</span>Jaguar XF<span class="nt">&lt;/option&gt;</span></span>
 <span id="L14" class="line">  <span class="nt">&lt;/optgroup&gt;</span></span>
-<span id="L15" class="line"><span class="nt">&lt;/select&gt;</span></span></code></pre></div> </div> </div> <div class="sect2"> <h3 id="dropdown-with-css-images">Dropdown with CSS images</h3> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-html" data-lang="html"><span id="L1" class="line"><span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">"countries"</span> <span class="na">id=</span><span class="s">"countries"</span> <span class="na">is=</span><span class="s">"ms-dropdown"</span> <span class="na">data-child-height=</span><span class="s">"315"</span><span class="nt">&gt;</span></span>
+<span id="L15" class="line"><span class="nt">&lt;/select&gt;</span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="dropdown-with-css-images">Dropdown with CSS images</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-html" data-lang="html"><span id="L1" class="line"><span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">"countries"</span> <span class="na">id=</span><span class="s">"countries"</span> <span class="na">is=</span><span class="s">"ms-dropdown"</span> <span class="na">data-child-height=</span><span class="s">"315"</span><span class="nt">&gt;</span></span>
 <span id="L2" class="line">  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">'ad'</span> <span class="na">data-image-css=</span><span class="s">"flag ad"</span> <span class="na">data-title=</span><span class="s">"Andorra"</span><span class="nt">&gt;</span>Andorra<span class="nt">&lt;/option&gt;</span></span>
 <span id="L3" class="line">  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">'ae'</span> <span class="na">data-image-css=</span><span class="s">"flag ae"</span> <span class="na">data-title=</span><span class="s">"United Arab Emirates"</span><span class="nt">&gt;</span>United Arab Emirates<span class="nt">&lt;/option&gt;</span></span>
 <span id="L4" class="line">  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">'af'</span> <span class="na">data-image-css=</span><span class="s">"flag af"</span> <span class="na">data-title=</span><span class="s">"Afghanistan"</span><span class="nt">&gt;</span>Afghanistan<span class="nt">&lt;/option&gt;</span></span>
 <span id="L5" class="line">  ...</span>
 <span id="L6" class="line">  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">'zr'</span> <span class="na">data-image-css=</span><span class="s">"flag zr"</span> <span class="na">data-title=</span><span class="s">"Zaire (former)"</span><span class="nt">&gt;</span>Zaire (former)<span class="nt">&lt;/option&gt;</span></span>
 <span id="L7" class="line">  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">'zw'</span> <span class="na">data-image-css=</span><span class="s">"flag zw"</span> <span class="na">data-title=</span><span class="s">"Zimbabwe"</span><span class="nt">&gt;</span>Zimbabwe<span class="nt">&lt;/option&gt;</span></span>
-<span id="L8" class="line"><span class="nt">&lt;/select&gt;</span></span></code></pre></div> </div> </div> <div class="sect2"> <h3 id="dropdown-as-a-list">Dropdown as a list</h3> <div class="paragraph"> <p>Please select one Email FAQ Games Music Phone Graph Secured Video CD</p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-html" data-lang="html"><span id="L1" class="line"><span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">"gameList[]"</span> <span class="na">is=</span><span class="s">"ms-dropdown"</span> <span class="na">multiple</span> <span class="na">size=</span><span class="s">"5"</span><span class="nt">&gt;</span></span>
+<span id="L8" class="line"><span class="nt">&lt;/select&gt;</span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="dropdown-as-a-list">Dropdown as a list</h3>
+<div class="paragraph">
+<p>Please select one Email FAQ Games Music Phone Graph Secured Video CD</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-html" data-lang="html"><span id="L1" class="line"><span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">"gameList[]"</span> <span class="na">is=</span><span class="s">"ms-dropdown"</span> <span class="na">multiple</span> <span class="na">size=</span><span class="s">"5"</span><span class="nt">&gt;</span></span>
 <span id="L2" class="line">  <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">""</span> <span class="na">selected</span><span class="nt">&gt;</span>Please select one<span class="nt">&lt;/option&gt;</span></span>
 <span id="L3" class="line">  <span class="nt">&lt;option</span> <span class="na">data-image=</span><span class="s">"./dist/images/icons/icon_email.gif"</span>  <span class="na">value=</span><span class="s">"email"</span><span class="nt">&gt;</span>Email<span class="nt">&lt;/option&gt;</span></span>
 <span id="L4" class="line">  <span class="nt">&lt;option</span> <span class="na">data-image=</span><span class="s">"./dist/images/icons/icon_faq.gif"</span>  <span class="na">value=</span><span class="s">"faq"</span><span class="nt">&gt;</span>FAQ<span class="nt">&lt;/option&gt;</span></span>
@@ -157,7 +1101,15 @@
 <span id="L9" class="line">  <span class="nt">&lt;option</span> <span class="na">data-image=</span><span class="s">"./dist/images/icons/icon_secure.gif"</span> <span class="na">value=</span><span class="s">"secured"</span><span class="nt">&gt;</span>Secured<span class="nt">&lt;/option&gt;</span></span>
 <span id="L10" class="line">  <span class="nt">&lt;option</span> <span class="na">data-image=</span><span class="s">"./dist/images/icons/icon_video.gif"</span> <span class="na">value=</span><span class="s">"video"</span><span class="nt">&gt;</span>Video<span class="nt">&lt;/option&gt;</span></span>
 <span id="L11" class="line">  <span class="nt">&lt;option</span> <span class="na">data-image=</span><span class="s">"./dist/images/icons/icon_cd.gif"</span> <span class="na">name=</span><span class="s">"cd"</span> <span class="na">value=</span><span class="s">"cd"</span><span class="nt">&gt;</span>CD<span class="nt">&lt;/option&gt;</span></span>
-<span id="L12" class="line"><span class="nt">&lt;/select&gt;</span></span></code></pre></div> </div> </div> <div class="sect2"> <h3 id="create-dropdown-from-json-object">Create Dropdown from JSON object</h3> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="p">[</span></span>
+<span id="L12" class="line"><span class="nt">&lt;/select&gt;</span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="create-dropdown-from-json-object">Create Dropdown from JSON object</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="p">[</span></span>
 <span id="L2" class="line">  <span class="p">{</span><span class="na">description</span><span class="p">:</span><span class="dl">'</span><span class="s1">Choose your payment gateway</span><span class="dl">'</span><span class="p">,</span> <span class="na">value</span><span class="p">:</span><span class="dl">''</span><span class="p">,</span> <span class="na">text</span><span class="p">:</span><span class="dl">'</span><span class="s1">Payment Gateway</span><span class="dl">'</span><span class="p">},</span></span>
 <span id="L3" class="line">  <span class="p">{</span><span class="na">image</span><span class="p">:</span><span class="dl">'</span><span class="s1">/assets/mywork/web-components/image-dropdown/images/icons/Amex-56.png</span><span class="dl">'</span><span class="p">,</span> <span class="na">description</span><span class="p">:</span><span class="dl">'</span><span class="s1">My life. My card...</span><span class="dl">'</span><span class="p">,</span> <span class="na">value</span><span class="p">:</span><span class="dl">'</span><span class="s1">amex</span><span class="dl">'</span><span class="p">,</span> <span class="na">text</span><span class="p">:</span><span class="dl">'</span><span class="s1">Amex</span><span class="dl">'</span><span class="p">},</span></span>
 <span id="L4" class="line">  <span class="p">{</span><span class="na">image</span><span class="p">:</span><span class="dl">'</span><span class="s1">/assets/mywork/web-components/image-dropdown/images/icons/Discover-56.png</span><span class="dl">'</span><span class="p">,</span> <span class="na">description</span><span class="p">:</span><span class="dl">'</span><span class="s1">It pays to Discover...</span><span class="dl">'</span><span class="p">,</span> <span class="na">value</span><span class="p">:</span><span class="dl">'</span><span class="s1">Discover</span><span class="dl">'</span><span class="p">,</span> <span class="na">text</span><span class="p">:</span><span class="dl">'</span><span class="s1">Discover</span><span class="dl">'</span><span class="p">},</span></span>
@@ -165,7 +1117,16 @@
 <span id="L6" class="line">  <span class="p">{</span><span class="na">image</span><span class="p">:</span><span class="dl">'</span><span class="s1">/assets/mywork/web-components/image-dropdown/images/icons/Cash-56.png</span><span class="dl">'</span><span class="p">,</span> <span class="na">description</span><span class="p">:</span><span class="dl">'</span><span class="s1">Sorry not available...</span><span class="dl">'</span><span class="p">,</span> <span class="na">value</span><span class="p">:</span><span class="dl">'</span><span class="s1">cash</span><span class="dl">'</span><span class="p">,</span> <span class="na">text</span><span class="p">:</span><span class="dl">'</span><span class="s1">Cash on delivery</span><span class="dl">'</span><span class="p">,</span> <span class="na">disabled</span><span class="p">:</span><span class="kc">true</span><span class="p">},</span></span>
 <span id="L7" class="line">  <span class="p">{</span><span class="na">image</span><span class="p">:</span><span class="dl">'</span><span class="s1">/assets/mywork/web-components/image-dropdown/images/icons/Visa-56.png</span><span class="dl">'</span><span class="p">,</span> <span class="na">description</span><span class="p">:</span><span class="dl">'</span><span class="s1">All you need...</span><span class="dl">'</span><span class="p">,</span> <span class="na">value</span><span class="p">:</span><span class="dl">'</span><span class="s1">Visa</span><span class="dl">'</span><span class="p">,</span> <span class="na">text</span><span class="p">:</span><span class="dl">'</span><span class="s1">Visa</span><span class="dl">'</span><span class="p">},</span></span>
 <span id="L8" class="line">  <span class="p">{</span><span class="na">image</span><span class="p">:</span><span class="dl">'</span><span class="s1">/assets/mywork/web-components/image-dropdown/images/icons/Paypal-56.png</span><span class="dl">'</span><span class="p">,</span> <span class="na">description</span><span class="p">:</span><span class="dl">'</span><span class="s1">Pay and get paid...</span><span class="dl">'</span><span class="p">,</span> <span class="na">value</span><span class="p">:</span><span class="dl">'</span><span class="s1">Paypal</span><span class="dl">'</span><span class="p">,</span> <span class="na">text</span><span class="p">:</span><span class="dl">'</span><span class="s1">Paypal</span><span class="dl">'</span><span class="p">}</span></span>
-<span id="L9" class="line"><span class="p">];</span></span></code></pre></div> </div> <div class="paragraph"> <p>Below method is being called on "Click here to convert by above json" button.</p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-html" data-lang="html"><span id="L1" class="line"><span class="nt">&lt;script&gt;</span></span>
+<span id="L9" class="line"><span class="p">];</span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Below method is being called on "Click here to convert by above json"
+button.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-html" data-lang="html"><span id="L1" class="line"><span class="nt">&lt;script&gt;</span></span>
 <span id="L2" class="line">  <span class="kd">function</span> <span class="nx">makeDd</span><span class="p">()</span> <span class="p">{</span></span>
 <span id="L3" class="line">    <span class="dl">'</span><span class="s1">use strict</span><span class="dl">'</span><span class="p">;</span></span>
 <span id="L4" class="line">    <span class="c1">//get the data from above json string</span></span>
@@ -188,11 +1149,39 @@
 <span id="L21" class="line"><span class="cm">        }</span></span>
 <span id="L22" class="line"><span class="cm">    });*/</span></span>
 <span id="L23" class="line">  <span class="p">}</span></span>
-<span id="L24" class="line"><span class="nt">&lt;/script&gt;</span></span></code></pre></div> </div> </div> <div class="sect2"> <h3 id="what-are-the-settings-params">What are the settings params</h3> <div class="paragraph"> <p>If you are creating with the help of JavaScript you might need this. So, how do you create it? Syntax is below</p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="c1">//Style 1</span></span>
+<span id="L24" class="line"><span class="nt">&lt;/script&gt;</span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="what-are-the-settings-params">What are the settings params</h3>
+<div class="paragraph">
+<p>If you are creating with the help of JavaScript you might need this.
+So, how do you create it? Syntax is below</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="c1">//Style 1</span></span>
 <span id="L2" class="line"><span class="nx">MsDropdown</span><span class="p">.</span><span class="nx">make</span><span class="p">(</span><span class="dl">"</span><span class="s2">element</span><span class="dl">"</span><span class="p">,</span> <span class="p">{...</span><span class="nx">settings</span><span class="p">});</span></span>
 <span id="L3" class="line"></span>
 <span id="L4" class="line"><span class="c1">//Style 2</span></span>
-<span id="L5" class="line"><span class="k">new</span> <span class="nx">MsDropdown</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">element_id</span><span class="dl">"</span><span class="p">),</span> <span class="p">{...</span><span class="nx">settings</span><span class="p">});</span></span></code></pre></div> </div> <div class="paragraph"> <p>And what are the settings params you can pass to the msDropdown? It is similar to the data-attributes, those I&#8217;ve mentioned above in this document. Only difference is that you passed as a camelCase key without the "data-". For example if you want to set child width, you passed in attribute as <code>data-child-width="300px"</code> whereas you need to pass in settings as <code>childWidth:'300px'</code></p> </div> <div class="paragraph"> <p>So, here is an example what you can pass in settings.</p> </div> <div class="listingblock"> <div class="content"><pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="nx">MsDropdown</span><span class="p">.</span><span class="nx">make</span><span class="p">(</span><span class="dl">"</span><span class="s2">element</span><span class="dl">"</span><span class="p">,</span> <span class="p">{</span></span>
+<span id="L5" class="line"><span class="k">new</span> <span class="nx">MsDropdown</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">element_id</span><span class="dl">"</span><span class="p">),</span> <span class="p">{...</span><span class="nx">settings</span><span class="p">});</span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And what are the settings params you can pass to the msDropdown? It is
+similar to the data-attributes, those I&#8217;ve mentioned above in this
+document. Only difference is that you passed as a camelCase key without
+the "data-". For example if you want to set child width, you passed in
+attribute as <code>data-child-width="300px"</code> whereas you need to pass in
+settings as <code>childWidth:'300px'</code></p>
+</div>
+<div class="paragraph">
+<p>So, here is an example what you can pass in settings.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript"><span id="L1" class="line"><span class="nx">MsDropdown</span><span class="p">.</span><span class="nx">make</span><span class="p">(</span><span class="dl">"</span><span class="s2">element</span><span class="dl">"</span><span class="p">,</span> <span class="p">{</span></span>
 <span id="L2" class="line">  <span class="na">byJson</span><span class="p">:</span> <span class="p">{</span></span>
 <span id="L3" class="line">      <span class="na">data</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span> <span class="na">selectedIndex</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span></span>
 <span id="L4" class="line">      <span class="na">size</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="na">multiple</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="na">width</span><span class="p">:</span> <span class="mi">250</span></span>
@@ -217,7 +1206,237 @@
 <span id="L23" class="line">        <span class="na">mouseover</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span><span class="na">mouseout</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span><span class="na">focus</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span><span class="na">mousedown</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span></span>
 <span id="L24" class="line">        <span class="na">mouseup</span><span class="p">:</span> <span class="kc">null</span></span>
 <span id="L25" class="line">      <span class="p">}</span></span>
-<span id="L26" class="line"><span class="p">});</span></span></code></pre></div> </div> </div> </div> </div> </main> <section id="fam-container" class=""></section> </div> <footer id="exception_container" class="container-fluid no-padding"></footer> <footer id="j1_footer" class="mt-6"></footer> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'template core is being initialized'; logger.info(log_text); var settings = $.extend({}, {"layout": "page", "fam_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": "true"}); j1.init(settings); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'module logger is being initialized'; logger.info(log_text); j1.adapter.logger.init(); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'Backstretch is being initialized'; logger.info(log_text); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'module attic is being initialized'; logger.info(log_text); var settings = $.extend({}, {"padding_top":400, "padding_bottom":50, "opacity":0.5, "slides":[{"url":"/assets/images/modules/attics/matthew-dockery-1920x1280.jpg", "alt":"Photo by Matthew Dockery on Unsplash", "badge":{"type":"unsplash", "author":"Matthew Dockery", "href":"https://unsplash.com/@matt_dockery"}}]}, {"layout": "page", "scrollbar": "false", "toc": "true", "comments": "true"}); j1.adapter.attic.init(settings); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'module navigator is being initialized'; logger.info(log_text); j1.adapter.navigator.init(); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'module mmenu is being initialized'; logger.info(log_text); j1.adapter.mmenu.init(); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'module themer is being initialized'; logger.info(log_text); j1.adapter.themer.init(); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'module toccer is being initialized'; logger.info(log_text); var settings = $.extend({}, {"layout": "page", "fam_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": "true"}); j1.adapter.toccer.init(settings); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'module cookieConsent is being initialized'; logger.info(log_text); j1.adapter.cookieConsent.init(); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'module theme_switcher is being initialized'; logger.info(log_text); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'Material Design for Bootstrap is being initialized'; logger.info(log_text); j1.adapter.bmd.init(); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'module rtable is being initialized'; logger.info(log_text); j1.adapter.rtable.init(); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'HTML writer for Asciidoctor is being initialized'; logger.info(log_text); j1.adapter.asciidoctor.init(); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'theme rouge is being initialized'; logger.info(log_text); j1.adapter.rouge.init(); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'module css_flags_previewer is being initialized'; logger.info(log_text); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'module clipboard is being initialized'; logger.info(log_text); j1.adapter.clipboard.init(); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'Floating Button Menu is being initialized'; logger.info(log_text); var settings = $.extend({}, {"layout": "page", "fam_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": "true"}); j1.adapter.fam.init(settings); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'J1 QuickSearch is being initialized'; logger.info(log_text); j1.adapter.quicksearch.init(); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'module msDropdown is being initialized'; logger.info(log_text); }); </script> <script> $(document).ready(function() { var logger = log4javascript.getLogger("j1.module_loader"); var log_text = 'module translator is being initialized'; logger.info(log_text); j1.adapter.translator.init(); }); </script> </div> <noscript> <html lang="en"> <head> <meta charset="utf-8" /> <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <meta name="viewport" content="width=device-width, initial-scale=1" /> <link rel="icon" type="image/ico" href="/assets/images/modules/icons/j1/j1-32x32.ico" /> <title>Javascript disabled · 444</title> <style> .my { margin-top: 8.5rem !important;} </style> <style type="text/css">/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{cursor: pointer}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{cursor: pointer ;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}body,html{width:100%;height:100%;background-color:#21232a}body{color:#fff;text-align:center;text-shadow:0 2px 4px rgba(0,0,0,.5);padding:0;min-height:100%;-webkit-box-shadow:inset 0 0 100px rgba(0,0,0,.8);box-shadow:inset 0 0 100px rgba(0,0,0,.8);display:table;font-family:"Open Sans",Arial,sans-serif}h1{font-family:inherit;font-weight:500;line-height:1.1;color:inherit;font-size:36px}h1 small{font-size:68%;font-weight:400;line-height:1;color:#777}a{text-decoration:none;color:#fff;font-size:inherit;border-bottom:dotted 1px #707070}.lead{color:silver;font-size:21px;line-height:1.4}.cover{display:table-cell;vertical-align:middle;padding:0 20px}footer{position:fixed;width:100%;height:40px;left:0;bottom:0;color:#a0a0a0;font-size:14px}</style> </head> <body> <div class="header my"> <h1>Javascript disabled <small>444</small></h1> <p class="lead">Your current browser settings reject the use of Javascript.</p> <div><a href="about:blank">Cannot continue</a></div> </div> <footer> <p>© 2021 J1 · All rights reserved · Technical Contact: <a href="mailto:webmaster@example.domain?subject=Javascript disabled">webmaster@example.domain</a></p> </footer> </body> </html> </noscript> <div id="bg-primary" class="bg-primary" style="display: none"></div> </body> <div id="rtext_resizer_container"></div> <script> $(function() { $('[data-toggle="tooltip"').tooltip({ trigger: 'hover' }); $('[data-toggle="popover"').popover({ trigger: 'hover' }); var dependencies_met_page_ready = setInterval (function (options) { if (j1.getState() === 'finished') { var logger = log4javascript.getLogger('j1.layout.default'); function setLastPage() { var cookie_names = j1.getCookieNames(); const user_state_cookie_name = cookie_names.user_session; var user_state = j1.readCookie(user_state_cookie_name); var user_state_last_page = window.location.pathname; user_state.last_page = user_state_last_page; j1.writeCookie({ name: user_state_cookie_name, data: user_state, samesite: 'Strict' }); logger.debug('\n' + 'saved current page to cookie :' + user_state_last_page); } setLastPage(); clearInterval(dependencies_met_page_ready); } }); }); </script> </html>
+<span id="L26" class="line"><span class="p">});</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+                <section id="fam-container" class=""></section>
+  </div>
+            <footer id="exception_container" class="container-fluid no-padding"></footer>
+            <footer id="j1_footer" class="mt-6"></footer>
+        <script>
+          $(document).ready(function() {
+            var logger = log4javascript.getLogger("j1.module_loader");
+            var log_text = 'template core is being initialized';
+            logger.info(log_text);
+                  var settings = $.extend({}, {"layout": "page", "fam_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": "true"});
+                    j1.init(settings);
+           });
+        </script>
+        <script>
+          $(document).ready(function() {
+            var logger = log4javascript.getLogger("j1.module_loader");
+            var log_text = 'module logger is being initialized';
+            logger.info(log_text);
+                    j1.adapter.logger.init();
+           });
+        </script>
+        <script>
+          $(document).ready(function() {
+            var logger = log4javascript.getLogger("j1.module_loader");
+            var log_text = 'Backstretch is being initialized';
+            logger.info(log_text);
+           });
+        </script>
+        <script>
+          $(document).ready(function() {
+            var logger = log4javascript.getLogger("j1.module_loader");
+            var log_text = 'module attic is being initialized';
+            logger.info(log_text);
+                var settings = $.extend({}, {"padding_top":400, "padding_bottom":50, "opacity":0.5, "slides":[{"url":"/assets/images/modules/attics/matthew-dockery-1920x1280.jpg", "alt":"Photo by Matthew Dockery on Unsplash", "badge":{"type":"unsplash", "author":"Matthew Dockery", "href":"https://unsplash.com/@matt_dockery"}}]}, {"layout": "page", "scrollbar": "false", "toc": "true", "comments": "true"});
+                  j1.adapter.attic.init(settings);
+           });
+        </script>
+        <script>
+          $(document).ready(function() {
+            var logger = log4javascript.getLogger("j1.module_loader");
+            var log_text = 'module navigator is being initialized';
+            logger.info(log_text);
+                    j1.adapter.navigator.init();
+           });
+        </script>
+        <script>
+          $(document).ready(function() {
+            var logger = log4javascript.getLogger("j1.module_loader");
+            var log_text = 'module mmenu is being initialized';
+            logger.info(log_text);
+                    j1.adapter.mmenu.init();
+           });
+        </script>
+        <script>
+          $(document).ready(function() {
+            var logger = log4javascript.getLogger("j1.module_loader");
+            var log_text = 'module themer is being initialized';
+            logger.info(log_text);
+                    j1.adapter.themer.init();
+           });
+        </script>
+        <script>
+          $(document).ready(function() {
+            var logger = log4javascript.getLogger("j1.module_loader");
+            var log_text = 'module toccer is being initialized';
+            logger.info(log_text);
+                  var settings = $.extend({}, {"layout": "page", "fam_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": "true"});
+                    j1.adapter.toccer.init(settings);
+           });
+        </script>
+        <script>
+          $(document).ready(function() {
+            var logger = log4javascript.getLogger("j1.module_loader");
+            var log_text = 'module cookieConsent is being initialized';
+            logger.info(log_text);
+                    j1.adapter.cookieConsent.init();
+           });
+        </script>
+        <script>
+          $(document).ready(function() {
+            var logger = log4javascript.getLogger("j1.module_loader");
+            var log_text = 'module theme_switcher is being initialized';
+            logger.info(log_text);
+           });
+        </script>
+        <script>
+          $(document).ready(function() {
+            var logger = log4javascript.getLogger("j1.module_loader");
+            var log_text = 'Material Design for Bootstrap is being initialized';
+            logger.info(log_text);
+                    j1.adapter.bmd.init();
+           });
+        </script>
+        <script>
+          $(document).ready(function() {
+            var logger = log4javascript.getLogger("j1.module_loader");
+            var log_text = 'module rtable is being initialized';
+            logger.info(log_text);
+                    j1.adapter.rtable.init();
+           });
+        </script>
+        <script>
+          $(document).ready(function() {
+            var logger = log4javascript.getLogger("j1.module_loader");
+            var log_text = 'HTML writer for Asciidoctor is being initialized';
+            logger.info(log_text);
+                    j1.adapter.asciidoctor.init();
+           });
+        </script>
+        <script>
+          $(document).ready(function() {
+            var logger = log4javascript.getLogger("j1.module_loader");
+            var log_text = 'theme rouge is being initialized';
+            logger.info(log_text);
+                    j1.adapter.rouge.init();
+           });
+        </script>
+        <script>
+          $(document).ready(function() {
+            var logger = log4javascript.getLogger("j1.module_loader");
+            var log_text = 'module css_flags_previewer is being initialized';
+            logger.info(log_text);
+           });
+        </script>
+        <script>
+          $(document).ready(function() {
+            var logger = log4javascript.getLogger("j1.module_loader");
+            var log_text = 'module clipboard is being initialized';
+            logger.info(log_text);
+                    j1.adapter.clipboard.init();
+           });
+        </script>
+        <script>
+          $(document).ready(function() {
+            var logger = log4javascript.getLogger("j1.module_loader");
+            var log_text = 'Floating Button Menu is being initialized';
+            logger.info(log_text);
+                  var settings = $.extend({}, {"layout": "page", "fam_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": "true"});
+                    j1.adapter.fam.init(settings);
+           });
+        </script>
+        <script>
+          $(document).ready(function() {
+            var logger = log4javascript.getLogger("j1.module_loader");
+            var log_text = 'J1 QuickSearch is being initialized';
+            logger.info(log_text);
+                    j1.adapter.quicksearch.init();
+           });
+        </script>
+        <script>
+          $(document).ready(function() {
+            var logger = log4javascript.getLogger("j1.module_loader");
+            var log_text = 'module msDropdown is being initialized';
+            logger.info(log_text);
+           });
+        </script>
+        <script>
+          $(document).ready(function() {
+            var logger = log4javascript.getLogger("j1.module_loader");
+            var log_text = 'module translator is being initialized';
+            logger.info(log_text);
+                    j1.adapter.translator.init();
+           });
+        </script>
+    </div>
+    <noscript>
+      <html lang="en">
+        <head>
+          <meta charset="utf-8" />
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="icon" type="image/ico" href="/assets/images/modules/icons/j1/j1-32x32.ico" />
+          <title>Javascript disabled · 444</title>
+          <style> .my { margin-top: 8.5rem !important;} </style>
+          <style type="text/css">/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{cursor: pointer}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{cursor: pointer ;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}body,html{width:100%;height:100%;background-color:#21232a}body{color:#fff;text-align:center;text-shadow:0 2px 4px rgba(0,0,0,.5);padding:0;min-height:100%;-webkit-box-shadow:inset 0 0 100px rgba(0,0,0,.8);box-shadow:inset 0 0 100px rgba(0,0,0,.8);display:table;font-family:"Open Sans",Arial,sans-serif}h1{font-family:inherit;font-weight:500;line-height:1.1;color:inherit;font-size:36px}h1 small{font-size:68%;font-weight:400;line-height:1;color:#777}a{text-decoration:none;color:#fff;font-size:inherit;border-bottom:dotted 1px #707070}.lead{color:silver;font-size:21px;line-height:1.4}.cover{display:table-cell;vertical-align:middle;padding:0 20px}footer{position:fixed;width:100%;height:40px;left:0;bottom:0;color:#a0a0a0;font-size:14px}</style>
+        </head>
+        <body>
+          <div class="header my">
+            <h1>Javascript disabled <small>444</small></h1>
+            <p class="lead">Your current browser settings reject the use of Javascript.</p>
+            <div><a href="about:blank">Cannot continue</a></div>
+          </div>
+          <footer>
+            <p>© 2021 J1 · All rights reserved · Technical Contact: <a href="mailto:webmaster@example.domain?subject=Javascript disabled">webmaster@example.domain</a></p>
+          </footer>
+        </body>
+      </html>
+    </noscript>
+    <div id="bg-primary" class="bg-primary" style="display: none"></div>
+  </body>
+  <div id="rtext_resizer_container"></div>
+  <script>
+    $(function() {
+      $('[data-toggle="tooltip"').tooltip({
+        trigger: 'hover'
+      });
+      $('[data-toggle="popover"').popover({
+        trigger: 'hover'
+      });
+      var dependencies_met_page_ready = setInterval (function (options) {
+        if (j1.getState() === 'finished') {
+          var logger = log4javascript.getLogger('j1.layout.default');
+          function setLastPage() {
+            var cookie_names                = j1.getCookieNames();
+            const user_state_cookie_name    = cookie_names.user_session;
+            var user_state                  = j1.readCookie(user_state_cookie_name);
+            var user_state_last_page        = window.location.pathname;
+            user_state.last_page            = user_state_last_page;
+            j1.writeCookie({
+              name: user_state_cookie_name,
+              data: user_state,
+              samesite: 'Strict'
+            });
+            logger.debug('\n' + 'saved current page to cookie :' + user_state_last_page);
+          }
+          setLastPage();
+          clearInterval(dependencies_met_page_ready);
+        }
+      });
+    });
+  </script>
+</html>
+
+    
 
     
     
