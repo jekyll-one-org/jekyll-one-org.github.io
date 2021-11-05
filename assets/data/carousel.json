@@ -41,55 +41,55 @@
         "lb_caption" : "You see cat #1",
         "img"        : "/assets/images/modules/carousel/cats/cat-1.jpg",
         "alt"        : "Slider Image 1",
-        "href"       : "#"
+        "href"       : "#void"
       },
       {
         "lb"         : "true",
         "lb_caption" : "You see cat #2",
         "img"        : "/assets/images/modules/carousel/cats/cat-2.jpg",
         "alt"        : "Slider Image 2",
-        "href"       : "#"
+        "href"       : "#void"
       },
       {
         "lb"         : "true",
         "lb_caption" : "You see cat #3",
         "img"        : "/assets/images/modules/carousel/cats/cat-3.jpg",
         "alt"        : "Slider Image 3",
-        "href"       : "#"
+        "href"       : "#void"
       },
       {
         "lb"         : "true",
         "lb_caption" : "You see cat #4",
         "img"        : "/assets/images/modules/carousel/cats/cat-4.jpg",
         "alt"        : "Slider Image 4",
-        "href"       : "#"
+        "href"       : "#void"
       }
     ],
     "demo_simple" : [
       {
         "img"        : "/assets/images/modules/carousel/mega_cities/andreas-brucker_b.jpg",
         "alt"        : "Slider Image 1",
-        "href"       : "#"
+        "href"       : "#void"
       },
       {
         "img"        : "/assets/images/modules/carousel/mega_cities/denys-nevozhai-1_b.jpg",
         "alt"        : "Slider Image 2",
-        "href"       : "#"
+        "href"       : "#void"
       },
       {
         "img"        : "/assets/images/modules/carousel/mega_cities/denys-nevozhai-2_b.jpg",
         "alt"        : "Slider Image 3",
-        "href"       : "#"
+        "href"       : "#void"
       },
       {
         "img"        : "/assets/images/modules/carousel/mega_cities/luca-bravo_b.jpg",
         "alt"        : "Slider Image 4",
-        "href"       : "#"
+        "href"       : "#void"
       },
       {
         "img"        : "/assets/images/modules/carousel/mega_cities/thomas-tucker_b.jpg",
         "alt"        : "Slider Image 5",
-        "href"       : "#"
+        "href"       : "#void"
       }
     ],
     "demo_oneslide" : [
