@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-11-05 15:11:53 +0000
+ # Adapter generated: 2021-11-09 15:00:49 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -105,7 +105,7 @@ var j1 = (function () {
     'theme_name':           '',
     'theme_css':            '',
     'theme_author':         '',
-    'theme_version':        '2021.3.1',
+    'theme_version':        '2021.3.2',
     'session_active':       false,
     'google_translate':     'disabled',
     'translate_all_pages':  true,
@@ -299,7 +299,7 @@ var j1 = (function () {
       $('a[href*=\\#]').on('click', function (event) {
         // ignore void links
         if (window.location.href.includes('#void')||this.href.includes('#void')) {
-          return false;
+          // return false;
         }
         // for external links, redirect to this page
         if (window.location.pathname !== this.pathname) {
@@ -1077,7 +1077,7 @@ var j1 = (function () {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2021.3.1';
+      return '2021.3.2';
     },
     // -------------------------------------------------------------------------
     // scrollTo()
