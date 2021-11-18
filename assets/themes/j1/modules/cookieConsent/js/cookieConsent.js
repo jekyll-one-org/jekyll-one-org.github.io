@@ -24,7 +24,6 @@
  #  outside of J1 Template!
  # -----------------------------------------------------------------------------
 */
-//'use strict';
 
 // -----------------------------------------------------------------------------
 // ESLint shimming
@@ -37,6 +36,7 @@
 /* eslint JSUnfilteredForInLoop: "off"                                        */
 // -----------------------------------------------------------------------------
 
+'use strict';
 function CookieConsent(props) {
   var logger                = log4javascript.getLogger('j1.core.bsCookieConsent');
   var self                  = this;
@@ -89,8 +89,8 @@ function CookieConsent(props) {
   var Cookie = {
     set: function (name, value, days, cookieSameSite, cookieSecure) {
       var value_encoded = window.btoa(value);
-      var expires = "";
-      if (days) {
+      var expires = '; expires=Thu, 01 Jan 1970 00:00:00 UTC';
+      if (days>0) {
         var date = new Date();
         date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
         expires = "; expires=" + date.toUTCString();
@@ -188,8 +188,11 @@ function CookieConsent(props) {
       self.modal = document.getElementById(self.props.dialogContainerID);
       if (!self.modal) {
         logger.info('\n' +  'load consent modal');
+
         self.modal = document.createElement("div");
         self.modal.id = self.props.dialogContainerID;
+        self.modal.style.display = 'none';
+
         self.modal.setAttribute("class", "modal fade");
         self.modal.setAttribute("tabindex", "-1");
         self.modal.setAttribute("role", "dialog");
@@ -215,8 +218,9 @@ function CookieConsent(props) {
         $.get(templateUrl)
         .done(function (data) {
           logger.info('\n' + 'loading consent modal: successfully');
-          self.modal.innerHTML = data;
-          self.modal.innerHTML = $('#' + self.props.xhrDataElement).eq(0).html();
+          self.modal.innerHTML      = data;
+          self.modal.innerHTML      = $('#' + self.props.xhrDataElement).eq(0).html();
+          self.modal.style.display  = 'block';
 
           $(self.modal).modal({
             backdrop: "static",
@@ -259,6 +263,8 @@ function CookieConsent(props) {
             agreeAll();
             updateOptionsFromCookie();
           });
+
+          self.$modal.modal('show');
         })
         .fail(function () {
           logger.error('\n' + 'loading consent modal: failed');
@@ -318,16 +324,11 @@ function CookieConsent(props) {
   }
 
   function doNotAgree() {
-    Cookie.set(self.props.cookieName, JSON.stringify(gatherOptions(false)), self.props.cookieStorageDays, self.props.cookieSameSite, cookieSecure);
-
-    // jadams, 2021-07-15: all cookies NOT longer supported by j1.expireCookie
-    // TODO: Create loop over all cookies found in page
-    //
-    // logger.warn('expire all cookies');
-    // j1.expireCookie('all');
-
+    // Remove consent cookie
+    Cookie.set(self.props.cookieName, JSON.stringify(gatherOptions(false)), 0, self.props.cookieSameSite, cookieSecure);
     self.$modal.modal('hide');
-    j1.goHome();
+    // redirect to error page: blocked site
+    window.location.href = '/445.html';
   }
 
   function saveSettings() {
@@ -335,10 +336,11 @@ function CookieConsent(props) {
     self.$modal.modal('hide');
   }
 
-  // call consent dialog if no cookie found (except pages whitelisted)
+  // call consent dialog if no cookie found or cookie NOT accepted (except whitelisted pages)
   //
-  whitelisted  = (this.props.whitelisted.indexOf(window.location.pathname) > -1);
-  if (Cookie.get(this.props.cookieName) === undefined && this.props.autoShowDialog && !whitelisted) {
+  whitelisted = (this.props.whitelisted.indexOf(window.location.pathname) > -1);
+  var consentCookie = Cookie.get(this.props.cookieName);
+  if ((consentCookie === undefined || consentCookie === "false") && this.props.autoShowDialog && !whitelisted) {
     showDialog();
   }
 

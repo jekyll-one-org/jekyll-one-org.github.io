@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-11-09 15:00:49 +0000
+ #  Adapter generated: 2021-11-18 01:12:14 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -53,7 +53,7 @@ j1.adapter['bmd'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.bmd',
-        generated:   '2021-11-09 15:00:49 +0000'
+        generated:   '2021-11-18 01:12:14 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // BMD initializer
@@ -62,7 +62,7 @@ j1.adapter['bmd'] = (function (j1, window) {
       logger.info(log_text);
       var dependencies_met_j1_finished = setInterval(function() {
         if (j1.getState() == 'finished') {
-          $('body').bootstrapMaterialDesign();
+          $('body').bmd();
           _this.setState('finished');
           logger.info('\n' + 'state: ' + _this.getState());
           clearInterval(dependencies_met_j1_finished);

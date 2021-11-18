@@ -12,7 +12,6 @@
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
 */
-'use strict';
 
 // -----------------------------------------------------------------------------
 // ESLint shimming
@@ -25,8 +24,8 @@
 /* eslint JSUnfilteredForInLoop: "off"                                        */
 // -----------------------------------------------------------------------------
 
+'use strict';
 function Translator(props) {
-
   // ---------------------------------------------------------------------------
   // global vars
   // ---------------------------------------------------------------------------
@@ -267,8 +266,11 @@ function Translator(props) {
       self.modal = document.getElementById(self.props.dialogContainerID);
       if (!self.modal) {
         logger.info('\n' +  'load consent modal');
+
         self.modal = document.createElement('div');
         self.modal.id = self.props.dialogContainerID;
+        self.modal.style.display = 'none';
+
         self.modal.setAttribute('class', 'modal fade');
         self.modal.setAttribute('tabindex', '-1');
         self.modal.setAttribute('role', 'dialog');
@@ -368,6 +370,7 @@ function Translator(props) {
           logger.info('\n' + 'loading consent modal: successfully');
           self.modal.innerHTML = data;
           self.modal.innerHTML = $('#' + self.props.xhrDataElement).eq(0).html();
+          self.modal.style.display  = 'block';
 
           $(self.modal).modal({
             backdrop: 'static',
@@ -411,6 +414,7 @@ function Translator(props) {
             $('#google-options').collapse('hide');
             agreeAll();
           });
+          self.$modal.modal('show');
         })
         .fail(function () {
           logger.error('\n' + 'loading translator dialog (modal): failed');

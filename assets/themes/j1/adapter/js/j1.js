@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-11-09 15:00:49 +0000
+ # Adapter generated: 2021-11-18 01:12:14 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -105,7 +105,7 @@ var j1 = (function () {
     'theme_name':           '',
     'theme_css':            '',
     'theme_author':         '',
-    'theme_version':        '2021.3.2',
+    'theme_version':        '2022.0.0',
     'session_active':       false,
     'google_translate':     'disabled',
     'translate_all_pages':  true,
@@ -149,7 +149,7 @@ var j1 = (function () {
       var curr_state        = 'started';
       var gaCookies         = j1.findCookie('_ga');
       var j1Cookies         = j1.findCookie('j1');
-      var themerOptions     = $.extend({}, {"enabled":true, "reloadPageOnChange":false, "retries":30, "saveToCookie":true, "debug":false, "preview_page":"/pages/public/previewer/theme/", "menu_icon_family":"MDI", "menu_icon_color":"#9E9E9E", "menu_icon_size":"mdi-sm", "cssThemeLink":"bootstrapTheme", "defaultCssFile":"https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css", "bootswatchApiUrl":"https://bootswatch.com/api", "bootswatchApiVersion":4, "loadFromBootswatch":true, "localThemes":"/assets/data/themes.json", "excludeBootswatch":"Default, default, Lux, Sketchy", "includeBootswatch":"", "skipIncludeBootswatch":""});
+      var themerOptions     = $.extend({}, {"enabled":true, "reloadPageOnChange":false, "retries":30, "saveToCookie":true, "debug":false, "preview_page":"/pages/public/previewer/theme/", "menu_icon_family":"MDI", "menu_icon_color":"#9E9E9E", "menu_icon_size":"mdi-sm", "cssThemeLink":"bootstrapTheme", "defaultCssFile":"https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css", "bootswatchApiUrl":"https://bootswatch.com/api", "bootswatchApiVersion":5, "loadFromBootswatch":true, "localThemes":"/assets/data/themes.json", "excludeBootswatch":"Default, default, Lux, Sketchy", "includeBootswatch":"", "skipIncludeBootswatch":""});
       // -----------------------------------------------------------------------
       // options loader
       // -----------------------------------------------------------------------
@@ -279,7 +279,7 @@ var j1 = (function () {
           expires:  0
         });
         if (!cookie_written) {
-            logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_state);
+          logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_state);
         }
       } else {
         logger.debug('\n' + 'write to cookie : ' + cookie_names.user_state);
@@ -291,50 +291,55 @@ var j1 = (function () {
           expires:  365
         });
         if (!cookie_written) {
-            logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_state);
+          logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_state);
         }
       }
-      // initialize event handler for smooth scroll on in-page anchors
+      // jadams, 2021-11-10: anchor links of type #void are used/managed
+      // by the FAB module. No geneneraL use for NOW.
       // -----------------------------------------------------------------------
-      $('a[href*=\\#]').on('click', function (event) {
-        // ignore void links
-        if (window.location.href.includes('#void')||this.href.includes('#void')) {
-          // return false;
-        }
-        // for external links, redirect to this page
-        if (window.location.pathname !== this.pathname) {
-          window.location.href = this.href;
-        } else {
-          // continue on in-page anchor
-          var toccerScrollDuration  = 300;
-          var toccerScrollOffset    = 10;
-          // calculate offset value for correct (smooth) scroll position
-          //
-          var $pagehead       = $('.attic');
-          var $navbar         = $('nav.navbar');
-          var $adblock        = $('#adblock');
-          var navbarType      = $navbar.hasClass('navbar-fixed') ? 'fixed' : 'scrolled';
-          var fontSize        = $('body').css('font-size').replace('px','');
-          var start           = window.pageYOffset;
-          var l               = parseInt(fontSize);
-          var h               = $pagehead.length ? $pagehead.height() : 0;
-          var n               = $navbar.length ? $navbar.height() : 0;
-          var a               = $adblock.length ? $adblock.height() : 0;
-          var scrollOffset    = navbarType == 'fixed' ? -1*(n + a + l) : -1*(h + n + a + l);
-          // TODO:  to be checked why this static offset (toccerScrollOffset)
-          //        is needed
-          scrollOffset        = scrollOffset + toccerScrollOffset;
-          logger.debug('\n' + 'scroll to anchor: ' + this.hash);
-          $("html, body").animate({
-            scrollTop: $($(this).attr("href")).offset().top + scrollOffset + "px"
-          }, {
-            duration: toccerScrollDuration,
-            easing: "swing"
-          });
-          // disable bubble up the event
-          return false;
-        } // End in-page link
-      }); // END click event on anchors
+      // initialize event handler for smooth scroll on in-page anchors
+      // $('a[href*=\\#]').on('click', function (event) {
+      //   // ignore void links
+      //   if (window.location.href.includes('#void')||this.href.includes('#void')) {
+      //     return false;
+      //   }
+      //   // for external links, redirect to this page
+      //   if (window.location.pathname !== this.pathname) {
+      //     window.location.href = this.href;
+      //   } else {
+      //     // continue on in-page anchor
+      //     var toccerScrollDuration  = 300;
+      //     var toccerScrollOffset    = 10;
+      //
+      //     // calculate offset value for correct (smooth) scroll position
+      //     //
+      //     var $pagehead       = $('.attic');
+      //     var $navbar         = $('nav.navbar');
+      //     var $adblock        = $('#adblock');
+      //     var navbarType      = $navbar.hasClass('navbar-fixed') ? 'fixed' : 'scrolled';
+      //     var fontSize        = $('body').css('font-size').replace('px','');
+      //     var start           = window.pageYOffset;
+      //     var l               = parseInt(fontSize);
+      //     var h               = $pagehead.length ? $pagehead.height() : 0;
+      //     var n               = $navbar.length ? $navbar.height() : 0;
+      //     var a               = $adblock.length ? $adblock.height() : 0;
+      //     var scrollOffset    = navbarType == 'fixed' ? -1*(n + a + l) : -1*(h + n + a + l);
+      //
+      //     // TODO:  to be checked why this static offset (toccerScrollOffset)
+      //     //        is needed
+      //     scrollOffset        = scrollOffset + toccerScrollOffset;
+      //
+      //     logger.debug('\n' + 'scroll to anchor: ' + this.hash);
+      //     $("html, body").animate({
+      //       scrollTop: $($(this).attr("href")).offset().top + scrollOffset + "px"
+      //     }, {
+      //       duration: toccerScrollDuration,
+      //       easing: "swing"
+      //     });
+      //     // disable bubble up the event
+      //     return false;
+      //   } // End in-page link
+      // }); // END click event on anchors
       // initialize event handler for window/history/back on <ESC>
       // -----------------------------------------------------------------------
       window.onkeyup = function (event) {
@@ -534,8 +539,6 @@ var j1 = (function () {
             banner.push('divider-2');
             banner.push('divider-3');
             banner.push('home_teaser_banner');
-            banner.push('home_welcome_banner');
-            banner.push('home_image_banner');
             banner.push('home_parallax_banner');
       banner.push('exception_container');
       if ( banner.length ) {
@@ -699,8 +702,8 @@ var j1 = (function () {
       var personalization       = (meta_personalization === 'true') ? true: false;
       // if personalized content detected, page requires user consent
       if (personalization && !user_consent.personalization) {
-        // redirect to error paged (blocked content)
-        window.location.href = "/444.html";
+        // redirect to error page: blocked content
+        window.location.href = '/444.html';
       }
       logger.info('\n' + 'finalize page');
       j1.setCss();
@@ -1077,7 +1080,7 @@ var j1 = (function () {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2021.3.2';
+      return '2022.0.0';
     },
     // -------------------------------------------------------------------------
     // scrollTo()
@@ -1086,6 +1089,7 @@ var j1 = (function () {
     // TOCCER module
     // -------------------------------------------------------------------------
     scrollTo: function () {
+      var logger    = log4javascript.getLogger('j1.scrollTo');
       var anchor    = window.location.href.split('#')[1];
       var anchor_id = typeof anchor !== 'undefined' ? '#' + anchor : false;
       var isSlider  = false;
@@ -1095,7 +1099,6 @@ var j1 = (function () {
       } else if (anchor.includes("googtrans")) {
         return false;
       }
-      var logger        = log4javascript.getLogger('j1.scrollTo');
       var toccerScrollDuration = 300;
       var toccerScrollOffset   = 10;
       // calculate offset for correct (smooth) scroll position
@@ -1123,7 +1126,7 @@ var j1 = (function () {
           j1.core.scrollSmooth.scroll( anchor_id, {
             duration: toccerScrollDuration,
             offset: scrollOffset,
-            callback: null
+            callback: false
           });
         } else {
           // scroll the page one pixel back and forth (trigger)
@@ -1788,9 +1791,11 @@ var j1 = (function () {
       // $('head').append('<style>code { color: ' +bg_secondary+ ' !important; }</style>');
       // bs tool tips
       // -----------------------------------------------------------------------
-      $('head').append('<style>.tooltip-inner { background-color: ' +bg_primary+ ' !important; }</style>');
-//    $('head').append('<style>.tooltip-arrow { background-color: ' +bg_primary+ ' !important; }</style>');
-      $('head').append('<style>.bs-tooltip-auto[x-placement^=bottom] .arrow::before, .bs-tooltip-bottom .arrow::before { border-bottom-color: ' +bg_primary+ ' !important; }</style>');
+      // $('head').append('<style>.tooltip-inner { background-color: ' +bg_primary+ ' !important; }</style>');
+      // $('head').append('<style>.bs-tooltip-top .tooltip-arrow::before { border-top-color: ' +bg_primary+ ' !important; }</style>');
+      // $('head').append('<style>.bs-tooltip-end .tooltip-arrow::before { border-right-color: ' +bg_primary+ ' !important; }</style>');
+      // $('head').append('<style>.bs-tooltip-bottom .tooltip-arrow::before { border-bottom-color: ' +bg_primary+ ' !important; }</style>');
+      // $('head').append('<style>.bs-tooltip-start .tooltip-arrow::before { border-left-color: ' +bg_primary+ ' !important; }</style>');
       // asciidoc results viewer
       // -----------------------------------------------------------------------
       $('head').append('<style>.btn-viewer:hover { background-color: ' +bg_primary+ ' !important; }</style>');

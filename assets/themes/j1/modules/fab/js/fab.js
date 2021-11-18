@@ -1,10 +1,12 @@
 /*
  # -----------------------------------------------------------------------------
  # ~/assets/themes/j1/modules/fam/js/fam.js
- # Provides JS Core for J1 Module FAM (Floating Button Menu)
+ # MODIFIED FAM JS from project Materialize
+ # Provides JS Core funtions for the J1 FAM Module (Floating Button Menu)
  #
  # Product/Info:
  # https://jekyll.one
+ # https://github.com/Dogfalo/materialize
  #
  # Copyright (C) 2021 Juergen Adams
  #
@@ -449,7 +451,7 @@
   // jadams, 2020-10-10: moved to j1 name space
   //
   // M.FloatingActionButton = FloatingActionButton;
-  j1.fam = FloatingActionButton;
+  j1.fab = FloatingActionButton;
 
   // jadams, 2020-10-10: check how to transform to jQuery
   //

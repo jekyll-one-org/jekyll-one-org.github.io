@@ -39,6 +39,8 @@
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
+ # TODO: Changes for ul|ol lists should moved to MDE/BS
+ # -----------------------------------------------------------------------------
 */
 .note {
   padding: 0 !important;
@@ -904,19 +906,6 @@ ul.disc {
  #
  # -----------------------------------------------------------------------------
 */
-.tooltip-inner {
-  background-color: #607d8b;
-  border-radius: 0.125rem; }
-
-.tooltip.in {
-  opacity: 1.0; }
-
-.tooltip.tooltip-top .tooltip-arrow {
-  border-top-color: #263238; }
-
-.tooltip.bs-tether-element-attached-bottom .tooltip-arrow {
-  border-top-color: #263238; }
-
 .btn-viewer {
   position: absolute;
   top: 2.6rem;
@@ -939,21 +928,6 @@ ul.disc {
 
 .btn-viewer + .tooltip > .tooltip-inner {
   background-color: #f00; }
-
-.j1-viewer {
-  position: relative;
-  display: block;
-  float: right; }
-
-.j1-tooltip + .tooltip > .tooltip-inner {
-  background-color: #f00; }
-
-.j1-tooltip + .tooltip > .tooltip-arrow {
-  background-color: #f00; }
-
-@media screen and (min-width: 320px) and (max-width: 767px) {
-  .j1-viewer {
-    display: none; } }
 
 /*
  # ----------------------------------------------------------------------------

@@ -12,7 +12,7 @@
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-11-09 15:00:49 +0000
+ #  Adapter generated: 2021-11-18 01:12:14 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -143,7 +143,7 @@ j1.adapter['translator'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.translator',
-        generated:   '2021-11-09 15:00:49 +0000'
+        generated:   '2021-11-18 01:12:14 +0000'
       }, options);
       // Load  module DEFAULTS|CONFIG
       /* eslint-disable */
@@ -220,6 +220,10 @@ j1.adapter['translator'] = (function (j1, window) {
               Cookies.remove('googtrans');
             }
           }
+          $('#quickLinksTranslateButton').click(function(e) {
+            logger.info('\n' + 'call default action');
+            j1.translator.showDialog();
+          });
           _this.setState('finished');
           logger.info('\n' + 'state: ' + _this.getState());
           logger.debug('\n' + 'module initialized successfully');

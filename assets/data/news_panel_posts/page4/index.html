@@ -13,7 +13,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="template version" content="2021.3.2" />
+<meta name="template version" content="2022.0.0" />
 <meta name="translation" content="enabled" />
 <meta name="google-translate" content="enabled" />
   <title>scroller page</title>
@@ -33,7 +33,7 @@
 <meta name="personalization" content="false" />
     <link rel="preload" as="style" href="/assets/themes/j1/core/css/themes/uno-light/bootstrap.min.css" />
     <link rel="preload" as="style" href="/assets/themes/j1/core/css/vendor.min.css" />
-    <link rel="preload" as="script" href="/assets/themes/j1/modules/bmd/js/bootstrap-material-design.min.js" />
+    <link rel="preload" as="script" href="/assets/themes/j1/modules/bmd/js/bmd.min.js" />
     <link rel="preload" as="script" href="/assets/themes/j1/modules/backstretch/js/backstretch.min.js" />
     <link rel="preload" as="script" href="/assets/themes/j1/core/js/template.min.js" />
     <link rel="preload" as="script" href="/assets/themes/j1/adapter/js/attic.js" />
@@ -53,12 +53,12 @@
   }
 </script>
              <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/themes/uno-light/bootstrap.min.css" /> 
-             <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/icon-fonts/materialdesign.min.css" /> 
-             <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/icon-fonts/materialdesign-light.min.css" /> 
+             <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/icon-fonts/mdi.min.css" /> 
+             <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/icon-fonts/mdil.min.css" /> 
              <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/icon-fonts/fontawesome.min.css" /> 
              <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/css/vendor.min.css" /> 
-                      <script sync  src="/assets/themes/j1/modules/util/js/gtag-opt-in.js"></script>
                       <script sync  src="/assets/themes/j1/adapter/js/j1.js"></script>
+             <script sync  src="/assets/themes/j1/modules/gtag-opt-in/js/gtag-opt-in.min.js"></script> 
              <script sync  src="/assets/themes/j1/modules/jquery/js/jquery.min.js"></script> 
              <script sync  src="/assets/themes/j1/modules/jquery/js/jqueryUI.min.js"></script> 
              <script sync  src="/assets/themes/j1/modules/popper/js/popper.min.js"></script> 
@@ -70,18 +70,19 @@
                       <script sync  src="/assets/themes/j1/adapter/js/navigator.js"></script>
              <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/mmenuLight/css/mmenu-light.min.css" /> 
              <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/mmenuLight/css/theme/uno/mmenu.min.css" /> 
-                      <script sync  src="/assets/themes/j1/modules/mmenuLight/js/mmenu.js"></script>
                       <script sync  src="/assets/themes/j1/adapter/js/mmenu.js"></script>
+             <script sync  src="/assets/themes/j1/modules/mmenuLight/js/mmenu.min.js"></script> 
                       <script sync  src="/assets/themes/j1/adapter/js/themer.js"></script>
                       <script sync  src="/assets/themes/j1/adapter/js/cookieConsent.js"></script>
              <script sync  src="/assets/themes/j1/modules/cookieConsent/js/cookieConsent.min.js"></script> 
              <script sync  src="/assets/themes/j1/modules/themeSwitcher/js/switcher.min.js"></script> 
+             <script sync  src="/assets/themes/j1/modules/bootstrap/js/bootstrap.min.js"></script> 
                       <script sync  src="/assets/themes/j1/adapter/js/bmd.js"></script>
-             <script sync  src="/assets/themes/j1/modules/bmd/js/bootstrap-material-design.min.js"></script> 
+             <script sync  src="/assets/themes/j1/modules/bmd/js/bmd.min.js"></script> 
              <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/rtable/css/theme/uno/rtable.min.css" /> 
                       <script sync  src="/assets/themes/j1/adapter/js/rtable.js"></script>
              <script sync  src="/assets/themes/j1/modules/rtable/js/rtable.min.js"></script> 
-                    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/country-flags/css/theme/uno.css" />
+             <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/country-flags/css/theme/uno.min.css" /> 
              <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/lunrSearch/css/quicksearch.min.css" /> 
                       <script defer  src="/assets/themes/j1/adapter/js/quicksearch.js"></script>
              <script defer  src="/assets/themes/j1/modules/lunrSearch/js/lunr.min.js"></script> 
@@ -94,7 +95,7 @@
              <script sync  src="/assets/themes/j1/modules/translator/js/translator.min.js"></script> 
   </head>
   <body>
-    <div id="no_flicker" style="display: none">
+    <div id="no_flicker" style="overflow: hidden; display: none">
     <div id="navigator_nav_topsearch" class="top-search ml-4 mr-4" style="display: none;">
     	<div class="input-group">
     	  <span class="input-group-addon"><i class="mdi mdi-magnify mdi-2x" style="color:#9E9E9E"></i></span>
@@ -127,8 +128,8 @@
 <nav id="navigator_toc_mmenu"></nav>
 <nav id="navigator_sidebar_mmenu"></nav>
 <nav id="navigator_nav_navbar" class="navbar navigator navbar-expand-lg navbar-default light navbar-fixed navbar-transparent">
-      <a href="#void" id="navbar-brand" class="navbar-brand"> <img src="/assets/images/modules/icons/j1/j1-512x512.png" height="48" alt="Starter@Github"></a>
-    <button id="mmenu-button" type="button" class="navigator navbar-toggler animated fadeIn" data-toggle="collapse" data-target="#navigator_nav_menu" aria-controls="navigator_nav_menu" aria-expanded="false" aria-label="Toggle navigation">
+      <a href="#" id="navbar-brand" class="navbar-brand"> <img src="/assets/images/modules/icons/j1/j1-512x512.png" height="48" alt="Starter@Github"></a>
+    <button id="mmenu-button" type="button" class="navigator navbar-toggler animated fadeIn" data-bs-toggle="collapse" data-target="#navigator_nav_menu" aria-controls="navigator_nav_menu" aria-expanded="false" aria-label="Toggle navigation">
       <i class="mdi mdi-menu mdi-36px"></i>
     </button>
   <div id="navigator_nav_menu" class="collapse"></div>
@@ -159,9 +160,9 @@
               </div>
             </div>
               <div class="row">
-                <ul id="home_news_panel-scroll-group" class="list-group list-group-horizontal align-items-stretch flex-wrap">
-                  <li id="home_news_panel-scroll-item" class="list-group-item items-2 p-0">
-                    <article class="animated fadeInLeft card card-same-height raised-z3 mb-3">
+                <ul id="home_news_panel-scroll-group" class="scroll-group scroll-group-horizontal align-items-stretch flex-wrap">
+                  <li id="home_news_panel-scroll-item" class="scroll-group-item items-2 p-0">
+                    <article class="card card-same-height raised-z3 mb-5">
                         <img class="img-fluid img-object--cover g-height-200" src="/assets/images/collections/blog/wikipedia/minneapolis.1200x400.jpg" alt="Minneapolis">
                       <h3 class="card-header bg-primary notoc">Minneapolis</h3>
                       <div class="card-body r-text-300 mt-3">
@@ -195,7 +196,7 @@ of it is land and 9.1 km² (3.5 mi²) of it (6.01%) is water.</p>
             var logger = log4javascript.getLogger("j1.module_loader");
             var log_text = 'template core is being initialized';
             logger.info(log_text);
-                  var settings = $.extend({}, {"layout": "news_panel_posts", "fam_menu_id": "", "scrollbar": "", "toc": "false", "comments": "false"});
+                  var settings = $.extend({}, {"layout": "news_panel_posts", "fab_menu_id": "", "scrollbar": "", "toc": "false", "comments": "false"});
                     j1.init(settings);
            });
         </script>
@@ -219,7 +220,7 @@ of it is land and 9.1 km² (3.5 mi²) of it (6.01%) is water.</p>
             var logger = log4javascript.getLogger("j1.module_loader");
             var log_text = 'module attic is being initialized';
             logger.info(log_text);
-                  var settings = $.extend({}, {"layout": "news_panel_posts", "fam_menu_id": "", "scrollbar": "", "toc": "false", "comments": "false"});
+                  var settings = $.extend({}, {"layout": "news_panel_posts", "fab_menu_id": "", "scrollbar": "", "toc": "false", "comments": "false"});
                     j1.adapter.attic.init(settings);
            });
         </script>
@@ -265,7 +266,14 @@ of it is land and 9.1 km² (3.5 mi²) of it (6.01%) is water.</p>
         <script>
           $(document).ready(function() {
             var logger = log4javascript.getLogger("j1.module_loader");
-            var log_text = 'Material Design for Bootstrap is being initialized';
+            var log_text = 'Bootstrap JS is being initialized';
+            logger.info(log_text);
+           });
+        </script>
+        <script>
+          $(document).ready(function() {
+            var logger = log4javascript.getLogger("j1.module_loader");
+            var log_text = 'Bootstrap Material Design is being initialized';
             logger.info(log_text);
                     j1.adapter.bmd.init();
            });
@@ -330,11 +338,13 @@ of it is land and 9.1 km² (3.5 mi²) of it (6.01%) is water.</p>
   <div id="rtext_resizer_container"></div>
   <script>
     $(function() {
-      $('[data-toggle="tooltip"').tooltip({
-        trigger: 'hover'
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+      var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
       });
-      $('[data-toggle="popover"').popover({
-        trigger: 'hover'
+      var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+      var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl)
       });
       var dependencies_met_page_ready = setInterval (function (options) {
         if (j1.getState() === 'finished') {
