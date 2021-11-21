@@ -83,6 +83,9 @@
                       <script sync  src="/assets/themes/j1/adapter/js/rtable.js"></script>
              <script sync  src="/assets/themes/j1/modules/rtable/js/rtable.min.js"></script> 
              <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/country-flags/css/theme/uno.min.css" /> 
+                      <script sync  src="/assets/themes/j1/modules/fab/js/cash.js"></script>
+                      <script sync  src="/assets/themes/j1/modules/fab/js/fab.js"></script>
+                      <script sync  src="/assets/themes/j1/adapter/js/fab.js"></script>
              <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/lunrSearch/css/quicksearch.min.css" /> 
                       <script defer  src="/assets/themes/j1/adapter/js/quicksearch.js"></script>
              <script defer  src="/assets/themes/j1/modules/lunrSearch/js/lunr.min.js"></script> 
@@ -167,7 +170,7 @@
                     <article class="card card-same-height raised-z3 mb-5">
                         <img class="img-fluid img-object--cover g-height-200" src="/assets/images/collections/blog/wikipedia/columbia-river.1200x400.jpg" alt="Columbia River">
                       <h3 class="card-header bg-primary notoc">Columbia River</h3>
-                      <div class="card-body r-text-300 mt-3">
+                      <div class="card-body r-text-300">
                         <div class="paragraph dropcap">
 <p>Columbia River is the largest river in the Pacific Northwest region of
 North America. It flows northwest and then south into the US state of Washington,
@@ -190,7 +193,7 @@ Oregon before emptying into the Pacific Ocean.</p>
                     <article class="card card-same-height raised-z3 mb-5">
                         <img class="img-fluid img-object--cover g-height-200" src="/assets/images/collections/blog/wikipedia/narcise-snake-pits.1200x400.jpg" alt="Narcisse Snake Dens">
                       <h3 class="card-header bg-primary notoc">Narcisse Snake Dens</h3>
-                      <div class="card-body r-text-300 mt-3">
+                      <div class="card-body r-text-300">
                         <div class="paragraph dropcap">
 <p>Narcisse Snake Pits are located in the Rural Municipality of Armstrong
 about 6 kilometres (3.7 mi) north of Narcisse, Manitoba, Canada. The dens
@@ -316,6 +319,15 @@ are the winter home of tens of thousands of red-sided garter snakes
             var logger = log4javascript.getLogger("j1.module_loader");
             var log_text = 'module css_flags_previewer is being initialized';
             logger.info(log_text);
+           });
+        </script>
+        <script>
+          $(document).ready(function() {
+            var logger = log4javascript.getLogger("j1.module_loader");
+            var log_text = 'FAB Menus is being initialized';
+            logger.info(log_text);
+                  var settings = $.extend({}, {"layout": "news_panel_posts", "fab_menu_id": "", "scrollbar": "", "toc": "false", "comments": "false"});
+                    j1.adapter.fab.init(settings);
            });
         </script>
         <script>

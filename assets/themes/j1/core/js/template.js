@@ -3031,22 +3031,45 @@ module.exports = function scrollSmooth(options) {
   var settings = $.extend({
     foo: 'foo_option',
     bar: 'bar_option'
-  }, options);
+  }, options); // -----------------------------------------------------------------------
+  // Helper functions
+  // -----------------------------------------------------------------------
+
+  function stripHash(url) {
+    return url.slice(0, url.lastIndexOf('#'));
+  }
+
+  function isCssSmoothScrollSupported() {
+    return 'scrollBehavior' in document.documentElement.style;
+  }
+
   return {
     // -------------------------------------------------------------------------
     // Initialize scrollSmooth
     // -------------------------------------------------------------------------
     scroll: function scroll(target, options) {
-      var logger = log4javascript.getLogger('j1.core.scrollSmooth');
-      logger.info('run module scrollSmooth');
+      var logger;
+      var logText;
+      logger = log4javascript.getLogger('j1.core.scrollSmooth'); // indicator|check currently NOT used
+      // if (isCssSmoothScrollSupported()) { }
+
+      logText = 'run module scrollSmooth';
+      logger.info(logText);
+      var duration = options.duration;
+      var offset = options.offset; // var pageUrl = options.location.hash
+      //   ? stripHash(options.location.href)
+      //   : options.location.href;
+
       this.scrollTo(target, {
-        duration: options.duration,
-        offset: options.offset,
+        duration: duration,
+        offset: offset,
         callback: false
       });
+      logText = 'scrollSmooth finished';
+      logger.info(logText);
     },
     // -------------------------------------------------------------------------
-    // scrollTo()
+    // scrollTo
     // NOTE: Calculate the tgt (HTML heading element including the hash)
     // This makes ids that start with a number to work:
     //  '[id="' + decodeURI(target).split('#').join('') + '"]'
@@ -3054,58 +3077,42 @@ module.exports = function scrollSmooth(options) {
     // but id was not encoded, it lead to not finding the tgt element by id.
     // -------------------------------------------------------------------------
     scrollTo: function scrollTo(target, options) {
-      var opt = {};
-      var start;
-      var tgt;
-      var distance;
-      var duration;
-      var timeStart;
-      var timeElapsed;
-      opt = {
+      var start = window.pageYOffset;
+      var opt = {
         duration: options.duration,
         offset: options.offset || 0,
         callback: options.callback,
         easing: options.easing || easeInOutQuad
-      }; // -----------------------------------------------------------------------
-      // functions
-      // -----------------------------------------------------------------------
-      // -----------------------------------------------------------------------
-      // animatedScroll()
-      // callback routine for requestAnimationFrame()
-      // -----------------------------------------------------------------------
+      }; // calculate the tgt (HTML heading element including the hash)
 
-      function animatedScroll(time) {
+      var tgt = document.querySelector('[id="' + decodeURI(target).split('#').join('') + '"]');
+      var distance = typeof target === 'string' ? opt.offset + (target ? tgt && tgt.getBoundingClientRect().top || 0 // handle non-existent links better.
+      : -(document.documentElement.scrollTop || document.body.scrollTop)) : target;
+      var duration = typeof opt.duration === 'function' ? opt.duration(distance) : opt.duration;
+      var timeStart;
+      var timeElapsed;
+      requestAnimationFrame(function (time) {
+        timeStart = time;
+        loop(time);
+      });
+
+      function loop(time) {
         timeElapsed = time - timeStart;
         window.scrollTo(0, opt.easing(timeElapsed, start, distance, duration));
 
         if (timeElapsed < duration) {
-          requestAnimationFrame(animatedScroll);
+          requestAnimationFrame(loop);
         } else {
-          postScrollActions();
+          postPositioning();
         }
-      } // -----------------------------------------------------------------------
-      // postScrollActions()
-      // actions after scrolling has finished
-      // -----------------------------------------------------------------------
+      }
 
-
-      function postScrollActions() {
-        var logger = log4javascript.getLogger('j1.core.scrollSmooth.post');
-        logger.debug('scrollSmooth finished'); // post positioning if configured|needed
-
+      function postPositioning() {
+        //  if configured
         if (typeof opt.callback === 'function') {
           opt.callback();
         }
-      } // -----------------------------------------------------------------------
-      // easeInOutQuad()
-      // default animation, adopted from Robert Penner's easeInOutQuad
-      // see: http://robertpenner.com/easing/
-      // parameters:
-      //  t, current time in seconds
-      //  b, starting value
-      //  c, final value
-      //  d, duration of animation
-      // -----------------------------------------------------------------------
+      } // Robert Penner's easeInOutQuad - http://robertpenner.com/easing/
 
 
       function easeInOutQuad(t, b, c, d) {
@@ -3113,24 +3120,7 @@ module.exports = function scrollSmooth(options) {
         if (t < 1) return c / 2 * t * t + b;
         t--;
         return -c / 2 * (t * (t - 2) - 1) + b;
-      } // -----------------------------------------------------------------------
-      // main
-      // -----------------------------------------------------------------------
-      // calculate the scrolling parameters
-
-
-      start = window.pageYOffset;
-      tgt = document.querySelector('[id="' + decodeURI(target).split('#').join('') + '"]');
-      duration = opt.duration;
-      distance = typeof target === 'string' ? opt.offset + (target ? tgt && tgt.getBoundingClientRect().top || 0 // handle non-existent links better.
-      : -(document.documentElement.scrollTop || document.body.scrollTop)) : target; // request the browser to perform an animation by a specified function
-      // to update an animation before the next repaint.
-      // see: https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
-
-      requestAnimationFrame(function (time) {
-        timeStart = time;
-        animatedScroll(time);
-      });
+      }
     } // END scrollTo
 
   }; // END return

@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-11-18 01:31:50 +0000
+ # Adapter generated: 2021-11-21 01:36:02 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -706,7 +706,6 @@ var j1 = (function () {
         window.location.href = '/444.html';
       }
       logger.info('\n' + 'finalize page');
-      j1.setCss();
       logText= '\n' + 'loading page partials: started';
       logger.info(logText);
       if (j1.appDetected()) { // app mode
@@ -928,6 +927,11 @@ var j1 = (function () {
           }
           // display page
           $('#no_flicker').css('display', 'block');
+          // $('#features').tapTarget();
+          // $('#features').click(function(e) {
+          //   logger.info('\n' + 'call default action');
+          //   $('#features').tapTarget('open');
+          // });
           // Add minus icon for collapse element which is open by default
             $(".collapse.show").each(function(){
                 $(this).prev(".card-header").addClass("highlight");
@@ -1083,38 +1087,50 @@ var j1 = (function () {
       return '2022.0.0';
     },
     // -------------------------------------------------------------------------
+    // getScrollOffset()
+    // Calculate offset for correct (smooth) scroll position
+    // -------------------------------------------------------------------------
+    getScrollOffset: function () {
+      var scrollOffset;
+      var offsetCorrection;
+      var $pagehead     = $('.attic');
+      var $navbar       = $('nav.navbar');
+      var $adblock      = $('#adblock');
+      var navbarType    = $navbar.hasClass('navbar-fixed') ? 'fixed' : 'scrolled';
+      var fontSize      = $('body').css('font-size').replace('px','');
+      var f             = parseInt(fontSize);
+      var h             = $pagehead.length ? $pagehead.height() : 0;
+      var n             = $navbar.length ? $navbar.height() : 0;
+      var a             = $adblock.length ? $adblock.height() : 0;
+      // Unclear why or what element cause the need of a correction
+      // TODO: General revision of scrollOffset needed
+      //
+      offsetCorrection  = navbarType == 'fixed' ? 10 : -25;
+      scrollOffset      = navbarType == 'fixed'
+                            ? -1*(n + a + f) + offsetCorrection
+                            : -1*(n + a + f) + h + offsetCorrection;
+      return scrollOffset;
+    },
+    // -------------------------------------------------------------------------
     // scrollTo()
     // Scrolls smooth to any anchor referenced by an page URL on
-    // e.g. a page reload. Values for delay|offset are taken from
+    // e.g. a page reload. Values e.g for delay are taken from
     // TOCCER module
     // -------------------------------------------------------------------------
     scrollTo: function () {
-      var logger    = log4javascript.getLogger('j1.scrollTo');
-      var anchor    = window.location.href.split('#')[1];
-      var anchor_id = typeof anchor !== 'undefined' ? '#' + anchor : false;
-      var isSlider  = false;
+      var logger          = log4javascript.getLogger('j1.scrollTo');
+      var anchor          = window.location.href.split('#')[1];
+      var anchor_id       = typeof anchor !== 'undefined' ? '#' + anchor : false;
+      var scrollDuration  = 300;
+      var isSlider        = false;
       var selector;
+      var scrollOffset;
       if (typeof anchor === 'undefined') {
         return false;
       } else if (anchor.includes("googtrans")) {
         return false;
       }
-      var toccerScrollDuration = 300;
-      var toccerScrollOffset   = 10;
-      // calculate offset for correct (smooth) scroll position
-      var $pagehead       = $('.attic');
-      var $navbar         = $('nav.navbar');
-      var $adblock        = $('#adblock');
-      var navbarType      = $navbar.hasClass('navbar-fixed') ? 'fixed' : 'scrolled';
-      var fontSize        = $('body').css('font-size').replace('px','');
-      var start           = window.pageYOffset;
-      var l               = parseInt(fontSize);
-      var h               = $pagehead.length ? $pagehead.height() : 0;
-      var n               = $navbar.length ? $navbar.height() : 0;
-      var a               = $adblock.length ? $adblock.height() : 0;
-      var scrollOffset    = navbarType == 'fixed' ? -1*(n + a + l) : -1*(h + n + a + l);
-      // static offset, to be checked why this is needed
-      scrollOffset        = scrollOffset + toccerScrollOffset;
+      scrollOffset    = j1.getScrollOffset();
       // Check if the anchor is an slider/gallery element
       if (typeof anchor !== 'undefined') {
         isSlider  = anchor.includes('slide');
@@ -1123,10 +1139,10 @@ var j1 = (function () {
         // scroll only, if an anchor is given with URL
         selector = $(anchor_id);
         if (selector.length) {
-          j1.core.scrollSmooth.scroll( anchor_id, {
-            duration: toccerScrollDuration,
-            offset: scrollOffset,
-            callback: false
+          j1.core.scrollSmooth.scroll(anchor_id, {
+            duration:   scrollDuration,
+            offset:     scrollOffset,
+            callback:   false
           });
         } else {
           // scroll the page one pixel back and forth (trigger)
@@ -1137,7 +1153,7 @@ var j1 = (function () {
           $(window).scrollTop($(window).scrollTop()-1);
         }
       } else if (anchor_id === '#') {
-        logger.info('\n' + 'bound click event to "#void", suppress default action');
+        logger.info('\n' + 'bound click event to "#", suppress default action');
         $(window).scrollTop($(window).scrollTop()+1);
         $(window).scrollTop($(window).scrollTop()-1);
         return false;
@@ -1760,57 +1776,69 @@ var j1 = (function () {
     // -------------------------------------------------------------------------
     // Set dynamic styles
     // -------------------------------------------------------------------------
-    setCss: function () {
-      var logger        = log4javascript.getLogger('j1.setCss');
-      var bg_primary    = j1.getStyleValue('bg-primary', 'background-color');
-      var bg_secondary  = j1.getStyleValue('bg-secondary', 'background-color');
-      logger.info('\n' + 'set color scheme for selected theme');
-      // globals
-      // -----------------------------------------------------------------------
-      $('head').append('<style>.g-bg-primary { background-color: ' +bg_primary+ ' !important; }</style>');
-      // mdi icons
-      // -----------------------------------------------------------------------
-      $('head').append('<style>.iconify-md-bg-primary { color: ' +bg_primary+ ' !important; }</style>');
-      $('head').append('<style>.fa-md-bg-primary { color: ' +bg_primary+ ' !important; }</style>');
-      $('head').append('<style>.fas-md-bg-primary { color: ' +bg_primary+ ' !important; }</style>');
-      $('head').append('<style>.mdi-md-bg-primary { color: ' +bg_primary+ ' !important; }</style>');
-      // asciidoc
-      // -----------------------------------------------------------------------
-      var admonitionblock_note_color      = bg_primary;
-      var admonitionblock_tip_color       = j1.getStyleValue('btn-success', 'background-color');
-      var admonitionblock_important_color = j1.getStyleValue('btn-info', 'background-color');
-      var admonitionblock_warning_color   = j1.getStyleValue('icon-warning', 'color');
-      var admonitionblock_caution_color   = j1.getStyleValue('btn-danger', 'background-color');
-      $('head').append('<style>.icon-note { color: ' +admonitionblock_note_color+ ' !important; }</style>');
-      $('head').append('<style>.icon-tip { color: ' +admonitionblock_tip_color+ ' !important; }</style>');
-      $('head').append('<style>.icon-important { color: ' +admonitionblock_important_color+ ' !important; }</style>');
-      $('head').append('<style>.icon-warning { color: ' +admonitionblock_warning_color+ ' !important; }</style>');
-      $('head').append('<style>.icon-caution { color: ' +admonitionblock_caution_color+ ' !important; }</style>');
-      // bs base styles (2020-09-20: diabled. Taken for BS CSS code)
-      // -----------------------------------------------------------------------
-      // $('head').append('<style>code { color: ' +bg_secondary+ ' !important; }</style>');
-      // bs tool tips
-      // -----------------------------------------------------------------------
-      // $('head').append('<style>.tooltip-inner { background-color: ' +bg_primary+ ' !important; }</style>');
-      // $('head').append('<style>.bs-tooltip-top .tooltip-arrow::before { border-top-color: ' +bg_primary+ ' !important; }</style>');
-      // $('head').append('<style>.bs-tooltip-end .tooltip-arrow::before { border-right-color: ' +bg_primary+ ' !important; }</style>');
-      // $('head').append('<style>.bs-tooltip-bottom .tooltip-arrow::before { border-bottom-color: ' +bg_primary+ ' !important; }</style>');
-      // $('head').append('<style>.bs-tooltip-start .tooltip-arrow::before { border-left-color: ' +bg_primary+ ' !important; }</style>');
-      // asciidoc results viewer
-      // -----------------------------------------------------------------------
-      $('head').append('<style>.btn-viewer:hover { background-color: ' +bg_primary+ ' !important; }</style>');
-      // extended modals
-      // -----------------------------------------------------------------------
-      // var tabs_pills_link_color_active    = j1.setColorData('md_blue');         // j1.getStyleValue('btn-info', 'background-color');
-      // var tabs_pills_link_color_hover     = j1.setColorData('md_gray_300');     // j1.getStyleValue('btn-secondary', 'background-color');
-      // var tabs_pills_link_color_active    = 'mdi-blue';
-      // var tabs_pills_link_color_hover     = 'mdi-gray-300';
-      // nav module
-      // -----------------------------------------------------------------------
-      // $('head').append('<style>.nav-link:hover { background-color: ' +tabs_pills_link_color_hover+ ' !important; }</style>');
-      // $('head').append('<style>.nav-link.active { background-color: ' +tabs_pills_link_color_active+ ' !important; }</style>');
-      return true;
-    },
+    // setCss: function () {
+    //   var logger        = log4javascript.getLogger('j1.setCss');
+    //   var bg_primary    = j1.getStyleValue('bg-primary', 'background-color');
+    //   var bg_secondary  = j1.getStyleValue('bg-secondary', 'background-color');
+    //
+    //   logger.info('\n' + 'set color scheme for selected theme');
+    //
+    //   // globals
+    //   // -----------------------------------------------------------------------
+    //   $('head').append('<style>.g-bg-primary { background-color: ' +bg_primary+ ' !important; }</style>');
+    //
+    //   // mdi icons
+    //   // -----------------------------------------------------------------------
+    //   $('head').append('<style>.iconify-md-bg-primary { color: ' +bg_primary+ ' !important; }</style>');
+    //   $('head').append('<style>.fa-md-bg-primary { color: ' +bg_primary+ ' !important; }</style>');
+    //   $('head').append('<style>.fas-md-bg-primary { color: ' +bg_primary+ ' !important; }</style>');
+    //   $('head').append('<style>.mdi-md-bg-primary { color: ' +bg_primary+ ' !important; }</style>');
+    //
+    //   // asciidoc
+    //   // -----------------------------------------------------------------------
+    //   var admonitionblock_note_color      = bg_primary;
+    //   var admonitionblock_tip_color       = j1.getStyleValue('btn-success', 'background-color');
+    //   var admonitionblock_important_color = j1.getStyleValue('btn-info', 'background-color');
+    //   var admonitionblock_warning_color   = j1.getStyleValue('icon-warning', 'color');
+    //   var admonitionblock_caution_color   = j1.getStyleValue('btn-danger', 'background-color');
+    //
+    //   $('head').append('<style>.icon-note { color: ' +admonitionblock_note_color+ ' !important; }</style>');
+    //   $('head').append('<style>.icon-tip { color: ' +admonitionblock_tip_color+ ' !important; }</style>');
+    //   $('head').append('<style>.icon-important { color: ' +admonitionblock_important_color+ ' !important; }</style>');
+    //   $('head').append('<style>.icon-warning { color: ' +admonitionblock_warning_color+ ' !important; }</style>');
+    //   $('head').append('<style>.icon-caution { color: ' +admonitionblock_caution_color+ ' !important; }</style>');
+    //
+    //   // bs base styles (2020-09-20: diabled. Taken for BS CSS code)
+    //   // -----------------------------------------------------------------------
+    //   // $('head').append('<style>code { color: ' +bg_secondary+ ' !important; }</style>');
+    //
+    //   // bs tool tips
+    //   // -----------------------------------------------------------------------
+    //   // $('head').append('<style>.tooltip-inner { background-color: ' +bg_primary+ ' !important; }</style>');
+    //   // $('head').append('<style>.bs-tooltip-top .tooltip-arrow::before { border-top-color: ' +bg_primary+ ' !important; }</style>');
+    //   // $('head').append('<style>.bs-tooltip-end .tooltip-arrow::before { border-right-color: ' +bg_primary+ ' !important; }</style>');
+    //   // $('head').append('<style>.bs-tooltip-bottom .tooltip-arrow::before { border-bottom-color: ' +bg_primary+ ' !important; }</style>');
+    //   // $('head').append('<style>.bs-tooltip-start .tooltip-arrow::before { border-left-color: ' +bg_primary+ ' !important; }</style>');
+    //
+    //   // asciidoc results viewer
+    //   // -----------------------------------------------------------------------
+    //   $('head').append('<style>.btn-viewer:hover { background-color: ' +bg_primary+ ' !important; }</style>');
+    //
+    //   // extended modals
+    //   // -----------------------------------------------------------------------
+    //   // var tabs_pills_link_color_active    = j1.setColorData('md_blue');         // j1.getStyleValue('btn-info', 'background-color');
+    //   // var tabs_pills_link_color_hover     = j1.setColorData('md_gray_300');     // j1.getStyleValue('btn-secondary', 'background-color');
+    //
+    //   // var tabs_pills_link_color_active    = 'mdi-blue';
+    //   // var tabs_pills_link_color_hover     = 'mdi-gray-300';
+    //
+    //   // nav module
+    //   // -----------------------------------------------------------------------
+    //   // $('head').append('<style>.nav-link:hover { background-color: ' +tabs_pills_link_color_hover+ ' !important; }</style>');
+    //   // $('head').append('<style>.nav-link.active { background-color: ' +tabs_pills_link_color_active+ ' !important; }</style>');
+    //
+    //   return true;
+    // },
     // -------------------------------------------------------------------------
     // setState()
     // Set the current (processing) state of the module
