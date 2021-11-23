@@ -84,10 +84,6 @@
  # Issue seen 2019-03-10 after reset!
  # -----------------------------------------------------------------------------
 */
-.card, .card .card-body, .card.card-title {
-  font-size: .875rem;
-  font-weight: normal; }
-
 /*!
  * Bootstrap v5.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -135,7 +131,7 @@
   --bs-dark-rgb: 33, 33, 33;
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
-  --bs-body-color-rgb: 33, 33, 33;
+  --bs-body-color-rgb: 66, 66, 66;
   --bs-body-bg-rgb: 255, 255, 255;
   --bs-font-sans-serif: "Roboto", "Helvetica", "Arial", sans-serif;
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -144,7 +140,7 @@
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
-  --bs-body-color: #212121;
+  --bs-body-color: #424242;
   --bs-body-bg: #fff; }
 
 *,
@@ -1615,15 +1611,15 @@ progress {
 .table {
   --bs-table-bg: transparent;
   --bs-table-accent-bg: transparent;
-  --bs-table-striped-color: #212121;
+  --bs-table-striped-color: #424242;
   --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
-  --bs-table-active-color: #212121;
+  --bs-table-active-color: #424242;
   --bs-table-active-bg: rgba(0, 0, 0, 0.1);
-  --bs-table-hover-color: #212121;
+  --bs-table-hover-color: #424242;
   --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
   width: 100%;
   margin-bottom: 1rem;
-  color: #212121;
+  color: #424242;
   vertical-align: top;
   border-color: #e0e0e0; }
   .table > :not(caption) > * > * {
@@ -1816,7 +1812,7 @@ progress {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212121;
+  color: #424242;
   background-color: rgba(0, 0, 0, 0);
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.26);
@@ -1832,7 +1828,7 @@ progress {
     .form-control[type="file"]:not(:disabled):not([readonly]) {
       cursor: pointer; }
   .form-control:focus {
-    color: #212121;
+    color: #424242;
     background-color: rgba(0, 0, 0, 0);
     border-color: #90cbf9;
     outline: 0;
@@ -1849,7 +1845,7 @@ progress {
     padding: 0.4375rem 0;
     margin: -0.4375rem 0;
     margin-inline-end: 0;
-    color: #212121;
+    color: #424242;
     background-color: transparent;
     pointer-events: none;
     border-color: inherit;
@@ -1867,7 +1863,7 @@ progress {
     padding: 0.4375rem 0;
     margin: -0.4375rem 0;
     margin-inline-end: 0;
-    color: #212121;
+    color: #424242;
     background-color: transparent;
     pointer-events: none;
     border-color: inherit;
@@ -1888,7 +1884,7 @@ progress {
   padding: 0.4375rem 0;
   margin-bottom: 0;
   line-height: 1.5;
-  color: #212121;
+  color: #424242;
   background-color: transparent;
   border: solid transparent;
   border-width: 1px 0; }
@@ -1954,7 +1950,7 @@ textarea.form-control-lg {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212121;
+  color: #424242;
   background-color: rgba(0, 0, 0, 0);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23424242' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
@@ -1979,7 +1975,7 @@ textarea.form-control-lg {
     background-color: #eee; }
   .form-select:-moz-focusring {
     color: transparent;
-    text-shadow: 0 0 0 #212121; }
+    text-shadow: 0 0 0 #424242; }
 
 .form-select-sm {
   padding-top: 0.25rem;
@@ -2212,7 +2208,7 @@ textarea.form-control-lg {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212121;
+  color: #424242;
   text-align: center;
   white-space: nowrap;
   background-color: transparent;
@@ -2404,7 +2400,7 @@ textarea.form-control-lg {
   display: inline-block;
   font-weight: 500;
   line-height: 1.5;
-  color: #212121;
+  color: #424242;
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
@@ -2420,7 +2416,7 @@ textarea.form-control-lg {
     .btn {
       transition: none; } }
   .btn:hover {
-    color: #212121; }
+    color: #424242; }
   .btn-check:focus + .btn, .btn:focus {
     outline: 0;
     box-shadow: none; }
@@ -2909,7 +2905,7 @@ textarea.form-control-lg {
   padding: 0.5rem 0;
   margin: 0;
   font-size: 1rem;
-  color: #212121;
+  color: #424242;
   text-align: left;
   list-style: none;
   background-color: #fff;
@@ -3819,7 +3815,7 @@ textarea.form-control-lg {
   width: 100%;
   padding: 1rem 1.25rem;
   font-size: 1rem;
-  color: #212121;
+  color: #424242;
   text-align: left;
   background-color: #fff;
   border: 0;
@@ -3842,7 +3838,7 @@ textarea.form-control-lg {
     height: 1.25rem;
     margin-left: auto;
     content: "";
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212121'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23424242'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-size: 1.25rem;
     transition: transform 0.2s ease-in-out; }
@@ -4151,7 +4147,7 @@ textarea.form-control-lg {
     text-decoration: none;
     background-color: #f5f5f5; }
   .list-group-item-action:active {
-    color: #212121;
+    color: #424242;
     background-color: #eee; }
 
 .list-group-item {
@@ -4870,7 +4866,7 @@ textarea.form-control-lg {
 
 .popover-body {
   padding: 1rem 1rem;
-  color: #212121; }
+  color: #424242; }
 
 .carousel {
   position: relative; }
@@ -9354,48 +9350,8 @@ textarea.form-control-lg {
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
 */
-.btn:hover, .btn:focus {
-  color: rgba(255, 255, 255, 0.8);
-  outline: none; }
-
-/*
- # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/_cards.scss
- #
- # Product/Info:
- # https://jekyll.one
- #
- # Copyright (C) 2021 Juergen Adams
- #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- # -----------------------------------------------------------------------------
-*/
-.card {
-  border: 0;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
-  .card .card-header {
-    padding: 1rem;
-    background-color: transparent; }
-  .card .card-footer {
-    padding: .5rem; }
-  .card .card-body {
-    padding: 1.5rem 1rem 1rem;
-    font-weight: 300;
-    min-height: 16rem; }
-  .card h1.card-title, .card .card-title.h1,
-  .card h2.card-title,
-  .card .card-title.h2,
-  .card h3.card-title,
-  .card .card-title.h3,
-  .card h4.card-title,
-  .card .card-title.h4,
-  .card h5.card-title,
-  .card .card-title.h5,
-  .card h6.card-title,
-  .card .card-title.h6 {
-    font-size: 1.5rem;
-    font-weight: 300; }
+.btn-link {
+  color: #424242; }
 
 /*
  # -----------------------------------------------------------------------------
@@ -9563,40 +9519,6 @@ code {
 */
 code {
   color: #212121; }
-
-/*
- # -----------------------------------------------------------------------------
- # ~/theme_uno/bootstrap/_container.scss
- # Provides additional body styles
- #
- # Product/Info:
- # https://jekyll.one
- #
- # Copyright (C) 2021 Juergen Adams
- #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- # -----------------------------------------------------------------------------
-*/
-@media screen and (max-width: 575px) {
-  .container {
-    max-width: 550px; } }
-
-@media screen and (max-width: 540px) {
-  .container {
-    max-width: 500px; } }
-
-@media screen and (max-width: 370px) {
-  .container {
-    max-width: 355px; } }
-
-@media screen and (max-width: 360px) {
-  .container {
-    max-width: 345px; } }
-
-@media screen and (max-width: 320px) {
-  .container {
-    max-width: 300px; } }
 
 /*
  # -----------------------------------------------------------------------------
@@ -10820,22 +10742,6 @@ select, select.form-control {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/_jumbotron.scss
- #
- # Product/Info:
- # https://jekyll.one
- #
- # Copyright (C) 2021 Juergen Adams
- #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- # -----------------------------------------------------------------------------
-*/
-.jumbotron {
-  border: 1px solid #BDBDBD; }
-
-/*
- # -----------------------------------------------------------------------------
  # ~/scss/theme_uno/bootstrap/_layout.scss
  #
  # Product/Info:
@@ -10946,25 +10852,6 @@ li > a {
 li > a:hover {
   color: #bdbdbd !important;
   font-weight: 600 !important; }
-
-/*
- # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/_links.scss
- # Provides custom styles and overloads
- #
- # Product/Info:
- # https://jekyll.one
- #
- # Copyright (C) 2021 Juergen Adams
- #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- # -----------------------------------------------------------------------------
-*/
-dd {
-  margin-bottom: .5rem;
-  margin-left: .875rem;
-  margin-top: .5rem; }
 
 /*
  # -----------------------------------------------------------------------------
@@ -11094,252 +10981,6 @@ dd {
 */
 .progress {
   border: 1px solid #bdbdbd; }
-
-/*
- # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/_radios.scss
- #
- # Product/Info:
- # https://jekyll.one
- #
- # Copyright (C) 2021 Juergen Adams
- #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- # -----------------------------------------------------------------------------
-*/
-.radio label,
-label.radio-inline {
-  position: relative;
-  padding-left: 1.5625rem; }
-  .radio label .bmd-radio,
-  label.radio-inline .bmd-radio {
-    position: absolute;
-    left: 0;
-    display: inline-block;
-    padding: .7em;
-    margin: -.7em;
-    line-height: .7;
-    border-radius: 100%; }
-    .radio label .bmd-radio::after,
-    label.radio-inline .bmd-radio::after {
-      display: inline-block;
-      width: 1.25rem;
-      height: 1.25rem;
-      cursor: pointer;
-      content: "";
-      border: 0.125rem solid #9e9e9e;
-      border-radius: 50%;
-      transition: border-color ease .28s;
-      transition-duration: 0.2s; }
-    .radio label .bmd-radio::before,
-    label.radio-inline .bmd-radio::before {
-      position: absolute;
-      display: inline-block;
-      width: 1.25rem;
-      height: 1.25rem;
-      content: "";
-      background-color: #1565c0;
-      border-radius: 50%;
-      transition: transform ease .28s;
-      transform: scale3d(0, 0, 0); }
-  .radio label input[type=radio],
-  label.radio-inline input[type=radio] {
-    position: absolute;
-    left: 0;
-    z-index: -1;
-    width: 0;
-    height: 0;
-    margin: 0;
-    overflow: hidden;
-    pointer-events: none;
-    opacity: 0; }
-    .radio label input[type=radio]:checked ~ .bmd-radio::after,
-    label.radio-inline input[type=radio]:checked ~ .bmd-radio::after {
-      border-color: #1565c0; }
-    .radio label input[type=radio]:checked ~ .bmd-radio::before,
-    label.radio-inline input[type=radio]:checked ~ .bmd-radio::before {
-      background-color: #1565c0; }
-    .radio label input[type=radio]:checked ~ .bmd-radio::before,
-    label.radio-inline input[type=radio]:checked ~ .bmd-radio::before {
-      transform: scale3d(0.5, 0.5, 1); }
-    .radio label input[type=radio][disabled] + .bmd-radio, .radio label input[type=radio]:disabled + .bmd-radio,
-    fieldset[disabled] .radio label input[type=radio] + .bmd-radio,
-    label.radio-inline input[type=radio][disabled] + .bmd-radio,
-    label.radio-inline input[type=radio]:disabled + .bmd-radio,
-    fieldset[disabled]
-    label.radio-inline input[type=radio] + .bmd-radio {
-      cursor: default; }
-      .radio label input[type=radio][disabled] + .bmd-radio::after, .radio label input[type=radio]:disabled + .bmd-radio::after,
-      fieldset[disabled] .radio label input[type=radio] + .bmd-radio::after,
-      label.radio-inline input[type=radio][disabled] + .bmd-radio::after,
-      label.radio-inline input[type=radio]:disabled + .bmd-radio::after,
-      fieldset[disabled]
-      label.radio-inline input[type=radio] + .bmd-radio::after {
-        border-color: rgba(0, 0, 0, 0.26); }
-      .radio label input[type=radio][disabled] + .bmd-radio::before, .radio label input[type=radio]:disabled + .bmd-radio::before,
-      fieldset[disabled] .radio label input[type=radio] + .bmd-radio::before,
-      label.radio-inline input[type=radio][disabled] + .bmd-radio::before,
-      label.radio-inline input[type=radio]:disabled + .bmd-radio::before,
-      fieldset[disabled]
-      label.radio-inline input[type=radio] + .bmd-radio::before {
-        background-color: rgba(0, 0, 0, 0.26); }
-    .radio label input[type=radio][disabled] + .bmd-radio .ripple-container, .radio label input[type=radio]:disabled + .bmd-radio .ripple-container,
-    fieldset[disabled] .radio label input[type=radio] + .bmd-radio .ripple-container,
-    label.radio-inline input[type=radio][disabled] + .bmd-radio .ripple-container,
-    label.radio-inline input[type=radio]:disabled + .bmd-radio .ripple-container,
-    fieldset[disabled]
-    label.radio-inline input[type=radio] + .bmd-radio .ripple-container {
-      display: none; }
-    .bg-inverse .radio label input[type=radio][disabled] + .bmd-radio::after, .bg-inverse .radio label input[type=radio]:disabled + .bmd-radio::after, .bg-inverse
-    fieldset[disabled] .radio label input[type=radio] + .bmd-radio::after, .bg-inverse
-    label.radio-inline input[type=radio][disabled] + .bmd-radio::after, .bg-inverse
-    label.radio-inline input[type=radio]:disabled + .bmd-radio::after, .bg-inverse
-    fieldset[disabled]
-    label.radio-inline input[type=radio] + .bmd-radio::after {
-      border-color: rgba(255, 255, 255, 0.3); }
-    .bg-inverse .radio label input[type=radio][disabled] + .bmd-radio::before, .bg-inverse .radio label input[type=radio]:disabled + .bmd-radio::before, .bg-inverse
-    fieldset[disabled] .radio label input[type=radio] + .bmd-radio::before, .bg-inverse
-    label.radio-inline input[type=radio][disabled] + .bmd-radio::before, .bg-inverse
-    label.radio-inline input[type=radio]:disabled + .bmd-radio::before, .bg-inverse
-    fieldset[disabled]
-    label.radio-inline input[type=radio] + .bmd-radio::before {
-      background-color: rgba(255, 255, 255, 0.3); }
-
-/*
- # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/_reboot.scss
- #
- # Product/Info:
- # https://jekyll.one
- #
- # Copyright (C) 2021 Juergen Adams
- #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- # -----------------------------------------------------------------------------
-*/
-*:focus {
-  outline: none; }
-
-.copyright .terms-menu li {
-  font-size: 1em !important; }
-
-b,
-strong {
-  font-weight: 500 !important; }
-
-a:focus {
-  outline: none; }
-
-/*
- # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/_ripples.scss
- #
- # Product/Info:
- # https://github.com/FezVrasta/bootstrap-material-design
- #
- # Copyright (C) 2020 Federico Zivolo and Contributors
- #
- # Bootstrap Material Design is licensed under the MIT License.
- # See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
- # -----------------------------------------------------------------------------
-*/
-.ripple {
-  position: relative; }
-
-.ripple-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  pointer-events: none;
-  border-radius: inherit; }
-  .ripple-container .ripple-decorator {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    margin-top: -10px;
-    margin-left: -10px;
-    pointer-events: none;
-    background-color: rgba(0, 0, 0, 0.05);
-    border-radius: 100%;
-    opacity: 0;
-    transform: scale(1);
-    transform-origin: 50%; }
-    .ripple-container .ripple-decorator.ripple-on {
-      opacity: 0.1;
-      transition: opacity 0.15s ease-in 0s, transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s; }
-    .ripple-container .ripple-decorator.ripple-out {
-      opacity: 0;
-      transition: opacity 0.1s linear 0s !important; }
-
-/*
- # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/_switches.scss
- #
- # Product/Info:
- # https://github.com/FezVrasta/bootstrap-material-design
- #
- # Copyright (C) 2020 Federico Zivolo and Contributors
- #
- # Bootstrap Material Design is licensed under the MIT License.
- # See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
- # -----------------------------------------------------------------------------
-*/
-.switch label {
-  position: relative;
-  padding-left: 2.4375rem; }
-  .switch label .bmd-switch-track {
-    position: absolute;
-    top: 0.3125rem;
-    left: 0;
-    display: inline-block;
-    width: 2.125rem;
-    height: 0.875rem;
-    cursor: pointer;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.26) 0%, rgba(0, 0, 0, 0.26) 50%, #8db0d7 50%, #8db0d7 100%);
-    background-position: 0%;
-    background-size: 4.25rem 0.875rem;
-    border-radius: 2.125rem;
-    transition: background-position 0.2s ease-in; }
-    .switch label .bmd-switch-track::after {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      display: block;
-      align-self: center;
-      width: 1.25rem;
-      height: 1.25rem;
-      content: "";
-      background: #9e9e9e;
-      border-radius: 100%;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-      transition: left 0.2s ease-in, background-color 0.2s ease-in, transform 0.3s ease;
-      transform: translateY(-50%); }
-    .switch label .bmd-switch-track:active::after {
-      transform: translateY(-50%) scale3d(1.15, 0.85, 1); }
-  .switch label input {
-    position: absolute;
-    display: block;
-    width: 0;
-    height: 0;
-    opacity: 0; }
-    .switch label input:checked + .bmd-switch-track {
-      background-position: -100%; }
-      .switch label input:checked + .bmd-switch-track::after {
-        left: calc(100% - 1.25rem);
-        background-color: #1565c0; }
-    .switch label input:disabled + .bmd-switch-track:active::after {
-      transform: translateY(-50%); }
-    .switch label input:disabled + .bmd-switch-track {
-      cursor: default;
-      background: rgba(0, 0, 0, 0.12); }
-      .switch label input:disabled + .bmd-switch-track::after {
-        background: #bdbdbd; }
 
 /*
  # -----------------------------------------------------------------------------
@@ -14359,7 +14000,7 @@ table.tableblock > .title {
 */
 /*
 // ----------------------------------------------------------------------------
-// ~/scss/theme_uno/bootstrap/extensions/_accordion_panel.scss
+// ~/scss/theme_uno/bootstrap/extensions/_accordion.scss
 // Provides styles for the J1 Accordion Panel
 //
 // Product/Info:
@@ -14384,19 +14025,15 @@ table.tableblock > .title {
 .accordion .card .card-header {
   background: none;
   border: none;
-  padding: .4rem 1rem;
-  font-family: "Roboto", sans-serif; }
+  padding: .4rem 1rem; }
 
 .accordion .card-header h2 span, .accordion .card-header .h2 span {
   float: left;
   margin-top: 10px; }
 
 .accordion .card-header .btn {
-  color: #2f2f31;
-  font-size: 1.04rem;
   text-align: left;
   position: relative;
-  font-weight: 500;
   padding-left: 2rem; }
 
 .accordion .card-header i {
@@ -14407,26 +14044,11 @@ table.tableblock > .title {
   top: 9px; }
 
 .accordion .card-header .btn:hover {
-  color: #ff8300; }
+  color: #00bcd4; }
 
 .accordion .card-body {
   color: #324353;
   padding: 0.5rem 3rem; }
-
-.page-title {
-  margin: 3rem 0 3rem 1rem;
-  font-family: "Roboto", sans-serif;
-  position: relative; }
-
-.page-title::after {
-  content: "";
-  width: 80px;
-  position: absolute;
-  height: 3px;
-  border-radius: 1px;
-  background: #73bb2b;
-  left: 0;
-  bottom: -15px; }
 
 .accordion .highlight .btn {
   color: #2196f3; }
@@ -14670,7 +14292,8 @@ table.tableblock > .title {
  # -----------------------------------------------------------------------------
 */
 .card.card-same-height {
-  height: calc(100% - 1.75rem); }
+  height: calc(100% - 1.75rem);
+  overflow: hidden; }
 
 .card .not-rounded {
   border-radius: unset !important; }
@@ -14692,6 +14315,9 @@ table.tableblock > .title {
   padding: 1.25rem;
   background-color: rgba(255, 255, 255, 0.5);
   border-top: 1px dotted rgba(0, 0, 0, 0.3); }
+
+.card .card-footer .footer-body {
+  color: #212121; }
 
 /* jadams: Overwrite Bootstraps heading margins for cards */
 /* .card > h1, h2, h3, h4, h5 { */
@@ -17944,6 +17570,162 @@ a.news-link {
 
 /*
  # -----------------------------------------------------------------------------
+ # ~/scss/theme_uno/bootstrap/_radios.scss
+ #
+ # Product/Info:
+ # https://jekyll.one
+ #
+ # Copyright (C) 2021 Juergen Adams
+ #
+ # J1 Template is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # -----------------------------------------------------------------------------
+*/
+.radio label,
+label.radio-inline {
+  position: relative;
+  padding-left: 1.5625rem; }
+  .radio label .bmd-radio,
+  label.radio-inline .bmd-radio {
+    position: absolute;
+    left: 0;
+    display: inline-block;
+    padding: .7em;
+    margin: -.7em;
+    line-height: .7;
+    border-radius: 100%; }
+    .radio label .bmd-radio::after,
+    label.radio-inline .bmd-radio::after {
+      display: inline-block;
+      width: 1.25rem;
+      height: 1.25rem;
+      cursor: pointer;
+      content: "";
+      border: 0.125rem solid #9e9e9e;
+      border-radius: 50%;
+      transition: border-color ease .28s;
+      transition-duration: 0.2s; }
+    .radio label .bmd-radio::before,
+    label.radio-inline .bmd-radio::before {
+      position: absolute;
+      display: inline-block;
+      width: 1.25rem;
+      height: 1.25rem;
+      content: "";
+      background-color: #1565c0;
+      border-radius: 50%;
+      transition: transform ease .28s;
+      transform: scale3d(0, 0, 0); }
+  .radio label input[type=radio],
+  label.radio-inline input[type=radio] {
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    width: 0;
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0; }
+    .radio label input[type=radio]:checked ~ .bmd-radio::after,
+    label.radio-inline input[type=radio]:checked ~ .bmd-radio::after {
+      border-color: #1565c0; }
+    .radio label input[type=radio]:checked ~ .bmd-radio::before,
+    label.radio-inline input[type=radio]:checked ~ .bmd-radio::before {
+      background-color: #1565c0; }
+    .radio label input[type=radio]:checked ~ .bmd-radio::before,
+    label.radio-inline input[type=radio]:checked ~ .bmd-radio::before {
+      transform: scale3d(0.5, 0.5, 1); }
+    .radio label input[type=radio][disabled] + .bmd-radio, .radio label input[type=radio]:disabled + .bmd-radio,
+    fieldset[disabled] .radio label input[type=radio] + .bmd-radio,
+    label.radio-inline input[type=radio][disabled] + .bmd-radio,
+    label.radio-inline input[type=radio]:disabled + .bmd-radio,
+    fieldset[disabled]
+    label.radio-inline input[type=radio] + .bmd-radio {
+      cursor: default; }
+      .radio label input[type=radio][disabled] + .bmd-radio::after, .radio label input[type=radio]:disabled + .bmd-radio::after,
+      fieldset[disabled] .radio label input[type=radio] + .bmd-radio::after,
+      label.radio-inline input[type=radio][disabled] + .bmd-radio::after,
+      label.radio-inline input[type=radio]:disabled + .bmd-radio::after,
+      fieldset[disabled]
+      label.radio-inline input[type=radio] + .bmd-radio::after {
+        border-color: rgba(0, 0, 0, 0.26); }
+      .radio label input[type=radio][disabled] + .bmd-radio::before, .radio label input[type=radio]:disabled + .bmd-radio::before,
+      fieldset[disabled] .radio label input[type=radio] + .bmd-radio::before,
+      label.radio-inline input[type=radio][disabled] + .bmd-radio::before,
+      label.radio-inline input[type=radio]:disabled + .bmd-radio::before,
+      fieldset[disabled]
+      label.radio-inline input[type=radio] + .bmd-radio::before {
+        background-color: rgba(0, 0, 0, 0.26); }
+    .radio label input[type=radio][disabled] + .bmd-radio .ripple-container, .radio label input[type=radio]:disabled + .bmd-radio .ripple-container,
+    fieldset[disabled] .radio label input[type=radio] + .bmd-radio .ripple-container,
+    label.radio-inline input[type=radio][disabled] + .bmd-radio .ripple-container,
+    label.radio-inline input[type=radio]:disabled + .bmd-radio .ripple-container,
+    fieldset[disabled]
+    label.radio-inline input[type=radio] + .bmd-radio .ripple-container {
+      display: none; }
+    .bg-inverse .radio label input[type=radio][disabled] + .bmd-radio::after, .bg-inverse .radio label input[type=radio]:disabled + .bmd-radio::after, .bg-inverse
+    fieldset[disabled] .radio label input[type=radio] + .bmd-radio::after, .bg-inverse
+    label.radio-inline input[type=radio][disabled] + .bmd-radio::after, .bg-inverse
+    label.radio-inline input[type=radio]:disabled + .bmd-radio::after, .bg-inverse
+    fieldset[disabled]
+    label.radio-inline input[type=radio] + .bmd-radio::after {
+      border-color: rgba(255, 255, 255, 0.3); }
+    .bg-inverse .radio label input[type=radio][disabled] + .bmd-radio::before, .bg-inverse .radio label input[type=radio]:disabled + .bmd-radio::before, .bg-inverse
+    fieldset[disabled] .radio label input[type=radio] + .bmd-radio::before, .bg-inverse
+    label.radio-inline input[type=radio][disabled] + .bmd-radio::before, .bg-inverse
+    label.radio-inline input[type=radio]:disabled + .bmd-radio::before, .bg-inverse
+    fieldset[disabled]
+    label.radio-inline input[type=radio] + .bmd-radio::before {
+      background-color: rgba(255, 255, 255, 0.3); }
+
+/*
+ # -----------------------------------------------------------------------------
+ # ~/scss/theme_uno/bootstrap/_ripples.scss
+ #
+ # Product/Info:
+ # https://github.com/FezVrasta/bootstrap-material-design
+ #
+ # Copyright (C) 2020 Federico Zivolo and Contributors
+ #
+ # Bootstrap Material Design is licensed under the MIT License.
+ # See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
+ # -----------------------------------------------------------------------------
+*/
+.ripple {
+  position: relative; }
+
+.ripple-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: inherit; }
+  .ripple-container .ripple-decorator {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 100%;
+    opacity: 0;
+    transform: scale(1);
+    transform-origin: 50%; }
+    .ripple-container .ripple-decorator.ripple-on {
+      opacity: 0.1;
+      transition: opacity 0.15s ease-in 0s, transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s; }
+    .ripple-container .ripple-decorator.ripple-out {
+      opacity: 0;
+      transition: opacity 0.1s linear 0s !important; }
+
+/*
+ # -----------------------------------------------------------------------------
  # ~/scss/theme_uno/bootstrap/extensions/_scroll-group.scss
  # Class for the scoller|infinite scroll (based|modified from BS list_groups)
  # Product/Info:
@@ -17973,9 +17755,8 @@ a.news-link {
   padding: 1rem;
   line-height: 1;
   background-color: transparent;
-  border: 0; }
-  .scroll-group-item :first-child {
-    margin-right: 2rem; }
+  border: 0;
+  margin-right: 1%; }
 
 @media only screen and (min-width: 576px) {
   .scroll-group-item.items-auto {
@@ -18286,6 +18067,70 @@ ul.scrollable-menu::-webkit-scrollbar-thumb {
 
 /*
  # -----------------------------------------------------------------------------
+ # ~/scss/theme_uno/bootstrap/_switches.scss
+ #
+ # Product/Info:
+ # https://github.com/FezVrasta/bootstrap-material-design
+ #
+ # Copyright (C) 2020 Federico Zivolo and Contributors
+ #
+ # Bootstrap Material Design is licensed under the MIT License.
+ # See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
+ # -----------------------------------------------------------------------------
+*/
+.switch label {
+  position: relative;
+  padding-left: 2.4375rem; }
+  .switch label .bmd-switch-track {
+    position: absolute;
+    top: 0.3125rem;
+    left: 0;
+    display: inline-block;
+    width: 2.125rem;
+    height: 0.875rem;
+    cursor: pointer;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.26) 0%, rgba(0, 0, 0, 0.26) 50%, #8db0d7 50%, #8db0d7 100%);
+    background-position: 0%;
+    background-size: 4.25rem 0.875rem;
+    border-radius: 2.125rem;
+    transition: background-position 0.2s ease-in; }
+    .switch label .bmd-switch-track::after {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      display: block;
+      align-self: center;
+      width: 1.25rem;
+      height: 1.25rem;
+      content: "";
+      background: #9e9e9e;
+      border-radius: 100%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      transition: left 0.2s ease-in, background-color 0.2s ease-in, transform 0.3s ease;
+      transform: translateY(-50%); }
+    .switch label .bmd-switch-track:active::after {
+      transform: translateY(-50%) scale3d(1.15, 0.85, 1); }
+  .switch label input {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    opacity: 0; }
+    .switch label input:checked + .bmd-switch-track {
+      background-position: -100%; }
+      .switch label input:checked + .bmd-switch-track::after {
+        left: calc(100% - 1.25rem);
+        background-color: #1565c0; }
+    .switch label input:disabled + .bmd-switch-track:active::after {
+      transform: translateY(-50%); }
+    .switch label input:disabled + .bmd-switch-track {
+      cursor: default;
+      background: rgba(0, 0, 0, 0.12); }
+      .switch label input:disabled + .bmd-switch-track::after {
+        background: #bdbdbd; }
+
+/*
+ # -----------------------------------------------------------------------------
  # ~/scss/theme_uno/bootstrap/extensions/_tags.scss
  #
  # Product/Info:
@@ -18309,7 +18154,7 @@ ul.scrollable-menu::-webkit-scrollbar-thumb {
   margin: 0;
   padding: 4px 0;
   overflow: hidden;
-  *zoom: 1; }
+  zoom: 1; }
   .tag__box:after {
     clear: both; }
   .tag__box a {
@@ -18345,21 +18190,19 @@ ul.scrollable-menu::-webkit-scrollbar-thumb {
         position: relative;
         display: inline-block;
         line-height: 1.75rem;
-        padding: 0 2em 0 1em;
+        padding: 0 2.5em 0 1em;
         background-color: #2196f3;
-        border-radius: 0;
+        border-radius: 20px;
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
         color: #000;
-        font-size: 1rem !important;
+        font-size: 1rem;
         font-weight: 400;
         text-decoration: none;
         transition: .2s; }
-        .tag__cloud ul li a:hover {
-          background-color: #212121; }
-          .tag__cloud ul li a:hover span {
-            color: #2196f3; }
+        .tag__cloud ul li a:hover span {
+          color: #2196f3; }
       .tag__cloud ul li span {
         position: absolute;
         top: 5px;
@@ -18387,86 +18230,6 @@ ul.scrollable-menu::-webkit-scrollbar-thumb {
   padding: 5px 20px;
   background-color: #616161; }
 
-/*  Unused classes (potentially conflicts with other POST classes)
--------------------------------------------------------------------------------- */
-/*
-.page,.post {
-    margin-bottom: 4em
-}
-
-.page-title,.post-title,.post-title a {
-    color: #303030
-}
-
-.page-title,.post-title {
-    margin-top: 0
-}
-
-.post-date {
-    display: block;
-    margin-top: -.5rem;
-    margin-bottom: 1rem;
-    color: #9a9a9a
-}
-
-ul.posts {
-    list-style-type: none;
-    margin-bottom: 2rem;
-    padding: 0
-}
-
-ul.posts li {
-    padding: 0.2rem 0
-}
-
-ul.posts li span {
-    color: #9E9E9E;
-    margin-left: 2rem;
-    font-size: 2rem;
-    font-weight: 600;
-}
-
-ul.posts li a {
-    font-size: 1.75rem;
-    font-weight: 400;
-}
-
-ul.posts li a:hover {
-    color: #9E9E9E;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.related {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    border-top: 1px solid #eee
-}
-
-.related-posts {
-    padding-left: 0;
-    list-style: none
-}
-
-.related-posts h3 {
-    margin-top: 0
-}
-
-.related-posts li small {
-    font-size: 75%;
-    color: #999
-}
-
-.related-posts li a:hover {
-    color: #268bd2;
-    text-decoration: none
-}
-
-.related-posts li a:hover small {
-    color: inherit
-}
-
-*/
 /*
  # -----------------------------------------------------------------------------
  # ~/scss/theme_uno/bootstrap/extensions/_timeline.scss
