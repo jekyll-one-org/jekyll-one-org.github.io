@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-11-23 00:03:52 +0000
+ # Adapter generated: 2021-11-28 18:49:17 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -102,10 +102,10 @@ var j1 = (function () {
   };
   var user_state = {
     'writer':               'j1.adapter',
-    'theme_name':           '',
+    'theme_name':           'UnoLight',
     'theme_css':            '',
-    'theme_author':         '',
-    'theme_version':        '2022.0.1',
+    'theme_author':         'J1 Team',
+    'theme_version':        '2022.0.2',
     'session_active':       false,
     'google_translate':     'disabled',
     'translate_all_pages':  true,
@@ -385,12 +385,12 @@ var j1 = (function () {
                 if (user_session.authenticated === 'true') {
                   // set signout
                   logger.info('\n' + 'show signout icon');
-                  $('#navLinkSignInOut').attr('data-target','#modalOmniSignOut');
+                  $('#navLinkSignInOut').attr('data-bs-target','#modalOmniSignOut');
                   $('#iconSignInOut').removeClass('mdi-login').addClass('mdi-logout');
                 } else {
                   // set signin
                   logger.info('\n' + 'show signin icon');
-                  $('#navLinkSignInOut').attr('data-target','#modalOmniSignIn');
+                  $('#navLinkSignInOut').attr('data-bs-target','#modalOmniSignIn');
                   $('#iconSignInOut').removeClass('mdi-logout').addClass('mdi-login');
                 }
                 logger.info('\n' + 'authentication detected as: ' + user_session.authenticated);
@@ -836,12 +836,12 @@ var j1 = (function () {
               if (user_session.authenticated === 'true') {
                 // set signout
                 logger.info('\n' + 'show signout icon');
-                $('#navLinkSignInOut').attr('data-target','#modalOmniSignOut');
+                $('#navLinkSignInOut').attr('data-bs-target','#modalOmniSignOut');
                 $('#iconSignInOut').removeClass('mdi-login').addClass('mdi-logout');
               } else {
                 // set signin
                 logger.info('\n' + 'show signin icon');
-                $('#navLinkSignInOut').attr('data-target','#modalOmniSignIn');
+                $('#navLinkSignInOut').attr('data-bs-target','#modalOmniSignIn');
                 $('#iconSignInOut').removeClass('mdi-logout').addClass('mdi-login');
               }
               logger.info('\n' + 'authentication detected as: ' + user_session.authenticated);
@@ -1088,7 +1088,7 @@ var j1 = (function () {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2022.0.1';
+      return '2022.0.2';
     },
     // -------------------------------------------------------------------------
     // getScrollOffset()
