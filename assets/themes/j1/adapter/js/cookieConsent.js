@@ -12,7 +12,7 @@
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-11-28 19:02:56 +0000
+ #  Adapter generated: 2021-12-04 17:44:45 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -23,7 +23,7 @@
 // -----------------------------------------------------------------------------
 'use strict';
 j1.adapter['cookieConsent'] = (function (j1, window) {
-  var environment       = 'development';
+  var environment       = 'production';
   var tracking_enabled  = ('false' === 'true') ? true: false;
   var tracking_id       = '<your-tracking-id>';
   var tracking_id_valid = (tracking_id.includes('tracking-id')) ? false : true;
@@ -81,7 +81,7 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.cookieConsent',
-        generated:   '2021-11-28 19:02:56 +0000'
+        generated:   '2021-12-04 17:44:45 +0000'
       }, options);
       // Load  module DEFAULTS|CONFIG
       /* eslint-disable */
@@ -117,10 +117,12 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
           _this.setState('finished');
           logger.info('\n' + 'state: ' + _this.getState());
           logger.debug('\n' + 'module initialized successfully');
-          $('#quickLinksCookieButton').click(function(e) {
-            logger.info('\n' + 'call default action');
-            j1.cookieConsent.showDialog();
-          });
+          // Click events moved to Navigator (core)
+          //
+          // $('#quickLinksCookieButton').click(function(e) {
+          //   logger.info('\n' + 'call default action');
+          //   j1.cookieConsent.showDialog();
+          // });
           clearInterval(dependencies_met_page_ready);
         }
       });
@@ -182,14 +184,18 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
       if ($('#quickLinksCookieButton').css('display') === 'none')  {
         $('#quickLinksCookieButton').css('display', 'block');
       }
-      logger.debug('\n' + 'j1 cookies found:' + j1Cookies.length);
-      j1Cookies.forEach(item => console.log('j1.core.switcher: ' + item));
-      logger.debug('\n' + 'ga cookies found:' + gaCookies.length);
-      gaCookies.forEach(item => console.log('j1.core.switcher: ' + item));
-      if (user_agent.includes('iPad'))  {
-        logger.warn('\n' + 'product detected : ' + platform.product);
-        logger.warn('\n' + 'skip deleting (unwanted) cookies for this platform');
-      }
+      // jadams, 2021-11-29: disabled additional logs to verify the existance
+      // of J1 and GA cookies (testing only)
+      //
+      // logger.debug('\n' + 'j1 cookies found:' + j1Cookies.length);
+      // j1Cookies.forEach(item => console.log('j1.core.switcher: ' + item));
+      // logger.debug('\n' + 'ga cookies found:' + gaCookies.length);
+      // gaCookies.forEach(item => console.log('j1.core.switcher: ' + item));
+      //
+      // if (user_agent.includes('iPad'))  {
+      //   logger.warn('\n' + 'product detected : ' + platform.product);
+      //   logger.warn('\n' + 'skip deleting (unwanted) cookies for this platform');
+      // }
       // Manage Google Analytics OptIn/Out
       // See: https://github.com/luciomartinez/gtag-opt-in/wiki
       if (tracking_enabled && tracking_id_valid) {

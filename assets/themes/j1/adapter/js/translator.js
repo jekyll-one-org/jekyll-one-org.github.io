@@ -12,7 +12,7 @@
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-11-28 19:02:56 +0000
+ #  Adapter generated: 2021-12-04 17:44:45 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -27,7 +27,7 @@
 // https://www.marghoobsuleman.com/image-dropdown/advanced-help
 'use strict';
 j1.adapter['translator'] = (function (j1, window) {
-  var environment       = 'development';
+  var environment       = 'production';
   var tracking_enabled  = ('false' === 'true') ? true: false;    // Analytics/GA enabled?
   var moduleOptions     = {};
   var user_translate    = {};
@@ -44,7 +44,6 @@ j1.adapter['translator'] = (function (j1, window) {
   var secure;
   var logText;
   var cookie_written;
-  var modal_language;
   var navigator_language;
   var translation_language;
   var ddSourceLanguage;
@@ -105,7 +104,6 @@ j1.adapter['translator'] = (function (j1, window) {
       domain                = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
       cookie_domain         = (domain.includes('.')) ? '.' + domain : domain;
       secure                = (url.protocol.includes('https')) ? true : false;
-      modal_language        = "en";
       navigator_language    = navigator.language || navigator.userLanguage;     // userLanguage for MS IE compatibility
       translation_language  = navigator_language.split('-')[0];
       cookie_names          = j1.getCookieNames();
@@ -143,7 +141,7 @@ j1.adapter['translator'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.translator',
-        generated:   '2021-11-28 19:02:56 +0000'
+        generated:   '2021-12-04 17:44:45 +0000'
       }, options);
       // Load  module DEFAULTS|CONFIG
       /* eslint-disable */
@@ -190,6 +188,9 @@ j1.adapter['translator'] = (function (j1, window) {
             secure:   secure,
             expires:  365
           });
+          if (moduleOptions.dialogLanguage === 'auto') {
+            moduleOptions.dialogLanguage = 'en';
+          }
           j1.translator = new Translator({
             contentURL:               moduleOptions.contentURL,                 // dialog content (modals) for all supported languages
             cookieName:               moduleOptions.cookieName,                 // the name of the User State Cookie (primary data)
@@ -220,10 +221,12 @@ j1.adapter['translator'] = (function (j1, window) {
               Cookies.remove('googtrans');
             }
           }
-          $('#quickLinksTranslateButton').click(function(e) {
-            logger.info('\n' + 'call default action');
-            j1.translator.showDialog();
-          });
+          // Click events moved to Navigator (core)
+          //
+          // $('#quickLinksTranslateButton').click(function(e) {
+          //   logger.info('\n' + 'call default action');
+          //   j1.translator.showDialog();
+          // });
           _this.setState('finished');
           logger.info('\n' + 'state: ' + _this.getState());
           logger.debug('\n' + 'module initialized successfully');
