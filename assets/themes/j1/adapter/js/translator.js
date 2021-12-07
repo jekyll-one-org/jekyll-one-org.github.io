@@ -12,7 +12,7 @@
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-12-07 17:49:36 +0000
+ #  Adapter generated: 2021-12-07 18:40:52 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -65,7 +65,7 @@ j1.adapter['translator'] = (function (j1, window) {
     var baseUrl         = url.origin;;
     var hostname        = url.hostname;
     var domain          = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
-    var domain_enabled  = 'true';
+    var domain_enabled  = 'false';
     var defaults        = {};
     var settings;
     var document_cookie;
@@ -116,7 +116,7 @@ j1.adapter['translator'] = (function (j1, window) {
       baseUrl               = url.origin;
       hostname              = url.hostname;
       domain                = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
-      domain_enabled        = 'true';
+      domain_enabled        = 'false';
       secure                = (url.protocol.includes('https')) ? true : false;
       navigator_language    = navigator.language || navigator.userLanguage;     // userLanguage for MS IE compatibility
       translation_language  = navigator_language.split('-')[0];
@@ -141,7 +141,7 @@ j1.adapter['translator'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.translator',
-        generated:   '2021-12-07 17:49:36 +0000'
+        generated:   '2021-12-07 18:40:52 +0000'
       }, options);
       // Load  module DEFAULTS|CONFIG
       /* eslint-disable */
@@ -328,7 +328,7 @@ j1.adapter['translator'] = (function (j1, window) {
       var baseUrl        = url.origin;;
       var hostname       = url.hostname;
       var domain         = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
-      var domain_enabled = 'true';
+      var domain_enabled = 'false';
       var same_site      = 'Lax';
       var selectedTranslationLanguage;
       var srcLang;

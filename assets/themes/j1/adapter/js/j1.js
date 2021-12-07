@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-12-07 17:49:36 +0000
+ # Adapter generated: 2021-12-07 18:40:52 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -1257,7 +1257,7 @@ var j1 = (function () {
       var baseUrl         = url.origin;;
       var hostname        = url.hostname;
       var domain          = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
-      var domain_enabled  = 'true';
+      var domain_enabled  = 'false';
       var cookie_data     = {};
       var data_json;
       var data_encoded;
@@ -1365,7 +1365,7 @@ var j1 = (function () {
       var baseUrl         = url.origin;;
       var hostname        = url.hostname;
       var domain          = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
-      var domain_enabled  = 'true';
+      var domain_enabled  = 'false';
       var defaults = {
           path: '/',
           samesite: 'Lax',

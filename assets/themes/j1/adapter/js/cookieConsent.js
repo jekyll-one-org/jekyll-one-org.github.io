@@ -12,7 +12,7 @@
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-12-07 17:49:36 +0000
+ #  Adapter generated: 2021-12-07 18:40:52 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -68,7 +68,7 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
       baseUrl           = url.origin;
       hostname          = url.hostname;
       domain            = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
-      domain_enabled    = 'true';
+      domain_enabled    = 'false';
       secure            = (url.protocol.includes('https')) ? true : false;
       contentLanguage   = 'en';
       navigatorLanguage = navigator.language || navigator.userLanguage;
@@ -79,7 +79,7 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.cookieConsent',
-        generated:   '2021-12-07 17:49:36 +0000'
+        generated:   '2021-12-07 18:40:52 +0000'
       }, options);
       // Load  module DEFAULTS|CONFIG
       /* eslint-disable */
