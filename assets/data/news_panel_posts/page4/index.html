@@ -358,26 +358,6 @@ of it is land and 9.1 km² (3.5 mi²) of it (6.01%) is water.</p>
       var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
         return new bootstrap.Popover(popoverTriggerEl)
       });
-      var dependencies_met_page_ready = setInterval (function (options) {
-        if (j1.getState() === 'finished') {
-          var logger = log4javascript.getLogger('j1.layout.default');
-          function setLastPage() {
-            var cookie_names                = j1.getCookieNames();
-            const user_state_cookie_name    = cookie_names.user_session;
-            var user_state                  = j1.readCookie(user_state_cookie_name);
-            var user_state_last_page        = window.location.pathname;
-            user_state.last_page            = user_state_last_page;
-            j1.writeCookie({
-              name: user_state_cookie_name,
-              data: user_state,
-              samesite: 'Strict'
-            });
-            logger.debug('\n' + 'saved current page to cookie :' + user_state_last_page);
-          }
-          setLastPage();
-          clearInterval(dependencies_met_page_ready);
-        }
-      });
     });
   </script>
 </html>

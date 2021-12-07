@@ -8557,6 +8557,12 @@ table tr.even, table tr.alt, table tr:nth-of-type(even) {
   color: #bdbdbd;
   border-bottom: 1px dotted #424242 !important; }
 
+.series-exerpt {
+  color: #e0e0e0; }
+
+.series-navigation ul li a {
+  background-color: #e0e0e0; }
+
 /*
  # -----------------------------------------------------------------------------
  # ~/100_template_css/scss/theme_uno_dark/extentions/_tags.scss

@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-12-04 17:44:45 +0000
+ # Adapter generated: 2021-12-07 17:08:54 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -45,8 +45,6 @@ var j1 = (function () {
   // Default comment provider information
   var comment_provider          = 'hyvor';
   var site_id                   = 'hyvor-site-id';
-  // Default translator settings (currently NOT supported)
-  // var translation_enabled       = true;
   var current_user_data;
   var current_page;
   var previous_page;
@@ -166,7 +164,7 @@ var j1 = (function () {
       j1['xhrDataState'] = {};
       j1['xhrDOMState']  = {};
       // -----------------------------------------------------------------------
-      // update cookies if browser window get closed
+      // final updates before browser page|tab
       // see: https://stackoverflow.com/questions/3888902/detect-browser-or-tab-closing
       // -----------------------------------------------------------------------
       window.addEventListener('beforeunload', function (event) {
@@ -178,51 +176,25 @@ var j1 = (function () {
         var ep_status;
         var url;
         var baseUrl;
-        // final update of the user state cookie before browser page|tab
-        // get closed
-        if (user_state) {
-          user_state.session_active     = false;
-          user_state.last_session_ts    = timestamp_now;
-          if (!user_consent.analysis || !user_consent.personalization)  {
-            // rewrite consent|state cookies to session
-            logger.debug('\n' + 'write to cookie : ' + cookie_names.user_consent);
-            cookie_written = j1.writeCookie({
-              name:     cookie_names.user_consent,
-              data:     user_consent,
-              samesite: 'Strict',
-              secure:   secure,
-              expires:  0
-            });
-            if (!cookie_written) {
-              logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_consent);
-            }
-            logger.debug('\n' + 'write to cookie : ' + cookie_names.user_state);
-            cookie_written = j1.writeCookie({
-              name:     cookie_names.user_state,
-              data:     user_state,
-              samesite: 'Strict',
-              secure:   secure,
-              expires:  0
-            });
-            if (!cookie_written) {
-                logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_consent);
-            }
-          } else {
-            logger.debug('\n' + 'write to cookie : ' + cookie_names.user_state);
-            cookie_written = j1.writeCookie({
-              name:     cookie_names.user_state,
-              data:     user_state,
-              samesite: 'Strict',
-              secure:   secure,
-              expires:  365
-            });
-            if (!cookie_written) {
-                logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_state);
-            }
-          }
+        // final update of the user state cookie
+        user_state.session_active     = false;
+        user_state.last_session_ts    = timestamp_now;
+        if (!user_consent.analysis || !user_consent.personalization) {
+          logger.debug('\n' + 'write to cookie : ' + cookie_names.user_state);
+          cookie_written = j1.writeCookie({
+            name:     cookie_names.user_state,
+            data:     user_state,
+            secure:   secure,
+            expires:  0
+          });
         } else {
-          // jadams, 2021-07-11: on beforeunload, a user state cookie is expected
-          logger.error('\n' + 'missing cookie detected: ' + cookie_names.user_state);
+          logger.debug('\n' + 'write to cookie : ' + cookie_names.user_state);
+          cookie_written = j1.writeCookie({
+            name:     cookie_names.user_state,
+            data:     user_state,
+            secure:   secure,
+            expires:  365
+          });
         }
       }); // END beforeunload
       // -----------------------------------------------------------------------
@@ -236,110 +208,31 @@ var j1 = (function () {
                         : cookie_written = j1.writeCookie({
                             name:     cookie_names.user_session,
                             data:     user_session,
-                            samesite: 'Strict',
                             secure:   secure,
                             expires:  0
                           });
-      if (!cookie_written) {
-        logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_session);
-      }
       user_state    =  j1.existsCookie(cookie_names.user_state)
                         ? j1.readCookie(cookie_names.user_state)
                         : cookie_written = j1.writeCookie({
                             name:     cookie_names.user_state,
                             data:     user_state,
-                            samesite: 'Strict',
                             secure:   secure,
                             expires:  365
                           });
-      if (!cookie_written) {
-        logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_state);
-      }
-      // jadams, 2021-07-11: Found situation that user_state NOT initialized
-      // correctly (user_state == false).
-      // TODO: Check if/why user state (cookie NOT created?) NOT initialized
-      // for what reason.
+      // jadams, 2021-12-06: Access to cookies for this site failed.
+      // Possibly, a third-party domain or an attacker tries to access it.
       if (!user_state) {
-        logger.error('\n' + 'cookie not found: ' + cookie_names.user_state);
+        logger.error('\n' + 'Access to cookie failed or cookie not found: ' + cookie_names.user_state);
         logger.debug('\n' + 'j1 cookies found:' + j1Cookies.length);
-        j1Cookies.forEach(item => console.log('j1.core.switcher: ' + item));
-        logger.debug('\n' + 'ga cookies found:' + gaCookies.length);
-        gaCookies.forEach(item => console.log('j1.core.switcher: ' + item));
-        user_state = j1.readCookie(cookie_names.user_state);
-        user_state.session_active = true;
+        // redirect to error page: blocked content
+        window.location.href = '/446.html';
       }
       if (!user_consent.analysis || !user_consent.personalization)  {
-        // rewrite consent|state cookies to session
-        logger.debug('\n' + 'write to cookie : ' + cookie_names.user_state);
-        cookie_written = j1.writeCookie({
-          name:     cookie_names.user_state,
-          data:     user_state,
-          samesite: 'Strict',
-          secure:   secure,
-          expires:  0
-        });
-        if (!cookie_written) {
-          logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_state);
-        }
-      } else {
-        logger.debug('\n' + 'write to cookie : ' + cookie_names.user_state);
-        cookie_written = j1.writeCookie({
-          name:     cookie_names.user_state,
-          data:     user_state,
-          samesite: 'Strict',
-          secure:   secure,
-          expires:  365
-        });
-        if (!cookie_written) {
-          logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_state);
-        }
+        // expire permanent cookies to session
+        j1.expireCookie({ name: cookie_names.user_state });
+        j1.expireCookie({ name: cookie_names.user_consent });
+        j1.expireCookie({ name: cookie_names.user_translate });
       }
-      // jadams, 2021-11-10: anchor links of type #void are used/managed
-      // by the FAB module. No geneneraL use for NOW.
-      // -----------------------------------------------------------------------
-      // initialize event handler for smooth scroll on in-page anchors
-      // $('a[href*=\\#]').on('click', function (event) {
-      //   // ignore void links
-      //   if (window.location.href.includes('#void')||this.href.includes('#void')) {
-      //     return false;
-      //   }
-      //   // for external links, redirect to this page
-      //   if (window.location.pathname !== this.pathname) {
-      //     window.location.href = this.href;
-      //   } else {
-      //     // continue on in-page anchor
-      //     var toccerScrollDuration  = 300;
-      //     var toccerScrollOffset    = 10;
-      //
-      //     // calculate offset value for correct (smooth) scroll position
-      //     //
-      //     var $pagehead       = $('.attic');
-      //     var $navbar         = $('nav.navbar');
-      //     var $adblock        = $('#adblock');
-      //     var navbarType      = $navbar.hasClass('navbar-fixed') ? 'fixed' : 'scrolled';
-      //     var fontSize        = $('body').css('font-size').replace('px','');
-      //     var start           = window.pageYOffset;
-      //     var l               = parseInt(fontSize);
-      //     var h               = $pagehead.length ? $pagehead.height() : 0;
-      //     var n               = $navbar.length ? $navbar.height() : 0;
-      //     var a               = $adblock.length ? $adblock.height() : 0;
-      //     var scrollOffset    = navbarType == 'fixed' ? -1*(n + a + l) : -1*(h + n + a + l);
-      //
-      //     // TODO:  to be checked why this static offset (toccerScrollOffset)
-      //     //        is needed
-      //     scrollOffset        = scrollOffset + toccerScrollOffset;
-      //
-      //     logger.debug('\n' + 'scroll to anchor: ' + this.hash);
-      //     $("html, body").animate({
-      //       scrollTop: $($(this).attr("href")).offset().top + scrollOffset + "px"
-      //     }, {
-      //       duration: toccerScrollDuration,
-      //       easing: "swing"
-      //     });
-      //     // disable bubble up the event
-      //     return false;
-      //   } // End in-page link
-      // }); // END click event on anchors
       // initialize event handler for window/history/back on <ESC>
       // -----------------------------------------------------------------------
       window.onkeyup = function (event) {
@@ -370,13 +263,9 @@ var j1 = (function () {
           cookie_written = j1.writeCookie({
             name:     cookie_names.user_session,
             data:     user_session,
-            samesite: 'Strict',
             secure:   secure,
             expires:  0
           });
-          if (!cookie_written) {
-            logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_session);
-          }
           j1.setState(curr_state);
           logger.info('\n' + 'state: ' + j1.getState());
           var dependencies_met_page_displayed = setInterval (function () {
@@ -415,13 +304,9 @@ var j1 = (function () {
             cookie_written = j1.writeCookie({
               name:     cookie_names.user_session,
               data:     user_session,
-              samesite: 'Strict',
               secure:   secure,
               expires:  0
             });
-            if (!cookie_written) {
-                logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_session);
-            }
             j1.setState(curr_state);
             logger.info('\n' + 'state: ' + j1.getState());
           }, detectTimeout);
@@ -444,7 +329,8 @@ var j1 = (function () {
       // process|update user state cookie
       themeName                 = user_session.theme_name;
       themeCss                  = user_session.theme_css;
-      // save last page access
+      // -----------------------------------------------------------------------
+      // Save last page access
       // see: https://stackoverflow.com/questions/3528324/how-to-get-the-previous-url-in-javascript
       // see: https://developer.mozilla.org/de/docs/Web/API/Window/history
       //
@@ -470,13 +356,9 @@ var j1 = (function () {
       cookie_written = j1.writeCookie({
         name:     cookie_names.user_session,
         data:     user_session,
-        samesite: 'Strict',
         secure:   secure,
         expires:  0
       });
-      if (!cookie_written) {
-        logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_session);
-      }
       // NOTE: asynchronous calls should be rewitten to xhrData
       // initialize page resources for blocks
       j1.initBanner(settings);
@@ -484,19 +366,14 @@ var j1 = (function () {
       j1.initFooter(settings);
       state = 'running';
       logger.info('\n' + 'state: ' + state);
-      // logger.info(logText);
       user_session.timestamp = timestamp_now;
       logger.debug('\n' + 'write to cookie : ' + cookie_names.user_session);
       cookie_written = j1.writeCookie({
         name:     cookie_names.user_session,
         data:     user_session,
-        samesite: 'Strict',
         secure:   secure,
         expires:  0
       });
-      if (!cookie_written) {
-        logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_session);
-      }
       // -----------------------------------------------------------------------
       // additional BS helpers from j1.core
       // -----------------------------------------------------------------------
@@ -560,7 +437,6 @@ var j1 = (function () {
     // initPanel()
     // AJAX fetcher to load and place all panel used for a page
     // -------------------------------------------------------------------------
-    // ToDo:
     initPanel: function ( options ) {
       var logger            = log4javascript.getLogger('j1.initPanel');
       var panel             = [];
@@ -716,18 +592,15 @@ var j1 = (function () {
           cookie_written = j1.writeCookie({
             name:     cookie_names.user_session,
             data:     user_session,
-            samesite: 'Strict',
             secure:   secure,
             expires:  0
           });
-          if (!cookie_written) {
-            logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_session);
-          }
           providerPermissions = user_session.provider_permissions;
           categoryAllowed     = providerPermissions.includes(user_session.page_permission);
+          // -------------------------------------------------------------------
           // check protected pages (applies for APP only)
           // make sure that protected pages are ALWAYS checked for permissions
-          // -------------------------------------------------------------------
+          //
           if (
             j1.authEnabled() &&
             user_session.page_permission !== 'public' &&
@@ -824,12 +697,7 @@ var j1 = (function () {
               // Display cookie icon
               $('#quickLinksCookieButton').css('display', 'none');
             }
-            // show|hide translator icon (currently NOT supported)
-            // if (translation_enabled) {
-            //   logger.info('\n' + 'translator detected: google');
-            //   logger.info('\n' + 'initialize language selector');
-            //   $('.goog-te-combo').addClass('form-control');
-            // }
+            // -----------------------------------------------------------------
             // show cc icon (currently NOT supported)
             // $('#quickLinksControlCenterButton').css('display', 'block');
             if (j1.authEnabled()) {
@@ -985,19 +853,9 @@ var j1 = (function () {
           cookie_written = j1.writeCookie({
               name:     cookie_names.user_session,
               data:     user_session,
-              samesite: 'Strict',
               secure:   secure,
               expires:  0
           });
-          if (!cookie_written) {
-            logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_session);
-          }
-          // show|hide translator icon (currently NOT supported)
-          // if (translation_enabled) {
-          //   logger.info('\n' + 'translator detected: google');
-          //   logger.info('\n' + 'initialize language selector');
-          //   $('.goog-te-combo').addClass('form-control');
-          // }
           // show cc icon (currently NOT supported)
           // $('#quickLinksControlCenterButton').css('display', 'block');
           // show|hide cookie icon
@@ -1390,22 +1248,27 @@ var j1 = (function () {
     //    context/HTTPS).
     // -------------------------------------------------------------------------
     writeCookie: function (options /*name, data, [path, expires, domain, samesite, http_only, secure]*/) {
-      var date          = new Date();
-      var timestamp_now = date.toISOString();
-      var cookie_data   = {};
+      var date            = new Date();
+      var timestamp_now   = date.toISOString()
+      var url             = new liteURL(window.location.href);
+      var baseUrl         = url.origin;;
+      var hostname        = url.hostname;
+      var domain          = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
+      var domain_enabled  = 'true';
+      var cookie_data     = {};
       var data_json;
       var data_encoded;
       var expires;
       var stringifiedAttributes = '';
       var defaults = {
-          data: {},
-          name: '',
-          path: '/',
-          expires: 0,
-          domain: 'localhost',
-          samesite: 'Strict',
-          http_only: false,
-          secure: false
+          data:         {},
+          name:         '',
+          path:         '/',
+          expires:      '365',
+          domain:       'localhost',
+          samesite:     'Lax',
+          http_only:    'false',
+          secure:       'false'
       };
       var settings = $.extend(defaults, options);
       cookie_data.timestamp = timestamp_now;
@@ -1425,6 +1288,13 @@ var j1 = (function () {
         stringifiedAttributes += '; ' + 'expires=' + date.toUTCString();
       }
       stringifiedAttributes += '; ' + 'SameSite=' + settings.samesite;
+      // settings.domain = settings.domain ? '.' + domain : hostname;
+      if (domain != hostname) {
+        settings.domain = domain_enabled ? '.' + domain : hostname;
+      } else {
+        settings.domain = hostname;
+      }
+      stringifiedAttributes += '; ' + 'domain=' + settings.domain;
       if (settings.secure) {
         stringifiedAttributes += '; ' + 'secure=' + settings.secure;
       }
@@ -1488,12 +1358,22 @@ var j1 = (function () {
     // to JavaScript. For that reason, attributes needs to be set explicitly.
     // -------------------------------------------------------------------------
     expireCookie: function (options /*name [,path, samesite, secure]*/) {
+      var url             = new liteURL(window.location.href);
+      var baseUrl         = url.origin;;
+      var hostname        = url.hostname;
+      var domain          = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
+      var domain_enabled  = 'true';
       var defaults = {
           path: '/',
-          samesite: 'Strict',
+          samesite: 'Lax',
           secure: false
       };
       var settings  = $.extend(defaults, options);
+      if (domain != hostname) {
+        settings.domain = domain_enabled ? '.' + domain : hostname;
+      } else {
+        settings.domain = hostname;
+      }
       var dc        = document.cookie;                                            // all cookies in page
       var end       = dc.length;                                                  // default to end of the string
       var prefix    = settings.name + '=';                                                 // search string for the cookie name given
@@ -1519,9 +1399,9 @@ var j1 = (function () {
       // expire cookie to session
       content = decodeURI(dc.substring(begin + prefix.length, end) ).replace(/"/g, '');
       if (settings.secure) {
-        document.cookie = settings.name + '=' + content +'; path=' + settings.path + '; ' + 'SameSite=' + settings.samesite + '; secure';
+        document.cookie = settings.name + '=' + content +'; path=' + settings.path + '; ' + 'SameSite=' + settings.samesite + '; ' + 'Domain=' + settings.domain + '; secure' + '; ';
       } else {
-        document.cookie = settings.name + '=' + content +'; path=' + settings.path + '; ' + 'SameSite=' + settings.samesite;
+        document.cookie = settings.name + '=' + content +'; path=' + settings.path + '; ' + 'SameSite=' + settings.samesite + '; ' + 'Domain=' + settings.domain + '; ';
       }
       return true;
     },

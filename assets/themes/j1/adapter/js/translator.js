@@ -12,7 +12,7 @@
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-12-04 17:44:45 +0000
+ #  Adapter generated: 2021-12-07 17:08:54 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -41,6 +41,7 @@ j1.adapter['translator'] = (function (j1, window) {
   var hostname;
   var domain;
   var cookie_domain;
+  var domain_enabled;
   var secure;
   var logText;
   var cookie_written;
@@ -55,10 +56,17 @@ j1.adapter['translator'] = (function (j1, window) {
   // ---------------------------------------------------------------------------
   // ---------------------------------------------------------------------------
   // setCookie()
-  // writes a flat cookie (not using an encoded JSON string)
+  // writes a FLAT cookie (not using an encoded JSON string)
   // ---------------------------------------------------------------------------
   function setCookie(options /*cName, cValue, expDays*/) {
-    var defaults = {};
+    var date            = new Date();
+    var timestamp_now   = date.toISOString()
+    var url             = new liteURL(window.location.href);
+    var baseUrl         = url.origin;;
+    var hostname        = url.hostname;
+    var domain          = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
+    var domain_enabled  = 'true';
+    var defaults        = {};
     var settings;
     var document_cookie;
     var stringifiedAttributes = '';
@@ -66,8 +74,8 @@ j1.adapter['translator'] = (function (j1, window) {
         name: '',
         path: '/',
         expires: 0,
-        domain: 'localhost',
-        samesite: 'Strict',
+        domain: true,
+        samesite: 'Lax',
         http_only: false,
         secure: false
     };
@@ -77,6 +85,12 @@ j1.adapter['translator'] = (function (j1, window) {
       date.setTime(date.getTime() + (settings.expires * 24 * 60 * 60 * 1000));
       stringifiedAttributes += '; ' + 'expires=' + date.toUTCString();
     }
+    if (domain != hostname) {
+      settings.domain = domain_enabled ? '.' + domain : hostname;
+    } else {
+      settings.domain = hostname;
+    }
+    stringifiedAttributes += '; ' + 'domain=' + settings.domain;
     stringifiedAttributes += '; ' + 'SameSite=' + settings.samesite;
     if (settings.secure) {
       stringifiedAttributes += '; ' + 'secure=' + settings.secure;
@@ -102,7 +116,7 @@ j1.adapter['translator'] = (function (j1, window) {
       baseUrl               = url.origin;
       hostname              = url.hostname;
       domain                = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
-      cookie_domain         = (domain.includes('.')) ? '.' + domain : domain;
+      domain_enabled        = 'true';
       secure                = (url.protocol.includes('https')) ? true : false;
       navigator_language    = navigator.language || navigator.userLanguage;     // userLanguage for MS IE compatibility
       translation_language  = navigator_language.split('-')[0];
@@ -120,32 +134,18 @@ j1.adapter['translator'] = (function (j1, window) {
         'useLanguageFromBrowser':   true,
         'translationLanguage':      translation_language,
       };
-      // load|initialize user translate cookie
-      if (j1.existsCookie(cookie_names.user_translate)) {
-        user_translate = j1.readCookie(cookie_names.user_translate);
-      } else {
-        logger.debug('\n' + 'write to cookie : ' + cookie_names.user_translate);
-        cookie_written = j1.writeCookie({
-          name:     cookie_names.user_translate,
-          data:     user_translate,
-          samesite: 'Strict',
-          secure:   secure,
-          expires:  365
-        });
-      }
       // initialize state flag
       _this.state = 'pending';
-      // _this.settings.languageList = '/assets/data/ms_select.json';
       // -----------------------------------------------------------------------
       // Default module settings
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.translator',
-        generated:   '2021-12-04 17:44:45 +0000'
+        generated:   '2021-12-07 17:08:54 +0000'
       }, options);
       // Load  module DEFAULTS|CONFIG
       /* eslint-disable */
-      moduleOptions = $.extend({}, {"enabled":true, "translationEnabled":false, "hideTranslatorIcon":false, "disableLanguageSelector":false, "translationLanguage":"de", "translateAllPages":true, "reloadPageOnChange":true, "contentURL":"/assets/data/translator", "contentLanguage":"en", "dialogLanguage":"en", "dialogLanguages":["en", "de"], "cookieName":"j1.user.translate", "cookieConsentName":"j1.user.consent", "xhrDataElement":"google-data", "dialogContainerID":"translator-dialog", "google":{"postSelectionCallback":"j1.adapter.translator.cbGoogle", "hideSuggestionBox":true, "hidePoweredBy":true, "hideTopFrame":true, "translationLanguages":["af", "sq", "am", "ar", "hy", "az", "eu", "be", "bn", "bs", "bg", "km", "ca", "ny", "zh-CN", "zh-TW", "co", "hr", "cs", "da", "nl", "en", "et", "tl", "fi", "fr", "fy", "gl", "ka", "de", "el", "gu", "ht", "ha", "haw", "iw", "hi", "hu", "is", "ig", "id", "ga", "it", "ja", "jw", "kn", "kk", "rw", "ko", "ku", "ky", "lo", "lv", "lt", "mk", "mg", "ms", "ml", "mt", "mi", "mr", "mo", "mn", "ne", false, "nn", "or", "ps", "fa", "pl", "pt", "pa", "ro", "rm", "ru", "gd", "sr", "st", "sn", "sd", "si", "sk", "sl", "so", "es", "su", "sw", "sv", "tg", "ta", "tt", "te", "th", "tr", "tk", "ug", "uk", "ur", "uz", "vi", "cy", "xh", "yi", "yo", "zu"], "modal_settings":{"title":{"en":"Google Translator", "de":"Google Übersetzer"}, "body_text":{"en":"This website uses the free service <em>Google Translate</em> to translate the content into 100+ languages in a matter of seconds. The <b>language</b> for translation is taken <b>automatically</b> from the language settings of your <b>browser</b>. If you do <b>not</b> want translation anymore, <b>disable</b> the service in section <b>My Settings</b>.\n", "de":"Diese Website nutzt den kostenlosen Dienst <em>Google Translate</em>, um die Inhalte in sekundenschnelle in über 100+ Sprachen zu übersetzen. Die <b>Sprache</b> für die Übersetzung wird <b>automatisch</b> aus den Spracheinstellungen Ihres <b>Browsers</b> übernommen. Wenn Sie <b>keine</b> Übersetzung mehr wünschen, <b>deaktivieren</b> Sie den Dienst im Abschnitt <b>Meine Einstellungen</b>.\n"}, "language_selector_title":{"en":"Your current language setting for translation is:", "de":"Ihre aktuelle Spracheinstellung für die Übersetzung ist:"}, "privacy_notice":{"en":"The free service from <em>Google Translate</em> uses cookies to provide its services, personalize advertising and run traffic analysis To use the service, your consent on using cookies is required. Find more information about at the Google <a href=\"https://policies.google.com/\" target=\"_blank\" rel=\"noopener\">Privacy Policy</a> <br><br> <code>Analysis</code> For translations, your consent on <b>Analysis</b> with your <b>Privacy Settings</b> is required. <br><br> <code>Personalization</code> For translations, your consent on <b>Personalization</b> with your <b>Privacy Settings</b> is required.\n", "de":"Der kostenlose Dienst von <em>Google Translate</em> verwendet Cookies um seine Dienste bereitzustellen, Werbung zu personalisieren und Verkehrsanalysen durchzuführen: <br><br> <code>Analysen</code> Für die Nutzung von Übersetzungen ist Ihre Zustimmung zu <b>Analysen</b> in den Einstellungen <code>Ihre Privatsphäre</code> erforderlich. <br><br> <code>Personalisierung</code> Für die Nutzung von Übersetzungen ist Ihre Zustimmung zur <b>Personalisierung</b> in den Einstellungen <code>Ihre Privatsphäre</code> erforderlich.\n"}}}, "translatorName":"google"});
+      moduleOptions = $.extend({}, {"enabled":true, "translationEnabled":false, "hideTranslatorIcon":false, "disableLanguageSelector":false, "translationLanguage":"de", "translateAllPages":true, "reloadPageOnChange":true, "contentURL":"/assets/data/translator", "contentLanguage":"en", "dialogLanguage":"auto", "dialogLanguages":["en", "de"], "cookieName":"j1.user.translate", "cookieConsentName":"j1.user.consent", "xhrDataElement":"google-data", "dialogContainerID":"translator-dialog", "google":{"postSelectionCallback":"j1.adapter.translator.cbGoogle", "hideSuggestionBox":true, "hidePoweredBy":true, "hideTopFrame":true, "translationLanguages":["af", "sq", "am", "ar", "hy", "az", "eu", "be", "bn", "bs", "bg", "km", "ca", "ny", "zh-CN", "zh-TW", "co", "hr", "cs", "da", "nl", "en", "et", "tl", "fi", "fr", "fy", "gl", "ka", "de", "el", "gu", "ht", "ha", "haw", "iw", "hi", "hu", "is", "ig", "id", "ga", "it", "ja", "jw", "kn", "kk", "rw", "ko", "ku", "ky", "lo", "lv", "lt", "mk", "mg", "ms", "ml", "mt", "mi", "mr", "mo", "mn", "ne", false, "nn", "or", "ps", "fa", "pl", "pt", "pa", "ro", "rm", "ru", "gd", "sr", "st", "sn", "sd", "si", "sk", "sl", "so", "es", "su", "sw", "sv", "tg", "ta", "tt", "te", "th", "tr", "tk", "ug", "uk", "ur", "uz", "vi", "cy", "xh", "yi", "yo", "zu"], "modal_settings":{"title":{"en":"Google Translator", "de":"Google Übersetzer"}, "body_text":{"en":"This website uses the free service <em>Google Translate</em> to translate the content into 100+ languages in a matter of seconds. The <b>language</b> for translation is taken <b>automatically</b> from the language settings of your <b>browser</b>. If you do <b>not</b> want translation anymore, <b>disable</b> the service in section <b>My Settings</b>.\n", "de":"Diese Website nutzt den kostenlosen Dienst <em>Google Translate</em>, um die Inhalte in sekundenschnelle in über 100+ Sprachen zu übersetzen. Die <b>Sprache</b> für die Übersetzung wird <b>automatisch</b> aus den Spracheinstellungen Ihres <b>Browsers</b> übernommen. Wenn Sie <b>keine</b> Übersetzung mehr wünschen, <b>deaktivieren</b> Sie den Dienst im Abschnitt <b>Meine Einstellungen</b>.\n"}, "language_selector_title":{"en":"Your current language setting for translation is:", "de":"Ihre aktuelle Spracheinstellung für die Übersetzung ist:"}, "privacy_notice":{"en":"The free service from <em>Google Translate</em> uses cookies to provide its services, personalize advertising and run traffic analysis To use the service, your consent on using cookies is required. Find more information about at the Google <a href=\"https://policies.google.com/\" target=\"_blank\" rel=\"noopener\">Privacy Policy</a> <br><br> <code>Analysis</code> For translations, your consent on <b>Analysis</b> with your <b>Privacy Settings</b> is required. <br><br> <code>Personalization</code> For translations, your consent on <b>Personalization</b> with your <b>Privacy Settings</b> is required.\n", "de":"Der kostenlose Dienst von <em>Google Translate</em> verwendet Cookies um seine Dienste bereitzustellen, Werbung zu personalisieren und Verkehrsanalysen durchzuführen: <br><br> <code>Analysen</code> Für die Nutzung von Übersetzungen ist Ihre Zustimmung zu <b>Analysen</b> in den Einstellungen <code>Ihre Privatsphäre</code> erforderlich. <br><br> <code>Personalisierung</code> Für die Nutzung von Übersetzungen ist Ihre Zustimmung zur <b>Personalisierung</b> in den Einstellungen <code>Ihre Privatsphäre</code> erforderlich.\n"}}}, "translatorName":"google"});
       /* eslint-enable */
       if (typeof settings !== 'undefined') {
         moduleOptions = j1.mergeData(moduleOptions, settings);
@@ -154,7 +154,28 @@ j1.adapter['translator'] = (function (j1, window) {
       // initializer
       // -----------------------------------------------------------------------
       var dependencies_met_page_ready = setInterval (function (options) {
-        user_consent = j1.readCookie(cookie_names.user_consent);
+        var expires   = '365';
+        var same_site = 'Lax';
+        user_consent    = j1.readCookie(cookie_names.user_consent);
+        // set domain used by cookies
+        if (domain != hostname) {
+          cookie_domain = domain_enabled ? '.' + domain : hostname;
+        } else {
+          cookie_domain = hostname;
+        }
+        // load|initialize user translate cookie
+        if (j1.existsCookie(cookie_names.user_translate)) {
+          user_translate = j1.readCookie(cookie_names.user_translate);
+        } else {
+          logger.debug('\n' + 'write to cookie : ' + cookie_names.user_translate);
+          cookie_written = j1.writeCookie({
+            name:     cookie_names.user_translate,
+            data:     user_translate,
+            samesite: 'Strict',
+            secure:   secure,
+            expires:  365
+          });
+        }
         if ( j1.getState() === 'finished' ) {
           _this.setState('started');
           logger.info('\n' + 'state: ' + _this.getState());
@@ -178,22 +199,37 @@ j1.adapter['translator'] = (function (j1, window) {
               }
             }
           }
-          // update user_translate cookie
-          user_translate.analysis         = user_consent.analysis;
-          user_translate.personalization  = user_consent.personalization;
-          cookie_written = j1.writeCookie({
-            name:     cookie_names.user_translate,
-            data:     user_translate,
-            samesite: 'Strict',
-            secure:   secure,
-            expires:  365
-          });
+          // load|set user translate cookie
+          user_translate = j1.readCookie(cookie_names.user_translate);
+          if (!user_consent.analysis || !user_consent.personalization) {
+            // disable translation service
+            user_translate.translationEnabled = false;
+            cookie_written = j1.writeCookie({
+              name:     cookie_names.user_translate,
+              data:     user_translate,
+              secure:   secure
+            });
+            // expire permanent cookie to session
+            j1.expireCookie({ name: cookie_names.user_translate });
+          } else {
+            logger.debug('\n' + 'write to cookie : ' + cookie_names.user_translate);
+            cookie_written = j1.writeCookie({
+              name:     cookie_names.user_translate,
+              data:     user_translate,
+              secure:   secure,
+              expires:  365
+            });
+          }
           if (moduleOptions.dialogLanguage === 'auto') {
             moduleOptions.dialogLanguage = 'en';
           }
           j1.translator = new Translator({
             contentURL:               moduleOptions.contentURL,                 // dialog content (modals) for all supported languages
-            cookieName:               moduleOptions.cookieName,                 // the name of the User State Cookie (primary data)
+            cookieName:               cookie_names.user_translate,              // name of the translator cookie
+            cookieStorageDays:        expires,                                  // lifetime of a cookie [0..365], 0: session cookie
+            cookieSameSite:           same_site,                                // restrict consent cookie
+            cookieDomain:             cookie_domain,                            // set domain (hostname|domain)
+            cookieSecure:             secure,                                   // set
             cookieConsentName:        moduleOptions.cookieConsentName,          // the name of the Cookie Consent Cookie (secondary data)
             disableLanguageSelector:  moduleOptions.disableLanguageSelector,    // disable language dropdown for translation in dialog (modal)
             dialogContainerID:        moduleOptions.dialogContainerID,          // dest container, the dialog modal is loaded (dynamically)
@@ -206,7 +242,7 @@ j1.adapter['translator'] = (function (j1, window) {
             postSelectionCallback:    moduleOptions.google.postSelectionCallback
           });
           // enable|disable translation (after callback)
-          if (user_consent.analysis && user_consent.personalization && user_translate.translationEnabled) {
+          if (user_translate.analysis && user_translate.personalization && user_translate.translationEnabled) {
             if (moduleOptions.translatorName === 'google') {
               head.appendChild(script);
               if ($('google_translate_element')) {
@@ -221,12 +257,9 @@ j1.adapter['translator'] = (function (j1, window) {
               Cookies.remove('googtrans');
             }
           }
-          // Click events moved to Navigator (core)
-          //
-          // $('#quickLinksTranslateButton').click(function(e) {
-          //   logger.info('\n' + 'call default action');
-          //   j1.translator.showDialog();
-          // });
+          // -------------------------------------------------------------------
+          // NOTE: Click events moved to Navigator (core)
+          // -------------------------------------------------------------------
           _this.setState('finished');
           logger.info('\n' + 'state: ' + _this.getState());
           logger.debug('\n' + 'module initialized successfully');
@@ -282,32 +315,33 @@ j1.adapter['translator'] = (function (j1, window) {
     }, // END postTranslateElementInit
     // -------------------------------------------------------------------------
     // cbGoogle()
-    // Called by the translator CORE module after the user made the
-    // selection for a translation|language
+    // Called by the translator CORE module after the user has made
+    // the selection for a translation|language
     // -------------------------------------------------------------------------
     cbGoogle: function () {
       var logger         = log4javascript.getLogger('j1.adapter.translator.cbGoogle');
       var cookie_names   = j1.getCookieNames();
-      var user_state     = j1.readCookie(cookie_names.user_state);
       var user_consent   = j1.readCookie(cookie_names.user_consent);
       var user_translate = j1.readCookie(cookie_names.user_translate);
       var msDropdown     = document.getElementById('dropdownJSON').msDropdown;
+      var url            = new liteURL(window.location.href);
+      var baseUrl        = url.origin;;
+      var hostname       = url.hostname;
+      var domain         = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
+      var domain_enabled = 'true';
+      var same_site      = 'Lax';
       var selectedTranslationLanguage;
       var srcLang;
       var destLang;
       var transCode;
+      // set domain used by cookies
+      if (domain != hostname) {
+        cookie_domain = domain_enabled ? '.' + domain : hostname;
+      } else {
+        cookie_domain = hostname;
+      }
       selectedTranslationLanguage = msDropdown.value;
       logger.info('\n' + 'selected translation language: ' + selectedTranslationLanguage);
-      // update cookie consent settings
-      user_consent.analysis         = user_translate.analysis;
-      user_consent.personalization  = user_translate.personalization;
-      cookie_written = j1.writeCookie({
-        name:     cookie_names.user_consent,
-        data:     user_consent,
-        samesite: 'Strict',
-        secure:   secure,
-        expires:  365
-      });
       // set content language
       if (moduleOptions.contentLanguage === 'auto') {
         srcLang = 'en';
@@ -328,8 +362,16 @@ j1.adapter['translator'] = (function (j1, window) {
       Cookies.remove('googtrans', { domain: cookie_domain });
       Cookies.remove('googtrans', { domain: hostname });
       Cookies.remove('googtrans');
-      // write the googtrans cookie w/o DOMAIN!
-      Cookies.set('googtrans', transCode);
+      // -----------------------------------------------------------------------
+      // NOTE: googtrans cookie will be rewritten (by Google!?) for
+      // attributes 'SameSite' and potentially 'Domain'. This results
+      // for 'SameSite' in an empty field!
+      // -----------------------------------------------------------------------
+      // write the googtrans cookie (w/o DOMAIN?!)
+      Cookies.set('googtrans', transCode, {
+        Domain:    cookie_domain,
+        sameSite:  'Lax'
+      });
       // reload current page (skip cache)
       location.reload(true);
     }, // END cbGoogle
