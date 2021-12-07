@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-12-07 17:08:54 +0000
+ # Adapter generated: 2021-12-07 17:40:53 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -45,6 +45,7 @@ var j1 = (function () {
   // Default comment provider information
   var comment_provider          = 'hyvor';
   var site_id                   = 'hyvor-site-id';
+  var check_cookies             = false;
   var current_user_data;
   var current_page;
   var previous_page;
@@ -219,13 +220,15 @@ var j1 = (function () {
                             secure:   secure,
                             expires:  365
                           });
-      // jadams, 2021-12-06: Access to cookies for this site failed.
+      // jadams, 2021-12-06: Check if access to cookies for this site failed.
       // Possibly, a third-party domain or an attacker tries to access it.
-      if (!user_state) {
-        logger.error('\n' + 'Access to cookie failed or cookie not found: ' + cookie_names.user_state);
-        logger.debug('\n' + 'j1 cookies found:' + j1Cookies.length);
-        // redirect to error page: blocked content
-        window.location.href = '/446.html';
+      if (check_cookies) {
+        if (!user_state) {
+          logger.error('\n' + 'Access to cookie failed or cookie not found: ' + cookie_names.user_state);
+          logger.debug('\n' + 'j1 cookies found:' + j1Cookies.length);
+          // redirect to error page: blocked content
+          window.location.href = '/446.html';
+        }
       }
       if (!user_consent.analysis || !user_consent.personalization)  {
         // expire permanent cookies to session
