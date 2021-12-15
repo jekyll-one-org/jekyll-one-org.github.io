@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-12-15 17:01:50 +0000
+ # Adapter generated: 2021-12-15 17:10:20 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -1268,7 +1268,7 @@ var j1 = (function () {
           name:         '',
           path:         '/',
           expires:      '365',
-          domain:       'auto',
+          domain:       'false',
           samesite:     'Strict',
           http_only:    'false',
           secure:       'false'
@@ -1333,7 +1333,7 @@ var j1 = (function () {
       var defaults = {
         path:         '/',
         expires:      '365',
-        domain:       'auto',
+        domain:       'false',
         samesite:     'Strict',
         http_only:    'false',
         secure:       'false'
@@ -1382,7 +1382,7 @@ var j1 = (function () {
       var defaults = {
         path:         '/',
         expires:      '365',
-        domain:       'auto',
+        domain:       'false',
         samesite:     'Strict',
         http_only:    'false',
         secure:       'false'
