@@ -12,7 +12,7 @@
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-12-07 18:40:52 +0000
+ #  Adapter generated: 2021-12-15 16:40:32 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -40,8 +40,7 @@ j1.adapter['translator'] = (function (j1, window) {
   var baseUrl;
   var hostname;
   var domain;
-  var cookie_domain;
-  var domain_enabled;
+  var cookie_option_domain;
   var secure;
   var logText;
   var cookie_written;
@@ -51,6 +50,7 @@ j1.adapter['translator'] = (function (j1, window) {
   var head;
   var script;
   var languageList;
+  var domainAttribute;
   // ---------------------------------------------------------------------------
   // helper functions
   // ---------------------------------------------------------------------------
@@ -58,47 +58,56 @@ j1.adapter['translator'] = (function (j1, window) {
   // setCookie()
   // writes a FLAT cookie (not using an encoded JSON string)
   // ---------------------------------------------------------------------------
-  function setCookie(options /*cName, cValue, expDays*/) {
-    var date            = new Date();
-    var timestamp_now   = date.toISOString()
-    var url             = new liteURL(window.location.href);
-    var baseUrl         = url.origin;;
-    var hostname        = url.hostname;
-    var domain          = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
-    var domain_enabled  = 'false';
-    var defaults        = {};
-    var settings;
-    var document_cookie;
-    var stringifiedAttributes = '';
-    defaults = {
-        name: '',
-        path: '/',
-        expires: 0,
-        domain: true,
-        samesite: 'Lax',
-        http_only: false,
-        secure: false
-    };
-    settings = $.extend(defaults, options);
-    stringifiedAttributes += '; ' + 'path=' + settings.path;
-    if (settings.expires > 0) {
-      date.setTime(date.getTime() + (settings.expires * 24 * 60 * 60 * 1000));
-      stringifiedAttributes += '; ' + 'expires=' + date.toUTCString();
-    }
-    if (domain != hostname) {
-      settings.domain = domain_enabled ? '.' + domain : hostname;
-    } else {
-      settings.domain = hostname;
-    }
-    stringifiedAttributes += '; ' + 'domain=' + settings.domain;
-    stringifiedAttributes += '; ' + 'SameSite=' + settings.samesite;
-    if (settings.secure) {
-      stringifiedAttributes += '; ' + 'secure=' + settings.secure;
-    }
-    // document_cookie = settings.name + '=' + settings.data  + '; path=' + settings.path + '; ' + 'domain=' + settings.domain + '; ' + 'SameSite=' + settings.samesite + ';';
-    document_cookie = settings.name + '=' + settings.data + stringifiedAttributes;
-    document.cookie = document_cookie;
-  };
+//   function setCookie(options /*cName, cValue, expDays*/) {
+//     var date            = new Date();
+//     var timestamp_now   = date.toISOString()
+//     var url             = new liteURL(window.location.href);
+//     var baseUrl         = url.origin;;
+//     var hostname        = url.hostname;
+//     var domain          = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
+//     var domain_enabled  = 'false';
+//     var defaults        = {};
+//     var settings;
+//     var document_cookie;
+//     var stringifiedAttributes = '';
+//
+//     defaults = {
+//         name: '',
+//         path: '/',
+//         expires: 0,
+//         domain: true,
+//         samesite: 'Lax',
+//         http_only: false,
+//         secure: false
+//     };
+//     settings = $.extend(defaults, options);
+//
+//     stringifiedAttributes += '; ' + 'path=' + settings.path;
+//
+//     if (settings.expires > 0) {
+//       date.setTime(date.getTime() + (settings.expires * 24 * 60 * 60 * 1000));
+//       stringifiedAttributes += '; ' + 'expires=' + date.toUTCString();
+//     }
+//
+//     if (domain != hostname) {
+// //    settings.domain = domain_enabled ? '.' + domain : hostname;
+//       settings.domain = domain_enabled ? domain : hostname;
+//     } else {
+//       settings.domain = hostname;
+//     }
+//     stringifiedAttributes += '; ' + 'domain=' + settings.domain;
+//
+//     stringifiedAttributes += '; ' + 'SameSite=' + settings.samesite;
+//
+//     if (settings.secure) {
+//       stringifiedAttributes += '; ' + 'secure=' + settings.secure;
+//     }
+//
+//     // document_cookie = settings.name + '=' + settings.data  + '; path=' + settings.path + '; ' + 'domain=' + settings.domain + '; ' + 'SameSite=' + settings.samesite + ';';
+//     document_cookie = settings.name + '=' + settings.data + stringifiedAttributes;
+//
+//     document.cookie = document_cookie;
+//   };
   // ---------------------------------------------------------------------------
   // Main object
   // ---------------------------------------------------------------------------
@@ -116,7 +125,6 @@ j1.adapter['translator'] = (function (j1, window) {
       baseUrl               = url.origin;
       hostname              = url.hostname;
       domain                = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
-      domain_enabled        = 'false';
       secure                = (url.protocol.includes('https')) ? true : false;
       navigator_language    = navigator.language || navigator.userLanguage;     // userLanguage for MS IE compatibility
       translation_language  = navigator_language.split('-')[0];
@@ -141,7 +149,7 @@ j1.adapter['translator'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.translator',
-        generated:   '2021-12-07 18:40:52 +0000'
+        generated:   '2021-12-15 16:40:32 +0000'
       }, options);
       // Load  module DEFAULTS|CONFIG
       /* eslint-disable */
@@ -154,14 +162,16 @@ j1.adapter['translator'] = (function (j1, window) {
       // initializer
       // -----------------------------------------------------------------------
       var dependencies_met_page_ready = setInterval (function (options) {
-        var expires   = '365';
-        var same_site = 'Lax';
-        user_consent    = j1.readCookie(cookie_names.user_consent);
+        var expires       = '365';
+        var same_site     = 'Strict';
+        var option_domain = 'false';
+        user_consent      = j1.readCookie(cookie_names.user_consent);
         // set domain used by cookies
-        if (domain != hostname) {
-          cookie_domain = domain_enabled ? '.' + domain : hostname;
-        } else {
-          cookie_domain = hostname;
+        if (option_domain == 'auto') {
+          domainAttribute = domain ;
+        } else  {
+          // domainAttribute = hostname;
+          domainAttribute = '';
         }
         // load|initialize user translate cookie
         if (j1.existsCookie(cookie_names.user_translate)) {
@@ -171,9 +181,9 @@ j1.adapter['translator'] = (function (j1, window) {
           cookie_written = j1.writeCookie({
             name:     cookie_names.user_translate,
             data:     user_translate,
-            samesite: 'Strict',
+            samesite: same_site,
             secure:   secure,
-            expires:  365
+            expires:  expires
           });
         }
         if ( j1.getState() === 'finished' ) {
@@ -200,7 +210,7 @@ j1.adapter['translator'] = (function (j1, window) {
             }
           }
           // load|set user translate cookie
-          user_translate = j1.readCookie(cookie_names.user_translate);
+          user_consent = j1.readCookie(cookie_names.user_consent);
           if (!user_consent.analysis || !user_consent.personalization) {
             // disable translation service
             user_translate.translationEnabled = false;
@@ -228,7 +238,7 @@ j1.adapter['translator'] = (function (j1, window) {
             cookieName:               cookie_names.user_translate,              // name of the translator cookie
             cookieStorageDays:        expires,                                  // lifetime of a cookie [0..365], 0: session cookie
             cookieSameSite:           same_site,                                // restrict consent cookie
-            cookieDomain:             cookie_domain,                            // set domain (hostname|domain)
+            cookieDomain:             domainAttribute,                          // set domain (hostname|domain)
             cookieSecure:             secure,                                   // set
             cookieConsentName:        moduleOptions.cookieConsentName,          // the name of the Cookie Consent Cookie (secondary data)
             disableLanguageSelector:  moduleOptions.disableLanguageSelector,    // disable language dropdown for translation in dialog (modal)
@@ -252,7 +262,7 @@ j1.adapter['translator'] = (function (j1, window) {
           } else {
             if (moduleOptions.translatorName === 'google') {
               // remove all googtrans cookies that POTENTIALLY exists
-              Cookies.remove('googtrans', { domain: cookie_domain });
+              Cookies.remove('googtrans', { domain: domainAttribute });
               Cookies.remove('googtrans', { domain: hostname });
               Cookies.remove('googtrans');
             }
@@ -319,27 +329,29 @@ j1.adapter['translator'] = (function (j1, window) {
     // the selection for a translation|language
     // -------------------------------------------------------------------------
     cbGoogle: function () {
-      var logger         = log4javascript.getLogger('j1.adapter.translator.cbGoogle');
-      var cookie_names   = j1.getCookieNames();
-      var user_consent   = j1.readCookie(cookie_names.user_consent);
-      var user_translate = j1.readCookie(cookie_names.user_translate);
-      var msDropdown     = document.getElementById('dropdownJSON').msDropdown;
-      var url            = new liteURL(window.location.href);
-      var baseUrl        = url.origin;;
-      var hostname       = url.hostname;
-      var domain         = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
-      var domain_enabled = 'false';
-      var same_site      = 'Lax';
-      var selectedTranslationLanguage;
+      var logger                = log4javascript.getLogger('j1.adapter.translator.cbGoogle');
+      var msDropdown            = document.getElementById('dropdownJSON').msDropdown;
+//    var cookie_names          = j1.getCookieNames();
+//    var user_consent          = j1.readCookie(cookie_names.user_consent);
+//    var user_translate        = j1.readCookie(cookie_names.user_translate);
+//    var url                   = new liteURL(window.location.href);
+//    var baseUrl               = url.origin;;
+//    var hostname              = url.hostname;
+//    var domain                = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
+//    var cookie_option_domain  = 'false';
+//    var same_site             = 'Strict';
       var srcLang;
       var destLang;
       var transCode;
+      var domainAttribute;
+      var selectedTranslationLanguage;
       // set domain used by cookies
-      if (domain != hostname) {
-        cookie_domain = domain_enabled ? '.' + domain : hostname;
-      } else {
-        cookie_domain = hostname;
-      }
+      // if (cookie_option_domain == 'auto') {
+      //   domainAttribute = domain ;
+      // } else  {
+      //   // domainAttribute = hostname;
+      //   domainAttribute = '';
+      // }
       selectedTranslationLanguage = msDropdown.value;
       logger.info('\n' + 'selected translation language: ' + selectedTranslationLanguage);
       // set content language
@@ -350,7 +362,7 @@ j1.adapter['translator'] = (function (j1, window) {
       }
       // translation language MUST be DIFFERENT from content language
       if (srcLang == selectedTranslationLanguage ) {
-        Cookies.remove('googtrans', { domain: cookie_domain });
+        Cookies.remove('googtrans', { domain: domainAttribute });
         Cookies.remove('googtrans', { domain: hostname });
         Cookies.remove('googtrans');
         location.reload(true);
@@ -359,19 +371,16 @@ j1.adapter['translator'] = (function (j1, window) {
       destLang  = translation_language;
       transCode = '/' + srcLang + '/' + selectedTranslationLanguage;
       // remove all googtrans cookies that POTENTIALLY exists
-      Cookies.remove('googtrans', { domain: cookie_domain });
+      Cookies.remove('googtrans', { domain: domainAttribute });
       Cookies.remove('googtrans', { domain: hostname });
       Cookies.remove('googtrans');
       // -----------------------------------------------------------------------
       // NOTE: googtrans cookie will be rewritten (by Google!?) for
-      // attributes 'SameSite' and potentially 'Domain'. This results
-      // for 'SameSite' in an empty field!
+      // attributes 'SameSite' and 'Domain'. This results for 'SameSite'
+      // in an empty field and two cookies (host+domain) if domain option
+      // is enabled!!!
       // -----------------------------------------------------------------------
-      // write the googtrans cookie (w/o DOMAIN?!)
-      Cookies.set('googtrans', transCode, {
-        Domain:    cookie_domain,
-        sameSite:  'Lax'
-      });
+      Cookies.set('googtrans', transCode);
       // reload current page (skip cache)
       location.reload(true);
     }, // END cbGoogle

@@ -12,7 +12,7 @@
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-12-07 18:40:52 +0000
+ #  Adapter generated: 2021-12-15 16:40:32 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -38,13 +38,14 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
   var baseUrl;
   var hostname;
   var domain;
-  var domain_enabled;
+  var cookie_option_domain;
   var cookie_domain;
   var secure;
   var logText;
   var cookie_written;
   var contentLanguage;
   var navigatorLanguage;
+  var domainAttribute;
   // NOTE: RegEx for tracking_id: ^(G|UA|YT|MO)-[a-zA-Z0-9-]+$
   // See: https://stackoverflow.com/questions/20411767/how-to-validate-google-analytics-tracking-id-using-a-javascript-function/20412153
   // ---------------------------------------------------------------------------
@@ -61,17 +62,17 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       // globals
       // -----------------------------------------------------------------------
-      _this             = j1.adapter.cookieConsent;
-      logger            = log4javascript.getLogger('j1.adapter.cookieConsent');
-      cookie_names      = j1.getCookieNames();
-      url               = new liteURL(window.location.href);
-      baseUrl           = url.origin;
-      hostname          = url.hostname;
-      domain            = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
-      domain_enabled    = 'false';
-      secure            = (url.protocol.includes('https')) ? true : false;
-      contentLanguage   = 'en';
-      navigatorLanguage = navigator.language || navigator.userLanguage;
+      _this                 = j1.adapter.cookieConsent;
+      logger                = log4javascript.getLogger('j1.adapter.cookieConsent');
+      cookie_names          = j1.getCookieNames();
+      url                   = new liteURL(window.location.href);
+      baseUrl               = url.origin;
+      hostname              = url.hostname;
+      domain                = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
+      cookie_option_domain  = 'false';
+      secure                = (url.protocol.includes('https')) ? true : false;
+      contentLanguage       = 'en';
+      navigatorLanguage     = navigator.language || navigator.userLanguage;
       // initialize state flag
       _this.state = 'pending';
       // -----------------------------------------------------------------------
@@ -79,7 +80,7 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.cookieConsent',
-        generated:   '2021-12-07 18:40:52 +0000'
+        generated:   '2021-12-15 16:40:32 +0000'
       }, options);
       // Load  module DEFAULTS|CONFIG
       /* eslint-disable */
@@ -97,13 +98,14 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
       // initializer
       // -----------------------------------------------------------------------
       var dependencies_met_page_ready = setInterval (function (options) {
-        var expires   = '365';
-        var same_site = 'Lax';
+        var expires     = '365';
+        var same_site   = 'Strict';
         // set domain used by cookies
-        if (domain != hostname) {
-          cookie_domain = domain_enabled ? '.' + domain : hostname;
-        } else {
-          cookie_domain = hostname;
+        if (cookie_option_domain == 'auto') {
+          domainAttribute = domain ;
+        } else  {
+          // domainAttribute = hostname;
+          domainAttribute = '';
         }
         if ( j1.getState() === 'finished' ) {
           _this.setState('started');
@@ -114,7 +116,8 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
             cookieName:             cookie_names.user_consent,                  // name of the consent cookie
             cookieStorageDays:      expires,                                    // lifetime of a cookie [0..365], 0: session cookie
             cookieSameSite:         same_site,                                  // restrict consent cookie
-            cookieDomain:           cookie_domain,                              // set domain (hostname|domain)
+            cookieSecure:           secure,                                     // only sent to the server with an encrypted request over HTTPS
+            cookieDomain:           domainAttribute,                            // set domain (hostname|domain)
             dialogLanguage:         moduleOptions.dialogLanguage,               // language for the dialog (modal)
             whitelisted:            moduleOptions.whitelisted,                  // pages NOt dialog is shown
             reloadPageOnChange:     moduleOptions.reloadPageOnChange,           // reload if setzings has changed

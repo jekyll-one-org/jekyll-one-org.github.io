@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-12-07 18:40:52 +0000
+ # Adapter generated: 2021-12-15 16:40:32 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -45,7 +45,7 @@ var j1 = (function () {
   // Default comment provider information
   var comment_provider          = 'hyvor';
   var site_id                   = 'hyvor-site-id';
-  var check_cookies             = false;
+  var check_cookies             = true;
   var current_user_data;
   var current_page;
   var previous_page;
@@ -1251,25 +1251,25 @@ var j1 = (function () {
     //    context/HTTPS).
     // -------------------------------------------------------------------------
     writeCookie: function (options /*name, data, [path, expires, domain, samesite, http_only, secure]*/) {
-      var date            = new Date();
-      var timestamp_now   = date.toISOString()
-      var url             = new liteURL(window.location.href);
-      var baseUrl         = url.origin;;
-      var hostname        = url.hostname;
-      var domain          = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
-      var domain_enabled  = 'false';
-      var cookie_data     = {};
+      var date                  = new Date();
+      var timestamp_now         = date.toISOString()
+      var url                   = new liteURL(window.location.href);
+      var baseUrl               = url.origin;;
+      var hostname              = url.hostname;
+      var domain                = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
+      var stringifiedAttributes = '';
+      var cookie_data           = {};
       var data_json;
       var data_encoded;
       var expires;
-      var stringifiedAttributes = '';
+      var domainAttribute;
       var defaults = {
           data:         {},
           name:         '',
           path:         '/',
           expires:      '365',
-          domain:       'localhost',
-          samesite:     'Lax',
+          domain:       'false',
+          samesite:     'Strict',
           http_only:    'false',
           secure:       'false'
       };
@@ -1285,21 +1285,23 @@ var j1 = (function () {
         data_json     = JSON.stringify(settings.data);
         data_encoded  = window.btoa(data_json);
       }
-      stringifiedAttributes += '; ' + 'path=' + settings.path;
+      stringifiedAttributes += '; ' + 'Path=' + settings.path;
       if (settings.expires > 0) {
         date.setTime(date.getTime() + (settings.expires * 24 * 60 * 60 * 1000));
-        stringifiedAttributes += '; ' + 'expires=' + date.toUTCString();
+        stringifiedAttributes += '; ' + 'Expires=' + date.toUTCString();
       }
       stringifiedAttributes += '; ' + 'SameSite=' + settings.samesite;
-      // settings.domain = settings.domain ? '.' + domain : hostname;
-      if (domain != hostname) {
-        settings.domain = domain_enabled ? '.' + domain : hostname;
-      } else {
-        settings.domain = hostname;
+      // set domain used by cookies
+      if (settings.domain == 'auto') {
+        domainAttribute = domain;
+        stringifiedAttributes += '; ' + 'Domain=' + domainAttribute;
+      } else  {
+        // domainAttribute = hostname;
+        domainAttribute = '';
+        stringifiedAttributes += '; ' + 'Domain=' + domainAttribute;
       }
-      stringifiedAttributes += '; ' + 'domain=' + settings.domain;
-      if (settings.secure) {
-        stringifiedAttributes += '; ' + 'secure=' + settings.secure;
+      if (settings.secure == 'true') {
+        stringifiedAttributes += '; ' + 'Secure=' + settings.secure;
       }
       // write the cookie
 //    document.cookie = settings.name + '=' + content + '; path=' + settings.path + '; domain=' + settings.domain + '; ' + 'SameSite=' + settings.samesite + '; secure';
@@ -1328,15 +1330,26 @@ var j1 = (function () {
     // removeCookie (Vanilla JS)
     // -------------------------------------------------------------------------
     removeCookie: function (options /*name, [path, domain]*/) {
-      var cookieExists;
       var defaults = {
-          domain: 'localhost',
-          path: '/'
+        path:         '/',
+        expires:      '365',
+        domain:       'false',
+        samesite:     'Strict',
+        http_only:    'false',
+        secure:       'false'
       };
+      var cookieExists;
       var settings = $.extend(defaults, options);
+      // set domain used by cookies
+      if (settings.domain == 'auto') {
+        domainAttribute = domain ;
+      } else  {
+        // domainAttribute = hostname;
+        domainAttribute = '';
+      }
       if (j1.findCookie(settings.name)) {
         // clear cookie CONTENT and set expiry date in the PAST
-        document.cookie = settings.name + '=; domain=' + settings.domain + '; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        document.cookie = settings.name + '=; Domain=' + domainAttribute + '; Expires=Thu, 01 Jan 1970 00:00:00 UTC; Path=/;';
         return true;
       } else {
         return false;
@@ -1365,17 +1378,22 @@ var j1 = (function () {
       var baseUrl         = url.origin;;
       var hostname        = url.hostname;
       var domain          = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
-      var domain_enabled  = 'false';
+      var domainAttribute;
       var defaults = {
-          path: '/',
-          samesite: 'Lax',
-          secure: false
+        path:         '/',
+        expires:      '365',
+        domain:       'false',
+        samesite:     'Strict',
+        http_only:    'false',
+        secure:       'false'
       };
       var settings  = $.extend(defaults, options);
-      if (domain != hostname) {
-        settings.domain = domain_enabled ? '.' + domain : hostname;
-      } else {
-        settings.domain = hostname;
+      // set domain used by cookies
+      if (settings.domain == 'auto') {
+        domainAttribute = domain ;
+      } else  {
+        // domainAttribute = hostname;
+        domainAttribute = '';
       }
       var dc        = document.cookie;                                            // all cookies in page
       var end       = dc.length;                                                  // default to end of the string
@@ -1401,10 +1419,10 @@ var j1 = (function () {
       }
       // expire cookie to session
       content = decodeURI(dc.substring(begin + prefix.length, end) ).replace(/"/g, '');
-      if (settings.secure) {
-        document.cookie = settings.name + '=' + content +'; path=' + settings.path + '; ' + 'SameSite=' + settings.samesite + '; ' + 'Domain=' + settings.domain + '; secure' + '; ';
+      if (settings.secure == 'true') {
+        document.cookie = settings.name + '=' + content +'; Path=' + settings.path + '; ' + 'SameSite=' + settings.samesite + '; ' + 'Domain=' + domainAttribute + '; Secure' + '; ';
       } else {
-        document.cookie = settings.name + '=' + content +'; path=' + settings.path + '; ' + 'SameSite=' + settings.samesite + '; ' + 'Domain=' + settings.domain + '; ';
+        document.cookie = settings.name + '=' + content +'; Path=' + settings.path + '; ' + 'SameSite=' + settings.samesite + '; ' + 'Domain=' + domainAttribute + '; ';
       }
       return true;
     },
