@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-12-15 16:40:32 +0000
+ # Adapter generated: 2021-12-15 17:01:50 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -104,7 +104,7 @@ var j1 = (function () {
     'theme_name':           'UnoLight',
     'theme_css':            '',
     'theme_author':         'J1 Team',
-    'theme_version':        '2022.0.6',
+    'theme_version':        '2022.0.9',
     'session_active':       false,
     'google_translate':     'disabled',
     'translate_all_pages':  true,
@@ -949,7 +949,7 @@ var j1 = (function () {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2022.0.6';
+      return '2022.0.9';
     },
     // -------------------------------------------------------------------------
     // getScrollOffset()
@@ -1268,7 +1268,7 @@ var j1 = (function () {
           name:         '',
           path:         '/',
           expires:      '365',
-          domain:       'false',
+          domain:       'auto',
           samesite:     'Strict',
           http_only:    'false',
           secure:       'false'
@@ -1333,7 +1333,7 @@ var j1 = (function () {
       var defaults = {
         path:         '/',
         expires:      '365',
-        domain:       'false',
+        domain:       'auto',
         samesite:     'Strict',
         http_only:    'false',
         secure:       'false'
@@ -1382,7 +1382,7 @@ var j1 = (function () {
       var defaults = {
         path:         '/',
         expires:      '365',
-        domain:       'false',
+        domain:       'auto',
         samesite:     'Strict',
         http_only:    'false',
         secure:       'false'

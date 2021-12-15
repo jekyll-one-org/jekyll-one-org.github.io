@@ -12,7 +12,7 @@
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-12-15 16:40:32 +0000
+ #  Adapter generated: 2021-12-15 17:01:50 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -65,7 +65,7 @@ j1.adapter['translator'] = (function (j1, window) {
 //     var baseUrl         = url.origin;;
 //     var hostname        = url.hostname;
 //     var domain          = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
-//     var domain_enabled  = 'false';
+//     var domain_enabled  = 'auto';
 //     var defaults        = {};
 //     var settings;
 //     var document_cookie;
@@ -149,7 +149,7 @@ j1.adapter['translator'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.translator',
-        generated:   '2021-12-15 16:40:32 +0000'
+        generated:   '2021-12-15 17:01:50 +0000'
       }, options);
       // Load  module DEFAULTS|CONFIG
       /* eslint-disable */
@@ -164,7 +164,7 @@ j1.adapter['translator'] = (function (j1, window) {
       var dependencies_met_page_ready = setInterval (function (options) {
         var expires       = '365';
         var same_site     = 'Strict';
-        var option_domain = 'false';
+        var option_domain = 'auto';
         user_consent      = j1.readCookie(cookie_names.user_consent);
         // set domain used by cookies
         if (option_domain == 'auto') {
@@ -338,7 +338,7 @@ j1.adapter['translator'] = (function (j1, window) {
 //    var baseUrl               = url.origin;;
 //    var hostname              = url.hostname;
 //    var domain                = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
-//    var cookie_option_domain  = 'false';
+//    var cookie_option_domain  = 'auto';
 //    var same_site             = 'Strict';
       var srcLang;
       var destLang;
