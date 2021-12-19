@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-12-19 22:52:42 +0000
+ # Adapter generated: 2021-12-19 23:07:39 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -45,7 +45,7 @@ var j1 = (function () {
   // Default comment provider information
   var comment_provider          = 'hyvor';
   var site_id                   = 'hyvor-site-id';
-  var check_cookies             = true;
+  var check_cookies             = false;
   var current_user_data;
   var current_page;
   var previous_page;

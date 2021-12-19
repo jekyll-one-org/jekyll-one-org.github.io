@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-12-19 22:52:42 +0000
+ #  Adapter generated: 2021-12-19 23:07:39 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -49,7 +49,7 @@ var lastPageInfo;
       // default module settings
       var settings = $.extend({
         module_name: 'j1.adapter.scroller',
-        generated:   '2021-12-19 22:52:42 +0000'
+        generated:   '2021-12-19 23:07:39 +0000'
       }, options);
       _this.generate_scrollers();
       _this.setState('finished');
