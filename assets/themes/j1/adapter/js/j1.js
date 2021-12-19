@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-12-15 17:10:20 +0000
+ # Adapter generated: 2021-12-19 22:52:42 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -32,7 +32,7 @@ var j1 = (function () {
   // globals
   // ---------------------------------------------------------------------------
   var rePager                   =  new RegExp('navigator|dateview|tagview|archive');
-  var environment               = 'production';
+  var environment               = 'development';
   var moduleOptions             = {};
   var j1_runtime_data           = {};
   // Status information
@@ -104,7 +104,7 @@ var j1 = (function () {
     'theme_name':           'UnoLight',
     'theme_css':            '',
     'theme_author':         'J1 Team',
-    'theme_version':        '2022.0.9',
+    'theme_version':        '2022.0.10',
     'session_active':       false,
     'google_translate':     'disabled',
     'translate_all_pages':  true,
@@ -748,6 +748,7 @@ var j1 = (function () {
             j1.core.navigator.updateSidebar(current_user_data);
             // Set|Log status
             state = 'finished';
+            j1.setState(state);
             logText = '\n' + 'state: ' + state;
             logger.info(logText);
             logText = '\n' + 'page finalized successfully';
@@ -757,7 +758,7 @@ var j1 = (function () {
       } else {
         // web mode
         setTimeout (function() {
-          j1.setState('finished');
+          // j1.setState('finished');
           logger.info('\n' + 'state: finished');
           logger.info('\n' + 'page initialization: finished');
           // Manage providers for personalization OptIn/Out (Comments|Ads)
@@ -901,8 +902,9 @@ var j1 = (function () {
           user_state        = j1.readCookie(cookie_names.user_state);
           current_user_data = j1.mergeData(user_session, user_state);
           j1.core.navigator.updateSidebar(current_user_data);
-          // set|log status
+          // Set|Log status
           state = 'finished';
+          j1.setState(state);
           logText = '\n' + 'state: ' + state;
           logger.info(logText);
           logText = '\n' + 'page finalized successfully';
@@ -949,7 +951,7 @@ var j1 = (function () {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2022.0.9';
+      return '2022.0.10';
     },
     // -------------------------------------------------------------------------
     // getScrollOffset()
@@ -1296,7 +1298,6 @@ var j1 = (function () {
         domainAttribute = domain;
         stringifiedAttributes += '; ' + 'Domain=' + domainAttribute;
       } else  {
-        // domainAttribute = hostname;
         domainAttribute = '';
         stringifiedAttributes += '; ' + 'Domain=' + domainAttribute;
       }
@@ -1330,6 +1331,7 @@ var j1 = (function () {
     // removeCookie (Vanilla JS)
     // -------------------------------------------------------------------------
     removeCookie: function (options /*name, [path, domain]*/) {
+      var domainAttribute;
       var defaults = {
         path:         '/',
         expires:      '365',

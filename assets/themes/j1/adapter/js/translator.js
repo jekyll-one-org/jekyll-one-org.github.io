@@ -12,7 +12,7 @@
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-12-15 17:10:20 +0000
+ #  Adapter generated: 2021-12-19 22:52:42 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -27,7 +27,7 @@
 // https://www.marghoobsuleman.com/image-dropdown/advanced-help
 'use strict';
 j1.adapter['translator'] = (function (j1, window) {
-  var environment       = 'production';
+  var environment       = 'development';
   var tracking_enabled  = ('false' === 'true') ? true: false;    // Analytics/GA enabled?
   var moduleOptions     = {};
   var user_translate    = {};
@@ -149,7 +149,7 @@ j1.adapter['translator'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.translator',
-        generated:   '2021-12-15 17:10:20 +0000'
+        generated:   '2021-12-19 22:52:42 +0000'
       }, options);
       // Load  module DEFAULTS|CONFIG
       /* eslint-disable */
@@ -170,26 +170,25 @@ j1.adapter['translator'] = (function (j1, window) {
         if (option_domain == 'auto') {
           domainAttribute = domain ;
         } else  {
-          // domainAttribute = hostname;
           domainAttribute = '';
-        }
-        // load|initialize user translate cookie
-        if (j1.existsCookie(cookie_names.user_translate)) {
-          user_translate = j1.readCookie(cookie_names.user_translate);
-        } else {
-          logger.debug('\n' + 'write to cookie : ' + cookie_names.user_translate);
-          cookie_written = j1.writeCookie({
-            name:     cookie_names.user_translate,
-            data:     user_translate,
-            samesite: same_site,
-            secure:   secure,
-            expires:  expires
-          });
         }
         if ( j1.getState() === 'finished' ) {
           _this.setState('started');
           logger.info('\n' + 'state: ' + _this.getState());
           logger.info('\n' + 'module is being initialized');
+          // load|initialize user translate cookie
+          if (j1.existsCookie(cookie_names.user_translate)) {
+            user_translate = j1.readCookie(cookie_names.user_translate);
+          } else {
+            logger.debug('\n' + 'write to cookie : ' + cookie_names.user_translate);
+            cookie_written = j1.writeCookie({
+              name:     cookie_names.user_translate,
+              data:     user_translate,
+              samesite: same_site,
+              secure:   secure,
+              expires:  expires
+            });
+          }
           // hide the google translate element if exists
           if ($('google_translate_element')) {
             $('google_translate_element').hide();
@@ -275,7 +274,7 @@ j1.adapter['translator'] = (function (j1, window) {
           logger.debug('\n' + 'module initialized successfully');
           clearInterval(dependencies_met_page_ready);
         }
-      });
+      }, 25);
     }, // END init
     // -------------------------------------------------------------------------
     // messageHandler: MessageHandler for J1 google_translate module

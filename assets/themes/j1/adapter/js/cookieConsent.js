@@ -12,7 +12,7 @@
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-12-15 17:10:20 +0000
+ #  Adapter generated: 2021-12-19 22:52:42 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -23,7 +23,7 @@
 // -----------------------------------------------------------------------------
 'use strict';
 j1.adapter['cookieConsent'] = (function (j1, window) {
-  var environment       = 'production';
+  var environment       = 'development';
   var tracking_enabled  = ('false' === 'true') ? true: false;
   var tracking_id       = '<your-tracking-id>';
   var tracking_id_valid = (tracking_id.includes('tracking-id')) ? false : true;
@@ -80,7 +80,7 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.cookieConsent',
-        generated:   '2021-12-15 17:10:20 +0000'
+        generated:   '2021-12-19 22:52:42 +0000'
       }, options);
       // Load  module DEFAULTS|CONFIG
       /* eslint-disable */
@@ -104,7 +104,6 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
         if (cookie_option_domain == 'auto') {
           domainAttribute = domain ;
         } else  {
-          // domainAttribute = hostname;
           domainAttribute = '';
         }
         if ( j1.getState() === 'finished' ) {
@@ -133,7 +132,7 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
           // -------------------------------------------------------------------
           clearInterval(dependencies_met_page_ready);
         }
-      });
+      }, 25);
     }, // END init
     // -------------------------------------------------------------------------
     // messageHandler: MessageHandler for J1 CookieConsent module
@@ -247,9 +246,14 @@ j1.adapter['cookieConsent'] = (function (j1, window) {
       } else {
         // jadams, 2021-08-10: remove cookies on invalid GA config or left
         // cookies from previous session if they exists
+        // ---------------------------------------------------------------------
         gaCookies.forEach(function (item) {
-          logger.warn('\n' + 'delete GA cookie: ' + item);
-          j1.removeCookie({ name: item, domain: cookie_domain });
+          // Skip cookies from Google Ads
+          var gad = item.includes('gad');
+          if (!gad) {
+            logger.warn('\n' + 'delete GA cookie: ' + item);
+            j1.removeCookie({ name: item, domain: cookie_domain });
+          }
         });
         // Managing providers using personalization OptIn/Out
         // (Comments|Ads|Translation)

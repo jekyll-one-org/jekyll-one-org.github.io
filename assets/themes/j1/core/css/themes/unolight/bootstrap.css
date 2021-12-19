@@ -19278,6 +19278,12 @@ a.timeline-list-unstyled:hover {
 .hide {
   display: none; }
 
+.border--solid {
+  border: 1px solid #616161; }
+
+.border--dotted {
+  border: 1px dotted #616161; }
+
 .g-color-white-opacity-0_6, .g-color-white-opacity-0_6--hover:hover {
   color: rgba(255, 255, 255, 0.6) !important; }
 

@@ -16,7 +16,7 @@
  # Note:
  #  https://github.com/jirutka/asciidoctor-rouge/issues/9
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-12-15 17:10:20 +0000
+ #  Adapter generated: 2021-12-19 22:52:42 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -30,7 +30,7 @@ j1.adapter['rouge'] = (function (j1, window) {
   // ---------------------------------------------------------------------------
   // globals
   // ---------------------------------------------------------------------------
-  var environment             = 'production';
+  var environment             = 'development';
   var moduleOptions           = {};
   var user_state              = {};
   var cookie_names            = j1.getCookieNames();
@@ -69,7 +69,7 @@ j1.adapter['rouge'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.rouge',
-        generated:   '2021-12-15 17:10:20 +0000'
+        generated:   '2021-12-19 22:52:42 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // rouge initializer
@@ -93,7 +93,7 @@ j1.adapter['rouge'] = (function (j1, window) {
       var dependencies_met_j1_finished = setInterval(function() {
         if (j1.getState() == 'finished') {
          $('.dropdown-menu a').click(function(){
-            $('#selected').html("Current Selection: <div class='bg-primary mt-1 p-2'>"+$(this).text()+"</div>");
+            $('#selected-theme').html('Current selection: <div class="md-gray-900 mt-1 p-2" style="background-color: #BDBDBD; font-weight: 700;">' +$(this).text() + '</div>');
          });
           _this.setState('finished');
           logger.info('\n' + 'state: ' + _this.getState());
