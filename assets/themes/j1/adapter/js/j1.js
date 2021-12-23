@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-12-19 23:07:39 +0000
+ # Adapter generated: 2021-12-23 10:10:28 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -39,12 +39,12 @@ var j1 = (function () {
   var state                     = 'not_started';
   var mode                      = 'not_detected';
   // Default tracking provider information
-  var tracking_enabled          = ('false' === 'true') ? true: false;
-  var tracking_id               = '<your-tracking-id>';
+  var tracking_enabled          = ('' === 'true') ? true: false;
+  var tracking_id               = '';
   var tracking_id_valid         = (tracking_id.includes('tracking-id')) ? false : true;
   // Default comment provider information
-  var comment_provider          = 'hyvor';
-  var site_id                   = 'hyvor-site-id';
+  var comment_provider          = '';
+  var site_id                   = '';
   var check_cookies             = false;
   var current_user_data;
   var current_page;
@@ -104,7 +104,7 @@ var j1 = (function () {
     'theme_name':           'UnoLight',
     'theme_css':            '',
     'theme_author':         'J1 Team',
-    'theme_version':        '2022.0.10',
+    'theme_version':        '2022.0.12',
     'session_active':       false,
     'google_translate':     'disabled',
     'translate_all_pages':  true,
@@ -563,6 +563,7 @@ var j1 = (function () {
       var appDetected;
       var categoryAllowed;
       // provider APIs require user consent
+      // -----------------------------------------------------------------------
       var meta_analytics        = $('meta[name=analytics]').attr('content');
       var analytics             = (meta_analytics === 'true') ? true: false;
       var meta_comments         = $('meta[name=comments]').attr('content');
@@ -577,6 +578,7 @@ var j1 = (function () {
       var meta_personalization  = $('meta[name=personalization]').attr('content');
       var personalization       = (meta_personalization === 'true') ? true: false;
       // if personalized content detected, page requires user consent
+      // -----------------------------------------------------------------------
       if (personalization && !user_consent.personalization) {
         // redirect to error page: blocked content
         window.location.href = '/444.html';
@@ -584,7 +586,9 @@ var j1 = (function () {
       logger.info('\n' + 'finalize page');
       logText= '\n' + 'loading page partials: started';
       logger.info(logText);
-      if (j1.appDetected()) { // app mode
+      if (j1.appDetected()) {
+        // app mode
+        // ---------------------------------------------------------------------
         logger.info('\n' + 'mode detected: app');
         $.when ($.ajax(ep_status))
         .then(function(data) {
@@ -621,74 +625,20 @@ var j1 = (function () {
           }
           // show the page delayed
           setTimeout (function() {
-            // Manage providers for personalization OptIn/Out (Comments|Ads)
-            if (!user_consent.personalization) {
-              logger.debug('\n' + 'disable comment provider: ' + comment_provider);
-              logger.debug('\n' + 'personalization not allowed, privacy settings for personalization: ' + user_consent.personalization);
-              $('#leave-a-comment').remove();
-              if (comment_provider === 'disqus') {
-                $('#dsq-count-scr').remove();
-                $('#disqus-thread').remove();
-              }
-              if (comment_provider === 'hyvor') {
-                $('#hyvor-embed').remove();
-                $('#hyvor-talk-view').remove();
-              }
-            } else {
-              if (comments) {
-                logger.info('\n' + 'enable comment provider: ' + comment_provider);
-                $('#main-content').append('<h2 id="leave-a-comment" class="mt-4">Leave a comment</h2>');
-                if (comment_provider === 'disqus') {
-                  logger.info('\n' + 'load comment provider code: ' + comment_provider);
-                  $('#main-content').append('<div id="disqus_thread"></div>');
-                  $('body').append('<script async id="dsq-count-scr" src="//' + site_id + '.disqus.com/count.js"></script>');
-                  j1.loadJS({
-                    xhr_data_path:    '/assets/data/' + comment_provider + '.js',
-                    xhr_data_element: comment_provider
-                  });
-                }
-                if (comment_provider === 'hyvor') {
-                  $('body').append('<script> var HYVOR_TALK_WEBSITE = ' + site_id + '; var HYVOR_TALK_CONFIG = { url: false, id: false };');
-                  $('#main-content').append('<div id="hyvor-talk-view"></div>');
-                  $('body').append('<script async id="hyvor-embed" type="text/javascript" src="//talk.hyvor.com/web-api/embed.js"></script>');
-                }
-              }
-            }
             // display page
-           $('#no_flicker').css('display', 'block');
-           // no dropcaps if translation enabled
-           if (user_translate.translationEnabled) {
+            $('#no_flicker').css('display', 'block');
+            // manage Dropcaps if translation is enabled|disabled
+            // -----------------------------------------------------------------
+            if (user_translate.translationEnabled) {
              logger.info('\n' + 'translation enabled: ' + user_translate.translationEnabled);
              logger.debug('\n' + 'skipped processing of dropcaps');
-           } else {
+            } else {
              // initialize dropcaps
              logger.info('\n' + 'post processing: createDropCap');
              j1.core.createDropCap();
-           }
-             // add recommended title to hyvor iframe for SEO optimization (if loadad)
-            if (comment_provider === 'hyvor') {
-              var dependencies_met_load_finished = setInterval (function () {
-                if ($('#hyvor-talk-view').children().length) {
-                    $('#hyvor-talk-iframe').prop('title', 'Hyvor talk iframe');
-                    clearInterval(dependencies_met_load_finished);
-                }
-              }, 25);
             }
-            // NOTE: Placed tracking warning/info here because page may reloaded
-            // after cookie consent selection
-            if (user_consent.analysis) {
-              logger.info('\n' + 'tracking allowed, privacy settings for analysis: ' + user_consent.analysis);
-              if (tracking_enabled && !tracking_id_valid) {
-                logger.error('\n' + 'tracking enabled, but invalid tracking id found: ' + tracking_id);
-              } else if (tracking_enabled && tracking_id_valid) {
-                logger.info('\n' + 'tracking enabled, tracking id found: ' + tracking_id);
-              } else {
-                logger.info('\n' + 'tracking disabled, tracking id found: ' + tracking_id);
-              }
-            } else {
-              logger.debug('\n' + 'tracking not allowed, privacy settings for analysis: ' + user_consent.analysis);
-            }
-            // show|hide cookie icon (should MOVED to Cookiebar ???)
+            // TODO: should MOVED to Cookiebar ???
+            // show|hide cookie icon
             if (j1.existsCookie(cookie_names.user_consent)) {
               // Display cookie icon
               logText = '\n' + 'show cookie icon';
@@ -700,6 +650,7 @@ var j1 = (function () {
               // Display cookie icon
               $('#quickLinksCookieButton').css('display', 'none');
             }
+            // TODO: should MOVED to ControlCenter Adapter ???
             // -----------------------------------------------------------------
             // show cc icon (currently NOT supported)
             // $('#quickLinksControlCenterButton').css('display', 'block');
@@ -718,6 +669,7 @@ var j1 = (function () {
               logger.info('\n' + 'authentication detected as: ' + user_session.authenticated);
               $('#quickLinksSignInOutButton').css('display', 'block');
             }
+            // TODO: should MOVED to Themer ???
             // jadams, 2021-07-25: hide|show themes menu on cookie consent
             // (analysis|personalization) settings. BootSwatch is a 3rd party
             // is using e.g GA. Because NO control is possible on 3rd parties,
@@ -730,9 +682,7 @@ var j1 = (function () {
             } else {
               $("#themes_menu").show();
             }
-            // if the page requested contains an anchor element,
-            // do a smooth scroll to
-            j1.scrollTo();
+            // detect if a loaded page has been chenged
             if (user_session.previous_page !== user_session.current_page) {
               logText = '\n' + 'page change detected';
               logger.info(logText);
@@ -746,55 +696,32 @@ var j1 = (function () {
             user_state        = j1.readCookie(cookie_names.user_state);
             current_user_data = j1.mergeData(user_session, user_state);
             j1.core.navigator.updateSidebar(current_user_data);
-            // Set|Log status
+            // set|log status
             state = 'finished';
             j1.setState(state);
             logText = '\n' + 'state: ' + state;
             logger.info(logText);
             logText = '\n' + 'page finalized successfully';
             logger.info(logText);
+            // do a (smooth) scroll if all nav elements ready
+            // -----------------------------------------------------------------
+            var dependencies_met_navigator_finished = setInterval(function() {
+              if (j1.adapter.navigator.getState() == 'finished') {
+                // if a page requested contains an anchor element, do a smooth scroll
+                j1.scrollTo();
+                clearInterval(dependencies_met_navigator_finished);
+              }
+            }, 25);
           }, flickerTimeout);
         });
       } else {
         // web mode
+        // ---------------------------------------------------------------------
         setTimeout (function() {
           // j1.setState('finished');
           logger.info('\n' + 'state: finished');
           logger.info('\n' + 'page initialization: finished');
-          // Manage providers for personalization OptIn/Out (Comments|Ads)
-          if (!user_consent.personalization) {
-            logger.debug('\n' + 'disable comment provider: ' + comment_provider);
-            logger.debug('\n' + 'personalization not allowed, privacy settings for personalization: ' + user_consent.personalization);
-            $('#leave-a-comment').remove();
-            if (comment_provider === 'disqus') {
-              $('#dsq-count-scr').remove();
-              $('#disqus-thread').remove();
-            }
-            if (comment_provider === 'hyvor') {
-              $('#hyvor-embed').remove();
-              $('#hyvor-talk-view').remove();
-            }
-          } else {
-            if (comments) {
-              logger.info('\n' + 'enable comment provider: ' + comment_provider);
-              $('#main-content').append('<h2 id="leave-a-comment" class="mt-4">Leave a comment</h2>');
-              if (comment_provider === 'disqus') {
-                logger.info('\n' + 'load comment provider code: ' + comment_provider);
-                $('#main-content').append('<div id="disqus_thread"></div>');
-                $('body').append('<script async id="dsq-count-scr" src="//' + site_id + '.disqus.com/count.js"></script>');
-                j1.loadJS({
-                  xhr_data_path:    '/assets/data/' + comment_provider + '.js',
-                  xhr_data_element: comment_provider
-                });
-              }
-              if (comment_provider === 'hyvor') {
-                $('body').append('<script> var HYVOR_TALK_WEBSITE = ' + site_id + '; var HYVOR_TALK_CONFIG = { url: false, id: false };');
-                $('#main-content').append('<div id="hyvor-talk-view"></div>');
-                $('body').append('<script async id="hyvor-embed" type="text/javascript" src="//talk.hyvor.com/web-api/embed.js"></script>');
-              }
-            }
-          }
-          // display page
+          // display the page loaded
           $('#no_flicker').css('display', 'block');
           // jadams, 2021-11-19: test code for 'tapTarget' of 'materializeCss'
           // See:
@@ -817,7 +744,8 @@ var j1 = (function () {
               $(".card-header").not($(this).parents()).removeClass("highlight");
               $(this).parents(".card-header").toggleClass("highlight");
           });
-          // no dropcaps if translation enabled
+          // manage Dropcaps if translation is enabled|disabled
+          // -------------------------------------------------------------------
           if (user_translate.translationEnabled) {
             logger.info('\n' + 'translation enabled: ' + user_translate.translationEnabled);
             logger.debug('\n' + 'skipped processing of dropcaps');
@@ -825,29 +753,6 @@ var j1 = (function () {
             // initialize dropcaps
             logger.info('\n' + 'post processing: createDropCap');
             j1.core.createDropCap();
-          }
-          // add recommended title to hyvor iframe for SEO optimization (if loadad)
-         if (comment_provider === 'hyvor') {
-           var dependencies_met_load_finished = setInterval (function () {
-             if ($('#hyvor-talk-view').children().length) {
-               $('#hyvor-talk-iframe').prop('title', 'Hyvor talk iframe');
-               clearInterval(dependencies_met_load_finished);
-             }
-           }, 25);
-         }
-          // NOTE: Placed tracking warning/info here because page may reloaded
-          // after cookie consent selection
-          if (user_consent.analysis) {
-            logger.info('\n' + 'tracking allowed, privacy settings for analysis: ' + user_consent.analysis);
-            if (tracking_enabled && !tracking_id_valid) {
-              logger.error('\n' + 'tracking enabled, but invalid tracking id found: ' + tracking_id);
-            } else if (tracking_enabled && tracking_id_valid) {
-              logger.info('\n' + 'tracking enabled, tracking id found: ' + tracking_id);
-            } else {
-              logger.info('\n' + 'tracking disabled, tracking id found: ' + tracking_id);
-            }
-          } else {
-            logger.debug('\n' + 'tracking not allowed, privacy settings for analysis: ' + user_consent.analysis);
           }
           logger.info('\n' + 'mode detected: web');
           logger.info('\n' + 'hide signin icon');
@@ -860,8 +765,11 @@ var j1 = (function () {
               secure:   secure,
               expires:  0
           });
+          // TODO: should MOVED to ControlCenter Adapter ???
+          // -----------------------------------------------------------------
           // show cc icon (currently NOT supported)
           // $('#quickLinksControlCenterButton').css('display', 'block');
+          // TODO: should MOVED to Cookiebar ???
           // show|hide cookie icon
           if (j1.existsCookie(cookie_names.user_consent)) {
             // Display cookie icon
@@ -874,6 +782,7 @@ var j1 = (function () {
             // Display cookie icon
             $('#quickLinksCookieButton').css('display', 'none');
           }
+          // TODO: should MOVED to Themer ???
           // jadams, 2021-07-25: hide|show themes menu on cookie consent
           // (analysis|personalization) settings. BootSwatch is a 3rd party
           // is using e.g GA. Because NO control is possible on 3rd parties,
@@ -886,9 +795,7 @@ var j1 = (function () {
           } else {
             $("#themes_menu").show();
           }
-          // If the page requested contains an anchor element,
-          // do a smooth scroll
-          j1.scrollTo();
+          // detect if a loaded page has been chenged
           if (user_session.previous_page !== user_session.current_page) {
             logText = '\n' + 'page change detected';
             logger.info(logText);
@@ -902,13 +809,22 @@ var j1 = (function () {
           user_state        = j1.readCookie(cookie_names.user_state);
           current_user_data = j1.mergeData(user_session, user_state);
           j1.core.navigator.updateSidebar(current_user_data);
-          // Set|Log status
+          // set|log status
           state = 'finished';
           j1.setState(state);
           logText = '\n' + 'state: ' + state;
           logger.info(logText);
           logText = '\n' + 'page finalized successfully';
           logger.info(logText);
+          // do a (smooth) scroll if all nav elements ready
+          // -------------------------------------------------------------------
+          var dependencies_met_navigator_finished = setInterval(function() {
+            if (j1.adapter.navigator.getState() == 'finished') {
+              // if a page requested contains an anchor element, do a smooth scroll
+              j1.scrollTo();
+              clearInterval(dependencies_met_navigator_finished);
+            }
+          }, 25);
         }, flickerTimeout);
       }
     },
@@ -951,7 +867,7 @@ var j1 = (function () {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2022.0.10';
+      return '2022.0.12';
     },
     // -------------------------------------------------------------------------
     // getScrollOffset()
@@ -989,21 +905,20 @@ var j1 = (function () {
       var anchor          = window.location.href.split('#')[1];
       var anchor_id       = typeof anchor !== 'undefined' ? '#' + anchor : false;
       var scrollDuration  = 300;
+      var scrollOffset    = j1.getScrollOffset();
       var isSlider        = false;
       var selector;
-      var scrollOffset;
       if (typeof anchor === 'undefined') {
         return false;
       } else if (anchor.includes("googtrans")) {
         return false;
       }
-      scrollOffset    = j1.getScrollOffset();
       // Check if the anchor is an slider/gallery element
       if (typeof anchor !== 'undefined') {
-        isSlider  = anchor.includes('slide');
+        isSlider = anchor.includes('slide');
       }
       if (anchor_id && anchor_id !== '#' && !isSlider) {
-        // scroll only, if an anchor is given with URL
+        // scroll only, if an anchor is given with an URL
         selector = $(anchor_id);
         if (selector.length) {
           j1.core.scrollSmooth.scroll(anchor_id, {
@@ -1254,11 +1169,11 @@ var j1 = (function () {
     // -------------------------------------------------------------------------
     writeCookie: function (options /*name, data, [path, expires, domain, samesite, http_only, secure]*/) {
       var date                  = new Date();
-      var timestamp_now         = date.toISOString()
+      var timestamp_now         = date.toISOString();
       var url                   = new liteURL(window.location.href);
       var baseUrl               = url.origin;;
       var hostname              = url.hostname;
-      var domain                = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
+      var auto_domain           = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
       var stringifiedAttributes = '';
       var cookie_data           = {};
       var data_json;
@@ -1270,12 +1185,17 @@ var j1 = (function () {
           name:         '',
           path:         '/',
           expires:      '365',
-          domain:       'false',
+          domain:       ('false' === 'true'),               // convert string to boolean
           samesite:     'Strict',
           http_only:    'false',
           secure:       'false'
       };
       var settings = $.extend(defaults, options);
+      // Failsafe: if 'None' is given for samesite in non-secure environments
+      // -----------------------------------------------------------------------
+      if (settings.samesite == 'None' && !settings.secure) {
+        settings.samesite = 'Lax';
+      }
       cookie_data.timestamp = timestamp_now;
       if (j1.existsCookie(settings.name)) {
         cookie_data   = j1.readCookie(settings.name);
@@ -1294,14 +1214,16 @@ var j1 = (function () {
       }
       stringifiedAttributes += '; ' + 'SameSite=' + settings.samesite;
       // set domain used by cookies
-      if (settings.domain == 'auto') {
-        domainAttribute = domain;
-        stringifiedAttributes += '; ' + 'Domain=' + domainAttribute;
-      } else  {
-        domainAttribute = '';
-        stringifiedAttributes += '; ' + 'Domain=' + domainAttribute;
+      if (settings.domain) {
+        if (settings.domain == 'auto') {
+          domainAttribute = auto_domain;
+          stringifiedAttributes += '; ' + 'Domain=' + domainAttribute;
+        } else if (settings.domain)  {
+          domainAttribute = settings.domain;
+          stringifiedAttributes += '; ' + 'Domain=' + domainAttribute;
+        }
       }
-      if (settings.secure == 'true') {
+      if (settings.secure == true) {
         stringifiedAttributes += '; ' + 'Secure=' + settings.secure;
       }
       // write the cookie

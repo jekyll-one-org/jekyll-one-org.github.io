@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-12-19 23:07:39 +0000
+ #  Adapter generated: 2021-12-23 10:10:28 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -22,11 +22,11 @@
 /* eslint indent: "off"                                                       */
 // -----------------------------------------------------------------------------
 'use strict';
-j1.adapter['advertising'] = (function (j1, window) {
+j1.adapter.advertising = (function (j1, window) {
 var environment             = 'development';
 var gadScript               = document.createElement('script');
 var adInitializerScript     = document.createElement('script');
-var autoHideOnUnfilled      = true;
+var autoHideOnUnfilled      = false;
 var addBorderOnUnfilled     = true;
 var checkTrackingProtection = true;
 var showErrorPageOnBlocked  = true;
@@ -53,116 +53,15 @@ var logText;
     // adapter initializer
     // -------------------------------------------------------------------------
     init: function (options) {
-      // [INFO   ] [j1.adapter.advertising                  ] [ detected advertising provider (j1_config): google} ]
-      // [INFO   ] [j1.adapter.advertising                  ] [ start processing load region head, layout:  ]
-      cookie_names          = j1.getCookieNames();
-      user_consent          = j1.readCookie(cookie_names.user_consent);
-      url                   = new liteURL(window.location.href);
-      baseUrl               = url.origin;
-      hostname              = url.hostname;
-      domain                = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
-      cookie_option_domain  = 'false';
-      // set domain used by cookies
-      if (cookie_option_domain == 'auto') {
-        domainAttribute = domain ;
-      } else  {
-        domainAttribute = hostname;
-      }
-      // [INFO   ] [j1.adapter.advertising                  ] [ place provider: Google Adsense ]
-      _this = j1.adapter.advertising;
-      logger = log4javascript.getLogger('j1.adapter.advertising.google');
-      // initialize state flag
-      _this.setState('started');
-      logger.info('\n' + 'state: ' + _this.getState());
-      logger.info('\n' + 'module is being initialized');
-      // default module settings
-      var settings = $.extend({
-        module_name: 'j1.adapter.advertising',
-        generated:   '2021-12-18 18:55:38 +0000'
-      }, options);
       var dependencies_met_page_ready = setInterval(function() {
         if (j1.getState() == 'finished') {
-          if (user_consent.personalization) {
-            // place all ads configured for the page
-            // NOTE: currently NOT implemented/used
-            // -----------------------------------------------------------------
-            // _this.place_ads();
-            // add gad api dynamically in the head section
-            // -----------------------------------------------------------------
-            logger.info('\n' + 'add gad api dynamically in section: head');
-            gadScript.async = true;
-            gadScript.id    = 'gad-api';
-            gadScript.src   = '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
-            gadScript.setAttribute('data-ad-client', 'ca-pub-3885670015316130');
-            document.head.appendChild(gadScript);
-            // setup monitor for state changes on all ads configured
-            // ---------------------------------------------------------------
-            logger.info('\n' + 'setup monitoring');
-            _this.monitor_ads();
-            // run protection check
-            // -------------------------------------------------------------------
-            if (checkTrackingProtection) {
-              logger.info('\n' + 'run checks for tracking protection');
-              _this.check_tracking_protection();
-              var dependencies_met_tracking_check_ready = setInterval (function (options) {
-                if (typeof tracking_protection !== 'undefined' ) {
-                  var browser_tracking_feature = navigator.DoNotTrack;
-                  if (!tracking_protection && !browser_tracking_feature) {
-                    logText = '\n' + 'tracking protection: disabled';
-                    logger.info(logText);
-                  } else {
-                    logText = '\n' + 'tracking protection: enabled';
-                    logger.warn(logText);
-                    if (showErrorPageOnBlocked) {
-                      logger.error('\n' + 'redirect to error page (blocked content): HTML-447');
-                      // redirect to error page: blocked content
-                      window.location.href = '/447.html';
-                    }
-                  }
-                }
-                clearInterval(dependencies_met_tracking_check_ready);
-              }, 25);
-            } else {
-              // setup monitor for state changes on all ads configured
-              // ---------------------------------------------------------------
-              logger.info('\n' + 'setup monitoring');
-              _this.monitor_ads();
-              _this.setState('finished');
-              logger.info('\n' + 'state: ' + _this.getState());
-              logger.info('\n' + 'module initialized successfully');
-              clearInterval(dependencies_met_tracking_check_ready);
-            }
-            clearInterval(dependencies_met_page_ready);
-          } else {
-            var gaCookies  = j1.findCookie('_ga');
-            logger.warn('\n' + 'consent on cookies disabled for personalization');
-            logger.warn('\n' + 'initialization of module advertising skipped');
-            // jadams, 2021-12-19: remove cookies on invalid GAD config
-            // or left cookies from previous session
-            // -----------------------------------------------------------------
-            j1.removeCookie({ name: '__gads' });
-            // jadams, 2021-12-19: delete cookies in loop doesn't work
-            // gaCookies.forEach(function (item) {
-            //   logger.warn('\n' + 'delete GAD cookie: ' + item);
-            //   // j1.removeCookie({ name: item, domain: domainAttribute });
-            //   // j1.removeCookie({ name: item });
-            // });
-            if (checkTrackingProtection) {
-              if (!user_consent.personalization) {
-                logText = '\n' + 'consent on cookies disabled for personalization';
-                logger.warn(logText);
-                if (showErrorPageOnBlocked) {
-                  logger.error('\n' + 'redirect to error page (blocked content): HTML-447');
-                  // redirect to error page: blocked content
-                  window.location.href = '/448.html';
-                }
-              }
-            }
-            clearInterval(dependencies_met_page_ready);
-          } // END if user_consent.personalization
-        } // END if getState 'finished'
+          var ads_found = document.getElementsByClassName('adsbygoogle').length;
+          logger = log4javascript.getLogger('j1.adapter.advertising.google');
+          logger.warn('\n' + 'found ads in page: #' + ads_found);
+          logger.warn('\n' + 'no ads initialized, advertising disabled');
+          clearInterval(dependencies_met_page_ready);
+        }
       }, 25);
-      // [INFO   ] [j1.adapter.advertising                  ] [ end processing ]
       return;
     }, // END init
     // -------------------------------------------------------------------------

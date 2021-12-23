@@ -19,7 +19,7 @@
  # NOTE: For getStyleValue helper see
  #  https://stackoverflow.com/questions/16965515/how-to-get-a-style-attribute-from-a-css-class-by-javascript-jquery
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-12-19 23:07:39 +0000
+ # Adapter generated: 2021-12-23 10:10:28 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -28,7 +28,7 @@
 /* eslint indent: "off"                                                       */
 // -----------------------------------------------------------------------------
 'use strict';
-j1.adapter['mmenu'] = (function (j1, window) {
+j1.adapter.mmenu = (function (j1, window) {
   // ---------------------------------------------------------------------------
   // globals
   // ---------------------------------------------------------------------------
@@ -70,7 +70,7 @@ j1.adapter['mmenu'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.mmenu',
-        generated:   '2021-12-19 23:07:39 +0000'
+        generated:   '2021-12-23 10:10:28 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // options loader
@@ -249,7 +249,7 @@ j1.adapter['mmenu'] = (function (j1, window) {
                   logger.debug('\n' + 'hide|show the main nav menu');
                   // switch off|on the (main) nav menu
                   $('#' + navMenuOptions.nav_main_menu).toggle();
-                  $('#' + navMenuOptions.nav_quicklinks).toggle();                  
+                  $('#' + navMenuOptions.nav_quicklinks).toggle();
                 }
               });
               // button for the MMenu tocbar to open|close the toc drawer

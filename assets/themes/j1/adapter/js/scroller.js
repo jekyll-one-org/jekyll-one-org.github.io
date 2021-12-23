@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-12-19 23:07:39 +0000
+ #  Adapter generated: 2021-12-23 10:10:28 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -22,7 +22,7 @@
 /* eslint indent: "off"                                                       */
 // -----------------------------------------------------------------------------
 'use strict';
-j1.adapter['scroller'] = (function (j1, window) {
+j1.adapter.scroller = (function (j1, window) {
 var environment   = 'development';
 var language      = 'en';
 var user_agent    = platform.ua;
@@ -49,7 +49,7 @@ var lastPageInfo;
       // default module settings
       var settings = $.extend({
         module_name: 'j1.adapter.scroller',
-        generated:   '2021-12-19 23:07:39 +0000'
+        generated:   '2021-12-23 10:10:28 +0000'
       }, options);
       _this.generate_scrollers();
       _this.setState('finished');

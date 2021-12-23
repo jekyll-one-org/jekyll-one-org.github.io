@@ -18,7 +18,7 @@
  #  For details, see http://davidjbradshaw.github.io/iframe-resizer/
  #
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-12-19 23:07:39 +0000
+ #  Adapter generated: 2021-12-23 10:10:28 +0000
  # -----------------------------------------------------------------------------
  */
 // -----------------------------------------------------------------------------
@@ -27,7 +27,7 @@
 /* eslint indent: "off"                                                       */
 // -----------------------------------------------------------------------------
 'use strict';
-j1.adapter['framer'] = (function (j1, window) {
+j1.adapter.framer = (function (j1, window) {
   var environment   = 'development';
   var moduleOptions = {};
   var _this;
@@ -60,11 +60,11 @@ j1.adapter['framer'] = (function (j1, window) {
             // -----------------------------------------------------------------------
             var settings = $.extend({
               module_name: 'j1.adapter.example',
-              generated:   '2021-12-19 23:07:39 +0000'
+              generated:   '2021-12-23 10:10:28 +0000'
             }, options);
             // Load  module DEFAULTS|CONFIG
             /* eslint-disable */
-            moduleOptions = $.extend({}, {"enabled":true, "load":"sync", "log":false, "autoResize":true, "bodyBackground":"", "bodyMargin":0, "checkOrigin":true, "inPageLinks":false, "interval":32, "heightCalculationMethod":"bodyOffset", "widthCalculationMethod":"scroll", "maxHeight":100000000, "minHeight":512, "maxWidth":100000000, "minWidth":0, "resizeFrom":"parent", "scrolling":false, "sizeHeight":true, "sizeWidth":false, "tolerance":0});
+            moduleOptions = $.extend({}, {"enabled":false, "load":"sync", "log":false, "autoResize":true, "bodyBackground":"", "bodyMargin":0, "checkOrigin":true, "inPageLinks":false, "interval":32, "heightCalculationMethod":"bodyOffset", "widthCalculationMethod":"scroll", "maxHeight":100000000, "minHeight":512, "maxWidth":100000000, "minWidth":0, "resizeFrom":"parent", "scrolling":false, "sizeHeight":true, "sizeWidth":false, "tolerance":0});
             /* eslint-enable */
             if (typeof settings !== 'undefined') {
               moduleOptions = j1.mergeData(moduleOptions, settings);

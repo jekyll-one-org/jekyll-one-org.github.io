@@ -12,7 +12,7 @@
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-12-19 23:07:39 +0000
+ #  Adapter generated: 2021-12-23 10:10:28 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -26,7 +26,7 @@
 // https://www.marghoobsuleman.com/image-dropdown/help
 // https://www.marghoobsuleman.com/image-dropdown/advanced-help
 'use strict';
-j1.adapter['translator'] = (function (j1, window) {
+j1.adapter.translator = (function (j1, window) {
   var environment       = 'development';
   var tracking_enabled  = ('false' === 'true') ? true: false;    // Analytics/GA enabled?
   var moduleOptions     = {};
@@ -48,66 +48,10 @@ j1.adapter['translator'] = (function (j1, window) {
   var translation_language;
   var ddSourceLanguage;
   var head;
-  var script;
+  var gtTranslateScript;
+  var gtCallbackScript;
   var languageList;
   var domainAttribute;
-  // ---------------------------------------------------------------------------
-  // helper functions
-  // ---------------------------------------------------------------------------
-  // ---------------------------------------------------------------------------
-  // setCookie()
-  // writes a FLAT cookie (not using an encoded JSON string)
-  // ---------------------------------------------------------------------------
-//   function setCookie(options /*cName, cValue, expDays*/) {
-//     var date            = new Date();
-//     var timestamp_now   = date.toISOString()
-//     var url             = new liteURL(window.location.href);
-//     var baseUrl         = url.origin;;
-//     var hostname        = url.hostname;
-//     var domain          = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
-//     var domain_enabled  = 'false';
-//     var defaults        = {};
-//     var settings;
-//     var document_cookie;
-//     var stringifiedAttributes = '';
-//
-//     defaults = {
-//         name: '',
-//         path: '/',
-//         expires: 0,
-//         domain: true,
-//         samesite: 'Lax',
-//         http_only: false,
-//         secure: false
-//     };
-//     settings = $.extend(defaults, options);
-//
-//     stringifiedAttributes += '; ' + 'path=' + settings.path;
-//
-//     if (settings.expires > 0) {
-//       date.setTime(date.getTime() + (settings.expires * 24 * 60 * 60 * 1000));
-//       stringifiedAttributes += '; ' + 'expires=' + date.toUTCString();
-//     }
-//
-//     if (domain != hostname) {
-// //    settings.domain = domain_enabled ? '.' + domain : hostname;
-//       settings.domain = domain_enabled ? domain : hostname;
-//     } else {
-//       settings.domain = hostname;
-//     }
-//     stringifiedAttributes += '; ' + 'domain=' + settings.domain;
-//
-//     stringifiedAttributes += '; ' + 'SameSite=' + settings.samesite;
-//
-//     if (settings.secure) {
-//       stringifiedAttributes += '; ' + 'secure=' + settings.secure;
-//     }
-//
-//     // document_cookie = settings.name + '=' + settings.data  + '; path=' + settings.path + '; ' + 'domain=' + settings.domain + '; ' + 'SameSite=' + settings.samesite + ';';
-//     document_cookie = settings.name + '=' + settings.data + stringifiedAttributes;
-//
-//     document.cookie = document_cookie;
-//   };
   // ---------------------------------------------------------------------------
   // Main object
   // ---------------------------------------------------------------------------
@@ -130,9 +74,11 @@ j1.adapter['translator'] = (function (j1, window) {
       translation_language  = navigator_language.split('-')[0];
       cookie_names          = j1.getCookieNames();
       head                  = document.getElementsByTagName('head')[0];
-      script                = document.createElement('script');
-      script.id             = 'google-translate';
-      script.src            = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      gtTranslateScript     = document.createElement('script');
+      gtTranslateScript.id  = 'gt-translate';
+      gtTranslateScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      gtCallbackScript      = document.createElement('script');
+      gtCallbackScript.id   = 'gt-callback';
       user_translate = {
         'translatorName':           'google',
         'translationEnabled':       false,
@@ -149,7 +95,7 @@ j1.adapter['translator'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.translator',
-        generated:   '2021-12-19 23:07:39 +0000'
+        generated:   '2021-12-23 10:10:28 +0000'
       }, options);
       // Load  module DEFAULTS|CONFIG
       /* eslint-disable */
@@ -158,6 +104,18 @@ j1.adapter['translator'] = (function (j1, window) {
       if (typeof settings !== 'undefined') {
         moduleOptions = j1.mergeData(moduleOptions, settings);
       }
+      // add GT callback script dynamically in the head section
+      // -----------------------------------------------------------------------
+      gtCallbackScript.text  = '\n';
+      gtCallbackScript.text += 'function googleTranslateElementInit() {' + '\n';
+      gtCallbackScript.text += '  var gtAPI = new google.translate.TranslateElement({' + '\n';
+      gtCallbackScript.text += '    pageLanguage: "en",' + '\n';
+      gtCallbackScript.text += '    layout:       google.translate.TranslateElement.FloatPosition.TOP_LEFT' + '\n';
+      gtCallbackScript.text += '  },' + '\n';
+      gtCallbackScript.text += '  "google_translate_element");' + '\n';
+      gtCallbackScript.text += '  j1.adapter.translator.postTranslateElementInit(gtAPI);' + '\n';
+      gtCallbackScript.text += '}' + '\n';
+      document.head.appendChild(gtCallbackScript);
       // -----------------------------------------------------------------------
       // initializer
       // -----------------------------------------------------------------------
@@ -253,7 +211,7 @@ j1.adapter['translator'] = (function (j1, window) {
           // enable|disable translation (after callback)
           if (user_translate.analysis && user_translate.personalization && user_translate.translationEnabled) {
             if (moduleOptions.translatorName === 'google') {
-              head.appendChild(script);
+              head.appendChild(gtTranslateScript);
               if ($('google_translate_element')) {
                 $('google_translate_element').hide();
               }

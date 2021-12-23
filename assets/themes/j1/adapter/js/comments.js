@@ -2,23 +2,18 @@
 
   /*
  # -----------------------------------------------------------------------------
- # ~/assets/themes/j1/adapter/js/lightbox.js
- # JS Adapter for J1 Lightbox
+ # ~/assets/themes/j1/adapter/js/comments.js
+ # J1 Adapter for the comments module
  #
  # Product/Info:
  # https://jekyll.one
- # https://github.com/lokesh/lightbox2/
  #
  # Copyright (C) 2021 Juergen Adams
- # Copyright (C) 2007, 2018 Lokesh Dhakar
  #
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
- # Lightbox V2 is licensed under the MIT License.
- # For details, see https://github.com/lokesh/lightbox2/
- #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-12-23 10:10:28 +0000
+ #  Adapter generated: 2021-12-23 10:10:28 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -27,57 +22,42 @@
 /* eslint indent: "off"                                                       */
 // -----------------------------------------------------------------------------
 'use strict';
-j1.adapter.lightbox = (function (j1, window) {
-  var environment   = 'development';
-  var moduleOptions = {};
-  var _this;
-  var logger;
-  var logText;
-  // ---------------------------------------------------------------------------
-  // Helper functions
-  // ---------------------------------------------------------------------------
+j1.adapter.comments = (function (j1, window) {
+var environment       = 'development';
+var date              = new Date();
+var timestamp_now     = date.toISOString();
+var comments_provider = 'hyvor';
+var dqApiScript       = document.createElement('script');
+var hvApiScript       = document.createElement('script');
+var hvCallbackScript  = document.createElement('script');
+var siteID            = 'hyvor-site-id';
+var comments_headline = 'Leave a comment';
+var cookie_names      = j1.getCookieNames();
+var user_consent;
+var _this;
+var logger;
+var logText;
   // ---------------------------------------------------------------------------
   // Main object
   // ---------------------------------------------------------------------------
   return {
     // -------------------------------------------------------------------------
-    // Initializer
+    // init()
+    // adapter initializer
     // -------------------------------------------------------------------------
-    init: function () {
-      // initialize state flag
-      j1.adapter.lightbox.state = 'pending';
-      // -----------------------------------------------------------------------
-      // globals
-      // -----------------------------------------------------------------------
-      _this   = j1.adapter.lightbox;
-      logger  = log4javascript.getLogger('j1.adapter.lightbox');
-      _this.setState('started');
-      logger.info('\n' + 'state: ' + _this.getState());
-      logger.info('\n' + 'module is being initialized');
-      /* eslint-disable */
-      lightbox.option({
-        alwaysShowNavOnTouchDevices:  false,
-        albumLabel:                   "Image %1 of %2",
-        disableScrolling:             false,
-        fadeDuration:                 600,
-        fitImagesInViewport:          true,
-        imageFadeDuration:            600,
-        maxWidth:                     null,
-        maxHeight:                    null,
-        positionFromTop:              50,
-        resizeDuration:               250,
-        showImageNumberLabel:         true,
-        wrapAround:                   true
-      });
-      /* eslint-enable */
-      _this.setState('finished');
-      logger.info('\n' + 'state: ' + _this.getState());
-      logger.info('\n' + 'initializing module finished');
-      return true;
-    }, // END init lightbox
+    init: function (options) {
+      var dependencies_met_page_ready = setInterval(function() {
+        if (j1.getState() == 'finished') {
+          logger = log4javascript.getLogger('j1.adapter.comments');
+          logger.info('\n' + 'comment services: disabled');
+          clearInterval(dependencies_met_page_ready);
+        }
+      }, 25);
+      return;
+    }, // END init
     // -------------------------------------------------------------------------
-    // messageHandler: MessageHandler for J1 CookieConsent module
-    // Manage messages send from other J1 modules
+    // messageHandler()
+    // manage messages send from other J1 modules
     // -------------------------------------------------------------------------
     messageHandler: function (sender, message) {
       var json_message = JSON.stringify(message, undefined, 2);

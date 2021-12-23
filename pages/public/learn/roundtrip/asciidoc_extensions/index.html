@@ -7,9 +7,9 @@
   
             <!DOCTYPE html>
 <html lang="en">
-  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2021-12-19 23:07:39 +0000 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2021-12-23 10:05:39 +0000 ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ environment detected as: development ] -->
-  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2022.0.10 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2022.0.12 ] -->
   <head data-proofer-ignore>
     <!-- [INFO   ] [j1.layout.default.html                ] [ call default_writer for region: 'head' ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: page ] -->
@@ -21,11 +21,7 @@
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ initial zoom level when the page is first loaded by the browser ] -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ added version info for the templte ] -->
-    <meta name="template version" content="2022.0.10">
-    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ add google translator meta tag to enable customized translations ] -->
-    <meta name="translation" content="enabled">
-    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ add google translator meta tag to enable customized translations ] -->
-    <meta name="google-translate" content="enabled">
+    <meta name="template version" content="2022.0.12">
     <title>asciidoc extensions</title>
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ detected content type: PAGE ] -->
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ SIZE of page description: 36 chars ] -->
@@ -85,33 +81,6 @@
     <link rel="dns-prefetch" href="https://bootswatch.com">
     <link rel="preconnect" href="https://bootswatch.com">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ end processing ] -->
-    <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
-    <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: page ] -->
-    <!-- [INFO   ] [j1.modules.connectors.analytics       ] [ Check analytics settings from SITE configuration ] -->
-    <!-- [INFO   ] [j1.modules.connectors.analytics       ] [ detected analytics (site): false ] -->
-    <!-- [INFO   ] [j1.modules.connectors.analytics       ] [ Check analytics settings from PAGE configuration ] -->
-    <!-- [INFO   ] [j1.modules.connectors.analytics       ] [ detected analytics (page): true ] -->
-    <!-- [INFO   ] [j1.modules.connectors.analytics       ] [ end processing ] -->
-    <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
-    <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: page ] -->
-    <!-- [INFO   ] [j1.modules.connectors.translation     ] [ Check translation settings from SITE configuration ] -->
-    <!-- [INFO   ] [j1.modules.connectors.translation     ] [ detected translation (site): true ] -->
-    <!-- [INFO   ] [j1.modules.connectors.translation     ] [ Check translation settings from PAGE configuration ] -->
-    <!-- [INFO   ] [j1.modules.connectors.translation     ] [ detected translation (page):  ] -->
-    <!-- [INFO   ] [j1.modules.connectors.translation     ] [ start processing load region head, layout: page ] -->
-    <!-- [INFO   ] [j1.modules.connectors.translation     ] [ place Google Translator ] -->
-    <!-- [INFO   ] [j1.modules.connectors.translation     ] [ place callback for the Google Translator API ] -->
-    <script>
-      function googleTranslateElementInit() {
-        var gtAPI = new google.translate.TranslateElement({
-          pageLanguage: 'en',
-          layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT
-        },
-        'google_translate_element');
-        j1.adapter.translator.postTranslateElementInit(gtAPI);
-      }
-    </script>
-    <!-- [INFO   ] [j1.modules.connectors.translation     ] [ end processing ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: page ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ start processing region: head, layout: page ] -->
@@ -289,6 +258,88 @@
     <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: app, place general file resources for resource_settings.id: asciidoctor ] -->
     <script defer src="/assets/themes/j1/adapter/js/asciidoctor.js"></script>
     <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: css_flags_previewer ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, module css_flags_previewer ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place css files for resource ID: css_flags_previewer ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/country-flags/css/theme/uno.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, module css_flags_previewer ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: css_flags_previewer ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: fabm ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, FAB Menus ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: fabm ] -->
+    <script sync src="/assets/themes/j1/modules/fab/js/cash.js"></script>
+    <script sync src="/assets/themes/j1/modules/fab/js/fab.js"></script>
+    <script sync src="/assets/themes/j1/adapter/js/fab.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: quicksearch ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, J1 QuickSearch ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place css files for resource ID: quicksearch ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/lunrSearch/css/quicksearch.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, J1 QuickSearch ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: quicksearch ] -->
+    <script defer src="/assets/themes/j1/adapter/js/quicksearch.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all J1 QuickSearch ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: quicksearch ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script defer src="/assets/themes/j1/modules/lunrSearch/js/lunr.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all J1 QuickSearch ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: quicksearch ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script defer src="/assets/themes/j1/modules/lunrSearch/js/mustache.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all J1 QuickSearch ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: quicksearch ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script defer src="/assets/themes/j1/modules/lunrSearch/js/dateformat.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all J1 QuickSearch ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: quicksearch ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script defer src="/assets/themes/j1/modules/lunrSearch/js/uri.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all J1 QuickSearch ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: quicksearch ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script defer src="/assets/themes/j1/modules/lunrSearch/js/quicksearch.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: rtextresizer ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: msDropdown ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, module msDropdown ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: msDropdown ] -->
+    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/msDropdown/css/themes/uno/msDropdown.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all module msDropdown ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: msDropdown ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script async src="/assets/themes/j1/modules/msDropdown/js/msDropdown.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: translator ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, module translator ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place css files for resource ID: translator ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/translator/css/translator.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, module translator ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: translator ] -->
+    <script sync src="/assets/themes/j1/adapter/js/translator.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all module translator ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: translator ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script sync src="/assets/themes/j1/modules/translator/js/translator.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: analytics ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, module analytics ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: analytics ] -->
+    <script sync src="/assets/themes/j1/adapter/js/analytics.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: rouge ] -->
     <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: app, theme rouge ] -->
     <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: app, place general file resources for resource_settings.id: rouge ] -->
@@ -338,15 +389,6 @@
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: twemoji_picker ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: mdi_previewer ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: mdil_previewer ] -->
-    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: css_flags_previewer ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, module css_flags_previewer ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place css files for resource ID: css_flags_previewer ] -->
-    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
-    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
-    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/core/country-flags/css/theme/uno.css">
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, module css_flags_previewer ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: css_flags_previewer ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: iconify ] -->
     <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive, Iconify framework ] -->
     <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive, place css files for resource ID: iconify ] -->
@@ -366,79 +408,12 @@
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: vimeo_froogaloop ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: vimeo_player ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: nouislider ] -->
-    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: fabm ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, FAB Menus ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: fabm ] -->
-    <script sync src="/assets/themes/j1/modules/fab/js/cash.js"></script>
-    <script sync src="/assets/themes/j1/modules/fab/js/fab.js"></script>
-    <script sync src="/assets/themes/j1/adapter/js/fab.js"></script>
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
-    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: quicksearch ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, J1 QuickSearch ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place css files for resource ID: quicksearch ] -->
-    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
-    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
-    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/lunrSearch/css/quicksearch.css">
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, J1 QuickSearch ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: quicksearch ] -->
-    <script defer src="/assets/themes/j1/adapter/js/quicksearch.js"></script>
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all J1 QuickSearch ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: quicksearch ] -->
-    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
-    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
-    <script defer src="/assets/themes/j1/modules/lunrSearch/js/lunr.js"></script>
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all J1 QuickSearch ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: quicksearch ] -->
-    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
-    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
-    <script defer src="/assets/themes/j1/modules/lunrSearch/js/mustache.js"></script>
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all J1 QuickSearch ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: quicksearch ] -->
-    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
-    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
-    <script defer src="/assets/themes/j1/modules/lunrSearch/js/dateformat.js"></script>
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all J1 QuickSearch ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: quicksearch ] -->
-    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
-    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
-    <script defer src="/assets/themes/j1/modules/lunrSearch/js/uri.js"></script>
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all J1 QuickSearch ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: quicksearch ] -->
-    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
-    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
-    <script defer src="/assets/themes/j1/modules/lunrSearch/js/quicksearch.js"></script>
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: datatables ] -->
-    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: rtextresizer ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: scroller ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: deeplAPI ] -->
-    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: cryptoJS ] -->
-    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: msDropdown ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive, module msDropdown ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive, place general file resources for resource_settings.id: msDropdown ] -->
-    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/msDropdown/css/themes/uno/msDropdown.css">
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive module msDropdown ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout blog_archive, place js files for resource ID: msDropdown ] -->
-    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
-    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
-    <script async src="/assets/themes/j1/modules/msDropdown/js/msDropdown.js"></script>
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
-    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: translator ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, module translator ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place css files for resource ID: translator ] -->
-    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
-    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
-    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/translator/css/translator.css">
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, module translator ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: translator ] -->
-    <script sync src="/assets/themes/j1/adapter/js/translator.js"></script>
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all module translator ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: translator ] -->
-    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
-    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
-    <script sync src="/assets/themes/j1/modules/translator/js/translator.js"></script>
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: crypto ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: advertising ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: comments ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ end processing ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ placement for all lane items finished ] -->
@@ -544,7 +519,6 @@
             <div class="attic-caption"></div>
           </div>
         </div>
-        <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
         <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
         <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ placement for all lane items finished ] -->
         <!-- [DEBUG  ] [j1.layout.default_writer.proc         ] [ reset all lane items ] -->
@@ -1381,7 +1355,7 @@
               <div class="exampleblock result">
                 <div class="content">
                   <div class="paragraph">
-                    <p>Distinctio laudantium ex est est at fugiat accusamus minus voluptatibus eos inventore fugit. Sed beatae placeat assumenda ipsa esse nihil sit repudiandae ducimus repellendus. Dolores modi sit ut omnis aut numquam quis dignissimos. A quo veniam nihil voluptas quidem repellendus. A dolor quia corrupti aliquid ab voluptatem eligendi quis libero dolores totam qui molestiae accusamus.</p>
+                    <p>Sapiente dolorum nulla enim ipsum eum voluptatem praesentium sint nam tenetur quia. Ut vel quia praesentium et et distinctio alias iusto laboriosam et doloremque dolorem assumenda. Est quibusdam vel sequi quasi voluptatibus et eos. Vitae quae inventore eum hic dolor. Atque vel dolor nulla nihil soluta voluptate quam neque fuga ad quibusdam velit ex est.</p>
                   </div>
                 </div>
               </div>
@@ -1415,7 +1389,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>rerum</p>
+                            <p>aspernatur</p>
                           </div>
                         </div>
                       </td>
@@ -1430,7 +1404,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>nesciunt pariatur eos nesciunt iste</p>
+                            <p>totam reiciendis quis molestiae voluptate</p>
                           </div>
                         </div>
                       </td>
@@ -1445,7 +1419,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Et libero eaque rem assumenda iste soluta architecto in placeat quasi non non.</p>
+                            <p>Illo cupiditate neque praesentium facere.</p>
                           </div>
                         </div>
                       </td>
@@ -1460,7 +1434,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Consequatur unde repellat cumque qui omnis error. Hic omnis repellat in omnis amet. Saepe doloribus et accusantium nihil. Blanditiis consequatur nihil exercitationem molestias. Modi eum iusto animi dolorem numquam non praesentium cupiditate consequatur.</p>
+                            <p>Neque hic qui nam sit explicabo. Officiis ea fugit tempore omnis vitae sit quisquam. Praesentium eum sit suscipit. Enim facilis cumque cupiditate cum ex magni est. Explicabo accusantium blanditiis voluptas officia.</p>
                           </div>
                         </div>
                       </td>
@@ -1475,7 +1449,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Wed Nov 24, 1976</p>
+                            <p>Thu Apr 09, 1959</p>
                           </div>
                         </div>
                       </td>
@@ -1490,7 +1464,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>1978-11-29</p>
+                            <p>1987-11-30</p>
                           </div>
                         </div>
                       </td>
@@ -1505,7 +1479,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Eliza Whitehead</p>
+                            <p>Lucinda Vick</p>
                           </div>
                         </div>
                       </td>
@@ -1520,7 +1494,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Marsha</p>
+                            <p>Jared</p>
                           </div>
                         </div>
                       </td>
@@ -1535,7 +1509,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>MacDonald</p>
+                            <p>Brady</p>
                           </div>
                         </div>
                       </td>
@@ -1550,7 +1524,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p><a href="mailto:perlamcnamara@gmail.com">perlamcnamara@gmail.com</a></p>
+                            <p><a href="mailto:emmarollins@live.com">emmarollins@live.com</a></p>
                           </div>
                         </div>
                       </td>
@@ -1655,12 +1629,6 @@
         logger.info(log_text);
         </script -->
         <!-- [INFO   ] [j1.layout.content_writer.proc         ] [ load region 'body-main' for layout: page ] -->
-        <!-- [INFO   ] [j1.modules.connectors.comments      ] [ Check comments settings from SITE configuration ] -->
-        <!-- [INFO   ] [j1.modules.connectors.comments      ] [ detected comments (site): false ] -->
-        <!-- [INFO   ] [j1.modules.connectors.comments      ] [ Check comments settings from PAGE configuration ] -->
-        <!-- [INFO   ] [j1.modules.connectors.comments      ] [ detected comments (page): true ] -->
-        <!-- [INFO   ] [j1.modules.connectors.comments      ] [ end processing ] -->
-        <!-- [INFO   ] [j1.layout.content_writer.proc         ] [ load region 'body-main' for layout: page ] -->
         <section id="fab-container" class=""></section>
         <!-- [INFO   ] [j1.layout.content_writer.proc         ] [ placement for all lane items finished ] -->
         <!-- [DEBUG  ] [j1.layout.content_writer.proc         ] [ reset all lane items ] -->
@@ -1685,7 +1653,7 @@
           var log_text = 'template core is being initialized';
           logger.info(log_text);
                 // [INFO   ] [j1.layout.module_writer.proc          ] [ pass init data for: core ]
-                var settings = $.extend({}, {"layout": "page", "fab_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": "true"});
+                var settings = $.extend({}, {"layout": "page", "fab_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": ""});
                   j1.init(settings);
          });
       </script>
@@ -1722,7 +1690,7 @@
           var log_text = 'module attic is being initialized';
           logger.info(log_text);
               // [INFO   ] [j1.layout.module_writer.proc          ] [ pass module specific frontmatter options for: attic ]
-              var settings = $.extend({}, {"padding_top":400, "padding_bottom":50, "opacity":0.5, "slides":[{"url":"/assets/images/pages/roundtrip/puzzle-1920x1280-bw.jpg", "alt":"puzzle-1920x1280-bw"}]}, {"layout": "page", "scrollbar": "false", "toc": "true", "comments": "true"});
+              var settings = $.extend({}, {"padding_top":400, "padding_bottom":50, "opacity":0.5, "slides":[{"url":"/assets/images/pages/roundtrip/puzzle-1920x1280-bw.jpg", "alt":"puzzle-1920x1280-bw"}]}, {"layout": "page", "scrollbar": "false", "toc": "true", "comments": ""});
                 j1.adapter.attic.init(settings);
          });
       </script>
@@ -1772,7 +1740,7 @@
           var log_text = 'module toccer is being initialized';
           logger.info(log_text);
                 // [INFO   ] [j1.layout.module_writer.proc          ] [ pass init data for: toccer ]
-                var settings = $.extend({}, {"layout": "page", "fab_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": "true"});
+                var settings = $.extend({}, {"layout": "page", "fab_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": ""});
                   j1.adapter.toccer.init(settings);
          });
       </script>
@@ -1852,6 +1820,80 @@
       </script>
       <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
       <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: css_flags_previewer ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: css_flags_previewer ] -->
+      <script>
+        $(document).ready(function() {
+          var logger = log4javascript.getLogger("j1.module_loader");
+          var log_text = 'module css_flags_previewer is being initialized';
+          logger.info(log_text);
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: fabm ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: fabm ] -->
+      <script>
+        $(document).ready(function() {
+          var logger = log4javascript.getLogger("j1.module_loader");
+          var log_text = 'FAB Menus is being initialized';
+          logger.info(log_text);
+                // [INFO   ] [j1.layout.module_writer.proc          ] [ pass init data for: fabm ]
+                var settings = $.extend({}, {"layout": "page", "fab_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": ""});
+                  j1.adapter.fab.init(settings);
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: quicksearch ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: quicksearch ] -->
+      <script>
+        $(document).ready(function() {
+          var logger = log4javascript.getLogger("j1.module_loader");
+          var log_text = 'J1 QuickSearch is being initialized';
+          logger.info(log_text);
+                  j1.adapter.quicksearch.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: rtextresizer ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ rtextresizer module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: msDropdown ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: msDropdown ] -->
+      <script>
+        $(document).ready(function() {
+          var logger = log4javascript.getLogger("j1.module_loader");
+          var log_text = 'module msDropdown is being initialized';
+          logger.info(log_text);
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: translator ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: translator ] -->
+      <script>
+        $(document).ready(function() {
+          var logger = log4javascript.getLogger("j1.module_loader");
+          var log_text = 'module translator is being initialized';
+          logger.info(log_text);
+                  j1.adapter.translator.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: analytics ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: analytics ] -->
+      <script>
+        $(document).ready(function() {
+          var logger = log4javascript.getLogger("j1.module_loader");
+          var log_text = 'module analytics is being initialized';
+          logger.info(log_text);
+                  j1.adapter.analytics.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: rouge ] -->
       <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: rouge ] -->
       <script>
@@ -1885,7 +1927,7 @@
           var log_text = 'module lightbox is being initialized';
           logger.info(log_text);
                 // [INFO   ] [j1.layout.module_writer.proc          ] [ pass init data for: lightbox ]
-                var settings = $.extend({}, {"layout": "page", "fab_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": "true"});
+                var settings = $.extend({}, {"layout": "page", "fab_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": ""});
                   j1.adapter.lightbox.init(settings);
          });
       </script>
@@ -1905,17 +1947,6 @@
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: twemoji_picker ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: mdi_previewer ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: mdil_previewer ] -->
-      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: css_flags_previewer ] -->
-      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: css_flags_previewer ] -->
-      <script>
-        $(document).ready(function() {
-          var logger = log4javascript.getLogger("j1.module_loader");
-          var log_text = 'module css_flags_previewer is being initialized';
-          logger.info(log_text);
-         });
-      </script>
-      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
-      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: iconify ] -->
       <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: iconify ] -->
       <script>
@@ -1937,63 +1968,13 @@
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: vimeo_player ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: nouislider ] -->
       <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ nouislider module detected as: false ] -->
-      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: fabm ] -->
-      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: fabm ] -->
-      <script>
-        $(document).ready(function() {
-          var logger = log4javascript.getLogger("j1.module_loader");
-          var log_text = 'FAB Menus is being initialized';
-          logger.info(log_text);
-                // [INFO   ] [j1.layout.module_writer.proc          ] [ pass init data for: fabm ]
-                var settings = $.extend({}, {"layout": "page", "fab_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": "true"});
-                  j1.adapter.fab.init(settings);
-         });
-      </script>
-      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
-      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
-      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: quicksearch ] -->
-      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: quicksearch ] -->
-      <script>
-        $(document).ready(function() {
-          var logger = log4javascript.getLogger("j1.module_loader");
-          var log_text = 'J1 QuickSearch is being initialized';
-          logger.info(log_text);
-                  j1.adapter.quicksearch.init();
-         });
-      </script>
-      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
-      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: datatables ] -->
       <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ datatables module detected as: false ] -->
-      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: rtextresizer ] -->
-      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ rtextresizer module detected as: false ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: scroller ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: deeplAPI ] -->
-      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: cryptoJS ] -->
-      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: msDropdown ] -->
-      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: msDropdown ] -->
-      <script>
-        $(document).ready(function() {
-          var logger = log4javascript.getLogger("j1.module_loader");
-          var log_text = 'module msDropdown is being initialized';
-          logger.info(log_text);
-         });
-      </script>
-      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
-      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
-      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: translator ] -->
-      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: translator ] -->
-      <script>
-        $(document).ready(function() {
-          var logger = log4javascript.getLogger("j1.module_loader");
-          var log_text = 'module translator is being initialized';
-          logger.info(log_text);
-                  j1.adapter.translator.init();
-         });
-      </script>
-      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
-      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: crypto ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: advertising ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: comments ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ end processing ] -->
       <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
       <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ placement for all lane items finished ] -->

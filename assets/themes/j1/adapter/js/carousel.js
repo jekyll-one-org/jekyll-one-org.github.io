@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-12-19 23:07:39 +0000
+ #  Adapter generated: 2021-12-23 10:10:28 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -22,7 +22,7 @@
 /* eslint indent: "off"                                                       */
 // -----------------------------------------------------------------------------
 'use strict';
-j1.adapter['carousel'] = (function (j1, window) {
+j1.adapter.carousel = (function (j1, window) {
   var environment   = 'development';
   var moduleOptions = {};
   var _this;
@@ -52,7 +52,7 @@ j1.adapter['carousel'] = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.carousel',
-        generated:   '2021-12-19 23:07:39 +0000'
+        generated:   '2021-12-23 10:10:28 +0000'
       }, options);
       // Load  module DEFAULTS|CONFIG
       /* eslint-disable */

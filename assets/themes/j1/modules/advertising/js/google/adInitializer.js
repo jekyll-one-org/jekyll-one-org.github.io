@@ -16,29 +16,8 @@
 */
 $(document).ready(function() {
   // [INFO   ] [j1.adapter.advertising                  ] [ detected advertising provider: google} ]
-  // [INFO   ] [j1.adapter.advertising                  ] [ advertising detected as: true ]
-  var logger        = log4javascript.getLogger('j1.core.advertising.google');
-  var ads_found     = document.getElementsByClassName('adsbygoogle').length;
-  var cookie_names  = j1.getCookieNames();
-  var user_consent  = j1.readCookie(cookie_names.user_consent);
-  var dependencies_met_page_ready = setInterval (function (options) {
-    if (j1.getState() === 'finished') {
-      if (user_consent.personalization) {
-        if (ads_found) {
-          logger.info('\n' + 'initialize all ads in page: #' + ads_found);
-          [].forEach.call(document.querySelectorAll('.adsbygoogle'), function() {
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          });
-        } else {
-          logger.warn('\n' + 'no ads found in page');
-        }
-      } else {
-        logger.warn('\n' + 'initializing ads skipped');
-        logger.warn('\n' + 'consent on cookies disabled for personalization');
-      }
-      clearInterval(dependencies_met_page_ready);
-    }
-  }, 25);
+  // [INFO   ] [j1.adapter.advertising                  ] [ advertising detected as: false ]
+  // [WARN   ] [j1.core.advertising                     ] [ no init code placed ]
 });
 
 
