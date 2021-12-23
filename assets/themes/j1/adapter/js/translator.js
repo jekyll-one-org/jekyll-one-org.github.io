@@ -12,7 +12,7 @@
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-12-23 10:10:28 +0000
+ #  Adapter generated: 2021-12-23 14:09:54 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -27,7 +27,7 @@
 // https://www.marghoobsuleman.com/image-dropdown/advanced-help
 'use strict';
 j1.adapter.translator = (function (j1, window) {
-  var environment       = 'development';
+  var environment       = 'production';
   var tracking_enabled  = ('false' === 'true') ? true: false;    // Analytics/GA enabled?
   var moduleOptions     = {};
   var user_translate    = {};
@@ -95,7 +95,7 @@ j1.adapter.translator = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.translator',
-        generated:   '2021-12-23 10:10:28 +0000'
+        generated:   '2021-12-23 14:09:54 +0000'
       }, options);
       // Load  module DEFAULTS|CONFIG
       /* eslint-disable */

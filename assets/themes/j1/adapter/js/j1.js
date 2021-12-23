@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-12-23 10:10:28 +0000
+ # Adapter generated: 2021-12-23 14:09:54 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -32,7 +32,7 @@ var j1 = (function () {
   // globals
   // ---------------------------------------------------------------------------
   var rePager                   =  new RegExp('navigator|dateview|tagview|archive');
-  var environment               = 'development';
+  var environment               = 'production';
   var moduleOptions             = {};
   var j1_runtime_data           = {};
   // Status information
