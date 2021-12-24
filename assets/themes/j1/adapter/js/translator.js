@@ -12,7 +12,7 @@
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-12-23 14:09:54 +0000
+ #  Adapter generated: 2021-12-24 19:34:27 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -28,7 +28,6 @@
 'use strict';
 j1.adapter.translator = (function (j1, window) {
   var environment       = 'production';
-  var tracking_enabled  = ('false' === 'true') ? true: false;    // Analytics/GA enabled?
   var moduleOptions     = {};
   var user_translate    = {};
   var _this;
@@ -61,7 +60,14 @@ j1.adapter.translator = (function (j1, window) {
     // -------------------------------------------------------------------------
     init: function (options) {
       // -----------------------------------------------------------------------
-      // globals
+      // Default module settings
+      // -----------------------------------------------------------------------
+      var settings = $.extend({
+        module_name: 'j1.adapter.translator',
+        generated:   '2021-12-24 19:34:27 +0000'
+      }, options);
+      // -----------------------------------------------------------------------
+      // Global variable settings
       // -----------------------------------------------------------------------
       _this                 = j1.adapter.translator;
       logger                = log4javascript.getLogger('j1.adapter.translator');
@@ -90,13 +96,6 @@ j1.adapter.translator = (function (j1, window) {
       };
       // initialize state flag
       _this.state = 'pending';
-      // -----------------------------------------------------------------------
-      // Default module settings
-      // -----------------------------------------------------------------------
-      var settings = $.extend({
-        module_name: 'j1.adapter.translator',
-        generated:   '2021-12-23 14:09:54 +0000'
-      }, options);
       // Load  module DEFAULTS|CONFIG
       /* eslint-disable */
       moduleOptions = $.extend({}, {"enabled":true, "translationEnabled":false, "hideTranslatorIcon":false, "disableLanguageSelector":false, "translationLanguage":"de", "translateAllPages":true, "reloadPageOnChange":true, "contentURL":"/assets/data/translator", "contentLanguage":"en", "dialogLanguage":"auto", "dialogLanguages":["en", "de"], "cookieName":"j1.user.translate", "cookieConsentName":"j1.user.consent", "xhrDataElement":"google-data", "dialogContainerID":"translator-dialog", "google":{"postSelectionCallback":"j1.adapter.translator.cbGoogle", "hideSuggestionBox":true, "hidePoweredBy":true, "hideTopFrame":true, "translationLanguages":["af", "sq", "am", "ar", "hy", "az", "eu", "be", "bn", "bs", "bg", "km", "ca", "ny", "zh-CN", "zh-TW", "co", "hr", "cs", "da", "nl", "en", "et", "tl", "fi", "fr", "fy", "gl", "ka", "de", "el", "gu", "ht", "ha", "haw", "iw", "hi", "hu", "is", "ig", "id", "ga", "it", "ja", "jw", "kn", "kk", "rw", "ko", "ku", "ky", "lo", "lv", "lt", "mk", "mg", "ms", "ml", "mt", "mi", "mr", "mo", "mn", "ne", false, "nn", "or", "ps", "fa", "pl", "pt", "pa", "ro", "rm", "ru", "gd", "sr", "st", "sn", "sd", "si", "sk", "sl", "so", "es", "su", "sw", "sv", "tg", "ta", "tt", "te", "th", "tr", "tk", "ug", "uk", "ur", "uz", "vi", "cy", "xh", "yi", "yo", "zu"], "modal_settings":{"title":{"en":"Google Translator", "de":"Google Übersetzer"}, "body_text":{"en":"This website uses the free service <em>Google Translate</em> to translate the content into 100+ languages in a matter of seconds. The <b>language</b> for translation is taken <b>automatically</b> from the language settings of your <b>browser</b>. If you do <b>not</b> want translation anymore, <b>disable</b> the service in section <b>My Settings</b>.\n", "de":"Diese Website nutzt den kostenlosen Dienst <em>Google Translate</em>, um die Inhalte in sekundenschnelle in über 100+ Sprachen zu übersetzen. Die <b>Sprache</b> für die Übersetzung wird <b>automatisch</b> aus den Spracheinstellungen Ihres <b>Browsers</b> übernommen. Wenn Sie <b>keine</b> Übersetzung mehr wünschen, <b>deaktivieren</b> Sie den Dienst im Abschnitt <b>Meine Einstellungen</b>.\n"}, "language_selector_title":{"en":"Your current language setting for translation is:", "de":"Ihre aktuelle Spracheinstellung für die Übersetzung ist:"}, "privacy_notice":{"en":"The free service from <em>Google Translate</em> uses cookies to provide its services, personalize advertising and run traffic analysis To use the service, your consent on using cookies is required. Find more information about at the Google <a href=\"https://policies.google.com/\" target=\"_blank\" rel=\"noopener\">Privacy Policy</a> <br><br> <code>Analysis</code> For translations, your consent on <b>Analysis</b> with your <b>Privacy Settings</b> is required. <br><br> <code>Personalization</code> For translations, your consent on <b>Personalization</b> with your <b>Privacy Settings</b> is required.\n", "de":"Der kostenlose Dienst von <em>Google Translate</em> verwendet Cookies um seine Dienste bereitzustellen, Werbung zu personalisieren und Verkehrsanalysen durchzuführen: <br><br> <code>Analysen</code> Für die Nutzung von Übersetzungen ist Ihre Zustimmung zu <b>Analysen</b> in den Einstellungen <code>Ihre Privatsphäre</code> erforderlich. <br><br> <code>Personalisierung</code> Für die Nutzung von Übersetzungen ist Ihre Zustimmung zur <b>Personalisierung</b> in den Einstellungen <code>Ihre Privatsphäre</code> erforderlich.\n"}}}, "translatorName":"google"});

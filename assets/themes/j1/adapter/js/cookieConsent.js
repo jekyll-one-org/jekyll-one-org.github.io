@@ -12,7 +12,7 @@
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-12-23 14:09:54 +0000
+ #  Adapter generated: 2021-12-24 19:34:27 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -23,12 +23,12 @@
 // -----------------------------------------------------------------------------
 'use strict';
 j1.adapter.cookieConsent = (function (j1, window) {
-  var environment       = 'production';
-  var tracking_enabled  = ('' === 'true') ? true: false;
-  var tracking_id       = '';
-  var tracking_id_valid = (tracking_id.includes('tracking-id')) ? false : true;
-  var comment_provider  = '';
-  var moduleOptions     = {};
+  var environment                 = 'production';
+  var tracking_enabled            = ('false' === 'true') ? true: false;
+  var tracking_id                 = 'G-299QGW5RJH';
+  var tracking_id_valid           = (tracking_id.includes('tracking-id')) ? false : true;
+  var expireCookiesOnRequiredOnly = ('' === 'true') ? true: false;
+  var moduleOptions               = {};
   var _this;
   var $modal;
   var cookie_names;
@@ -60,7 +60,14 @@ j1.adapter.cookieConsent = (function (j1, window) {
     // -------------------------------------------------------------------------
     init: function (options) {
       // -----------------------------------------------------------------------
-      // globals
+      // Default module settings
+      // -----------------------------------------------------------------------
+      var settings = $.extend({
+        module_name: 'j1.adapter.cookieConsent',
+        generated:   '2021-12-24 19:34:27 +0000'
+      }, options);
+      // -----------------------------------------------------------------------
+      // Global variable settings
       // -----------------------------------------------------------------------
       _this                 = j1.adapter.cookieConsent;
       logger                = log4javascript.getLogger('j1.adapter.cookieConsent');
@@ -75,13 +82,6 @@ j1.adapter.cookieConsent = (function (j1, window) {
       navigatorLanguage     = navigator.language || navigator.userLanguage;
       // initialize state flag
       _this.state = 'pending';
-      // -----------------------------------------------------------------------
-      // Default module settings
-      // -----------------------------------------------------------------------
-      var settings = $.extend({
-        module_name: 'j1.adapter.cookieConsent',
-        generated:   '2021-12-23 14:09:54 +0000'
-      }, options);
       // Load  module DEFAULTS|CONFIG
       /* eslint-disable */
       moduleOptions = $.extend({}, {"enabled":true, "reloadPageOnChange":true, "autoShowDialog":true, "dialogLanguage":"content", "dialogLanguages":["en", "de"], "contentURL":"/assets/data/cookieconsent", "whitelisted":["/pages/public/legal/en/privacy"], "xhrDataElement":"consent-data", "dialogContainerID":"consent-dialog", "postSelectionCallback":"j1.adapter.cookieConsent.cbCookie", "modal_settings":{"title":{"de":"Ihre Privatsphäre", "en":"Your Privacy"}, "body_text":{"en":"This website uses cookies and similar technologies that are required for operation. You are free to decide to give, refuse or withdraw your consent at any time by clicking the <code>My Settings</code> button. Changes are possible at any time by clicking on the <code>cookie</code> icon in the menu bar. Additional cookies are used only with your consent. Additional cookies are used to analyze the use of this website or to store your personal settings for this website. Personal settings allow all visitors to save preferences of the use of services. For more information about what data is collected and shared with partners, please find more information with <code>Privacy Notice</code>. <br><br> To visit this website, your consent on cookies is required by clicking the <code>I Agree</code> button.\n", "de":"Diese Website verwendet Cookies und ähnliche Technologien, die für den Betrieb dieser Website erforderlich sind. Sie können zu jederzeit entscheiden, ob Sie Ihre Zustimmung geben, verweigern oder zurückziehen. Sie können Ihre Zustimmung geben, indem Sie auf die Schaltfläche <code>Einverstanden</code> klicken. Nachträgliche Änderungen sind jederzeit möglich, indem Sie auf das <code>Cookie</code> Symbol in der Menüleiste klicken. <br><br> Erweiterte Cookies werden nur mit Ihrer <b>Zustimmung</b> verwendet. Zusätzliche Cookies werden verwendet, um die Nutzung dieser Website zu analysieren oder Ihre persönlichen Einstellungen für diese Webseite zu speichern. Analysen der Nutzung der Website helfen uns, Ihnen eine optimaler Nutzung diese Website zu ermöglichen. Persönliche Einstellungen erlauben es allen Besuchern, Präferenzen der Nutzung von Diensten zu speichern. <br><br> Weitere Informationen darüber, welche Daten gesammelt und an Partner weitergegeben werden finden Sie in der <code>Datenschutzrichtlinie</code>. Oder in Kurzform, indem Sie auf <code>Datenschutzerklärung</code> klicken. <br><br> Wenn Sie diese Website besuchen, ist Ihre Zustimmung zur Verwendung von Cookies erforderlich, indem Sie auf die Schaltfläche <code>Einverstanden</code> klicken.\n"}, "privacy_notice":{"en":"The operator of this website takes the protection of your personal data seriously. We treat your data confidential and comply with the General Data Protection Regulation (GDPR) of the European Union to protect your privacy. A set of data is stored in <b>Persistent Cookies</b>. Our partners and we make use of Persistent Cookies. Those <b>additional</b> cookies are only used with your consent. <br><br> <code>Necessary</code> This website is based on static content, and no database is used behind it. All information (data) needed to control this site is stored in so-called <b>Session Cookies</b>. Your browser automatically <b>removes</b> session cookies if you close all windows of the browser. <br><br> <code>Analysis</code> of this website's usage helps optimize the site's pages to improve the visitor's experience. For analysis, Google Analytics (GA) is used. GA uses <b>Persistent Cookies</b> that remain on your computer for its service. This website does <b>not</b> transfer any personal data to GA. Implicit personal information, like IP addresses, is anonymized to protect your privacy. <br><br> <code>Personalization</code> provides <b>additional services</b> like themes, translation, comments, or running advertising campaigns to provide visitors with a website free of charge. Partners use <b>Persistent Cookies</b> that remain on your computer for their services. Our partners like Bootswatch, Disqus, or Google provide excellent personalized services and finance running this site.\n", "de":"Der Betreiber dieser Website nimmt den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre Daten vertraulich und halten uns an die <b>Datenschutzgrundverordnung</b> (DSGVO) der Europäischen Union zum Schutz Ihrer Privatsphäre. <br><br> Eine Reihe von Daten wird in <b>dauerhaften Cookies</b> gespeichert. Unsere Partner und wir verwenden dauerhafte Cookies. Diese <b>zusätzlichen</b> Daten werden nur mit Ihrer <b>Zustimmung</b> gespeichert. <br><br> <code>Notwendig</code> Diese Website speichert <b>keine</b> persönliche Daten in Datenbanken. Alle Informationen (Daten) die zur Steuerung dieser Seite notwendig sind, werden in sogenannten <b>Sitzungscookies</b> gespeichert. Ihr Browser <b>entfernt</b> Sitzungscookies automatisch ohne Ihr zutun, wenn Sie alle Browserfenster schließen. <br><br> <code>Analysen</code> der Nutzung dieser Website hilft bei der Optimierung der Website, um die Nutzung für alle Besucher zu verbessern. Für die Analyse wird der Dienst <em>Google Analytics</em> (GA) verwendet. GA verwendet dauerhafte Cookies die auf Ihrem Computer verbleiben, um diesen Dienst zu ermöglichen. Diese Website überträgt <b>keine</b> persönlichen Daten an den Dienst GA. Implizite persönliche Informationen, wie IP-Adressen, werden zum Schutz der Privatsphäre unserer Besucher anonymisiert. <br><br> <code>Personalisierung</code> wird verwendet, um <b>zusätzliche</b> Dienste anzubieten. Dazu gehören Themen, Übersetzungen, Kommentare oder Werbekampagnen die allen Anwendern einen kostenlosen Besuch dieser Website ermöglichen. Partner verwenden für ihre Dienste dauerhafte Cookies, die auf Ihrem Computer verbleiben. Unsere Partner wie Bootswatch, Disqus, oder Google bieten hervorragende personalisierte Dienste und finanzieren die Kosten für den Betrieb dieser Seiten.\n"}}, "show_cookie_icon":true, "expire_cookies_on_required_only":true});
@@ -192,6 +192,7 @@ j1.adapter.cookieConsent = (function (j1, window) {
     // -------------------------------------------------------------------------
     cbCookie: function () {
       var gaCookies           = j1.findCookie('_ga');
+      var gasCookies          = j1.findCookie('__ga');
       var j1Cookies           = j1.findCookie('j1');
       var cookie_names        = j1.getCookieNames();
       var user_state          = j1.readCookie(cookie_names.user_state);
@@ -206,44 +207,15 @@ j1.adapter.cookieConsent = (function (j1, window) {
       if ($('#quickLinksCookieButton').css('display') === 'none')  {
         $('#quickLinksCookieButton').css('display', 'block');
       }
-      // jadams, 2021-11-29: disabled additional logs to verify the existance
-      // of J1 and GA cookies (testing only)
-      //
-      // logger.debug('\n' + 'j1 cookies found:' + j1Cookies.length);
-      // j1Cookies.forEach(item => console.log('j1.core.switcher: ' + item));
-      // logger.debug('\n' + 'ga cookies found:' + gaCookies.length);
-      // gaCookies.forEach(item => console.log('j1.core.switcher: ' + item));
-      //
-      // if (user_agent.includes('iPad'))  {
-      //   logger.warn('\n' + 'product detected : ' + platform.product);
-      //   logger.warn('\n' + 'skip deleting (unwanted) cookies for this platform');
-      // }
       // Manage Google Analytics OptIn/Out
       // See: https://github.com/luciomartinez/gtag-opt-in/wiki
       if (tracking_enabled && tracking_id_valid) {
-        // jadams, 2021-12-20:  GA OptIn|Out handling moved to (new)
-        // analytics adapter (adapter/js/analytics.js)
+        // Managing cookie life-time
         // ---------------------------------------------------------------------
-        // GTagOptIn.register(tracking_id);
-        // if (user_consent.analysis)  {
-        //   logger.info('\n' + 'enable: GA');
-        //   GTagOptIn.optIn();
-        // } else {
-        //   logger.warn('\n' + 'disable: GA');
-        //   GTagOptIn.optOut();
-        //
-        //   if (!user_agent.includes('iPad')) {
-        //     gaCookies.forEach(function (item) {
-        //       logger.warn('\n' + 'delete GA cookie: ' + item);
-        //       j1.removeCookie({ name: item, domain: cookie_domain });
-        //     });
-        //   }
-        // }
-        // Managing cookie life-time. If cookie settings allows only
-        // "required" cookies, all "persistent" cookies (Comments|Ads|Translation)
-        // get expired to "session" for better GDPR compliance. The GDPR
-        // regulations|privacy does NOT require any consent on using cookies
-        // for session-only cookies.
+        // If cookie settings allows only "required" cookies, all "persistent"
+        // cookies (Comments|Ads|Translation) get expired to "session" for
+        // better GDPR compliance. The GDPR regulations does NOT require
+        // any consent on session-only cookies.
         //
         if (!user_consent.analysis || !user_consent.personalization) {
           // overload cookie consent settings
@@ -267,23 +239,30 @@ j1.adapter.cookieConsent = (function (j1, window) {
           location.reload(true);
         }
       } else {
+        // Failsafe: Make (REALLY) sure the all GA|GAS cookies removed
+        // left from a previous session/page view for better GDPR compliance
+        // ---------------------------------------------------------------------
         // jadams, 2021-08-10: remove cookies on invalid GA config or left
         // cookies from previous session/page view if they exists
         // ---------------------------------------------------------------------
         gaCookies.forEach(function (item) {
-          // Skip cookies from Google Ads
-          var gad = item.includes('gad');
-          if (!gad) {
-            logger.warn('\n' + 'delete GA cookie: ' + item);
-            j1.removeCookie({ name: item, domain: cookie_domain });
-          }
+          logger.warn('\n' + 'delete GA cookie: ' + item);
+          j1.removeCookie({ name: item, domain: false, secure: false });
+        });
+        // jadams, 2021-12-23: remove cookies on invalid GAdsense config
+        // or left cookies from previous session/page view if they exists
+        // ---------------------------------------------------------------------
+        gasCookies.forEach(function (item) {
+          // Remove cookies from Google Ads
+          logger.warn('\n' + 'delete GAS cookie: ' + item);
+          j1.removeCookie({ name: item, domain: false, secure: false });
         });
         // Managing cookie life-time. If cookie settings allows only
         // "required" cookies, all "persistent" cookies (Comments|Ads|Translation)
         // get expired to "session" for better GDPR compliance. The GDPR
         // regulations|privacy does NOT require any consent on using cookies
         // for session-only cookies.
-        //
+        // ---------------------------------------------------------------------
         if (!user_consent.analysis || !user_consent.personalization) {
           // overload cookie consent settings
           user_translate.analysis         = user_consent.analysis;
@@ -295,11 +274,12 @@ j1.adapter.cookieConsent = (function (j1, window) {
             data:     user_translate,
             secure:   secure
           });
-          // expire permanent cookies to session
-          // -------------------------------------------------------------------
-          j1.expireCookie({ name: cookie_names.user_state });
-          j1.expireCookie({ name: cookie_names.user_consent });
-          j1.expireCookie({ name: cookie_names.user_translate });
+          if (expireCookiesOnRequiredOnly) {
+            // expire permanent cookies to session
+            j1.expireCookie({ name: cookie_names.user_state });
+            j1.expireCookie({ name: cookie_names.user_consent });
+            j1.expireCookie({ name: cookie_names.user_translate });
+          }
         }
         if (moduleOptions.reloadPageOnChange) {
           // reload current page (skip cache)
