@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-12-24 19:34:27 +0000
+ # Adapter generated: 2021-12-24 19:59:21 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -45,8 +45,8 @@ var j1 = (function () {
   // Default comment provider information
   var comment_provider            = '';
   var site_id                     = '';
-  var checkCookies                = ;
-  var expireCookiesOnRequiredOnly = ('' === 'true') ? true: false;
+  var checkCookies                = true;
+  var expireCookiesOnRequiredOnly = ('true' === 'true') ? true: false;
   var current_user_data;
   var current_page;
   var previous_page;
@@ -140,7 +140,7 @@ var j1 = (function () {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2021-12-24 19:34:27 +0000'
+        generated:   '2021-12-24 19:59:21 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -1190,7 +1190,7 @@ var j1 = (function () {
         domain:       ('false' === 'true'),                 // convert to boolean
         samesite:     'Strict',
         http_only:    ('false' === 'true'),              // convert to boolean
-        secure:       ('false' === 'true'),                 // convert to boolean
+        secure:       ('auto' === 'true'),                 // convert to boolean
       };
       var settings = $.extend(defaults, options);
       // Failsafe: if 'None' is given for samesite in non-secure environments
@@ -1273,7 +1273,7 @@ var j1 = (function () {
         domain:       ('false' === 'true'),                 // convert to boolean
         samesite:     'Strict',
         http_only:    ('false' === 'true'),              // convert to boolean
-        secure:       ('false' === 'true'),                 // convert to boolean
+        secure:       ('auto' === 'true'),                 // convert to boolean
       };
       var settings  = $.extend(defaults, options);
       // collect the cookie attributes
@@ -1341,7 +1341,7 @@ var j1 = (function () {
         domain:       ('false' === 'true'),                 // convert to boolean
         samesite:     'Strict',
         http_only:    ('false' === 'true'),              // convert to boolean
-        secure:       ('false' === 'true'),                 // convert to boolean
+        secure:       ('auto' === 'true'),                 // convert to boolean
       };
       var settings  = $.extend(defaults, options);
       // collect the cookie attributes
