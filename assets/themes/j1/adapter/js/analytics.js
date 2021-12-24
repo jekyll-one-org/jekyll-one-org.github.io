@@ -13,9 +13,138 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-12-24 19:59:21 +0000
+ #  Adapter generated: 2021-12-24 20:09:46 +0000
  # -----------------------------------------------------------------------------
 */
-'use strict';j1.adapter.analytics=function(e){var n,t,a,i,o=document.createElement('script'),s='G-299QGW5RJH',r=!s.includes('your'),g=e.getCookieNames();(new Date).toISOString();return{init:function(i){$.extend({module_name:'j1.adapter.analytics',generated:'2021-12-24 19:59:21 +0000'},i);t=e.adapter.analytics,a=log4javascript.getLogger('j1.adapter.analytics.google'),t.setState('started'),a.info("\nstate: "+t.getState()),a.info("\nmodule is being initialized"),e.findCookie('_ga').forEach(function(n){a.warn("\ndelete cookie created by Google Analytics: "+n),e.removeCookie({name:n,domain:!1,secure:!1})});var d=setInterval(function(){'finished'==e.getState()&&(document.getElementById('google-tag-manager')||(a.info("\nGoogle Analytics API added in section: head"),o.async=!0,o.id='google-tag-manager',o.src='//www.googletagmanager.com/gtag/js?id='+s,document.head.appendChild(o)),(n=e.readCookie(g.user_consent)).analysis?r?(a.info("\nuser consent on analytics: "+n.analysis),a.info("\nenable Google Analytics on ID: "+s),GTagOptIn.register(s),GTagOptIn.optIn()):a.warn("\ninvalid trackig id detected for Google Analytics: "+s):(a.info("\nuser consent on analytics: "+n.analysis),a.warn("\ndisable Google Analytics on ID: "+s),GTagOptIn.register(s),GTagOptIn.optOut()),clearInterval(d))},25)},messageHandler:function(e,n){var t=JSON.stringify(n,undefined,2);return i="\nreceived message from "+e+': '+t,a.debug(i),'command'===n.type&&'module_initialized'===n.action&&a.info('\n'+n.text),!0},setState:function(e){t.state=e},getState:function(){return t.state}}}(j1,window);
+// -----------------------------------------------------------------------------
+// ESLint shimming
+// -----------------------------------------------------------------------------
+/* eslint indent: "off"                                                       */
+// -----------------------------------------------------------------------------
+'use strict';
+j1.adapter.analytics = (function (j1, window) {
+var environment     = 'development';
+var gaScript        = document.createElement('script');
+var providerID      = 'G-299QGW5RJH';
+var validProviderID = (providerID.includes('your')) ? false : true;
+var optInOut        = true;
+var anonymizeIP     = true;
+var cookie_names    = j1.getCookieNames();
+var date            = new Date();
+var timestamp_now   = date.toISOString();
+var gaCookies;
+var user_consent;
+var gaExists;
+var _this;
+var logger;
+var logText;
+  // ---------------------------------------------------------------------------
+  // Main object
+  // ---------------------------------------------------------------------------
+  return {
+    // -------------------------------------------------------------------------
+    // init()
+    // adapter initializer
+    // -------------------------------------------------------------------------
+    init: function (options) {
+      // [INFO   ] [j1.adapter.analytics                    ] [ detected analytics provider (j1_config): google} ]
+      // [INFO   ] [j1.adapter.analytics                    ] [ start processing load region head, layout:  ]
+      // [INFO   ] [j1.adapter.analytics                    ] [ place provider: Google Adsense ]
+      // -----------------------------------------------------------------------
+      // Default module settings
+      // -----------------------------------------------------------------------
+      var settings = $.extend({
+        module_name: 'j1.adapter.analytics',
+        generated:   '2021-12-24 20:09:46 +0000'
+      }, options);
+      // -----------------------------------------------------------------------
+      // Global variable settings
+      // -----------------------------------------------------------------------
+      _this = j1.adapter.analytics;
+      logger = log4javascript.getLogger('j1.adapter.analytics.google');
+      // initialize state flag
+      _this.setState('started');
+      logger.info('\n' + 'state: ' + _this.getState());
+      logger.info('\n' + 'module is being initialized');
+      // remove all ga cookies left from a previous session/page view
+      // -----------------------------------------------------------------------
+      gaCookies = j1.findCookie('_ga');
+      gaCookies.forEach(function (item) {
+        logger.warn('\n' + 'delete cookie created by Google Analytics: ' + item);
+        j1.removeCookie({ name: item, domain: false, secure: false });
+      });
+      var dependencies_met_page_ready = setInterval(function() {
+        if (j1.getState() == 'finished') {
+          gaExists = document.getElementById('google-tag-manager');
+          if (!gaExists) {
+            // add ga api dynamically in the head section
+            // -----------------------------------------------------------------
+            logger.info('\n' + 'Google Analytics API added in section: head');
+            gaScript.async = true;
+            gaScript.id    = 'google-tag-manager';
+            gaScript.src   = '//www.googletagmanager.com/gtag/js?id=' + providerID;
+            document.head.appendChild(gaScript);
+          }
+          user_consent  = j1.readCookie(cookie_names.user_consent);
+          if (user_consent.analysis) {
+            if (validProviderID) {
+              logger.info('\n' + 'user consent on analytics: ' + user_consent.analysis);
+              logger.info('\n' + 'enable Google Analytics on ID: ' + providerID);
+              GTagOptIn.register(providerID);
+              GTagOptIn.optIn();
+            } else {
+              logger.warn('\n' + 'invalid trackig id detected for Google Analytics: ' + providerID);
+            }
+          } else {
+            logger.info('\n' + 'user consent on analytics: ' + user_consent.analysis);
+            logger.warn('\n' + 'disable Google Analytics on ID: ' + providerID);
+            GTagOptIn.register(providerID);
+            GTagOptIn.optOut();
+          }
+          clearInterval(dependencies_met_page_ready);
+        } // END if getState 'finished'
+      }, 25);
+      // [INFO   ] [j1.adapter.analytics                    ] [ end processing ]
+      return;
+    }, // END init
+    // -------------------------------------------------------------------------
+    // messageHandler()
+    // manage messages send from other J1 modules
+    // -------------------------------------------------------------------------
+    messageHandler: function (sender, message) {
+      var json_message = JSON.stringify(message, undefined, 2);
+      logText = '\n' + 'received message from ' + sender + ': ' + json_message;
+      logger.debug(logText);
+      // -----------------------------------------------------------------------
+      //  Process commands|actions
+      // -----------------------------------------------------------------------
+      if (message.type === 'command' && message.action === 'module_initialized') {
+        //
+        // Place handling of command|action here
+        //
+        logger.info('\n' + message.text);
+      }
+      //
+      // Place handling of other command|action here
+      //
+      return true;
+    }, // END messageHandler
+    // -------------------------------------------------------------------------
+    // setState()
+    // Sets the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    setState: function (stat) {
+      _this.state = stat;
+    }, // END setState
+    // -------------------------------------------------------------------------
+    // getState()
+    // Returns the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    getState: function () {
+      return _this.state;
+    } // END getState
+  }; // END return
+})(j1, window);
+
 
 
