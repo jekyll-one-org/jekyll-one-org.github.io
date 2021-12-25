@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-12-25 11:48:22 +0000
+ # Adapter generated: 2021-12-25 12:16:59 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -140,7 +140,7 @@ var j1 = (function () {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2021-12-25 11:48:22 +0000'
+        generated:   '2021-12-25 12:16:59 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -1186,7 +1186,7 @@ var j1 = (function () {
         domain:       ('false' === 'false') ? false : 'false',
         samesite:     'Strict',
         http_only:    ('false' === 'true'),
-        secure:       'auto'
+        secure:       ('auto' === 'false') ? false : 'auto'
       };
       var settings = $.extend(defaults, options);
       // Failsafe: if 'None' is given for samesite in non-secure environments
@@ -1225,11 +1225,8 @@ var j1 = (function () {
       if (settings.secure) {
         if (settings.secure == 'auto') {
           stringifiedAttributes += '; ' + 'Secure=' + auto_secure;
-        } else if (settings.secure === 'true') {
-          settings.secure = true;
-          stringifiedAttributes += '; ' + 'Secure=' + settings.secure;
         } else {
-          settings.secure = false;
+          stringifiedAttributes += '; ' + 'Secure=' + settings.secure;
         }
       }
       // write the cookie
@@ -1270,8 +1267,8 @@ var j1 = (function () {
         expires:      'Thu, 01 Jan 1970 00:00:00 UTC',                          // clear cookies by settting the expiry date in the PAST
         domain:       ('false' === 'false') ? false : 'false',
         samesite:     'Strict',
-        http_only:    ('false' === 'true'),              // convert to boolean
-        secure:       'auto'
+        http_only:    ('false' === 'true'),
+        secure:       ('auto' === 'false') ? false : 'auto'
       };
       var settings  = $.extend(defaults, options);
       // collect the cookie attributes
@@ -1291,11 +1288,8 @@ var j1 = (function () {
       if (settings.secure) {
         if (settings.secure == 'auto') {
           stringifiedAttributes += '; ' + 'Secure=' + auto_secure;
-        } else if (settings.secure === 'true') {
-          settings.secure = true;
-          stringifiedAttributes += '; ' + 'Secure=' + settings.secure;
         } else {
-          settings.secure = false;
+          stringifiedAttributes += '; ' + 'Secure=' + settings.secure;
         }
       }
       // clear|remove the cookie if exists
@@ -1338,10 +1332,10 @@ var j1 = (function () {
       var defaults = {
         path:         '/',
         expires:      '365',
-        domain:       'false',
+        domain:       ('false' === 'false') ? false : 'false',
         samesite:     'Strict',
-        http_only:    ('false' === 'true'),              // convert to boolean
-        secure:       'auto'
+        http_only:    ('false' === 'true'),
+        secure:       ('auto' === 'false') ? false : 'auto'
       };
       var settings  = $.extend(defaults, options);
       // collect the cookie attributes
@@ -1353,23 +1347,22 @@ var j1 = (function () {
         if (settings.domain == 'auto') {
           stringifiedAttributes += '; ' + 'Domain=' + auto_domain;
         } else if (typeof settings.domain == 'string') {
-          stringifiedAttributes += '; ' + 'Domain=' + settings.domain;
+          if (settings.domain !== 'false') {
+            stringifiedAttributes += '; ' + 'Domain=' + settings.domain;
+          }
         }
       }
       // set secure attribute
       if (settings.secure) {
         if (settings.secure == 'auto') {
           stringifiedAttributes += '; ' + 'Secure=' + auto_secure;
-        } else if (settings.secure === 'true') {
-          settings.secure = true;
-          stringifiedAttributes += '; ' + 'Secure=' + settings.secure;
         } else {
-          settings.secure = false;
+          stringifiedAttributes += '; ' + 'Secure=' + settings.secure;
         }
       }
-      var dc        = document.cookie;                                            // all cookies in page
-      var end       = dc.length;                                                  // default to end of the string
-      var prefix    = settings.name + '=';                                                 // search string for the cookie name given
+      var dc        = document.cookie;                                          // all cookies in page
+      var end       = dc.length;                                                // default to end of the string
+      var prefix    = settings.name + '=';                                      // search string for the cookie name given
       var begin     = dc.indexOf('; ' + prefix);
       var content   = '';
       // collect the cookie content
