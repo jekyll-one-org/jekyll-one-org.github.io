@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-12-25 12:16:59 +0000
+ #  Adapter generated: 2021-12-25 13:00:54 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -39,16 +39,16 @@ var baseUrl;
 var hostname;
 var cookie_names;
 var user_consent;
-var domain;
-var domainAttribute;
-var cookie_option_domain;
-var cookie_domain;
 var advertisingProvider;
 var providerID;
 var validProviderID;
 var _this;
 var logger;
 var logText;
+// var domain;
+// var domainAttribute;
+// var cookie_option_domain;
+// var cookie_domain;
   // ---------------------------------------------------------------------------
   // Main object
   // ---------------------------------------------------------------------------
