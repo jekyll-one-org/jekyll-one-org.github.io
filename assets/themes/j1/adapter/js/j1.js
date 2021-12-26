@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-12-25 13:00:54 +0000
+ # Adapter generated: 2021-12-26 11:37:39 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -45,7 +45,7 @@ var j1 = (function () {
   // Default comment provider information
   var comment_provider            = '';
   var site_id                     = '';
-  var checkCookies                = true;
+  var checkCookies                = false;
   var expireCookiesOnRequiredOnly = ('true' === 'true') ? true: false;
   var current_user_data;
   var current_page;
@@ -140,7 +140,7 @@ var j1 = (function () {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2021-12-25 13:00:54 +0000'
+        generated:   '2021-12-26 11:37:39 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings

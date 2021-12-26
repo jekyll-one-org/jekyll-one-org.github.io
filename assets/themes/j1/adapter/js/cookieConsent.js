@@ -12,7 +12,7 @@
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-12-25 13:00:54 +0000
+ #  Adapter generated: 2021-12-26 11:37:39 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -64,7 +64,7 @@ j1.adapter.cookieConsent = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.cookieConsent',
-        generated:   '2021-12-25 13:00:54 +0000'
+        generated:   '2021-12-26 11:37:39 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -241,11 +241,11 @@ j1.adapter.cookieConsent = (function (j1, window) {
           location.reload(true);
         }
       } else {
-        // Failsafe: Make (REALLY) sure the all GA|GAS cookies removed
-        // left from a previous session/page view for better GDPR compliance
+        // Failsafe: Make (really) sure the all GA|GAS cookies removed
+        // left from a previous session/page view for better privacy compliance
         // ---------------------------------------------------------------------
-        // jadams, 2021-08-10: remove cookies on invalid GA config or left
-        // cookies from previous session/page view if they exists
+        // remove cookies on invalid GA config or left from a previous
+        // session/page view if they exists
         // ---------------------------------------------------------------------
         gaCookies.forEach(function (item) {
           logger.warn('\n' + 'delete GA cookie: ' + item);
@@ -255,8 +255,8 @@ j1.adapter.cookieConsent = (function (j1, window) {
             j1.removeCookie({ name: item, domain: '.' + hostname, secure: false });
           }
         });
-        // jadams, 2021-12-23: remove cookies on invalid GAdsense config
-        // or left cookies from previous session/page view if they exists
+        // remove cookies on invalid GAS config or left from a previous
+        // session/page view if they exists
         // ---------------------------------------------------------------------
         gasCookies.forEach(function (item) {
           // Remove cookies from Google Ads

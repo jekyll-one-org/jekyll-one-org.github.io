@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-12-25 13:00:54 +0000
+ #  Adapter generated: 2021-12-26 11:37:39 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -57,7 +57,7 @@ var logText;
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.analytics',
-        generated:   '2021-12-25 13:00:54 +0000'
+        generated:   '2021-12-26 11:37:39 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -68,8 +68,9 @@ var logText;
       _this.setState('started');
       logger.info('\n' + 'state: ' + _this.getState());
       logger.info('\n' + 'module is being initialized');
-      // remove all ga cookies left from a previous session/page view
-      // -----------------------------------------------------------------------
+      // remove cookies on invalid GA config or left from a previous
+      // session/page view if they exists
+      // ---------------------------------------------------------------------
       gaCookies = j1.findCookie('_ga');
       gaCookies.forEach(function (item) {
         logger.warn('\n' + 'delete cookie created by Google Analytics: ' + item);
