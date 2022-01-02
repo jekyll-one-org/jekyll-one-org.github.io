@@ -14,11 +14,6 @@
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
 */
-$(document).ready(function() {
-  // [INFO   ] [j1.adapter.advertising                  ] [ detected advertising provider: google} ]
-  // [INFO   ] [j1.adapter.advertising                  ] [ advertising detected as: false ]
-  // [WARN   ] [j1.core.advertising                     ] [ no init code placed ]
-});
-
+$(document).ready(function(){});
 
 

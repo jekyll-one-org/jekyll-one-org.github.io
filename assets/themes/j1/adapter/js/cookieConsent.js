@@ -12,7 +12,7 @@
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2021-12-26 11:37:39 +0000
+ #  Adapter generated: 2022-01-02 13:07:49 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -23,7 +23,7 @@
 // -----------------------------------------------------------------------------
 'use strict';
 j1.adapter.cookieConsent = (function (j1, window) {
-  var environment                 = 'development';
+  var environment                 = 'production';
   var tracking_enabled            = ('true' === 'true') ? true: false;
   var tracking_id                 = 'G-299QGW5RJH';
   var tracking_id_valid           = (tracking_id.includes('tracking-id')) ? false : true;
@@ -64,7 +64,7 @@ j1.adapter.cookieConsent = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.cookieConsent',
-        generated:   '2021-12-26 11:37:39 +0000'
+        generated:   '2022-01-02 13:07:49 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -116,8 +116,9 @@ j1.adapter.cookieConsent = (function (j1, window) {
             stringifiedAttributes += '; ' + 'Domain=' + domainAttribute;
           }
         }
-        // Failsafe: if 'None' is given for samesite in non-secure environments
-        // -----------------------------------------------------------------------
+        // Failsafe: if 'None' is given for samesite in non-secure
+        // environments open access to cookies to subdomains
+        // ---------------------------------------------------------------------
         if (same_site == 'None' && !secure) {
           same_site = 'Lax';
         }

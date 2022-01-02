@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2021-12-26 11:37:39 +0000
+ # Adapter generated: 2022-01-02 13:07:49 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -32,7 +32,7 @@ var j1 = (function () {
   // globals
   // ---------------------------------------------------------------------------
   var rePager                     =  new RegExp('navigator|dateview|tagview|archive');
-  var environment                 = 'development';
+  var environment                 = 'production';
   var moduleOptions               = {};
   var j1_runtime_data             = {};
   // Status information
@@ -45,7 +45,7 @@ var j1 = (function () {
   // Default comment provider information
   var comment_provider            = '';
   var site_id                     = '';
-  var checkCookies                = false;
+  var checkCookies                = true;
   var expireCookiesOnRequiredOnly = ('true' === 'true') ? true: false;
   var current_user_data;
   var current_page;
@@ -105,7 +105,7 @@ var j1 = (function () {
     'theme_name':           'UnoLight',
     'theme_css':            '',
     'theme_author':         'J1 Team',
-    'theme_version':        '2022.0.13',
+    'theme_version':        '2022.0.14',
     'session_active':       false,
     'google_translate':     'disabled',
     'translate_all_pages':  true,
@@ -140,7 +140,7 @@ var j1 = (function () {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2021-12-26 11:37:39 +0000'
+        generated:   '2022-01-02 13:07:49 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -155,7 +155,6 @@ var j1 = (function () {
       var timestamp_now     = date.toISOString();
       var curr_state        = 'started';
       var gaCookies         = j1.findCookie('_ga');
-      var j1Cookies         = j1.findCookie('j1');
       var themerOptions     = $.extend({}, {"enabled":true, "reloadPageOnChange":false, "retries":30, "saveToCookie":true, "debug":false, "preview_page":"/pages/public/previewer/theme/", "menu_icon_family":"MDI", "menu_icon_color":"#9E9E9E", "menu_icon_size":"mdi-sm", "cssThemeLink":"bootstrapTheme", "defaultCssFile":"https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css", "bootswatchApiUrl":"https://bootswatch.com/api", "bootswatchApiVersion":5, "loadFromBootswatch":true, "localThemes":"/assets/data/themes.json", "excludeBootswatch":"Default, default, Lux, Sketchy", "includeBootswatch":"", "skipIncludeBootswatch":""});
       // -----------------------------------------------------------------------
       // status settings
@@ -219,16 +218,6 @@ var j1 = (function () {
                             secure:   secure,
                             expires:  365
                           });
-      // jadams, 2021-12-06: Check if access to cookies for this site failed.
-      // Possibly, a third-party domain or an attacker tries to access it.
-      if (checkCookies) {
-        if (!user_state) {
-          logger.error('\n' + 'Access to cookie failed or cookie not found: ' + cookie_names.user_state);
-          logger.debug('\n' + 'j1 cookies found:' + j1Cookies.length);
-          // redirect to error page: blocked content
-          window.location.href = '/446.html';
-        }
-      }
       if (!user_consent.analysis || !user_consent.personalization)  {
         if (expireCookiesOnRequiredOnly) {
           // expire permanent cookies to session
@@ -628,6 +617,19 @@ var j1 = (function () {
           setTimeout (function() {
             // display page
             $('#no_flicker').css('display', 'block');
+            // jadams, 2021-12-06: Check if access to cookies for this site failed.
+            // Possibly, a third-party domain or an attacker tries to access it.
+            if (checkCookies) {
+              var j1Cookies = j1.findCookie('j1');
+              if (!j1.existsCookie(cookie_names.user_state)) {
+                logger.error('\n' + 'Access to cookie failed or cookie not found: ' + cookie_names.user_state);
+                logger.info('\n' + 'j1 cookies found:' + j1Cookies.length);
+                // redirect to error page: blocked content
+                window.location.href = '/446.html';
+              } else {
+                logger.info('\n' + 'j1 cookies found:' + j1Cookies.length);
+              }
+            }
             // manage Dropcaps if translation is enabled|disabled
             // -----------------------------------------------------------------
             if (user_translate.translationEnabled) {
@@ -724,6 +726,19 @@ var j1 = (function () {
           logger.info('\n' + 'page initialization: finished');
           // display the page loaded
           $('#no_flicker').css('display', 'block');
+          // jadams, 2021-12-06: Check if access to cookies for this site failed.
+          // Possibly, a third-party domain or an attacker tries to access it.
+          if (checkCookies) {
+            var j1Cookies = j1.findCookie('j1');
+            if (!j1.existsCookie(cookie_names.user_state)) {
+              logger.error('\n' + 'Access to cookie failed or cookie not found: ' + cookie_names.user_state);
+              logger.info('\n' + 'j1 cookies found:' + j1Cookies.length);
+              // redirect to error page: blocked content
+              window.location.href = '/446.html';
+            } else {
+              logger.info('\n' + 'j1 cookies found:' + j1Cookies.length);
+            }
+          }
           // jadams, 2021-11-19: test code for 'tapTarget' of 'materializeCss'
           // See:
           //  https://stackoverflow.com/questions/49422111/opening-tap-target-in-materialize-css-for-2-seconds
@@ -868,7 +883,7 @@ var j1 = (function () {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2022.0.13';
+      return '2022.0.14';
     },
     // -------------------------------------------------------------------------
     // getScrollOffset()
