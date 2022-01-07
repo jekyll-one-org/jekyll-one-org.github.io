@@ -924,10 +924,15 @@ ul.disc {
 
 .btn-viewer:hover {
   color: #fff;
-  background-color: #607d8b; }
+  background-color: #2196f3; }
 
 .btn-viewer + .tooltip > .tooltip-inner {
   background-color: #f00; }
+
+.j1-viewer {
+  position: relative;
+  display: block;
+  float: right; }
 
 /*
  # ----------------------------------------------------------------------------
