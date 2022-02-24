@@ -7,19 +7,19 @@
 "use strict";
 /*
  # -----------------------------------------------------------------------------
- #  ~/js/adapter/adapter.js  BBBBB
+ #  ~/js/adapter/adapter.js
  #  Provides an empty object for later loaded adapter objects
  #
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2021 Juergen Adams
+ #  Copyright (C) 2022 Juergen Adams
  #
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
 */
- // -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // ESLint shimming
 // -----------------------------------------------------------------------------
 
@@ -30,11 +30,6 @@
 /* eslint no-undef: "off"                                                     */
 // -----------------------------------------------------------------------------
 
-/*!
- * J1 Adapter
- * Copyright (C) 2021 Juergen Adams
- * Licensed under MIT License.
- */
 
 module.exports = function (j1, window) {
   return {
@@ -63,7 +58,7 @@ module.exports = function (j1, window) {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2021 Juergen Adams
+ # Copyright (C) 2022 Juergen Adams
  #
  # J1 Template is licensed under MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -1874,7 +1869,7 @@ module.exports = anime;
  #  Product/Info:
  #  http://jekyll.one
  #
- #  Copyright (C) 2021 Juergen Adams
+ #  Copyright (C) 2022 Juergen Adams
  #
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
@@ -1900,7 +1895,7 @@ module.exports = anime;
 
 /*!
  * J1 Asciidoctor
- * Copyright (C) 2021 Juergen Adams
+ * Copyright (C) 2022 Juergen Adams
  * Licensed under MIT License.
  */
 module.exports = function asciidoctor(options) {
@@ -1971,7 +1966,7 @@ module.exports = function asciidoctor(options) {
  #  https://jekyll.one
  #  http://getbootstrap.com/
  #
- #  Copyright (C) 2021 Juergen Adams
+ #  Copyright (C) 2022 Juergen Adams
  #
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -1991,7 +1986,7 @@ module.exports = function asciidoctor(options) {
 
 /*!
  * J1 Core
- * Copyright (C) 2021 Juergen Adams
+ * Copyright (C) 2022 Juergen Adams
  * Licensed under MIT License.
  */
 
@@ -2092,7 +2087,7 @@ module.exports = function (options) {
 /***/ 610:
 /***/ (() => {
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 /*
   A simple jQuery function that can add listeners on attribute change.
@@ -2385,7 +2380,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
  #  https://github.com/adamnurdin01/bootsnav
  #  http://corenav.anurdin.net/
  #
- #  Copyright (C) 2021 Juergen Adams
+ #  Copyright (C) 2022 Juergen Adams
  #  Copyright (C) 2016 adamnurdin01
  #
  #  J1 Template is licensed under MIT License.
@@ -3094,7 +3089,7 @@ module.exports = function navigator(options) {
  # Product/Info:
  # http://jekyll.one
  #
- # Copyright (C) 2020 Juergen Adams
+ #
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -3809,7 +3804,7 @@ module.exports = function parseContent(options) {
  #  https://tscanlin.github.io/tocbot
  #  https://github.com/tscanlin/tocbot
  #
- #  Copyright (C) 2021 Juergen Adams
+ #  Copyright (C) 2022 Juergen Adams
  #  Copyright (C) 2016 Tim Scanlin
  #
  #  J1 Template is licensed under MIT License.
@@ -3963,7 +3958,7 @@ function jump(target, options) {
 /***/ 799:
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 /*
  # -----------------------------------------------------------------------------
@@ -3975,7 +3970,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
  #  https://tscanlin.github.io/tocbot
  #  https://github.com/tscanlin/tocbot
  #
- #  Copyright (C) 2021 Juergen Adams
+ #  Copyright (C) 2022 Juergen Adams
  #  Copyright (C) 2016 Tim Scanlin
  #
  #  J1 Template is licensed under MIT License.
@@ -10152,7 +10147,7 @@ var __webpack_exports__ = {};
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2021 Juergen Adams
+ #  Copyright (C) 2022 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE

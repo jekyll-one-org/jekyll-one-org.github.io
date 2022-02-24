@@ -7,12 +7,12 @@
  #  Product/Info:
  #  http://jekyll.one
  #
- #  Copyright (C) 2021 Juergen Adams
+ #  Copyright (C) 2022 Juergen Adams
  #
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2022-01-07 18:32:06 +0000
+ #  Adapter generated: 2022-02-24 13:32:56 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -23,7 +23,7 @@
 // -----------------------------------------------------------------------------
 'use strict';
 j1.adapter.cookieConsent = (function (j1, window) {
-  var environment                 = 'production';
+  var environment                 = 'development';
   var tracking_enabled            = ('true' === 'true') ? true: false;
   var tracking_id                 = 'G-299QGW5RJH';
   var tracking_id_valid           = (tracking_id.includes('tracking-id')) ? false : true;
@@ -64,7 +64,7 @@ j1.adapter.cookieConsent = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.cookieConsent',
-        generated:   '2022-01-07 18:32:06 +0000'
+        generated:   '2022-02-24 13:32:56 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings

@@ -6,7 +6,7 @@
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2021 Juergen Adams
+ # Copyright (C) 2022 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -20,7 +20,7 @@
 // Product/Info:
 // https://jekyll.one
 //
-// Copyright (C) 2021 Juergen Adams
+// Copyright (C) 2022 Juergen Adams
 //
 // J1 Template is licensed under the MIT License.
 // See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -34,7 +34,7 @@
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2021 Juergen Adams
+ #  Copyright (C) 2022 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -53,16 +53,6 @@ code {
   border-radius: 2px;
   background-color: rgba(0, 0, 0, 0.1) !important; }
 
-/*
-  // Account for some code outputs that place code tags in pre tags
-  code {
-    padding: .125em;
-    font-size: inherit;
-//  border-radius: $border--radius;
-    color: inherit;
-    background-color: $pre__code--background-color !important;
-  }
-*/
 h2, .h2 {
   font-size: 200% !important;
   font-weight: 500; }
@@ -106,10 +96,8 @@ table {
 
 table {
   font-size: 85%;
-  background: white;
-  margin-bottom: 1.25em;
-  border: solid 1px #9e9e9e;
-  width: -webkit-fill-available; }
+  background: transparent !important;
+  margin-bottom: 1.25em; }
 
 table thead,
 table tfoot {
@@ -160,13 +148,6 @@ table.tableblock td > p:last-child {
 table.spread {
   width: 100%; }
 
-/*
-table.tableblock,
-th.tableblock,
-td.tableblock {
-  border: 0 solid $grey;
-}
-*/
 table.grid-all th.tableblock,
 table.grid-all td.tableblock {
   border-width: 0 1px 1px 0; }
@@ -179,27 +160,10 @@ table.grid-cols th.tableblock,
 table.grid-cols td.tableblock {
   border-width: 0 1px 0 0; }
 
-/*
-table.grid-all * > tr > .tableblock:last-child,
-table.grid-cols * > tr > .tableblock:last-child {
-  border-right-width: 0;
-  border-bottom-width: 0;
-}
-*/
 table.grid-rows th.tableblock,
 table.grid-rows td.tableblock {
   border-width: 0 0 1px 0; }
 
-/*
-table.grid-all tbody > tr:last-child > th.tableblock,
-table.grid-all tbody > tr:last-child > td.tableblock,
-table.grid-all thead:last-child > tr > th.tableblock,
-table.grid-rows tbody > tr:last-child > th.tableblock,
-table.grid-rows tbody > tr:last-child > td.tableblock,
-table.grid-rows thead:last-child > tr > th.tableblock {
-  border-bottom-width: 0;
-}
-*/
 table.grid-all tbody > td:last-child > th.tableblock {
   border-bottom-width: 1px; }
 
@@ -208,8 +172,8 @@ table.grid-rows tfoot > tr > td.tableblock {
   border-width: 1px 0 0 0; }
 
 table.frame-all {
-  border-left: 1px solid #e0e0e0;
-  border-top: 1px solid #e0e0e0; }
+  border-left: 1px solid #9e9e9e;
+  border-top: 1px solid #9e9e9e; }
 
 table.frame-sides {
   border-width: 0 1px; }
@@ -261,7 +225,6 @@ p.tableblock {
   margin-top: 1.5em; }
 
 .quoteblock {
-  /*  margin-top: 1.5em; */
   margin-right: 1em;
   margin-bottom: 1.25em;
   margin-left: 1.5em;
@@ -273,7 +236,6 @@ p.tableblock {
 
 .quoteblock blockquote,
 .quoteblock blockquote p {
-  /*  font-size: 1.125rem; */
   line-height: 1.30;
   word-spacing: 0.1em;
   letter-spacing: 0;
@@ -358,8 +320,7 @@ table.tableblock > .title {
   line-height: 1.25;
   font-size: 1.125rem;
   font-weight: 500;
-  margin: 0px !important;
-  border-top: 1px solid #9e9e9e; }
+  margin: 0px !important; }
 
 .listingblock > .title,
 .imageblock > .title {
@@ -377,28 +338,11 @@ table.tableblock > .title {
   margin: 0 0 1.5rem;
   border: 1px solid #bdbdbd; }
 
-/*
-// jadams, 2019-03-31: Make adoc blocks responsive (like BS table-responsive)
-div.exampleblock, div.literalblock, div.listingblock, div.quoteblock {
-  width: 100%;
-  overflow-x: auto;
-}
-
-div.admonitionblock.note, div.admonitionblock.tip, div.admonitionblock.important,
-div.admonitionblock.warning, div.admonitionblock.caution {
-  width: 100%;
-  overflow-x: auto;
-}
-
-// jadams 2019-01-24: Moved to flat style (no border-radius|box-shadow)
 .admonitionblock > table {
-  border-collapse: separate;
-  border-bottom: 2px solid $grey;
-  border-right: 2px solid $grey;
-  background: $gray-100;
-  width: 100%;
-}
-*/
+  background: transparent !important;
+  border: solid 1px #bdbdbd;
+  width: -webkit-fill-available; }
+
 .admonitionblock > table td.icon {
   text-align: center;
   width: 130px;
@@ -421,8 +365,7 @@ div.admonitionblock.warning, div.admonitionblock.caution {
   font-size: inherit;
   text-align: justify;
   border-bottom: 0px;
-  min-width: 20em;
-  /*  font-size: $table__body--font-size; */ }
+  min-width: 20em; }
 
 .admonitionblock > table td.content > :last-child > :last-child {
   margin-bottom: 0; }
@@ -759,6 +702,7 @@ td.hdlist2 {
   text-align: center;
   width: 1.67em;
   height: 1.67em;
+  margin-right: .5rem;
   font-size: 85%;
   line-height: 1.67em;
   font-family: Roboto, sans-serif;
@@ -899,7 +843,7 @@ ul.disc {
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2021 Juergen Adams
+ #  Copyright (C) 2022 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -944,7 +888,7 @@ ul.disc {
  # https://github.com/lipis/flag-icon-css
  #
  #  Copyright (C) 2013 Panayiotis Lipiridis
- #  Copyright (C) 2021 Juergen Adams
+ #  Copyright (C) 2022 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -960,7 +904,7 @@ ul.disc {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2021 Juergen Adams
+ # Copyright (C) 2022 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -2280,7 +2224,7 @@ ul.disc {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2021 Juergen Adams
+ # Copyright (C) 2022 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -2343,7 +2287,7 @@ ul.disc {
  # https://jekyll.one
  # https://fonts.google.com/specimen/Roboto
  #
- # Copyright (C) 2021 Juergen Adams
+ # Copyright (C) 2022 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
@@ -2385,7 +2329,7 @@ ul.disc {
  # https://jekyll.one
  # https://fonts.google.com/specimen/Roboto+Slap
  #
- # Copyright (C) 2021 Juergen Adams
+ # Copyright (C) 2022 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
