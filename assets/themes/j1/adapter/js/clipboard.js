@@ -15,7 +15,7 @@
  # -----------------------------------------------------------------------------
  # NOTE:
  # -----------------------------------------------------------------------------
- # Adapter generated: 2022-02-24 13:44:36 +0000
+ # Adapter generated: 2022-03-10 14:56:07 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -51,7 +51,7 @@ j1.adapter.clipboard = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.clipboard',
-        generated:   '2022-02-24 13:44:36 +0000'
+        generated:   '2022-03-10 14:56:07 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -89,9 +89,9 @@ j1.adapter.clipboard = (function (j1, window) {
           _this.initClipButtons();
           _this.initEventHandler(clipboardJS);
           clearInterval(dependencies_met_j1_finished);
-          logger.info('\n' + 'met dependencies for: j1');
+          logger.debug('\n' + 'met dependencies for: j1');
           _this.setState('finished');
-          logger.info('\n' + 'state: ' + _this.getState());
+          logger.debug('\n' + 'state: ' + _this.getState());
           logger.info('\n' + 'module initialized successfully');
         }
       }, 25); // END dependencies_met_j1_finished

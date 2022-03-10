@@ -327,7 +327,8 @@ table.tableblock > .title {
   line-height: 1.25;
   font-size: 1.125rem;
   font-weight: 500;
-  margin-bottom: .5rem; }
+  margin-top: .5rem;
+  margin-bottom: .75rem; }
 
 .listingblock pre {
   display: block;
@@ -738,8 +739,6 @@ kbd {
 kbd:not(.keyseq) {
   display: inline-block;
   font-size: 0.75em;
-  background-color: #e0e0e0;
-  border: 1px solid #bdbdbd;
   -webkit-border-radius: 3px;
   border-radius: 3px;
   margin: -0.15em 0.15em 0 0.15em;

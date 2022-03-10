@@ -12,7 +12,7 @@
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2022-02-24 13:44:36 +0000
+ #  Adapter generated: 2022-03-10 14:56:07 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -64,7 +64,7 @@ j1.adapter.cookieConsent = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.cookieConsent',
-        generated:   '2022-02-24 13:44:36 +0000'
+        generated:   '2022-03-10 14:56:07 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -124,7 +124,7 @@ j1.adapter.cookieConsent = (function (j1, window) {
         }
         if ( j1.getState() === 'finished' ) {
           _this.setState('started');
-          logger.info('\n' + 'state: ' + _this.getState());
+          logger.debug('\n' + 'state: ' + _this.getState());
           logger.info('\n' + 'module is being initialized');
           j1.cookieConsent = new CookieConsent ({
             contentURL:             moduleOptions.contentURL,                   // dialog content (modals) for all supported languages
@@ -141,7 +141,7 @@ j1.adapter.cookieConsent = (function (j1, window) {
             postSelectionCallback:  moduleOptions.postSelectionCallback,        // callback function, called after the user has made his selection
           });
           _this.setState('finished');
-          logger.info('\n' + 'state: ' + _this.getState());
+          logger.debug('\n' + 'state: ' + _this.getState());
           logger.debug('\n' + 'module initialized successfully');
           // -------------------------------------------------------------------
           // NOTE: Click events moved to Navigator (core)

@@ -18,7 +18,7 @@
  # For details, see https://github.com/lokesh/lightbox2/
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2022-02-24 13:44:36 +0000
+ # Adapter generated: 2022-03-10 14:56:07 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -49,37 +49,40 @@ j1.adapter.lightbox = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.lightbox',
-        generated:   '2022-02-24 13:44:36 +0000'
+        generated:   '2022-03-10 14:56:07 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
       // -----------------------------------------------------------------------
       _this   = j1.adapter.lightbox;
       logger  = log4javascript.getLogger('j1.adapter.lightbox');
-      j1.adapter.lightbox.state = 'pending';
-      _this.setState('started');
-      logger.info('\n' + 'state: ' + _this.getState());
-      logger.info('\n' + 'module is being initialized');
-      /* eslint-disable */
-      lightbox.option({
-        alwaysShowNavOnTouchDevices:  false,
-        albumLabel:                   "Image %1 of %2",
-        disableScrolling:             false,
-        fadeDuration:                 600,
-        fitImagesInViewport:          true,
-        imageFadeDuration:            600,
-        maxWidth:                     null,
-        maxHeight:                    null,
-        positionFromTop:              50,
-        resizeDuration:               250,
-        showImageNumberLabel:         true,
-        wrapAround:                   true
-      });
-      /* eslint-enable */
-      _this.setState('finished');
-      logger.info('\n' + 'state: ' + _this.getState());
-      logger.info('\n' + 'initializing module finished');
-      return true;
+      var dependencies_met_j1_finished = setInterval(function() {
+        if (j1.getState() == 'finished') {
+          _this.setState('started');
+          logger.debug('\n' + 'state: ' + _this.getState());
+          logger.info('\n' + 'module is being initialized');
+          /* eslint-disable */
+          lightbox.option({
+            alwaysShowNavOnTouchDevices:  false,
+            albumLabel:                   "Image %1 of %2",
+            disableScrolling:             false,
+            fadeDuration:                 600,
+            fitImagesInViewport:          true,
+            imageFadeDuration:            600,
+            maxWidth:                     null,
+            maxHeight:                    null,
+            positionFromTop:              50,
+            resizeDuration:               250,
+            showImageNumberLabel:         true,
+            wrapAround:                   true
+          });
+          /* eslint-enable */
+          _this.setState('finished');
+          logger.debug('\n' + 'state: ' + _this.getState());
+          logger.info('\n' + 'initializing module finished');
+          clearInterval(dependencies_met_j1_finished);
+        } // END dependencies_met_j1_finished
+      }, 25);
     }, // END init lightbox
     // -------------------------------------------------------------------------
     // messageHandler: MessageHandler for J1 CookieConsent module

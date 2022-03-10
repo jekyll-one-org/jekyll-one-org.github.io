@@ -21,7 +21,7 @@
  #  Setup of theme loaders for local_themes|remote_themes moved
  #  to adapter navigator.js
  # -----------------------------------------------------------------------------
- # Adapter generated: 2022-02-24 13:44:36 +0000
+ # Adapter generated: 2022-03-10 14:56:07 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -90,7 +90,7 @@ j1.adapter.themer = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.themer',
-        generated:   '2022-02-24 13:44:36 +0000'
+        generated:   '2022-03-10 14:56:07 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -104,7 +104,7 @@ j1.adapter.themer = (function (j1, window) {
       logger      = log4javascript.getLogger('j1.adapter.themer');
       // initialize state flag
       _this.state = 'started';
-      logger.info('\n' + 'state: ' + _this.getState());
+      logger.debug('\n' + 'state: ' + _this.getState());
       // jadams, 2021-07-25: problem seems NOT an timing issue on the iPad
       // platform. (General) Dependency should be REMOVED!!!
       // TODO: Isolate redirect for iPad ONLY!!!
@@ -193,11 +193,11 @@ j1.adapter.themer = (function (j1, window) {
            logger.info('\n' + 'theme loaded: ' + user_state.theme_name);
            logger.info('\n' + 'theme css file: ' + user_state.theme_css);
            _this.setState('finished');
-           logger.info('\n' + 'state: ' + _this.getState());
+           logger.debug('\n' + 'state: ' + _this.getState());
            logger.info('\n' + 'module initialized successfully');
          } else {
            _this.setState('finished');
-           logger.info('\n' + 'state: ' + _this.getState());
+           logger.debug('\n' + 'state: ' + _this.getState());
            logger.info('\n' + 'themes detected as: disabled');
          }
           clearInterval(dependencies_met_user_state_available);

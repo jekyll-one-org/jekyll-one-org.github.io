@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2022-02-24 13:44:36 +0000
+ #  Adapter generated: 2022-03-10 14:56:07 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -45,34 +45,30 @@ j1.adapter.carousel = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.carousel',
-        generated:   '2022-02-24 13:44:36 +0000'
+        generated:   '2022-03-10 14:56:07 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
       // -----------------------------------------------------------------------
       _this   = j1.adapter.carousel;
       logger  = log4javascript.getLogger('j1.adapter.carousel');
-      // initialize state flag
-      _this.state = 'pending';
-      // Load  module DEFAULTS|CONFIG
-      /* eslint-disable */
-      moduleOptions = $.extend({}, {"enabled":true, "items":5, "itemsCustom":false, "itemsDesktop":[1199, 4], "itemsDesktopSmall":[980, 3], "itemsTablet":[768, 2], "itemsTabletSmall":false, "itemsMobile":[479, 1], "singleItem":false, "itemsScaleUp":false, "slideSpeed":200, "paginationSpeed":800, "rewindSpeed":1000, "autoPlay":false, "stopOnHover":false, "navigation":false, "navigationText":["prev", "next"], "rewindNav":true, "scrollPerPage":false, "pagination":true, "paginationNumbers":false, "responsive":true, "responsiveRefreshRate":200, "responsiveBaseWidth":"window", "baseClass":"owl-carousel", "theme":"owl-theme", "lazyLoad":false, "lazyFollow":true, "lazyEffect":"fade", "autoHeight":false, "xhr_data_path":"/assets/data/carousel.json", "jsonSuccess":false, "dragBeforeAnimFinish":true, "mouseDrag":true, "touchDrag":true, "transitionStyle":false, "beforeUpdate":false, "afterUpdate":false, "beforeInit":false, "afterInit":false, "beforeMove":false, "afterMove":false, "afterAction":false, "startDragging":false, "afterLazyLoad":false, "addClassActive":false, "carousel":[{"show":{"enabled":true, "id":"demo_text_carousel", "lightbox":false, "type":"text", "text":["<big>Jekyll One Template</big>         </br> <i>Clean, responsive and fully featured Template made for Jekyll</i>", "<big>Jekyll meets Bootstrap</big>      </br> <i>Best of OpenSource and commercial software for the Web</i>", "<big>J1 is Open Source</big>           </br> <i>No pain for private or professional use</i>", "<big>Explore this site</big>           </br> <i>Learn what's possible if you go the Jekyll Way</i>", "<big>Create modern static sites</big>  </br> <i>Secure, powerful and fast<i>"], "options":{"autoPlay":5000, "singleItem":true, "pagination":false}}}, {"show":{"enabled":true, "id":"demo_text_carousel_parallax", "lightbox":false, "type":"text", "parallax":true, "padding":"75px 0 75px 75px", "text_color":"md-grey-100", "font_size":"1.5rem", "font_weight":500, "background":"/assets/images/quotes/default.jpg", "cover":true, "darken":1, "gridify":true, "text":["<big>Jekyll One Template</big>         </br> <i>Clean, responsive and fully featured Template made for Jekyll</i>", "<big>Jekyll meets Bootstrap</big>      </br> <i>Best of OpenSource and commercial software for the Web</i>", "<big>J1 is Open Source</big>           </br> <i>No pain for private or professional use</i>", "<big>Explore this site</big>           </br> <i>Learn what's possible if you go the Jekyll Way</i>", "<big>Create modern static sites</big>  </br> <i>Secure, powerful and fast<i>"], "options":{"autoPlay":5000, "singleItem":true, "pagination":false}}}, {"show":{"enabled":true, "id":"demo_cats", "slide_space_between":3, "slide_border":true, "lightbox":true, "type":"image", "images_path":"/assets/images/modules/carousel/cats", "images":["cat-1.jpg", "cat-2.jpg", "cat-3.jpg", "cat-4.jpg"], "links":["#void", "#void", "#void", "#void"], "lb_caption":["You see cat #1", "You see cat #2", "You see cat #3", "You see cat #4"], "options":{"navigation":false, "itemsCustom":[[0, 1], [400, 1], [700, 2], [1000, 2], [1200, 2], [1600, 2]], "slideSpeed":300, "paginationSpeed":400, "items":2}}}, {"show":{"enabled":true, "provider":"j1", "id":"demo_simple", "type":"image", "images_path":"/assets/images/modules/carousel/mega_cities", "images":["andreas-brucker_b.jpg", "denys-nevozhai-1_b.jpg", "denys-nevozhai-2_b.jpg", "luca-bravo_b.jpg", "thomas-tucker_b.jpg"], "links":["#void", "#void", "#void", "#void", "#void", "#void", "#void", "#void"], "options":{"autoPlay":3000, "items":3, "autoHeight":true, "pagination":false, "paginationNumbers":false, "itemsDesktop":"[1199,3]", "itemsDesktopSmall":"[979,3]"}}}, {"show":{"enabled":true, "provider":"j1", "id":"demo_oneslide", "type":"image", "lightbox":true, "images_path":"/assets/images/modules/carousel/mega_cities", "images":["andreas-brucker_b.jpg", "denys-nevozhai-1_b.jpg", "denys-nevozhai-2_b.jpg", "luca-bravo_b.jpg", "thomas-tucker_b.jpg"], "options":{"navigation":true, "slideSpeed":300, "paginationSpeed":400, "singleItem":true, "transitionStyle":"goDown"}}}]});
-      /* eslint-enable */
-      if (typeof settings !== 'undefined') {
-        moduleOptions = j1.mergeData(moduleOptions, settings);
-      }
-      _this.setState('started');
-      logger.info('\n' + 'state: ' + _this.getState());
-      logger.info('\n' + 'module is being initialized');
       var dependencies_met_page_finished = setInterval(function() {
         if (j1.getState() == 'finished') {
+          // Load  module DEFAULTS|CONFIG
+          /* eslint-disable */
+          moduleOptions = $.extend({}, {"enabled":true, "items":5, "itemsCustom":false, "itemsDesktop":[1199, 4], "itemsDesktopSmall":[980, 3], "itemsTablet":[768, 2], "itemsTabletSmall":false, "itemsMobile":[479, 1], "singleItem":false, "itemsScaleUp":false, "slideSpeed":200, "paginationSpeed":800, "rewindSpeed":1000, "autoPlay":false, "stopOnHover":false, "navigation":false, "navigationText":["prev", "next"], "rewindNav":true, "scrollPerPage":false, "pagination":true, "paginationNumbers":false, "responsive":true, "responsiveRefreshRate":200, "responsiveBaseWidth":"window", "baseClass":"owl-carousel", "theme":"owl-theme", "lazyLoad":false, "lazyFollow":true, "lazyEffect":"fade", "autoHeight":false, "xhr_data_path":"/assets/data/carousel.json", "jsonSuccess":false, "dragBeforeAnimFinish":true, "mouseDrag":true, "touchDrag":true, "transitionStyle":false, "beforeUpdate":false, "afterUpdate":false, "beforeInit":false, "afterInit":false, "beforeMove":false, "afterMove":false, "afterAction":false, "startDragging":false, "afterLazyLoad":false, "addClassActive":false, "carousel":[{"show":{"enabled":true, "id":"demo_text_carousel", "lightbox":false, "type":"text", "text":["<big>Jekyll One Template</big>         </br> <i>Clean, responsive and fully featured Template made for Jekyll</i>", "<big>Jekyll meets Bootstrap</big>      </br> <i>Best of OpenSource and commercial software for the Web</i>", "<big>J1 is Open Source</big>           </br> <i>No pain for private or professional use</i>", "<big>Explore this site</big>           </br> <i>Learn what's possible if you go the Jekyll Way</i>", "<big>Create modern static sites</big>  </br> <i>Secure, powerful and fast<i>"], "options":{"autoPlay":5000, "singleItem":true, "pagination":false}}}, {"show":{"enabled":true, "id":"demo_text_carousel_parallax", "lightbox":false, "type":"text", "parallax":true, "padding":"75px 0 75px 75px", "text_color":"md-grey-100", "font_size":"1.5rem", "font_weight":500, "background":"/assets/images/quotes/default.jpg", "cover":true, "darken":1, "gridify":true, "text":["<big>Jekyll One Template</big>         </br> <i>Clean, responsive and fully featured Template made for Jekyll</i>", "<big>Jekyll meets Bootstrap</big>      </br> <i>Best of OpenSource and commercial software for the Web</i>", "<big>J1 is Open Source</big>           </br> <i>No pain for private or professional use</i>", "<big>Explore this site</big>           </br> <i>Learn what's possible if you go the Jekyll Way</i>", "<big>Create modern static sites</big>  </br> <i>Secure, powerful and fast<i>"], "options":{"autoPlay":5000, "singleItem":true, "pagination":false}}}, {"show":{"enabled":true, "id":"demo_cats", "slide_space_between":3, "slide_border":true, "lightbox":true, "type":"image", "images_path":"/assets/images/modules/carousel/cats", "images":["cat-1.jpg", "cat-2.jpg", "cat-3.jpg", "cat-4.jpg"], "links":["#void", "#void", "#void", "#void"], "lb_caption":["You see cat #1", "You see cat #2", "You see cat #3", "You see cat #4"], "options":{"navigation":false, "itemsCustom":[[0, 1], [400, 1], [700, 2], [1000, 2], [1200, 2], [1600, 2]], "slideSpeed":300, "paginationSpeed":400, "items":2}}}, {"show":{"enabled":true, "provider":"j1", "id":"demo_simple", "type":"image", "images_path":"/assets/images/modules/carousel/mega_cities", "images":["andreas-brucker_b.jpg", "denys-nevozhai-1_b.jpg", "denys-nevozhai-2_b.jpg", "luca-bravo_b.jpg", "thomas-tucker_b.jpg"], "links":["#void", "#void", "#void", "#void", "#void", "#void", "#void", "#void"], "options":{"autoPlay":3000, "items":3, "autoHeight":true, "pagination":false, "paginationNumbers":false, "itemsDesktop":"[1199,3]", "itemsDesktopSmall":"[979,3]"}}}, {"show":{"enabled":true, "provider":"j1", "id":"demo_oneslide", "type":"image", "lightbox":true, "images_path":"/assets/images/modules/carousel/mega_cities", "images":["andreas-brucker_b.jpg", "denys-nevozhai-1_b.jpg", "denys-nevozhai-2_b.jpg", "luca-bravo_b.jpg", "thomas-tucker_b.jpg"], "options":{"navigation":true, "slideSpeed":300, "paginationSpeed":400, "singleItem":true, "transitionStyle":"goDown"}}}]});
+          /* eslint-enable */
+          if (typeof settings !== 'undefined') {
+            moduleOptions = j1.mergeData(moduleOptions, settings);
+          }
+          _this.setState('started');
+          logger.debug('\n' + 'state: ' + _this.getState());
+          logger.info('\n' + 'module is being initialized');
               // Create an Carousel INSTANCE if slider on id: demo_text_carousel exists
               if ($('#demo_text_carousel').length) {
-                  logText = '\n' + 'slider is being initialized on id: #demo_text_carousel';
-                  logger.info(logText);
-                  _this.setState('running');
-                  logger.info('\n' + 'state: ' + _this.getState());
-                  logger.info('\n' + 'module is being initialized');
+                logText = '\n' + 'slider is being processed on id: #demo_text_carousel';
+                logger.info(logText);
+                _this.setState('processing');
                 // place HTML markup for the title
                 // set space between the slides
                 $('head').append('<style>.demo_text_carousel-item{margin: 3px;}</style>');
@@ -114,17 +110,16 @@ j1.adapter.carousel = (function (j1, window) {
                     }
                   }
                   $('#demo_text_carousel').html(content);
-                  logText = '\n' + 'initializing slider finished on id: demo_text_carousel';
+                  _this.setState('processed');
+                  logText = '\n' + 'processing slider finished on id: demo_text_carousel';
                   logger.info(logText);
                 } // END customDataSuccess_1
               } // END if carousel exists
               // Create an Carousel INSTANCE if slider on id: demo_text_carousel_parallax exists
               if ($('#demo_text_carousel_parallax').length) {
-                  logText = '\n' + 'slider is being initialized on id: #demo_text_carousel_parallax';
-                  logger.info(logText);
-                  _this.setState('running');
-                  logger.info('\n' + 'state: ' + _this.getState());
-                  logger.info('\n' + 'module is being initialized');
+                logText = '\n' + 'slider is being processed on id: #demo_text_carousel_parallax';
+                logger.info(logText);
+                _this.setState('processing');
                 // place HTML markup for the title
                 // set space between the slides
                 $('head').append('<style>.demo_text_carousel_parallax-item{margin: 3px;}</style>');
@@ -163,17 +158,16 @@ j1.adapter.carousel = (function (j1, window) {
                     }
                   }
                   $('#demo_text_carousel_parallax').html(content);
-                  logText = '\n' + 'initializing slider finished on id: demo_text_carousel_parallax';
+                  _this.setState('processed');
+                  logText = '\n' + 'processing slider finished on id: demo_text_carousel_parallax';
                   logger.info(logText);
                 } // END customDataSuccess_2
               } // END if carousel exists
               // Create an Carousel INSTANCE if slider on id: demo_cats exists
               if ($('#demo_cats').length) {
-                  logText = '\n' + 'slider is being initialized on id: #demo_cats';
-                  logger.info(logText);
-                  _this.setState('running');
-                  logger.info('\n' + 'state: ' + _this.getState());
-                  logger.info('\n' + 'module is being initialized');
+                logText = '\n' + 'slider is being processed on id: #demo_cats';
+                logger.info(logText);
+                _this.setState('processing');
                 // place HTML markup for the title
                 // set space between the slides
                 $('head').append('<style>.demo_cats-item{margin: 3px;}</style>');
@@ -232,17 +226,16 @@ j1.adapter.carousel = (function (j1, window) {
                     }
                   }
                   $('#demo_cats').html(content);
-                  logText = '\n' + 'initializing slider finished on id: demo_cats';
+                  _this.setState('processed');
+                  logText = '\n' + 'processing slider finished on id: demo_cats';
                   logger.info(logText);
                 } // END customDataSuccess_3
               } // END if carousel exists
               // Create an Carousel INSTANCE if slider on id: demo_simple exists
               if ($('#demo_simple').length) {
-                  logText = '\n' + 'slider is being initialized on id: #demo_simple';
-                  logger.info(logText);
-                  _this.setState('running');
-                  logger.info('\n' + 'state: ' + _this.getState());
-                  logger.info('\n' + 'module is being initialized');
+                logText = '\n' + 'slider is being processed on id: #demo_simple';
+                logger.info(logText);
+                _this.setState('processing');
                 // place HTML markup for the title
                 // set space between the slides
                 $('head').append('<style>.demo_simple-item{margin: 3px;}</style>');
@@ -302,17 +295,16 @@ j1.adapter.carousel = (function (j1, window) {
                     }
                   }
                   $('#demo_simple').html(content);
-                  logText = '\n' + 'initializing slider finished on id: demo_simple';
+                  _this.setState('processed');
+                  logText = '\n' + 'processing slider finished on id: demo_simple';
                   logger.info(logText);
                 } // END customDataSuccess_4
               } // END if carousel exists
               // Create an Carousel INSTANCE if slider on id: demo_oneslide exists
               if ($('#demo_oneslide').length) {
-                  logText = '\n' + 'slider is being initialized on id: #demo_oneslide';
-                  logger.info(logText);
-                  _this.setState('running');
-                  logger.info('\n' + 'state: ' + _this.getState());
-                  logger.info('\n' + 'module is being initialized');
+                logText = '\n' + 'slider is being processed on id: #demo_oneslide';
+                logger.info(logText);
+                _this.setState('processing');
                 // place HTML markup for the title
                 // set space between the slides
                 $('head').append('<style>.demo_oneslide-item{margin: 3px;}</style>');
@@ -371,16 +363,22 @@ j1.adapter.carousel = (function (j1, window) {
                     }
                   }
                   $('#demo_oneslide').html(content);
-                  logText = '\n' + 'initializing slider finished on id: demo_oneslide';
+                  _this.setState('processed');
+                  logText = '\n' + 'processing slider finished on id: demo_oneslide';
                   logger.info(logText);
                 } // END customDataSuccess_5
               } // END if carousel exists
           clearInterval(dependencies_met_page_finished);
-        }
-        _this.setState('finished');
-        logger.info('\n' + 'state: ' + _this.getState());
-        logger.info('\n' + 'initializing module finished');
-      }, 25); // END 'dependencies_met_adapter_finished'
+          var dependencies_met_sliders_processed = setInterval(function() {
+            if (_this.getState() == 'processed') {
+              _this.setState('finished');
+              logger.debug('\n' + 'state: ' + _this.getState());
+              logger.info('\n' + 'initializing module finished');
+              clearInterval(dependencies_met_sliders_processed);
+            }
+          }, 25); // END 'dependencies_met_sliders_processed'
+        } // END if j1.getState 'finished'
+      }, 25); // END 'dependencies_met_page_finished'
     }, // END init
     // -------------------------------------------------------------------------
     // messageHandler: MessageHandler for J1 CookieConsent module

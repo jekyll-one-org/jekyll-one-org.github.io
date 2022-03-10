@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2022-02-24 13:44:36 +0000
+ #  Adapter generated: 2022-03-10 14:56:07 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -50,7 +50,7 @@ j1.adapter.rangeSlider = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.rangeSlider',
-        generated:   '2022-02-24 13:44:36 +0000'
+        generated:   '2022-03-10 14:56:07 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -59,7 +59,7 @@ j1.adapter.rangeSlider = (function (j1, window) {
       logger  = log4javascript.getLogger('j1.adapter.rangeSlider');
       // create settings object from frontmatterOptions
       frontmatterOptions = options != null ? $.extend({}, options) : {};
-      moduleOptions = $.extend({}, {"enabled":true, "options":{"orientation":"horizontal", "connect":true, "step":1, "cbOnUpdate":"j1.adapter.rangeSlider.cbOnUpdate", "format":{"decimals":0}}, "sliders":[{"slider":{"enabled":true, "id":"example_slider", "options":{"label":"Example Slider 1", "start":20, "range":{"min":0, "max":100}}}}, {"slider":{"enabled":true, "id":"example_slider_2", "options":{"label":"Example Slider 2", "start":80, "range":{"min":0, "max":200}}}}, {"slider":{"enabled":true, "id":"jgSlider_row_heigth", "options":{"label":"Image Row Height [px]", "start":150, "range":{"min":100, "max":300}}}}, {"slider":{"enabled":true, "id":"jgSlider_thumb_spacing", "options":{"label":"Thumb Image Spacing [px]", "start":1, "range":{"min":0, "max":10}}}}, {"slider":{"enabled":true, "id":"jgSlider_gallery_padding", "options":{"label":"Gallery Padding [px]", "start":0, "range":{"min":0, "max":50}}}}]});
+      moduleOptions = $.extend({}, {"enabled":true, "options":{"orientation":"horizontal", "connect":true, "step":1, "cbOnUpdate":"j1.adapter.rangeSlider.cbOnUpdate", "format":{"decimals":0}}, "sliders":[{"slider":{"enabled":true, "id":"example_slider", "options":{"label":"Slider 1, range: [0,100], start at: 20", "start":20, "range":{"min":0, "max":100}}}}, {"slider":{"enabled":true, "id":"example_slider_2", "options":{"label":"Slider 2, range: [0,200], start at: 80", "start":80, "range":{"min":0, "max":200}}}}, {"slider":{"enabled":true, "id":"jgSlider_row_heigth", "options":{"label":"Image Row Height [px]", "start":150, "range":{"min":100, "max":300}}}}, {"slider":{"enabled":true, "id":"jgSlider_thumb_spacing", "options":{"label":"Thumb Image Spacing [px]", "start":1, "range":{"min":0, "max":10}}}}, {"slider":{"enabled":true, "id":"jgSlider_gallery_padding", "options":{"label":"Gallery Padding [px]", "start":0, "range":{"min":0, "max":50}}}}]});
       if (typeof frontmatterOptions !== 'undefined') {
         moduleOptions = j1.mergeData(moduleOptions, frontmatterOptions);
       }
@@ -68,7 +68,7 @@ j1.adapter.rangeSlider = (function (j1, window) {
           logger.info('\n' + 'module is being initialized');
           // initialize state flag
           _this.setState('started');
-          logger.info('\n' + 'state: ' + _this.getState());
+          logger.debug('\n' + 'state: ' + _this.getState());
           var dependencies_met_elms_loaded = setInterval(function() {
             elms = document.querySelectorAll('.range-slider');
             if (elms.length) {
@@ -100,7 +100,7 @@ j1.adapter.rangeSlider = (function (j1, window) {
                     });
                     var el = document.createElement("label");
                     el.classList.add('range-slider-label');
-                    el.innerHTML = 'Example Slider 1';
+                    el.innerHTML = 'Slider 1, range: [0,100], start at: 20';
                     var div = document.getElementById(id);
                     insertAfter(el, div);
                     slider_example_slider.noUiSlider.on('update', function (values, handle) {
@@ -132,7 +132,7 @@ j1.adapter.rangeSlider = (function (j1, window) {
                     });
                     var el = document.createElement("label");
                     el.classList.add('range-slider-label');
-                    el.innerHTML = 'Example Slider 2';
+                    el.innerHTML = 'Slider 2, range: [0,200], start at: 80';
                     var div = document.getElementById(id);
                     insertAfter(el, div);
                     slider_example_slider_2.noUiSlider.on('update', function (values, handle) {
@@ -241,7 +241,7 @@ j1.adapter.rangeSlider = (function (j1, window) {
               if (instances.length) {
                 logger.info('\n' + 'number of rangeSlider instances configured: ' + instances.length);
                 _this.setState('finished');
-                logger.info('\n' + 'state: ' + _this.getState());
+                logger.debug('\n' + 'state: ' + _this.getState());
                 logger.info('\n' + 'initializing module finished');
               } else {
                 logger.error('\n' + 'no configured rangeSlider instances found');

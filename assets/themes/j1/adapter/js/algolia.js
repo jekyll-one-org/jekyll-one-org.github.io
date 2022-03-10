@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2022-02-24 13:44:36 +0000
+ #  Adapter generated: 2022-03-10 14:56:07 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -44,7 +44,7 @@ j1.adapter.algolia = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.algolia',
-        generated:   '2022-02-24 13:44:36 +0000'
+        generated:   '2022-03-10 14:56:07 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -54,7 +54,7 @@ j1.adapter.algolia = (function (j1, window) {
       // initialize state flag
       _this.state = 'pending';
       _this.setState('started');
-      logger.info('\n' + 'state: ' + _this.getState());
+      logger.debug('\n' + 'state: ' + _this.getState());
       logger.info('\n' + 'module is being initialized');
       // Load  module DEFAULTS|CONFIG
       /* eslint-disable */
@@ -71,7 +71,7 @@ j1.adapter.algolia = (function (j1, window) {
       });
       var hitTemplate = function(hit) {
         // state = 'start search';
-        // logger.info('\n' + 'state: ' + state);
+        // logger.debug('\n' + 'state: ' + state);
         // var re = new RegExp('^\/posts');
         // var re = new RegExp('^\/pages');
         var re = new RegExp('^\/pages|^\/posts|^\/collections');
@@ -107,7 +107,7 @@ j1.adapter.algolia = (function (j1, window) {
           `;
         }
         // state = 'finished search';
-        // logger.info('\n' + 'state: ' + state);
+        // logger.debug('\n' + 'state: ' + state);
       };
       if (moduleOptions.enabled == true) {
         // initialize currentRefinedValues
@@ -192,12 +192,12 @@ j1.adapter.algolia = (function (j1, window) {
         search.start();
         $('#searcher').addClass('row');
         _this.setState('finished');
-        logger.info('\n' + 'state: ' + _this.getState());
+        logger.debug('\n' + 'state: ' + _this.getState());
         logger.info('\n' + 'module initialized successfully');
       } else {
         $('#algolia-site-search').append('<p class="ml-5 mt-5 mb-5 "> <strong>Algolia Search DISABLED</strong> </p>');
         _this.setState('finished');
-        logger.info('\n' + 'state: ' + _this.getState());
+        logger.debug('\n' + 'state: ' + _this.getState());
         logger.warn('\n' + 'module disabled');
       }
       return true;

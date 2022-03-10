@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2022-02-24 13:44:36 +0000
+ #  Adapter generated: 2022-03-10 14:56:07 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -45,7 +45,7 @@ j1.adapter.rtable = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.rtable',
-        generated:   '2022-02-24 13:44:36 +0000'
+        generated:   '2022-03-10 14:56:07 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -54,7 +54,7 @@ j1.adapter.rtable = (function (j1, window) {
       logger  = log4javascript.getLogger('j1.adapter.rtable');
       // initialize state flag
       _this.setState('started');
-      logger.info('\n' + 'state: ' + _this.getState());
+      logger.debug('\n' + 'state: ' + _this.getState());
       logger.info('\n' + 'module is being initialized');
       // create settings object from frontmatterOptions
       frontmatterOptions = options != null ? $.extend({}, options) : {};
@@ -96,7 +96,7 @@ j1.adapter.rtable = (function (j1, window) {
             } // END if hasClass 'rtable'
           });
           _this.setState('finished');
-          logger.info('\n' + 'state: ' + _this.getState());
+          logger.debug('\n' + 'state: ' + _this.getState());
           clearInterval(dependencies_met_j1_finished);
         } // END dependencies_met_j1_finished
       }, 25);

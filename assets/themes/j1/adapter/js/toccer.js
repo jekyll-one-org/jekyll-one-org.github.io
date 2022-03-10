@@ -16,7 +16,7 @@
  # Tocbot is licensed under under the MIT License.
  # For details, see https://tscanlin.github.io/tocbot
  # -----------------------------------------------------------------------------
- # Adapter generated: 2022-02-24 13:44:36 +0000
+ # Adapter generated: 2022-03-10 14:56:07 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -49,7 +49,7 @@ j1.adapter.toccer = (function () {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.toccer',
-        generated:   '2022-02-24 13:44:36 +0000'
+        generated:   '2022-03-10 14:56:07 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -58,7 +58,7 @@ j1.adapter.toccer = (function () {
       logger  = log4javascript.getLogger('j1.adapter.toccer');
       // initialize state flag
       _this.setState('started');
-      logger.info('\n' + 'state: ' + _this.getState());
+      logger.debug('\n' + 'state: ' + _this.getState());
       logger.info('\n' + 'module is being initialized');
       // create settings object from frontmatterOptions
       var frontmatterOptions = options != null ? $.extend({}, options) : {};
@@ -88,9 +88,9 @@ j1.adapter.toccer = (function () {
             var settings = j1.adapter.toccer.moduleOptions;
             _this.initToccerCore(settings);
             _this.setState('finished');
-            logger.info('\n' + 'state: ' + _this.getState());
+            logger.debug('\n' + 'state: ' + _this.getState());
             logger.info('\n' + 'module initialized successfully');
-            logger.info('\n' + 'met dependencies for: j1');
+            logger.debug('\n' + 'met dependencies for: j1');
             clearInterval(dependencies_met_navigator);
           }
         }, 25);
@@ -107,7 +107,7 @@ j1.adapter.toccer = (function () {
         var settings = false;
       }
       _this.setState('running');
-      logger.info('\n' + 'state: ' + _this.getState());
+      logger.debug('\n' + 'state: ' + _this.getState());
       // tocbot get fired if HTML portion is loaded (AJAX load finished)
       //
       var dependencies_met_ajax_load_finished = setInterval (function () {
@@ -143,7 +143,7 @@ j1.adapter.toccer = (function () {
             throttleTimeout:        moduleOptions.throttleTimeout
           });
           /* eslint-enable */
-          logger.info('\n' + 'met dependencies for: loadHTML');
+          logger.debug('\n' + 'met dependencies for: loadHTML');
           clearInterval(dependencies_met_ajax_load_finished);
         } // END AJAX load finished
       }, 25); // END dependencies_met_ajax_load_finished

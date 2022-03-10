@@ -19,7 +19,7 @@
  # NOTE: For getStyleValue helper see
  #  https://stackoverflow.com/questions/16965515/how-to-get-a-style-attribute-from-a-css-class-by-javascript-jquery
  # -----------------------------------------------------------------------------
- # Adapter generated: 2022-02-24 13:44:36 +0000
+ # Adapter generated: 2022-03-10 14:56:07 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -61,7 +61,7 @@ j1.adapter.mmenu = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.mmenu',
-        generated:   '2022-02-24 13:44:36 +0000'
+        generated:   '2022-03-10 14:56:07 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -70,7 +70,7 @@ j1.adapter.mmenu = (function (j1, window) {
       logger        = log4javascript.getLogger('j1.adapter.mmenu');
       // initialize state flag
       _this.setState('started');
-      logger.info('\n' + 'state: ' + _this.getState());
+      logger.debug('\n' + 'state: ' + _this.getState());
       logger.info('\n' + 'module is being initialized');
       // -----------------------------------------------------------------------
       // options loader
@@ -88,7 +88,7 @@ j1.adapter.mmenu = (function (j1, window) {
       //
       if (options != null) { var frontmatterOptions = $.extend({}, options); }
       _this.setState('started');
-      logger.info('\n' + 'state: ' + _this.getState());
+      logger.debug('\n' + 'state: ' + _this.getState());
       logger.info('\n' + 'module is being initialized');
       _this.mmenuLoader(navMenuOptions);
     }, // END init
@@ -129,7 +129,7 @@ j1.adapter.mmenu = (function (j1, window) {
       logger.info('\n' + 'initialize navs and drawers');
       _this.mmenuInitializer(mmOptions);
       _this.setState('finished');
-      logger.info('\n' + 'state: ' + _this.getState());
+      logger.debug('\n' + 'state: ' + _this.getState());
       logger.info('\n' + 'module initialized successfully');
     }, // END dataLoader
     // -------------------------------------------------------------------------
@@ -153,7 +153,7 @@ j1.adapter.mmenu = (function (j1, window) {
         logger.info('\n' + 'initialize mmenu on id: #navigator_nav_mmenu');
         var dependencies_met_navigator_nav_mmenu_loaded = setInterval (function () {
           if (j1.xhrDataState['#navigator_nav_mmenu'] == 'success' ) {
-            logger.info('\n' + 'met dependencies for: navigator_nav_mmenu');
+            logger.debug('\n' + 'met dependencies for: navigator_nav_mmenu');
             const menu_selector = document.querySelector('#navigator_nav_mmenu');
             const mmenu_navigator_nav_mmenu = new MmenuLight (
               menu_selector,
@@ -197,7 +197,7 @@ j1.adapter.mmenu = (function (j1, window) {
             }
             $('#menu_mmenu').show();
             logger.info('\n' + 'initializing mmenu finished on id: #navigator_nav_mmenu');
-            logger.info('\n' + 'met dependencies for: navigator_nav_mmenu loaded');
+            logger.debug('\n' + 'met dependencies for: navigator_nav_mmenu loaded');
             clearInterval(dependencies_met_navigator_nav_mmenu_loaded);
             $('#menu_mmenu').show();
             logger.info('\n' + 'initializing mmenu finished on id: #navigator_nav_mmenu');
@@ -225,7 +225,7 @@ j1.adapter.mmenu = (function (j1, window) {
           var dependencies_met_navigator_toc_mmenu_loaded = setInterval (function () {
             if (j1.xhrDataState['#navigator_toc_mmenu'] == 'success' &&
                 $('#open_mmenu_toc').length) {
-              logger.info('\n' + 'met dependencies for: xhrData/navigator_toc_mmenu');
+              logger.debug('\n' + 'met dependencies for: xhrData/navigator_toc_mmenu');
               const menu_selector = document.querySelector('#navigator_toc_mmenu');
               const mmenu_navigator_toc_mmenu = new MmenuLight (
                 menu_selector,
@@ -273,7 +273,7 @@ j1.adapter.mmenu = (function (j1, window) {
                   } // END if hasclass
                 });
               });
-              logger.info('\n' + 'met dependencies for: navigator_toc_mmenu loaded');
+              logger.debug('\n' + 'met dependencies for: navigator_toc_mmenu loaded');
               clearInterval(dependencies_met_navigator_toc_mmenu_loaded);
               $('#toc_mmenu').show();
           }; // END if menu_loaded

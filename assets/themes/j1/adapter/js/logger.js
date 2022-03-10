@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see https://jekyll.one
  # -----------------------------------------------------------------------------
- # Adapter generated: 2022-02-24 13:44:36 +0000
+ # Adapter generated: 2022-03-10 14:56:07 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -112,7 +112,7 @@ j1.adapter.logger = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.logger',
-        generated:   '2022-02-24 13:44:36 +0000'
+        generated:   '2022-03-10 14:56:07 +0000'
       }, options);
       /* eslint-disable */
       loggerOptions       = $.extend({}, {"enabled":true, "appenders":[{"name":"Console Appender", "appender":{"name":"consoleAppender", "enabled":true}}, {"name":"Ajax Appender", "appender":{"name":"ajaxAppender", "enabled":false}}, {"name":"Popup Appender", "appender":{"name":"popupAppender", "enabled":false}}], "loggers":[{"name":"Parent Logger", "logger":{"type":"parent", "name":"j1", "appender":["consoleAppender", "ajaxAppender"], "level":{"production":"warn", "development":"debug"}}}], "tz_offset":"GMT+01:00"});
@@ -130,7 +130,7 @@ j1.adapter.logger = (function (j1, window) {
         user_session = j1.readCookie(cookie_names.user_session);
         if (user_session.mode !== 'na') {
           clearInterval(dependencies_met_mode_detected);
-          logger.info('\n' + 'met dependencies for: mode detected');
+          logger.debug('\n' + 'met dependencies for: mode detected');
           appDetected = user_session.mode === 'app' ? true : false;
           if (appDetected) {
             payloadURL = ajaxAppenderOptions.payload_url_app;
@@ -203,7 +203,7 @@ j1.adapter.logger = (function (j1, window) {
             logger.info('\n' + 'ajax appender/util server detected as: disabled');
           }
           _this.setState('finished');
-          logger.info('\n' + 'state: ' + _this.getState());
+          logger.debug('\n' + 'state: ' + _this.getState());
           logger.info('\n' + 'module initialized successfully');
           return true;
         }

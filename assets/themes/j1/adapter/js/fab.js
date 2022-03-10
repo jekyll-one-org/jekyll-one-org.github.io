@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see http://jekyll.one
  # -----------------------------------------------------------------------------
- # Adapter generated: 2022-02-24 13:44:36 +0000
+ # Adapter generated: 2022-03-10 14:56:07 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -59,7 +59,7 @@ j1.adapter.fab = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.fab',
-        generated:   '2022-02-24 13:44:36 +0000'
+        generated:   '2022-03-10 14:56:07 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -91,7 +91,7 @@ j1.adapter.fab = (function (j1, window) {
       _this['moduleOptions'] = moduleOptions;
       var dependencies_met_navigator = setInterval(function() {
         if (j1.adapter.navigator.getState() == 'finished') {
-          logger.info('\n' + 'met dependencies for: navigator');
+          logger.debug('\n' + 'met dependencies for: navigator');
           _this.fabLoader(moduleOptions);
           clearInterval(dependencies_met_navigator);
         }
@@ -123,7 +123,7 @@ j1.adapter.fab = (function (j1, window) {
 //        _this.scrollSpy(fabOptions);
           _this.buttonInitializer(fabOptions);
           _this.setState('finished');
-          logger.info('\n' + 'state: ' + _this.getState());
+          logger.debug('\n' + 'state: ' + _this.getState());
           logger.info('\n' + 'module initialized successfully');
           $('.fab-btn').show();
           clearInterval(dependencies_met_fab_initialized);
@@ -203,7 +203,7 @@ j1.adapter.fab = (function (j1, window) {
                     logger.info('\n' + 'found toc in page: enabled');
                     var dependencies_met_toccer_finished = setInterval (function () {
                       if ( j1.adapter.toccer.getState() == 'finished' ) {
-                        logger.info('\n' + 'met dependencies for: toccer');
+                        logger.debug('\n' + 'met dependencies for: toccer');
                         // fabOptions.mode === 'icon'
                         //   ? logger.info('\n' + 'FAB mode detected: icon')
                         //   : logger.info('\n' + 'FAB mode detected: menu');
@@ -257,7 +257,7 @@ j1.adapter.fab = (function (j1, window) {
                   logger.info('\n' + 'found toc in page: enabled');
                   var dependencies_met_toccer_finished = setInterval (function () {
                     if ( j1.adapter.toccer.getState() == 'finished' ) {
-                      logger.info('\n' + 'met dependencies for toccer: finished');
+                      logger.debug('\n' + 'met dependencies for toccer: finished');
                       // change the id of the $actionButton to the already
                       // registered id by mmenu adapter of ('open_mmenu_toc')
                       // to open the TOC sidebar

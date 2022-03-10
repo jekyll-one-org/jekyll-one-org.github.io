@@ -12,7 +12,7 @@
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2022-02-24 13:44:36 +0000
+ #  Adapter generated: 2022-03-10 14:56:07 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -64,7 +64,7 @@ j1.adapter.translator = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.translator',
-        generated:   '2022-02-24 13:44:36 +0000'
+        generated:   '2022-03-10 14:56:07 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -131,7 +131,7 @@ j1.adapter.translator = (function (j1, window) {
         }
         if ( j1.getState() === 'finished' ) {
           _this.setState('started');
-          logger.info('\n' + 'state: ' + _this.getState());
+          logger.debug('\n' + 'state: ' + _this.getState());
           logger.info('\n' + 'module is being initialized');
           // load|initialize user translate cookie
           if (j1.existsCookie(cookie_names.user_translate)) {
@@ -227,7 +227,7 @@ j1.adapter.translator = (function (j1, window) {
           // NOTE: Click events moved to Navigator (core)
           // -------------------------------------------------------------------
           _this.setState('finished');
-          logger.info('\n' + 'state: ' + _this.getState());
+          logger.debug('\n' + 'state: ' + _this.getState());
           logger.debug('\n' + 'module initialized successfully');
           clearInterval(dependencies_met_page_ready);
         }

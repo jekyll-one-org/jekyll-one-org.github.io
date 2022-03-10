@@ -17,7 +17,7 @@
  # Backstretch is licensed under the MIT License.
  # For details, see https://github.com/jquery-backstretch/jquery-backstretch
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2022-02-24 13:44:36 +0000
+ #  Adapter generated: 2022-03-10 14:56:07 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -45,7 +45,7 @@ j1.adapter.attic = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.attic',
-        generated:   '2022-02-24 13:44:36 +0000'
+        generated:   '2022-03-10 14:56:07 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -60,7 +60,7 @@ j1.adapter.attic = (function (j1, window) {
       // to be used later by j1.template.init() to load the header
       _this['frontmatterOptions'] = frontmatterOptions;
       _this.setState('started');
-      logger.info('\n' + 'state: ' + _this.getState());
+      logger.debug('\n' + 'state: ' + _this.getState());
       logger.info('\n' + 'module is being initialized');
       _this.loadHeader(frontmatterOptions);
     }, // END init
@@ -146,7 +146,7 @@ j1.adapter.attic = (function (j1, window) {
                 }
               }
               _this.setState('finished');
-              logger.info('\n' + 'state: ' + _this.getState());
+              logger.debug('\n' + 'state: ' + _this.getState());
               logger.info('\n' + 'module initialized successfully');
             });
             $(window).on('backstretch.before', function (e, instance, index) {
@@ -270,7 +270,7 @@ j1.adapter.attic = (function (j1, window) {
             attic_opacity = '<style> .backstretch-item { opacity: ' +atticOptions.opacity+ '; </style>';
             $('head').append(attic_opacity);
             _this.setState('initialized');
-            logger.info('\n' + 'state: ' + _this.getState());
+            logger.debug('\n' + 'state: ' + _this.getState());
             if (typeof atticOptions.slides != 'undefined') {
               // Load the image header if the page is ready (visible)
               $(function() {
@@ -278,7 +278,7 @@ j1.adapter.attic = (function (j1, window) {
                 logger.debug('\n' + 'Load image header');
                 home_attic(atticOptions);
                 _this.setState('completed');
-                logger.info('\n' + 'state: ' + _this.getState());
+                logger.debug('\n' + 'state: ' + _this.getState());
               });
             }
           } // END if header id found in page
@@ -360,7 +360,7 @@ j1.adapter.attic = (function (j1, window) {
                 }
               }
               _this.setState('finished');
-              logger.info('\n' + 'state: ' + _this.getState());
+              logger.debug('\n' + 'state: ' + _this.getState());
               logger.info('\n' + 'module initialized successfully');
             });
             $(window).on('backstretch.before', function (e, instance, index) {
@@ -483,7 +483,7 @@ j1.adapter.attic = (function (j1, window) {
             attic_opacity = '<style> .backstretch-item { opacity: ' +atticOptions.opacity+ '; </style>';
             $('head').append(attic_opacity);
             _this.setState('initialized');
-            logger.info('\n' + 'state: ' + _this.getState());
+            logger.debug('\n' + 'state: ' + _this.getState());
             if (typeof atticOptions.slides != 'undefined') {
               // Load the image header if the page is ready (visible)
               $(function() {
@@ -491,7 +491,7 @@ j1.adapter.attic = (function (j1, window) {
                 logger.debug('\n' + 'Load image header');
                 image_attic(atticOptions);
                 _this.setState('completed');
-                logger.info('\n' + 'state: ' + _this.getState());
+                logger.debug('\n' + 'state: ' + _this.getState());
               });
             }
           } // END if header id found in page
@@ -573,7 +573,7 @@ j1.adapter.attic = (function (j1, window) {
                 }
               }
               _this.setState('finished');
-              logger.info('\n' + 'state: ' + _this.getState());
+              logger.debug('\n' + 'state: ' + _this.getState());
               logger.info('\n' + 'module initialized successfully');
             });
             $(window).on('backstretch.before', function (e, instance, index) {
@@ -693,7 +693,7 @@ j1.adapter.attic = (function (j1, window) {
             attic_opacity = '<style> .backstretch-item { opacity: ' +atticOptions.opacity+ '; </style>';
             $('head').append(attic_opacity);
             _this.setState('initialized');
-            logger.info('\n' + 'state: ' + _this.getState());
+            logger.debug('\n' + 'state: ' + _this.getState());
             if (typeof atticOptions.slides != 'undefined') {
               // Load the image header if the page is ready (visible)
               $(function() {
@@ -701,7 +701,7 @@ j1.adapter.attic = (function (j1, window) {
                 logger.debug('\n' + 'Load image header');
                 text_attic(atticOptions);
                 _this.setState('completed');
-                logger.info('\n' + 'state: ' + _this.getState());
+                logger.debug('\n' + 'state: ' + _this.getState());
               });
             }
           } // END if header id found in page
@@ -710,7 +710,7 @@ j1.adapter.attic = (function (j1, window) {
       // NO header found in page
       if ($('#no_header').length) {
         _this.setState('completed');
-        logger.info('\n' + 'state: ' + _this.getState());
+        logger.debug('\n' + 'state: ' + _this.getState());
         logger.warn('\n' + 'no header configured or found in page');
       }
       return true;

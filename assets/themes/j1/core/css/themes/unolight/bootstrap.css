@@ -9595,7 +9595,7 @@ form {
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   /* The border bottom should be static in all states,
   // the decorator will be animated over this. */ }
-  .form-control:focus,
+  .form-control:focus, .form-control:hover,
   .bmd-form-group.is-focused .form-control {
     background-size: 100% 100%, 100% 100%;
     transition-duration: 0.3s;
@@ -14398,7 +14398,7 @@ table.tableblock > .title {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/extensions/_cards.scss
+ # ~/scss/theme_uno/extensions/_cards.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -14432,9 +14432,11 @@ table.tableblock > .title {
   border-radius: 0 !important; }
 
 .card-body {
+  margin-top: 1rem;
   text-align: initial;
   color: rgba(0, 0, 0, 0.87) !important;
-  background-color: rgba(255, 255, 255, 0.7); }
+  background-color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5; }
 
 .card .card-footer {
   line-height: 1.25;
@@ -15156,7 +15158,7 @@ a.card-title:hover {
       font-weight: 500; }
 
 .bmd-layout-drawer {
-  background: rgba(255, 255, 255, 0.2); }
+  background: var(--bs-body-bg); }
 
 .bmd-drawer-f-l > .bmd-layout-drawer {
   top: 0;
@@ -17501,8 +17503,7 @@ a.news-link {
 
 .series-exerpt {
   text-align: justify;
-  padding: 0px 20px 10px 0px;
-  color: #212121; }
+  padding: 0px 20px 10px 0px; }
 
 .series-exerpt-title {
   margin-top: 0;
@@ -19414,6 +19415,18 @@ a.timeline-list-unstyled:hover {
 
 .border--dotted {
   border: 1px dotted #616161; }
+
+.wm-200, .wmax-200 {
+  max-width: 200px !important; }
+
+.wm-400, .wmax-400 {
+  max-width: 400px !important; }
+
+.wm-600, .wmax-600 {
+  max-width: 600px !important; }
+
+.wm-800, .wmax-800 {
+  max-width: 800px !important; }
 
 .g-color-white-opacity-0_6, .g-color-white-opacity-0_6--hover:hover {
   color: rgba(255, 255, 255, 0.6) !important; }

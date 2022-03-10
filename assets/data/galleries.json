@@ -85,111 +85,134 @@
   ],
   "jg_video_html5" : [
       {
-        "video_path":        "https://github.com/jekyll-one-org/jekyll-one-lfs/raw/master/videos",
-        "video_id":          "video1-mp4",
-        "image_path":        "/assets/videos/gallery",
-        "poster":   	       "video1-poster.jpg",
         "video":             "video1.mp4",
+        "image_path":        "/assets/videos/gallery",
+        "video_path":        "/assets/videos/gallery/html5",
+        "video_id":          "video1-mp4",
+        "poster":   	       "video1-poster.jpg",
         "captions_lightbox": "<p>CGI Animated Short HD: Student Academy Award Winning <b>PeckPocketed</b> by Kevin Herron</p>",
         "captions_gallery":  "PeckPocketed"
       },
       {
-        "video_path":        "https://github.com/jekyll-one-org/jekyll-one-lfs/raw/master/videos",
-        "video_id":          "video2-mp4",
-        "image_path":        "/assets/videos/gallery",
-        "poster":   	       "video2-poster.jpg",
         "video":             "video2.mp4",
+        "image_path":        "/assets/videos/gallery",
+        "video_path":        "/assets/videos/gallery/html5",
+        "video_id":          "video2-mp4",
+        "poster":   	       "video2-poster.jpg",
         "captions_lightbox": "<p>Rollin`Wild - Short Funny Animated Clips - Film Academy BW</p>",
         "captions_gallery":  "Rollin`Wild"
       }
   ],
   "jg_video_online_youtube" : [
       {
+        "video":             "//youtube.com/watch?v=X5Cfi7U4eL4",
         "image_path":        "/assets/videos/gallery",
         "poster":   	       "video_gaga-poster.jpg",
-        "video":             "https://www.youtube.com/watch?v=X5Cfi7U4eL4",
         "captions_lightbox": "<p>Lady Gaga joins James for a drive through Los Angeles singing her classics and tracks from her new album</p>",
         "captions_gallery":  "Carpool Karaoke - Lady Gaga"
       },
       {
+        "video":             "//youtube.com/watch?v=Nck6BZga7TQ",
         "image_path":        "/assets/videos/gallery",
         "poster":   	       "video_adele-poster.jpg",
-        "video":             "https://www.youtube.com/watch?v=Nck6BZga7TQ",
         "captions_lightbox": "<p>James Corden is about the holidays in London and gets Adele off for a ride through the city. On the way they sing some of their biggest hits and Adele raps Nicki Minaj's <b>monster</b></p>",
         "captions_gallery":  "Carpool Karaoke - Adele"
       },
       {
+        "video":             "//youtube.com/watch?v=F2SXmzk8ve4",
         "image_path":        "/assets/videos/gallery",
         "poster":   	       "video_gwen-poster.jpg",
-        "video":             "https://www.youtube.com/watch?v=F2SXmzk8ve4",
         "captions_lightbox": "<p>Gwen Stefani, Julia Roberts, George Clooney and James Corden singing Holla back girl, there's nothing left to see</p>",
         "captions_gallery":  "Carpool Karaoke - Gwen Stefani"
       },
       {
+        "video":             "//youtube.com/watch?v=ln3wAdRAim4",
         "image_path":        "/assets/videos/gallery",
         "poster":   	       "video_michelle-poster.jpg",
-        "video":             "https://www.youtube.com/watch?v=ln3wAdRAim4",
         "captions_lightbox": "<p>James Corden's White House tour takes an unthinkable turn when First Lady Michelle Obama joins him for a drive around the grounds singing Stevie Wonder and Beyonce</p>",
         "captions_gallery":  "Carpool Karaoke - First Lady Michelle Obama"
       }
   ],
+  "jg_video_online_youtube_2" : [
+      {
+        "video":             "//youtube.com/watch?v=aQqPgLMgO-I",
+        "image_path":        "/assets/videos/gallery/voice_kids_de_2021",
+        "poster":   	       "constance.jpg",
+        "captions_lightbox": "<p>14-year-old Constance has dreamed of being on The Voice Kids stage for a very long time. Your dream has finally come true! She performs a breathtaking version of Sia's song Alive.</p>",
+        "player_params":     "start: 0, end: 148",
+        "captions_gallery":  "The Voice Kids Germany 2021 - Constance"
+      },
+      {
+        "video":             "//youtube.com/watch?v=Bl6tkAgaP1g",
+        "image_path":        "/assets/videos/gallery/voice_kids_de_2021",
+        "poster":   	       "elisa.jpg",
+        "captions_lightbox": "<p>14-year-old Elisa is fascinated by the classics of pop music. Her version of Hey Jude from The Beatles comes with a lot of feeling.</p>",
+        "player_params":     "start: 0, end: 122",
+        "captions_gallery":  "The Voice Kids Germany 2021 - Elisa"
+      },
+      {
+        "video":             "//youtube.com/watch?v=GuiOYCv9NTI",
+        "image_path":        "/assets/videos/gallery/voice_kids_de_2021",
+        "poster":   	       "ben.jpg",
+        "captions_lightbox": "<p>14-year-old Ben pours all of his emotions into his performance of Maroon 5's Sunday Morning. He wants to show what he's made of.</p>",
+        "player_params":     "start: 0, end: 104",
+        "captions_gallery":  "The Voice Kids Germany 2021 - Ben"
+      },
+      {
+        "video":             "//youtube.com/watch?v=1bvE2mgJ22I",
+        "image_path":        "/assets/videos/gallery/voice_kids_de_2021",
+        "poster":   	       "battle.jpg",
+        "captions_lightbox": "<p>The battle of the three young people is a real emotional battle. Elisa's husky voice, Constanze's unbelievable power, and Ben's rhythm come into their own in Adele's James Bond theme song Skyfall.</p>",
+        "player_params":     "start: 10, end: 173",
+        "captions_gallery":  "The Voice Kids Germany 2021 - The Battle"
+      }
+  ],
   "jg_video_online_vimeo" : [
       {
+        "video":             "//vimeo.com/175582480",
         "image_path":        "/assets/videos/gallery",
         "poster":   	       "adriana-lima-poster.jpg",
-        "video":             "https://vimeo.com/175582480",
         "captions_lightbox": "<p>Adriana Lima on Vimeo</p>",
         "captions_gallery":  "Vogue -  Adriana Lima"
       },
       {
+        "video":             "//vimeo.com/179528528",
         "image_path":        "/assets/videos/gallery",
         "poster":   	       "kick-it-old-school-poster.jpg",
-        "video":             "https://vimeo.com/179528528",
         "captions_lightbox": "<p>Kick It Old School on Vimeo</p>",
         "captions_gallery":  "Young Fashion - Kick It Old School"
       }
   ],
-  "jg_video_intro" : [
+  "jg_video_online_dailymotion" : [
       {
-        "video_path":        "/assets/videos/tutorials",
-        "video_id":          "web-erzeugen-1-mp4",
-        "image_path":        "/assets/videos/tutorials",
-        "poster":   	       "web-erzeugen-poster.jpg",
-        "video":             "web-erzeugen.1.mp4",
-        "captions_lightbox": "<p>Ein Starter Web erzeugen</p>",
-        "captions_gallery":  "Ein Starter Web erzeugen"
+        "video":             "//dai.ly/x887s09",
+        "image_path":        "/assets/videos/gallery/dailymotion",
+        "poster":   	       "meditation.jpg",
+        "captions_lightbox": "<p>Guided Meditation: Morning Energy</p>",
+        "captions_gallery":  "Guided Meditation: Morning Energy"
       },
       {
-        "video_path":        "/assets/videos/tutorials",
-        "video_id":          "web-erzeugen-2-mp4",
-        "image_path":        "/assets/videos/tutorials",
-        "poster":   	       "web-erzeugen-poster.jpg",
-        "video":             "web-erzeugen.2.mp4",
-        "captions_lightbox": "<p>Noch ein Starter Web erzeugen</p>",
-        "captions_gallery":  "Noch ein Starter Web erzeugen"
+        "video":             "//dai.ly/x87ycik",
+        "image_path":        "/assets/videos/gallery/dailymotion",
+        "poster":   	       "pilates.jpg",
+        "captions_lightbox": "<p>Beginner Mat Pilates: Core Workout</p>",
+        "captions_gallery":  "Beginner Mat Pilates: Core Workout"
       }
   ],
-  "jg_tiktok" : [
+  "jg_video_online_vk" : [
       {
-        "image_path":        "/assets/videos/tiktok",
-        "poster":   	       "einhorn.jpg",
-        "video":             "https://www.tiktok.com/@octaviaegon/video/6983746143356292357/",
-        "captions_lightbox": "<p>Egon - Einhorn</p>",
-        "captions_gallery":  "Egon - Einhorn"
+        "video":             "//vk.com/video_ext.php?oid=-114944820&id=456242413&hash=ef5be3f71500f8df",
+        "image_path":        "/assets/videos/gallery/vk",
+        "poster":   	       "otter.jpg",
+        "captions_lightbox": "<p>Otter plague</p>",
+        "captions_gallery":  "Otter plague"
       },
       {
-        "image_path":        "/assets/videos/tiktok",
-        "poster":   	       "waluschka.jpg",
-        "video":             "https://www.tiktok.com/@waluschka.w59/video/6984680288114756870/",
-        "captions_lightbox": "<p>Valentina - Mahlzeit!</p>",
-        "captions_gallery":  "Valentina - Mahlzeit!"
-      },
-      {
-        "image_path":        "/assets/videos/tiktok",
-        "poster":   	       "einhorn.jpg",
-        "video":             "https://www.tiktok.com/@octaviaegon/video/6983746143356292357/",
-        "captions_lightbox": "<p>Egon - Einhorn</p>",
-        "captions_gallery":  "Egon - Einhorn"
+        "video":             "//vk.com/video_ext.php?oid=-114944820&id=456239717&hash=f6651448bfb14b90",
+        "image_path":        "/assets/videos/gallery/vk",
+        "poster":   	       "hai.jpg",
+        "captions_lightbox": "<p>Looked at the shark's mouth (whale shark)</p>",
+        "captions_gallery":  "Looked at the shark's mouth (whale shark)"
       }
   ]
 }

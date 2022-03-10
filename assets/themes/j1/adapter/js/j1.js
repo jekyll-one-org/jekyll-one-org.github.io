@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2022-02-24 13:44:36 +0000
+ # Adapter generated: 2022-03-10 14:56:07 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -140,7 +140,7 @@ var j1 = (function () {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2022-02-24 13:44:36 +0000'
+        generated:   '2022-03-10 14:56:07 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -260,7 +260,7 @@ var j1 = (function () {
             expires:  0
           });
           j1.setState(curr_state);
-          logger.info('\n' + 'state: ' + j1.getState());
+          logger.debug('\n' + 'state: ' + j1.getState());
           var dependencies_met_page_displayed = setInterval (function () {
             if (j1.getState() == 'finished') {
               if (j1.authEnabled()) {
@@ -277,7 +277,7 @@ var j1 = (function () {
                 }
                 logger.info('\n' + 'authentication detected as: ' + user_session.authenticated);
                 $('#quickLinksSignInOutButton').css('display', 'block');
-                logger.info('\n' + 'met dependencies for: j1');
+                logger.debug('\n' + 'met dependencies for: j1');
                 clearInterval(dependencies_met_page_displayed);
               }
             }
@@ -301,17 +301,17 @@ var j1 = (function () {
               expires:  0
             });
             j1.setState(curr_state);
-            logger.info('\n' + 'state: ' + j1.getState());
+            logger.debug('\n' + 'state: ' + j1.getState());
           }, detectTimeout);
         });
       } else {
         // web mode
         state = 'started';
-        logger.info('\n' + 'state: ' + state);
+        logger.debug('\n' + 'state: ' + state);
         logger.info('\n' + 'page is being initialized');
       }
       state = 'started';
-      logger.info('\n' + 'state: ' + state);
+      logger.debug('\n' + 'state: ' + state);
       logger.info('\n' + 'page is being initialized');
       if ( settings.scrollbar === 'false'  ) {
         $('body').addClass('hide-scrollbar');
@@ -358,7 +358,7 @@ var j1 = (function () {
       j1.initPanel(settings);
       j1.initFooter(settings);
       state = 'running';
-      logger.info('\n' + 'state: ' + state);
+      logger.debug('\n' + 'state: ' + state);
       user_session.timestamp = timestamp_now;
       logger.debug('\n' + 'write to cookie : ' + cookie_names.user_session);
       cookie_written = j1.writeCookie({
@@ -1072,7 +1072,7 @@ var j1 = (function () {
           j1.setXhrDomState(id, 'not loaded');
           // Set processing state to 'finished' to complete module load
           state = 'finished';
-          logger.info('\n' + 'state: ' + state);
+          logger.debug('\n' + 'state: ' + state);
           // jadams, 2020-07-21: intermediate state should DISABLED
           // executeFunctionByName(mod + '.setState', window, state);
           state = false;
@@ -1500,7 +1500,7 @@ var j1 = (function () {
                 $this.html($html.replace('??theme-version', user_data.theme_version));
               });
             });
-            logger.info('\n' + 'met dependencies for: sidebarLoaded');
+            logger.debug('\n' + 'met dependencies for: sidebarLoaded');
             clearInterval(sidebarLoaded);
             return true;
           } else {
@@ -1553,7 +1553,7 @@ var j1 = (function () {
                 $('#macro-cookie-state').attr('href', user_data.provider_privacy_url);
               });
             });
-            logger.info('\n' + 'met dependencies for: sidebarLoaded');
+            logger.debug('\n' + 'met dependencies for: sidebarLoaded');
             clearInterval(sidebarLoaded);
             return true;
           } else {
