@@ -7,9 +7,9 @@
   
             <!DOCTYPE html>
 <html lang="en">
-  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2022-03-11 16:25:22 +0000 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2022-03-14 13:56:47 +0000 ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ environment detected as: development ] -->
-  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2022.1.2 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2022.1.3 ] -->
   <head data-proofer-ignore>
     <!-- [INFO   ] [j1.layout.default.html                ] [ call default_writer for region: 'head' ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: page ] -->
@@ -21,7 +21,7 @@
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ initial zoom level when the page is first loaded by the browser ] -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ added version info for the templte ] -->
-    <meta name="template version" content="2022.1.2">
+    <meta name="template version" content="2022.1.3">
     <title>asciidoc extensions</title>
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ detected content type: PAGE ] -->
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ SIZE of page description: 36 chars ] -->
@@ -118,17 +118,7 @@
     <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: core ] -->
     <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
     <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
-    <script sync src="/assets/themes/j1/modules/gtag-opt-in/js/gtag-opt-in.js"></script>
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all template core ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: core ] -->
-    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
-    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
     <script sync src="/assets/themes/j1/modules/jquery/js/jquery.js"></script>
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all template core ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: core ] -->
-    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
-    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
-    <script sync src="/assets/themes/j1/modules/jquery/js/jqueryUI.js"></script>
     <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all template core ] -->
     <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: core ] -->
     <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
@@ -140,6 +130,16 @@
     <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
     <script sync src="/assets/themes/j1/core/js/template.js"></script>
     <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: ga-opt-in ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, gaOptIn ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: ga-opt-in ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all gaOptIn ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: ga-opt-in ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script defer src="/assets/themes/j1/modules/gtag-opt-in/js/gtag-opt-in.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: jquery-ui ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: logger ] -->
     <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, module logger ] -->
     <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: logger ] -->
@@ -480,7 +480,7 @@
       <nav id="navigator_nav_navbar" class="navbar navigator navbar-expand-lg navbar-default light navbar-fixed navbar-transparent">
         <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ start processing: main menue ] -->
         <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ place brand to the: right ] -->
-        <a href="#" id="navbar-brand" class="navbar-brand"> <img src="/assets/images/modules/icons/j1/j1-512x512.png" height="48" alt="Starter@Github"></a>
+        <a href="#" id="navbar-brand" class="navbar-brand"> <img src="/assets/images/modules/icons/j1/j1-512x512.png" height="48" alt="Jekyll One"></a>
         <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ place mobile menu button to the: left ] -->
         <button id="mmenu-button" type="button" class="navigator navbar-toggler animated fadeIn" data-bs-toggle="collapse" data-bs-target="#navigator_nav_menu" aria-controls="navigator_nav_menu" aria-expanded="false" aria-label="Toggle navigation">
           <i class="mdi mdi-menu mdi-36px"></i>
@@ -833,13 +833,13 @@
               <div class="sect2">
                 <h3 id="image-galleries">Image galleries</h3>
                 <div class="paragraph">
-                  <p>Similique occaecati voluptatum maiores et rem dolores sint nemo expedita quibusdam nihil quae cum assumenda. Ex unde sint ut id recusandae voluptas quo quia amet. Similique ipsa ipsam veritatis temporibus blanditiis ut ut quo nulla. Molestiae quibusdam voluptate voluptates atque ullam repellat magni quisquam neque. Facilis temporibus eos nihil a culpa voluptate qui enim tenetur ducimus saepe.</p>
+                  <p>Nulla quo reprehenderit explicabo aperiam possimus provident. Voluptatem quas necessitatibus ratione. Est id id est quis sed et nulla omnis dicta assumenda hic soluta eaque. Fugiat asperiores voluptatibus est. A ducimus aut dolores sint optio tenetur mollitia eius consequatur natus consequuntur et earum.</p>
                 </div>
               </div>
               <div class="sect2">
                 <h3 id="video-galleries">Video galleries</h3>
                 <div class="paragraph">
-                  <p>Nihil repellendus architecto corrupti ipsum dolor quo eius quia vero et natus eveniet aut facere. Possimus nulla ipsum et enim autem sint. Consequatur consequatur assumenda qui. Explicabo doloribus cumque quis ducimus harum voluptatem non. Repellendus rerum inventore dolores id nisi rerum omnis dolor architecto sunt velit et nulla fugiat.</p>
+                  <p>Dolores iusto aut voluptatem quasi magnam ipsam repellendus et natus sed consequatur. Qui esse et quibusdam voluptates quia alias eligendi eos est ut. Adipisci quibusdam voluptatum ipsum aut hic sed fugit deserunt ex. Eveniet voluptatem sed exercitationem ut excepturi maiores sed numquam laudantium rerum beatae. Ad perspiciatis non rerum molestias aliquam autem explicabo amet omnis perferendis.</p>
                 </div>
               </div>
             </div>
@@ -1413,7 +1413,7 @@
               <div class="exampleblock result">
                 <div class="content">
                   <div class="paragraph">
-                    <p>Ducimus eum placeat temporibus mollitia dolorem non provident consequatur dolor debitis ut repudiandae architecto. Eos eligendi natus in expedita. Sint saepe harum omnis suscipit enim inventore vitae quas sed officiis mollitia quaerat ex maiores. Quod blanditiis minima voluptas consequatur eos quas officia qui magni ea assumenda. Enim aliquam aut ducimus adipisci temporibus error omnis magni omnis voluptates.</p>
+                    <p>Reprehenderit nam numquam qui consectetur voluptatem quis. Qui quo pariatur quaerat a occaecati sit distinctio dolore voluptas. Dolorem eum expedita et eaque ullam rerum. Illo saepe recusandae voluptas laboriosam debitis alias illo voluptatem itaque illo vel. Fugiat eligendi asperiores similique amet optio doloribus voluptas sequi et.</p>
                   </div>
                 </div>
               </div>
@@ -1447,7 +1447,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>doloribus</p>
+                            <p>et</p>
                           </div>
                         </div>
                       </td>
@@ -1462,7 +1462,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>aut aperiam saepe repellat vel</p>
+                            <p>sit ut rerum reprehenderit sunt</p>
                           </div>
                         </div>
                       </td>
@@ -1477,7 +1477,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Consequatur vel quod doloribus est molestias debitis accusamus sint at corporis.</p>
+                            <p>Voluptas sequi quam consequatur nulla consectetur mollitia quis necessitatibus.</p>
                           </div>
                         </div>
                       </td>
@@ -1492,7 +1492,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Incidunt consectetur atque et animi itaque labore quibusdam. At mollitia ut assumenda natus sit. Totam quam minima odio. Voluptas sit officiis unde placeat sit repudiandae natus est laboriosam consequatur. Voluptatem molestiae recusandae recusandae quasi sed qui nulla repellat id blanditiis quo natus.</p>
+                            <p>Aut illo illum et maiores. Repudiandae cumque est incidunt culpa perferendis cum fugit repellat odio voluptatibus. Possimus nihil voluptates quisquam quia. Officiis in et recusandae velit facere qui omnis nobis. Aut est sapiente voluptatem corrupti fugit ut nihil consectetur quia et quis temporibus.</p>
                           </div>
                         </div>
                       </td>
@@ -1507,7 +1507,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Tue Jun 03, 1986</p>
+                            <p>Thu Sep 06, 1973</p>
                           </div>
                         </div>
                       </td>
@@ -1522,7 +1522,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>2003-04-23</p>
+                            <p>1974-04-24</p>
                           </div>
                         </div>
                       </td>
@@ -1537,7 +1537,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Quinn Bender</p>
+                            <p>Penny Hewitt</p>
                           </div>
                         </div>
                       </td>
@@ -1552,7 +1552,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Johnny</p>
+                            <p>Cindy</p>
                           </div>
                         </div>
                       </td>
@@ -1567,7 +1567,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Abbott</p>
+                            <p>Wagner</p>
                           </div>
                         </div>
                       </td>
@@ -1582,7 +1582,7 @@
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p><a href="mailto:niall_bowman@mail.com">niall_bowman@mail.com</a></p>
+                            <p><a href="mailto:laila_hodge@mail.com">laila_hodge@mail.com</a></p>
                           </div>
                         </div>
                       </td>
@@ -1717,6 +1717,18 @@
       </script>
       <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
       <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: ga-opt-in ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: ga-opt-in ] -->
+      <script>
+        $(document).ready(function() {
+          var logger = log4javascript.getLogger("j1.module_loader");
+          var log_text = 'gaOptIn is being initialized';
+          logger.info(log_text);
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: jquery-ui ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: logger ] -->
       <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: logger ] -->
       <script>
