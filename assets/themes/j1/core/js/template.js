@@ -2512,7 +2512,7 @@ module.exports = function navigator(options) {
         page_link = document.querySelector('[id="' + decodeURI(anchor_id).split('#').join('') + '"]') ? true : false;
         anchor_id = e.target.hash ? e.target.hash : false;
         classname = e.target.className ? e.target.className : '';
-        nav_link = classname.includes('nav-'); //      if (!nav_link || page_link) {
+        nav_link = classname.includes('nav-');
 
         if (nav_link || !page_link) {
           logger.debug('\n' + 'click event on href "#" detected: prevent default action');
@@ -2787,9 +2787,10 @@ module.exports = function navigator(options) {
       var $getIn = $getNav.find('ul.nav').data('in');
       var $getOut = $getNav.find('ul.nav').data('out');
       var menuSelector = '#' + navMenuOptions.xhr_container_id + '.collapse';
+      var quicklinksSelector = '#navigator_nav_quicklinks';
       var delayMenuOpen = navMenuOptions.delay_menu_open;
-      var $menu;
       var breakPoint;
+      var $menu;
       var $dropDown;
       var timeoutHandle; // BS4 @media MAX breakpoints
       // NOTE: a media query is always a range
@@ -2858,33 +2859,11 @@ module.exports = function navigator(options) {
 
 
       if ($getWindow <= breakPoint) {
-        // Collapse Navbar
+        // Collapse Navbar (Desktop Navigation)
         $(menuSelector).addClass('navbar-collapse');
-        $(menuSelector).removeClass('show'); //
+        $(menuSelector).removeClass('show'); // Show QuicklinksBar
 
-        $('#navigator_nav_quicklinks').addClass('show'); // Enable click Quicklink Navigation
-
-        $('nav.navbar.navigator .attr-nav').each(function () {
-          $('.dropdown-menu', this).removeClass('animated');
-          $('li.dropdown', this).off('mouseenter');
-          $('li.dropdown', this).off('mouseleave');
-          $('a.dropdown-toggle', this).off('click');
-          $('a.dropdown-toggle', this).on('click', function (e) {
-            // e.stopPropagation(); // don't bubble up the event
-            $(this).closest('li.dropdown').find('.dropdown-menu').first().stop().fadeToggle();
-            $('.navbar-toggle').each(function () {
-              $('.mdi', this).removeClass('mdi-close');
-              $('.mdi', this).addClass('mdi-menu');
-              $('.navbar-collapse').removeClass('in');
-              $('.navbar-collapse').removeClass('open');
-            });
-          });
-          $(this).on('mouseleave', function () {
-            $('.dropdown-menu', this).stop().fadeOut();
-            $('li.dropdown', this).removeClass('open'); // return false;
-          });
-        });
-        $('#desktop_menu').hide(); // -----------------------------------------------------------------------
+        $(quicklinksSelector).addClass('show'); // -----------------------------------------------------------------------
         // Desktop Navigation does NOT work on physical devices like iPad|Pro
         // Config DISABLED
         //
@@ -2914,7 +2893,6 @@ module.exports = function navigator(options) {
         $('.dropdown-menu > li').hover(function () {
           var $container = $(this);
           var $list = $container.find('ul'); // limit LAST menu ONLY
-          //
 
           if ($list.length == 1) {
             $list.addClass('scrollable-menu');
@@ -2923,27 +2901,25 @@ module.exports = function navigator(options) {
         //
 
         $(menuSelector).removeClass('navbar-collapse');
-        $(menuSelector).addClass('show'); // Navbar Sidebar
-        // jadams, 2021-03-05: Sidebar NOT used anymore
-        // Open Desktop Menu|s on hover
-        //
+        $(menuSelector).addClass('show'); // Open Desktop Menu|s on hover
 
         $('nav.navbar.navigator ul.nav').each(function () {
-          $('a.dropdown-toggle', this).off('click');
-          $('a.dropdown-toggle', this).on('click', function (e) {// e.stopPropagation(); // don't bubble up the event
-          });
+          $('a.dropdown-toggle', this).off('click'); // $('a.dropdown-toggle', this).on('click', function (e) {
+          //   // e.stopPropagation(); // don't bubble up the event
+          // });
+
           $('.megamenu-fw', this).each(function () {
             $('.title', this).off('click');
             $('a.dropdown-toggle', this).off('click');
             $('.content').removeClass('animated');
           });
           $('.dropdown-menu', this).addClass('animated');
-          $('li.dropdown', this).on('mouseenter', function () {
+          $('li.dropdown', this).on('mouseenter', function (e) {
             $menu = $('.dropdown-menu', this).eq(0);
             $dropDown = $(this);
             $menu.removeClass($getOut);
             $menu.removeClass('open');
-            $dropDown.addClass('open'); // Get|Set the timeout object to delay the dropdown open
+            $dropDown.addClass('open'); // Create a timeout object to delay the dropdown menus to open
 
             timeoutHandle = window.setTimeout(function () {
               if ($dropDown.hasClass('open')) {
@@ -2952,52 +2928,25 @@ module.exports = function navigator(options) {
                 $dropDown.addClass('open');
               }
             }, delayMenuOpen);
+            return true;
           });
-          $('li.dropdown', this).on('mouseleave', function () {
-            window.clearTimeout(timeoutHandle); // Clear the timeout object
+          $('li.dropdown', this).on('mouseleave', function (e) {
+            $menu = $('.dropdown-menu', this).eq(0);
+            $dropDown = $(this); // Clear the timeout object for dropdown menus 'open'
 
-            $(this).removeClass('open').removeClass('open');
-            $('.dropdown-menu', this).removeClass('open');
-            $('.dropdown-menu', this).eq(0).removeClass($getIn);
-            $('.dropdown-menu', this).eq(0).stop().fadeOut().addClass($getOut);
-          });
-          $(this).on('mouseleave', function () {
             window.clearTimeout(timeoutHandle);
-            $('li.dropdown', this).removeClass('open');
-            $('.dropdown-menu', this).removeClass('open');
-            $('.dropdown-menu', this).removeClass($getIn);
-            $('.dropdown-menu', this).eq(0).stop().fadeOut().addClass($getOut);
+            $menu.removeClass($getIn);
+            $menu.addClass($getOut);
+            $menu.fadeOut('slow');
+            $dropDown.removeClass('open');
+            return true;
           });
         }); // END Desktop Menu
       } // end Desktop
       // -----------------------------------------------------------------------
-      // Hover Open on Quicklink Navigation
-      // -----------------------------------------------------------------------
-
-
-      $('nav.navbar.navigator .attr-nav').each(function () {
-        $('a.dropdown-toggle', this).off('click');
-        $('a.dropdown-toggle', this).on('click', function (e) {// e.stopPropagation(); // don't bubble up the event
-        });
-        $('.dropdown-menu', this).addClass('animated');
-        $('li.dropdown', this).on('mouseenter', function () {
-          $('.dropdown-menu', this).eq(0).removeClass($getOut);
-          $('.dropdown-menu', this).eq(0).stop().fadeIn().addClass($getIn);
-          $(this).addClass('open'); //return false;
-        });
-        $('li.dropdown', this).on('mouseleave', function () {
-          $('.dropdown-menu', this).eq(0).removeClass($getIn);
-          $('.dropdown-menu', this).eq(0).stop().fadeOut().addClass($getOut);
-          $(this).removeClass('open');
-        });
-        $(this).on('mouseleave', function () {
-          $('.dropdown-menu', this).removeClass($getIn);
-          $('.dropdown-menu', this).eq(0).stop().fadeOut().addClass($getOut);
-          $('li.dropdown', this).removeClass('open'); //return false;
-        });
-      }); // -----------------------------------------------------------------------
       //  Fullscreen Menu
       // -----------------------------------------------------------------------
+
 
       if ($getNav.hasClass('navbar-full')) {
         var windowHeight = $(window).height(),
