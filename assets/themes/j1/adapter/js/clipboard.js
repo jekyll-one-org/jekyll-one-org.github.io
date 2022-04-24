@@ -15,7 +15,7 @@
  # -----------------------------------------------------------------------------
  # NOTE:
  # -----------------------------------------------------------------------------
- # Adapter generated: 2022-04-17 22:42:16 +0000
+ # Adapter generated: 2022-04-24 14:41:49 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -51,7 +51,7 @@ j1.adapter.clipboard = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.clipboard',
-        generated:   '2022-04-17 22:42:16 +0000'
+        generated:   '2022-04-24 14:41:49 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -99,16 +99,21 @@ j1.adapter.clipboard = (function (j1, window) {
     // -------------------------------------------------------------------------
     // initClipboard
     // Create copy-to-clipboard for all pages
+    // NOTE: Added check on isNotebook to skip clipboard button on
+    //       Notebooks
     // -------------------------------------------------------------------------
     initClipButtons: function () {
+      var btnHtml = '<div class="j1-clipboard"><span class="btn-clipboard" data-bs-toggle="tooltip" data-bs-placement="left" title="' + btnTitle +'">' + btnText + '</span></div>';
+      var isNoClip;
+      var isNotebook;
       // insert copy to clipboard button before all elements having a
       // class of ".highlight" assigned to (e.g. Asciidoc source blocks)
+      //
       $('.highlight').each(function () {
-        // Check if no clipboard should be applied
-        var isNoClip = $(this).closest('.noclip');
-        if ( isNoClip.length == 0) {
-          var btnHtml = '';
-          btnHtml = '<div class="j1-clipboard"><span class="btn-clipboard" data-bs-toggle="tooltip" data-bs-placement="left" title="' + btnTitle +'">' + btnText + '</span></div>';
+        // Check if NO clipboard should be applied
+        isNoClip    = $(this).closest('.noclip').length;
+        isNotebook  = $(this).closest('.hl-ipython3').length;
+        if (!isNoClip && !isNotebook) {
           $(this).before(btnHtml);
           $('.btn-clipboard').tooltip();
         }

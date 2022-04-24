@@ -7,7 +7,7 @@
   
             <!DOCTYPE html>
 <html lang="en">
-  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2022-04-17 22:40:56 +0000 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2022-04-24 14:41:49 +0000 ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ environment detected as: development ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2022.2.1 ] -->
   <head data-proofer-ignore>
@@ -30,7 +30,7 @@
 ">
     <link rel="icon" type="image/ico" href="/assets/images/modules/icons/j1/j1-32x32.ico">
     <meta name="author" content="J1 Team">
-    <meta name="keywords" content="opensource, free, load, download, start, starter, example, high, easy, use, secure, encrypt, standard, popular, generate, create, learn, distribute, publish, deploy, beginner, advanced, expert, student, learner, writer, reader, visitor framework, toolkit, integration, extension, module, api, dynamic, static, generator, client, server, internet, local, localhost page, web, website, webdesign, material, design, responsive, javascript, nodejs, ruby, windows, linux, osx, mac, os, http, https, html, html5, css, scss, style, browser, firefox, chrome, edge, opera, safari, configuration, generator, navigation, menu, dropdown, fab, action, button application, interface, provider, api, repository, cookie, language, translation, gdpr, dsgvo, privacy, asciidoc, aciidoctor, bootstrap, jekyll, liquid, hyvor, disqus, git, github, netlify, heroku, apple, microsoft, provider, service, internet, support, google, analytics, advertising, search, console, silverlight, score, j1, template, jekyllone, comment
+    <meta name="keywords" content="opensource, free, load, download, start, starter, example, high, easy, use, secure, encrypt, standard, popular, generate, create, learn, distribute, publish, deploy, beginner, advanced, expert, student, learner, writer, reader, visitor framework, toolkit, integration, extension, module, api, dynamic, static, generator, client, server, internet, local, localhost page, web, website, webdesign, material, design, responsive, javascript, nodejs, ruby, windows, linux, osx, mac, os, http, https, html, html5, css, scss, style, browser, firefox, chrome, edge, opera, safari, configuration, generator, navigation, menu, dropdown, fab, action, button application, interface, provider, api, repository, cookie, language, translation, gdpr, dsgvo, privacy, asciidoc, aciidoctor, bootstrap, jekyll, liquid, hyvor, disqus, git, github, netlify, heroku, apple, microsoft, provider, service, internet, support, google, analytics, advertising, search, console, silverlight, score, j1, template, jekyllone, comment, python, jupyter, notebook, textbook, api, app, nbinteract, nbi, integration, binder, binderhub, jupyterhub
 ">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ Check robot settings from SITE configuration ] -->
     <!-- [DEBUG  ] [j1.layout.meta_data_generator.html    ] [ Found SITE configuration robots_index: true ] -->
@@ -521,6 +521,7 @@
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: comments ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: dropdowns ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: nbinteract ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: scheduler ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ end processing ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ placement for all lane items finished ] -->
@@ -528,7 +529,7 @@
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing ] -->
     <!-- [INFO   ] [j1.layout.default.html                ] [ end default_writer for region: 'head' ] -->
   </head>
-  <body>
+  <body class="nomathjax">
     <!-- [INFO   ] [j1.layout.default.html                ] [ start page processing for region: 'body' ] -->
     <!-- [INFO   ] [j1.layout.default.html                ] [ place wrapper to prevent "DOM flicker" ] -->
     <!-- [INFO   ] [j1.layout.default.html                ] [ make page hidden (suppress flicker) ] -->
@@ -613,7 +614,7 @@
         <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region body-header, layout: page ] -->
         <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ load page specific header data from yaml data file ] -->
         <!-- [INFO   ] [j1.modules.attics.generator.html             ] [ place attic detected: image_attic ] -->
-        <div id="image_attic" class="attic">
+        <div id="image_attic" class="attic notranslate">
           <div class="container">
             <div id="head-title" class="head-title animated"> 
               <h2 id="head-title-text" class="notoc">Roundtrip</h2>
@@ -654,7 +655,7 @@
               of what J1 can do for image data. Have fun!</p>
           </div>
           <div class="sect1">
-            <h2 id="j1-lightboxes">J1 Lightboxes</h2>
+            <h2 id="j1-lightbox-blocks">J1 Lightbox blocks</h2>
             <div class="sectionbody">
               <div class="paragraph">
                 <p>A Lightbox is, in general, a helper which displays enlarged, almost
@@ -705,7 +706,7 @@
             </div>
           </div>
           <div class="sect1">
-            <h2 id="lightbox-examples">Lightbox Examples</h2>
+            <h2 id="lightbox-block-examples">Lightbox block Examples</h2>
             <div class="sectionbody">
               <div class="paragraph">
                 <p>Find below an example of using the lightbox Lightbox standalone. See how
@@ -777,7 +778,7 @@
                     implementation for the J1 Template supports a lot more sources to be
                     displayed as a slide show: simple text, for example.</p>
                 </div>
-                <div class="slider-title">Simple text carousel</div>
+                <div class="slider-title">Carousel Example</div>
                 <div id="demo_text_carousel" class="mb-3"></div>
                 <div class="paragraph">
                   <p>Important statements or topics can be placed, e.g., on top of an article or
@@ -795,7 +796,7 @@
                     reader’s attention from the text, therefore a pure text-based presentation
                     maybe the better choice.</p>
                 </div>
-                <div class="slider-title">Parallax text carousel</div>
+                <div class="slider-title">Carousel Example</div>
                 <div id="demo_text_carousel_parallax" class="mb-3"></div>
                 <div class="paragraph">
                   <p>Parallax text shows can be placed as banners on a page. For text shows,
@@ -829,7 +830,7 @@
                   <p>A simple image show is useful, for example, as an animated (or not animated)
                     banner presenting exciting things about your site or the products offered.</p>
                 </div>
-                <div class="slider-title">Simple Image Carousel</div>
+                <div class="slider-title">Carousel Example</div>
                 <div id="demo_simple" class="mb-3"></div>
               </div>
               <div class="sect2">
@@ -840,7 +841,7 @@
                     a lightbox to enlarge images full size. For the example below, an almost simple
                     lightbox is used: Lightbox V2; or short: lightbox.</p>
                 </div>
-                <div class="slider-title">Nice cats</div>
+                <div class="slider-title">Carousel Example</div>
                 <div id="demo_cats" class="mb-3"></div>
                 <div class="paragraph">
                   <p>The J1 module lightbox is a simple Lightbox but offers a bunch of impressive
@@ -857,7 +858,7 @@
                     to browse all images back and forth. An indicator below the slider shows how
                     many images the show contains.</p>
                 </div>
-                <div class="slider-title">Single Slide Carousel and a Lightbox</div>
+                <div class="slider-title">Carousel Example</div>
                 <div id="demo_oneslide" class="mb-3"></div>
               </div>
             </div>
@@ -882,8 +883,8 @@
                   horizontal and vertical space. Sort of like mason fitting stones in a wall.
                   You’ll have seen it in use all over the Internet!</p>
               </div>
-              <div class="gallery-title">Masonry grid layout of JustifiedGallery</div>
-              <div id="jg_customizer" class=""></div>
+              <div class="gallery-title">JustifiedGallery Example</div>
+              <div id="jg_customizer" class="mb-4"></div>
             </div>
           </div>
           <div class="sect1">
@@ -1316,6 +1317,8 @@
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: comments ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: dropdowns ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: nbinteract ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: scheduler ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ scheduler module detected as: false ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ end processing ] -->
       <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
       <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ placement for all lane items finished ] -->

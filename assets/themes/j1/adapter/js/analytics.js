@@ -11,9 +11,9 @@
  # Copyright (C) 2022 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
- # For details, see https://jekyll.one
+ # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2022-04-17 22:42:16 +0000
+ #  Adapter generated: 2022-04-24 14:41:49 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -57,7 +57,7 @@ var logText;
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.analytics',
-        generated:   '2022-04-17 22:42:16 +0000'
+        generated:   '2022-04-24 14:41:49 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings

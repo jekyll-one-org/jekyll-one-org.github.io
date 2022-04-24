@@ -12,7 +12,7 @@
  #  J1 Template is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2022-04-17 22:42:16 +0000
+ #  Adapter generated: 2022-04-24 14:41:49 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -64,7 +64,7 @@ j1.adapter.translator = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.translator',
-        generated:   '2022-04-17 22:42:16 +0000'
+        generated:   '2022-04-24 14:41:49 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -104,6 +104,7 @@ j1.adapter.translator = (function (j1, window) {
         moduleOptions = j1.mergeData(moduleOptions, settings);
       }
       // add GT callback script dynamically in the head section
+      // jadams, 2022-04-21: postTranslateElementInit cause error, disabled
       // -----------------------------------------------------------------------
       gtCallbackScript.text  = '\n';
       gtCallbackScript.text += 'function googleTranslateElementInit() {' + '\n';
@@ -112,7 +113,7 @@ j1.adapter.translator = (function (j1, window) {
       gtCallbackScript.text += '    layout:       google.translate.TranslateElement.FloatPosition.TOP_LEFT' + '\n';
       gtCallbackScript.text += '  },' + '\n';
       gtCallbackScript.text += '  "google_translate_element");' + '\n';
-      gtCallbackScript.text += '  j1.adapter.translator.postTranslateElementInit(gtAPI);' + '\n';
+//    gtCallbackScript.text += '  j1.adapter.translator.postTranslateElementInit(gtAPI);' + '\n';
       gtCallbackScript.text += '}' + '\n';
       document.head.appendChild(gtCallbackScript);
       // -----------------------------------------------------------------------

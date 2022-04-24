@@ -13,12 +13,12 @@
  # Copyright (C) 2007, 2018 Lokesh Dhakar
  #
  # J1 Template is licensed under the MIT License.
- # For details, see https://jekyll.one
+ # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # Lightbox V2 is licensed under the MIT License.
  # For details, see https://github.com/lokesh/lightbox2/
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2022-04-17 22:42:16 +0000
+ # Adapter generated: 2022-04-24 14:41:49 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -49,7 +49,7 @@ j1.adapter.lightbox = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.lightbox',
-        generated:   '2022-04-17 22:42:16 +0000'
+        generated:   '2022-04-24 14:41:49 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings

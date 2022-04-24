@@ -13,7 +13,7 @@
  # Copyright (C) 2014 Joseph Guadagno
  #
  # J1 Template is licensed under the MIT License.
- # For details, see https://jekyll.one
+ # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # bootstrapThemeSwitcher is licensed under the MIT License.
  # For details, see https://github.com/jguadagno/bootstrapThemeSwitcher/blob/master/LICENSE
  # -----------------------------------------------------------------------------
@@ -21,7 +21,7 @@
  #  Setup of theme loaders for local_themes|remote_themes moved
  #  to adapter navigator.js
  # -----------------------------------------------------------------------------
- # Adapter generated: 2022-04-17 22:42:16 +0000
+ # Adapter generated: 2022-04-24 14:41:49 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -90,7 +90,7 @@ j1.adapter.themer = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.themer',
-        generated:   '2022-04-17 22:42:16 +0000'
+        generated:   '2022-04-24 14:41:49 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings

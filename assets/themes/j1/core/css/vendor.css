@@ -667,8 +667,7 @@ input::-moz-focus-inner {
 
 .colist > table tr th,
 .colist > table tr td {
-  border-right: 0;
-  border-bottom: 0; }
+  border: 0; }
 
 .hdlist > table > tbody > tr,
 .colist > table > tbody > tr {

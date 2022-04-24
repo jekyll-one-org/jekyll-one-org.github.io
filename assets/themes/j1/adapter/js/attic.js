@@ -13,11 +13,11 @@
  # Copyright (C) 2012 Scott Robbin
  #
  # J1 Template is licensed under the MIT License.
- # For details, see https://jekyll.one
+ # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # Backstretch is licensed under the MIT License.
  # For details, see https://github.com/jquery-backstretch/jquery-backstretch
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2022-04-17 22:42:16 +0000
+ #  Adapter generated: 2022-04-24 14:41:49 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -45,7 +45,7 @@ j1.adapter.attic = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.attic',
-        generated:   '2022-04-17 22:42:16 +0000'
+        generated:   '2022-04-24 14:41:49 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -247,6 +247,7 @@ j1.adapter.attic = (function (j1, window) {
             $('#head-tagline').addClass(atticOptions.tagline_animate);
             var text_emphasis = 'text-emphasis-' +atticOptions.text_emphasis;
             $('#head-title-text').addClass(text_emphasis);
+            // $('#head-title-text').addClass(notranslate);
             $('#head-tagline-text').addClass(text_emphasis);
             var attic_style = '';
             // Initialze header background gradient
@@ -460,6 +461,7 @@ j1.adapter.attic = (function (j1, window) {
             $('#head-tagline').addClass(atticOptions.tagline_animate);
             var text_emphasis = 'text-emphasis-' +atticOptions.text_emphasis;
             $('#head-title-text').addClass(text_emphasis);
+            // $('#head-title-text').addClass(notranslate);
             $('#head-tagline-text').addClass(text_emphasis);
             var attic_style = '';
             // Initialze header background gradient
@@ -670,6 +672,7 @@ j1.adapter.attic = (function (j1, window) {
             $('#head-tagline').addClass(atticOptions.tagline_animate);
             var text_emphasis = 'text-emphasis-' +atticOptions.text_emphasis;
             $('#head-title-text').addClass(text_emphasis);
+            // $('#head-title-text').addClass(notranslate);
             $('#head-tagline-text').addClass(text_emphasis);
             var attic_style = '';
             // Initialze header background gradient
