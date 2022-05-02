@@ -7,9 +7,9 @@
   
             <!DOCTYPE html>
 <html lang="en">
-  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2022-04-30 19:48:45 +0000 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2022-05-02 14:51:36 +0000 ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ environment detected as: development ] -->
-  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2022.2.1 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2022.2.2 ] -->
   <head data-proofer-ignore>
     <!-- [INFO   ] [j1.layout.default.html                ] [ call default_writer for region: 'head' ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: page ] -->
@@ -21,7 +21,7 @@
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ initial zoom level when the page is first loaded by the browser ] -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ added version info for the templte ] -->
-    <meta name="template version" content="2022.2.1">
+    <meta name="template version" content="2022.2.2">
     <title>JupyterHub</title>
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ detected content type: PAGE ] -->
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ SIZE of page description: 36 chars ] -->
@@ -426,7 +426,6 @@
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: comments ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: dropdowns ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: nbinteract ] -->
-    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: scheduler ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ end processing ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ placement for all lane items finished ] -->
@@ -546,194 +545,178 @@
         <main id="main-content" class="r-text-300 js-toc-content">
           <!-- [INFO   ] [j1.layout.content_generator_page.html ] [ begin place content ] -->
           <div class="paragraph">
-            <p><strong>JupyterLab</strong> is the latest web-based interactive development environment
-              for notebooks, code, and data. Its flexible interface allows users to
-              configure and arrange workflows in data science, scientific computing,
-              computational journalism, and machine learning. A modular design invites
-              extensions to expand and enrich functionality.</p>
+            <p>JupyterHub brings the power of notebooks to groups of users. It gives users
+              access to computational environments and resources without burdening the users
+              with installation and maintenance tasks. Users, including students, researchers,
+              and data scientists, can get their work done in their own workspaces on shared
+              resources which can be managed efficiently by system administrators.</p>
+          </div>
+          <div class="paragraph">
+            <p>JupyterHub runs in the cloud or on your own hardware, and makes it possible
+              to serve a pre-configured data science environment to any user in the world.
+              It is customizable and scalable, and is suitable for small and large teams,
+              academic courses, and large-scale infrastructure.</p>
           </div>
           <div class="sect1">
-            <h2 id="jupyterhub">JupyterHub</h2>
-            <div class="sectionbody">
-              <div class="paragraph">
-                <p><strong>JupyterHub</strong> brings the power of notebooks to <strong>groups</strong> of users. It
-                  gives users access to <strong>computational environments</strong> and resources without
-                  burdening the users with installation and maintenance tasks. Users, including
-                  students, researchers, and data scientists, can get their work done in
-                  their own workspaces on shared resources which can be managed efficiently
-                  by system administrators.</p>
-              </div>
-              <div class="paragraph">
-                <p>JupyterHub runs in the cloud or on your own hardware, and makes it possible
-                  to serve a pre-configured data science environment to any user in the world.
-                  It is customizable and scalable, and is suitable for small and large teams,
-                  academic courses, and large-scale infrastructure.</p>
-              </div>
-            </div>
-          </div>
-          <div class="sect1">
-            <h2 id="jupyter-services-rest-api">Jupyter Services (REST API)</h2>
+            <h2 id="services-api">Services API</h2>
             <div class="sectionbody">
               <div class="paragraph">
                 <p>Javascript client for the Jupyter services REST APIs. All functions and
                   classes using the REST API allow a serverSettings parameter to configure
-                  requests. Requests are made using the <strong>fetch API</strong>, which is available in
+                  requests. Requests are made using the fetch API, which is available in
                   modern browsers or via npm install fetch for node users. The whatwg-fetch
                   npm package can be used to polyfill browsers that do not support the
                   fetch API.</p>
               </div>
+              <div class="paragraph">
+                <p>This package introduces a number of concepts, such as session context, etc.
+                  Here we give a brief overview of some of the top-level concepts in this
+                  package.</p>
+              </div>
               <div class="sect2">
-                <h3 id="overview">Overview</h3>
+                <h3 id="clients">Clients</h3>
                 <div class="paragraph">
-                  <p>This package introduces a number of concepts, such as session context, etc.
-                    Here we give a brief overview of some of the top-level concepts in this
-                    package.</p>
+                  <p>A client is a single entity connected to a kernel. Since kernel messages
+                    include the client id, it is easy for a client to filter kernel messages for
+                    just messages between it and the kernel. In JupyterLab, different activities,
+                    such as a console and a notebook, are usually considered separate clients
+                    when connected to the same kernel.</p>
                 </div>
-                <div class="sect3">
-                  <h4 id="clients">Clients</h4>
-                  <div class="paragraph">
-                    <p>A <strong>client</strong> is a single entity connected to a kernel. Since kernel messages
-                      include the client id, it is easy for a client to filter kernel messages for
-                      just messages between it and the kernel. In JupyterLab, different activities,
-                      such as a console and a notebook, are usually considered separate clients
-                      when connected to the same kernel.</p>
-                  </div>
+              </div>
+              <div class="sect2">
+                <h3 id="kernel-specs">Kernel specs</h3>
+                <div class="paragraph">
+                  <p>A kernel spec is the data about an available kernel on the system. We can
+                    retrieve a current list of kernel specs from the server.</p>
                 </div>
-                <div class="sect3">
-                  <h4 id="kernel-specs">Kernel specs</h4>
-                  <div class="paragraph">
-                    <p>A kernel spec is the data about an available kernel on the system. We can
-                      retrieve a current list of kernel specs from the server.</p>
-                  </div>
+              </div>
+              <div class="sect2">
+                <h3 id="kernels">Kernels</h3>
+                <div class="paragraph">
+                  <p>A kernel represents a running process on the server that implements the
+                    Jupyter kernel messaging protocol.</p>
                 </div>
-                <div class="sect3">
-                  <h4 id="kernels">Kernels</h4>
-                  <div class="paragraph">
-                    <p>A kernel represents a running process on the server that implements the
-                      Jupyter kernel messaging protocol.</p>
-                  </div>
+              </div>
+              <div class="sect2">
+                <h3 id="kernel-model">Kernel model</h3>
+                <div class="paragraph">
+                  <p>A kernel model mirrors the server kernel models, and represents a single
+                    running kernel on the server. A kernel can be created, restarted, shut down,
+                    etc., through calls to the server. A kernel model’s lifecycle mirrors the
+                    server kernel model’s lifecycle, and it will be disposed when the server
+                    kernel is shut down.</p>
                 </div>
-                <div class="sect3">
-                  <h4 id="kernel-model">Kernel model</h4>
-                  <div class="paragraph">
-                    <p>A <strong>kernel model</strong> mirrors the server kernel models, and represents a single
-                      running kernel on the server. A kernel can be created, restarted, shut down,
-                      etc., through calls to the server. A kernel model’s lifecycle mirrors the
-                      server kernel model’s lifecycle, and it will be disposed when the server
-                      kernel is shut down.</p>
-                  </div>
+              </div>
+              <div class="sect2">
+                <h3 id="kernel-connection">Kernel connection</h3>
+                <div class="paragraph">
+                  <p>A kernel connection represents a single client connecting to a kernel over
+                    a websocket (wss). Typically only one kernel connection handles comms for any
+                    given kernel. The kernel connection is disposed when the client no longer
+                    has a need for the connection. Disposing a kernel connection does not cause
+                    the kernel to shut down. However, if a kernel is shut down, (eventually)
+                    all of its kernel connections should be disposed if they were initiated
+                    from a kernel manager. If the kernel connections were instantiated outside
+                    of a manager, you are responsible for cleaning them up.</p>
                 </div>
-                <div class="sect3">
-                  <h4 id="kernel-connection">Kernel connection</h4>
-                  <div class="paragraph">
-                    <p>A kernel connection represents a single client connecting to a kernel over
-                      a <strong>websocket</strong>. Typically only one kernel connection handles comms for any
-                      given kernel. The kernel connection is disposed when the client no longer
-                      has a need for the connection. Disposing a kernel connection does not cause
-                      the kernel to shut down. However, if a kernel is shut down, (eventually)
-                      all of its kernel connections should be disposed if they were initiated
-                      from a kernel manager. If the kernel connections were instantiated outside
-                      of a manager, you are responsible for cleaning them up.</p>
-                  </div>
-                  <div class="paragraph">
-                    <p>A kernel connection has a number of signals, such as kernel status,
-                      kernel connection status, etc.</p>
-                  </div>
+                <div class="paragraph">
+                  <p>A kernel connection has a number of signals, such as kernel status,
+                    kernel connection status, etc.</p>
                 </div>
-                <div class="sect3">
-                  <h4 id="kernel-manager">Kernel manager</h4>
-                  <div class="paragraph">
-                    <p>A kernel manager is an object that maintains a list of kernel models by
-                      regular polling. The kernel manager can instantiate a kernel connection
-                      and will manage its lifecycle.E.g., when the kernel is shut down, the
-                      connections will be disposed.</p>
-                  </div>
-                  <div class="paragraph">
-                    <p>The manager provides some minimal bookkeeping around kernels and their
-                      connections. Generally, it is easiest to interact with kernels on a server
-                      through a manager.</p>
-                  </div>
+              </div>
+              <div class="sect2">
+                <h3 id="kernel-manager">Kernel manager</h3>
+                <div class="paragraph">
+                  <p>A kernel manager is an object that maintains a list of kernel models by
+                    regular polling. The kernel manager can instantiate a kernel connection
+                    and will manage its lifecycle.E.g., when the kernel is shut down, the
+                    connections will be disposed.</p>
                 </div>
-                <div class="sect3">
-                  <h4 id="sessions">Sessions</h4>
-                  <div class="paragraph">
-                    <p>A session is a mapping on the server from an identifying string (the
-                      session’s path) to a kernel. A session has a few other pieces of information
-                      to allow for easy categorization and searching of sessions.</p>
-                  </div>
-                  <div class="paragraph">
-                    <p>The primary usecase of a session is to enable persisting a connection to a
-                      kernel. For example, a notebook viewer may start a session with session path
-                      of the notebook’s file path. When a browser is refreshed, the notebook viewer
-                      can connect to the same kernel by asking the server for the session
-                      corresponding with the notebook file path.</p>
-                  </div>
+                <div class="paragraph">
+                  <p>The manager provides some minimal bookkeeping around kernels and their
+                    connections. Generally, it is easiest to interact with kernels on a server
+                    through a manager.</p>
                 </div>
-                <div class="sect3">
-                  <h4 id="session-model">Session model</h4>
-                  <div class="paragraph">
-                    <p>A session model mirrors a server session. The session models can be refreshed
-                      from the server, created, changed (including creating a new session kernel),
-                      and shut down (which implies that the kernel will be shut down). A session
-                      model’s lifecycle mirrors the server session’s lifecycle, and it will be
-                      disposed when the server session is shut down.</p>
-                  </div>
+              </div>
+              <div class="sect2">
+                <h3 id="sessions">Sessions</h3>
+                <div class="paragraph">
+                  <p>A session is a mapping on the server from an identifying string (the
+                    session’s path) to a kernel. A session has a few other pieces of information
+                    to allow for easy categorization and searching of sessions.</p>
                 </div>
-                <div class="sect3">
-                  <h4 id="session-connection">Session connection</h4>
-                  <div class="paragraph">
-                    <p>A session connection represents a single client connected to a session’s
-                      kernel. A session’s kernel connection can change and may be null to signify
-                      no current kernel connection. A session connection owns the kernel connection,
-                      meaning the kernel connection is created and disposed by the session
-                      connection as needed. The session connection proxies signals from the kernel
-                      connection for convenience. E.g. you can listen to the session’s status
-                      signal to get status changes for whatever the current kernel is, without
-                      having to disconnect and reconnect your signal handlers every time the session
-                      kernel changes.</p>
-                  </div>
-                  <div class="paragraph">
-                    <p>The session connection can be disposed when the client no longer is connected
-                      to that session’s kernel, and disposal will not cause the session model to be
-                      deleted.</p>
-                  </div>
+                <div class="paragraph">
+                  <p>The primary usecase of a session is to enable persisting a connection to a
+                    kernel. For example, a notebook viewer may start a session with session path
+                    of the notebook’s file path. When a browser is refreshed, the notebook viewer
+                    can connect to the same kernel by asking the server for the session
+                    corresponding with the notebook file path.</p>
                 </div>
-                <div class="sect3">
-                  <h4 id="session-manager">Session manager</h4>
-                  <div class="paragraph">
-                    <p>A session manager is an object that maintains a list of session models by
-                      regular polling. The session manager can instantiate a session connection
-                      and will manage its lifecycle. E.g. when the session is shut down, the
-                      connections will be disposed.</p>
-                  </div>
-                  <div class="paragraph">
-                    <p>The manager provides some minimal bookkeeping around sessions and their
-                      connections. Generally, it is easiest to interact with sessions on a server
-                      through a manager.</p>
-                  </div>
+              </div>
+              <div class="sect2">
+                <h3 id="session-model">Session model</h3>
+                <div class="paragraph">
+                  <p>A session model mirrors a server session. The session models can be refreshed
+                    from the server, created, changed (including creating a new session kernel),
+                    and shut down (which implies that the kernel will be shut down). A session
+                    model’s lifecycle mirrors the server session’s lifecycle, and it will be
+                    disposed when the server session is shut down.</p>
                 </div>
-                <div class="sect3">
-                  <h4 id="session-context">Session Context</h4>
-                  <div class="paragraph">
-                    <p>A session context is an object which has the same lifecycle as the client.
-                      The session context owns a session connection, which may be null if the
-                      client is not currently associated with a session. The session context
-                      proxies the current session connection’s signals for convenience. The
-                      session context primarily serves as a stable object for a client to keep
-                      track of the current session connection. The session context also contains
-                      some convenience functionality, such as preferences for whether a kernel
-                      should be started and a user-friendly kernel name and status.</p>
-                  </div>
-                  <div class="paragraph">
-                    <p>Here is a diagram that provides an overview of the different components:</p>
-                  </div>
-                  <div id="lb-jupyterlab--architecture" class="imageblock">
-                    <div class="title">JupyterLab Architecture</div>
-                    <div class="content mt-3 mb-4" style="margin-bottom: .75rem;">
-                      <a class="notoc" href="/assets/images/pages/nbinteract/jupyterlab-architecture.jpg" data-lightbox="pages/nbinteract/jupyterlab-architecture.jpg" data-title="JupyterLab Architecture">
-                        <img class="img-fluid" src="/assets/images/pages/nbinteract/jupyterlab-architecture.jpg" alt="JupyterLab Architecture" width="800">
-                      </a>
-                    </div>
+              </div>
+              <div class="sect2">
+                <h3 id="session-connection">Session connection</h3>
+                <div class="paragraph">
+                  <p>A session connection represents a single client connected to a session’s
+                    kernel. A session’s kernel connection can change and may be null to signify
+                    no current kernel connection. A session connection owns the kernel connection,
+                    meaning the kernel connection is created and disposed by the session
+                    connection as needed. The session connection proxies signals from the kernel
+                    connection for convenience. E.g. you can listen to the session’s status
+                    signal to get status changes for whatever the current kernel is, without
+                    having to disconnect and reconnect your signal handlers every time the session
+                    kernel changes.</p>
+                </div>
+                <div class="paragraph">
+                  <p>The session connection can be disposed when the client no longer is connected
+                    to that session’s kernel, and disposal will not cause the session model to be
+                    deleted.</p>
+                </div>
+              </div>
+              <div class="sect2">
+                <h3 id="session-manager">Session manager</h3>
+                <div class="paragraph">
+                  <p>A session manager is an object that maintains a list of session models by
+                    regular polling. The session manager can instantiate a session connection
+                    and will manage its lifecycle. E.g. when the session is shut down, the
+                    connections will be disposed.</p>
+                </div>
+                <div class="paragraph">
+                  <p>The manager provides some minimal bookkeeping around sessions and their
+                    connections. Generally, it is easiest to interact with sessions on a server
+                    through a manager.</p>
+                </div>
+              </div>
+              <div class="sect2">
+                <h3 id="session-context">Session Context</h3>
+                <div class="paragraph">
+                  <p>A session context is an object which has the same lifecycle as the client.
+                    The session context owns a session connection, which may be null if the
+                    client is not currently associated with a session. The session context
+                    proxies the current session connection’s signals for convenience. The
+                    session context primarily serves as a stable object for a client to keep
+                    track of the current session connection. The session context also contains
+                    some convenience functionality, such as preferences for whether a kernel
+                    should be started and a user-friendly kernel name and status.</p>
+                </div>
+                <div class="paragraph">
+                  <p>Here is a diagram that provides an overview of the different components:</p>
+                </div>
+                <div id="lb-jupyterlab--architecture" class="imageblock">
+                  <div class="title">JupyterLab Architecture</div>
+                  <div class="content mt-3 mb-4" style="margin-bottom: .75rem;">
+                    <a class="notoc" href="/assets/images/pages/nbinteract/jupyterlab-architecture.jpg" data-lightbox="pages/nbinteract/jupyterlab-architecture.jpg" data-title="JupyterLab Architecture">
+                      <img class="img-fluid" src="/assets/images/pages/nbinteract/jupyterlab-architecture.jpg" alt="JupyterLab Architecture" width="800">
+                    </a>
                   </div>
                 </div>
               </div>
@@ -743,7 +726,7 @@
             <h2 id="rest-api">Rest API</h2>
             <div class="sectionbody">
               <div class="paragraph">
-                <p>Find an selectable bla at swagger.io with
+                <p>Find at swagger.io a selectable list of all API calls available:
                   <a href="https://petstore.swagger.io/?url=https://raw.githubusercontent.com/jupyter/jupyter_server/master/jupyter_server/services/api/api.yaml#/" target="_blank" rel="noopener">Jupyter Server API</a>.</p>
               </div>
             </div>
@@ -1129,8 +1112,6 @@
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: comments ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: dropdowns ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: nbinteract ] -->
-      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: scheduler ] -->
-      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ scheduler module detected as: false ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ end processing ] -->
       <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
       <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ placement for all lane items finished ] -->

@@ -7,9 +7,9 @@
   
             <!DOCTYPE html>
 <html lang="en">
-  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2022-04-30 19:48:45 +0000 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2022-05-02 14:51:36 +0000 ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ environment detected as: development ] -->
-  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2022.2.1 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2022.2.2 ] -->
   <head data-proofer-ignore>
     <!-- [INFO   ] [j1.layout.default.html                ] [ call default_writer for region: 'head' ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: page ] -->
@@ -21,7 +21,7 @@
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ initial zoom level when the page is first loaded by the browser ] -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ added version info for the templte ] -->
-    <meta name="template version" content="2022.2.1">
+    <meta name="template version" content="2022.2.2">
     <title>BinderHub</title>
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ detected content type: PAGE ] -->
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ SIZE of page description: 36 chars ] -->
@@ -426,7 +426,6 @@
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: comments ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: dropdowns ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: nbinteract ] -->
-    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: scheduler ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ end processing ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ placement for all lane items finished ] -->
@@ -546,18 +545,14 @@
         <main id="main-content" class="r-text-300 js-toc-content">
           <!-- [INFO   ] [j1.layout.content_generator_page.html ] [ begin place content ] -->
           <div class="paragraph">
-            <p>Binder allows you to create custom <strong>computing environments</strong> that can be
+            <p>Binder allows you to create custom computing environments that can be
               shared and used by many remote users. You can use many open source languages,
               <a href="#configure-the-user-interface">Configure the user interface</a>, and more. A Binder service is powered by
-              <a href="https://github.com/jupyterhub/binderhub" target="_blank" rel="noopener">BinderHub</a>,
-              an open-source tool that runs on <strong>Kubernetes</strong>, a portable, extensible,
-              open-source platform for managing containerized services. One
-              such deployment lives at <a href="https://mybinder.org/" target="_blank" rel="noopener">mybinder.org</a>,
-              and is <strong>free</strong> to use.</p>
-          </div>
-          <div class="paragraph">
-            <p>For more information about the mybinder.org deployment and the team
-              that runs it, see <a href="https://mybinder.readthedocs.io/en/latest/about/about.html" target="_blank" rel="noopener">About mybinder.org</a>.</p>
+              <a href="https://github.com/jupyterhub/binderhub" target="_blank" rel="noopener">BinderHub Repo on Github</a>,
+              an open-source tool that runs on Kubernetes, a portable, extensible,
+              open-source platform for managing containerized services. One such deployment
+              lives at <a href="https://mybinder.org/" target="_blank" rel="noopener">Binder Home</a>, and is free
+              to use.</p>
           </div>
           <div class="sect1">
             <h2 id="configuration-files">Configuration Files</h2>
@@ -657,9 +652,9 @@
                   <p>For Binder, the requirements.txt file should list all Python libraries that
                     your notebooks depend on, and they will be installed using:</p>
                 </div>
-                <div class="literalblock">
+                <div class="listingblock noclip">
                   <div class="content">
-                    <pre>pip install -r requirements.txt</pre>
+                    <pre class="highlight"><code class="language-shell" data-lang="shell"><span id="L1" class="line">  pip <span class="nb">install</span> <span class="nt">-r</span> requirements.txt</span></code></pre>
                   </div>
                 </div>
                 <div class="paragraph">
@@ -737,43 +732,42 @@
                   is controlled with various <a href="#configuration-files">Configuration Files</a>.</p>
               </div>
               <div class="sect2">
-                <h3 id="jupyterlab">JupyterLab</h3>
+                <h3 id="jupyterlab-interface">JupyterLab Interface</h3>
                 <div class="paragraph">
                   <p>JupyterLab is the <strong>default</strong> interface for repo2docker. The following
-                    Binder URL will open the pyTudes repository and begin a JupyterLab session
-                    in the ipynb folder:</p>
+                    Binder URL will open the <strong>jekyll-one</strong> repository and begin a JupyterLab
+                    session opening the path <code>notebooks</code>:</p>
                 </div>
-                <div class="literalblock">
+                <div class="listingblock">
                   <div class="content">
-                    <pre>https://mybinder.org/v2/gh/norvig/pytudes/HEAD?urlpath=lab/tree/ipynb</pre>
+                    <pre class="highlight"><code class="language-plaintext" data-lang="plaintext"><span id="L1" class="line">  https://mybinder.org/v2/gh/jekyll-one/nbinteract-notebooks/main?filepath=notebooks</span></code></pre>
                   </div>
                 </div>
                 <div class="paragraph">
-                  <p>The /tree/ipynb above is how JupyterLab directs you to a specific file or
-                    folder. To learn more about URLs in JupyterLab and Jupyter Notebook, visit
-                    <a href="http://jupyterlab.readthedocs.io/en/latest/getting_started/starting.html">starting JupyterLab, </a>.</p>
+                  <p>The filepath notebooks above is how JupyterLab directs you to a specific file
+                    or folder. To learn more about URLs in JupyterLab and Jupyter Notebook, visit
+                    <a href="https://jupyterlab.readthedocs.io/en/latest/getting_started/starting.html">Starting JupyterLab, </a>.</p>
                 </div>
               </div>
               <div class="sect2">
                 <h3 id="classic-notebook-interface">Classic Notebook Interface</h3>
                 <div class="paragraph">
                   <p>The classic notebook is also available without any configuration. To switch
-                    to the classic notebook, You do not need any extra configuration in order
-                    to allow the use of the classic notebook interface. You can launch the
-                    classic notebook interface from within a user session by opening JupyterLab
-                    and replacing <code>/lab/</code> with <code>/tree/</code> in the default juptyerlab URL like so:</p>
+                    to the classic notebook interface, you do not need any extra configuration
+                    in order to allow the use of the classic notebook interface. You can launch
+                    the classic notebook interface from within a user session by opening
+                    JupyterLab and replacing the path <code>/lab/</code> with <code>/tree/</code> in the JuptyerLab URL
+                    like so:</p>
                 </div>
-                <div class="literalblock">
+                <div class="listingblock">
                   <div class="content">
-                    <pre>http(s)://&lt;server:port&gt;/tree/</pre>
+                    <pre>  https://mybinder.org/v2/&lt;repo-provider&gt;/&lt;repo&gt;/&lt;branch&gt;?urlpath=/tree</pre>
                   </div>
                 </div>
-                <div class="paragraph">
-                  <p>And you can switch back to JupyterLab by replacing <code>/tree/</code> with` /lab/`:</p>
-                </div>
-                <div class="literalblock">
+                <div class="listingblock">
+                  <div class="title">Example</div>
                   <div class="content">
-                    <pre>http(s)://&lt;server:port&gt;/lab/</pre>
+                    <pre class="highlight"><code class="language-plaintext" data-lang="plaintext"><span id="L1" class="line">  https://mybinder.org/v2/gh/jekyll-one/nbinteract-notebooks/main?urlpath=/tree</span></code></pre>
                   </div>
                 </div>
               </div>
@@ -793,8 +787,7 @@
                 </div>
               </div>
               <div class="sect2">
-                <h3 id="track-repository-data-on-mybinder-org">Track repository data on <code>mybinder.org</code>
-                </h3>
+                <h3 id="track-repository-data-on-binder">Track repository data on Binder</h3>
                 <div class="paragraph">
                   <p>The mybinder.org team runs a service that provides repository-level data
                     about all of the binders that run each day. This is called the mybinder.org
@@ -809,7 +802,7 @@
                   <p>You can access the event analytics archive at <code>archive.analytics.mybinder.org</code>.
                     For information about the structure of this dataset, and a description of
                     how you can read-in the data in order to analyze it, see the
-                    <a href="https://mybinder-sre.readthedocs.io/en/latest/analytics/events-archive.html">mybinder SRE guide, </a>
+                    <a href="https://mybinder-sre.readthedocs.io/en/latest/analytics/events-archive.html">Binder Site Reliability Guide (SRE), </a>
                     instructions.</p>
                 </div>
                 <div class="sect3">
@@ -939,9 +932,9 @@
                 <div class="paragraph">
                   <p>There’s one API endpoint, which is:</p>
                 </div>
-                <div class="literalblock">
+                <div class="listingblock">
                   <div class="content">
-                    <pre>/build/&lt;provider_prefix&gt;/&lt;spec&gt;</pre>
+                    <pre class="highlight"><code class="language-plaintext" data-lang="plaintext"><span id="L1" class="line">  /build/&lt;provider_prefix&gt;/&lt;spec&gt;</span></code></pre>
                   </div>
                 </div>
                 <div class="paragraph">
@@ -1447,8 +1440,8 @@
               <div class="sect2">
                 <h3 id="configuration-and-source-code-reference">Configuration and Source Code Reference</h3>
                 <div class="paragraph">
-                  <p>Find details for all <strong>code references</strong> on
-                    <a href="https://binderhub.readthedocs.io/en/latest/reference/ref-index.html" target="_blank" rel="noopener">BinderHub</a></p>
+                  <p>Find details for all code references on:
+                    <a href="https://binderhub.readthedocs.io/en/latest/reference/ref-index.html" target="_blank" rel="noopener">BinderHub Docs - Reference</a></p>
                 </div>
               </div>
             </div>
@@ -1834,8 +1827,6 @@
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: comments ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: dropdowns ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: nbinteract ] -->
-      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: scheduler ] -->
-      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ scheduler module detected as: false ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ end processing ] -->
       <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
       <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ placement for all lane items finished ] -->

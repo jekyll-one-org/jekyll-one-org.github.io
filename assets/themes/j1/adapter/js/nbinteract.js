@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2022-04-30 19:48:45 +0000
+ #  Adapter generated: 2022-05-02 14:52:27 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -89,9 +89,9 @@ j1.adapter.nbinteract = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend ({
         module_name: 'j1.adapter.nbinteract',
-        generated:   '2022-04-30 19:48:45 +0000'
+        generated:   '2022-05-02 14:52:27 +0000'
       }, options);
-      moduleOptions = $.extend({}, {"spec":"jekyll-one/nbinteract-notebooks/main", "baseUrl":"https://mybinder.org", "provider":"gh", "button_styles":"btn btn-primary btn-raised hidden", "show_nbi_messages":true, "indicate_nbi_activity":false, "nbi_messages_auto_close":true, "nbi_init_timeout":180000, "nbi_messages_auto_close_delay":3500, "nbi_init_mathjax":true, "textbooks":[{"textbook":{"enabled":true, "id":"j1_climate_change_forecast", "xhr_data":"j1_climate_change_forecast.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"j1_odes_in_python", "xhr_data":"j1_odes_in_python.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"j1_interactive", "xhr_data":"j1_interactive.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":false, "id":"j1_ode_selected", "xhr_data":"j1_ode_selected.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":false, "id":"j1_pandas_intro", "xhr_data":"j1_pandas_creating_reading_and_writing.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"j1_docs_example_dynamic", "xhr_data":"j1_docs_example_dynamic.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_tutorial_interact", "xhr_data":"nbi_docs_tutorial_interact.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_tutorial_monty_hall", "xhr_data":"nbi_docs_tutorial_monty_hall.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_recipes_graphing", "xhr_data":"nbi_docs_recipes_graphing.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_recipes_layout", "xhr_data":"nbi_docs_recipes_layout.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_recipes_interactive_questions", "xhr_data":"nbi_docs_recipes_interactive_questions.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_empirical_distributions", "xhr_data":"nbi_docs_examples_empirical_distributions.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_sampling_from_a_population", "xhr_data":"nbi_docs_examples_sampling_from_a_population.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_variability_of_the_sample_mean", "xhr_data":"nbi_docs_examples_variability_of_the_sample_mean.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_correlation", "xhr_data":"nbi_docs_examples_correlation.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_linear_regression", "xhr_data":"nbi_docs_examples_linear_regression.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_probability_distribution_plots", "xhr_data":"nbi_docs_examples_probability_distribution_plots.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_central_limit_theorem", "xhr_data":"nbi_docs_examples_central_limit_theorem.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}]});
+      moduleOptions = $.extend({}, {"spec":"jekyll-one/j1-binder-repo/main", "baseUrl":"https://mybinder.org", "provider":"gh", "button_styles":"btn btn-primary btn-raised hidden", "show_nbi_messages":false, "indicate_nbi_activity":true, "nbi_messages_auto_close":true, "nbi_init_timeout":180000, "nbi_messages_auto_close_delay":3500, "nbi_init_mathjax":true, "textbooks":[{"textbook":{"enabled":false, "id":"j1_altair_base", "xhr_data":"j1_altair_visualization.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false, "altair_cleanups":true}}, {"textbook":{"enabled":false, "id":"j1_altair_interactive", "xhr_data":"j1_altair_interactive.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false, "altair_cleanups":true}}, {"textbook":{"enabled":false, "id":"j1_altair_interactive_test", "xhr_data":"j1_altair_interactive_test.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false, "altair_cleanups":true}}, {"textbook":{"enabled":true, "id":"j1_climate_change_forecast", "xhr_data":"j1_climate_change_forecast.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"j1_interactive_widgets", "xhr_data":"j1_interactive_widgets.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":false, "id":"j1_odes_in_python", "xhr_data":"j1_odes_in_python.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"j1_ode_selected", "xhr_data":"j1_ode_selected.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":false, "id":"j1_pandas_intro", "xhr_data":"j1_pandas_creating_reading_and_writing.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"j1_docs_example_dynamic", "xhr_data":"j1_docs_example_dynamic.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_tutorial_interact", "xhr_data":"nbi_docs_tutorial_interact.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_tutorial_monty_hall", "xhr_data":"nbi_docs_tutorial_monty_hall.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_recipes_graphing", "xhr_data":"nbi_docs_recipes_graphing.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_recipes_layout", "xhr_data":"nbi_docs_recipes_layout.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_recipes_interactive_questions", "xhr_data":"nbi_docs_recipes_interactive_questions.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_empirical_distributions", "xhr_data":"nbi_docs_examples_empirical_distributions.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_sampling_from_a_population", "xhr_data":"nbi_docs_examples_sampling_from_a_population.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_variability_of_the_sample_mean", "xhr_data":"nbi_docs_examples_variability_of_the_sample_mean.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_correlation", "xhr_data":"nbi_docs_examples_correlation.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_linear_regression", "xhr_data":"nbi_docs_examples_linear_regression.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_probability_distribution_plots", "xhr_data":"nbi_docs_examples_probability_distribution_plots.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_central_limit_theorem", "xhr_data":"nbi_docs_examples_central_limit_theorem.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}]});
       // -----------------------------------------------------------------------
       // Global variable settings
       // -----------------------------------------------------------------------
@@ -199,6 +199,7 @@ j1.adapter.nbinteract = (function (j1, window) {
               xhr_data:           textbook.xhr_data,
               xhr_data_path:      textbook.xhr_data_path,
               use_mathjax:        textbook.use_mathjax,
+              altair_cleanups:    textbook.altair_cleanups,
               buttonStyles:       settings.button_styles,
             });
           }
@@ -224,9 +225,10 @@ j1.adapter.nbinteract = (function (j1, window) {
         var dependencies_met_nb_loaded = setInterval(function() {
           if ($('#j1_climate_change_forecast').attr('data-nb-textbook') == 'loaded') {
             var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiButtonsFound == 1) {
-              var log_text = '\n' + 'static textbook found, skip NBI initialization for: j1_climate_change_forecast';
+            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: j1_climate_change_forecast';
               logger.warn(log_text);
+              spinner.stop();
             }
             if(!nbinteract_prepared && nbiButtonsFound > 1) {
               logText = '\n' + 'jupyter kernel is being generated ...';
@@ -282,13 +284,14 @@ j1.adapter.nbinteract = (function (j1, window) {
         return;
       }
       // END textbook_id: j1_climate_change_forecast
-      if ($('#j1_odes_in_python').length) {
+      if ($('#j1_interactive_widgets').length) {
         var dependencies_met_nb_loaded = setInterval(function() {
-          if ($('#j1_odes_in_python').attr('data-nb-textbook') == 'loaded') {
+          if ($('#j1_interactive_widgets').attr('data-nb-textbook') == 'loaded') {
             var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiButtonsFound == 1) {
-              var log_text = '\n' + 'static textbook found, skip NBI initialization for: j1_odes_in_python';
+            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: j1_interactive_widgets';
               logger.warn(log_text);
+              spinner.stop();
             }
             if(!nbinteract_prepared && nbiButtonsFound > 1) {
               logText = '\n' + 'jupyter kernel is being generated ...';
@@ -315,14 +318,14 @@ j1.adapter.nbinteract = (function (j1, window) {
                 var nbiButtonState = _this.getNbiButtonState();
                 if (nbiButtonState) {
                   // button NOT removed
-                  logger.warn('NBI initialialization failed on textbook: j1_odes_in_python');
+                  logger.warn('NBI initialialization failed on textbook: j1_interactive_widgets');
                   // hide the info modal
                   $(nbiModalSuccessID).modal('hide');
                   // show the error modal
                   $(nbiModalSuccessID).on('hidden.bs.modal', function () {
                     if ($(nbiModalErrorID).is(':hidden')) {
                       var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
-                      _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: j1_odes_in_python')
+                      _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: j1_interactive_widgets')
                       $(nbiModalErrorID).modal('show');
                       // auto-close the error modal
                       if (nbiModalAutoClose) {
@@ -343,14 +346,15 @@ j1.adapter.nbinteract = (function (j1, window) {
         }, 25);
         return;
       }
-      // END textbook_id: j1_odes_in_python
-      if ($('#j1_interactive').length) {
+      // END textbook_id: j1_interactive_widgets
+      if ($('#j1_ode_selected').length) {
         var dependencies_met_nb_loaded = setInterval(function() {
-          if ($('#j1_interactive').attr('data-nb-textbook') == 'loaded') {
+          if ($('#j1_ode_selected').attr('data-nb-textbook') == 'loaded') {
             var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiButtonsFound == 1) {
-              var log_text = '\n' + 'static textbook found, skip NBI initialization for: j1_interactive';
+            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: j1_ode_selected';
               logger.warn(log_text);
+              spinner.stop();
             }
             if(!nbinteract_prepared && nbiButtonsFound > 1) {
               logText = '\n' + 'jupyter kernel is being generated ...';
@@ -377,14 +381,14 @@ j1.adapter.nbinteract = (function (j1, window) {
                 var nbiButtonState = _this.getNbiButtonState();
                 if (nbiButtonState) {
                   // button NOT removed
-                  logger.warn('NBI initialialization failed on textbook: j1_interactive');
+                  logger.warn('NBI initialialization failed on textbook: j1_ode_selected');
                   // hide the info modal
                   $(nbiModalSuccessID).modal('hide');
                   // show the error modal
                   $(nbiModalSuccessID).on('hidden.bs.modal', function () {
                     if ($(nbiModalErrorID).is(':hidden')) {
                       var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
-                      _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: j1_interactive')
+                      _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: j1_ode_selected')
                       $(nbiModalErrorID).modal('show');
                       // auto-close the error modal
                       if (nbiModalAutoClose) {
@@ -405,14 +409,15 @@ j1.adapter.nbinteract = (function (j1, window) {
         }, 25);
         return;
       }
-      // END textbook_id: j1_interactive
+      // END textbook_id: j1_ode_selected
       if ($('#j1_docs_example_dynamic').length) {
         var dependencies_met_nb_loaded = setInterval(function() {
           if ($('#j1_docs_example_dynamic').attr('data-nb-textbook') == 'loaded') {
             var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiButtonsFound == 1) {
-              var log_text = '\n' + 'static textbook found, skip NBI initialization for: j1_docs_example_dynamic';
+            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: j1_docs_example_dynamic';
               logger.warn(log_text);
+              spinner.stop();
             }
             if(!nbinteract_prepared && nbiButtonsFound > 1) {
               logText = '\n' + 'jupyter kernel is being generated ...';
@@ -472,9 +477,10 @@ j1.adapter.nbinteract = (function (j1, window) {
         var dependencies_met_nb_loaded = setInterval(function() {
           if ($('#nbi_docs_tutorial_interact').attr('data-nb-textbook') == 'loaded') {
             var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiButtonsFound == 1) {
-              var log_text = '\n' + 'static textbook found, skip NBI initialization for: nbi_docs_tutorial_interact';
+            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_tutorial_interact';
               logger.warn(log_text);
+              spinner.stop();
             }
             if(!nbinteract_prepared && nbiButtonsFound > 1) {
               logText = '\n' + 'jupyter kernel is being generated ...';
@@ -534,9 +540,10 @@ j1.adapter.nbinteract = (function (j1, window) {
         var dependencies_met_nb_loaded = setInterval(function() {
           if ($('#nbi_docs_tutorial_monty_hall').attr('data-nb-textbook') == 'loaded') {
             var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiButtonsFound == 1) {
-              var log_text = '\n' + 'static textbook found, skip NBI initialization for: nbi_docs_tutorial_monty_hall';
+            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_tutorial_monty_hall';
               logger.warn(log_text);
+              spinner.stop();
             }
             if(!nbinteract_prepared && nbiButtonsFound > 1) {
               logText = '\n' + 'jupyter kernel is being generated ...';
@@ -596,9 +603,10 @@ j1.adapter.nbinteract = (function (j1, window) {
         var dependencies_met_nb_loaded = setInterval(function() {
           if ($('#nbi_docs_recipes_graphing').attr('data-nb-textbook') == 'loaded') {
             var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiButtonsFound == 1) {
-              var log_text = '\n' + 'static textbook found, skip NBI initialization for: nbi_docs_recipes_graphing';
+            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_recipes_graphing';
               logger.warn(log_text);
+              spinner.stop();
             }
             if(!nbinteract_prepared && nbiButtonsFound > 1) {
               logText = '\n' + 'jupyter kernel is being generated ...';
@@ -658,9 +666,10 @@ j1.adapter.nbinteract = (function (j1, window) {
         var dependencies_met_nb_loaded = setInterval(function() {
           if ($('#nbi_docs_recipes_layout').attr('data-nb-textbook') == 'loaded') {
             var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiButtonsFound == 1) {
-              var log_text = '\n' + 'static textbook found, skip NBI initialization for: nbi_docs_recipes_layout';
+            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_recipes_layout';
               logger.warn(log_text);
+              spinner.stop();
             }
             if(!nbinteract_prepared && nbiButtonsFound > 1) {
               logText = '\n' + 'jupyter kernel is being generated ...';
@@ -720,9 +729,10 @@ j1.adapter.nbinteract = (function (j1, window) {
         var dependencies_met_nb_loaded = setInterval(function() {
           if ($('#nbi_docs_recipes_interactive_questions').attr('data-nb-textbook') == 'loaded') {
             var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiButtonsFound == 1) {
-              var log_text = '\n' + 'static textbook found, skip NBI initialization for: nbi_docs_recipes_interactive_questions';
+            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_recipes_interactive_questions';
               logger.warn(log_text);
+              spinner.stop();
             }
             if(!nbinteract_prepared && nbiButtonsFound > 1) {
               logText = '\n' + 'jupyter kernel is being generated ...';
@@ -782,9 +792,10 @@ j1.adapter.nbinteract = (function (j1, window) {
         var dependencies_met_nb_loaded = setInterval(function() {
           if ($('#nbi_docs_empirical_distributions').attr('data-nb-textbook') == 'loaded') {
             var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiButtonsFound == 1) {
-              var log_text = '\n' + 'static textbook found, skip NBI initialization for: nbi_docs_empirical_distributions';
+            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_empirical_distributions';
               logger.warn(log_text);
+              spinner.stop();
             }
             if(!nbinteract_prepared && nbiButtonsFound > 1) {
               logText = '\n' + 'jupyter kernel is being generated ...';
@@ -844,9 +855,10 @@ j1.adapter.nbinteract = (function (j1, window) {
         var dependencies_met_nb_loaded = setInterval(function() {
           if ($('#nbi_docs_examples_sampling_from_a_population').attr('data-nb-textbook') == 'loaded') {
             var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiButtonsFound == 1) {
-              var log_text = '\n' + 'static textbook found, skip NBI initialization for: nbi_docs_examples_sampling_from_a_population';
+            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_examples_sampling_from_a_population';
               logger.warn(log_text);
+              spinner.stop();
             }
             if(!nbinteract_prepared && nbiButtonsFound > 1) {
               logText = '\n' + 'jupyter kernel is being generated ...';
@@ -906,9 +918,10 @@ j1.adapter.nbinteract = (function (j1, window) {
         var dependencies_met_nb_loaded = setInterval(function() {
           if ($('#nbi_docs_examples_variability_of_the_sample_mean').attr('data-nb-textbook') == 'loaded') {
             var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiButtonsFound == 1) {
-              var log_text = '\n' + 'static textbook found, skip NBI initialization for: nbi_docs_examples_variability_of_the_sample_mean';
+            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_examples_variability_of_the_sample_mean';
               logger.warn(log_text);
+              spinner.stop();
             }
             if(!nbinteract_prepared && nbiButtonsFound > 1) {
               logText = '\n' + 'jupyter kernel is being generated ...';
@@ -968,9 +981,10 @@ j1.adapter.nbinteract = (function (j1, window) {
         var dependencies_met_nb_loaded = setInterval(function() {
           if ($('#nbi_docs_examples_correlation').attr('data-nb-textbook') == 'loaded') {
             var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiButtonsFound == 1) {
-              var log_text = '\n' + 'static textbook found, skip NBI initialization for: nbi_docs_examples_correlation';
+            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_examples_correlation';
               logger.warn(log_text);
+              spinner.stop();
             }
             if(!nbinteract_prepared && nbiButtonsFound > 1) {
               logText = '\n' + 'jupyter kernel is being generated ...';
@@ -1030,9 +1044,10 @@ j1.adapter.nbinteract = (function (j1, window) {
         var dependencies_met_nb_loaded = setInterval(function() {
           if ($('#nbi_docs_examples_linear_regression').attr('data-nb-textbook') == 'loaded') {
             var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiButtonsFound == 1) {
-              var log_text = '\n' + 'static textbook found, skip NBI initialization for: nbi_docs_examples_linear_regression';
+            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_examples_linear_regression';
               logger.warn(log_text);
+              spinner.stop();
             }
             if(!nbinteract_prepared && nbiButtonsFound > 1) {
               logText = '\n' + 'jupyter kernel is being generated ...';
@@ -1092,9 +1107,10 @@ j1.adapter.nbinteract = (function (j1, window) {
         var dependencies_met_nb_loaded = setInterval(function() {
           if ($('#nbi_docs_examples_probability_distribution_plots').attr('data-nb-textbook') == 'loaded') {
             var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiButtonsFound == 1) {
-              var log_text = '\n' + 'static textbook found, skip NBI initialization for: nbi_docs_examples_probability_distribution_plots';
+            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_examples_probability_distribution_plots';
               logger.warn(log_text);
+              spinner.stop();
             }
             if(!nbinteract_prepared && nbiButtonsFound > 1) {
               logText = '\n' + 'jupyter kernel is being generated ...';
@@ -1154,9 +1170,10 @@ j1.adapter.nbinteract = (function (j1, window) {
         var dependencies_met_nb_loaded = setInterval(function() {
           if ($('#nbi_docs_central_limit_theorem').attr('data-nb-textbook') == 'loaded') {
             var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiButtonsFound == 1) {
-              var log_text = '\n' + 'static textbook found, skip NBI initialization for: nbi_docs_central_limit_theorem';
+            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_central_limit_theorem';
               logger.warn(log_text);
+              spinner.stop();
             }
             if(!nbinteract_prepared && nbiButtonsFound > 1) {
               logText = '\n' + 'jupyter kernel is being generated ...';
@@ -1222,6 +1239,7 @@ j1.adapter.nbinteract = (function (j1, window) {
       var html_data_path    = options.xhr_data_path + '/' + options.xhr_data;
       var id                = options.xhr_container_id;
       var mathjaxEnabled    = options.use_mathjax;
+      var cleanupAltair     = options.altair_cleanups;
       var $selector         = $('#' + id);
       var logText;
       var cb_load_closure = function(id, mathjaxFlag) {
@@ -1259,10 +1277,68 @@ j1.adapter.nbinteract = (function (j1, window) {
                 x.className += ' notranslate';
               }
             });
+            // cleanups for Altair for all HTML 'output_wrapper' elements
+            //
+            if (cleanupAltair) {
+              var reUnderscores = new RegExp(/_/, 'g');
+              var reMultipleSpaces = new RegExp(/\s+/, 'g');
+              var reMultipleSpacesStart = new RegExp(/^\s+/, 'g');
+              var reMultipleSpacesEnd = new RegExp(/\s+$/, 'g');
+              var reSkipWords = new RegExp(/vgsid|bla/, 'g');
+              var reDuplicateWords = new RegExp(/(\b\S.+\b)(?=.*\1)/, 'g');
+              var content;
+              var newContent;
+              var newContentWritten = false;
+              var isWidget;
+              var isPageRendered = false;
+              var outputDiv;
+              var childNodes;
+              var clientHeight;
+              var lastWidget = false;
+              var allID = document.querySelectorAll('*[id^="altair-viz"]');
+              // check/wait for ALL widgets in the page are rendered (by JS)
+              // if rendering finished, flag 'isPageRendered' is set to 'true'
+              //
+              for (var l = 0; l < allID.length; l++) {
+                outputDiv = document.getElementById(allID[l].id);
+                var dependencies_met_page_rendered = setInterval(function() {
+                  lastWidget = (l == allID.length) ? true : false;
+                  if (outputDiv.clientHeight && lastWidget && !isPageRendered) {
+                    isPageRendered = true;
+                    logger.debug('\n' + 'last widget rendered ' + outputDiv.id + ' : ' + outputDiv.clientHeight);
+                    clearInterval(dependencies_met_page_rendered);
+                  }
+                }, 25);  // END interval
+              } // END for all ID
+              var dependencies_met_widgets_updated = setInterval(function() {
+                if (isPageRendered) {
+                  for (var item of allID) {
+                  	outputDiv = document.getElementById(item.id);
+                    logger.debug('\n' + 'processing widget on id: ' + item.id);
+                  	childNodes = outputDiv.getElementsByClassName('vega-bind-name');
+                  	if (childNodes.length) {
+                  		for (var i = 0; i < childNodes.length; i++) {
+                  		  content = childNodes[i].innerHTML;
+                  		  newContent = content.replace(reUnderscores, ' ');
+                  		  newContent  = newContent.replace(reDuplicateWords, '');
+                  		  newContent  = newContent.replace(reSkipWords, '');
+                  		  newContent  = newContent.replace(reMultipleSpaces, ' ');
+                  		  newContent  = newContent.replace(reMultipleSpacesStart, '');
+                  		  newContent  = newContent.replace(reMultipleSpacesEnd, '');
+                  		  childNodes[i].innerHTML = newContent;
+                  		  newContentWritten = true;
+                  		} // END for
+                  	} // END if childNodes.length
+                  } // END for
+                  logger.debug('\n' + 'all widgets updated');
+                  clearInterval(dependencies_met_widgets_updated);
+                }
+              }, 25);  // END interval
+            } // END if cleanupAltair
             // disable MathJax for all HTML 'output_wrapper' elements
             //
             [...output_wrapper].forEach(function(x) {
-              if (!x.className.includes('nomathjax')) {
+              if (x.className.includes('nomathjax')) {
                 x.className += ' nomathjax';
               }
             });
@@ -1310,7 +1386,10 @@ j1.adapter.nbinteract = (function (j1, window) {
             // jadams, 2020-07-21: to be checked why id could be UNDEFINED
             if (typeof(id) != "undefined") {
               var state = 'failed';
-              logger.info('\n' + 'set state for ' + mod + ' to: ' + state);
+              if (nbiIndicateNbiActivity) {
+                spinner.stop();
+              }
+              // logger.info('\n' + 'set state for ' + mod + ' to: ' + state);
               // jadams, 2020-07-21: intermediate state should DISABLED
               // executeFunctionByName(mod + '.setState', window, state);
               j1.setXhrDataState(id, statusTxt);
