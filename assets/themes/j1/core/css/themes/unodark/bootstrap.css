@@ -8899,8 +8899,8 @@ a.toc-link:hover {
 */
 /*
  # ----------------------------------------------------------------------------
- # ~/theme_uno_dark/vendor/asciidoc/_asciidoc.scss
- # Overload styles for Asciidoc Markups
+ # ~/theme_uno_dark/vendor/bgplot/_theme_uno.scss
+ # Overload styles for nbinteract/bgplot widgets
  #
  # Product/Info:
  # https://jekyll.one
@@ -8911,50 +8911,40 @@ a.toc-link:hover {
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
 */
-code {
-  word-break: break-word;
-  padding: 0.125em 0.275em 0.125em 0.275em !important;
-  border-radius: 2px;
-  background-color: rgba(0, 0, 0, 0.3) !important; }
+.bqplot > svg .plotarea_background {
+  fill: #757575 !important; }
 
-.colist > table > tbody > tr {
-  background: transparent !important; }
+/*
+ # ----------------------------------------------------------------------------
+ # ~/theme_uno_dark/vendor/jupyter/_theme_uno.scss
+ # Overload styles for nbinteract (jupyter/bgplot) widgets
+ #
+ # Product/Info:
+ # https://jekyll.one
+ #
+ # Copyright (C) 2022 Juergen Adams
+ #
+ # J1 Template is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # -----------------------------------------------------------------------------
+*/
+.bqplot > svg .plotarea_background {
+  fill: #9E9E9E !important; }
 
-.listingblock pre {
-  border-color: rgba(0, 0, 0, 0.6) !important;
-  border: 1px solid #757575 !important; }
+.jupyter-widgets {
+  color: #F5F5F5; }
 
-.listingblock pre code {
-  background-color: transparent;
-  border: 1px !important;
-  border-color: rgba(0, 0, 0, 0.6) !important; }
+.widget-inline-hbox .widget-label {
+  color: #F5F5F5; }
 
-.admonitionblock > table {
-  background: #424242 !important; }
+.widget-readout {
+  color: #F5F5F5; }
 
-.admonitionblock > table td.content {
-  border-right: 1px !important;
-  border-bottom: 1px !important; }
+.widget-slider .ui-slider .ui-slider-handle {
+  background-color: #212121; }
 
-.admonitionblock > table td.icon {
-  border-right: 0px !important;
-  border-bottom: 1px !important; }
-
-.exampleblock {
-  border-radius: 0 !important;
-  background: rgba(255, 255, 255, 0.2) !important; }
-
-.admonitionblock > table {
-  border: solid 1px #757575; }
-
-table tr th, table tr td {
-  color: rgba(255, 255, 255, 0.5);
-  border-right: 1px solid #9e9e9e;
-  border-bottom: 1px solid #9e9e9e; }
-
-.listingblock > .title,
-.imageblock > .title {
-  color: unset; }
+.jupyter-button {
+  background-color: #9E9E9E; }
 
 /*
  # -----------------------------------------------------------------------------

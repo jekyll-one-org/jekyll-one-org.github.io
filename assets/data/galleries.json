@@ -169,18 +169,25 @@
   ],
   "jg_video_online_vimeo" : [
       {
-        "video":             "//vimeo.com/175582480",
-        "image_path":        "/assets/videos/gallery",
-        "poster":   	       "adriana-lima-poster.jpg",
-        "captions_lightbox": "<p>Adriana Lima on Vimeo</p>",
-        "captions_gallery":  "Vogue -  Adriana Lima"
-      },
-      {
         "video":             "//vimeo.com/179528528",
         "image_path":        "/assets/videos/gallery",
         "poster":   	       "kick-it-old-school-poster.jpg",
         "captions_lightbox": "<p>Kick It Old School on Vimeo</p>",
-        "captions_gallery":  "Young Fashion - Kick It Old School"
+        "captions_gallery":  "Forever 21 - Kick It Old School"
+      },
+      {
+        "video":             "//vimeo.com/202117650",
+        "image_path":        "/assets/videos/gallery",
+        "poster":   	       "stay-colorful-poster.jpg",
+        "captions_lightbox": "<p>Stay Colorful on Vimeo</p>",
+        "captions_gallery":  "Forever 21 - Stay Colorful, Babe!"
+      },
+      {
+        "video":             "//vimeo.com/196000652",
+        "image_path":        "/assets/videos/gallery",
+        "poster":   	       "nye-party-shop-poster.jpg",
+        "captions_lightbox": "<p>NYE Party Shop on Vimeo</p>",
+        "captions_gallery":  "Forever 21 - NYE Party Shop"
       }
   ],
   "jg_video_online_dailymotion" : [
