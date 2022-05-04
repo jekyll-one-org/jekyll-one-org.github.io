@@ -7,9 +7,9 @@
   
             <!DOCTYPE html>
 <html lang="en">
-  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2022-05-03 09:20:19 +0000 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2022-05-04 16:39:52 +0000 ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ environment detected as: development ] -->
-  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2022.2.2 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2022.2.3 ] -->
   <head data-proofer-ignore>
     <!-- [INFO   ] [j1.layout.default.html                ] [ call default_writer for region: 'head' ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: page ] -->
@@ -21,12 +21,12 @@
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ initial zoom level when the page is first loaded by the browser ] -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ added version info for the templte ] -->
-    <meta name="template version" content="2022.2.2">
-    <title>JupyterHub</title>
+    <meta name="template version" content="2022.2.3">
+    <title>BinderHub</title>
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ detected content type: PAGE ] -->
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ SIZE of page description: 36 chars ] -->
     <!-- [SEO    ] [j1.layout.meta_data_generator.html    ] [ Consider to IMPROVE|INCREASE your page description! ] -->
-    <meta name="description" content="JupyterHub brings the power of notebooks to groups of users. It gives users access to computational environments and resources without burdening the users with installation and maintenance tasks. Users, including students, researchers, and data scientists, can get their work done in their own workspaces on shared resources which can be managed efficiently by system administrators.
+    <meta name="description" content="Binder allows you to create custom computing environments that can be shared and used by many remote users. A Binder service is powered by BinderHub, an open-source tool that runs on Kubernetes, a portable, extensible, open-source platform for managing containerized services.
 ">
     <link rel="icon" type="image/ico" href="/assets/images/modules/icons/j1/j1-32x32.ico">
     <meta name="author" content="J1 Team">
@@ -54,7 +54,7 @@
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for provider APIs: vimeo ] -->
     <meta name="vimeo" content="true">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for privacy settings: personalization ] -->
-    <meta name="personalization" content="false">
+    <meta name="personalization" content="true">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ PRELOAD of fonts: disabled ] -->
     <!-- [SEO    ] [j1.layout.meta_data_generator.html    ] [ Consider! PRELOAD primary used fonts to prioritize fetching ] -->
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ Gratulations! PRELOAD of css: enabled ] -->
@@ -521,10 +521,10 @@
         <div id="image_attic" class="attic notranslate">
           <div class="container">
             <div id="head-title" class="head-title animated"> 
-              <h2 id="head-title-text" class="notoc">Jupyter</h2>
+              <h2 id="head-title-text" class="notoc">Binder</h2>
             </div>
             <div id="head-tagline" class="head-tagline animated"> 
-              <h3 id="head-tagline-tagline" class="notoc">JupyterHub</h3>
+              <h3 id="head-tagline-tagline" class="notoc">BinderHub</h3>
             </div>
             <!-- Image caption container (display: none per default) -->
             <!-- div class="attic-caption text-emphasis-"></div -->
@@ -545,200 +545,900 @@
         <main id="main-content" class="r-text-300 js-toc-content">
           <!-- [INFO   ] [j1.layout.content_generator_page.html ] [ begin place content ] -->
           <div class="paragraph">
-            <p>JupyterHub brings the power of notebooks to groups of users. It gives users
-              access to computational environments and resources without burdening the users
-              with installation and maintenance tasks. Users, including students, researchers,
-              and data scientists, can get their work done in their own workspaces on shared
-              resources which can be managed efficiently by system administrators.</p>
-          </div>
-          <div class="paragraph">
-            <p>JupyterHub runs in the cloud or on your own hardware, and makes it possible
-              to serve a pre-configured data science environment to any user in the world.
-              It is customizable and scalable, and is suitable for small and large teams,
-              academic courses, and large-scale infrastructure.</p>
+            <p>Binder allows you to create custom computing environments that can be
+              shared and used by many remote users. You can use many open source languages,
+              <a href="#configure-the-user-interface">Configure the user interface</a>, and more. A Binder service is powered by
+              <a href="https://github.com/jupyterhub/binderhub" target="_blank" rel="noopener">BinderHub Repo on Github</a>,
+              an open-source tool that runs on Kubernetes, a portable, extensible,
+              open-source platform for managing containerized services. One such deployment
+              lives at <a href="https://mybinder.org/" target="_blank" rel="noopener">Binder Home</a>, and is free
+              to use.</p>
           </div>
           <div class="sect1">
-            <h2 id="services-api">Services API</h2>
+            <h2 id="configuration-files">Configuration Files</h2>
             <div class="sectionbody">
               <div class="paragraph">
-                <p>Javascript client for the Jupyter services REST APIs. All functions and
-                  classes using the REST API allow a serverSettings parameter to configure
-                  requests. Requests are made using the fetch API, which is available in
-                  modern browsers or via npm install fetch for node users. The whatwg-fetch
-                  npm package can be used to polyfill browsers that do not support the
-                  fetch API.</p>
+                <p>The <code>repo2docker</code> CLI looks for configuration files in the repository being
+                  built to determine how to build it. In general, repo2docker uses the same
+                  configuration files as other software installation tools, rather than
+                  creating new custom configuration files. A number of repo2docker configuration
+                  files can be combined to compose more complex setups.</p>
               </div>
               <div class="paragraph">
-                <p>This package introduces a number of concepts, such as session context, etc.
-                  Here we give a brief overview of some of the top-level concepts in this
-                  package.</p>
+                <p>The <a href="https://github.com/binder-examples" target="_blank" rel="noopener">binder examples</a>
+                  organization on GitHub contains a list of sample repositories for common
+                  configurations that repo2docker can build with various configuration files
+                  such as Python and R installation in a repository.</p>
+              </div>
+              <div class="paragraph">
+                <p>Binder examples:</p>
+              </div>
+              <div class="ulist">
+                <ul>
+                  <li>
+                    <p><a href="https://github.com/jupyterlab/jupyterlab-demo" target="_blank" rel="noopener">JupyterLab Demonstration</a></p>
+                  </li>
+                  <li>
+                    <p><a href="https://github.com/binder-examples/jupyterlab" target="_blank" rel="noopener">JupyterLab + Binder</a></p>
+                  </li>
+                  <li>
+                    <p><a href="https://github.com/binder-examples/python-conda_pip" target="_blank" rel="noopener">Using conda with pip in the same build</a></p>
+                  </li>
+                  <li>
+                    <p><a href="https://github.com/binder-examples/pipfile" target="_blank" rel="noopener">Python environment with Pipfile</a></p>
+                  </li>
+                </ul>
+              </div>
+              <div class="paragraph">
+                <p>A list of supported
+                  configuration files (roughly in the order of build priority) can be found
+                  below.</p>
               </div>
               <div class="sect2">
-                <h3 id="clients">Clients</h3>
+                <h3 id="environment-yml">environment.yml</h3>
                 <div class="paragraph">
-                  <p>A client is a single entity connected to a kernel. Since kernel messages
-                    include the client id, it is easy for a client to filter kernel messages for
-                    just messages between it and the kernel. In JupyterLab, different activities,
-                    such as a console and a notebook, are usually considered separate clients
-                    when connected to the same kernel.</p>
+                  <p>The <code>environment.yml</code> configuration is the standard configuration file used
+                    by <strong>Conda</strong> that lets you install any kind of package, including Python, R,
+                    and C/C++ packages. The <code>repo2docker</code> does <strong>not</strong> use your environment.yml
+                    to create and activate a new conda environment. Rather, it updates a base
+                    conda environment defined here with the packages listed in your
+                    <code>environment.yml</code>. This means that the environment will always have the
+                    same default name, not the name specified in your <code>environment.yml</code>.</p>
                 </div>
-              </div>
-              <div class="sect2">
-                <h3 id="kernel-specs">Kernel specs</h3>
-                <div class="paragraph">
-                  <p>A kernel spec is the data about an available kernel on the system. We can
-                    retrieve a current list of kernel specs from the server.</p>
-                </div>
-              </div>
-              <div class="sect2">
-                <h3 id="kernels">Kernels</h3>
-                <div class="paragraph">
-                  <p>A kernel represents a running process on the server that implements the
-                    Jupyter kernel messaging protocol.</p>
-                </div>
-              </div>
-              <div class="sect2">
-                <h3 id="kernel-model">Kernel model</h3>
-                <div class="paragraph">
-                  <p>A kernel model mirrors the server kernel models, and represents a single
-                    running kernel on the server. A kernel can be created, restarted, shut down,
-                    etc., through calls to the server. A kernel model’s lifecycle mirrors the
-                    server kernel model’s lifecycle, and it will be disposed when the server
-                    kernel is shut down.</p>
-                </div>
-              </div>
-              <div class="sect2">
-                <h3 id="kernel-connection">Kernel connection</h3>
-                <div class="paragraph">
-                  <p>A kernel connection represents a single client connecting to a kernel over
-                    a websocket (wss). Typically only one kernel connection handles comms for any
-                    given kernel. The kernel connection is disposed when the client no longer
-                    has a need for the connection. Disposing a kernel connection does not cause
-                    the kernel to shut down. However, if a kernel is shut down, (eventually)
-                    all of its kernel connections should be disposed if they were initiated
-                    from a kernel manager. If the kernel connections were instantiated outside
-                    of a manager, you are responsible for cleaning them up.</p>
+                <div class="listingblock">
+                  <div class="content">
+                    <pre class="highlight"><code class="language-yaml" data-lang="yaml"><span id="L1" class="line"><span class="na">dependencies</span><span class="pi">:</span></span>
+<span id="L2" class="line">  <span class="pi">-</span> <span class="s">ipywidgets</span></span>
+<span id="L3" class="line">  <span class="pi">-</span> <span class="s">matplotlib</span></span>
+<span id="L4" class="line">  <span class="pi">-</span> <span class="s">numpy</span></span>
+<span id="L5" class="line">  <span class="pi">-</span> <span class="s">scipy</span></span>
+<span id="L6" class="line">  <span class="pi">-</span> <span class="s">pandas</span></span>
+<span id="L7" class="line">  <span class="pi">-</span> <span class="s">seaborn</span></span>
+<span id="L8" class="line">  <span class="pi">-</span> <span class="s">statsmodels</span></span></code></pre>
+                  </div>
                 </div>
                 <div class="paragraph">
-                  <p>A kernel connection has a number of signals, such as kernel status,
-                    kernel connection status, etc.</p>
+                  <p>If you use <code>environment.yml</code>, then Binder will use a <strong>Miniconda</strong> distribution
+                    to install your packages. However, you may still want to use <strong>pip</strong>. In this
+                    case, you should <strong>not</strong> use a <code>requirements.txt</code> file, but instead use a pip
+                    <strong>section</strong> in <code>environment.yml</code>. This repository is an example of how to
+                    construct your configuration to accomplish this.</p>
                 </div>
-              </div>
-              <div class="sect2">
-                <h3 id="kernel-manager">Kernel manager</h3>
-                <div class="paragraph">
-                  <p>A kernel manager is an object that maintains a list of kernel models by
-                    regular polling. The kernel manager can instantiate a kernel connection
-                    and will manage its lifecycle.E.g., when the kernel is shut down, the
-                    connections will be disposed.</p>
-                </div>
-                <div class="paragraph">
-                  <p>The manager provides some minimal bookkeeping around kernels and their
-                    connections. Generally, it is easiest to interact with kernels on a server
-                    through a manager.</p>
-                </div>
-              </div>
-              <div class="sect2">
-                <h3 id="sessions">Sessions</h3>
-                <div class="paragraph">
-                  <p>A session is a mapping on the server from an identifying string (the
-                    session’s path) to a kernel. A session has a few other pieces of information
-                    to allow for easy categorization and searching of sessions.</p>
-                </div>
-                <div class="paragraph">
-                  <p>The primary usecase of a session is to enable persisting a connection to a
-                    kernel. For example, a notebook viewer may start a session with session path
-                    of the notebook’s file path. When a browser is refreshed, the notebook viewer
-                    can connect to the same kernel by asking the server for the session
-                    corresponding with the notebook file path.</p>
+                <div class="listingblock">
+                  <div class="content">
+                    <pre class="highlight"><code class="language-yaml" data-lang="yaml"><span id="L1" class="line"><span class="na">channels</span><span class="pi">:</span></span>
+<span id="L2" class="line">  <span class="pi">-</span> <span class="s">conda-forge</span></span>
+<span id="L3" class="line">  <span class="pi">-</span> <span class="s">defaults</span></span>
+<span id="L4" class="line"><span class="na">dependencies</span><span class="pi">:</span></span>
+<span id="L5" class="line">  <span class="pi">-</span> <span class="s">python</span></span>
+<span id="L6" class="line">  <span class="pi">-</span> <span class="s">numpy</span></span>
+<span id="L7" class="line">  <span class="pi">-</span> <span class="s">pip</span></span>
+<span id="L8" class="line">  <span class="pi">-</span> <span class="na">pip</span><span class="pi">:</span></span>
+<span id="L9" class="line">    <span class="pi">-</span> <span class="s">nbgitpuller</span></span>
+<span id="L10" class="line">    <span class="pi">-</span> <span class="s">sphinx-gallery</span></span>
+<span id="L11" class="line">    <span class="pi">-</span> <span class="s">pandas</span></span>
+<span id="L12" class="line">    <span class="pi">-</span> <span class="s">matplotlib</span></span></code></pre>
+                  </div>
                 </div>
               </div>
               <div class="sect2">
-                <h3 id="session-model">Session model</h3>
+                <h3 id="requirements-txt">requirements.txt</h3>
                 <div class="paragraph">
-                  <p>A session model mirrors a server session. The session models can be refreshed
-                    from the server, created, changed (including creating a new session kernel),
-                    and shut down (which implies that the kernel will be shut down). A session
-                    model’s lifecycle mirrors the server session’s lifecycle, and it will be
-                    disposed when the server session is shut down.</p>
+                  <p>This configuration specifies a list of <strong>Python packages</strong> that should be
+                    installed in your environment. Our requirements.txt example on GitHub shows
+                    a typical requirements file.</p>
+                </div>
+                <div class="paragraph">
+                  <p>For Binder, the requirements.txt file should list all Python libraries that
+                    your notebooks depend on, and they will be installed using:</p>
+                </div>
+                <div class="listingblock noclip">
+                  <div class="content">
+                    <pre class="highlight"><code class="language-shell" data-lang="shell"><span id="L1" class="line">  pip <span class="nb">install</span> <span class="nt">-r</span> requirements.txt</span></code></pre>
+                  </div>
+                </div>
+                <div class="paragraph">
+                  <p>The base Binder image contains <strong>no extra</strong> dependencies, so be as explicit
+                    as possible in defining the packages that you need. This includes specifying
+                    explicit versions wherever possible.</p>
+                </div>
+                <div class="admonitionblock warning">
+                  <table>
+                    <tr>
+                      <td class="icon">
+                        <i class="fa icon-warning" title="Warning"></i>
+                      </td>
+                      <td class="content">
+                        If you do specify <strong>strict versions</strong>, it is important to do so
+                        for all your dependencies, not just direct dependencies. Strictly specifying
+                        only some dependencies is a recipe for environments breaking over time.
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="paragraph">
+                  <p>You can also specify which Python <strong>version</strong> to install in your built
+                    environment with <code>environment.yml</code>. By default, repo2docker installs
+                    <strong>default_python</strong> (Python 3.7) with your <code>environment.yml</code> unless you
+                    include the version of Python in this file. The package manager <strong>conda</strong>
+                    supports all versions of Python, though repo2docker support is best with
+                    Python <code>3.7</code>, <code>3.6</code>, <code>3.5</code> and <code>2.7</code>.</p>
+                </div>
+                <div class="admonitionblock warning">
+                  <table>
+                    <tr>
+                      <td class="icon">
+                        <i class="fa icon-warning" title="Warning"></i>
+                      </td>
+                      <td class="content">
+                        If you include a Python version in a <code>runtime.txt</code> file in
+                        <strong>addition</strong> to your <code>environment.yml</code>, your <code>runtime.txt</code> will be
+                        <strong>ignored</strong>.
+                      </td>
+                    </tr>
+                  </table>
                 </div>
               </div>
               <div class="sect2">
-                <h3 id="session-connection">Session connection</h3>
+                <h3 id="runtime-txt">runtime.txt</h3>
                 <div class="paragraph">
-                  <p>A session connection represents a single client connected to a session’s
-                    kernel. A session’s kernel connection can change and may be null to signify
-                    no current kernel connection. A session connection owns the kernel connection,
-                    meaning the kernel connection is created and disposed by the session
-                    connection as needed. The session connection proxies signals from the kernel
-                    connection for convenience. E.g. you can listen to the session’s status
-                    signal to get status changes for whatever the current kernel is, without
-                    having to disconnect and reconnect your signal handlers every time the session
-                    kernel changes.</p>
+                  <p>Sometimes you want to specify the <strong>version</strong> of the runtime (e.g. the version
+                    of Python), but the environment specification format will not let you
+                    specify this information (e.g. requirements.txt). For these cases, we have a
+                    special file, runtime.txt.</p>
+                </div>
+                <div class="admonitionblock note">
+                  <table>
+                    <tr>
+                      <td class="icon">
+                        <i class="fa icon-note" title="Note"></i>
+                      </td>
+                      <td class="content">
+                        runtime.txt is only supported when used with environment specifications
+                        that do not already support specifying the runtime. If using environment.yml
+                        for conda, runtime.txt will be ignored.
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sect1">
+            <h2 id="configure-the-user-interface">Configure the user interface</h2>
+            <div class="sectionbody">
+              <div class="paragraph">
+                <p>You can build several user interfaces into the resulting Docker image. This
+                  is controlled with various <a href="#configuration-files">Configuration Files</a>.</p>
+              </div>
+              <div class="sect2">
+                <h3 id="jupyterlab-interface">JupyterLab Interface</h3>
+                <div class="paragraph">
+                  <p>JupyterLab is the <strong>default</strong> interface for repo2docker. The following
+                    Binder URL will open the <strong>jekyll-one</strong> repository and begin a JupyterLab
+                    session opening the path <code>notebooks</code>:</p>
+                </div>
+                <div class="listingblock">
+                  <div class="content">
+                    <pre class="highlight"><code class="language-plaintext" data-lang="plaintext"><span id="L1" class="line">  https://mybinder.org/v2/gh/jekyll-one/j1-binder-repo/main?filepath=notebooks</span></code></pre>
+                  </div>
                 </div>
                 <div class="paragraph">
-                  <p>The session connection can be disposed when the client no longer is connected
-                    to that session’s kernel, and disposal will not cause the session model to be
-                    deleted.</p>
+                  <p>The filepath notebooks above is how JupyterLab directs you to a specific file
+                    or folder. To learn more about URLs in JupyterLab and Jupyter Notebook, visit
+                    <a href="https://jupyterlab.readthedocs.io/en/latest/getting_started/starting.html" target="_blank" rel="noopener">Starting JupyterLab</a>.</p>
                 </div>
               </div>
               <div class="sect2">
-                <h3 id="session-manager">Session manager</h3>
+                <h3 id="classic-notebook-interface">Classic Notebook Interface</h3>
                 <div class="paragraph">
-                  <p>A session manager is an object that maintains a list of session models by
-                    regular polling. The session manager can instantiate a session connection
-                    and will manage its lifecycle. E.g. when the session is shut down, the
-                    connections will be disposed.</p>
+                  <p>The classic notebook is also available without any configuration. To switch
+                    to the classic notebook interface, you do not need any extra configuration
+                    in order to allow the use of the classic notebook interface. You can launch
+                    the classic notebook interface from within a user session by opening
+                    JupyterLab and replacing the path <code>/lab/</code> with <code>/tree/</code> in the JuptyerLab URL
+                    like so:</p>
                 </div>
-                <div class="paragraph">
-                  <p>The manager provides some minimal bookkeeping around sessions and their
-                    connections. Generally, it is easiest to interact with sessions on a server
-                    through a manager.</p>
+                <div class="listingblock">
+                  <div class="content">
+                    <pre>  https://mybinder.org/v2/&lt;repo-provider&gt;/&lt;repo&gt;/&lt;branch&gt;?urlpath=/tree</pre>
+                  </div>
+                </div>
+                <div class="listingblock">
+                  <div class="title">Example</div>
+                  <div class="content">
+                    <pre class="highlight"><code class="language-plaintext" data-lang="plaintext"><span id="L1" class="line">  https://mybinder.org/v2/gh/jekyll-one/j1-binder-repo/main?urlpath=/tree</span></code></pre>
+                  </div>
                 </div>
               </div>
               <div class="sect2">
-                <h3 id="session-context">Session Context</h3>
+                <h3 id="track-repository-data-on-binder">Track repository data on Binder</h3>
                 <div class="paragraph">
-                  <p>A session context is an object which has the same lifecycle as the client.
-                    The session context owns a session connection, which may be null if the
-                    client is not currently associated with a session. The session context
-                    proxies the current session connection’s signals for convenience. The
-                    session context primarily serves as a stable object for a client to keep
-                    track of the current session connection. The session context also contains
-                    some convenience functionality, such as preferences for whether a kernel
-                    should be started and a user-friendly kernel name and status.</p>
+                  <p>The mybinder.org team runs a service that provides repository-level data
+                    about all of the binders that run each day. This is called the mybinder.org
+                    event analytics archive. You can use this to track how often people are
+                    clicking your Binder links and launching your Binder repository (or, for
+                    aggregating activity across many repositories).</p>
                 </div>
+              </div>
+              <div class="sect2">
+                <h3 id="access-the-event-analytics-archive">Access the event analytics archive</h3>
                 <div class="paragraph">
-                  <p>Here is a diagram that provides an overview of the different components:</p>
+                  <p>You can access the event analytics archive at <code>archive.analytics.mybinder.org</code>.
+                    For information about the structure of this dataset, and a description of
+                    how you can read-in the data in order to analyze it, see the
+                    <a href="https://mybinder-sre.readthedocs.io/en/latest/analytics/events-archive.html" target="_blank" rel="noopener">Binder Site Reliability Guide (SRE)</a>.
+                    instructions.</p>
                 </div>
-                <div id="lb-jupyterlab--architecture" class="imageblock">
-                  <div class="title">JupyterLab Architecture</div>
-                  <div class="content mt-3 mb-4" style="margin-bottom: .75rem;">
-                    <a class="notoc" href="/assets/images/pages/nbinteract/jupyterlab-architecture.jpg" data-lightbox="pages/nbinteract/jupyterlab-architecture.jpg" data-title="JupyterLab Architecture">
-                      <img class="img-fluid" src="/assets/images/pages/nbinteract/jupyterlab-architecture.jpg" alt="JupyterLab Architecture" width="800">
-                    </a>
+                <div class="sect3">
+                  <h4 id="example-repository-to-show-off-analyses">Example repository to show off analyses</h4>
+                  <div class="paragraph">
+                    <p>To give you a little inspiration, check out the
+                      <a href="https://mybinder.org/v2/gh/betatim/binderlyzer/master" target="_blank" rel="noopener">binderlyzer binder</a>.
+                      This is a Binder that goes through a simple analysis of Binder repositories
+                      using the events archive. It shows how to access it, and gives an idea for
+                      questions you can ask with this data!</p>
+                  </div>
+                  <div class="paragraph">
+                    <p>If you do something interesting or fun with the event analytics archive,
+                      please let us know! We provide this resource in the hopes that it gives
+                      people insight into the activity going on in Binder land, and would love
+                      to hear about anything interesting you find.</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="sect1">
-            <h2 id="rest-api">Rest API</h2>
+            <h2 id="binder-api-reference">Binder API Reference</h2>
             <div class="sectionbody">
               <div class="paragraph">
-                <p>Find at swagger.io a selectable list of all API calls available:
-                  <a href="https://petstore.swagger.io/?url=https://raw.githubusercontent.com/jupyter/jupyter_server/master/jupyter_server/services/api/api.yaml#/" target="_blank" rel="noopener">Jupyter Server API</a>.</p>
+                <p>BinderHub connects several services together to provide on-the-fly
+                  creation and registry of Docker images. It utilizes the following
+                  tools:</p>
+              </div>
+              <div class="ulist">
+                <ul>
+                  <li>
+                    <p>A cloud provider such Google Cloud, Microsoft Azure, Amazon EC2,
+                      and others</p>
+                  </li>
+                  <li>
+                    <p>Kubernetes to manage resources on the cloud</p>
+                  </li>
+                  <li>
+                    <p>Helm to configure and control Kubernetes</p>
+                  </li>
+                  <li>
+                    <p>Docker to use containers that standardize computing environments</p>
+                  </li>
+                  <li>
+                    <p>A BinderHub UI that users can access to specify Git repos they want built
+                      repo2docker to generate Docker images using the URL of a Git repository</p>
+                  </li>
+                  <li>
+                    <p>A Docker registry (such as gcr.io) that hosts container images</p>
+                  </li>
+                  <li>
+                    <p>JupyterHub to deploy temporary containers for users</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="paragraph">
+                <p>After a user clicks a Binder link, the following chain of events happens:</p>
+              </div>
+              <div class="olist arabic">
+                <ol class="arabic">
+                  <li>
+                    <p>BinderHub resolves the link to the repository.</p>
+                  </li>
+                  <li>
+                    <p>BinderHub determines whether a Docker image already exists for the
+                      repository at the latest ref (git commit hash, branch, or tag).</p>
+                  </li>
+                  <li>
+                    <p>If the image <strong>doesn’t</strong> exist, BinderHub creates a build pod that uses
+                      repo2docker to do the following:</p>
+                    <div class="olist loweralpha">
+                      <ol class="loweralpha" type="a">
+                        <li>
+                          <p>Fetch the repository associated with the link</p>
+                        </li>
+                        <li>
+                          <p>Build a Docker container image containing the <strong>environment</strong>
+                            specified in configuration files in the repository.</p>
+                        </li>
+                        <li>
+                          <p>Push that image to a <strong>Docker registry</strong>, and send the registry
+                            information to the BinderHub for future reference.</p>
+                        </li>
+                      </ol>
+                    </div>
+                  </li>
+                  <li>
+                    <p>BinderHub sends the Docker image registry to <strong>JupyterHub</strong>.</p>
+                  </li>
+                  <li>
+                    <p>JupyterHub creates a <strong>Kubernetes pod</strong> for the user that serves
+                      the <strong>built</strong> Docker image for the repository.</p>
+                  </li>
+                  <li>
+                    <p>JupyterHub <strong>monitors</strong> the user’s pod for activity, and <strong>destroys</strong>
+                      it after a short period of inactivity.</p>
+                  </li>
+                </ol>
+              </div>
+              <div class="admonitionblock note">
+                <table>
+                  <tr>
+                    <td class="icon">
+                      <i class="fa icon-note" title="Note"></i>
+                    </td>
+                    <td class="content">
+                      <strong>Pods</strong> (smallest compute unit that can be defined, deployed,
+                      and managed in Kubernetes) are the rough equivalent of a machine instance
+                      (physical or virtual) to a container. Each pod is allocated its own internal
+                      IP address, therefore owning its entire port space, and containers within
+                      pods can share their local storage and networking.
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div id="lb-binderhub--architecture" class="imageblock">
+                <div class="title">Binderhub Architecture</div>
+                <div class="content mt-3 mb-4" style="margin-bottom: .75rem;">
+                  <a class="notoc" href="/assets/images/pages/nbinteract/binderhub-architecture.jpg" data-lightbox="pages/nbinteract/binderhub-architecture.jpg" data-title="Binderhub Architecture">
+                    <img class="img-fluid" src="/assets/images/pages/nbinteract/binderhub-architecture.jpg" alt="Binderhub Architecture" width="800">
+                  </a>
+                </div>
+              </div>
+              <div class="sect2">
+                <h3 id="api-endpoint">API Endpoint</h3>
+                <div class="paragraph">
+                  <p>There’s one API endpoint, which is:</p>
+                </div>
+                <div class="listingblock">
+                  <div class="content">
+                    <pre class="highlight"><code class="language-plaintext" data-lang="plaintext"><span id="L1" class="line">  /build/&lt;provider_prefix&gt;/&lt;spec&gt;</span></code></pre>
+                  </div>
+                </div>
+                <div class="paragraph">
+                  <p>Even though it says build it actually performs launch.</p>
+                </div>
+                <div class="ulist">
+                  <ul>
+                    <li>
+                      <p>provider_prefix identifies the provider</p>
+                    </li>
+                    <li>
+                      <p>spec defines the source of the computing environment to be built
+                        and served using the given provider.</p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="admonitionblock note">
+                  <table>
+                    <tr>
+                      <td class="icon">
+                        <i class="fa icon-note" title="Note"></i>
+                      </td>
+                      <td class="content">
+                        The provider_prefix can be any of the supported repository providers
+                        in BinderHub, see the Repository Providers section for supported inputs.
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="paragraph">
+                  <p>To use this endpoint, construct an appropriate URL and send a request.
+                    You’ll get back an Event Stream. It’s pretty much just a long-lived HTTP
+                    connection with a well known JSON based data protocol. It’s one-way
+                    communication only (server to client) and is straightforward to implement
+                    across multiple languages.</p>
+                </div>
+                <div class="paragraph">
+                  <p>When the request is received, the following happens:</p>
+                </div>
+                <div class="olist arabic">
+                  <ol class="arabic">
+                    <li>
+                      <p>Check if this image exists in our cached image registry. If so,
+                        launch it.</p>
+                    </li>
+                    <li>
+                      <p>If it doesn’t exist in the image registry, we check if a build
+                        is currently running. If it is, we attach to it and start streaming
+                        logs from it to the user.</p>
+                    </li>
+                    <li>
+                      <p>If there is no build in progress, we start a build and start streaming
+                        logs from it to the user.</p>
+                    </li>
+                    <li>
+                      <p>If the build succeeds, we contact the JupyterHub API and start launching
+                        the server.</p>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+              <div class="sect2">
+                <h3 id="events">Events</h3>
+                <div class="paragraph">
+                  <p>This section catalogs the different events you might receive.</p>
+                </div>
+                <table class="tableblock frame-all grid-all stretch rtable mt-3">
+                  <caption class="title">Table 1. Events</caption>
+                  <colgroup>
+                    <col style="width: 16.6666%;">
+                    <col style="width: 33.3333%;">
+                    <col style="width: 50.0001%;">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th class="tableblock halign-left valign-top">Event</th>
+                      <th class="tableblock halign-left valign-top">Response</th>
+                      <th class="tableblock halign-left valign-top">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock"><strong>Failed</strong></p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p><code>{"phase": "failed", "message": "Reason"}</code></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p>Emitted whenever a build or launch fails. You must <strong>close</strong> your
+                              <strong>EventStream</strong> when you receive this event.</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock"><strong>Built</strong></p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p><code>{"phase": "built", "message": "Human readable message", "imageName": "Full name of the image that is in the cached docker registry"}</code></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p>Emitted after the image has been built, before launching begins.
+                              This is emitted in the start if the image has been found in the cache
+                              registry, or after build completes successfully if we had to do a build.</p>
+                          </div>
+                          <div class="paragraph">
+                            <p>Note that clients shouldn’t rely on the imageName field for anything
+                              specific. It should be considered an internal implementation detail.</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock"><strong>Waiting</strong></p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p><code>{"phase": "waiting", "message": "Human readable message"}</code></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p>Emitted when we started a build pod and are waiting for it to start.</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock"><strong>Building</strong></p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p><code>{"phase": "building", "message": "Log message"}</code></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p>Emitted during the actual building process. Direct stream of logs
+                              from the build pod from <strong>repo2docker</strong>, in the same form as logs from
+                              a normal <strong>docker build</strong>.</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock"><code>Fetching</code></p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p><code>{"phase": "fetching", "message": "log messages from fetching process"}</code></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p>Emitted when fetching the repository to be built from its source (GitHub, GitLab, wherever).</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock"><strong>Pushing</strong></p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p><code>{"phase": "pushing", "message": "Human readable message", "progress": {"layer1":  {"current": &lt;bytes-pushed&gt;, "total": &lt;full-bytes&gt;}, "layer2": {"current": &lt;bytes-pushed&gt;, "total": &lt;full-bytes&gt;}, "layer3": "Pushed", "layer4": "Layer already exists"}}</code></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p>Emitted when the image is being pushed to the cache registry. This
+                              provides structured status info that could be in a progressbar. It’s
+                              structured similar to the output of <strong>docker push</strong>.</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock"><strong>Launching</strong></p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p><code>{"phase": "launching", "message": "user friendly message"}</code></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p>When the repo has been built, and we’re in the process of waiting
+                              for the hub to launch. This could end up succeeding and emitting a
+                              <strong>ready</strong> event or failing and emitting a <strong>failed</strong> event.</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock"><strong>Ready</strong></p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p><code>{"phase": "ready", "message": "Human readable message", "url": "full-url-of-notebook-server", "token": "notebook-server-token"}</code></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p>When your notebook is ready! You get a endpoint URL and a token
+                              used to access it. You can access the notebook|API by using the
+                              token in one of the ways the notebook accepts security tokens.</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="sect2">
+                <h3 id="heartbeat">Heartbeat</h3>
+                <div class="paragraph">
+                  <p>In EventSource, all lines beginning with <code>:</code> are considered comments.
+                    We send a <code>:heartbeat</code> every 30s to make sure that we can pass through
+                    proxies without our request being killed.</p>
+                </div>
+              </div>
+              <div class="sect2">
+                <h3 id="repository-providers">Repository Providers</h3>
+                <div class="paragraph">
+                  <p>Repository Providers (or RepoProviders) are locations where repositories
+                    are stored (e.g., GitHub). BinderHub supports a number of providers out
+                    of the box, and can be extended to support new providers. For a complete
+                    listing of the provider classes, see table below.</p>
+                </div>
+                <table class="tableblock frame-all grid-all stretch rtable mt-3">
+                  <caption class="title">Table 2. Provider</caption>
+                  <colgroup>
+                    <col style="width: 8.3333%;">
+                    <col style="width: 8.3333%;">
+                    <col style="width: 50%;">
+                    <col style="width: 33.3334%;">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th class="tableblock halign-left valign-top">Provider</th>
+                      <th class="tableblock halign-left valign-top">Prefix</th>
+                      <th class="tableblock halign-left valign-top">Spec</th>
+                      <th class="tableblock halign-left valign-top">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock">GitHub</p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p><strong>gh</strong></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p><code>&lt;user&gt;/&lt;repo&gt;/&lt;commit-sha-or-tag-or-branch&gt;</code></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p>GitHub is a website for hosting and sharing git repositories.</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock">GitLab</p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p><strong>gl</strong></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p><code>&lt;url-escaped-namespace&gt;/&lt;unresolved_ref&gt;</code>
+                              (e.g. group%2Fproject%2Frepo/master)</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p>GitLab offers hosted as well as self-hosted git repositories.</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock">Gist</p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p><strong>gist</strong></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p><code>&lt;github-username&gt;/&lt;gist-id&gt;&lt;commit-sha-or-tag&gt;</code></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p>Gists are small collections of files stored on GitHub. They behave
+                              like lightweight <strong>repositories</strong>.</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock">Zenodo</p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p><strong>zenodo</strong></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p><code>&lt;zenodo-DOI&gt;</code></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p>Zenodo is a non-profit provider of scholarly artifacts (such as code
+                              repositories) run in partnership with CERN.</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock">Figshare</p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p><strong>figshare</strong></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p><code>&lt;figshare-DOI&gt;</code></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p>FigShare is a company that offers hosting for scholarly artifacts
+                              (such as code repositories).</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock">HydroShare</p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p><strong>hydroshare</strong></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p><code>&lt;hydroshare-DOI-or-ResourceID&gt;</code></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p>HydroShare is a hydrologic information system for users to share
+                              and publish data and models.</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock">Dataverse</p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p><strong>dataverse</strong></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p><code>&lt;dataverse-DOI&gt;</code></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p>Dataverse is open source research data repository software installed
+                              all over the world.</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="tableblock halign-left valign-top">
+                        <p class="tableblock">Git</p>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p><strong>git</strong></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p><code>&lt;url-escaped-url&gt;/&lt;commit-sha&gt;</code></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="tableblock halign-left valign-top">
+                        <div class="content">
+                          <div class="paragraph">
+                            <p>A generic repository provider for URLs that point directly to
+                              a git repository.</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="sect2">
+                <h3 id="configuration-and-source-code-reference">Configuration and Source Code Reference</h3>
+                <div class="paragraph">
+                  <p>Find details for all code references on:
+                    <a href="https://binderhub.readthedocs.io/en/latest/reference/ref-index.html" target="_blank" rel="noopener">BinderHub Docs - Reference</a></p>
+                </div>
               </div>
             </div>
           </div>
           <!-- [INFO   ] [j1.layout.content_generator_page.html ] [ end place content ] -->
         </main>
         <!-- [INFO   ] [j1.layout.content_generator_page.html ] [ end main for full page ] -->
-        <!-- [INFO   ] [j1.page.Jupyter                   ] [Save the current page to UserState cookie] -->
+        <!-- [INFO   ] [j1.page.Binder                   ] [Save the current page to UserState cookie] -->
         <!-- script>
-        var logger   = log4javascript.getLogger("j1.page.jupyter.init");
+        var logger   = log4javascript.getLogger("j1.page.binder.init");
         var cookieUserState = 'j1.user.state'
-        var log_text = 'Save the current browser page (jupyter) to cookie: ' +cookieUserState;
+        var log_text = 'Save the current browser page (binder) to cookie: ' +cookieUserState;
         var j1_user_state = {
           'authenticated' : 'false',
           'cookies_accepted' : 'false',
@@ -753,7 +1453,7 @@
           'user_id' : 'unknown'
         };
         // Set|Detect J1 App status
-        j1_user_state.last_page = "/pages/public/jupyter/docs/jupyterlab-api/"
+        j1_user_state.last_page = "/pages/public/jupyter/docs/binderhub/"
         j1.setUserState( j1_user_state );
         logger.info(log_text);
         </script -->
@@ -782,7 +1482,7 @@
           var log_text = 'template core is being initialized';
           logger.info(log_text);
                 // [INFO   ] [j1.layout.module_writer.proc          ] [ pass init data for: core ]
-                var settings = $.extend({}, {"layout": "page", "fab_menu_id": "page_ctrl_simple", "scrollbar": "true", "toc": "true", "comments": ""});
+                var settings = $.extend({}, {"layout": "page", "fab_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": ""});
                   j1.init(settings);
          });
       </script>
@@ -831,7 +1531,7 @@
           var log_text = 'module attic is being initialized';
           logger.info(log_text);
               // [INFO   ] [j1.layout.module_writer.proc          ] [ pass module specific frontmatter options for: attic ]
-              var settings = $.extend({}, {"padding_top":400, "padding_bottom":50, "opacity":0.5, "slides":[{"url":"/assets/images/modules/attics/runner-1920x1200.jpg"}]}, {"layout": "page", "scrollbar": "true", "toc": "true", "comments": ""});
+              var settings = $.extend({}, {"padding_top":400, "padding_bottom":50, "opacity":0.5, "slides":[{"url":"/assets/images/modules/attics/runner-1920x1200.jpg"}]}, {"layout": "page", "scrollbar": "false", "toc": "true", "comments": ""});
                 j1.adapter.attic.init(settings);
          });
       </script>
@@ -881,7 +1581,7 @@
           var log_text = 'module toccer is being initialized';
           logger.info(log_text);
                 // [INFO   ] [j1.layout.module_writer.proc          ] [ pass init data for: toccer ]
-                var settings = $.extend({}, {"layout": "page", "fab_menu_id": "page_ctrl_simple", "scrollbar": "true", "toc": "true", "comments": ""});
+                var settings = $.extend({}, {"layout": "page", "fab_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": ""});
                   j1.adapter.toccer.init(settings);
          });
       </script>
@@ -980,7 +1680,7 @@
           var log_text = 'FAB Menus is being initialized';
           logger.info(log_text);
                 // [INFO   ] [j1.layout.module_writer.proc          ] [ pass init data for: fabm ]
-                var settings = $.extend({}, {"layout": "page", "fab_menu_id": "page_ctrl_simple", "scrollbar": "true", "toc": "true", "comments": ""});
+                var settings = $.extend({}, {"layout": "page", "fab_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": ""});
                   j1.adapter.fab.init(settings);
          });
       </script>
@@ -1072,7 +1772,7 @@
           var log_text = 'module lightbox is being initialized';
           logger.info(log_text);
                 // [INFO   ] [j1.layout.module_writer.proc          ] [ pass init data for: lightbox ]
-                var settings = $.extend({}, {"layout": "page", "fab_menu_id": "page_ctrl_simple", "scrollbar": "true", "toc": "true", "comments": ""});
+                var settings = $.extend({}, {"layout": "page", "fab_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": ""});
                   j1.adapter.lightbox.init(settings);
          });
       </script>

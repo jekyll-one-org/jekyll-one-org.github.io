@@ -7,9 +7,9 @@
   
             <!DOCTYPE html>
 <html lang="en">
-  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2022-05-03 09:20:19 +0000 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2022-05-04 16:39:52 +0000 ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ environment detected as: development ] -->
-  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2022.2.2 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2022.2.3 ] -->
   <head data-proofer-ignore>
     <!-- [INFO   ] [j1.layout.default.html                ] [ call default_writer for region: 'head' ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: page ] -->
@@ -21,8 +21,8 @@
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ initial zoom level when the page is first loaded by the browser ] -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ added version info for the templte ] -->
-    <meta name="template version" content="2022.2.2">
-    <title>textbook integration</title>
+    <meta name="template version" content="2022.2.3">
+    <title>jupyter notebook integration</title>
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ detected content type: PAGE ] -->
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ SIZE of page description: 36 chars ] -->
     <!-- [SEO    ] [j1.layout.meta_data_generator.html    ] [ Consider to IMPROVE|INCREASE your page description! ] -->
@@ -371,25 +371,6 @@
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: justifiedGalleryCustomizer ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: framer ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: lightbox ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive, module lightbox ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive, place css files for resource ID: lightbox ] -->
-    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
-    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
-    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/lightbox/css/lightbox.css">
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive, module lightbox ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive, place css files for resource ID: lightbox ] -->
-    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
-    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
-    <link rel="stylesheet" type="text/css" href="/assets/themes/j1/modules/lightbox/css/theme/uno.css">
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive, module lightbox ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive, place general file resources for resource_settings.id: lightbox ] -->
-    <script defer src="/assets/themes/j1/adapter/js/lightbox.js"></script>
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive module lightbox ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout blog_archive, place js files for resource ID: lightbox ] -->
-    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
-    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
-    <script defer src="/assets/themes/j1/modules/lightbox/js/lightbox.js"></script>
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: twemoji ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: twemoji_picker ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: mdi_previewer ] -->
@@ -538,7 +519,7 @@
               <h2 id="head-title-text" class="notoc">J1 NBI</h2>
             </div>
             <div id="head-tagline" class="head-tagline animated"> 
-              <h3 id="head-tagline-tagline" class="notoc">textbook integration</h3>
+              <h3 id="head-tagline-tagline" class="notoc">jupyter notebook integration</h3>
             </div>
             <!-- Image caption container (display: none per default) -->
             <!-- div class="attic-caption text-emphasis-"></div -->
@@ -563,50 +544,20 @@
               <span class="image"><a class="image" href="https://mybinder.readthedocs.io/en/latest/" target="_blank" rel="noopener"><img src="/assets/images/badges/docsBinder.png" alt="Binder"></a></span></p>
           </div>
           <div class="paragraph">
-            <p>The integration of NBI consists of the following components:</p>
+            <p>The Jupyter Project is a non-profit organization founded in 2014 by
+              <em>Fernando Perez</em>. The Jupyter project supports interactive scientific
+              Data evaluations and scientific calculations. The main applications provided
+              by the Jupyter Project are:</p>
           </div>
           <div class="ulist">
             <ul>
               <li>
-                <p>the (modified) JS and CSS files of the library <strong>nbinteract-core</strong> specified
-                  as resource record <code>nbinteract</code> (see: <code>~/_data/resources.yml</code>)</p>
+                <p>Jupyter Notebook (JN)</p>
               </li>
               <li>
-                <p>an J1 adapter <code>nbinteract.js</code> for integration</p>
-              </li>
-              <li>
-                <p>a module configuration <code>nbinteract.yml</code></p>
-              </li>
-              <li>
-                <p>an Asciidoc Extension <code>textbook::</code> to integrate textbooks (in webpages)</p>
+                <p>JupyterHub (JH)</p>
               </li>
             </ul>
-          </div>
-          <div class="paragraph">
-            <p>The built-in Starter Web of the template comes with a suitable J1 NBI
-              configuration and documents for testing. You can find examples of pages that
-              contain interactive textbooks under the menu <code>Lern</code> underneath the submenu
-              <code>Experimental|Textbooks</code>.</p>
-          </div>
-          <div class="admonitionblock warning">
-            <table>
-              <tr>
-                <td class="icon">
-                  <i class="fa icon-warning" title="Warning"></i>
-                </td>
-                <td class="content">
-                  To develop your <strong>Jupyter Notebooks</strong>, a <strong>local</strong> installation of the
-                  <strong>Python</strong> programming language is required. For the development of Jupyter
-                  Notebooks, the <strong>Jupyter</strong> package and the installation of the library
-                  <strong>nbinteract</strong> are expected.
-                </td>
-              </tr>
-            </table>
-          </div>
-          <div class="paragraph">
-            <p>The module for J1 NBI integration is available as a stable version. However,
-              it is still in an experimental state. The main reason for that experimental
-              status is the <strong>age</strong> of the underlying library <code>nbinteract-core</code>.</p>
           </div>
           <div class="admonitionblock note">
             <table>
@@ -615,28 +566,247 @@
                   <i class="fa icon-note" title="Note"></i>
                 </td>
                 <td class="content">
-                  Recent library updates are more than a year ago, and the current
-                  version of the Jupyter Notebook <strong>JupyterLab</strong> application, unfortunately,
-                  <strong>not</strong> supported (yet).
+                  The name <em>Jupyter</em> refers to the three main programming languages
+                  <em>Julia</em>, <em>Python</em> and <em>R</em> supported by the Jupyter Notebook App. The
+                  name <em>Jupyter</em> is a homage to the notebook entries by <em>Galileo Galilei</em>
+                  on the discovery of the moons of Jupiter, where he made his observations
+                  and the measurement data together.
                 </td>
               </tr>
             </table>
           </div>
+          <div class="paragraph">
+            <p>Jupyter Notebook (JN) is an open source web application that allows data
+              scientists to create and share documents that include live code, equations,
+              and other multimedia resources. JN combines two components:</p>
+          </div>
+          <div class="dlist">
+            <dl>
+              <dt class="hdlist1">Web application</dt>
+              <dd>
+                <p>a browser-based tool for interactive authoring of documents which combine
+                  explanatory text, mathematics, computations and their rich media output.</p>
+              </dd>
+              <dt class="hdlist1">Notebook documents</dt>
+              <dd>
+                <p>a representation of all content visible in the web application, including
+                  inputs and outputs of the computations, explanatory text, mathematics,
+                  images, and rich media representations of objects.</p>
+              </dd>
+            </dl>
+          </div>
           <div class="sect1">
-            <h2 id="notebooks-vs-textbooks">Notebooks vs. Textbooks</h2>
+            <h2 id="jupyter-basics">Jupyter Basics</h2>
             <div class="sectionbody">
               <div class="paragraph">
-                <p>Jupyter Notebooks with the extension <code>.ipynb</code> are (data) files in JSON
-                  format and can only be run using the <strong>App</strong> of Jupyter Notebook. On the
-                  other hand, Textbooks are HTML exports with the extension <code>.html</code> from
-                  Jupyter Notebooks to be viewed in a web browser.</p>
+                <p>To understand this documentation better, below you find a brief description
+                  of JupyterHub (JH) and the three base components of Jupyter Notebook (JN).</p>
+              </div>
+              <div class="sect2">
+                <h3 id="jupyter-notebook-app">Jupyter Notebook App</h3>
+                <div class="paragraph">
+                  <p>The Jupyter Notebook <strong>App</strong> is a server-client application that allows editing
+                    and running notebook documents via a web browser. The Notebook App can be
+                    executed on a local desktop requiring no internet access or can be installed
+                    on a remote server and accessed through the internet.</p>
+                </div>
+              </div>
+              <div class="sect2">
+                <h3 id="notebook-documents">Notebook documents</h3>
+                <div class="paragraph">
+                  <p>Notebook documents (or <strong>notebooks</strong> for short) are documents created by the
+                    Notebook App, and both computer code (e.g., Python) and rich text may contain
+                    elements (paragraphs, equations, figures, links, etc.). Notebook documents are
+                    human-readable documents, alongside code descriptions and results (figures,
+                    tables, etc.).</p>
+                </div>
+              </div>
+              <div class="sect2">
+                <h3 id="kernels">Kernels</h3>
+                <div class="paragraph">
+                  <p>Generally, a notebook <strong>kernel</strong> is a <strong>calculating machine</strong> that lives in the
+                    Jupyter Notebook App to process a Notebook document and executes its
+                    code. The <strong>Ipython</strong> kernel, used for the NBI integration, runs <em>Python</em>
+                    code, and produces the results.</p>
+                </div>
+              </div>
+              <div class="sect2">
+                <h3 id="jupyterhub">JupyterHub</h3>
+                <div class="paragraph">
+                  <p><em>JupyterHub</em> (JH) brings the power of notebooks to <strong>groups</strong> of users. It
+                    gives users access to computational environments and resources without
+                    burdening the users with installation and maintenance tasks. Users can get
+                    their work done in their own workspaces on shared resources which can be
+                    managed efficiently by system administrators without having the Jupyter
+                    Notebook App (JN) locally installed on their systems.</p>
+                </div>
+                <div class="paragraph">
+                  <p>JupyterHub runs in the cloud or on hardware hosted on your own and makes
+                    it possible to serve a pre-configured data science environment to any user.
+                    It is customizable and scalable and is suitable for small and large teams,
+                    academic courses, and large-scale infrastructure (for example like the
+                    Binder service).</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sect1">
+            <h2 id="the-package-nbinteract-nbi">The Package nbInteract (NBI)</h2>
+            <div class="sectionbody">
+              <div class="paragraph">
+                <p>As a web technology, <em>Jupyter Notebook</em> provides a platform for authoring
+                  interactive scientific documents. For example, the popular <code>ipywidgets</code>
+                  Python library allows users to create web-based user interfaces to interact
+                  with arbitrary Python functions. Users can create these interfaces using
+                  Python directly in the notebook instead of HTML and JavaScript, significantly
+                  lowering the time needed to create these interfaces.</p>
               </div>
               <div class="paragraph">
-                <p>For integrating textbooks in webpages, the notebooks with the extension
-                  <code>.ipynb</code> are to be <strong>exported</strong> to HTML (text) files using the
-                  (Python) program nbinteract. Textbooks that have already been exported
-                  can be found for the <strong>Starter Web</strong> in the folder
-                  <code>~/pages/public/jupyter/notebooks/textbooks</code>.</p>
+                <p>This ease of use encourages instructors and researchers to create interactive
+                  explanations of their work. Unfortunately, it isn’t easy to <strong>share</strong> these
+                  interactive notebooks with the public. Sharing the notebook file itself
+                  retains full interactivity but requires <strong>viewers</strong> to have Jupyter, Python,
+                  and all other packages used in the notebook installed on their machines.</p>
+              </div>
+              <div class="paragraph">
+                <p>The freely available Binder service circumvents this by hosting notebook
+                  servers pre-packaged with the necessary software. However, both of these
+                  options still require readers to have prior familiarity with the Jupyter
+                  environment, making them less suitable for use with non-technical people.</p>
+              </div>
+              <div class="paragraph">
+                <p>Authors can convert a Jupyter notebook to a static HTML document and host
+                  the document as a publicly-accessible web page. However, this method does
+                  not preserve the interactive elements of the notebook. The resulting web
+                  page only contains text and images.</p>
+              </div>
+              <div class="imageblock">
+                <div class="content">
+                  <img src="/assets/images/pages/nbinteract/nbi-textbook-example.jpg" alt="NBI textbook (excerpt)" width="800">
+                </div>
+                <div class="title">Figure 1. NBI textbook (excerpt)</div>
+              </div>
+              <div class="paragraph">
+                <p>The Python package <code>nbinteract</code> allows authors to convert Jupyter notebooks
+                  into <strong>interactive</strong>, standalone HTML pages: the textbooks. The interactive
+                  elements can use arbitrary Python code to generate output, including Python
+                  libraries that use C extensions (e.g., <em>NumPy</em> and <em>Pandas</em>) and libraries
+                  that create images (e.g., <em>Matplotlib</em>).</p>
+              </div>
+              <div class="paragraph">
+                <p>Anyone with a modern web browser can use the resulting web pages even if
+                  the viewer does <strong>not</strong> have Python or Jupyter installed on their computer.
+                  To make this possible, NBI uses the freely available cloud service <em>Binder</em>.
+                  Two communication libraries are used to interact with the <em>BinderHub</em> and the
+                  <em>JupyterHub</em> services</p>
+              </div>
+              <div class="paragraph">
+                <p>You can find an overview of these services and their communication interfaces
+                  at:</p>
+              </div>
+              <div class="ulist">
+                <ul>
+                  <li>
+                    <p><a href="/pages/public/jupyter/docs/binderhub" target="_blank" rel="noopener">BinderHub</a></p>
+                  </li>
+                  <li>
+                    <p><a href="/pages/public/jupyter/docs/jupyterhub" target="_blank" rel="noopener">JupyterHub</a></p>
+                  </li>
+                </ul>
+              </div>
+              <div class="admonitionblock tip">
+                <table>
+                  <tr>
+                    <td class="icon">
+                      <i class="fa icon-tip" title="Tip"></i>
+                    </td>
+                    <td class="content">
+                      The <code>nbinteract</code> package also includes additional methods for interactive
+                      plots (widgets) designed for very fast interaction prototyping in the notebook
+                      and smooth interaction on static HTML web pages.
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="sect1">
+            <h2 id="j1-nbi-integration">J1 NBI Integration</h2>
+            <div class="sectionbody">
+              <div class="paragraph">
+                <p>The integration of NBI consists of the following components:</p>
+              </div>
+              <div class="ulist">
+                <ul>
+                  <li>
+                    <p>the (modified) JS and CSS files of the library <strong>nbinteract-core</strong> specified
+                      as resource record <code>nbinteract</code> (see: <code>~/_data/resources.yml</code>)</p>
+                  </li>
+                  <li>
+                    <p>an J1 adapter <code>nbinteract.js</code> for integration</p>
+                  </li>
+                  <li>
+                    <p>a module configuration <code>nbinteract.yml</code></p>
+                  </li>
+                  <li>
+                    <p>an Asciidoc Extension <code>textbook::</code> to integrate textbooks (in webpages)</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="paragraph">
+                <p>The built-in Starter Web of the template comes with a suitable J1 NBI
+                  configuration and documents for testing. You can find examples of pages that
+                  contain interactive textbooks under the menu <code>Lern</code> underneath the submenu
+                  <code>Experimental|Textbooks</code>.</p>
+              </div>
+              <div class="admonitionblock warning">
+                <table>
+                  <tr>
+                    <td class="icon">
+                      <i class="fa icon-warning" title="Warning"></i>
+                    </td>
+                    <td class="content">
+                      To develop your <strong>Jupyter Notebooks</strong>, a <strong>local</strong> installation of the
+                      <strong>Python</strong> programming language is required. For the development of Jupyter
+                      Notebooks, the <strong>Jupyter</strong> package and the installation of the library
+                      <strong>nbinteract</strong> are expected.
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="paragraph">
+                <p>The module for J1 NBI integration is available as a stable version. However,
+                  it is still in an experimental state. The main reason for that experimental
+                  status is the <strong>age</strong> of the underlying library <code>nbinteract-core</code>.</p>
+              </div>
+              <div class="admonitionblock note">
+                <table>
+                  <tr>
+                    <td class="icon">
+                      <i class="fa icon-note" title="Note"></i>
+                    </td>
+                    <td class="content">
+                      Recent library updates are more than a year ago, and the current
+                      version of the Jupyter Notebook <strong>JupyterLab</strong> application, unfortunately,
+                      <strong>not</strong> supported (yet).
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="sect2">
+                <h3 id="notebooks-vs-textbooks">Notebooks vs. Textbooks</h3>
+                <div class="paragraph">
+                  <p>Jupyter Notebook documents with the extension <code>.ipynb</code> are (data) files in
+                    JSON format and can only be run using the <strong>App</strong> of Jupyter Notebook. On the
+                    other hand, Textbooks are HTML exports with the extension <code>.html</code> from
+                    Jupyter Notebooks to be viewed in a web browser.</p>
+                </div>
+                <div class="paragraph">
+                  <p>For integrating textbooks in webpages, the notebooks with the extension
+                    <code>.ipynb</code> are to be <strong>exported</strong> to HTML (text) files using the (Python)
+                    program nbinteract. Textbooks that have already been exported can be found
+                    for the <strong>Starter Web</strong> in the folder <code>~/pages/public/jupyter/notebooks/textbooks</code>.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -960,7 +1130,7 @@
 <span id="L3" class="line"><span class="c1">#</span></span>
 <span id="L4" class="line"><span class="na">defaults</span><span class="pi">:</span></span>
 <span id="L5" class="line"></span>
-<span id="L6" class="line">  <span class="na">spec</span><span class="pi">:</span>                                 <span class="s">jekyll-one/nbinteract-notebooks/main</span></span>
+<span id="L6" class="line">  <span class="na">spec</span><span class="pi">:</span>                                 <span class="s">jekyll-one/j1-binder-repo/main</span></span>
 <span id="L7" class="line">  <span class="na">baseUrl</span><span class="pi">:</span>                              <span class="s1">'</span><span class="s">https://mybinder.org'</span></span>
 <span id="L8" class="line">  <span class="na">provider</span><span class="pi">:</span>                             <span class="s">gh</span></span>
 <span id="L9" class="line"></span>
@@ -1158,7 +1328,7 @@
                   <p>The use of J1 NBI requires a valid Binder configuration. The binder
                     configuration is to be provided via a public Git repo. An example of such a
                     Git repo you find on Github at
-                    <a href="https://github.com/jekyll-one/nbinteract-notebooks" target="_blank" rel="noopener">Binder Repo</a>.
+                    <a href="https://github.com/jekyll-one/j1-binder-repo" target="_blank" rel="noopener">J1 Binder Repo</a>.
                     The configuration settings are described in the <a href="#default-settings">Default settings</a> section.</p>
                 </div>
               </div>
@@ -1237,7 +1407,7 @@
                 <div class="paragraph">
                   <p>Einbinden des Textbooks mit der ID <code>j1_docs_example_dynamic</code> in eine Webseite.</p>
                 </div>
-                <div class="listingblock noclip">
+                <div class="listingblock">
                   <div class="title">Example</div>
                   <div class="content">
                     <pre class="highlight"><code class="language-conf" data-lang="conf"><span id="L1" class="line"><span class="n">textbook</span>::<span class="n">j1_docs_example_dynamic</span>[]</span></code></pre>
@@ -1247,7 +1417,7 @@
             </div>
           </div>
           <div class="sect1">
-            <h2 id="textbook-examples">Textbook Examples</h2>
+            <h2 id="nbi-textbook-examples">NBI Textbook Examples</h2>
             <div class="sectionbody">
               <div class="paragraph">
                 <p>For the J1 template, textbooks are typically integrated as <strong>dynamic</strong> HTML
@@ -1277,7 +1447,7 @@
                   <div class="cell border-box-sizing text_cell rendered">
                     <div class="inner_cell">
                       <div class="text_cell_render border-box-sizing rendered_html">
-                        <h4 id="Resources">Resources</h4>
+                        <h4 id="resources-static">Resources</h4>
                       </div>
                     </div>
                   </div>
@@ -1312,7 +1482,7 @@
                   <div class="cell border-box-sizing text_cell rendered">
                     <div class="inner_cell">
                       <div class="text_cell_render border-box-sizing rendered_html">
-                        <h4 id="Calculation">Calculation</h4>
+                        <h4 id="calculation-static">Calculation</h4>
                       </div>
                     </div>
                   </div>
@@ -1379,7 +1549,7 @@
                   <div class="cell border-box-sizing text_cell rendered">
                     <div class="inner_cell">
                       <div class="text_cell_render border-box-sizing rendered_html">
-                        <h4 id="Evaluation">Evaluation</h4>
+                        <h4 id="evaluation-static">Evaluation</h4>
                       </div>
                     </div>
                   </div>
@@ -1841,19 +2011,6 @@
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: justifiedGalleryCustomizer ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: framer ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: lightbox ] -->
-      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: lightbox ] -->
-      <script>
-        $(document).ready(function() {
-          var logger = log4javascript.getLogger("j1.module_loader");
-          var log_text = 'module lightbox is being initialized';
-          logger.info(log_text);
-                // [INFO   ] [j1.layout.module_writer.proc          ] [ pass init data for: lightbox ]
-                var settings = $.extend({}, {"layout": "page", "fab_menu_id": "page_ctrl_simple", "scrollbar": "false", "toc": "true", "comments": ""});
-                  j1.adapter.lightbox.init(settings);
-         });
-      </script>
-      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
-      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: twemoji ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: twemoji_picker ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: mdi_previewer ] -->

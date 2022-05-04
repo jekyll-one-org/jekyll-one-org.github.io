@@ -9353,6 +9353,9 @@ textarea.form-control-lg {
 .btn-link {
   color: #424242; }
 
+.btn {
+  color: #424242 !important; }
+
 /*
  # -----------------------------------------------------------------------------
  # ~/scss/theme_uno/bootstrap/_checkboxes.scss
@@ -9508,15 +9511,6 @@ label.checkbox-inline {
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
 */
-/*
-code {
-  font-weight: bold;
-  word-break: break-word;
-  background-color: $gray-300 !important;
-  padding: 0.125em 0.275em 0.125em 0.275em !important;
-  border-radius: 2px;
-}
-*/
 code {
   color: #212121; }
 
@@ -9570,14 +9564,6 @@ form {
       margin-bottom: 0; }
 
 .form-control {
-  /*
-  background: $bmd-form-control-bg-repeat-y $bmd-form-control-bg-position;
-  background-size: $bmd-form-control-bg-size;
-  border: 0;                                                                    // jadams, 2021-11-18: disabled !important - Overwrite border for all BS themes!
-  transition: background 0s ease-out;
-  padding-left: 0;
-  padding-right: 0;
-*/
   display: block;
   width: 100%;
   padding: 0.375rem 0.75rem;
@@ -10967,21 +10953,21 @@ select, select.form-control {
  # -----------------------------------------------------------------------------
 */
 a {
-  color: #424242 !important;
-  font-weight: 500 !important;
-  text-decoration: none !important; }
+  color: #616161 !important;
+  font-weight: 500 !important; }
 
 a:hover {
   color: #bdbdbd !important;
-  font-weight: 600 !important; }
+  font-weight: 500 !important; }
 
 li > a {
+  color: #607d8b !important;
   font-weight: 500 !important;
   text-decoration: none !important; }
 
 li > a:hover {
-  color: #bdbdbd !important;
-  font-weight: 600 !important; }
+  color: #37474f !important;
+  font-weight: 500 !important; }
 
 /*
  # -----------------------------------------------------------------------------
@@ -14126,7 +14112,7 @@ table.tableblock > .title {
 */
 /*
 // ----------------------------------------------------------------------------
-// ~/scss/theme_uno/bootstrap/extensions/_accordion.scss
+// ~/scss/theme_uno/extensions/_accordion.scss
 // Provides styles for the J1 Accordion Panel
 //
 // Product/Info:
@@ -14138,8 +14124,6 @@ table.tableblock > .title {
 // See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
 // ----------------------------------------------------------------------------
 */
-/* Accordion link block (card footer)
--------------------------------------------------------------------------------- */
 .accordion {
   text-align: left; }
 
@@ -14190,7 +14174,7 @@ table.tableblock > .title {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/extensions/_advertising.scss
+ # ~/scss/theme_uno/extensions/_advertising.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -14214,7 +14198,7 @@ table.tableblock > .title {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/extensions/_attic.scss
+ # ~/scss/theme_uno/extensions/_attic.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -14318,8 +14302,6 @@ table.tableblock > .title {
 .text-emphasis-strongest {
   text-shadow: 0 4px 0 rgba(0, 0, 0, 0.2) !important; }
 
-/* Unsplash
--------------------------------------------------------------------------------- */
 .attic__badge {
   background-color: rgba(0, 0, 0, 0.3);
   padding: 4px 6px;
@@ -14349,8 +14331,26 @@ table.tableblock > .title {
   padding: 2px 3px; }
 
 /*
+ # -----------------------------------------------------------------------------
+ # ~/scss/theme_uno/extensions/_badge.scss
+ #
+ # Product/Info:
+ # https://jekyll.one
+ #
+ # Copyright (C) 2022 Juergen Adams
+ #
+ # J1 Template is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # -----------------------------------------------------------------------------
+ # NOTE: General styles for tag boxes|clouds
+ # -----------------------------------------------------------------------------
+*/
+span.badge > a {
+  color: #000 !important; }
+
+/*
 // -----------------------------------------------------------------------------
-// ~/scss/theme_uno/bootstrap/extensions/_banner.scss
+// ~/scss/theme_uno/extensions/_banner.scss
 // Provides general styles for the J1 Banner
 //
 // Product/Info:
@@ -14376,7 +14376,7 @@ table.tableblock > .title {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/extensions/_bs-doc.scss
+ # ~/scss/theme_uno/extensions/_bs-doc.scss
  # Provides additional styles taken from BS DOC template
  #
  # Product/Info:
@@ -15069,7 +15069,7 @@ a.card-title:hover {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/extensions/_collection.scss
+ # ~/scss/theme_uno/extensions/_collection.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -16489,7 +16489,7 @@ a.card-title:hover {
 
 /*
 // -----------------------------------------------------------------------------
-// ~/scss/theme_uno/bootstrap/extensions/_dropcap.scss
+// ~/scss/theme_uno/extensions/_dropcap.scss
 // Provides general styles for the J1 Dropcaps
 //
 // Product/Info:
@@ -16527,7 +16527,7 @@ p.dropcap {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/extensions/fab.scss
+ # ~/scss/theme_uno/extensions/fab.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -16800,7 +16800,7 @@ button.btn-fab-floating {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/extensions/_footer.scss
+ # ~/scss/theme_uno/extensions/_footer.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -16813,7 +16813,6 @@ button.btn-fab-floating {
  # NOTE: General footer styles
  # -----------------------------------------------------------------------------
 */
-/* jadams: background md_grey_900 */
 .footer {
   padding-top: 2em;
   background: #212121;
@@ -16850,7 +16849,8 @@ button.btn-fab-floating {
 
 /*Link News*/
 .footer .link-news {
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  color: #9e9e9e !important; }
 
 .footer .link-news li {
   padding: 12px 0px;
@@ -16866,14 +16866,6 @@ button.btn-fab-floating {
   font-size: 1em;
   font-weight: 700; }
 
-/*
-.footer .link-news li a {
-	color: $lighten-300;
-	font-size: 1em;
-	margin-bottom: 0;
-	display: inline-block;
-}
-*/
 .footer .link-news a:hover {
   color: #FAFAFA !important;
   text-decoration: none; }
@@ -16919,10 +16911,10 @@ button.btn-fab-floating {
 
 .footer .contacts li i {
   float: left;
-  width: 30px;
-  height: 30px;
+  width: 55px;
+  height: 55px;
   color: rgba(255, 255, 255, 0.5);
-  padding: 8px 5px;
+  padding: 15px 5px;
   background: #333;
   text-align: center;
   margin: 4px 10px 0 0;
@@ -17037,7 +17029,7 @@ button.btn-fab-floating {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/extensions/_lane.scss
+ # ~/scss/theme_uno/extensions/_lane.scss
  # Helper classen for J! template lanes
  # Product/Info:
  # https://jekyll.one
@@ -17094,7 +17086,7 @@ button.btn-fab-floating {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/extensions/_pages.scss
+ # ~/scss/theme_uno/extensions/_pages.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -17107,8 +17099,6 @@ button.btn-fab-floating {
  # NOTE: Additional styles for page articles (pages)
  # -----------------------------------------------------------------------------
 */
-/* Helper classes
------------------ */
 .fix-height-150 {
   height: 150px; }
 
@@ -17118,8 +17108,6 @@ button.btn-fab-floating {
 .fix-height-600 {
   height: 600px; }
 
-/* Container (Parent) classes
------------------------------ */
 .flex-container-v2 {
   padding: 0;
   margin: 0;
@@ -17148,8 +17136,6 @@ button.btn-fab-floating {
   font-weight: bold;
   font-size: 3em; }
 
-/* Flex Item (Child) classes
-------------------------------------------------------------------- */
 .flex-item-v2 {
   background-color: #E8EAF6;
   width: 100px;
@@ -17159,8 +17145,6 @@ button.btn-fab-floating {
   font-weight: bold;
   font-size: 3em; }
 
-/* Flex PARENT property flex-direction
-------------------------------------------------------------------- */
 .flex-direction-column {
   flex-direction: column; }
 
@@ -17173,8 +17157,6 @@ button.btn-fab-floating {
 .flex-direction-row-reverse {
   flex-direction: row-reverse; }
 
-/* Flex PARENT property flex-wrap
-------------------------------------------------------------------- */
 .flex-wrap-nowrap {
   flex-wrap: nowrap; }
 
@@ -17184,16 +17166,12 @@ button.btn-fab-floating {
 .flex-wrap-wrap-reverse {
   flex-wrap: wrap-reverse; }
 
-/* Flex PARENT property flex-wrap
-------------------------------------------------------------------- */
 .flex-flow-row-wrap {
   flex-flow: row wrap; }
 
 .flex-flow-row-nowrap {
   flex-flow: row nowrap; }
 
-/* Flex PARENT property justify-content
-------------------------------------------------------------------- */
 .flex-justify-content-center {
   justify-content: center; }
 
@@ -17209,8 +17187,6 @@ button.btn-fab-floating {
 .flex-justify-content-space-between {
   justify-content: space-between; }
 
-/* Flex PARENT property align-items
-------------------------------------------------------------------- */
 .flex-align-items-baseline {
   align-items: baseline; }
 
@@ -17226,8 +17202,6 @@ button.btn-fab-floating {
 .flex-align-items-stretch {
   align-items: stretch; }
 
-/* Flex PARENT property align-content
-------------------------------------------------------------------- */
 .flex-align-content-center {
   align-content: center; }
 
@@ -17246,8 +17220,6 @@ button.btn-fab-floating {
 .flex-align-content-stretch {
   align-content: stretch; }
 
-/* Navigation example
-------------------------------------------------------------------- */
 .navigation {
   list-style: none;
   margin: 0;
@@ -17286,8 +17258,6 @@ button.btn-fab-floating {
   .navigation li:last-of-type a {
     border-bottom: none; } }
 
-/* 3-Columns Layout example
-------------------------------------------------------------------- */
 .wrapper-mobile {
   display: flex;
   flex-flow: row wrap;
@@ -17332,7 +17302,7 @@ button.btn-fab-floating {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/extensions/_post.scss
+ # ~/scss/theme_uno/extensions/_post.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -17354,105 +17324,6 @@ button.btn-fab-floating {
   margin-bottom: 2rem;
   border-bottom: 1px solid #E5E5E5; }
 
-/*
-.post-search-results h2 {
-  font-size: 3rem !important;
-  font-weight: 400;
-}
-
-.post-search-results h3 {
-  font-size: 2rem !important;
-  font-weight: 400;
-}
-
-.post-search-results h4 {
-  font-size: 2rem !important;
-  font-weight: 400;
-}
-
-.post-search-results h4 {
-  font-size: 1.25rem !important;
-  font-weight: 200;
-  margin-top: 0;
-}
-
-.post-search-results h4 {
-    font-size: 1.75rem !important;
-    font-weight: 500;
-    margin-top: 0;
-    color: $gray-300 !important;
-}
-
-.post-search-results .link-news {
-	margin-bottom: 0;
-}
-
-.post-search-results .link-news li {
-	// padding: 12px 0px;
-	// border-top: solid 1px #353535;
-}
-
-.post-search-results .link-news li:first-child {
-	padding-top: 0;
-	border-top: none;
-}
-
-.post-search-results .link-news li a, .link-news li a {
-  color: rgba(0, 0, 0, 0.5);
-  // font-size: 1.25rem;
-  font-weight: 400;
-  margin-bottom: 3px;
-  display: inline-block;
-}
-
-.post-search-results .link-news a:hover {
-	color: rgba(0, 0, 0, 0.9) !important;
-  text-decoration: none;
-}
-
-.post-search-results .link-news li small {
-  font-size: 1.25rem;
-	color: #555;
-	display: block;
-}
-
-.post-archive-search-results .link-news li a, .link-news li a {
-    color: rgba(0, 0, 0, 0.5);
-    // font-size: 1rem;
-    font-weight: 400;
-    margin-bottom: 3px;
-    display: inline-block;
-}
-
-.post-date-search-results .link-news li a, .link-news li a {
-    color: rgba(0, 0, 0, 0.5);
-    // font-size: 1rem;
-    font-weight: 400;
-    margin-bottom: 3px;
-    display: inline-block;
-}
-
-.post-date-search-results h3 {
-    font-size: 4rem !important;
-    font-weight: 400;
-}
-
-.link-news a {
-  text-decoration: none;
-}
-
-.link-news a:hover {
-  color: rgba(0, 0, 0, 0.9) !important;
-  text-decoration: none;
-}
-
-a.news-link {
-    color: currentColor;
-    height: 100%;
-    font-size: 14px;
-    text-decoration: none !important;
-}
-*/
 .series-navigator {
   display: inline-block;
   position: relative;
@@ -17527,7 +17398,7 @@ a.news-link {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/extensions/pulser.scss
+ # ~/scss/theme_uno/extensions/pulser.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -17702,7 +17573,7 @@ a.news-link {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/_radios.scss
+ # ~/scss/theme_uno/extensions/_radios.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -17813,7 +17684,7 @@ label.radio-inline {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/_ripples.scss
+ # ~/scss/theme_uno/extensions/_ripples.scss
  #
  # Product/Info:
  # https://github.com/FezVrasta/bootstrap-material-design
@@ -17858,7 +17729,7 @@ label.radio-inline {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/extensions/_scroll-group.scss
+ # ~/scss/theme_uno/extensions/_scroll-group.scss
  # Class for the scoller|infinite scroll (based|modified from BS list_groups)
  # Product/Info:
  # https://jekyll.one
@@ -17928,7 +17799,7 @@ label.radio-inline {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/extensions/_scrollbars.scss
+ # ~/scss/theme_uno/extensions/_scrollbars.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -18199,7 +18070,7 @@ ul.scrollable-menu::-webkit-scrollbar-thumb {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/_switches.scss
+ # ~/scss/theme_uno/extensions/_switches.scss
  #
  # Product/Info:
  # https://github.com/FezVrasta/bootstrap-material-design
@@ -18263,7 +18134,7 @@ ul.scrollable-menu::-webkit-scrollbar-thumb {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/extensions/_tags.scss
+ # ~/scss/theme_uno/extensions/_tags.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -18305,8 +18176,6 @@ ul.scrollable-menu::-webkit-scrollbar-thumb {
     font-weight: 600;
     line-height: 2.5; }
 
-/*  Tag Cloud classes
--------------------------------------------------------------------------------- */
 .tag__cloud {
   margin-bottom: 10px;
   margin-top: 20px; }
@@ -18328,7 +18197,7 @@ ul.scrollable-menu::-webkit-scrollbar-thumb {
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
-        color: #000;
+        color: #000 !important;
         font-size: 1rem;
         font-weight: 400;
         text-decoration: none;
@@ -18364,7 +18233,7 @@ ul.scrollable-menu::-webkit-scrollbar-thumb {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/extensions/_timeline.scss
+ # ~/scss/theme_uno/extensions/_timeline.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -18377,8 +18246,6 @@ ul.scrollable-menu::-webkit-scrollbar-thumb {
  # NOTE: General styles for blog|post generator of type 'timeline'
  # -----------------------------------------------------------------------------
 */
-/* Header Box
--------------------------------------------------------------------------------- */
 .timeline-header-box {
   background: #fff; }
 
@@ -18424,8 +18291,6 @@ h2.timeline-header-box:after, .timeline-header-box.h2:after {
   margin-left: -25px;
   background: #607d8b; }
 
-/* Timeline
--------------------------------------------------------------------------------- */
 .timeline {
   padding: 20px 0;
   list-style: none;
@@ -18525,19 +18390,6 @@ a.timeline-list-unstyled:hover {
   float: left;
   position: relative; }
 
-/*
-.timeline > li > .timeline-panel:before {
-	position: absolute;
-	top: 26px;
-	right: -15px;
-	display: inline-block;
-	border-top: 15px solid transparent;
-	border-left: 15px solid $gray-100;
-	border-right: 0 solid $gray-100;
-	border-bottom: 15px solid transparent;
-	content: " ";
-}
-*/
 .timeline > li > .timeline-panel:after {
   position: absolute;
   top: 27px;
@@ -18631,8 +18483,6 @@ a.timeline-list-unstyled:hover {
 .timeline > li.timeline-inverted > .timeline-badge {
   left: -12px; }
 
-/* Media Queries
- ------------------------------------------------------------------------------- */
 @media screen and (max-width: 992px) {
   .timeline > li > .timeline-panel:before {
     top: 31px;
@@ -18703,12 +18553,11 @@ a.timeline-list-unstyled:hover {
     margin-top: 30px;
     margin-bottom: 30px; }
   .timeline > li.timeline-inverted > .timeline-badge {
-    /* was: left: 28px; */
     left: -11px; } }
 
 /*
  # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/extensions/_typography.scss
+ # ~/scss/theme_uno/extensions/_typography.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -18727,6 +18576,15 @@ a.timeline-list-unstyled:hover {
  # SPEC: general  - https://www.google.com/design/spec/style/typography.html#typography-styles
  # -----------------------------------------------------------------------------
 */
+b,
+strong {
+  font-weight: 500 !important;
+  color: #757575; }
+
+cite, em, var, address, dfn {
+  font-weight: 500 !important;
+  color: #757575; }
+
 .no-r-text, .no-rtext {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 1rem;
@@ -19376,7 +19234,7 @@ a.timeline-list-unstyled:hover {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/extensions/_utilities.scss
+ # ~/scss/theme_uno/extensions/_utilities.scss
  #
  # Product/Info:
  # https://jekyll.one
