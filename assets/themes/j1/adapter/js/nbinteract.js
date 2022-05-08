@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2022-05-04 19:32:13 +0000
+ #  Adapter generated: 2022-05-08 17:36:23 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -89,9 +89,9 @@ j1.adapter.nbinteract = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend ({
         module_name: 'j1.adapter.nbinteract',
-        generated:   '2022-05-04 19:32:13 +0000'
+        generated:   '2022-05-08 17:36:23 +0000'
       }, options);
-      moduleOptions = $.extend({}, {"spec":"jekyll-one/j1-binder-repo/main", "baseUrl":"https://mybinder.org", "provider":"gh", "button_styles":"btn btn-primary btn-raised hidden", "show_nbi_messages":false, "indicate_nbi_activity":true, "nbi_messages_auto_close":true, "nbi_init_timeout":180000, "nbi_messages_auto_close_delay":3500, "nbi_init_mathjax":true, "textbooks":[{"textbook":{"enabled":false, "id":"j1_altair_base", "xhr_data":"j1_altair_visualization.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false, "altair_cleanups":true}}, {"textbook":{"enabled":false, "id":"j1_altair_interactive", "xhr_data":"j1_altair_interactive.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false, "altair_cleanups":true}}, {"textbook":{"enabled":false, "id":"j1_altair_interactive_test", "xhr_data":"j1_altair_interactive_test.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false, "altair_cleanups":true}}, {"textbook":{"enabled":true, "id":"j1_climate_change_forecast", "xhr_data":"j1_climate_change_forecast.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"j1_interactive_widgets", "xhr_data":"j1_interactive_widgets.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":false, "id":"j1_odes_in_python", "xhr_data":"j1_odes_in_python.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"j1_ode_selected", "xhr_data":"j1_ode_selected.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":false, "id":"j1_pandas_intro", "xhr_data":"j1_pandas_creating_reading_and_writing.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"j1_docs_example_dynamic", "xhr_data":"j1_docs_example_dynamic.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_tutorial_interact", "xhr_data":"nbi_docs_tutorial_interact.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_tutorial_monty_hall", "xhr_data":"nbi_docs_tutorial_monty_hall.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_recipes_graphing", "xhr_data":"nbi_docs_recipes_graphing.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_recipes_layout", "xhr_data":"nbi_docs_recipes_layout.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_recipes_interactive_questions", "xhr_data":"nbi_docs_recipes_interactive_questions.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_empirical_distributions", "xhr_data":"nbi_docs_examples_empirical_distributions.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_sampling_from_a_population", "xhr_data":"nbi_docs_examples_sampling_from_a_population.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_variability_of_the_sample_mean", "xhr_data":"nbi_docs_examples_variability_of_the_sample_mean.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_correlation", "xhr_data":"nbi_docs_examples_correlation.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_linear_regression", "xhr_data":"nbi_docs_examples_linear_regression.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_probability_distribution_plots", "xhr_data":"nbi_docs_examples_probability_distribution_plots.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_central_limit_theorem", "xhr_data":"nbi_docs_examples_central_limit_theorem.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}]});
+      moduleOptions = $.extend({}, {"spec":"jekyll-one/j1-binder-repo/main", "baseUrl":"https://mybinder.org", "provider":"gh", "button_styles":"btn btn-primary btn-raised hidden", "show_nbi_messages":false, "indicate_nbi_activity":true, "nbi_messages_auto_close":true, "nbi_init_timeout":180000, "nbi_messages_auto_close_delay":3500, "nbi_init_mathjax":true, "textbooks":[{"textbook":{"enabled":true, "id":"j1_climate_change_forecast", "xhr_data":"j1_climate_change_forecast.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"j1_interactive_widgets", "xhr_data":"j1_interactive_widgets.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"j1_docs_example_dynamic", "xhr_data":"j1_docs_example_dynamic.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"j1_circular_times_table", "xhr_data":"j1_circular_times_table.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"j1_odes_in_python", "xhr_data":"j1_odes_in_python.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"j1_docs_example_dynamic", "xhr_data":"j1_docs_example_dynamic.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_tutorial_interact", "xhr_data":"nbi_docs_tutorial_interact.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_tutorial_monty_hall", "xhr_data":"nbi_docs_tutorial_monty_hall.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_recipes_graphing", "xhr_data":"nbi_docs_recipes_graphing.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_recipes_layout", "xhr_data":"nbi_docs_recipes_layout.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_recipes_interactive_questions", "xhr_data":"nbi_docs_recipes_interactive_questions.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_empirical_distributions", "xhr_data":"nbi_docs_examples_empirical_distributions.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_sampling_from_a_population", "xhr_data":"nbi_docs_examples_sampling_from_a_population.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_variability_of_the_sample_mean", "xhr_data":"nbi_docs_examples_variability_of_the_sample_mean.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_correlation", "xhr_data":"nbi_docs_examples_correlation.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_linear_regression", "xhr_data":"nbi_docs_examples_linear_regression.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_probability_distribution_plots", "xhr_data":"nbi_docs_examples_probability_distribution_plots.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_central_limit_theorem", "xhr_data":"nbi_docs_examples_central_limit_theorem.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}]});
       // -----------------------------------------------------------------------
       // Global variable settings
       // -----------------------------------------------------------------------
@@ -148,31 +148,117 @@ j1.adapter.nbinteract = (function (j1, window) {
     initMathJax: function () {
       var scriptMathjax       = document.createElement('script');
       var scriptMathjaxConfig = document.createElement('script');
+      // Loading MathJax from a CDN
+      //
       scriptMathjax.setAttribute('src','//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML');
+      // create/load MathJax configuration settings
+      //
       scriptMathjaxConfig.setAttribute('type','text/x-mathjax-config');
       scriptMathjaxConfig.innerHTML = `
         MathJax.Hub.Config({
             tex2jax: {
-                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-                processEscapes: true,
-                processEnvironments: true,
-                processClass: "mathjax",
-                ignoreClass: "nomathjax"
+              // inlineMath, displayMath
+              // ---------------------------------------------------------------
+              // TeX 'delimiters'. By default, the tex2jax preprocessor
+              // definesthe LaTeX math delimiters, which are \(...\) for
+              // 'in-line' math, and \[...\] for 'displayed' equations.
+              // It also defines the TeX delimiters $$...$$ for displayed
+              // equations, but it does not define $...$ as in-line math
+              // delimiters. That is because dollar signs appear too often
+              // in non-mathematical settings, which could cause some text
+              // to be treated as mathematics unexpectedly. For example,
+              // with single-dollar delimiters, 'the cost is $2.50' for the
+              // first one, and '$2.00' for each additional one would cause
+              // the phrase '2.50 for the first one' to be treated as
+              // mathematics since it falls between dollar signs. For this
+              // reason, if you want to use single-dollars for in-line math
+              // mode, you must enable that explicitly.
+              //
+              inlineMath: [ ['$','$'], ["\\(","\\)  "] ],
+              displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+              // processEscapes
+              // ---------------------------------------------------------------
+              // When 'processEscapes' set to true, you may use \$ to
+              // representa literal dollar sign, rather than using it as
+              // a math delimiter. When false, \$ will not be altered,
+              // and the dollar sign may be considered part of a math
+              // delimiter. Typically this is set to 'true' if you enable
+              // the $ ... $ in-line delimiters, so you can type \$ and
+              // tex2jax will convert it to a regular dollar sign in the
+              // rendered document.
+              //
+              processEscapes: true,
+              // processEnvironments
+              // ---------------------------------------------------------------
+              // When 'processEnvironments' true, tex2jax looks not only
+              // for the in-line and display math delimiters, but also for
+              // LaTeX environments (\begin{something}...\end{something})
+              // and marks them forprocessing by MathJax. When false, LaTeX
+              // environments will not be processed outside of math mode.
+              //
+              processEnvironments: false,
+              // skipTags
+              // ---------------------------------------------------------------
+              // The array 'skipTags' lists the names of the tags whose
+              // contents should NOT be processed by tex2jax.
+              //
+              skipTags: ["script","noscript","style","textarea","pre","code"],
+              // processClass, ignoreClass
+              // ---------------------------------------------------------------
+              // These are the (CSS) classes name used to mark elements whose
+              // contents should or should NOT be processed by tex2jax.
+              //
+              processClass: "mathjax",
+              ignoreClass: "nomathjax"
             },
-            // jadams, 2022-04-22, NOTE: 'MathJax_Display' overloaded by
-            // THEME CSS. Unclear how to configure 'HTML-CSS' correctly.
+            // displayAlign
+            // -----------------------------------------------------------------
+            // Align (displayMath) equations left-sided in code and all
+            // markdown cells.
             //
-            // Center justify equations in code and markdown cells. Elsewhere
-            // we use CSS to left justify single line equations in code cells.
-            displayAlign: 'center',
-            "HTML-CSS": {
-                styles: {'.MathJax_Display': {
-                  "margin": 0,
-                }},
-                linebreaks: { automatic: true }
-            }
+            displayAlign: 'left',
+            // preview
+            // -----------------------------------------------------------------
+            // Controls whether tex2jax inserts 'MathJax_Preview' spans to
+            // make a preview available, and what preview to use, when it
+            // locates in-line or display mathematics in the page. The default
+            // is 'TeX', which means use the TeX code as the preview (which
+            // will be visible until it is processed by MathJax). Set to
+            // 'none' to prevent previews from being inserted.
+            //
+            preview: "TeX",
+            // CommonHTML, HTML-CSS, and SVG output processors
+            // -----------------------------------------------------------------
+            // The CommonHTML, HTML-CSS, and SVG output processors implement
+            // most of the MathML3 automatic line-breaking specification.
+            // Since line-breaking takes extra processing and so can slow
+            // down the mathematical output, it is off by default
+            //
+            CommonHTML: { linebreaks: { automatic: false } },
+            "HTML-CSS": { linebreaks: { automatic: false } },
+                   SVG: { linebreaks: { automatic: false } }
         });
+        // Use Jax renderer 'CommonHTML' for default
+        //
+        MathJax.Hub.Register.StartupHook("End Jax",function () {
+          var BROWSER = MathJax.Hub.Browser;
+          var jax = "CommonHTML";
+          if (BROWSER.hasMathPlayer) jax = "NativeMML";
+          return MathJax.Hub.setRenderer(jax);
+        });
+        // Register a message MessageHook
+        // ---------------------------------------------------------------------
+        // MathJax.Hub.Register.MessageHook("New Math", function (message) {
+        //   var script = MathJax.Hub.getJaxFor(message[1]).SourceElement();
+        //   var j1_message = {};
+        //   j1_message.type    = 'command';
+        //   j1_message.action  = 'mathjax';
+        //   j1_message.text    = message[1];
+        //   this.j1.sendMessage('MathJax.Hub.MessageHook', 'j1.adapter.nbinteract', j1_message);
+        //   // console.error('nbinteract, Hub - New Math: ' + message[1]);
+        // });
+        // ---------------------------------------------------------------------
+        // END config
       `;
       // add Mathjax resources
       //
@@ -199,6 +285,7 @@ j1.adapter.nbinteract = (function (j1, window) {
               xhr_data:           textbook.xhr_data,
               xhr_data_path:      textbook.xhr_data_path,
               use_mathjax:        textbook.use_mathjax,
+              translate_mathjax:  textbook.translate_mathjax,
               altair_cleanups:    textbook.altair_cleanups,
               buttonStyles:       settings.button_styles,
             });
@@ -347,12 +434,12 @@ j1.adapter.nbinteract = (function (j1, window) {
         return;
       }
       // END textbook_id: j1_interactive_widgets
-      if ($('#j1_ode_selected').length) {
+      if ($('#j1_docs_example_dynamic').length) {
         var dependencies_met_nb_loaded = setInterval(function() {
-          if ($('#j1_ode_selected').attr('data-nb-textbook') == 'loaded') {
+          if ($('#j1_docs_example_dynamic').attr('data-nb-textbook') == 'loaded') {
             var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
             if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
-              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: j1_ode_selected';
+              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: j1_docs_example_dynamic';
               logger.warn(log_text);
               spinner.stop();
             }
@@ -381,14 +468,14 @@ j1.adapter.nbinteract = (function (j1, window) {
                 var nbiButtonState = _this.getNbiButtonState();
                 if (nbiButtonState) {
                   // button NOT removed
-                  logger.warn('NBI initialialization failed on textbook: j1_ode_selected');
+                  logger.warn('NBI initialialization failed on textbook: j1_docs_example_dynamic');
                   // hide the info modal
                   $(nbiModalSuccessID).modal('hide');
                   // show the error modal
                   $(nbiModalSuccessID).on('hidden.bs.modal', function () {
                     if ($(nbiModalErrorID).is(':hidden')) {
                       var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
-                      _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: j1_ode_selected')
+                      _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: j1_docs_example_dynamic')
                       $(nbiModalErrorID).modal('show');
                       // auto-close the error modal
                       if (nbiModalAutoClose) {
@@ -409,7 +496,133 @@ j1.adapter.nbinteract = (function (j1, window) {
         }, 25);
         return;
       }
-      // END textbook_id: j1_ode_selected
+      // END textbook_id: j1_docs_example_dynamic
+      if ($('#j1_circular_times_table').length) {
+        var dependencies_met_nb_loaded = setInterval(function() {
+          if ($('#j1_circular_times_table').attr('data-nb-textbook') == 'loaded') {
+            var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
+            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: j1_circular_times_table';
+              logger.warn(log_text);
+              spinner.stop();
+            }
+            if(!nbinteract_prepared && nbiButtonsFound > 1) {
+              logText = '\n' + 'jupyter kernel is being generated ...';
+              logger.info(logText);
+              // create nbInteract (core) instance
+              //
+              coreLogger = log4javascript.getLogger('nbinteract.core');
+              interact = new NbInteract({
+                spec:     options.spec,
+                baseUrl:  options.baseUrl,
+                provider: options.provider,
+                logger:   coreLogger,
+                j1API:    j1,
+              });
+              // generate a jupyter kernel via BinderHub
+              interact.prepare();
+              nbinteract_prepared = true;
+              // issue an error if the NBI (init) button never removed by
+              // nbInteract-core (util or manager)
+              // TODO:  The 'timeout' condition should be replaced
+              //        state-based triggered from nbInteract-core.
+              //
+              window.setTimeout(function() {
+                var nbiButtonState = _this.getNbiButtonState();
+                if (nbiButtonState) {
+                  // button NOT removed
+                  logger.warn('NBI initialialization failed on textbook: j1_circular_times_table');
+                  // hide the info modal
+                  $(nbiModalSuccessID).modal('hide');
+                  // show the error modal
+                  $(nbiModalSuccessID).on('hidden.bs.modal', function () {
+                    if ($(nbiModalErrorID).is(':hidden')) {
+                      var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
+                      _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: j1_circular_times_table')
+                      $(nbiModalErrorID).modal('show');
+                      // auto-close the error modal
+                      if (nbiModalAutoClose) {
+                        window.setTimeout(function() {
+                          $(nbiModalErrorID).modal('hide');
+                        }, nbiModalAutoCloseDelay);
+                      }
+                    }
+                  });
+                } else {
+                  // button removed
+                  logger.info('NBI initialized successfully.');
+                }
+              }, nbiInitTimeout);
+            }
+            clearInterval(dependencies_met_nb_loaded);
+          } // END dependencies_met_nb_loaded
+        }, 25);
+        return;
+      }
+      // END textbook_id: j1_circular_times_table
+      if ($('#j1_odes_in_python').length) {
+        var dependencies_met_nb_loaded = setInterval(function() {
+          if ($('#j1_odes_in_python').attr('data-nb-textbook') == 'loaded') {
+            var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
+            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: j1_odes_in_python';
+              logger.warn(log_text);
+              spinner.stop();
+            }
+            if(!nbinteract_prepared && nbiButtonsFound > 1) {
+              logText = '\n' + 'jupyter kernel is being generated ...';
+              logger.info(logText);
+              // create nbInteract (core) instance
+              //
+              coreLogger = log4javascript.getLogger('nbinteract.core');
+              interact = new NbInteract({
+                spec:     options.spec,
+                baseUrl:  options.baseUrl,
+                provider: options.provider,
+                logger:   coreLogger,
+                j1API:    j1,
+              });
+              // generate a jupyter kernel via BinderHub
+              interact.prepare();
+              nbinteract_prepared = true;
+              // issue an error if the NBI (init) button never removed by
+              // nbInteract-core (util or manager)
+              // TODO:  The 'timeout' condition should be replaced
+              //        state-based triggered from nbInteract-core.
+              //
+              window.setTimeout(function() {
+                var nbiButtonState = _this.getNbiButtonState();
+                if (nbiButtonState) {
+                  // button NOT removed
+                  logger.warn('NBI initialialization failed on textbook: j1_odes_in_python');
+                  // hide the info modal
+                  $(nbiModalSuccessID).modal('hide');
+                  // show the error modal
+                  $(nbiModalSuccessID).on('hidden.bs.modal', function () {
+                    if ($(nbiModalErrorID).is(':hidden')) {
+                      var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
+                      _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: j1_odes_in_python')
+                      $(nbiModalErrorID).modal('show');
+                      // auto-close the error modal
+                      if (nbiModalAutoClose) {
+                        window.setTimeout(function() {
+                          $(nbiModalErrorID).modal('hide');
+                        }, nbiModalAutoCloseDelay);
+                      }
+                    }
+                  });
+                } else {
+                  // button removed
+                  logger.info('NBI initialized successfully.');
+                }
+              }, nbiInitTimeout);
+            }
+            clearInterval(dependencies_met_nb_loaded);
+          } // END dependencies_met_nb_loaded
+        }, 25);
+        return;
+      }
+      // END textbook_id: j1_odes_in_python
       if ($('#j1_docs_example_dynamic').length) {
         var dependencies_met_nb_loaded = setInterval(function() {
           if ($('#j1_docs_example_dynamic').attr('data-nb-textbook') == 'loaded') {
@@ -1236,11 +1449,16 @@ j1.adapter.nbinteract = (function (j1, window) {
     // (e.g. <div>) specified by xhr_container_id, xhr_data_path
     // -------------------------------------------------------------------------
     loadTextbookHTML: function (options) {
-      var html_data_path    = options.xhr_data_path + '/' + options.xhr_data;
-      var id                = options.xhr_container_id;
-      var mathjaxEnabled    = options.use_mathjax;
-      var cleanupAltair     = options.altair_cleanups;
-      var $selector         = $('#' + id);
+      var html_data_path      = options.xhr_data_path + '/' + options.xhr_data;
+      var id                  = options.xhr_container_id;
+      var mathjaxEnabled      = options.use_mathjax ? options.use_mathjax : false;
+      var mathjaxTranslate    = options.translate_mathjax ? options.translate_mathjax : false;
+      var cleanupAltair       = options.altair_cleanups ? options.altair_cleanups : false;
+      var isPageRendered      = false;
+      var $selector           = $('#' + id);
+      var allID;
+      var allMathJaxSpan;
+      var allMathJaxElement;
       var logText;
       var cb_load_closure = function(id, mathjaxFlag) {
         return function (responseTxt, statusTxt, xhr) {
@@ -1290,15 +1508,14 @@ j1.adapter.nbinteract = (function (j1, window) {
               var newContent;
               var newContentWritten = false;
               var isWidget;
-              var isPageRendered = false;
               var outputDiv;
               var childNodes;
               var clientHeight;
               var lastWidget = false;
-              var allID = document.querySelectorAll('*[id^="altair-viz"]');
-              // check/wait for ALL widgets in the page are rendered (by JS)
+              // check/wait for ALL Altair widgets in the page are rendered (by JS)
               // if rendering finished, flag 'isPageRendered' is set to 'true'
               //
+              allID = document.querySelectorAll('*[id^="altair-viz"]');
               for (var l = 0; l < allID.length; l++) {
                 outputDiv = document.getElementById(allID[l].id);
                 var dependencies_met_page_rendered = setInterval(function() {
@@ -1334,7 +1551,7 @@ j1.adapter.nbinteract = (function (j1, window) {
                   clearInterval(dependencies_met_widgets_updated);
                 }
               }, 25);  // END interval
-            } // END if cleanupAltair
+            } // END if cleanup Altair
             // disable MathJax for all HTML 'output_wrapper' elements
             //
             [...output_wrapper].forEach(function(x) {
@@ -1347,21 +1564,44 @@ j1.adapter.nbinteract = (function (j1, window) {
             var images = document.getElementsByTagName('img');;
             [...images].forEach(function(x) {
               if (!x.className.includes('img-fluid')) {
-                x.className += 'img-fluid';
+                x.className += ' img-fluid';
               }
             });
-            // NOTE: DISABLED. Doesn't work that way. The class 'nbinteract-hide_in'
-            // is used in combination with hidden code cells as well!
+            // disable for now
             //
-            // Remove all childs in a element having the class 'nbinteract-hide_in'
-            // document.querySelectorAll('.nbinteract-hide_in').forEach(el => el.remove());
-            // Adding class on input_area NOT needed. This element contains
-            // and 'highlight' element that is processed for 'notranslate'
-            // in adapter rouge.js already
-            //
-            // var input_area = document.getElementsByClassName('input_area');
-            // [...input_area].forEach(x => x.className += " notranslate");
-            // cleanup headlines in textbook HTML and add an id used by toccer
+            mathjaxTranslate = true
+            // disable translation on MathJax containers
+            // -----------------------------------------------------------------
+            if (mathjaxEnabled && !mathjaxTranslate) {
+              var dependencies_met_mathjax_available = setInterval(function() {
+                // document.getElementsByClassName('MJXc-display');
+                // document.querySelectorAll('*[id^="MathJax-Element"]');
+                // allMathJaxSpan = document.querySelectorAll('*[id^="MathJax-Element"]');
+                // allMathJaxSpan = document.querySelectorAll('*[id^="MathJax-Element-"]');
+                // allMathJaxSpan = document.getElementsByClassName('mjx-chtml');
+                allMathJaxSpan = document.querySelectorAll('*[id$="-Frame"]');
+                if (allMathJaxSpan.length) {
+                  // var lastElm = document.getElementById(allMathJaxSpan[allMathJaxSpan.length-1].id);
+                  var dependencies_met_mathjax_rendered = setInterval(function() {
+                    // var isProcessing = lastElm.classList.contains('MathJax_Processing');
+                    var mj_state = j1.adapter.nbinteract.getState()
+                    if (mj_state == 'mathjax_finished') {
+                      allMathJaxSpan = document.querySelectorAll('*[id$="-Frame"]');
+                      for (var l = 0; l < allMathJaxSpan.length; l++) {
+                        // outputDiv = document.getElementById(allMathJaxSpan[l].id);
+                        outputDiv = allMathJaxSpan[l];
+                        logger.error('\n' + 'element: ' + outputDiv.id  );
+                        // outputDiv.classList.remove('MJXc-processing');
+                        outputDiv.classList.add('notranslate');
+                      }
+                      clearInterval(dependencies_met_mathjax_rendered);
+                    }
+                  }, 25);  // END interval dependencies_met_mathjax_rendered
+                  clearInterval(dependencies_met_mathjax_available);
+                };
+              }, 25);  // END interval dependencies_met_mathjax_available
+            } // END // disable translation on MathJax
+            // rewrite headlines in textbook HTML, add an id used by toccer
             //
             $selector.find('h1').replaceWith( function() {
               // return '<h1 id="' + $(this)[0].id.replace(/\$/g, '') + '">' + $(this).text().slice(0,-1) + '</h1>';
@@ -1595,6 +1835,7 @@ j1.adapter.nbinteract = (function (j1, window) {
       var json_message      = JSON.stringify(message, undefined, 2);
       var messageSuccessUL  = document.getElementById(nbiModalSuccessMessagesID);
       var messageErrorUL    = document.getElementById(nbiModalErrorMessagesID);
+      var isUpdated = false;
       var message;
       logText = '\n' + 'received message from ' + sender + ': ' + json_message;
       logger.debug(logText);
@@ -1618,6 +1859,26 @@ j1.adapter.nbinteract = (function (j1, window) {
         if (nbiIndicateNbiActivity) {
           spinner.stop();
         }
+      } // END message command/nbi_init_finished
+      if (message.type === 'command' && message.action === 'mathjax') {
+        logger.error('\n' + 'New Math, ID: ' + message.text);
+        MathJax.Hub.Startup.signal.Interest(function (message) {
+          logger.error("Startup: " + message)
+          // if (message.contains('End')) {
+          //   logger.error("Startup: " + message)
+          // }
+        });
+        var dependencies_met_mathjax_rendered = setInterval(function() {
+          var elm = document.getElementById('MathJax-Element-6' + '-Frame');
+          var isProcessing = (elm.classList.contains('MJXc-processing') || elm.classList.contains('MJXc-processed')) ? true : false;
+          if (!isProcessing && !isUpdated) {
+            isUpdated = true;
+            elm.classList.add('notranslate');
+            logger.error('\n' + 'New Math, ID: ' + message.text);
+            //clearInterval(dependencies_met_mathjax_rendered);
+          }
+          clearInterval(dependencies_met_mathjax_rendered);
+        }, 25);  // END interval dependencies_met_mathjax_rendered
       } // END message command/nbi_init_finished
       // -----------------------------------------------------------------------
       //  command|info

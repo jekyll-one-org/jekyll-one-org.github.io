@@ -7,7 +7,7 @@
   
             <!DOCTYPE html>
 <html lang="en">
-  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2022-05-04 19:31:19 +0000 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2022-05-08 17:35:22 +0000 ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ environment detected as: development ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2022.3.0 ] -->
   <head data-proofer-ignore>
@@ -399,6 +399,8 @@
     <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
     <script sync src="/assets/themes/j1/modules/nbInteract/js/nbinteract/nbinteract-core.js"></script>
     <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: plotly ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: require ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ end processing ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ placement for all lane items finished ] -->
@@ -494,7 +496,7 @@
         <div id="image_attic" class="attic notranslate">
           <div class="container">
             <div id="head-title" class="head-title animated"> 
-              <h2 id="head-title-text" class="notoc">ODEs in Python</h2>
+              <h2 id="head-title-text" class="notoc">ODEs with Python</h2>
             </div>
             <div id="head-tagline" class="head-tagline animated"> 
               <h3 id="head-tagline-tagline" class="notoc">interactive evaluation</h3>
@@ -518,38 +520,46 @@
         <main id="main-content" class="r-text-300 js-toc-content">
           <!-- [INFO   ] [j1.layout.content_generator_page.html ] [ begin place content ] -->
           <div class="paragraph">
-            <p><span class="image"><a class="image" href="https://mybinder.org/v2/gh/jekyll-one/nbinteract-notebooks/main?filepath=notebooks/j1/j1_odes_in_python.ipynb" target="_blank" rel="noopener"><img src="/assets/images/badges/notebookBinder.png" alt="Binder"></a></span>
-              <span class="image"><a class="image" href="https://mybinder.org/v2/gh/jekyll-one/nbinteract-notebooks/main?urlpath=/tree" target="_blank" rel="noopener"><img src="https://mybinder.org/badge_logo.svg" alt="Binder"></a></span></p>
+            <p><span class="image"><a class="image" href="https://mybinder.org/v2/gh/jekyll-one/j1-binder-repo/main?filepath=notebooks/j1/j1_odes_in_python.ipynb" target="_blank" rel="noopener"><img src="/assets/images/badges/notebookBinder.png" alt="Binder"></a></span>
+              <span class="image"><a class="image" href="https://mybinder.org/v2/gh/jekyll-one/j1-binder-repo/main?urlpath=/tree" target="_blank" rel="noopener"><img src="https://mybinder.org/badge_logo.svg" alt="Binder"></a></span></p>
           </div>
-          <div class="sect1">
-            <h2 id="odes-in-python">ODEs in Python</h2>
-            <div class="sectionbody">
-              <div class="paragraph">
-                <p>An ordinary differential equation (often abbreviated to ODE) is one
-                  Differential equation where only derivatives of the desired function
-                  occur after exactly one variable. Many physical, chemical and biological
-                  processes in nature are described mathematically with such equations.
-                  Examples are the radioactive decay, motion processes of bodies, many types
-                  of Oscillation processes or the growth behavior of animal populations.</p>
-              </div>
-              <div class="paragraph">
-                <p>In scientific models, ordinary differential equations are often used to
-                  analyze, simulate, or be able to make predictions. Find an example below
-                  describing the dynamics of the population of rabbits and foxes. Check how
-                  the animals depend on each other. Manipulate some parameters to see the
-                  influences on the rabbits and foxes population.</p>
-              </div>
-              <div id="j1_ode_selected" class="nb-textbook " data-nb-textbook="initial"></div>
-            </div>
+          <div class="admonitionblock note">
+            <table>
+              <tr>
+                <td class="icon">
+                  <i class="fa icon-note" title="Note"></i>
+                </td>
+                <td class="content">
+                  All examples are taken from
+                  <a href="https://elc.github.io/posts/ordinary-differential-equations-with-python/" target="_blank" rel="noopener">Ordinary Differential Equations (ODE) with Python</a>
+                </td>
+              </tr>
+            </table>
           </div>
+          <div class="paragraph">
+            <p>An ordinary differential equation (often abbreviated to ODE) is one
+              Differential equation where only derivatives of the desired function
+              occur after exactly one variable. Many physical, chemical and biological
+              processes in nature are described mathematically with such equations.
+              Examples are the radioactive decay, motion processes of bodies, many types
+              of Oscillation processes or the growth behavior of animal populations.</p>
+          </div>
+          <div class="paragraph">
+            <p>In scientific models, ordinary differential equations are often used to
+              analyze, simulate, or be able to make predictions. Find an example below
+              describing the dynamics of the population of rabbits and foxes. Check how
+              the animals depend on each other. Manipulate some parameters to see the
+              influences on the rabbits and foxes population.</p>
+          </div>
+          <div id="j1_odes_in_python" class="nb-textbook " data-nb-textbook="initial"></div>
           <!-- [INFO   ] [j1.layout.content_generator_page.html ] [ end place content ] -->
         </main>
         <!-- [INFO   ] [j1.layout.content_generator_page.html ] [ end main for full page ] -->
-        <!-- [INFO   ] [j1.page.ODEs in Python                   ] [Save the current page to UserState cookie] -->
+        <!-- [INFO   ] [j1.page.ODEs with Python                   ] [Save the current page to UserState cookie] -->
         <!-- script>
-        var logger   = log4javascript.getLogger("j1.page.odes in python.init");
+        var logger   = log4javascript.getLogger("j1.page.odes with python.init");
         var cookieUserState = 'j1.user.state'
-        var log_text = 'Save the current browser page (odes in python) to cookie: ' +cookieUserState;
+        var log_text = 'Save the current browser page (odes with python) to cookie: ' +cookieUserState;
         var j1_user_state = {
           'authenticated' : 'false',
           'cookies_accepted' : 'false',
@@ -900,6 +910,9 @@
       </script>
       <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
       <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: plotly ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ plotly module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: require ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ end processing ] -->
       <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
       <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ placement for all lane items finished ] -->

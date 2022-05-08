@@ -7,7 +7,7 @@
   
             <!DOCTYPE html>
 <html lang="en">
-  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2022-05-04 19:31:19 +0000 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2022-05-08 17:35:22 +0000 ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ environment detected as: development ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2022.3.0 ] -->
   <head data-proofer-ignore>
@@ -426,6 +426,8 @@
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: comments ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: dropdowns ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: nbinteract ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: plotly ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: require ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ end processing ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ placement for all lane items finished ] -->
@@ -572,6 +574,30 @@
 <span id="L4" class="line">    <span class="n">histogram</span><span class="p">.</span></span></code></pre>
                 </div>
               </div>
+              <div class="listingblock noclip">
+                <div class="title">Example</div>
+                <div class="content">
+                  <pre class="highlight"><code class="language-python" data-lang="python"><span id="L1" class="line"><span class="kn">import</span> <span class="nn">nbinteract</span> <span class="k">as</span> <span class="n">nbi</span></span>
+<span id="L2" class="line"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span></span>
+<span id="L3" class="line"></span>
+<span id="L4" class="line"><span class="k">def</span> <span class="nf">hist_response_function</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span></span>
+<span id="L5" class="line">    <span class="s">'''</span></span>
+<span id="L6" class="line"><span class="s">    Returns 1000 values picked at random from the normal</span></span>
+<span id="L7" class="line"><span class="s">    distribution with the mean and SD given.</span></span>
+<span id="L8" class="line"><span class="s">    '''</span></span>
+<span id="L9" class="line">    <span class="k">return</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">sd</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span></span>
+<span id="L10" class="line"></span>
+<span id="L11" class="line"><span class="n">nbi</span><span class="p">.</span><span class="n">hist</span><span class="p">(</span><span class="n">hist_response_function</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">sd</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">))</span></span></code></pre>
+                </div>
+              </div>
+              <div id="lb-nbi-widget--hist" class="imageblock">
+                <div class="title">Rendered Histogram</div>
+                <div class="content mt-3 mb-4" style="margin-bottom: .75rem;">
+                  <a class="notoc" href="/assets/images/pages/nbinteract/manual/nbi_hist.jpg" data-lightbox="pages/nbinteract/manual/nbi_hist.jpg" data-title="Rendered Histogram">
+                    <img class="img-fluid" src="/assets/images/pages/nbinteract/manual/nbi_hist.jpg" alt="Rendered Histogram" width="800">
+                  </a>
+                </div>
+              </div>
               <div class="sect2">
                 <h3 id="options">Options</h3>
                 <div class="listingblock noclip">
@@ -621,6 +647,33 @@
 <span id="L14" class="line">    <span class="n">y</span><span class="o">-</span><span class="n">axis</span><span class="p">.</span></span></code></pre>
                 </div>
               </div>
+              <div class="listingblock noclip">
+                <div class="title">Example</div>
+                <div class="content">
+                  <pre class="highlight"><code class="language-python" data-lang="python"><span id="L1" class="line"><span class="kn">import</span> <span class="nn">nbinteract</span> <span class="k">as</span> <span class="n">nbi</span></span>
+<span id="L2" class="line"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span></span>
+<span id="L3" class="line"></span>
+<span id="L4" class="line"><span class="k">def</span> <span class="nf">categories</span><span class="p">(</span><span class="n">n</span><span class="p">):</span></span>
+<span id="L5" class="line">    <span class="k">return</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span></span>
+<span id="L6" class="line"></span>
+<span id="L7" class="line"><span class="k">def</span> <span class="nf">heights</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">offset</span><span class="p">):</span></span>
+<span id="L8" class="line">    <span class="k">return</span> <span class="n">xs</span> <span class="o">+</span> <span class="n">offset</span></span>
+<span id="L9" class="line"></span>
+<span id="L10" class="line"><span class="n">opts</span> <span class="o">=</span> <span class="p">{</span></span>
+<span id="L11" class="line">    <span class="s">'ylim'</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span></span>
+<span id="L12" class="line"><span class="p">}</span></span>
+<span id="L13" class="line"></span>
+<span id="L14" class="line"><span class="n">nbi</span><span class="p">.</span><span class="n">bar</span><span class="p">(</span><span class="n">categories</span><span class="p">,</span> <span class="n">heights</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">offset</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">options</span><span class="o">=</span><span class="n">opts</span><span class="p">)</span></span></code></pre>
+                </div>
+              </div>
+              <div id="lb-nbi-widget--bar" class="imageblock">
+                <div class="title">Rendered Barchart</div>
+                <div class="content mt-3 mb-4" style="margin-bottom: .75rem;">
+                  <a class="notoc" href="/assets/images/pages/nbinteract/manual/nbi_bar.jpg" data-lightbox="pages/nbinteract/manual/nbi_bar.jpg" data-title="Rendered Barchart">
+                    <img class="img-fluid" src="/assets/images/pages/nbinteract/manual/nbi_bar.jpg" alt="Rendered Barchart" width="800">
+                  </a>
+                </div>
+              </div>
               <div class="sect2">
                 <h3 id="options-2">Options</h3>
                 <div class="listingblock noclip">
@@ -645,7 +698,7 @@
             </div>
           </div>
           <div class="sect1">
-            <h2 id="scatter-plot">Scatter plot</h2>
+            <h2 id="interactive-scatter-plot">Interactive Scatter plot</h2>
             <div class="sectionbody">
               <div class="paragraph">
                 <p>The widget <code>nbinteract.scatter_drag</code> generates an interactive scatter plot
@@ -656,6 +709,28 @@
                 <div class="content">
                   <pre class="highlight"><code class="language-python" data-lang="python"><span id="L1" class="line"><span class="n">x_points</span> <span class="p">(</span><span class="n">Array</span> <span class="n">Number</span><span class="p">):</span> <span class="n">x</span><span class="o">-</span><span class="n">values</span> <span class="n">of</span> <span class="n">points</span> <span class="n">to</span> <span class="n">plot</span></span>
 <span id="L2" class="line"><span class="n">y_points</span> <span class="p">(</span><span class="n">Array</span> <span class="n">Number</span><span class="p">):</span> <span class="n">y</span><span class="o">-</span><span class="n">values</span> <span class="n">of</span> <span class="n">points</span> <span class="n">to</span> <span class="n">plot</span></span></code></pre>
+                </div>
+              </div>
+              <div class="listingblock noclip">
+                <div class="title">Example</div>
+                <div class="content">
+                  <pre class="highlight"><code class="language-python" data-lang="python"><span id="L1" class="line"><span class="kn">import</span> <span class="nn">nbinteract</span> <span class="k">as</span> <span class="n">nbi</span></span>
+<span id="L2" class="line"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span></span>
+<span id="L3" class="line"></span>
+<span id="L4" class="line"><span class="n">x_coords</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span></span>
+<span id="L5" class="line"><span class="n">y_coords</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span></span>
+<span id="L6" class="line"></span>
+<span id="L7" class="line"><span class="n">opts</span> <span class="o">=</span> <span class="p">{</span><span class="s">'xlim'</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="s">'ylim'</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="s">'animation_duration'</span><span class="p">:</span> <span class="mi">250</span><span class="p">}</span></span>
+<span id="L8" class="line"></span>
+<span id="L9" class="line"><span class="n">nbi</span><span class="p">.</span><span class="n">scatter_drag</span><span class="p">(</span><span class="n">x_coords</span><span class="p">,</span> <span class="n">y_coords</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">opts</span><span class="p">)</span></span></code></pre>
+                </div>
+              </div>
+              <div id="lb-nbi-widget--scatter-drag" class="imageblock">
+                <div class="title">Rendered interactive Scatter Plot</div>
+                <div class="content mt-3 mb-4" style="margin-bottom: .75rem;">
+                  <a class="notoc" href="/assets/images/pages/nbinteract/manual/nbi_scatter_drag.jpg" data-lightbox="pages/nbinteract/manual/nbi_scatter_drag.jpg" data-title="Rendered interactive Scatter">
+                    <img class="img-fluid" src="/assets/images/pages/nbinteract/manual/nbi_scatter_drag.jpg" alt="Rendered interactive Scatter Plot" width="800">
+                  </a>
                 </div>
               </div>
               <div class="sect2">
@@ -702,6 +777,26 @@
 <span id="L12" class="line">    <span class="ow">and</span> <span class="n">optionally</span> <span class="n">other</span> <span class="n">parameters</span> <span class="n">to</span> <span class="n">interact</span> <span class="k">with</span><span class="p">.</span> <span class="n">Must</span> <span class="k">return</span> <span class="n">an</span></span>
 <span id="L13" class="line">    <span class="n">array</span> <span class="n">of</span> <span class="n">numbers</span><span class="p">.</span> <span class="n">These</span> <span class="n">will</span> <span class="n">become</span> <span class="n">the</span> <span class="n">y</span><span class="o">-</span><span class="n">coordinates</span> <span class="n">of</span> <span class="n">the</span></span>
 <span id="L14" class="line">    <span class="n">scatter</span> <span class="n">plot</span><span class="p">.</span></span></code></pre>
+                </div>
+              </div>
+              <div class="listingblock noclip">
+                <div class="title">Example</div>
+                <div class="content">
+                  <pre class="highlight"><code class="language-python" data-lang="python"><span id="L1" class="line"><span class="kn">import</span> <span class="nn">nbinteract</span> <span class="k">as</span> <span class="n">nbi</span></span>
+<span id="L2" class="line"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span></span>
+<span id="L3" class="line"></span>
+<span id="L4" class="line"><span class="k">def</span> <span class="nf">x_values</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> <span class="k">return</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">choice</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span></span>
+<span id="L5" class="line"><span class="k">def</span> <span class="nf">y_values</span><span class="p">(</span><span class="n">xs</span><span class="p">):</span> <span class="k">return</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">choice</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">))</span></span>
+<span id="L6" class="line"></span>
+<span id="L7" class="line"><span class="n">nbi</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">))</span></span></code></pre>
+                </div>
+              </div>
+              <div id="lb-nbi-widget--scatter" class="imageblock">
+                <div class="title">Rendered Scatter Plot</div>
+                <div class="content mt-3 mb-4" style="margin-bottom: .75rem;">
+                  <a class="notoc" href="/assets/images/pages/nbinteract/manual/nbi_scatter.jpg" data-lightbox="pages/nbinteract/manual/nbi_scatter.jpg" data-title="Rendered Scatter">
+                    <img class="img-fluid" src="/assets/images/pages/nbinteract/manual/nbi_scatter.jpg" alt="Rendered Scatter Plot" width="800">
+                  </a>
                 </div>
               </div>
               <div class="sect2">
@@ -764,6 +859,14 @@
 <span id="L14" class="line"><span class="n">nbi</span><span class="p">.</span><span class="n">line</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="n">sd</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">options</span><span class="o">=</span><span class="n">opts</span><span class="p">)</span></span></code></pre>
                 </div>
               </div>
+              <div id="lb-nbi-widget--line" class="imageblock">
+                <div class="title">Rendered Line Plot</div>
+                <div class="content mt-3 mb-4" style="margin-bottom: .75rem;">
+                  <a class="notoc" href="/assets/images/pages/nbinteract/manual/nbi_line.jpg" data-lightbox="pages/nbinteract/manual/nbi_line.jpg" data-title="Rendered Line Chart">
+                    <img class="img-fluid" src="/assets/images/pages/nbinteract/manual/nbi_line.jpg" alt="Rendered Line Plot" width="800">
+                  </a>
+                </div>
+              </div>
               <div class="listingblock noclip">
                 <div class="content">
                   <pre class="highlight"><code class="language-python" data-lang="python"><span id="L1" class="line"><span class="n">nbinteract</span><span class="p">.</span><span class="n">line</span><span class="p">(</span><span class="n">x_fn</span><span class="p">,</span> <span class="n">y_fn</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{},</span> <span class="o">**</span><span class="n">interact_params</span><span class="p">)</span></span>
@@ -803,6 +906,98 @@
 <span id="L13" class="line">    <span class="n">of</span> <span class="n">both</span> <span class="sb">`x_fn`</span> <span class="ow">and</span> <span class="sb">`y_fn`</span><span class="p">.</span> <span class="n">If</span> <span class="sb">`x_fn`</span> <span class="ow">and</span> <span class="sb">`y_fn`</span> <span class="n">have</span> <span class="n">conflicting</span></span>
 <span id="L14" class="line">    <span class="n">parameter</span> <span class="n">names</span><span class="p">,</span> <span class="n">prefix</span> <span class="n">the</span> <span class="n">corresponding</span> <span class="n">kwargs</span> <span class="k">with</span> <span class="sb">`x__`</span> <span class="ow">and</span></span>
 <span id="L15" class="line">    <span class="sb">`y__`</span><span class="p">.</span></span></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sect1">
+            <h2 id="multiple-choice">Multiple Choice</h2>
+            <div class="sectionbody">
+              <div class="paragraph">
+                <p>Generates a multiple choice question that allows the user to select an
+                  answer choice and shows whether choice was correct.</p>
+              </div>
+              <div class="listingblock noclip">
+                <div class="content">
+                  <pre class="highlight"><code class="language-python" data-lang="python"><span id="L1" class="line"><span class="n">nbinteract</span><span class="p">.</span><span class="n">multiple_choice</span><span class="p">(</span><span class="n">question</span><span class="p">,</span> <span class="n">choices</span><span class="p">,</span> <span class="n">answers</span><span class="p">)</span></span></code></pre>
+                </div>
+              </div>
+              <div class="listingblock noclip">
+                <div class="title">Example</div>
+                <div class="content">
+                  <pre class="highlight"><code class="language-python" data-lang="python"><span id="L1" class="line"><span class="kn">import</span> <span class="nn">nbinteract</span> <span class="k">as</span> <span class="n">nbi</span></span>
+<span id="L2" class="line"></span>
+<span id="L3" class="line"><span class="n">nbi</span><span class="p">.</span><span class="n">multiple_choice</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="s">"Select all prime numbers."</span><span class="p">,</span></span>
+<span id="L4" class="line">                    <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s">'12'</span><span class="p">,</span> <span class="s">'3'</span><span class="p">,</span> <span class="s">'31'</span><span class="p">],</span></span>
+<span id="L5" class="line">                    <span class="n">answers</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span></span></code></pre>
+                </div>
+              </div>
+              <div id="lb-nbi-widget--multiple-choice" class="imageblock">
+                <div class="title">Rendered Multiple Choice</div>
+                <div class="content mt-3 mb-4" style="margin-bottom: .75rem;">
+                  <a class="notoc" href="/assets/images/pages/nbinteract/manual/nbi_multiple_choice.jpg" data-lightbox="pages/nbinteract/manual/nbi_multiple_choice.jpg" data-title="Rendered Multiple Choice">
+                    <img class="img-fluid" src="/assets/images/pages/nbinteract/manual/nbi_multiple_choice.jpg" alt="Rendered Multiple Choice" width="800">
+                  </a>
+                </div>
+              </div>
+              <div class="sect2">
+                <h3 id="options-6">Options</h3>
+                <div class="listingblock noclip">
+                  <div class="content">
+                    <pre class="highlight"><code class="language-python" data-lang="python"><span id="L1" class="line"><span class="n">question</span> <span class="p">(</span><span class="nb">str</span><span class="p">):</span> <span class="n">Question</span> <span class="n">text</span> <span class="n">displayed</span> <span class="n">above</span> <span class="n">choices</span><span class="p">.</span></span>
+<span id="L2" class="line"></span>
+<span id="L3" class="line"><span class="n">choices</span> <span class="p">(</span><span class="nb">list</span> <span class="nb">str</span><span class="p">):</span> <span class="n">Answer</span> <span class="n">choices</span> <span class="n">that</span> <span class="n">user</span> <span class="n">can</span> <span class="n">select</span><span class="p">.</span></span>
+<span id="L4" class="line"></span>
+<span id="L5" class="line"><span class="n">answers</span> <span class="p">(</span><span class="nb">int</span> <span class="o">|</span> <span class="n">iterable</span> <span class="nb">int</span><span class="p">):</span> <span class="n">Either</span> <span class="n">an</span> <span class="n">integer</span> <span class="ow">or</span> <span class="n">iterable</span> <span class="n">of</span></span>
+<span id="L6" class="line">    <span class="n">integers</span><span class="p">.</span> <span class="n">Each</span> <span class="n">integer</span> <span class="ow">in</span> <span class="n">answers</span> <span class="n">corresponds</span> <span class="n">to</span> <span class="n">the</span> <span class="n">index</span> <span class="n">of</span> <span class="n">the</span></span>
+<span id="L7" class="line">    <span class="n">correct</span> <span class="n">choice</span> <span class="ow">in</span> <span class="sb">`choices`</span><span class="p">.</span></span></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sect1">
+            <h2 id="short-answer">Short Answer</h2>
+            <div class="sectionbody">
+              <div class="paragraph">
+                <p>Generates a short answer question that allows user to input an answer in
+                  a textbox and a submit button to check the answer.</p>
+              </div>
+              <div class="listingblock noclip">
+                <div class="content">
+                  <pre class="highlight"><code class="language-python" data-lang="python"><span id="L1" class="line"><span class="n">nbinteract</span><span class="p">.</span><span class="n">short_answer</span><span class="p">(</span><span class="n">question</span><span class="p">,</span> <span class="n">answers</span><span class="p">,</span> <span class="n">explanation</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span></span></code></pre>
+                </div>
+              </div>
+              <div class="listingblock noclip">
+                <div class="title">Example</div>
+                <div class="content">
+                  <pre class="highlight"><code class="language-python" data-lang="python"><span id="L1" class="line"><span class="kn">import</span> <span class="nn">nbinteract</span> <span class="k">as</span> <span class="n">nbi</span></span>
+<span id="L2" class="line"></span>
+<span id="L3" class="line"><span class="n">nbi</span><span class="p">.</span><span class="n">short_answer</span><span class="p">(</span><span class="s">'What is 1+1?'</span><span class="p">,</span> <span class="n">answers</span><span class="o">=</span><span class="s">'2'</span><span class="p">,</span> <span class="n">explanation</span><span class="o">=</span><span class="s">'1+1 is 2'</span><span class="p">)</span></span></code></pre>
+                </div>
+              </div>
+              <div id="lb-nbi-widget--short-answer" class="imageblock">
+                <div class="title">Rendered Short Answer</div>
+                <div class="content mt-3 mb-4" style="margin-bottom: .75rem;">
+                  <a class="notoc" href="/assets/images/pages/nbinteract/manual/nbi_short_answer.jpg" data-lightbox="pages/nbinteract/manual/nbi_short_answer.jpg" data-title="Rendered Short Answer">
+                    <img class="img-fluid" src="/assets/images/pages/nbinteract/manual/nbi_short_answer.jpg" alt="Rendered Short Answer" width="800">
+                  </a>
+                </div>
+              </div>
+              <div class="sect2">
+                <h3 id="options-7">Options</h3>
+                <div class="listingblock noclip">
+                  <div class="content">
+                    <pre class="highlight"><code class="language-python" data-lang="python"><span id="L1" class="line"><span class="n">question</span> <span class="p">(</span><span class="nb">str</span><span class="p">):</span>  <span class="n">The</span> <span class="n">question</span> <span class="n">being</span> <span class="n">asked</span><span class="p">.</span></span>
+<span id="L2" class="line"></span>
+<span id="L3" class="line"><span class="n">answers</span> <span class="p">(</span><span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">func</span><span class="p">):</span> <span class="n">If</span> <span class="n">a</span> <span class="n">string</span><span class="p">,</span> <span class="n">only</span> <span class="n">that</span> <span class="n">string</span> <span class="n">will</span> <span class="n">be</span></span>
+<span id="L4" class="line">    <span class="n">marked</span> <span class="n">correct</span><span class="p">.</span> <span class="n">If</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">string</span><span class="p">,</span> <span class="nb">any</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">the</span> <span class="nb">list</span> <span class="n">will</span> <span class="n">be</span></span>
+<span id="L5" class="line">    <span class="n">marked</span> <span class="n">correct</span><span class="p">.</span> <span class="n">If</span> <span class="n">a</span> <span class="n">function</span><span class="p">,</span> <span class="nb">any</span> <span class="nb">input</span> <span class="n">that</span> <span class="n">causes</span> <span class="n">the</span> <span class="n">function</span></span>
+<span id="L6" class="line">    <span class="n">to</span> <span class="k">return</span> <span class="bp">True</span> <span class="n">will</span> <span class="n">be</span> <span class="n">marked</span> <span class="n">correct</span><span class="p">.</span></span>
+<span id="L7" class="line"></span>
+<span id="L8" class="line"><span class="n">explanation</span> <span class="p">(</span><span class="nb">str</span><span class="p">):</span>  <span class="n">The</span> <span class="n">explanation</span> <span class="n">to</span> <span class="n">the</span> <span class="n">question</span> <span class="ow">is</span> <span class="n">displayed</span> <span class="n">when</span></span>
+<span id="L9" class="line">    <span class="n">the</span> <span class="n">user</span> <span class="n">inputs</span> <span class="n">the</span> <span class="n">correct</span> <span class="n">answer</span><span class="p">.</span></span></code></pre>
                   </div>
                 </div>
               </div>
@@ -1189,6 +1384,9 @@
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: comments ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: dropdowns ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: nbinteract ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: plotly ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ plotly module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: require ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ end processing ] -->
       <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
       <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ placement for all lane items finished ] -->

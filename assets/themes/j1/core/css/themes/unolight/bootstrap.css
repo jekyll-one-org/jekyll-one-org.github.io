@@ -10954,7 +10954,9 @@ select, select.form-control {
 */
 a {
   color: #616161 !important;
-  font-weight: 500 !important; }
+  font-weight: 500 !important;
+  text-decoration: none;
+  border-bottom: 1px dotted; }
 
 a:hover {
   color: #bdbdbd !important;
@@ -14778,6 +14780,9 @@ a.card-title:hover {
 .card-footer-text {
   color: #212121; }
 
+a.card-link {
+  border-bottom: unset; }
+
 .card-signup .header {
   box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
   margin-left: 20px;
@@ -17349,28 +17354,27 @@ button.btn-fab-floating {
   display: inline-block;
   line-height: 2.5rem;
   padding: 0 1rem 0 1rem;
-  background-color: #2196F3;
+  background-color: #2196f3;
   border-radius: 3px;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  color: #fff;
+  color: #212121 !important;
   font-size: .75rem !important;
   font-weight: 400;
   text-decoration: none;
   -webkit-transition: .2s;
-  transition: .2s; }
+  transition: .2s;
+  border-bottom: unset; }
 
 .series-navigation ul li.current a {
   background-color: rgba(0, 0, 0, 0.5); }
 
 .series-navigation ul li.current a:hover {
-  background-color: rgba(0, 0, 0, 0.9) !important;
-  color: #fff !important; }
+  color: #eee !important; }
 
 .series-navigation ul li a:hover {
-  background-color: rgba(0, 0, 0, 0.9);
-  color: #fff !important; }
+  color: #eee !important; }
 
 .series-exerpt {
   text-align: justify;
@@ -19650,6 +19654,9 @@ cite, em, var, address, dfn {
  # NOTE: MD Color Palette
  # -----------------------------------------------------------------------------
 */
+.mdColorValue {
+  border-bottom: unset; }
+
 .md-white {
   color: #fff !important; }
 
@@ -25101,7 +25108,8 @@ li.dropdown.nav-item.nav-sub-item:before {
       width: -o-max-content;
       width: -ms-max-content;
       font-weight: 400;
-      font-size: 1.1rem; }
+      font-size: 1.1rem;
+      border-bottom: unset; }
     nav.navbar.navigator ul.nav.navigator .dropdown.nav-item .nav-link {
       text-transform: none;
       width: max-content;
@@ -25392,7 +25400,8 @@ li.dropdown.nav-item.nav-sub-item:before {
   nav.navbar.navigator .navbar-brand {
     padding: 0.5rem 1rem;
     margin-right: 0;
-    border-right: 0px !important; }
+    border-right: 0px !important;
+    border-bottom: unset; }
   nav.navbar.navigator .dropdown .nav-item {
     padding: 0.5em 1em .5em 1em; }
   nav.navbar.navigator ul.nav.navigator .dropdown.nav-item .dropdown-toggle:after {
@@ -25738,7 +25747,8 @@ li.dropdown.nav-item.nav-sub-item:before {
     .attr-nav > ul > li > a {
       color: rgba(255, 255, 255, 0.5);
       padding: 16px 10px 15px;
-      padding-left: 0; }
+      padding-left: 0;
+      border-bottom: unset; }
     .attr-nav > ul > li.dropdown ul.dropdown-menu {
       left: -275px; }
   .top-search .container {
@@ -25880,7 +25890,8 @@ a.toc-link {
   color: #bdbdbd !important;
   height: 100%;
   font-size: 1rem;
-  /* jadams, 2017-12-13: added font-size for toc-link */ }
+  /* jadams, 2017-12-13: added font-size for toc-link */
+  border-bottom: unset; }
 
 /* jadams, 2020-07-03: added hover to global style */
 a.toc-link:hover {

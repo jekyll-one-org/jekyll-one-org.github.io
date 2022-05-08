@@ -53,7 +53,7 @@
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Reading and transforming the data file</span>
-<span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://github.com/jekyll-one/nbinteract-notebooks/raw/main/data/GlobalLandTemperaturesByMajorCity.csv.zip&quot;</span>
+<span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://github.com/jekyll-one/j1-binder-repo/raw/main/data/GlobalLandTemperaturesByMajorCity.csv.zip&quot;</span>
 <span class="n">cities</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="c1">#cities = pd.read_csv(&#39;../input/earth-surface-temperature-data/GlobalLandTemperaturesByCity.csv.zip&#39;)</span>
 <span class="n">rio</span> <span class="o">=</span> <span class="n">cities</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cities</span><span class="p">[</span><span class="s1">&#39;City&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Rio De Janeiro&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;dt&#39;</span><span class="p">,</span><span class="s1">&#39;AverageTemperature&#39;</span><span class="p">]]</span>
@@ -154,7 +154,7 @@
 <li><p><strong>I(d)</strong> is the differencing part, the <code>d</code> parameter tells how many differencing orders are going to be used, it tries to make the series stationary, example:</p>
 <ul>
 <li>Yesterday I sold 10 items of a product, today I sold 14, the "I" in this case is just the first difference, which is +4, if you are using logarithm base this difference is equivalent to percentual difference. </li>
-<li>If d = 1: $y_{t} = Y_{t} - Y_{t-1}$ where $y_{t}$ is the differenced series and $Y_{t-period}$ is the original series</li>
+<li>If d = 1: $y_{t} = Y_{t} - Y_{t-1}$ where $y_{t}$ is the differenced series and $Y_{t-p}$ is the original series</li>
 <li>If d = 2: $y_{t} = (Y_{t} - Y_{t-1}) - (Y_{t-1} - Y_{t-2}) = Y_{t} - 2Y_{t-1} + Y_{t-2}$</li>
 <li>Note that the second difference is a change-in-change, which is a measure of the local "acceleration" rather than trend.</li>
 </ul>

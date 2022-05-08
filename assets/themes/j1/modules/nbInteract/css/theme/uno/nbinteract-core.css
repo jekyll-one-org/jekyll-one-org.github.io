@@ -13,10 +13,8 @@
  # -----------------------------------------------------------------------------
 */
 
-/*
-  Altair CSS overwrites
-  ------------------------------------------------------------------------------
-*/
+/* Altair style overwrites
+-------------------------------------------------------------------------------- */
 
 /* jadams: overwrite width/height (style) of the canvas for responsiveness */
 /* https://stackoverflow.com/questions/55169344/how-to-make-altair-plots-responsive */
@@ -90,28 +88,28 @@ select {
   margin-left: .75rem;
 } */
 
-
-/*
-  MathJax CSS overwrites
-  ------------------------------------------------------------------------------
-*/
-
-.MathJax_Display {
-  margin-top: 1rem !important;
-  text-align: left !important;
-  margin-left: 1rem !important;
+/* MathJax style overwrites (CSS-HTML)
+-------------------------------------------------------------------------------- */
+.MathJax span {
+  font-size: 100% !important;
 }
 
-span.MathJax {
-    margin-left: 0.25rem;
-    margin-right: 0.25rem;
+/* MathJax style overwrites (CommonHTML)
+-------------------------------------------------------------------------------- */
+
+.MJXc-display {
+  margin: 1em 0 1em 0 !important;
 }
 
-/*
-  Bgplot CSS overwrites
-  ------------------------------------------------------------------------------
-*/
+.mjx-chtml {
+  margin-right: 0.25rem !important;
+  margin-left: 0.25rem !important;
+  font-size: 100% !important;
+}
 
+
+/* Bgplot style overwrites
+-------------------------------------------------------------------------------- */
 .bqplot {
   box-sizing: border-box !important;
   display: flex !important;
@@ -119,11 +117,8 @@ span.MathJax {
   min-height: 480px !important;
 }
 
-/*
-  global CSS styles
-  ------------------------------------------------------------------------------
-*/
-
+/* global styles
+-------------------------------------------------------------------------------- */
 .bmd-form-group {
   padding-top: unset;
 }
@@ -148,10 +143,8 @@ pre {
   border-radius: 0.25rem;
 }
 
-/*
-  nbinteract CSS overwrites
-  ------------------------------------------------------------------------------
-*/
+/* nbinteract style overwrites
+-------------------------------------------------------------------------------- */
 
 /* jadams, 2022-04-22 */
 .jupyter-widgets {
@@ -193,11 +186,8 @@ pre {
   margin-left: 0 !important;
 }
 
-/*
-  Overrides of notebook CSS for static HTML export
-  ------------------------------------------------------------------------------
-*/
-
+/* Overrides of notebook styles for static HTML export
+-------------------------------------------------------------------------------- */
 div#notebook {
   overflow: visible;
   border-top: none;
@@ -218,10 +208,8 @@ div#notebook {
   }
 }
 
-/*
-  Cell CSS for static HTML export
-  ------------------------------------------------------------------------------
-*/
+/* Cell styles for static HTML export
+-------------------------------------------------------------------------------- */
 .cell.nbinteract-left {
     width: 49%;
     float: left;
