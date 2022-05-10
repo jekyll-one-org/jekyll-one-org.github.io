@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2022-05-08 17:36:23 +0000
+ #  Adapter generated: 2022-05-10 16:48:36 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -27,6 +27,9 @@ j1.adapter.nbinteract = (function (j1, window) {
   var moduleOptions   = {};
   var moduleSettings  = {};
   var message         = {};
+  var flags            = {
+    checkURL:   false
+  };
   var spinnerOpts     = {                                                       // (default) options for a spinner
     lines:      13,                                                             // number of lines to draw
     length:     38,                                                             // length of each line
@@ -51,7 +54,8 @@ j1.adapter.nbinteract = (function (j1, window) {
   var nbiContentModalInfoID       = 'nbiModalInfoBody';                         // ID of the content (messages) for the INFO modal
   var nbiContentModalSuccessID    = 'nbiModalSuccessBody';                      // ID of the content (messages) for the SUCCESS modal
   var nbiContentModalErrorID      = 'nbiModalErrorBody';                        // ID of the content (messages) for the SUCCESS modal
-  var nbiModalInfoID              = '#' + 'nbiModalTopInfo';                    // ID of the SUCCESS modal
+  var nbiModalTopInfo             = '#' + 'nbiModalTopInfo';                    // ID of the TopInfo modal
+  var nbiModalTRInfo              = '#' + 'nbiModalTRInfo';                     // ID of the TRInfo modal
   var nbiModalSuccessID           = '#' + 'nbiModalTRSuccess';                  // ID of the SUCCESS modal
   var nbiModalErrorID             = '#' + 'nbiModalTLDanger';                   // ID of the ERROR modal
   var nbinteract_prepared         = false;                                      // switch to indicate if ???
@@ -89,7 +93,7 @@ j1.adapter.nbinteract = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend ({
         module_name: 'j1.adapter.nbinteract',
-        generated:   '2022-05-08 17:36:23 +0000'
+        generated:   '2022-05-10 16:48:36 +0000'
       }, options);
       moduleOptions = $.extend({}, {"spec":"jekyll-one/j1-binder-repo/main", "baseUrl":"https://mybinder.org", "provider":"gh", "button_styles":"btn btn-primary btn-raised hidden", "show_nbi_messages":false, "indicate_nbi_activity":true, "nbi_messages_auto_close":true, "nbi_init_timeout":180000, "nbi_messages_auto_close_delay":3500, "nbi_init_mathjax":true, "textbooks":[{"textbook":{"enabled":true, "id":"j1_climate_change_forecast", "xhr_data":"j1_climate_change_forecast.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"j1_interactive_widgets", "xhr_data":"j1_interactive_widgets.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"j1_docs_example_dynamic", "xhr_data":"j1_docs_example_dynamic.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"j1_circular_times_table", "xhr_data":"j1_circular_times_table.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"j1_odes_in_python", "xhr_data":"j1_odes_in_python.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"j1_docs_example_dynamic", "xhr_data":"j1_docs_example_dynamic.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_tutorial_interact", "xhr_data":"nbi_docs_tutorial_interact.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_tutorial_monty_hall", "xhr_data":"nbi_docs_tutorial_monty_hall.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_recipes_graphing", "xhr_data":"nbi_docs_recipes_graphing.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_recipes_layout", "xhr_data":"nbi_docs_recipes_layout.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_recipes_interactive_questions", "xhr_data":"nbi_docs_recipes_interactive_questions.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_empirical_distributions", "xhr_data":"nbi_docs_examples_empirical_distributions.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_sampling_from_a_population", "xhr_data":"nbi_docs_examples_sampling_from_a_population.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_variability_of_the_sample_mean", "xhr_data":"nbi_docs_examples_variability_of_the_sample_mean.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_correlation", "xhr_data":"nbi_docs_examples_correlation.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_linear_regression", "xhr_data":"nbi_docs_examples_linear_regression.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_probability_distribution_plots", "xhr_data":"nbi_docs_examples_probability_distribution_plots.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_central_limit_theorem", "xhr_data":"nbi_docs_examples_central_limit_theorem.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}]});
       // -----------------------------------------------------------------------
@@ -301,1147 +305,1171 @@ j1.adapter.nbinteract = (function (j1, window) {
     // controlled by nbinteract_prepared.
     // -------------------------------------------------------------------------
     interactNbiTextbooks: function (options) {
+      var state;
       var textbook = options;
       // initialize state flag
       _this.setState('started');
       logger.debug('\n' + 'state: ' + _this.getState());
+      // check if the Binder Service is available
+      //
+      _this.checkURL(options.baseUrl, flags);
       var log_text = '\n' + 'nbinteract is being initialized';
       logger.info(log_text);
-      // var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget')
-      if ($('#j1_climate_change_forecast').length) {
-        var dependencies_met_nb_loaded = setInterval(function() {
-          if ($('#j1_climate_change_forecast').attr('data-nb-textbook') == 'loaded') {
-            var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
-              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: j1_climate_change_forecast';
-              logger.warn(log_text);
-              spinner.stop();
-            }
-            if(!nbinteract_prepared && nbiButtonsFound > 1) {
-              logText = '\n' + 'jupyter kernel is being generated ...';
-              logger.info(logText);
-              // create nbInteract (core) instance
-              //
-              coreLogger = log4javascript.getLogger('nbinteract.core');
-              interact = new NbInteract({
-                spec:     options.spec,
-                baseUrl:  options.baseUrl,
-                provider: options.provider,
-                logger:   coreLogger,
-                j1API:    j1,
-              });
-              // generate a jupyter kernel via BinderHub
-              interact.prepare();
-              nbinteract_prepared = true;
-              // issue an error if the NBI (init) button never removed by
-              // nbInteract-core (util or manager)
-              // TODO:  The 'timeout' condition should be replaced
-              //        state-based triggered from nbInteract-core.
-              //
-              window.setTimeout(function() {
-                var nbiButtonState = _this.getNbiButtonState();
-                if (nbiButtonState) {
-                  // button NOT removed
-                  logger.warn('NBI initialialization failed on textbook: j1_climate_change_forecast');
-                  // hide the info modal
-                  $(nbiModalSuccessID).modal('hide');
-                  // show the error modal
-                  $(nbiModalSuccessID).on('hidden.bs.modal', function () {
-                    if ($(nbiModalErrorID).is(':hidden')) {
-                      var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
-                      _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: j1_climate_change_forecast')
-                      $(nbiModalErrorID).modal('show');
-                      // auto-close the error modal
-                      if (nbiModalAutoClose) {
-                        window.setTimeout(function() {
-                          $(nbiModalErrorID).modal('hide');
-                        }, nbiModalAutoCloseDelay);
+      var dependencies_met_binder_responsive = setInterval(function() {
+        state = _this.getState();
+        if (state == 'finished_checks') {
+          clearInterval(dependencies_met_binder_responsive);
+          if (flags.checkURL) {
+            if ($('#j1_climate_change_forecast').length) {
+              var dependencies_met_nb_loaded = setInterval(function() {
+                if ($('#j1_climate_change_forecast').attr('data-nb-textbook') == 'loaded') {
+                  var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
+                  if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+                    var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: j1_climate_change_forecast';
+                    logger.warn(log_text);
+                    spinner.stop();
+                  }
+                  if(!nbinteract_prepared && nbiButtonsFound > 1) {
+                    logText = '\n' + 'jupyter kernel is being generated ...';
+                    logger.info(logText);
+                    // create nbInteract (core) instance
+                    //
+                    coreLogger = log4javascript.getLogger('nbinteract.core');
+                    interact = new NbInteract({
+                      spec:     options.spec,
+                      baseUrl:  options.baseUrl,
+                      provider: options.provider,
+                      logger:   coreLogger,
+                      j1API:    j1,
+                    });
+                    // generate a jupyter kernel via BinderHub
+                    interact.prepare();
+                    nbinteract_prepared = true;
+                    // issue an error if the NBI (init) button never removed by
+                    // nbInteract-core (util or manager)
+                    // TODO:  The 'timeout' condition should be replaced
+                    //        state-based triggered from nbInteract-core.
+                    //
+                    window.setTimeout(function() {
+                      var nbiButtonState = _this.getNbiButtonState();
+                      if (nbiButtonState) {
+                        // button NOT removed
+                        logger.warn('NBI initialialization failed on textbook: j1_climate_change_forecast');
+                        // hide the info modal
+                        $(nbiModalSuccessID).modal('hide');
+                        // show the error modal
+                        $(nbiModalSuccessID).on('hidden.bs.modal', function () {
+                          if ($(nbiModalErrorID).is(':hidden')) {
+                            var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
+                            _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: j1_climate_change_forecast')
+                            $(nbiModalErrorID).modal('show');
+                            // auto-close the error modal
+                            if (nbiModalAutoClose) {
+                              window.setTimeout(function() {
+                                $(nbiModalErrorID).modal('hide');
+                              }, nbiModalAutoCloseDelay);
+                            }
+                          }
+                        });
+                      } else {
+                        // button removed
+                        logger.info('NBI initialized successfully.');
                       }
-                    }
-                  });
-                } else {
-                  // button removed
-                  logger.info('NBI initialized successfully.');
-                }
-              }, nbiInitTimeout);
+                    }, nbiInitTimeout);
+                  }
+                  clearInterval(dependencies_met_nb_loaded);
+                } // END dependencies_met_nb_loaded
+              }, 25);
+              return;
             }
-            clearInterval(dependencies_met_nb_loaded);
-          } // END dependencies_met_nb_loaded
-        }, 25);
-        return;
-      }
-      // END textbook_id: j1_climate_change_forecast
-      if ($('#j1_interactive_widgets').length) {
-        var dependencies_met_nb_loaded = setInterval(function() {
-          if ($('#j1_interactive_widgets').attr('data-nb-textbook') == 'loaded') {
-            var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
-              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: j1_interactive_widgets';
-              logger.warn(log_text);
-              spinner.stop();
-            }
-            if(!nbinteract_prepared && nbiButtonsFound > 1) {
-              logText = '\n' + 'jupyter kernel is being generated ...';
-              logger.info(logText);
-              // create nbInteract (core) instance
-              //
-              coreLogger = log4javascript.getLogger('nbinteract.core');
-              interact = new NbInteract({
-                spec:     options.spec,
-                baseUrl:  options.baseUrl,
-                provider: options.provider,
-                logger:   coreLogger,
-                j1API:    j1,
-              });
-              // generate a jupyter kernel via BinderHub
-              interact.prepare();
-              nbinteract_prepared = true;
-              // issue an error if the NBI (init) button never removed by
-              // nbInteract-core (util or manager)
-              // TODO:  The 'timeout' condition should be replaced
-              //        state-based triggered from nbInteract-core.
-              //
-              window.setTimeout(function() {
-                var nbiButtonState = _this.getNbiButtonState();
-                if (nbiButtonState) {
-                  // button NOT removed
-                  logger.warn('NBI initialialization failed on textbook: j1_interactive_widgets');
-                  // hide the info modal
-                  $(nbiModalSuccessID).modal('hide');
-                  // show the error modal
-                  $(nbiModalSuccessID).on('hidden.bs.modal', function () {
-                    if ($(nbiModalErrorID).is(':hidden')) {
-                      var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
-                      _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: j1_interactive_widgets')
-                      $(nbiModalErrorID).modal('show');
-                      // auto-close the error modal
-                      if (nbiModalAutoClose) {
-                        window.setTimeout(function() {
-                          $(nbiModalErrorID).modal('hide');
-                        }, nbiModalAutoCloseDelay);
+            // END textbook_id: j1_climate_change_forecast
+            if ($('#j1_interactive_widgets').length) {
+              var dependencies_met_nb_loaded = setInterval(function() {
+                if ($('#j1_interactive_widgets').attr('data-nb-textbook') == 'loaded') {
+                  var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
+                  if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+                    var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: j1_interactive_widgets';
+                    logger.warn(log_text);
+                    spinner.stop();
+                  }
+                  if(!nbinteract_prepared && nbiButtonsFound > 1) {
+                    logText = '\n' + 'jupyter kernel is being generated ...';
+                    logger.info(logText);
+                    // create nbInteract (core) instance
+                    //
+                    coreLogger = log4javascript.getLogger('nbinteract.core');
+                    interact = new NbInteract({
+                      spec:     options.spec,
+                      baseUrl:  options.baseUrl,
+                      provider: options.provider,
+                      logger:   coreLogger,
+                      j1API:    j1,
+                    });
+                    // generate a jupyter kernel via BinderHub
+                    interact.prepare();
+                    nbinteract_prepared = true;
+                    // issue an error if the NBI (init) button never removed by
+                    // nbInteract-core (util or manager)
+                    // TODO:  The 'timeout' condition should be replaced
+                    //        state-based triggered from nbInteract-core.
+                    //
+                    window.setTimeout(function() {
+                      var nbiButtonState = _this.getNbiButtonState();
+                      if (nbiButtonState) {
+                        // button NOT removed
+                        logger.warn('NBI initialialization failed on textbook: j1_interactive_widgets');
+                        // hide the info modal
+                        $(nbiModalSuccessID).modal('hide');
+                        // show the error modal
+                        $(nbiModalSuccessID).on('hidden.bs.modal', function () {
+                          if ($(nbiModalErrorID).is(':hidden')) {
+                            var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
+                            _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: j1_interactive_widgets')
+                            $(nbiModalErrorID).modal('show');
+                            // auto-close the error modal
+                            if (nbiModalAutoClose) {
+                              window.setTimeout(function() {
+                                $(nbiModalErrorID).modal('hide');
+                              }, nbiModalAutoCloseDelay);
+                            }
+                          }
+                        });
+                      } else {
+                        // button removed
+                        logger.info('NBI initialized successfully.');
                       }
-                    }
-                  });
-                } else {
-                  // button removed
-                  logger.info('NBI initialized successfully.');
-                }
-              }, nbiInitTimeout);
+                    }, nbiInitTimeout);
+                  }
+                  clearInterval(dependencies_met_nb_loaded);
+                } // END dependencies_met_nb_loaded
+              }, 25);
+              return;
             }
-            clearInterval(dependencies_met_nb_loaded);
-          } // END dependencies_met_nb_loaded
-        }, 25);
-        return;
-      }
-      // END textbook_id: j1_interactive_widgets
-      if ($('#j1_docs_example_dynamic').length) {
-        var dependencies_met_nb_loaded = setInterval(function() {
-          if ($('#j1_docs_example_dynamic').attr('data-nb-textbook') == 'loaded') {
-            var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
-              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: j1_docs_example_dynamic';
-              logger.warn(log_text);
-              spinner.stop();
-            }
-            if(!nbinteract_prepared && nbiButtonsFound > 1) {
-              logText = '\n' + 'jupyter kernel is being generated ...';
-              logger.info(logText);
-              // create nbInteract (core) instance
-              //
-              coreLogger = log4javascript.getLogger('nbinteract.core');
-              interact = new NbInteract({
-                spec:     options.spec,
-                baseUrl:  options.baseUrl,
-                provider: options.provider,
-                logger:   coreLogger,
-                j1API:    j1,
-              });
-              // generate a jupyter kernel via BinderHub
-              interact.prepare();
-              nbinteract_prepared = true;
-              // issue an error if the NBI (init) button never removed by
-              // nbInteract-core (util or manager)
-              // TODO:  The 'timeout' condition should be replaced
-              //        state-based triggered from nbInteract-core.
-              //
-              window.setTimeout(function() {
-                var nbiButtonState = _this.getNbiButtonState();
-                if (nbiButtonState) {
-                  // button NOT removed
-                  logger.warn('NBI initialialization failed on textbook: j1_docs_example_dynamic');
-                  // hide the info modal
-                  $(nbiModalSuccessID).modal('hide');
-                  // show the error modal
-                  $(nbiModalSuccessID).on('hidden.bs.modal', function () {
-                    if ($(nbiModalErrorID).is(':hidden')) {
-                      var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
-                      _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: j1_docs_example_dynamic')
-                      $(nbiModalErrorID).modal('show');
-                      // auto-close the error modal
-                      if (nbiModalAutoClose) {
-                        window.setTimeout(function() {
-                          $(nbiModalErrorID).modal('hide');
-                        }, nbiModalAutoCloseDelay);
+            // END textbook_id: j1_interactive_widgets
+            if ($('#j1_docs_example_dynamic').length) {
+              var dependencies_met_nb_loaded = setInterval(function() {
+                if ($('#j1_docs_example_dynamic').attr('data-nb-textbook') == 'loaded') {
+                  var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
+                  if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+                    var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: j1_docs_example_dynamic';
+                    logger.warn(log_text);
+                    spinner.stop();
+                  }
+                  if(!nbinteract_prepared && nbiButtonsFound > 1) {
+                    logText = '\n' + 'jupyter kernel is being generated ...';
+                    logger.info(logText);
+                    // create nbInteract (core) instance
+                    //
+                    coreLogger = log4javascript.getLogger('nbinteract.core');
+                    interact = new NbInteract({
+                      spec:     options.spec,
+                      baseUrl:  options.baseUrl,
+                      provider: options.provider,
+                      logger:   coreLogger,
+                      j1API:    j1,
+                    });
+                    // generate a jupyter kernel via BinderHub
+                    interact.prepare();
+                    nbinteract_prepared = true;
+                    // issue an error if the NBI (init) button never removed by
+                    // nbInteract-core (util or manager)
+                    // TODO:  The 'timeout' condition should be replaced
+                    //        state-based triggered from nbInteract-core.
+                    //
+                    window.setTimeout(function() {
+                      var nbiButtonState = _this.getNbiButtonState();
+                      if (nbiButtonState) {
+                        // button NOT removed
+                        logger.warn('NBI initialialization failed on textbook: j1_docs_example_dynamic');
+                        // hide the info modal
+                        $(nbiModalSuccessID).modal('hide');
+                        // show the error modal
+                        $(nbiModalSuccessID).on('hidden.bs.modal', function () {
+                          if ($(nbiModalErrorID).is(':hidden')) {
+                            var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
+                            _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: j1_docs_example_dynamic')
+                            $(nbiModalErrorID).modal('show');
+                            // auto-close the error modal
+                            if (nbiModalAutoClose) {
+                              window.setTimeout(function() {
+                                $(nbiModalErrorID).modal('hide');
+                              }, nbiModalAutoCloseDelay);
+                            }
+                          }
+                        });
+                      } else {
+                        // button removed
+                        logger.info('NBI initialized successfully.');
                       }
-                    }
-                  });
-                } else {
-                  // button removed
-                  logger.info('NBI initialized successfully.');
-                }
-              }, nbiInitTimeout);
+                    }, nbiInitTimeout);
+                  }
+                  clearInterval(dependencies_met_nb_loaded);
+                } // END dependencies_met_nb_loaded
+              }, 25);
+              return;
             }
-            clearInterval(dependencies_met_nb_loaded);
-          } // END dependencies_met_nb_loaded
-        }, 25);
-        return;
-      }
-      // END textbook_id: j1_docs_example_dynamic
-      if ($('#j1_circular_times_table').length) {
-        var dependencies_met_nb_loaded = setInterval(function() {
-          if ($('#j1_circular_times_table').attr('data-nb-textbook') == 'loaded') {
-            var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
-              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: j1_circular_times_table';
-              logger.warn(log_text);
-              spinner.stop();
-            }
-            if(!nbinteract_prepared && nbiButtonsFound > 1) {
-              logText = '\n' + 'jupyter kernel is being generated ...';
-              logger.info(logText);
-              // create nbInteract (core) instance
-              //
-              coreLogger = log4javascript.getLogger('nbinteract.core');
-              interact = new NbInteract({
-                spec:     options.spec,
-                baseUrl:  options.baseUrl,
-                provider: options.provider,
-                logger:   coreLogger,
-                j1API:    j1,
-              });
-              // generate a jupyter kernel via BinderHub
-              interact.prepare();
-              nbinteract_prepared = true;
-              // issue an error if the NBI (init) button never removed by
-              // nbInteract-core (util or manager)
-              // TODO:  The 'timeout' condition should be replaced
-              //        state-based triggered from nbInteract-core.
-              //
-              window.setTimeout(function() {
-                var nbiButtonState = _this.getNbiButtonState();
-                if (nbiButtonState) {
-                  // button NOT removed
-                  logger.warn('NBI initialialization failed on textbook: j1_circular_times_table');
-                  // hide the info modal
-                  $(nbiModalSuccessID).modal('hide');
-                  // show the error modal
-                  $(nbiModalSuccessID).on('hidden.bs.modal', function () {
-                    if ($(nbiModalErrorID).is(':hidden')) {
-                      var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
-                      _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: j1_circular_times_table')
-                      $(nbiModalErrorID).modal('show');
-                      // auto-close the error modal
-                      if (nbiModalAutoClose) {
-                        window.setTimeout(function() {
-                          $(nbiModalErrorID).modal('hide');
-                        }, nbiModalAutoCloseDelay);
+            // END textbook_id: j1_docs_example_dynamic
+            if ($('#j1_circular_times_table').length) {
+              var dependencies_met_nb_loaded = setInterval(function() {
+                if ($('#j1_circular_times_table').attr('data-nb-textbook') == 'loaded') {
+                  var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
+                  if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+                    var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: j1_circular_times_table';
+                    logger.warn(log_text);
+                    spinner.stop();
+                  }
+                  if(!nbinteract_prepared && nbiButtonsFound > 1) {
+                    logText = '\n' + 'jupyter kernel is being generated ...';
+                    logger.info(logText);
+                    // create nbInteract (core) instance
+                    //
+                    coreLogger = log4javascript.getLogger('nbinteract.core');
+                    interact = new NbInteract({
+                      spec:     options.spec,
+                      baseUrl:  options.baseUrl,
+                      provider: options.provider,
+                      logger:   coreLogger,
+                      j1API:    j1,
+                    });
+                    // generate a jupyter kernel via BinderHub
+                    interact.prepare();
+                    nbinteract_prepared = true;
+                    // issue an error if the NBI (init) button never removed by
+                    // nbInteract-core (util or manager)
+                    // TODO:  The 'timeout' condition should be replaced
+                    //        state-based triggered from nbInteract-core.
+                    //
+                    window.setTimeout(function() {
+                      var nbiButtonState = _this.getNbiButtonState();
+                      if (nbiButtonState) {
+                        // button NOT removed
+                        logger.warn('NBI initialialization failed on textbook: j1_circular_times_table');
+                        // hide the info modal
+                        $(nbiModalSuccessID).modal('hide');
+                        // show the error modal
+                        $(nbiModalSuccessID).on('hidden.bs.modal', function () {
+                          if ($(nbiModalErrorID).is(':hidden')) {
+                            var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
+                            _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: j1_circular_times_table')
+                            $(nbiModalErrorID).modal('show');
+                            // auto-close the error modal
+                            if (nbiModalAutoClose) {
+                              window.setTimeout(function() {
+                                $(nbiModalErrorID).modal('hide');
+                              }, nbiModalAutoCloseDelay);
+                            }
+                          }
+                        });
+                      } else {
+                        // button removed
+                        logger.info('NBI initialized successfully.');
                       }
-                    }
-                  });
-                } else {
-                  // button removed
-                  logger.info('NBI initialized successfully.');
-                }
-              }, nbiInitTimeout);
+                    }, nbiInitTimeout);
+                  }
+                  clearInterval(dependencies_met_nb_loaded);
+                } // END dependencies_met_nb_loaded
+              }, 25);
+              return;
             }
-            clearInterval(dependencies_met_nb_loaded);
-          } // END dependencies_met_nb_loaded
-        }, 25);
-        return;
-      }
-      // END textbook_id: j1_circular_times_table
-      if ($('#j1_odes_in_python').length) {
-        var dependencies_met_nb_loaded = setInterval(function() {
-          if ($('#j1_odes_in_python').attr('data-nb-textbook') == 'loaded') {
-            var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
-              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: j1_odes_in_python';
-              logger.warn(log_text);
-              spinner.stop();
-            }
-            if(!nbinteract_prepared && nbiButtonsFound > 1) {
-              logText = '\n' + 'jupyter kernel is being generated ...';
-              logger.info(logText);
-              // create nbInteract (core) instance
-              //
-              coreLogger = log4javascript.getLogger('nbinteract.core');
-              interact = new NbInteract({
-                spec:     options.spec,
-                baseUrl:  options.baseUrl,
-                provider: options.provider,
-                logger:   coreLogger,
-                j1API:    j1,
-              });
-              // generate a jupyter kernel via BinderHub
-              interact.prepare();
-              nbinteract_prepared = true;
-              // issue an error if the NBI (init) button never removed by
-              // nbInteract-core (util or manager)
-              // TODO:  The 'timeout' condition should be replaced
-              //        state-based triggered from nbInteract-core.
-              //
-              window.setTimeout(function() {
-                var nbiButtonState = _this.getNbiButtonState();
-                if (nbiButtonState) {
-                  // button NOT removed
-                  logger.warn('NBI initialialization failed on textbook: j1_odes_in_python');
-                  // hide the info modal
-                  $(nbiModalSuccessID).modal('hide');
-                  // show the error modal
-                  $(nbiModalSuccessID).on('hidden.bs.modal', function () {
-                    if ($(nbiModalErrorID).is(':hidden')) {
-                      var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
-                      _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: j1_odes_in_python')
-                      $(nbiModalErrorID).modal('show');
-                      // auto-close the error modal
-                      if (nbiModalAutoClose) {
-                        window.setTimeout(function() {
-                          $(nbiModalErrorID).modal('hide');
-                        }, nbiModalAutoCloseDelay);
+            // END textbook_id: j1_circular_times_table
+            if ($('#j1_odes_in_python').length) {
+              var dependencies_met_nb_loaded = setInterval(function() {
+                if ($('#j1_odes_in_python').attr('data-nb-textbook') == 'loaded') {
+                  var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
+                  if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+                    var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: j1_odes_in_python';
+                    logger.warn(log_text);
+                    spinner.stop();
+                  }
+                  if(!nbinteract_prepared && nbiButtonsFound > 1) {
+                    logText = '\n' + 'jupyter kernel is being generated ...';
+                    logger.info(logText);
+                    // create nbInteract (core) instance
+                    //
+                    coreLogger = log4javascript.getLogger('nbinteract.core');
+                    interact = new NbInteract({
+                      spec:     options.spec,
+                      baseUrl:  options.baseUrl,
+                      provider: options.provider,
+                      logger:   coreLogger,
+                      j1API:    j1,
+                    });
+                    // generate a jupyter kernel via BinderHub
+                    interact.prepare();
+                    nbinteract_prepared = true;
+                    // issue an error if the NBI (init) button never removed by
+                    // nbInteract-core (util or manager)
+                    // TODO:  The 'timeout' condition should be replaced
+                    //        state-based triggered from nbInteract-core.
+                    //
+                    window.setTimeout(function() {
+                      var nbiButtonState = _this.getNbiButtonState();
+                      if (nbiButtonState) {
+                        // button NOT removed
+                        logger.warn('NBI initialialization failed on textbook: j1_odes_in_python');
+                        // hide the info modal
+                        $(nbiModalSuccessID).modal('hide');
+                        // show the error modal
+                        $(nbiModalSuccessID).on('hidden.bs.modal', function () {
+                          if ($(nbiModalErrorID).is(':hidden')) {
+                            var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
+                            _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: j1_odes_in_python')
+                            $(nbiModalErrorID).modal('show');
+                            // auto-close the error modal
+                            if (nbiModalAutoClose) {
+                              window.setTimeout(function() {
+                                $(nbiModalErrorID).modal('hide');
+                              }, nbiModalAutoCloseDelay);
+                            }
+                          }
+                        });
+                      } else {
+                        // button removed
+                        logger.info('NBI initialized successfully.');
                       }
-                    }
-                  });
-                } else {
-                  // button removed
-                  logger.info('NBI initialized successfully.');
-                }
-              }, nbiInitTimeout);
+                    }, nbiInitTimeout);
+                  }
+                  clearInterval(dependencies_met_nb_loaded);
+                } // END dependencies_met_nb_loaded
+              }, 25);
+              return;
             }
-            clearInterval(dependencies_met_nb_loaded);
-          } // END dependencies_met_nb_loaded
-        }, 25);
-        return;
-      }
-      // END textbook_id: j1_odes_in_python
-      if ($('#j1_docs_example_dynamic').length) {
-        var dependencies_met_nb_loaded = setInterval(function() {
-          if ($('#j1_docs_example_dynamic').attr('data-nb-textbook') == 'loaded') {
-            var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
-              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: j1_docs_example_dynamic';
-              logger.warn(log_text);
-              spinner.stop();
-            }
-            if(!nbinteract_prepared && nbiButtonsFound > 1) {
-              logText = '\n' + 'jupyter kernel is being generated ...';
-              logger.info(logText);
-              // create nbInteract (core) instance
-              //
-              coreLogger = log4javascript.getLogger('nbinteract.core');
-              interact = new NbInteract({
-                spec:     options.spec,
-                baseUrl:  options.baseUrl,
-                provider: options.provider,
-                logger:   coreLogger,
-                j1API:    j1,
-              });
-              // generate a jupyter kernel via BinderHub
-              interact.prepare();
-              nbinteract_prepared = true;
-              // issue an error if the NBI (init) button never removed by
-              // nbInteract-core (util or manager)
-              // TODO:  The 'timeout' condition should be replaced
-              //        state-based triggered from nbInteract-core.
-              //
-              window.setTimeout(function() {
-                var nbiButtonState = _this.getNbiButtonState();
-                if (nbiButtonState) {
-                  // button NOT removed
-                  logger.warn('NBI initialialization failed on textbook: j1_docs_example_dynamic');
-                  // hide the info modal
-                  $(nbiModalSuccessID).modal('hide');
-                  // show the error modal
-                  $(nbiModalSuccessID).on('hidden.bs.modal', function () {
-                    if ($(nbiModalErrorID).is(':hidden')) {
-                      var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
-                      _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: j1_docs_example_dynamic')
-                      $(nbiModalErrorID).modal('show');
-                      // auto-close the error modal
-                      if (nbiModalAutoClose) {
-                        window.setTimeout(function() {
-                          $(nbiModalErrorID).modal('hide');
-                        }, nbiModalAutoCloseDelay);
+            // END textbook_id: j1_odes_in_python
+            if ($('#j1_docs_example_dynamic').length) {
+              var dependencies_met_nb_loaded = setInterval(function() {
+                if ($('#j1_docs_example_dynamic').attr('data-nb-textbook') == 'loaded') {
+                  var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
+                  if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+                    var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: j1_docs_example_dynamic';
+                    logger.warn(log_text);
+                    spinner.stop();
+                  }
+                  if(!nbinteract_prepared && nbiButtonsFound > 1) {
+                    logText = '\n' + 'jupyter kernel is being generated ...';
+                    logger.info(logText);
+                    // create nbInteract (core) instance
+                    //
+                    coreLogger = log4javascript.getLogger('nbinteract.core');
+                    interact = new NbInteract({
+                      spec:     options.spec,
+                      baseUrl:  options.baseUrl,
+                      provider: options.provider,
+                      logger:   coreLogger,
+                      j1API:    j1,
+                    });
+                    // generate a jupyter kernel via BinderHub
+                    interact.prepare();
+                    nbinteract_prepared = true;
+                    // issue an error if the NBI (init) button never removed by
+                    // nbInteract-core (util or manager)
+                    // TODO:  The 'timeout' condition should be replaced
+                    //        state-based triggered from nbInteract-core.
+                    //
+                    window.setTimeout(function() {
+                      var nbiButtonState = _this.getNbiButtonState();
+                      if (nbiButtonState) {
+                        // button NOT removed
+                        logger.warn('NBI initialialization failed on textbook: j1_docs_example_dynamic');
+                        // hide the info modal
+                        $(nbiModalSuccessID).modal('hide');
+                        // show the error modal
+                        $(nbiModalSuccessID).on('hidden.bs.modal', function () {
+                          if ($(nbiModalErrorID).is(':hidden')) {
+                            var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
+                            _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: j1_docs_example_dynamic')
+                            $(nbiModalErrorID).modal('show');
+                            // auto-close the error modal
+                            if (nbiModalAutoClose) {
+                              window.setTimeout(function() {
+                                $(nbiModalErrorID).modal('hide');
+                              }, nbiModalAutoCloseDelay);
+                            }
+                          }
+                        });
+                      } else {
+                        // button removed
+                        logger.info('NBI initialized successfully.');
                       }
-                    }
-                  });
-                } else {
-                  // button removed
-                  logger.info('NBI initialized successfully.');
-                }
-              }, nbiInitTimeout);
+                    }, nbiInitTimeout);
+                  }
+                  clearInterval(dependencies_met_nb_loaded);
+                } // END dependencies_met_nb_loaded
+              }, 25);
+              return;
             }
-            clearInterval(dependencies_met_nb_loaded);
-          } // END dependencies_met_nb_loaded
-        }, 25);
-        return;
-      }
-      // END textbook_id: j1_docs_example_dynamic
-      if ($('#nbi_docs_tutorial_interact').length) {
-        var dependencies_met_nb_loaded = setInterval(function() {
-          if ($('#nbi_docs_tutorial_interact').attr('data-nb-textbook') == 'loaded') {
-            var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
-              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_tutorial_interact';
-              logger.warn(log_text);
-              spinner.stop();
-            }
-            if(!nbinteract_prepared && nbiButtonsFound > 1) {
-              logText = '\n' + 'jupyter kernel is being generated ...';
-              logger.info(logText);
-              // create nbInteract (core) instance
-              //
-              coreLogger = log4javascript.getLogger('nbinteract.core');
-              interact = new NbInteract({
-                spec:     options.spec,
-                baseUrl:  options.baseUrl,
-                provider: options.provider,
-                logger:   coreLogger,
-                j1API:    j1,
-              });
-              // generate a jupyter kernel via BinderHub
-              interact.prepare();
-              nbinteract_prepared = true;
-              // issue an error if the NBI (init) button never removed by
-              // nbInteract-core (util or manager)
-              // TODO:  The 'timeout' condition should be replaced
-              //        state-based triggered from nbInteract-core.
-              //
-              window.setTimeout(function() {
-                var nbiButtonState = _this.getNbiButtonState();
-                if (nbiButtonState) {
-                  // button NOT removed
-                  logger.warn('NBI initialialization failed on textbook: nbi_docs_tutorial_interact');
-                  // hide the info modal
-                  $(nbiModalSuccessID).modal('hide');
-                  // show the error modal
-                  $(nbiModalSuccessID).on('hidden.bs.modal', function () {
-                    if ($(nbiModalErrorID).is(':hidden')) {
-                      var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
-                      _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: nbi_docs_tutorial_interact')
-                      $(nbiModalErrorID).modal('show');
-                      // auto-close the error modal
-                      if (nbiModalAutoClose) {
-                        window.setTimeout(function() {
-                          $(nbiModalErrorID).modal('hide');
-                        }, nbiModalAutoCloseDelay);
+            // END textbook_id: j1_docs_example_dynamic
+            if ($('#nbi_docs_tutorial_interact').length) {
+              var dependencies_met_nb_loaded = setInterval(function() {
+                if ($('#nbi_docs_tutorial_interact').attr('data-nb-textbook') == 'loaded') {
+                  var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
+                  if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+                    var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_tutorial_interact';
+                    logger.warn(log_text);
+                    spinner.stop();
+                  }
+                  if(!nbinteract_prepared && nbiButtonsFound > 1) {
+                    logText = '\n' + 'jupyter kernel is being generated ...';
+                    logger.info(logText);
+                    // create nbInteract (core) instance
+                    //
+                    coreLogger = log4javascript.getLogger('nbinteract.core');
+                    interact = new NbInteract({
+                      spec:     options.spec,
+                      baseUrl:  options.baseUrl,
+                      provider: options.provider,
+                      logger:   coreLogger,
+                      j1API:    j1,
+                    });
+                    // generate a jupyter kernel via BinderHub
+                    interact.prepare();
+                    nbinteract_prepared = true;
+                    // issue an error if the NBI (init) button never removed by
+                    // nbInteract-core (util or manager)
+                    // TODO:  The 'timeout' condition should be replaced
+                    //        state-based triggered from nbInteract-core.
+                    //
+                    window.setTimeout(function() {
+                      var nbiButtonState = _this.getNbiButtonState();
+                      if (nbiButtonState) {
+                        // button NOT removed
+                        logger.warn('NBI initialialization failed on textbook: nbi_docs_tutorial_interact');
+                        // hide the info modal
+                        $(nbiModalSuccessID).modal('hide');
+                        // show the error modal
+                        $(nbiModalSuccessID).on('hidden.bs.modal', function () {
+                          if ($(nbiModalErrorID).is(':hidden')) {
+                            var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
+                            _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: nbi_docs_tutorial_interact')
+                            $(nbiModalErrorID).modal('show');
+                            // auto-close the error modal
+                            if (nbiModalAutoClose) {
+                              window.setTimeout(function() {
+                                $(nbiModalErrorID).modal('hide');
+                              }, nbiModalAutoCloseDelay);
+                            }
+                          }
+                        });
+                      } else {
+                        // button removed
+                        logger.info('NBI initialized successfully.');
                       }
-                    }
-                  });
-                } else {
-                  // button removed
-                  logger.info('NBI initialized successfully.');
-                }
-              }, nbiInitTimeout);
+                    }, nbiInitTimeout);
+                  }
+                  clearInterval(dependencies_met_nb_loaded);
+                } // END dependencies_met_nb_loaded
+              }, 25);
+              return;
             }
-            clearInterval(dependencies_met_nb_loaded);
-          } // END dependencies_met_nb_loaded
-        }, 25);
-        return;
-      }
-      // END textbook_id: nbi_docs_tutorial_interact
-      if ($('#nbi_docs_tutorial_monty_hall').length) {
-        var dependencies_met_nb_loaded = setInterval(function() {
-          if ($('#nbi_docs_tutorial_monty_hall').attr('data-nb-textbook') == 'loaded') {
-            var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
-              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_tutorial_monty_hall';
-              logger.warn(log_text);
-              spinner.stop();
-            }
-            if(!nbinteract_prepared && nbiButtonsFound > 1) {
-              logText = '\n' + 'jupyter kernel is being generated ...';
-              logger.info(logText);
-              // create nbInteract (core) instance
-              //
-              coreLogger = log4javascript.getLogger('nbinteract.core');
-              interact = new NbInteract({
-                spec:     options.spec,
-                baseUrl:  options.baseUrl,
-                provider: options.provider,
-                logger:   coreLogger,
-                j1API:    j1,
-              });
-              // generate a jupyter kernel via BinderHub
-              interact.prepare();
-              nbinteract_prepared = true;
-              // issue an error if the NBI (init) button never removed by
-              // nbInteract-core (util or manager)
-              // TODO:  The 'timeout' condition should be replaced
-              //        state-based triggered from nbInteract-core.
-              //
-              window.setTimeout(function() {
-                var nbiButtonState = _this.getNbiButtonState();
-                if (nbiButtonState) {
-                  // button NOT removed
-                  logger.warn('NBI initialialization failed on textbook: nbi_docs_tutorial_monty_hall');
-                  // hide the info modal
-                  $(nbiModalSuccessID).modal('hide');
-                  // show the error modal
-                  $(nbiModalSuccessID).on('hidden.bs.modal', function () {
-                    if ($(nbiModalErrorID).is(':hidden')) {
-                      var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
-                      _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: nbi_docs_tutorial_monty_hall')
-                      $(nbiModalErrorID).modal('show');
-                      // auto-close the error modal
-                      if (nbiModalAutoClose) {
-                        window.setTimeout(function() {
-                          $(nbiModalErrorID).modal('hide');
-                        }, nbiModalAutoCloseDelay);
+            // END textbook_id: nbi_docs_tutorial_interact
+            if ($('#nbi_docs_tutorial_monty_hall').length) {
+              var dependencies_met_nb_loaded = setInterval(function() {
+                if ($('#nbi_docs_tutorial_monty_hall').attr('data-nb-textbook') == 'loaded') {
+                  var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
+                  if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+                    var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_tutorial_monty_hall';
+                    logger.warn(log_text);
+                    spinner.stop();
+                  }
+                  if(!nbinteract_prepared && nbiButtonsFound > 1) {
+                    logText = '\n' + 'jupyter kernel is being generated ...';
+                    logger.info(logText);
+                    // create nbInteract (core) instance
+                    //
+                    coreLogger = log4javascript.getLogger('nbinteract.core');
+                    interact = new NbInteract({
+                      spec:     options.spec,
+                      baseUrl:  options.baseUrl,
+                      provider: options.provider,
+                      logger:   coreLogger,
+                      j1API:    j1,
+                    });
+                    // generate a jupyter kernel via BinderHub
+                    interact.prepare();
+                    nbinteract_prepared = true;
+                    // issue an error if the NBI (init) button never removed by
+                    // nbInteract-core (util or manager)
+                    // TODO:  The 'timeout' condition should be replaced
+                    //        state-based triggered from nbInteract-core.
+                    //
+                    window.setTimeout(function() {
+                      var nbiButtonState = _this.getNbiButtonState();
+                      if (nbiButtonState) {
+                        // button NOT removed
+                        logger.warn('NBI initialialization failed on textbook: nbi_docs_tutorial_monty_hall');
+                        // hide the info modal
+                        $(nbiModalSuccessID).modal('hide');
+                        // show the error modal
+                        $(nbiModalSuccessID).on('hidden.bs.modal', function () {
+                          if ($(nbiModalErrorID).is(':hidden')) {
+                            var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
+                            _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: nbi_docs_tutorial_monty_hall')
+                            $(nbiModalErrorID).modal('show');
+                            // auto-close the error modal
+                            if (nbiModalAutoClose) {
+                              window.setTimeout(function() {
+                                $(nbiModalErrorID).modal('hide');
+                              }, nbiModalAutoCloseDelay);
+                            }
+                          }
+                        });
+                      } else {
+                        // button removed
+                        logger.info('NBI initialized successfully.');
                       }
-                    }
-                  });
-                } else {
-                  // button removed
-                  logger.info('NBI initialized successfully.');
-                }
-              }, nbiInitTimeout);
+                    }, nbiInitTimeout);
+                  }
+                  clearInterval(dependencies_met_nb_loaded);
+                } // END dependencies_met_nb_loaded
+              }, 25);
+              return;
             }
-            clearInterval(dependencies_met_nb_loaded);
-          } // END dependencies_met_nb_loaded
-        }, 25);
-        return;
-      }
-      // END textbook_id: nbi_docs_tutorial_monty_hall
-      if ($('#nbi_docs_recipes_graphing').length) {
-        var dependencies_met_nb_loaded = setInterval(function() {
-          if ($('#nbi_docs_recipes_graphing').attr('data-nb-textbook') == 'loaded') {
-            var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
-              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_recipes_graphing';
-              logger.warn(log_text);
-              spinner.stop();
-            }
-            if(!nbinteract_prepared && nbiButtonsFound > 1) {
-              logText = '\n' + 'jupyter kernel is being generated ...';
-              logger.info(logText);
-              // create nbInteract (core) instance
-              //
-              coreLogger = log4javascript.getLogger('nbinteract.core');
-              interact = new NbInteract({
-                spec:     options.spec,
-                baseUrl:  options.baseUrl,
-                provider: options.provider,
-                logger:   coreLogger,
-                j1API:    j1,
-              });
-              // generate a jupyter kernel via BinderHub
-              interact.prepare();
-              nbinteract_prepared = true;
-              // issue an error if the NBI (init) button never removed by
-              // nbInteract-core (util or manager)
-              // TODO:  The 'timeout' condition should be replaced
-              //        state-based triggered from nbInteract-core.
-              //
-              window.setTimeout(function() {
-                var nbiButtonState = _this.getNbiButtonState();
-                if (nbiButtonState) {
-                  // button NOT removed
-                  logger.warn('NBI initialialization failed on textbook: nbi_docs_recipes_graphing');
-                  // hide the info modal
-                  $(nbiModalSuccessID).modal('hide');
-                  // show the error modal
-                  $(nbiModalSuccessID).on('hidden.bs.modal', function () {
-                    if ($(nbiModalErrorID).is(':hidden')) {
-                      var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
-                      _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: nbi_docs_recipes_graphing')
-                      $(nbiModalErrorID).modal('show');
-                      // auto-close the error modal
-                      if (nbiModalAutoClose) {
-                        window.setTimeout(function() {
-                          $(nbiModalErrorID).modal('hide');
-                        }, nbiModalAutoCloseDelay);
+            // END textbook_id: nbi_docs_tutorial_monty_hall
+            if ($('#nbi_docs_recipes_graphing').length) {
+              var dependencies_met_nb_loaded = setInterval(function() {
+                if ($('#nbi_docs_recipes_graphing').attr('data-nb-textbook') == 'loaded') {
+                  var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
+                  if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+                    var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_recipes_graphing';
+                    logger.warn(log_text);
+                    spinner.stop();
+                  }
+                  if(!nbinteract_prepared && nbiButtonsFound > 1) {
+                    logText = '\n' + 'jupyter kernel is being generated ...';
+                    logger.info(logText);
+                    // create nbInteract (core) instance
+                    //
+                    coreLogger = log4javascript.getLogger('nbinteract.core');
+                    interact = new NbInteract({
+                      spec:     options.spec,
+                      baseUrl:  options.baseUrl,
+                      provider: options.provider,
+                      logger:   coreLogger,
+                      j1API:    j1,
+                    });
+                    // generate a jupyter kernel via BinderHub
+                    interact.prepare();
+                    nbinteract_prepared = true;
+                    // issue an error if the NBI (init) button never removed by
+                    // nbInteract-core (util or manager)
+                    // TODO:  The 'timeout' condition should be replaced
+                    //        state-based triggered from nbInteract-core.
+                    //
+                    window.setTimeout(function() {
+                      var nbiButtonState = _this.getNbiButtonState();
+                      if (nbiButtonState) {
+                        // button NOT removed
+                        logger.warn('NBI initialialization failed on textbook: nbi_docs_recipes_graphing');
+                        // hide the info modal
+                        $(nbiModalSuccessID).modal('hide');
+                        // show the error modal
+                        $(nbiModalSuccessID).on('hidden.bs.modal', function () {
+                          if ($(nbiModalErrorID).is(':hidden')) {
+                            var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
+                            _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: nbi_docs_recipes_graphing')
+                            $(nbiModalErrorID).modal('show');
+                            // auto-close the error modal
+                            if (nbiModalAutoClose) {
+                              window.setTimeout(function() {
+                                $(nbiModalErrorID).modal('hide');
+                              }, nbiModalAutoCloseDelay);
+                            }
+                          }
+                        });
+                      } else {
+                        // button removed
+                        logger.info('NBI initialized successfully.');
                       }
-                    }
-                  });
-                } else {
-                  // button removed
-                  logger.info('NBI initialized successfully.');
-                }
-              }, nbiInitTimeout);
+                    }, nbiInitTimeout);
+                  }
+                  clearInterval(dependencies_met_nb_loaded);
+                } // END dependencies_met_nb_loaded
+              }, 25);
+              return;
             }
-            clearInterval(dependencies_met_nb_loaded);
-          } // END dependencies_met_nb_loaded
-        }, 25);
-        return;
-      }
-      // END textbook_id: nbi_docs_recipes_graphing
-      if ($('#nbi_docs_recipes_layout').length) {
-        var dependencies_met_nb_loaded = setInterval(function() {
-          if ($('#nbi_docs_recipes_layout').attr('data-nb-textbook') == 'loaded') {
-            var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
-              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_recipes_layout';
-              logger.warn(log_text);
-              spinner.stop();
-            }
-            if(!nbinteract_prepared && nbiButtonsFound > 1) {
-              logText = '\n' + 'jupyter kernel is being generated ...';
-              logger.info(logText);
-              // create nbInteract (core) instance
-              //
-              coreLogger = log4javascript.getLogger('nbinteract.core');
-              interact = new NbInteract({
-                spec:     options.spec,
-                baseUrl:  options.baseUrl,
-                provider: options.provider,
-                logger:   coreLogger,
-                j1API:    j1,
-              });
-              // generate a jupyter kernel via BinderHub
-              interact.prepare();
-              nbinteract_prepared = true;
-              // issue an error if the NBI (init) button never removed by
-              // nbInteract-core (util or manager)
-              // TODO:  The 'timeout' condition should be replaced
-              //        state-based triggered from nbInteract-core.
-              //
-              window.setTimeout(function() {
-                var nbiButtonState = _this.getNbiButtonState();
-                if (nbiButtonState) {
-                  // button NOT removed
-                  logger.warn('NBI initialialization failed on textbook: nbi_docs_recipes_layout');
-                  // hide the info modal
-                  $(nbiModalSuccessID).modal('hide');
-                  // show the error modal
-                  $(nbiModalSuccessID).on('hidden.bs.modal', function () {
-                    if ($(nbiModalErrorID).is(':hidden')) {
-                      var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
-                      _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: nbi_docs_recipes_layout')
-                      $(nbiModalErrorID).modal('show');
-                      // auto-close the error modal
-                      if (nbiModalAutoClose) {
-                        window.setTimeout(function() {
-                          $(nbiModalErrorID).modal('hide');
-                        }, nbiModalAutoCloseDelay);
+            // END textbook_id: nbi_docs_recipes_graphing
+            if ($('#nbi_docs_recipes_layout').length) {
+              var dependencies_met_nb_loaded = setInterval(function() {
+                if ($('#nbi_docs_recipes_layout').attr('data-nb-textbook') == 'loaded') {
+                  var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
+                  if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+                    var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_recipes_layout';
+                    logger.warn(log_text);
+                    spinner.stop();
+                  }
+                  if(!nbinteract_prepared && nbiButtonsFound > 1) {
+                    logText = '\n' + 'jupyter kernel is being generated ...';
+                    logger.info(logText);
+                    // create nbInteract (core) instance
+                    //
+                    coreLogger = log4javascript.getLogger('nbinteract.core');
+                    interact = new NbInteract({
+                      spec:     options.spec,
+                      baseUrl:  options.baseUrl,
+                      provider: options.provider,
+                      logger:   coreLogger,
+                      j1API:    j1,
+                    });
+                    // generate a jupyter kernel via BinderHub
+                    interact.prepare();
+                    nbinteract_prepared = true;
+                    // issue an error if the NBI (init) button never removed by
+                    // nbInteract-core (util or manager)
+                    // TODO:  The 'timeout' condition should be replaced
+                    //        state-based triggered from nbInteract-core.
+                    //
+                    window.setTimeout(function() {
+                      var nbiButtonState = _this.getNbiButtonState();
+                      if (nbiButtonState) {
+                        // button NOT removed
+                        logger.warn('NBI initialialization failed on textbook: nbi_docs_recipes_layout');
+                        // hide the info modal
+                        $(nbiModalSuccessID).modal('hide');
+                        // show the error modal
+                        $(nbiModalSuccessID).on('hidden.bs.modal', function () {
+                          if ($(nbiModalErrorID).is(':hidden')) {
+                            var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
+                            _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: nbi_docs_recipes_layout')
+                            $(nbiModalErrorID).modal('show');
+                            // auto-close the error modal
+                            if (nbiModalAutoClose) {
+                              window.setTimeout(function() {
+                                $(nbiModalErrorID).modal('hide');
+                              }, nbiModalAutoCloseDelay);
+                            }
+                          }
+                        });
+                      } else {
+                        // button removed
+                        logger.info('NBI initialized successfully.');
                       }
-                    }
-                  });
-                } else {
-                  // button removed
-                  logger.info('NBI initialized successfully.');
-                }
-              }, nbiInitTimeout);
+                    }, nbiInitTimeout);
+                  }
+                  clearInterval(dependencies_met_nb_loaded);
+                } // END dependencies_met_nb_loaded
+              }, 25);
+              return;
             }
-            clearInterval(dependencies_met_nb_loaded);
-          } // END dependencies_met_nb_loaded
-        }, 25);
-        return;
-      }
-      // END textbook_id: nbi_docs_recipes_layout
-      if ($('#nbi_docs_recipes_interactive_questions').length) {
-        var dependencies_met_nb_loaded = setInterval(function() {
-          if ($('#nbi_docs_recipes_interactive_questions').attr('data-nb-textbook') == 'loaded') {
-            var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
-              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_recipes_interactive_questions';
-              logger.warn(log_text);
-              spinner.stop();
-            }
-            if(!nbinteract_prepared && nbiButtonsFound > 1) {
-              logText = '\n' + 'jupyter kernel is being generated ...';
-              logger.info(logText);
-              // create nbInteract (core) instance
-              //
-              coreLogger = log4javascript.getLogger('nbinteract.core');
-              interact = new NbInteract({
-                spec:     options.spec,
-                baseUrl:  options.baseUrl,
-                provider: options.provider,
-                logger:   coreLogger,
-                j1API:    j1,
-              });
-              // generate a jupyter kernel via BinderHub
-              interact.prepare();
-              nbinteract_prepared = true;
-              // issue an error if the NBI (init) button never removed by
-              // nbInteract-core (util or manager)
-              // TODO:  The 'timeout' condition should be replaced
-              //        state-based triggered from nbInteract-core.
-              //
-              window.setTimeout(function() {
-                var nbiButtonState = _this.getNbiButtonState();
-                if (nbiButtonState) {
-                  // button NOT removed
-                  logger.warn('NBI initialialization failed on textbook: nbi_docs_recipes_interactive_questions');
-                  // hide the info modal
-                  $(nbiModalSuccessID).modal('hide');
-                  // show the error modal
-                  $(nbiModalSuccessID).on('hidden.bs.modal', function () {
-                    if ($(nbiModalErrorID).is(':hidden')) {
-                      var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
-                      _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: nbi_docs_recipes_interactive_questions')
-                      $(nbiModalErrorID).modal('show');
-                      // auto-close the error modal
-                      if (nbiModalAutoClose) {
-                        window.setTimeout(function() {
-                          $(nbiModalErrorID).modal('hide');
-                        }, nbiModalAutoCloseDelay);
+            // END textbook_id: nbi_docs_recipes_layout
+            if ($('#nbi_docs_recipes_interactive_questions').length) {
+              var dependencies_met_nb_loaded = setInterval(function() {
+                if ($('#nbi_docs_recipes_interactive_questions').attr('data-nb-textbook') == 'loaded') {
+                  var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
+                  if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+                    var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_recipes_interactive_questions';
+                    logger.warn(log_text);
+                    spinner.stop();
+                  }
+                  if(!nbinteract_prepared && nbiButtonsFound > 1) {
+                    logText = '\n' + 'jupyter kernel is being generated ...';
+                    logger.info(logText);
+                    // create nbInteract (core) instance
+                    //
+                    coreLogger = log4javascript.getLogger('nbinteract.core');
+                    interact = new NbInteract({
+                      spec:     options.spec,
+                      baseUrl:  options.baseUrl,
+                      provider: options.provider,
+                      logger:   coreLogger,
+                      j1API:    j1,
+                    });
+                    // generate a jupyter kernel via BinderHub
+                    interact.prepare();
+                    nbinteract_prepared = true;
+                    // issue an error if the NBI (init) button never removed by
+                    // nbInteract-core (util or manager)
+                    // TODO:  The 'timeout' condition should be replaced
+                    //        state-based triggered from nbInteract-core.
+                    //
+                    window.setTimeout(function() {
+                      var nbiButtonState = _this.getNbiButtonState();
+                      if (nbiButtonState) {
+                        // button NOT removed
+                        logger.warn('NBI initialialization failed on textbook: nbi_docs_recipes_interactive_questions');
+                        // hide the info modal
+                        $(nbiModalSuccessID).modal('hide');
+                        // show the error modal
+                        $(nbiModalSuccessID).on('hidden.bs.modal', function () {
+                          if ($(nbiModalErrorID).is(':hidden')) {
+                            var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
+                            _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: nbi_docs_recipes_interactive_questions')
+                            $(nbiModalErrorID).modal('show');
+                            // auto-close the error modal
+                            if (nbiModalAutoClose) {
+                              window.setTimeout(function() {
+                                $(nbiModalErrorID).modal('hide');
+                              }, nbiModalAutoCloseDelay);
+                            }
+                          }
+                        });
+                      } else {
+                        // button removed
+                        logger.info('NBI initialized successfully.');
                       }
-                    }
-                  });
-                } else {
-                  // button removed
-                  logger.info('NBI initialized successfully.');
-                }
-              }, nbiInitTimeout);
+                    }, nbiInitTimeout);
+                  }
+                  clearInterval(dependencies_met_nb_loaded);
+                } // END dependencies_met_nb_loaded
+              }, 25);
+              return;
             }
-            clearInterval(dependencies_met_nb_loaded);
-          } // END dependencies_met_nb_loaded
-        }, 25);
-        return;
-      }
-      // END textbook_id: nbi_docs_recipes_interactive_questions
-      if ($('#nbi_docs_empirical_distributions').length) {
-        var dependencies_met_nb_loaded = setInterval(function() {
-          if ($('#nbi_docs_empirical_distributions').attr('data-nb-textbook') == 'loaded') {
-            var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
-              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_empirical_distributions';
-              logger.warn(log_text);
-              spinner.stop();
-            }
-            if(!nbinteract_prepared && nbiButtonsFound > 1) {
-              logText = '\n' + 'jupyter kernel is being generated ...';
-              logger.info(logText);
-              // create nbInteract (core) instance
-              //
-              coreLogger = log4javascript.getLogger('nbinteract.core');
-              interact = new NbInteract({
-                spec:     options.spec,
-                baseUrl:  options.baseUrl,
-                provider: options.provider,
-                logger:   coreLogger,
-                j1API:    j1,
-              });
-              // generate a jupyter kernel via BinderHub
-              interact.prepare();
-              nbinteract_prepared = true;
-              // issue an error if the NBI (init) button never removed by
-              // nbInteract-core (util or manager)
-              // TODO:  The 'timeout' condition should be replaced
-              //        state-based triggered from nbInteract-core.
-              //
-              window.setTimeout(function() {
-                var nbiButtonState = _this.getNbiButtonState();
-                if (nbiButtonState) {
-                  // button NOT removed
-                  logger.warn('NBI initialialization failed on textbook: nbi_docs_empirical_distributions');
-                  // hide the info modal
-                  $(nbiModalSuccessID).modal('hide');
-                  // show the error modal
-                  $(nbiModalSuccessID).on('hidden.bs.modal', function () {
-                    if ($(nbiModalErrorID).is(':hidden')) {
-                      var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
-                      _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: nbi_docs_empirical_distributions')
-                      $(nbiModalErrorID).modal('show');
-                      // auto-close the error modal
-                      if (nbiModalAutoClose) {
-                        window.setTimeout(function() {
-                          $(nbiModalErrorID).modal('hide');
-                        }, nbiModalAutoCloseDelay);
+            // END textbook_id: nbi_docs_recipes_interactive_questions
+            if ($('#nbi_docs_empirical_distributions').length) {
+              var dependencies_met_nb_loaded = setInterval(function() {
+                if ($('#nbi_docs_empirical_distributions').attr('data-nb-textbook') == 'loaded') {
+                  var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
+                  if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+                    var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_empirical_distributions';
+                    logger.warn(log_text);
+                    spinner.stop();
+                  }
+                  if(!nbinteract_prepared && nbiButtonsFound > 1) {
+                    logText = '\n' + 'jupyter kernel is being generated ...';
+                    logger.info(logText);
+                    // create nbInteract (core) instance
+                    //
+                    coreLogger = log4javascript.getLogger('nbinteract.core');
+                    interact = new NbInteract({
+                      spec:     options.spec,
+                      baseUrl:  options.baseUrl,
+                      provider: options.provider,
+                      logger:   coreLogger,
+                      j1API:    j1,
+                    });
+                    // generate a jupyter kernel via BinderHub
+                    interact.prepare();
+                    nbinteract_prepared = true;
+                    // issue an error if the NBI (init) button never removed by
+                    // nbInteract-core (util or manager)
+                    // TODO:  The 'timeout' condition should be replaced
+                    //        state-based triggered from nbInteract-core.
+                    //
+                    window.setTimeout(function() {
+                      var nbiButtonState = _this.getNbiButtonState();
+                      if (nbiButtonState) {
+                        // button NOT removed
+                        logger.warn('NBI initialialization failed on textbook: nbi_docs_empirical_distributions');
+                        // hide the info modal
+                        $(nbiModalSuccessID).modal('hide');
+                        // show the error modal
+                        $(nbiModalSuccessID).on('hidden.bs.modal', function () {
+                          if ($(nbiModalErrorID).is(':hidden')) {
+                            var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
+                            _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: nbi_docs_empirical_distributions')
+                            $(nbiModalErrorID).modal('show');
+                            // auto-close the error modal
+                            if (nbiModalAutoClose) {
+                              window.setTimeout(function() {
+                                $(nbiModalErrorID).modal('hide');
+                              }, nbiModalAutoCloseDelay);
+                            }
+                          }
+                        });
+                      } else {
+                        // button removed
+                        logger.info('NBI initialized successfully.');
                       }
-                    }
-                  });
-                } else {
-                  // button removed
-                  logger.info('NBI initialized successfully.');
-                }
-              }, nbiInitTimeout);
+                    }, nbiInitTimeout);
+                  }
+                  clearInterval(dependencies_met_nb_loaded);
+                } // END dependencies_met_nb_loaded
+              }, 25);
+              return;
             }
-            clearInterval(dependencies_met_nb_loaded);
-          } // END dependencies_met_nb_loaded
-        }, 25);
-        return;
-      }
-      // END textbook_id: nbi_docs_empirical_distributions
-      if ($('#nbi_docs_examples_sampling_from_a_population').length) {
-        var dependencies_met_nb_loaded = setInterval(function() {
-          if ($('#nbi_docs_examples_sampling_from_a_population').attr('data-nb-textbook') == 'loaded') {
-            var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
-              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_examples_sampling_from_a_population';
-              logger.warn(log_text);
-              spinner.stop();
-            }
-            if(!nbinteract_prepared && nbiButtonsFound > 1) {
-              logText = '\n' + 'jupyter kernel is being generated ...';
-              logger.info(logText);
-              // create nbInteract (core) instance
-              //
-              coreLogger = log4javascript.getLogger('nbinteract.core');
-              interact = new NbInteract({
-                spec:     options.spec,
-                baseUrl:  options.baseUrl,
-                provider: options.provider,
-                logger:   coreLogger,
-                j1API:    j1,
-              });
-              // generate a jupyter kernel via BinderHub
-              interact.prepare();
-              nbinteract_prepared = true;
-              // issue an error if the NBI (init) button never removed by
-              // nbInteract-core (util or manager)
-              // TODO:  The 'timeout' condition should be replaced
-              //        state-based triggered from nbInteract-core.
-              //
-              window.setTimeout(function() {
-                var nbiButtonState = _this.getNbiButtonState();
-                if (nbiButtonState) {
-                  // button NOT removed
-                  logger.warn('NBI initialialization failed on textbook: nbi_docs_examples_sampling_from_a_population');
-                  // hide the info modal
-                  $(nbiModalSuccessID).modal('hide');
-                  // show the error modal
-                  $(nbiModalSuccessID).on('hidden.bs.modal', function () {
-                    if ($(nbiModalErrorID).is(':hidden')) {
-                      var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
-                      _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: nbi_docs_examples_sampling_from_a_population')
-                      $(nbiModalErrorID).modal('show');
-                      // auto-close the error modal
-                      if (nbiModalAutoClose) {
-                        window.setTimeout(function() {
-                          $(nbiModalErrorID).modal('hide');
-                        }, nbiModalAutoCloseDelay);
+            // END textbook_id: nbi_docs_empirical_distributions
+            if ($('#nbi_docs_examples_sampling_from_a_population').length) {
+              var dependencies_met_nb_loaded = setInterval(function() {
+                if ($('#nbi_docs_examples_sampling_from_a_population').attr('data-nb-textbook') == 'loaded') {
+                  var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
+                  if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+                    var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_examples_sampling_from_a_population';
+                    logger.warn(log_text);
+                    spinner.stop();
+                  }
+                  if(!nbinteract_prepared && nbiButtonsFound > 1) {
+                    logText = '\n' + 'jupyter kernel is being generated ...';
+                    logger.info(logText);
+                    // create nbInteract (core) instance
+                    //
+                    coreLogger = log4javascript.getLogger('nbinteract.core');
+                    interact = new NbInteract({
+                      spec:     options.spec,
+                      baseUrl:  options.baseUrl,
+                      provider: options.provider,
+                      logger:   coreLogger,
+                      j1API:    j1,
+                    });
+                    // generate a jupyter kernel via BinderHub
+                    interact.prepare();
+                    nbinteract_prepared = true;
+                    // issue an error if the NBI (init) button never removed by
+                    // nbInteract-core (util or manager)
+                    // TODO:  The 'timeout' condition should be replaced
+                    //        state-based triggered from nbInteract-core.
+                    //
+                    window.setTimeout(function() {
+                      var nbiButtonState = _this.getNbiButtonState();
+                      if (nbiButtonState) {
+                        // button NOT removed
+                        logger.warn('NBI initialialization failed on textbook: nbi_docs_examples_sampling_from_a_population');
+                        // hide the info modal
+                        $(nbiModalSuccessID).modal('hide');
+                        // show the error modal
+                        $(nbiModalSuccessID).on('hidden.bs.modal', function () {
+                          if ($(nbiModalErrorID).is(':hidden')) {
+                            var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
+                            _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: nbi_docs_examples_sampling_from_a_population')
+                            $(nbiModalErrorID).modal('show');
+                            // auto-close the error modal
+                            if (nbiModalAutoClose) {
+                              window.setTimeout(function() {
+                                $(nbiModalErrorID).modal('hide');
+                              }, nbiModalAutoCloseDelay);
+                            }
+                          }
+                        });
+                      } else {
+                        // button removed
+                        logger.info('NBI initialized successfully.');
                       }
-                    }
-                  });
-                } else {
-                  // button removed
-                  logger.info('NBI initialized successfully.');
-                }
-              }, nbiInitTimeout);
+                    }, nbiInitTimeout);
+                  }
+                  clearInterval(dependencies_met_nb_loaded);
+                } // END dependencies_met_nb_loaded
+              }, 25);
+              return;
             }
-            clearInterval(dependencies_met_nb_loaded);
-          } // END dependencies_met_nb_loaded
-        }, 25);
-        return;
-      }
-      // END textbook_id: nbi_docs_examples_sampling_from_a_population
-      if ($('#nbi_docs_examples_variability_of_the_sample_mean').length) {
-        var dependencies_met_nb_loaded = setInterval(function() {
-          if ($('#nbi_docs_examples_variability_of_the_sample_mean').attr('data-nb-textbook') == 'loaded') {
-            var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
-              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_examples_variability_of_the_sample_mean';
-              logger.warn(log_text);
-              spinner.stop();
-            }
-            if(!nbinteract_prepared && nbiButtonsFound > 1) {
-              logText = '\n' + 'jupyter kernel is being generated ...';
-              logger.info(logText);
-              // create nbInteract (core) instance
-              //
-              coreLogger = log4javascript.getLogger('nbinteract.core');
-              interact = new NbInteract({
-                spec:     options.spec,
-                baseUrl:  options.baseUrl,
-                provider: options.provider,
-                logger:   coreLogger,
-                j1API:    j1,
-              });
-              // generate a jupyter kernel via BinderHub
-              interact.prepare();
-              nbinteract_prepared = true;
-              // issue an error if the NBI (init) button never removed by
-              // nbInteract-core (util or manager)
-              // TODO:  The 'timeout' condition should be replaced
-              //        state-based triggered from nbInteract-core.
-              //
-              window.setTimeout(function() {
-                var nbiButtonState = _this.getNbiButtonState();
-                if (nbiButtonState) {
-                  // button NOT removed
-                  logger.warn('NBI initialialization failed on textbook: nbi_docs_examples_variability_of_the_sample_mean');
-                  // hide the info modal
-                  $(nbiModalSuccessID).modal('hide');
-                  // show the error modal
-                  $(nbiModalSuccessID).on('hidden.bs.modal', function () {
-                    if ($(nbiModalErrorID).is(':hidden')) {
-                      var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
-                      _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: nbi_docs_examples_variability_of_the_sample_mean')
-                      $(nbiModalErrorID).modal('show');
-                      // auto-close the error modal
-                      if (nbiModalAutoClose) {
-                        window.setTimeout(function() {
-                          $(nbiModalErrorID).modal('hide');
-                        }, nbiModalAutoCloseDelay);
+            // END textbook_id: nbi_docs_examples_sampling_from_a_population
+            if ($('#nbi_docs_examples_variability_of_the_sample_mean').length) {
+              var dependencies_met_nb_loaded = setInterval(function() {
+                if ($('#nbi_docs_examples_variability_of_the_sample_mean').attr('data-nb-textbook') == 'loaded') {
+                  var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
+                  if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+                    var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_examples_variability_of_the_sample_mean';
+                    logger.warn(log_text);
+                    spinner.stop();
+                  }
+                  if(!nbinteract_prepared && nbiButtonsFound > 1) {
+                    logText = '\n' + 'jupyter kernel is being generated ...';
+                    logger.info(logText);
+                    // create nbInteract (core) instance
+                    //
+                    coreLogger = log4javascript.getLogger('nbinteract.core');
+                    interact = new NbInteract({
+                      spec:     options.spec,
+                      baseUrl:  options.baseUrl,
+                      provider: options.provider,
+                      logger:   coreLogger,
+                      j1API:    j1,
+                    });
+                    // generate a jupyter kernel via BinderHub
+                    interact.prepare();
+                    nbinteract_prepared = true;
+                    // issue an error if the NBI (init) button never removed by
+                    // nbInteract-core (util or manager)
+                    // TODO:  The 'timeout' condition should be replaced
+                    //        state-based triggered from nbInteract-core.
+                    //
+                    window.setTimeout(function() {
+                      var nbiButtonState = _this.getNbiButtonState();
+                      if (nbiButtonState) {
+                        // button NOT removed
+                        logger.warn('NBI initialialization failed on textbook: nbi_docs_examples_variability_of_the_sample_mean');
+                        // hide the info modal
+                        $(nbiModalSuccessID).modal('hide');
+                        // show the error modal
+                        $(nbiModalSuccessID).on('hidden.bs.modal', function () {
+                          if ($(nbiModalErrorID).is(':hidden')) {
+                            var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
+                            _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: nbi_docs_examples_variability_of_the_sample_mean')
+                            $(nbiModalErrorID).modal('show');
+                            // auto-close the error modal
+                            if (nbiModalAutoClose) {
+                              window.setTimeout(function() {
+                                $(nbiModalErrorID).modal('hide');
+                              }, nbiModalAutoCloseDelay);
+                            }
+                          }
+                        });
+                      } else {
+                        // button removed
+                        logger.info('NBI initialized successfully.');
                       }
-                    }
-                  });
-                } else {
-                  // button removed
-                  logger.info('NBI initialized successfully.');
-                }
-              }, nbiInitTimeout);
+                    }, nbiInitTimeout);
+                  }
+                  clearInterval(dependencies_met_nb_loaded);
+                } // END dependencies_met_nb_loaded
+              }, 25);
+              return;
             }
-            clearInterval(dependencies_met_nb_loaded);
-          } // END dependencies_met_nb_loaded
-        }, 25);
-        return;
-      }
-      // END textbook_id: nbi_docs_examples_variability_of_the_sample_mean
-      if ($('#nbi_docs_examples_correlation').length) {
-        var dependencies_met_nb_loaded = setInterval(function() {
-          if ($('#nbi_docs_examples_correlation').attr('data-nb-textbook') == 'loaded') {
-            var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
-              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_examples_correlation';
-              logger.warn(log_text);
-              spinner.stop();
-            }
-            if(!nbinteract_prepared && nbiButtonsFound > 1) {
-              logText = '\n' + 'jupyter kernel is being generated ...';
-              logger.info(logText);
-              // create nbInteract (core) instance
-              //
-              coreLogger = log4javascript.getLogger('nbinteract.core');
-              interact = new NbInteract({
-                spec:     options.spec,
-                baseUrl:  options.baseUrl,
-                provider: options.provider,
-                logger:   coreLogger,
-                j1API:    j1,
-              });
-              // generate a jupyter kernel via BinderHub
-              interact.prepare();
-              nbinteract_prepared = true;
-              // issue an error if the NBI (init) button never removed by
-              // nbInteract-core (util or manager)
-              // TODO:  The 'timeout' condition should be replaced
-              //        state-based triggered from nbInteract-core.
-              //
-              window.setTimeout(function() {
-                var nbiButtonState = _this.getNbiButtonState();
-                if (nbiButtonState) {
-                  // button NOT removed
-                  logger.warn('NBI initialialization failed on textbook: nbi_docs_examples_correlation');
-                  // hide the info modal
-                  $(nbiModalSuccessID).modal('hide');
-                  // show the error modal
-                  $(nbiModalSuccessID).on('hidden.bs.modal', function () {
-                    if ($(nbiModalErrorID).is(':hidden')) {
-                      var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
-                      _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: nbi_docs_examples_correlation')
-                      $(nbiModalErrorID).modal('show');
-                      // auto-close the error modal
-                      if (nbiModalAutoClose) {
-                        window.setTimeout(function() {
-                          $(nbiModalErrorID).modal('hide');
-                        }, nbiModalAutoCloseDelay);
+            // END textbook_id: nbi_docs_examples_variability_of_the_sample_mean
+            if ($('#nbi_docs_examples_correlation').length) {
+              var dependencies_met_nb_loaded = setInterval(function() {
+                if ($('#nbi_docs_examples_correlation').attr('data-nb-textbook') == 'loaded') {
+                  var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
+                  if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+                    var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_examples_correlation';
+                    logger.warn(log_text);
+                    spinner.stop();
+                  }
+                  if(!nbinteract_prepared && nbiButtonsFound > 1) {
+                    logText = '\n' + 'jupyter kernel is being generated ...';
+                    logger.info(logText);
+                    // create nbInteract (core) instance
+                    //
+                    coreLogger = log4javascript.getLogger('nbinteract.core');
+                    interact = new NbInteract({
+                      spec:     options.spec,
+                      baseUrl:  options.baseUrl,
+                      provider: options.provider,
+                      logger:   coreLogger,
+                      j1API:    j1,
+                    });
+                    // generate a jupyter kernel via BinderHub
+                    interact.prepare();
+                    nbinteract_prepared = true;
+                    // issue an error if the NBI (init) button never removed by
+                    // nbInteract-core (util or manager)
+                    // TODO:  The 'timeout' condition should be replaced
+                    //        state-based triggered from nbInteract-core.
+                    //
+                    window.setTimeout(function() {
+                      var nbiButtonState = _this.getNbiButtonState();
+                      if (nbiButtonState) {
+                        // button NOT removed
+                        logger.warn('NBI initialialization failed on textbook: nbi_docs_examples_correlation');
+                        // hide the info modal
+                        $(nbiModalSuccessID).modal('hide');
+                        // show the error modal
+                        $(nbiModalSuccessID).on('hidden.bs.modal', function () {
+                          if ($(nbiModalErrorID).is(':hidden')) {
+                            var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
+                            _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: nbi_docs_examples_correlation')
+                            $(nbiModalErrorID).modal('show');
+                            // auto-close the error modal
+                            if (nbiModalAutoClose) {
+                              window.setTimeout(function() {
+                                $(nbiModalErrorID).modal('hide');
+                              }, nbiModalAutoCloseDelay);
+                            }
+                          }
+                        });
+                      } else {
+                        // button removed
+                        logger.info('NBI initialized successfully.');
                       }
-                    }
-                  });
-                } else {
-                  // button removed
-                  logger.info('NBI initialized successfully.');
-                }
-              }, nbiInitTimeout);
+                    }, nbiInitTimeout);
+                  }
+                  clearInterval(dependencies_met_nb_loaded);
+                } // END dependencies_met_nb_loaded
+              }, 25);
+              return;
             }
-            clearInterval(dependencies_met_nb_loaded);
-          } // END dependencies_met_nb_loaded
-        }, 25);
-        return;
-      }
-      // END textbook_id: nbi_docs_examples_correlation
-      if ($('#nbi_docs_examples_linear_regression').length) {
-        var dependencies_met_nb_loaded = setInterval(function() {
-          if ($('#nbi_docs_examples_linear_regression').attr('data-nb-textbook') == 'loaded') {
-            var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
-              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_examples_linear_regression';
-              logger.warn(log_text);
-              spinner.stop();
-            }
-            if(!nbinteract_prepared && nbiButtonsFound > 1) {
-              logText = '\n' + 'jupyter kernel is being generated ...';
-              logger.info(logText);
-              // create nbInteract (core) instance
-              //
-              coreLogger = log4javascript.getLogger('nbinteract.core');
-              interact = new NbInteract({
-                spec:     options.spec,
-                baseUrl:  options.baseUrl,
-                provider: options.provider,
-                logger:   coreLogger,
-                j1API:    j1,
-              });
-              // generate a jupyter kernel via BinderHub
-              interact.prepare();
-              nbinteract_prepared = true;
-              // issue an error if the NBI (init) button never removed by
-              // nbInteract-core (util or manager)
-              // TODO:  The 'timeout' condition should be replaced
-              //        state-based triggered from nbInteract-core.
-              //
-              window.setTimeout(function() {
-                var nbiButtonState = _this.getNbiButtonState();
-                if (nbiButtonState) {
-                  // button NOT removed
-                  logger.warn('NBI initialialization failed on textbook: nbi_docs_examples_linear_regression');
-                  // hide the info modal
-                  $(nbiModalSuccessID).modal('hide');
-                  // show the error modal
-                  $(nbiModalSuccessID).on('hidden.bs.modal', function () {
-                    if ($(nbiModalErrorID).is(':hidden')) {
-                      var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
-                      _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: nbi_docs_examples_linear_regression')
-                      $(nbiModalErrorID).modal('show');
-                      // auto-close the error modal
-                      if (nbiModalAutoClose) {
-                        window.setTimeout(function() {
-                          $(nbiModalErrorID).modal('hide');
-                        }, nbiModalAutoCloseDelay);
+            // END textbook_id: nbi_docs_examples_correlation
+            if ($('#nbi_docs_examples_linear_regression').length) {
+              var dependencies_met_nb_loaded = setInterval(function() {
+                if ($('#nbi_docs_examples_linear_regression').attr('data-nb-textbook') == 'loaded') {
+                  var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
+                  if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+                    var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_examples_linear_regression';
+                    logger.warn(log_text);
+                    spinner.stop();
+                  }
+                  if(!nbinteract_prepared && nbiButtonsFound > 1) {
+                    logText = '\n' + 'jupyter kernel is being generated ...';
+                    logger.info(logText);
+                    // create nbInteract (core) instance
+                    //
+                    coreLogger = log4javascript.getLogger('nbinteract.core');
+                    interact = new NbInteract({
+                      spec:     options.spec,
+                      baseUrl:  options.baseUrl,
+                      provider: options.provider,
+                      logger:   coreLogger,
+                      j1API:    j1,
+                    });
+                    // generate a jupyter kernel via BinderHub
+                    interact.prepare();
+                    nbinteract_prepared = true;
+                    // issue an error if the NBI (init) button never removed by
+                    // nbInteract-core (util or manager)
+                    // TODO:  The 'timeout' condition should be replaced
+                    //        state-based triggered from nbInteract-core.
+                    //
+                    window.setTimeout(function() {
+                      var nbiButtonState = _this.getNbiButtonState();
+                      if (nbiButtonState) {
+                        // button NOT removed
+                        logger.warn('NBI initialialization failed on textbook: nbi_docs_examples_linear_regression');
+                        // hide the info modal
+                        $(nbiModalSuccessID).modal('hide');
+                        // show the error modal
+                        $(nbiModalSuccessID).on('hidden.bs.modal', function () {
+                          if ($(nbiModalErrorID).is(':hidden')) {
+                            var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
+                            _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: nbi_docs_examples_linear_regression')
+                            $(nbiModalErrorID).modal('show');
+                            // auto-close the error modal
+                            if (nbiModalAutoClose) {
+                              window.setTimeout(function() {
+                                $(nbiModalErrorID).modal('hide');
+                              }, nbiModalAutoCloseDelay);
+                            }
+                          }
+                        });
+                      } else {
+                        // button removed
+                        logger.info('NBI initialized successfully.');
                       }
-                    }
-                  });
-                } else {
-                  // button removed
-                  logger.info('NBI initialized successfully.');
-                }
-              }, nbiInitTimeout);
+                    }, nbiInitTimeout);
+                  }
+                  clearInterval(dependencies_met_nb_loaded);
+                } // END dependencies_met_nb_loaded
+              }, 25);
+              return;
             }
-            clearInterval(dependencies_met_nb_loaded);
-          } // END dependencies_met_nb_loaded
-        }, 25);
-        return;
-      }
-      // END textbook_id: nbi_docs_examples_linear_regression
-      if ($('#nbi_docs_examples_probability_distribution_plots').length) {
-        var dependencies_met_nb_loaded = setInterval(function() {
-          if ($('#nbi_docs_examples_probability_distribution_plots').attr('data-nb-textbook') == 'loaded') {
-            var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
-              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_examples_probability_distribution_plots';
-              logger.warn(log_text);
-              spinner.stop();
-            }
-            if(!nbinteract_prepared && nbiButtonsFound > 1) {
-              logText = '\n' + 'jupyter kernel is being generated ...';
-              logger.info(logText);
-              // create nbInteract (core) instance
-              //
-              coreLogger = log4javascript.getLogger('nbinteract.core');
-              interact = new NbInteract({
-                spec:     options.spec,
-                baseUrl:  options.baseUrl,
-                provider: options.provider,
-                logger:   coreLogger,
-                j1API:    j1,
-              });
-              // generate a jupyter kernel via BinderHub
-              interact.prepare();
-              nbinteract_prepared = true;
-              // issue an error if the NBI (init) button never removed by
-              // nbInteract-core (util or manager)
-              // TODO:  The 'timeout' condition should be replaced
-              //        state-based triggered from nbInteract-core.
-              //
-              window.setTimeout(function() {
-                var nbiButtonState = _this.getNbiButtonState();
-                if (nbiButtonState) {
-                  // button NOT removed
-                  logger.warn('NBI initialialization failed on textbook: nbi_docs_examples_probability_distribution_plots');
-                  // hide the info modal
-                  $(nbiModalSuccessID).modal('hide');
-                  // show the error modal
-                  $(nbiModalSuccessID).on('hidden.bs.modal', function () {
-                    if ($(nbiModalErrorID).is(':hidden')) {
-                      var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
-                      _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: nbi_docs_examples_probability_distribution_plots')
-                      $(nbiModalErrorID).modal('show');
-                      // auto-close the error modal
-                      if (nbiModalAutoClose) {
-                        window.setTimeout(function() {
-                          $(nbiModalErrorID).modal('hide');
-                        }, nbiModalAutoCloseDelay);
+            // END textbook_id: nbi_docs_examples_linear_regression
+            if ($('#nbi_docs_examples_probability_distribution_plots').length) {
+              var dependencies_met_nb_loaded = setInterval(function() {
+                if ($('#nbi_docs_examples_probability_distribution_plots').attr('data-nb-textbook') == 'loaded') {
+                  var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
+                  if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+                    var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_examples_probability_distribution_plots';
+                    logger.warn(log_text);
+                    spinner.stop();
+                  }
+                  if(!nbinteract_prepared && nbiButtonsFound > 1) {
+                    logText = '\n' + 'jupyter kernel is being generated ...';
+                    logger.info(logText);
+                    // create nbInteract (core) instance
+                    //
+                    coreLogger = log4javascript.getLogger('nbinteract.core');
+                    interact = new NbInteract({
+                      spec:     options.spec,
+                      baseUrl:  options.baseUrl,
+                      provider: options.provider,
+                      logger:   coreLogger,
+                      j1API:    j1,
+                    });
+                    // generate a jupyter kernel via BinderHub
+                    interact.prepare();
+                    nbinteract_prepared = true;
+                    // issue an error if the NBI (init) button never removed by
+                    // nbInteract-core (util or manager)
+                    // TODO:  The 'timeout' condition should be replaced
+                    //        state-based triggered from nbInteract-core.
+                    //
+                    window.setTimeout(function() {
+                      var nbiButtonState = _this.getNbiButtonState();
+                      if (nbiButtonState) {
+                        // button NOT removed
+                        logger.warn('NBI initialialization failed on textbook: nbi_docs_examples_probability_distribution_plots');
+                        // hide the info modal
+                        $(nbiModalSuccessID).modal('hide');
+                        // show the error modal
+                        $(nbiModalSuccessID).on('hidden.bs.modal', function () {
+                          if ($(nbiModalErrorID).is(':hidden')) {
+                            var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
+                            _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: nbi_docs_examples_probability_distribution_plots')
+                            $(nbiModalErrorID).modal('show');
+                            // auto-close the error modal
+                            if (nbiModalAutoClose) {
+                              window.setTimeout(function() {
+                                $(nbiModalErrorID).modal('hide');
+                              }, nbiModalAutoCloseDelay);
+                            }
+                          }
+                        });
+                      } else {
+                        // button removed
+                        logger.info('NBI initialized successfully.');
                       }
-                    }
-                  });
-                } else {
-                  // button removed
-                  logger.info('NBI initialized successfully.');
-                }
-              }, nbiInitTimeout);
+                    }, nbiInitTimeout);
+                  }
+                  clearInterval(dependencies_met_nb_loaded);
+                } // END dependencies_met_nb_loaded
+              }, 25);
+              return;
             }
-            clearInterval(dependencies_met_nb_loaded);
-          } // END dependencies_met_nb_loaded
-        }, 25);
-        return;
-      }
-      // END textbook_id: nbi_docs_examples_probability_distribution_plots
-      if ($('#nbi_docs_central_limit_theorem').length) {
-        var dependencies_met_nb_loaded = setInterval(function() {
-          if ($('#nbi_docs_central_limit_theorem').attr('data-nb-textbook') == 'loaded') {
-            var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
-            if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
-              var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_central_limit_theorem';
-              logger.warn(log_text);
-              spinner.stop();
-            }
-            if(!nbinteract_prepared && nbiButtonsFound > 1) {
-              logText = '\n' + 'jupyter kernel is being generated ...';
-              logger.info(logText);
-              // create nbInteract (core) instance
-              //
-              coreLogger = log4javascript.getLogger('nbinteract.core');
-              interact = new NbInteract({
-                spec:     options.spec,
-                baseUrl:  options.baseUrl,
-                provider: options.provider,
-                logger:   coreLogger,
-                j1API:    j1,
-              });
-              // generate a jupyter kernel via BinderHub
-              interact.prepare();
-              nbinteract_prepared = true;
-              // issue an error if the NBI (init) button never removed by
-              // nbInteract-core (util or manager)
-              // TODO:  The 'timeout' condition should be replaced
-              //        state-based triggered from nbInteract-core.
-              //
-              window.setTimeout(function() {
-                var nbiButtonState = _this.getNbiButtonState();
-                if (nbiButtonState) {
-                  // button NOT removed
-                  logger.warn('NBI initialialization failed on textbook: nbi_docs_central_limit_theorem');
-                  // hide the info modal
-                  $(nbiModalSuccessID).modal('hide');
-                  // show the error modal
-                  $(nbiModalSuccessID).on('hidden.bs.modal', function () {
-                    if ($(nbiModalErrorID).is(':hidden')) {
-                      var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
-                      _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: nbi_docs_central_limit_theorem')
-                      $(nbiModalErrorID).modal('show');
-                      // auto-close the error modal
-                      if (nbiModalAutoClose) {
-                        window.setTimeout(function() {
-                          $(nbiModalErrorID).modal('hide');
-                        }, nbiModalAutoCloseDelay);
+            // END textbook_id: nbi_docs_examples_probability_distribution_plots
+            if ($('#nbi_docs_central_limit_theorem').length) {
+              var dependencies_met_nb_loaded = setInterval(function() {
+                if ($('#nbi_docs_central_limit_theorem').attr('data-nb-textbook') == 'loaded') {
+                  var nbiButtonsFound = document.querySelectorAll('.js-nbinteract-widget').length
+                  if (nbiIndicateNbiActivity && nbiButtonsFound == 1) {
+                    var log_text = '\n' + 'non-nbi textbook found, skip NBI initialization for: nbi_docs_central_limit_theorem';
+                    logger.warn(log_text);
+                    spinner.stop();
+                  }
+                  if(!nbinteract_prepared && nbiButtonsFound > 1) {
+                    logText = '\n' + 'jupyter kernel is being generated ...';
+                    logger.info(logText);
+                    // create nbInteract (core) instance
+                    //
+                    coreLogger = log4javascript.getLogger('nbinteract.core');
+                    interact = new NbInteract({
+                      spec:     options.spec,
+                      baseUrl:  options.baseUrl,
+                      provider: options.provider,
+                      logger:   coreLogger,
+                      j1API:    j1,
+                    });
+                    // generate a jupyter kernel via BinderHub
+                    interact.prepare();
+                    nbinteract_prepared = true;
+                    // issue an error if the NBI (init) button never removed by
+                    // nbInteract-core (util or manager)
+                    // TODO:  The 'timeout' condition should be replaced
+                    //        state-based triggered from nbInteract-core.
+                    //
+                    window.setTimeout(function() {
+                      var nbiButtonState = _this.getNbiButtonState();
+                      if (nbiButtonState) {
+                        // button NOT removed
+                        logger.warn('NBI initialialization failed on textbook: nbi_docs_central_limit_theorem');
+                        // hide the info modal
+                        $(nbiModalSuccessID).modal('hide');
+                        // show the error modal
+                        $(nbiModalSuccessID).on('hidden.bs.modal', function () {
+                          if ($(nbiModalErrorID).is(':hidden')) {
+                            var messageErrorUL = document.getElementById(nbiModalErrorMessagesID);
+                            _this.appendModalMessage(messageErrorUL, 'NBI initialialization failed for textbook: nbi_docs_central_limit_theorem')
+                            $(nbiModalErrorID).modal('show');
+                            // auto-close the error modal
+                            if (nbiModalAutoClose) {
+                              window.setTimeout(function() {
+                                $(nbiModalErrorID).modal('hide');
+                              }, nbiModalAutoCloseDelay);
+                            }
+                          }
+                        });
+                      } else {
+                        // button removed
+                        logger.info('NBI initialized successfully.');
                       }
-                    }
-                  });
-                } else {
-                  // button removed
-                  logger.info('NBI initialized successfully.');
-                }
-              }, nbiInitTimeout);
+                    }, nbiInitTimeout);
+                  }
+                  clearInterval(dependencies_met_nb_loaded);
+                } // END dependencies_met_nb_loaded
+              }, 25);
+              return;
             }
-            clearInterval(dependencies_met_nb_loaded);
-          } // END dependencies_met_nb_loaded
-        }, 25);
-        return;
-      }
-      // END textbook_id: nbi_docs_central_limit_theorem
+            // END textbook_id: nbi_docs_central_limit_theorem
+          } else {
+            spinner.stop();
+            var modaBodyText = `
+              The <i>Binder Service</i> is currently not available or is overloaded.
+              All interactive components on the page are <b>not</b> available.
+              You can reload the page or re-open later again.
+            `;
+            logger.error('\n', 'Binder access: failed');
+            if ($(nbiModalTRInfo).is(':hidden')) {
+              document.getElementById('nbiModalTRInfoBody').innerHTML = modaBodyText;
+              $(nbiModalTRInfo).modal('show');
+            }
+            clearInterval(dependencies_met_binder_responsive);
+          }
+        }
+      }, 25);  // END dependencies_met_binder_responsive
     },
     // -------------------------------------------------------------------------
     // loadTextbookHTML()
@@ -1735,6 +1763,43 @@ j1.adapter.nbinteract = (function (j1, window) {
           </div>
         </div>
       `
+      const nbiModalTRInfo = `
+        <div id="nbiModalTRInfo"
+          class="modal fade right"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="myModalLabel" aria-hidden="true"
+          data-bs-keyboard="false"
+          data-bs-backdrop="static">
+          <div class="modal-dialog modal-dialog-scrollable modal-side-2x modal-top-right modal-notify modal-success" role="document">
+            <!-- Content -->
+            <div class="modal-content">
+              <!-- Header -->
+              <div class="modal-header">
+                <p class="lead">Information</p>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                  <i class="mdi mdi-close mdi-dark mdi-48px"></i>
+                </button>
+              </div>
+              <!-- Icon -->
+              <div class="text-center">
+                <i class="mdi mdi-10x mdi-information-variant mdi-spin md-green mb-1"></i>
+              </div>
+              <!-- Body -->
+              <div id="nbiModalTRInfoBody" class="modal-body">
+                <div>
+                  <p> Placeholder </p>
+                </div>
+              </div>
+              <!-- Footer -->
+              <div class="modal-footer justify-content-center">
+                <a type="button" class="btn btn-primary" data-bs-dismiss="modal">OK, thanks</a>
+              </div>
+            </div>
+            <!-- END Content -->
+          </div>
+        </div>
+      `
       const nbiModalTRSuccess = `
         <div id="nbiModalTRSuccess"
           class="modal fade right"
@@ -1748,7 +1813,7 @@ j1.adapter.nbinteract = (function (j1, window) {
             <div class="modal-content">
               <!-- Header -->
               <div class="modal-header">
-                <p class="lead">Info - NbInteract</p>
+                <p class="lead">NBI - Information</p>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                   <i class="mdi mdi-close mdi-dark mdi-48px"></i>
                 </button>
@@ -1786,7 +1851,7 @@ j1.adapter.nbinteract = (function (j1, window) {
             <div id="nbiModalErrorBody" class="modal-content">
               <!--Header-->
               <div class="modal-header">
-                <p class="lead">Error - NbInteract</p>
+                <p class="lead">NBI - Error</p>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                   <i class="mdi mdi-close mdi-dark mdi-48px"></i>
                 </button>
@@ -1815,6 +1880,11 @@ j1.adapter.nbinteract = (function (j1, window) {
       nbiModal.id             = 'nbi-modal-info';
       nbiModal.className      = 'nbi-modal';
       nbiModal.innerHTML      = nbiModalTopInfo;
+      document.body.appendChild(nbiModal);
+      nbiModal                = document.createElement('div');
+      nbiModal.id             = 'nbi-modal-info';
+      nbiModal.className      = 'nbi-modal';
+      nbiModal.innerHTML      = nbiModalTRInfo;
       document.body.appendChild(nbiModal);
       nbiModal                = document.createElement('div');
       nbiModal.id             = 'nbi-modal-success';
@@ -1978,6 +2048,21 @@ j1.adapter.nbinteract = (function (j1, window) {
     getState: function () {
       return _this.state;
     }, // END getState
+    // -------------------------------------------------------------------------
+    // getState()
+    // Returns the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    checkURL: function (uri, flags) {
+      _this.setState('process_checks');
+      $.get(uri).done(function () {
+        _this.setState('finished_checks');
+        flags.checkURL = true;
+        return true;
+      }).fail(function () {
+        _this.setState('finished_checks');
+        flags.checkURL = false;
+      });
+    }, // END checkURL
     // -------------------------------------------------------------------------
     // appendModalMessage()
     // Appends a message to given (NBI) modal
