@@ -20,26 +20,34 @@
               </p>
             </div>
             <p style="font-size: 90%">Your current language setting for translation is:</p>
-            <div id="dropdownJSON" class="mb-4" style="display:none"></div>
+            <div id="dropdownJSON" class="mb-2" style="display:none"></div>
             <p>
               <a href="#google-privacy" data-bs-toggle="collapse" class="">Privacy Notice</a>
               <a href="#google-options" data-bs-toggle="collapse" class="float-right">My Settings</a>
             </p>
             <div id="google-privacy" class="collapse">
               <div class="modal-body-text" style="font-size: 90%">
-                <p class="mb-4">The free service from <em>Google Translate</em> uses cookies to provide its services, personalize advertising and run traffic analysis To use the service, your consent on using cookies is required. Find more information about at the Google <a href="https://policies.google.com/" target="_blank" rel="noopener">Privacy Policy</a> <br>
+                <p class="mb-2">The free service from <em>Google Translate</em> uses cookies to provide its services, personalize advertising and run traffic analysis To use the service, your consent on using cookies is required. Find more information about at the Google <a href="https://policies.google.com/" target="_blank" rel="noopener">Privacy Policy</a> <br>
                   <br>
- <code>Analysis</code> For translations, your consent on <b>Analysis</b> with your <b>Privacy Settings</b> is required. <br>
-                  <br>
- <code>Personalization</code> For translations, your consent on <b>Personalization</b> with your <b>Privacy Settings</b> is required.
-                </p>
+                   Required Cookie Settings: <br>
+ </p>
+                <ul>
+                  <li>
+                    <code>Analysis</code> For translations, your consent on
+                    <b>Analysis</b> with your <b>Privacy Settings</b> is required.
+                  </li>
+                  <li>
+                    <code>Personalization</code> For processing textbooks, your consent on
+                    <b>Personalization</b> with your <b>Privacy Settings</b> (Cookie Settings) is required.
+                  </li>
+                </ul>
               </div>
             </div>
             <div id="google-options" class="collapse">
               <p class="tagline mt-4 mb-1"><b>Settings</b></p>
               <div class="d-inline-block g-width-50 g-height-2 bg-primary mb-3"></div>
               <div class="translator-option" data-name="analysis">
-                <div class="switch">
+                <div class="switch mb-1">
                   <label>
                     <input id="checkboxAnalysis" type="checkbox" name="checkboxAnalysis" checked>
                     <span class="bmd-switch-track"></span>
@@ -48,7 +56,7 @@
                 </div>
               </div>
               <div class="translator-option" data-name="personalization">
-                <div class="switch">
+                <div class="switch mb-1">
                   <label>
                     <input id="checkboxPersonalization" type="checkbox" name="checkboxPersonalization" checked>
                     <span class="bmd-switch-track"></span>
@@ -57,7 +65,7 @@
                 </div>
               </div>
               <div class="translator-option" data-name="useLanguageFromBrowser">
-                <div class="switch">
+                <div class="switch mb-1">
                   <label>
                     <input id="checkboxuseLanguageFromBrowser" type="checkbox" name="checkboxuseLanguageFromBrowser" checked disabled>
                     <span class="bmd-switch-track"></span>
@@ -66,7 +74,7 @@
                 </div>
               </div>
               <div class="translator-option" data-name="translateAllPages">
-                <div class="switch">
+                <div class="switch mb-1">
                   <label>
                     <input id="checkboxTranslateAllPages" type="checkbox" name="checkboxTranslateAllPages" checked disabled>
                     <span class="bmd-switch-track"></span>
@@ -75,7 +83,7 @@
                 </div>
               </div>
               <div class="translator-option" data-name="translationEnabled">
-                <div class="switch">
+                <div class="switch mb-1">
                   <label>
                     <input id="checkboxTranslationEnabled" type="checkbox" name="checkboxTranslationEnabled" checked>
                     <span class="bmd-switch-track"></span>
@@ -110,7 +118,7 @@
           </div>
           <div class="modal-body">
             <div class="modal-body-text" style="font-size: 90%">
-              <p class="mb-4">Diese Website nutzt den kostenlosen Dienst <em>Google Translate</em>, um die Inhalte in sekundenschnelle in über 100+ Sprachen zu übersetzen. Die <b>Sprache</b> für die Übersetzung wird <b>automatisch</b> aus den Spracheinstellungen Ihres <b>Browsers</b> übernommen. Wenn Sie <b>keine</b> Übersetzung mehr wünschen, <b>deaktivieren</b> Sie den Dienst im Abschnitt <b>Meine Einstellungen</b>.
+              <p class="mb-2">Diese Website nutzt den kostenlosen Dienst <em>Google Translate</em>, um die Inhalte in sekundenschnelle in über 100+ Sprachen zu übersetzen. Die <b>Sprache</b> für die Übersetzung wird <b>automatisch</b> aus den Spracheinstellungen Ihres <b>Browsers</b> übernommen. Wenn Sie <b>keine</b> Übersetzung mehr wünschen, <b>deaktivieren</b> Sie den Dienst im Abschnitt <b>Meine Einstellungen</b>.
               </p>
             </div>
             <p style="font-size: 90%">Ihre aktuelle Spracheinstellung für die Übersetzung ist:</p>
@@ -121,19 +129,28 @@
             </p>
             <div id="google-privacy" class="collapse">
               <div class="modal-body-text" style="font-size: 90%">
-                <p class="mb-4">Der kostenlose Dienst von <em>Google Translate</em> verwendet Cookies um seine Dienste bereitzustellen, Werbung zu personalisieren und Verkehrsanalysen durchzuführen: <br>
+                <p class="mb-2">Der kostenlose Dienst von <em>Google Translate</em> verwendet Cookies um seine Dienste bereitzustellen, Werbung zu personalisieren und Verkehrsanalysen durchzuführen: <br>
                   <br>
- <code>Analysen</code> Für die Nutzung von Übersetzungen ist Ihre Zustimmung zu <b>Analysen</b> in den Einstellungen <code>Ihre Privatsphäre</code> erforderlich. <br>
-                  <br>
- <code>Personalisierung</code> Für die Nutzung von Übersetzungen ist Ihre Zustimmung zur <b>Personalisierung</b> in den Einstellungen <code>Ihre Privatsphäre</code> erforderlich.
-                </p>
+ </p>
+                <ul>
+                  <li>
+                    <code>Analysen</code> Für die Nutzung von Übersetzungen ist Ihre
+                    Zustimmung zu <b>Analysen</b> in den Einstellungen <code>Ihre Privatsphäre</code>
+                    erforderlich.
+                  </li>
+                  <li>
+                    <code>Personalisierung</code> Für die Nutzung von Übersetzungen ist Ihre
+                    Zustimmung zur <b>Personalisierung</b> in den Einstellungen <code>Ihre Privatsphäre</code>
+                    erforderlich.
+                  </li>
+                </ul>
               </div>
             </div>
             <div id="google-options" class="collapse">
               <p class="tagline mt-4 mb-1"><b>Settings</b></p>
               <div class="d-inline-block g-width-50 g-height-2 bg-primary mb-3"></div>
               <div class="translator-option" data-name="analysis">
-                <div class="switch">
+                <div class="switch mb-1">
                   <label>
                     <input id="checkboxAnalysis" type="checkbox" name="checkboxAnalysis" checked>
                     <span class="bmd-switch-track"></span>
@@ -142,7 +159,7 @@
                 </div>
               </div>
               <div class="translator-option" data-name="personalization">
-                <div class="switch">
+                <div class="switch mb-1">
                   <label>
                     <input id="checkboxPersonalization" type="checkbox" name="checkboxPersonalization" checked>
                     <span class="bmd-switch-track"></span>
@@ -151,7 +168,7 @@
                 </div>
               </div>
               <div class="translator-option" data-name="useLanguageFromBrowser">
-                <div class="switch">
+                <div class="switch mb-1">
                   <label>
                     <input id="checkboxUseLanguageFromBrowser" type="checkbox" name="checkboxUseLanguageFromBrowser" checked>
                     <span class="bmd-switch-track"></span>
@@ -160,7 +177,7 @@
                 </div>
               </div>
               <div class="translator-option" data-name="translateAllPages">
-                <div class="switch">
+                <div class="switch mb-1">
                   <label>
                     <input id="checkboxTranslateAllPages" type="checkbox" name="checkboxTranslateAllPages" checked disabled>
                     <span class="bmd-switch-track"></span>
@@ -169,7 +186,7 @@
                 </div>
               </div>
               <!-- div class="translator-option" data-name="translatorName">
-            <div class="switch">
+            <div class="switch mb-1">
               <label>
                 <input id="checkboxTranslatorName" type="checkbox"  name="checkboxTranslatorNameEnabled" disabled="true" checked>
                 <span class="bmd-switch-track"></span>
@@ -178,7 +195,7 @@
             </div>
           </div -->
               <div class="translator-option" data-name="translationEnabled">
-                <div class="switch">
+                <div class="switch mb-1">
                   <label>
                     <input id="checkboxTranslator" type="checkbox" name="checkboxTranslator" checked>
                     <span class="bmd-switch-track"></span>

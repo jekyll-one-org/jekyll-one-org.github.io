@@ -19,7 +19,7 @@
  # NOTE: For getStyleValue helper see
  #  https://stackoverflow.com/questions/16965515/how-to-get-a-style-attribute-from-a-css-class-by-javascript-jquery
  # -----------------------------------------------------------------------------
- # Adapter generated: 2022-05-10 16:48:36 +0000
+ # Adapter generated: 2022-05-12 17:53:32 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -61,7 +61,7 @@ j1.adapter.mmenu = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.mmenu',
-        generated:   '2022-05-10 16:48:36 +0000'
+        generated:   '2022-05-12 17:53:32 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -164,7 +164,8 @@ j1.adapter.mmenu = (function (j1, window) {
             });
             const drawer_navigator_nav_mmenu = mmenu_navigator_nav_mmenu.offcanvas ({
               // drawer options
-              position: mmOptions.mmenu_drawer.position
+              position: mmOptions.mmenu_drawer.position,
+              toggle_mode: false
             });
             const navigator_navigator_nav_mmenu = mmenu_navigator_nav_mmenu.navigation ({
               // navigator options
@@ -173,17 +174,37 @@ j1.adapter.mmenu = (function (j1, window) {
               title:            mmOptions.mmenu_navigator.title,
               theme:            mmOptions.mmenu_navigator.theme
             });
+            // make sure the QL menu is shown, if mmenu is closed
+            // by mmenu backdrop
+            //
+            $(".mm-ocd").click(function() {
+              $('#quicklinks').show();
+              return false
+            });
             // Toggle Bars (Hamburger) for the NavBar to open|close
             // the mmenu drawer
+            //
             $('#mmenu-button').each(function(e) {
               var $this = $(this);
-              $this.on('click', function(e){
+              var clicked;
+              $this.on('click', function(e) {
                 const button_navigator_nav_mmenu = this;
                 e.preventDefault();
-                drawer_navigator_nav_mmenu.open();
+                // toggle mmenu open|clse
+                clicked = $('body.mm-ocd-opened').length ? true : false;
+                if (clicked) {
+                  drawer_navigator_nav_mmenu.close();
+                  $('#quicklinks').show();
+                  clicked = false;
+                } else {
+                  $('#quicklinks').hide();
+                  drawer_navigator_nav_mmenu.open();
+                  clicked = true;
+                }
               });
             });
             // jadams, 2020-09-30: loading the menues (themes) if enabled
+            //
             if (themerEnabled) {
               // load REMOTE themes from Bootswatch API (localFeed EMPTY!)
               $('#remote_themes_mmenu').bootstrapThemeSwitcher({

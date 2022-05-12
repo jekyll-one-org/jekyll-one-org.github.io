@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2022-05-10 16:48:36 +0000
+ #  Adapter generated: 2022-05-12 17:53:32 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -50,6 +50,9 @@ j1.adapter.nbinteract = (function (j1, window) {
     className:  'spinner',                                                      // CSS class assined to the spinner
     position:   'fixed',                                                        // element positioning:  absolute|fixed
   };
+  var nbActions = {
+    "resetLocalStorage":        true
+  };
   var spinnerStarted = false;                                                   // switch to indicate a started spinner
   var nbiContentModalInfoID       = 'nbiModalInfoBody';                         // ID of the content (messages) for the INFO modal
   var nbiContentModalSuccessID    = 'nbiModalSuccessBody';                      // ID of the content (messages) for the SUCCESS modal
@@ -60,7 +63,8 @@ j1.adapter.nbinteract = (function (j1, window) {
   var nbiModalErrorID             = '#' + 'nbiModalTLDanger';                   // ID of the ERROR modal
   var nbinteract_prepared         = false;                                      // switch to indicate if ???
   var nbiModalSuccessMessagesID   = 'nbiModalSuccessMessages';                  // UL contalner SUCCESS messages
-  var nbiModalErrorMessagesID     = 'nbiModalErrorMessages';                    // UL contalner ERROR messahes
+  var nbiModalErrorMessagesID     = 'nbiModalErrorMessages';                    // UL contalner ERROR messages
+  var nbiCellsRendered = false;                                                  // flag indicates if all widgets in page are rendered
   var nbiShowMessages;                                                          // switch to show NBI messages
   var nbiIndicateNbiActivity;                                                   // switch to show a spinner while NBI is being initialized
   var nbiModalAutoClose;                                                        // switch to auto-close nbi message modals
@@ -77,6 +81,10 @@ j1.adapter.nbinteract = (function (j1, window) {
   var logger;
   var coreLogger;
   var logText;
+  var widgetCells;
+  var widgetCellsRendered;
+  var nbiNotebookReady;
+  var Events;
   // ---------------------------------------------------------------------------
   // Helper functions
   // ---------------------------------------------------------------------------
@@ -89,13 +97,25 @@ j1.adapter.nbinteract = (function (j1, window) {
     // -------------------------------------------------------------------------
     init: function (options) {
       // -----------------------------------------------------------------------
+      // global event handler
+      // -----------------------------------------------------------------------
+      Events = {
+        documentReady: function (onDocumentReady) {
+          if (document.readyState !== 'loading') {
+            onDocumentReady();
+          } else {
+            document.addEventListener('DOMContentLoaded', onDocumentReady);
+          }
+        }
+      };
+      // -----------------------------------------------------------------------
       // Default module settings
       // -----------------------------------------------------------------------
       var settings = $.extend ({
         module_name: 'j1.adapter.nbinteract',
-        generated:   '2022-05-10 16:48:36 +0000'
+        generated:   '2022-05-12 17:53:32 +0000'
       }, options);
-      moduleOptions = $.extend({}, {"spec":"jekyll-one/j1-binder-repo/main", "baseUrl":"https://mybinder.org", "provider":"gh", "button_styles":"btn btn-primary btn-raised hidden", "show_nbi_messages":false, "indicate_nbi_activity":true, "nbi_messages_auto_close":true, "nbi_init_timeout":180000, "nbi_messages_auto_close_delay":3500, "nbi_init_mathjax":true, "textbooks":[{"textbook":{"enabled":true, "id":"j1_climate_change_forecast", "xhr_data":"j1_climate_change_forecast.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"j1_interactive_widgets", "xhr_data":"j1_interactive_widgets.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"j1_docs_example_dynamic", "xhr_data":"j1_docs_example_dynamic.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"j1_circular_times_table", "xhr_data":"j1_circular_times_table.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"j1_odes_in_python", "xhr_data":"j1_odes_in_python.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"j1_docs_example_dynamic", "xhr_data":"j1_docs_example_dynamic.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_tutorial_interact", "xhr_data":"nbi_docs_tutorial_interact.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_tutorial_monty_hall", "xhr_data":"nbi_docs_tutorial_monty_hall.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_recipes_graphing", "xhr_data":"nbi_docs_recipes_graphing.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_recipes_layout", "xhr_data":"nbi_docs_recipes_layout.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_recipes_interactive_questions", "xhr_data":"nbi_docs_recipes_interactive_questions.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_empirical_distributions", "xhr_data":"nbi_docs_examples_empirical_distributions.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_sampling_from_a_population", "xhr_data":"nbi_docs_examples_sampling_from_a_population.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_variability_of_the_sample_mean", "xhr_data":"nbi_docs_examples_variability_of_the_sample_mean.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_correlation", "xhr_data":"nbi_docs_examples_correlation.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_linear_regression", "xhr_data":"nbi_docs_examples_linear_regression.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_probability_distribution_plots", "xhr_data":"nbi_docs_examples_probability_distribution_plots.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_central_limit_theorem", "xhr_data":"nbi_docs_examples_central_limit_theorem.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}]});
+      moduleOptions = $.extend({}, {"enabled":true, "contentURL":"/assets/data/nbinteract", "xhrDataElement":"nbi-modal-data", "dialogContainerID":"nbi-dialog", "dialogTitle":"NBI Settings", "dialogBodyText":"\nThis website uses the <b>free</b> service <em>Binder</em> to process <b>interactive</b> widgets from content containing textbooks (HTML exported Jupyter Notebooks).\nThe Binder Service allows you to create custom computing environments that can be shared and used by many remote users. A Binder service is powered by <a href=\"https://github.com/jupyterhub/binderhub\" target=\"_blank\" rel=\"noopener\">BinderHub Repo on Github</a>, an open-source tool that runs on Kubernetes, a portable, extensible, open-source platform for managing containerized services. One such deployment lives at <a href=\"https://mybinder.org/\" target=\"_blank\" rel=\"noopener\">Binder Home</a>, and is free to use.\n<div class=\"admonitionblock caution\">\n  <table style=\"background: rgb(255, 255, 255);font-size: 100%\">\n    <tbody><tr>\n      <td class=\"icon\">\n        <i class=\"fa icon-caution\" title=\"Caution\"></i>\n      </td>\n      <td class=\"content\">\n        Each interactive element presented on this page uses <strong>time-consuming</strong>\n        operations that take a while to finish. The images and the interactive\n        elements are built through a backend in the cloud. Please be patient\n        to see the results.\n      </td>\n    </tr></tbody>\n  </table>\n</div>\n", "dialogPrivacyNotice":"The service provided by<em>Binder</em> uses <b>cookies</b> to provide its service. Your consent on using cookies is required. Find more information about at the Binder at the <a href=\"https://mybinder.readthedocs.io/en/latest/about/user-guidelines.html#security-and-privacy\" target=\"_blank\" rel=\"noopener\">Privacy Policy.</a> of Binder. <br><br> Required Cookie Settings: <ul>\n  <li>\n  <code>Personalization</code> For processing textbooks, your consent on\n  <b>Personalization</b> with your <b>Privacy Settings</b> (Cookie Settings) is required.\n  </li>\n</ul>\n", "spec":"jekyll-one/j1-binder-repo/main", "baseUrl":"https://mybinder.org", "provider":"gh", "button_styles":"btn btn-primary btn-raised hidden", "show_nbi_messages":false, "indicate_nbi_activity":true, "nbi_messages_auto_close":true, "nbi_init_timeout":180000, "nbi_messages_auto_close_delay":3500, "nbi_init_mathjax":true, "notebook_ready":"first_widget", "textbooks":[{"textbook":{"enabled":true, "id":"j1_climate_change_forecast", "xhr_data":"j1_climate_change_forecast.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"j1_interactive_widgets", "xhr_data":"j1_interactive_widgets.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"j1_docs_example_dynamic", "xhr_data":"j1_docs_example_dynamic.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"j1_circular_times_table", "xhr_data":"j1_circular_times_table.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"j1_odes_in_python", "xhr_data":"j1_odes_in_python.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"j1_docs_example_dynamic", "xhr_data":"j1_docs_example_dynamic.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_tutorial_interact", "xhr_data":"nbi_docs_tutorial_interact.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_tutorial_monty_hall", "xhr_data":"nbi_docs_tutorial_monty_hall.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_recipes_graphing", "xhr_data":"nbi_docs_recipes_graphing.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_recipes_layout", "xhr_data":"nbi_docs_recipes_layout.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_recipes_interactive_questions", "xhr_data":"nbi_docs_recipes_interactive_questions.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_empirical_distributions", "xhr_data":"nbi_docs_examples_empirical_distributions.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_sampling_from_a_population", "xhr_data":"nbi_docs_examples_sampling_from_a_population.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_variability_of_the_sample_mean", "xhr_data":"nbi_docs_examples_variability_of_the_sample_mean.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_correlation", "xhr_data":"nbi_docs_examples_correlation.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":true}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_linear_regression", "xhr_data":"nbi_docs_examples_linear_regression.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_examples_probability_distribution_plots", "xhr_data":"nbi_docs_examples_probability_distribution_plots.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}, {"textbook":{"enabled":true, "id":"nbi_docs_central_limit_theorem", "xhr_data":"nbi_docs_examples_central_limit_theorem.html", "xhr_data_path":"/pages/public/jupyter/notebooks/textbooks", "use_mathjax":false}}]});
       // -----------------------------------------------------------------------
       // Global variable settings
       // -----------------------------------------------------------------------
@@ -107,6 +127,7 @@ j1.adapter.nbinteract = (function (j1, window) {
       nbiShowMessages         = moduleOptions.show_nbi_messages;
       nbiIndicateNbiActivity  = moduleOptions.indicate_nbi_activity;
       nbiInitMathJax          = moduleOptions.nbi_init_mathjax;
+      nbiNotebookReady        = moduleOptions.notebook_ready;
       // -----------------------------------------------------------------------
       // load|configure Mathjax
       // -----------------------------------------------------------------------
@@ -114,16 +135,20 @@ j1.adapter.nbinteract = (function (j1, window) {
         _this.initMathJax();
       }
       // -----------------------------------------------------------------------
-      // load HTML data for all modals used by nbInteract
+      // load|configure NBI dialog (modal)
+      // -----------------------------------------------------------------------
+      _this.loadDialog(moduleOptions);
+      // -----------------------------------------------------------------------
+      // load all modals (HTML portion) used by NBI
       // -----------------------------------------------------------------------
       _this.loadNbiModals();
       // -----------------------------------------------------------------------
-      // load the HTML portion for all textbooks configured|enabled
+      // load all textbooks (HTML portion) configured|enabled
       // -----------------------------------------------------------------------
       _this.loadNbiTextbooks(moduleOptions);
-      // -------------------------------------------------------------------
+      // -----------------------------------------------------------------------
       // run a spinner to indicate activity of 'nbInteract' if enabled
-      // -------------------------------------------------------------------
+      // -----------------------------------------------------------------------
       $(document).ready(function() {
         if (nbiIndicateNbiActivity && !spinnerStarted) {
           spinnerStarted = true;
@@ -143,6 +168,18 @@ j1.adapter.nbinteract = (function (j1, window) {
       // Jupyter kernel if required
       // -----------------------------------------------------------------------
       _this.interactNbiTextbooks(moduleOptions);
+      // toggle hide|show the FAB button, if to wait on 'last_widget' rendered
+      //
+      if (nbiNotebookReady == 'last_widget') {
+        var dependencies_met_page_rendered = setInterval(function() {
+          if (nbiCellsRendered) {
+            $('.fab-btn').show();
+            clearInterval(dependencies_met_page_rendered);
+          } else {
+            $('.fab-btn').hide();
+          }
+        }, 25);  // END interval dependencies_met_page_rendered
+      }
     }, // END init
     // -------------------------------------------------------------------------
     // initMathJax()
@@ -1513,7 +1550,7 @@ j1.adapter.nbinteract = (function (j1, window) {
             }
             // ------------------------------------------------------------------
             // see: https://www.codingexercises.com/replace-all-instances-of-css-class-in-vanilla-js
-            // see: https://wiki.selfhtml.org/wiki/JavaScript/Operatoren/Rest-_oder_Spread-Operator
+            // see: https://wiki.thishtml.org/wiki/JavaScript/Operatoren/Rest-_oder_Spread-Operator
             // ------------------------------------------------------------------
             // disable (Google) translation for all HTML 'output_wrapper' elements
             //
@@ -1913,12 +1950,9 @@ j1.adapter.nbinteract = (function (j1, window) {
       //  Process commands|actions
       // -----------------------------------------------------------------------
       // -----------------------------------------------------------------------
-      //  command|nbi_init_finished
-      //
-      if (message.type === 'command' && message.action === 'nbi_init_finished') {
-        _this.setState('finished');
-        logger.debug('\n' + 'state: ' + _this.getState());
-        logger.info('\n' + 'initializing module finished');
+      //  command|nbi_init_started
+      // -----------------------------------------------------------------------
+      if (message.type === 'command' && message.action === 'nbi_init_started') {
         if (nbiShowMessages) {
           if (nbiModalAutoClose) {
             window.setTimeout(function() {
@@ -1926,18 +1960,37 @@ j1.adapter.nbinteract = (function (j1, window) {
             }, nbiModalAutoCloseDelay);
           }
         }
-        if (nbiIndicateNbiActivity) {
-          spinner.stop();
-        }
-      } // END message command/nbi_init_finished
+        widgetCells = document.querySelectorAll('.output_widget_view').length;
+        var dependencies_met_page_rendered = setInterval(function() {
+          widgetCellsRendered = document.querySelectorAll('.widget-vbox').length;
+          if (widgetCellsRendered >= widgetCells) {
+            logger.info('\n' + 'widgets rendered in page (interactive|total) : ' + widgetCells + '|' + widgetCellsRendered);
+            nbiCellsRendered = true;
+            if (nbiIndicateNbiActivity) spinner.stop();
+            _this.setState('finished');
+            logger.debug('\n' + 'state: ' + _this.getState());
+            logger.info('\n' + 'initializing module finished');
+            clearInterval(dependencies_met_page_rendered);
+          }
+        }, 25);  // END interval dependencies_met_page_rendered
+        // ---------------------------------------------------------------------
+        // show the quicklinks icon
+        // ---------------------------------------------------------------------
+        $('#quickLinksNotebookseButton').show();
+      } // END message command/nbi_init_started
+      // -----------------------------------------------------------------------
+      //  command|mathjax
+      // -----------------------------------------------------------------------
       if (message.type === 'command' && message.action === 'mathjax') {
         logger.error('\n' + 'New Math, ID: ' + message.text);
-        MathJax.Hub.Startup.signal.Interest(function (message) {
-          logger.error("Startup: " + message)
-          // if (message.contains('End')) {
-          //   logger.error("Startup: " + message)
-          // }
-        });
+        // Register a MathJax callback if page is FULLY rendered
+        // TODO: Dosn't for now tha way !!!
+        // MathJax.Hub.Startup.signal.Interest(function (message) {
+        //   logger.error("Startup: " + message)
+        //   if (message.contains('End')) {
+        //     logger.error("Startup: " + message)
+        //   }
+        // });
         var dependencies_met_mathjax_rendered = setInterval(function() {
           var elm = document.getElementById('MathJax-Element-6' + '-Frame');
           var isProcessing = (elm.classList.contains('MJXc-processing') || elm.classList.contains('MJXc-processed')) ? true : false;
@@ -1949,13 +2002,20 @@ j1.adapter.nbinteract = (function (j1, window) {
           }
           clearInterval(dependencies_met_mathjax_rendered);
         }, 25);  // END interval dependencies_met_mathjax_rendered
-      } // END message command/nbi_init_finished
+      } // END message command/mathjax
       // -----------------------------------------------------------------------
-      //  command|info
-      //
+      // command|info
+      // TODO:  count messages contain 'Pulling image'.
+      //        Potentially a enless loop
+      // -----------------------------------------------------------------------
       if (message.type === 'command' && message.action === 'info') {
 //      var reMessageTS         = new RegExp('/(?:[1-9]\d{3}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1\d|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[1-9]\d(?:0[48]|[2468][048]|[13579][26])|(?:[2468][048]|[13579][26])00)-02-29)T(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d(?:\.\d{1,9})?(?:Z|[+-][01]\d:[0-5]\d)/');
         var messageTS;
+        // widget render info messages for logging
+        //
+        if (message.text.includes('Displaying widget') || message.text.includes('First widget')) {
+          logger.debug('\n' + message.text);
+        }
         // remove timestamp|loglevel from message if exists
         //
         messageTS = message.text.split('] ')[1];
@@ -1974,9 +2034,22 @@ j1.adapter.nbinteract = (function (j1, window) {
       } // END message command/info
       // -----------------------------------------------------------------------
       //  command|error
-      //
+      // -----------------------------------------------------------------------
       if (message.type === 'command' && message.action === 'error') {
         var messageTS;
+        if (messageTS.contains('Too many users') || messageTS.contains('Insufficent nodes')) {
+          var modaBodyText = `
+            The <i>Binder Service</i> is currently not available or is overloaded.
+            All interactive components on the page are <b>not</b> available.
+            You can reload the page or re-open later again.
+          `;
+          logger.error('\n', 'Binder access: failed');
+          if ($(nbiModalTRInfo).is(':hidden')) {
+            document.getElementById('nbiModalTRInfoBody').innerHTML = modaBodyText;
+            $(nbiModalTRInfo).modal('show');
+          }
+          return;
+        }
         // remove timestamp|loglevel from message if exists
         //
         messageTS = message.text.split('] ')[1];
@@ -1985,11 +2058,11 @@ j1.adapter.nbinteract = (function (j1, window) {
         }
         _this.appendModalMessage(messageErrorUL, message.text)
         logger.error('\n' + message.text);
-        // stop the (progress) spinner (currently NOT used)
+        // stop the (progress) spinner
         //
-        // if (moduleOptions.indicate_nbi_activity) {
-        //   spinner.stop();
-        // }
+        if (moduleOptions.indicate_nbi_activity) {
+          spinner.stop();
+        }
         if (nbiShowMessages) {
           // hide the info modal if shown
           //
@@ -2063,6 +2136,105 @@ j1.adapter.nbinteract = (function (j1, window) {
         flags.checkURL = false;
       });
     }, // END checkURL
+    // -------------------------------------------------------------------------
+    // loadDialog()
+    // Loads the NBI dialog (modal)
+    // -------------------------------------------------------------------------
+    loadDialog: function (options) {
+      Events.documentReady(function () {
+        _this.modal = document.getElementById(options.dialogContainerID);
+        if (!_this.modal) {
+          logger.info('\n' +  'load consent modal');
+          _this.modal = document.createElement('div');
+          _this.modal.id = options.dialogContainerID;
+          _this.modal.style.display = 'none';
+          _this.modal.setAttribute('class', 'modal fade');
+          _this.modal.setAttribute('tabindex', '-1');
+          _this.modal.setAttribute('role', 'dialog');
+          _this.modal.setAttribute('aria-labelledby', options.dialogContainerID);
+          document.body.append(_this.modal);
+          _this.$modal = $(_this.modal);
+          // -------------------------------------------------------------------
+          // load|initialize the dialog (modal content)
+          // -------------------------------------------------------------------
+          var templateUrl = options.contentURL + '/' + 'index.html';
+          $.get(templateUrl)
+          .done(function (data) {
+            // load ALL modals HTML
+            _this.modal.innerHTML = data;
+            // select only the requested modal
+            _this.modal.innerHTML = $('#' + options.xhrDataElement).eq(0).html();
+            // set dialog type to 'modal'
+            //
+            $(_this.modal).modal({
+              backdrop: 'static',
+              keyboard: false
+            });
+            // register all button links
+            //
+            _this.$buttonDoNotAgree = $('#nbi-buttonDoNotAgree');
+            _this.$buttonAgree      = $('#nbi-buttonAgree');
+            _this.$buttonSave       = $('#nbi-buttonSave');
+            _this.$buttonAgreeAll   = $('#nbi-buttonAgreeAll');
+            // register all actions
+            //
+            _this.registerActions();
+            // register button event handler
+            //
+            _this.$buttonDoNotAgree.click(function () {
+              _this.doNotAgree();
+            });
+            _this.$buttonAgree.click(function () {
+              _this.agreeAll();
+            });
+          })
+          .fail(function () {
+            logger.error('\n' + 'loading nbi dialog (modal): failed');
+            logger.warn('\n' + 'probably no|wrong `contentURL` set');
+          });
+        }
+      }.bind(_this));
+    },  // END loadDialog
+    // -------------------------------------------------------------------------
+    // showDialog()
+    // Show the NBI dialog (modal)
+    // -------------------------------------------------------------------------
+    showDialog: function () {
+      this.$modal.modal('show');
+    },  // END showDialog
+    // -------------------------------------------------------------------------
+    // registerActions()
+    // register actions to run
+    // -------------------------------------------------------------------------
+    registerActions: function () {
+      $('input:checkbox[name="checkboxClearLocalStorage"]').on('click', function (e) {
+        nbActions.resetLocalStorage = $(this).is(':checked');
+        logText = '\n' + 'action ClearLocalStorage changed to: ' + value;
+        logger.info(logText);
+        e.stopPropagation();
+      });
+    },  // END registerActions
+    // -------------------------------------------------------------------------
+    // doNotAgree()
+    // action to run ...
+    // -------------------------------------------------------------------------
+    doNotAgree: function (elmID, msg) {
+      _this.$modal.modal('hide');
+    },  // END doNotAgree
+    // -------------------------------------------------------------------------
+    // agreeAll()
+    // caction to run ...
+    // -------------------------------------------------------------------------
+    agreeAll: function (elmID, msg) {
+      if (nbActions.resetLocalStorage) {
+        logText = '\n' + 'run action: "Clear Binder Settings"';
+        logger.info(logText);
+        localStorage.removeItem('serverParams');
+        localStorage.removeItem('kernelId');
+      }
+      _this.$modal.modal('hide');
+      location.reload(true);
+    },  // END agreeAll
     // -------------------------------------------------------------------------
     // appendModalMessage()
     // Appends a message to given (NBI) modal

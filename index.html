@@ -7,9 +7,9 @@
   
             <!DOCTYPE html>
 <html lang="en">
-  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2022-05-10 16:48:36 +0000 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2022-05-12 17:53:32 +0000 ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ environment detected as: development ] -->
-  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2022.3.1 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2022.3.2 ] -->
   <head data-proofer-ignore>
     <!-- [INFO   ] [j1.layout.default.html                ] [ call default_writer for region: 'head' ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: home ] -->
@@ -21,7 +21,7 @@
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ initial zoom level when the page is first loaded by the browser ] -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ added version info for the templte ] -->
-    <meta name="template version" content="2022.3.1">
+    <meta name="template version" content="2022.3.2">
     <title>starter on github</title>
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ SIZE of site description: 36 chars ] -->
     <!-- [SEO    ] [j1.layout.meta_data_generator.html    ] [ Consider! IMPROVE|INCREASE your site description, recommended: 70-160 characters ] -->
@@ -471,7 +471,7 @@
         <div id="navigator_nav_menu" class="collapse"></div>
         <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ check for quicklinks ] -->
         <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ place container for: quicklinks ] -->
-        <div id="navigator_nav_quicklinks" class="attr-nav collapse navbar-collapse justify-content-end"></div>
+        <div id="navigator_nav_quicklinks" class="quicklink-nav collapse navbar-collapse justify-content-end"></div>
       </nav>
       <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ check for: authclient ] -->
       <!-- [INFO   ] [j1.modules.navigator.generator.html   ] [ authclient enabled: false ] -->
@@ -498,7 +498,7 @@
               <h2 id="head-title-text" class="notoc">Jekyll One</h2>
             </div>
             <div id="head-tagline" class="head-tagline animated"> 
-              <h3 id="head-tagline-tagline" class="notoc">starter on github</h3>
+              <h3 id="head-tagline-tagline" class="notoc">starter web</h3>
             </div>
             <!-- Image caption container (display: none per default) -->
             <!-- div class="attic-caption text-emphasis-"></div -->
@@ -548,7 +548,7 @@
           var log_text = 'template core is being initialized';
           logger.info(log_text);
                 // [INFO   ] [j1.layout.module_writer.proc          ] [ pass init data for: core ]
-                var settings = $.extend({}, {"layout": "home", "fab_menu_id": "default", "scrollbar": "false", "toc": "false", "comments": "false"});
+                var settings = $.extend({}, {"layout": "home", "fab_menu_id": "default", "scrollbar": "false", "toc": "false", "comments": ""});
                   j1.init(settings);
          });
       </script>
@@ -597,7 +597,7 @@
           var log_text = 'module attic is being initialized';
           logger.info(log_text);
               // [INFO   ] [j1.layout.module_writer.proc          ] [ pass module specific frontmatter options for: attic ]
-              var settings = $.extend({}, {"padding_top":400, "padding_bottom":50, "opacity":0.5, "slides":[{"url":"/assets/images/modules/attics/runner-1920x1200.jpg"}]}, {"layout": "home", "scrollbar": "false", "toc": "false", "comments": "false"});
+              var settings = $.extend({}, {"padding_top":400, "padding_bottom":50, "opacity":0.5, "slides":[{"url":"/assets/images/modules/attics/runner-1920x1200.jpg"}]}, {"layout": "home", "scrollbar": "false", "toc": "false", "comments": ""});
                 j1.adapter.attic.init(settings);
          });
       </script>
@@ -733,7 +733,7 @@
           var log_text = 'FAB Menus is being initialized';
           logger.info(log_text);
                 // [INFO   ] [j1.layout.module_writer.proc          ] [ pass init data for: fabm ]
-                var settings = $.extend({}, {"layout": "home", "fab_menu_id": "default", "scrollbar": "false", "toc": "false", "comments": "false"});
+                var settings = $.extend({}, {"layout": "home", "fab_menu_id": "default", "scrollbar": "false", "toc": "false", "comments": ""});
                   j1.adapter.fab.init(settings);
          });
       </script>
