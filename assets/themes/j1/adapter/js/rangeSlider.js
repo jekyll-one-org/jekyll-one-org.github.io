@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2022-05-18 07:02:35 +0000
+ #  Adapter generated: 2022-05-18 20:57:28 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -34,8 +34,14 @@ j1.adapter.rangeSlider = (function (j1, window) {
   // ---------------------------------------------------------------------------
   // Helper functions
   // ---------------------------------------------------------------------------
-  function insertAfter(newNode, referenceNode) {
-      referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+  function prepend(newNode, referenceNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode);
+  }
+  function append(newNode, referenceNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+  }
+  function insert(newNode, referenceNode) {
+    referenceNode.appendChild(newNode);
   }
   // ---------------------------------------------------------------------------
   // Main object
@@ -50,7 +56,7 @@ j1.adapter.rangeSlider = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.rangeSlider',
-        generated:   '2022-05-18 07:02:35 +0000'
+        generated:   '2022-05-18 20:57:28 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -59,7 +65,7 @@ j1.adapter.rangeSlider = (function (j1, window) {
       logger  = log4javascript.getLogger('j1.adapter.rangeSlider');
       // create settings object from frontmatterOptions
       frontmatterOptions = options != null ? $.extend({}, options) : {};
-      moduleOptions = $.extend({}, {"enabled":true, "options":{"orientation":"horizontal", "connect":true, "step":1, "cbOnUpdate":"j1.adapter.rangeSlider.cbOnUpdate", "format":{"decimals":0}}, "sliders":[{"slider":{"enabled":true, "id":"example_slider", "options":{"label":"Slider 1, range: [0,100], start at: 20", "start":20, "range":{"min":0, "max":100}}}}, {"slider":{"enabled":true, "id":"example_slider_2", "options":{"label":"Slider 2, range: [0,200], start at: 80", "start":80, "range":{"min":0, "max":200}}}}, {"slider":{"enabled":true, "id":"jgSlider_row_heigth", "options":{"label":"Image Row Height [px]", "start":150, "range":{"min":100, "max":300}}}}, {"slider":{"enabled":true, "id":"jgSlider_thumb_spacing", "options":{"label":"Thumb Image Spacing [px]", "start":1, "range":{"min":0, "max":10}}}}, {"slider":{"enabled":true, "id":"jgSlider_gallery_padding", "options":{"label":"Gallery Padding [px]", "start":0, "range":{"min":0, "max":50}}}}]});
+      moduleOptions = $.extend({}, {"enabled":true, "options":{"orientation":"horizontal", "connect":true, "step":1, "cbOnUpdate":"j1.adapter.rangeSlider.cbOnUpdate", "format":{"decimals":0}}, "sliders":[{"slider":{"enabled":true, "id":"example_slider_asciidoc", "options":{"title":"Title of the Example Slider", "label":"Example Slider (Asciidoc), range: [5,50], start at: 25, step: 5", "start":25, "step":5, "range":{"min":5, "max":50}}}}, {"slider":{"enabled":true, "id":"example_slider_html", "options":{"title":"Title of the Example Slider (controlled)", "label":"Example Slider (HTML), range: [5,50], start at: 25, step: 5", "start":25, "step":5, "range":{"min":5, "max":50}}}}, {"slider":{"enabled":true, "id":"example_slider_1", "options":{"title":"", "label":"Slider 1, range: [0,100], start at: 20", "start":20, "range":{"min":0, "max":100}}}}, {"slider":{"enabled":true, "id":"example_slider_2", "options":{"title":"", "label":"Slider 2, range: [0,200], start at: 80", "start":80, "range":{"min":0, "max":200}}}}, {"slider":{"enabled":true, "id":"jgSlider_row_heigth", "options":{"title":"", "label":"Image Row Height [px]", "start":150, "range":{"min":100, "max":300}}}}, {"slider":{"enabled":true, "id":"jgSlider_thumb_spacing", "options":{"title":"", "label":"Thumb Image Spacing [px]", "start":1, "range":{"min":0, "max":10}}}}, {"slider":{"enabled":true, "id":"jgSlider_gallery_padding", "options":{"title":"", "label":"Gallery Padding [px]", "start":0, "range":{"min":0, "max":50}}}}]});
       if (typeof frontmatterOptions !== 'undefined') {
         moduleOptions = j1.mergeData(moduleOptions, frontmatterOptions);
       }
@@ -79,13 +85,90 @@ j1.adapter.rangeSlider = (function (j1, window) {
               var log_text = '\n' + 'rangeSlider elements are being initialized';
               logger.info(log_text);
                 elms.forEach(function (elm) {
-                  var id = elm.id;
-                  if (id === 'example_slider') {
-                    // processing rangeSlider: example_slider
+                  var id      = elm.id;
+                  var parent  = document.getElementById(id);
+                  if (id === 'example_slider_asciidoc') {
+                    // processing rangeSlider: example_slider_asciidoc
                     //
                     logger.info('\n' + 'configure rangeSlider: ' + id);
-                    var slider_example_slider = document.getElementById('example_slider');
-                    var instance = noUiSlider.create(slider_example_slider, {
+                    var slider_example_slider_asciidoc = document.getElementById('example_slider_asciidoc');
+                    var instance = noUiSlider.create(slider_example_slider_asciidoc, {
+                       start:       [25],
+                       connect:     true,
+                       step:        5,
+                       orientation: 'horizontal',
+                       range: {
+                         'min':     5,
+                         'max':     50
+                       },
+                       format: wNumb({
+                         decimals:  0
+                       })
+                    });
+                    if ('Title of the Example Slider'.length) {
+                      var title = document.createElement('div');
+                      title.classList.add('range-slider-title');
+                      title.innerHTML = 'Title of the Example Slider';
+                      prepend(title, parent);
+                    }
+                    var label = document.createElement('label');
+                    label.classList.add('range-slider-label');
+                    label.innerHTML = 'Example Slider (Asciidoc), range: [5,50], start at: 25, step: 5';
+                    insert(label, parent);
+                    slider_example_slider_asciidoc.noUiSlider.on('update', function (values, handle) {
+                      var logger = log4javascript.getLogger('j1.adapter.rangeSlider.cbOnUpdate');
+                      logger.debug('\n' + 'current value: ' + values[handle]);
+                    });
+                    instances.push(instance);
+                  }
+                }); // END forEach
+                elms.forEach(function (elm) {
+                  var id      = elm.id;
+                  var parent  = document.getElementById(id);
+                  if (id === 'example_slider_html') {
+                    // processing rangeSlider: example_slider_html
+                    //
+                    logger.info('\n' + 'configure rangeSlider: ' + id);
+                    var slider_example_slider_html = document.getElementById('example_slider_html');
+                    var instance = noUiSlider.create(slider_example_slider_html, {
+                       start:       [25],
+                       connect:     true,
+                       step:        5,
+                       orientation: 'horizontal',
+                       range: {
+                         'min':     5,
+                         'max':     50
+                       },
+                       format: wNumb({
+                         decimals:  0
+                       })
+                    });
+                    if ('Title of the Example Slider (controlled)'.length) {
+                      var title = document.createElement('div');
+                      title.classList.add('range-slider-title');
+                      title.innerHTML = 'Title of the Example Slider (controlled)';
+                      prepend(title, parent);
+                    }
+                    var label = document.createElement('label');
+                    label.classList.add('range-slider-label');
+                    label.innerHTML = 'Example Slider (HTML), range: [5,50], start at: 25, step: 5';
+                    insert(label, parent);
+                    slider_example_slider_html.noUiSlider.on('update', function (values, handle) {
+                      var logger = log4javascript.getLogger('j1.adapter.rangeSlider.cbOnUpdate');
+                      logger.debug('\n' + 'current value: ' + values[handle]);
+                    });
+                    instances.push(instance);
+                  }
+                }); // END forEach
+                elms.forEach(function (elm) {
+                  var id      = elm.id;
+                  var parent  = document.getElementById(id);
+                  if (id === 'example_slider_1') {
+                    // processing rangeSlider: example_slider_1
+                    //
+                    logger.info('\n' + 'configure rangeSlider: ' + id);
+                    var slider_example_slider_1 = document.getElementById('example_slider_1');
+                    var instance = noUiSlider.create(slider_example_slider_1, {
                        start:       [20],
                        connect:     true,
                        step:        1,
@@ -98,12 +181,17 @@ j1.adapter.rangeSlider = (function (j1, window) {
                          decimals:  0
                        })
                     });
-                    var el = document.createElement("label");
-                    el.classList.add('range-slider-label');
-                    el.innerHTML = 'Slider 1, range: [0,100], start at: 20';
-                    var div = document.getElementById(id);
-                    insertAfter(el, div);
-                    slider_example_slider.noUiSlider.on('update', function (values, handle) {
+                    if (''.length) {
+                      var title = document.createElement('div');
+                      title.classList.add('range-slider-title');
+                      title.innerHTML = '';
+                      prepend(title, parent);
+                    }
+                    var label = document.createElement('label');
+                    label.classList.add('range-slider-label');
+                    label.innerHTML = 'Slider 1, range: [0,100], start at: 20';
+                    insert(label, parent);
+                    slider_example_slider_1.noUiSlider.on('update', function (values, handle) {
                       var logger = log4javascript.getLogger('j1.adapter.rangeSlider.cbOnUpdate');
                       logger.debug('\n' + 'current value: ' + values[handle]);
                     });
@@ -111,7 +199,8 @@ j1.adapter.rangeSlider = (function (j1, window) {
                   }
                 }); // END forEach
                 elms.forEach(function (elm) {
-                  var id = elm.id;
+                  var id      = elm.id;
+                  var parent  = document.getElementById(id);
                   if (id === 'example_slider_2') {
                     // processing rangeSlider: example_slider_2
                     //
@@ -130,11 +219,16 @@ j1.adapter.rangeSlider = (function (j1, window) {
                          decimals:  0
                        })
                     });
-                    var el = document.createElement("label");
-                    el.classList.add('range-slider-label');
-                    el.innerHTML = 'Slider 2, range: [0,200], start at: 80';
-                    var div = document.getElementById(id);
-                    insertAfter(el, div);
+                    if (''.length) {
+                      var title = document.createElement('div');
+                      title.classList.add('range-slider-title');
+                      title.innerHTML = '';
+                      prepend(title, parent);
+                    }
+                    var label = document.createElement('label');
+                    label.classList.add('range-slider-label');
+                    label.innerHTML = 'Slider 2, range: [0,200], start at: 80';
+                    insert(label, parent);
                     slider_example_slider_2.noUiSlider.on('update', function (values, handle) {
                       var logger = log4javascript.getLogger('j1.adapter.rangeSlider.cbOnUpdate');
                       logger.debug('\n' + 'current value: ' + values[handle]);
@@ -143,7 +237,8 @@ j1.adapter.rangeSlider = (function (j1, window) {
                   }
                 }); // END forEach
                 elms.forEach(function (elm) {
-                  var id = elm.id;
+                  var id      = elm.id;
+                  var parent  = document.getElementById(id);
                   if (id === 'jgSlider_row_heigth') {
                     // processing rangeSlider: jgSlider_row_heigth
                     //
@@ -162,11 +257,16 @@ j1.adapter.rangeSlider = (function (j1, window) {
                          decimals:  0
                        })
                     });
-                    var el = document.createElement("label");
-                    el.classList.add('range-slider-label');
-                    el.innerHTML = 'Image Row Height [px]';
-                    var div = document.getElementById(id);
-                    insertAfter(el, div);
+                    if (''.length) {
+                      var title = document.createElement('div');
+                      title.classList.add('range-slider-title');
+                      title.innerHTML = '';
+                      prepend(title, parent);
+                    }
+                    var label = document.createElement('label');
+                    label.classList.add('range-slider-label');
+                    label.innerHTML = 'Image Row Height [px]';
+                    insert(label, parent);
                     slider_jgSlider_row_heigth.noUiSlider.on('update', function (values, handle) {
                       var logger = log4javascript.getLogger('j1.adapter.rangeSlider.cbOnUpdate');
                       logger.debug('\n' + 'current value: ' + values[handle]);
@@ -175,7 +275,8 @@ j1.adapter.rangeSlider = (function (j1, window) {
                   }
                 }); // END forEach
                 elms.forEach(function (elm) {
-                  var id = elm.id;
+                  var id      = elm.id;
+                  var parent  = document.getElementById(id);
                   if (id === 'jgSlider_thumb_spacing') {
                     // processing rangeSlider: jgSlider_thumb_spacing
                     //
@@ -194,11 +295,16 @@ j1.adapter.rangeSlider = (function (j1, window) {
                          decimals:  0
                        })
                     });
-                    var el = document.createElement("label");
-                    el.classList.add('range-slider-label');
-                    el.innerHTML = 'Thumb Image Spacing [px]';
-                    var div = document.getElementById(id);
-                    insertAfter(el, div);
+                    if (''.length) {
+                      var title = document.createElement('div');
+                      title.classList.add('range-slider-title');
+                      title.innerHTML = '';
+                      prepend(title, parent);
+                    }
+                    var label = document.createElement('label');
+                    label.classList.add('range-slider-label');
+                    label.innerHTML = 'Thumb Image Spacing [px]';
+                    insert(label, parent);
                     slider_jgSlider_thumb_spacing.noUiSlider.on('update', function (values, handle) {
                       var logger = log4javascript.getLogger('j1.adapter.rangeSlider.cbOnUpdate');
                       logger.debug('\n' + 'current value: ' + values[handle]);
@@ -207,7 +313,8 @@ j1.adapter.rangeSlider = (function (j1, window) {
                   }
                 }); // END forEach
                 elms.forEach(function (elm) {
-                  var id = elm.id;
+                  var id      = elm.id;
+                  var parent  = document.getElementById(id);
                   if (id === 'jgSlider_gallery_padding') {
                     // processing rangeSlider: jgSlider_gallery_padding
                     //
@@ -226,11 +333,16 @@ j1.adapter.rangeSlider = (function (j1, window) {
                          decimals:  0
                        })
                     });
-                    var el = document.createElement("label");
-                    el.classList.add('range-slider-label');
-                    el.innerHTML = 'Gallery Padding [px]';
-                    var div = document.getElementById(id);
-                    insertAfter(el, div);
+                    if (''.length) {
+                      var title = document.createElement('div');
+                      title.classList.add('range-slider-title');
+                      title.innerHTML = '';
+                      prepend(title, parent);
+                    }
+                    var label = document.createElement('label');
+                    label.classList.add('range-slider-label');
+                    label.innerHTML = 'Gallery Padding [px]';
+                    insert(label, parent);
                     slider_jgSlider_gallery_padding.noUiSlider.on('update', function (values, handle) {
                       var logger = log4javascript.getLogger('j1.adapter.rangeSlider.cbOnUpdate');
                       logger.debug('\n' + 'current value: ' + values[handle]);
