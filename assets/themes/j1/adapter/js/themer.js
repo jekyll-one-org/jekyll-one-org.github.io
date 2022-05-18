@@ -21,9 +21,240 @@
  #  Setup of theme loaders for local_themes|remote_themes moved
  #  to adapter navigator.js
  # -----------------------------------------------------------------------------
- # Adapter generated: 2022-05-14 12:52:38 +0000
+ # Adapter generated: 2022-05-18 07:02:35 +0000
  # -----------------------------------------------------------------------------
 */
-'use strict';j1.adapter.themer=function(e,t){function o(e){var t=document.styleSheets;t[t.length-1];for(var o in document.styleSheets)if(t[o].href&&t[o].href.indexOf(e)>-1)return!0;return!1}var s,a,i,n,c,r,h,d='production',l=$.extend({},{enabled:!0,debug:!1,saveToCookie:!0,reloadPageOnChange:!1,retries:30,preview_page:"/pages/public/previewer/theme/",menu_icon_family:"MDI",menu_icon_color:"#9E9E9E",menu_icon_size:"mdi-sm",cssThemeLink:"bootstrapTheme",defaultCssFile:"https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css",bootswatchApiUrl:"https://bootswatch.com/api",bootswatchApiVersion:5,loadFromBootswatch:!0,localThemes:"/assets/data/themes.json",excludeBootswatch:"Default, default, Lux, Sketchy",includeBootswatch:"",skipIncludeBootswatch:""}),m=!!(h=new liteURL(t.location.href)).protocol.includes('https'),u={},f=e.getCookieNames(),p=!1,g=!1,k='default',w='production'===d?'.min.css':'.css',_='UnoLight',b='J1 Team',C='https://jekyll.one/',T='/assets/themes/j1/core/css/themes/'+_.toLowerCase()+'/bootstrap'+w,v=0,x=l.retries;return{init:function(n){$.extend({module_name:'j1.adapter.themer',generated:'2022-05-14 12:52:38 +0000'},n);a=e.adapter.themer,h=new liteURL(t.location.href),h.origin,h.origin+'/204.html',c=e.findCookie('j1'),r=e.findCookie('_ga'),i=log4javascript.getLogger('j1.adapter.themer'),a.state='started',i.debug("\nstate: "+a.getState());var d=setInterval(function(){p=e.existsCookie(f.user_state),v+=1,p&&(u=e.readCookie(f.user_state),e.readCookie(f.user_consent),i.info("\ncookie "+f.user_state+' successfully loaded after: '+25*v+' ms'),''===u.theme_css&&(u.theme_name=_,u.theme_css=T,u.theme_author=b,u.theme_author_url=C,e.writeCookie({name:f.user_state,data:u,secure:m,expires:365})||i.error("\nfailed to write cookie: "+f.user_consent)),g=o(u.theme_css),s='<link rel="stylesheet" id="'+k+'" href="'+u.theme_css+'" type="text/css" />',Object.keys(u).length>2?u.theme_name.includes('Uno')&&g||$('head').append(s):i.fatal("\ninconsistent state detected for cookie: "+f.user_state),u.theme_switcher=l.enabled,l.enabled?(i.info("\nthemes detected as: enabled"),i.info("\ntheme is being initialized: "+u.theme_name),$('#remote_themes').bootstrapThemeSwitcher.defaults={debug:l.debug,saveToCookie:l.saveToCookie,cssThemeLink:l.cssThemeLink,cookieThemeName:l.cookieThemeName,cookieDefaultThemeName:l.cookieDefaultThemeName,cookieThemeCss:l.cookieThemeCss,cookieThemeExtensionCss:l.cookieThemeExtensionCss,cookieExpiration:l.cookieExpiration,cookiePath:l.cookiePath,defaultCssFile:l.defaultCssFile,bootswatchApiUrl:l.bootswatchApiUrl,bootswatchApiVersion:l.bootswatchApiVersion,loadFromBootswatch:l.loadFromBootswatch,localFeed:l.localThemes,excludeBootswatch:l.excludeBootswatch,includeBootswatch:l.includeBootswatch,skipIncludeBootswatch:l.skipIncludeBootswatch},i.info("\ntheme loaded: "+u.theme_name),i.info("\ntheme css file: "+u.theme_css),a.setState('finished'),i.debug("\nstate: "+a.getState()),i.info("\nmodule initialized successfully")):(a.setState('finished'),i.debug("\nstate: "+a.getState()),i.info("\nthemes detected as: disabled")),clearInterval(d)),v>x&&(i.error("\ninterval max count reached: "+x),i.error("\ncheck failed after: "+25*x+' ms'),i.error("\nloading cookie failed: "+f.user_state),i.debug("\nj1 cookies found:"+c.length),c.forEach(e=>console.log('j1.core.switcher: '+e)),i.debug("\nga cookies found:"+r.length),r.forEach(e=>console.log('j1.core.switcher: '+e)),i.warn("\nredirect to home page"),t.location.href='/',clearInterval(d))},25)},messageHandler:function(e,t){var o=JSON.stringify(t,undefined,2);n="\nreceived message from "+e+': '+o,i.info(n),'command'===t.type&&'module_initialized'===t.action&&i.info('\n'+t.text)},setState:function(e){a.state=e},getState:function(){return a.state}}}(j1,window);
+// -----------------------------------------------------------------------------
+// ESLint shimming
+// -----------------------------------------------------------------------------
+/* eslint indent: "off"                                                       */
+/* eslint quotes: "off"                                                       */
+// -----------------------------------------------------------------------------
+'use strict';
+j1.adapter.themer = (function (j1, window) {
+  // ---------------------------------------------------------------------------
+  // globals
+  // ---------------------------------------------------------------------------
+  var environment               = 'development';
+  var themerOptions             = $.extend({}, {"enabled":true, "debug":false, "saveToCookie":true, "reloadPageOnChange":false, "retries":30, "preview_page":"/pages/public/previewer/theme/", "menu_icon_family":"MDI", "menu_icon_color":"#9E9E9E", "menu_icon_size":"mdi-sm", "cssThemeLink":"bootstrapTheme", "defaultCssFile":"https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css", "bootswatchApiUrl":"https://bootswatch.com/api", "bootswatchApiVersion":5, "loadFromBootswatch":true, "localThemes":"/assets/data/themes.json", "excludeBootswatch":"Default, default, Lux, Sketchy", "includeBootswatch":"", "skipIncludeBootswatch":""});
+  var url                       = new liteURL(window.location.href);
+  var secure                    = (url.protocol.includes('https')) ? true : false;
+  var user_state                = {};
+  var user_consent              = {};
+  var cookie_names              = j1.getCookieNames();
+  var user_state_detected       = false;
+  var styleLoaded               = false;
+  var id                        = 'default';
+  var user_state_cookie;
+  var theme_css_html;
+  var _this;
+  var logger;
+  var logText;
+  var cookie_written;
+  var cssExtension              = (environment === 'production') ? '.min.css' : '.css';
+  var default_theme_name        = 'UnoLight';
+  var default_theme_author      = 'J1 Team';
+  var default_theme_author_url  = 'https://jekyll.one/';
+  var default_theme_css_name    = default_theme_name.toLowerCase();
+  var default_theme_css         = '/assets/themes/j1/core/css/themes/' + default_theme_css_name + '/bootstrap' + cssExtension;
+  var interval_count            = 0;
+  var max_count                 = themerOptions.retries;
+  var j1Cookies;
+  var gaCookies;
+  var url;
+  var baseUrl;
+  var error_page;
+  // ---------------------------------------------------------------------------
+  // helper functions
+  // ---------------------------------------------------------------------------
+  function styleSheetLoaded(styleSheet) {
+    var sheets = document.styleSheets, stylesheet = sheets[(sheets.length - 1)];
+    // find CSS file 'styleSheetName' in document
+    for(var i in document.styleSheets) {
+      if(sheets[i].href && sheets[i].href.indexOf(styleSheet) > -1) {
+        return true;
+      }
+    }
+    return false;
+  }
+  // ---------------------------------------------------------------------------
+  // Main object
+  // ---------------------------------------------------------------------------
+  return {
+    // -------------------------------------------------------------------------
+    // initializer
+    // -------------------------------------------------------------------------
+    init: function (options) {
+      // -----------------------------------------------------------------------
+      // Default module settings
+      // -----------------------------------------------------------------------
+      var settings = $.extend({
+        module_name: 'j1.adapter.themer',
+        generated:   '2022-05-18 07:02:35 +0000'
+      }, options);
+      // -----------------------------------------------------------------------
+      // Global variable settings
+      // -----------------------------------------------------------------------
+      _this       = j1.adapter.themer;
+      url         = new liteURL(window.location.href);
+      baseUrl     = url.origin;
+      error_page  = url.origin + '/204.html';
+      j1Cookies   = j1.findCookie('j1');
+      gaCookies   = j1.findCookie('_ga');
+      logger      = log4javascript.getLogger('j1.adapter.themer');
+      // initialize state flag
+      _this.state = 'started';
+      logger.debug('\n' + 'state: ' + _this.getState());
+      // jadams, 2021-07-25: problem seems NOT an timing issue on the iPad
+      // platform. (General) Dependency should be REMOVED!!!
+      // TODO: Isolate redirect for iPad ONLY!!!
+      //
+      // jadams, 2021-07-11: added dependecy on the user state cookie
+      // Found timing issues testing mobile devices (iPad)
+      var dependencies_met_user_state_available = setInterval (function () {
+        user_state_detected = j1.existsCookie(cookie_names.user_state);
+        // counter how often the check should be done for the existence
+        // of the user state cookie
+        interval_count += 1;
+        if (user_state_detected) {
+           user_state        = j1.readCookie(cookie_names.user_state);
+           user_consent      = j1.readCookie(cookie_names.user_consent);
+           logger.info('\n' + 'cookie ' +  cookie_names.user_state + ' successfully loaded after: ' + interval_count * 25 + ' ms');
+           // initial theme data
+           if (user_state.theme_css === '') {
+             user_state.theme_name       = default_theme_name;
+             user_state.theme_css        = default_theme_css;
+             user_state.theme_author     = default_theme_author;
+             user_state.theme_author_url = default_theme_author_url;
+             cookie_written = j1.writeCookie({
+               name:     cookie_names.user_state,
+               data:     user_state,
+               secure:   secure,
+               expires:  365
+             });
+             if (!cookie_written) {
+                 logger.error('\n' + 'failed to write cookie: ' + cookie_names.user_consent);
+             }
+           }
+           styleLoaded     = styleSheetLoaded(user_state.theme_css);
+           theme_css_html  = '<link rel="stylesheet" id="' + id + '" href="' + user_state.theme_css + '" type="text/css" />';
+           // check cookie consistency
+           if (Object.keys(user_state).length > 2)  {
+             // loading theme CSS file except on UNO
+             if (!user_state.theme_name.includes('Uno') || !styleLoaded) {
+               $('head').append(theme_css_html);
+             }
+           } else {
+             logger.fatal('\n' + 'inconsistent state detected for cookie: ' + cookie_names.user_state);
+           }
+           // set the theme switcher state
+           user_state.theme_switcher = themerOptions.enabled;
+           // jadams, 2021-08-10: moved hide|show themes menu to
+           // j1 adapter (displayPage)
+           //
+           // jadams, 2021-07-25: hide|show themes menu on cookie consent
+           // (analysis|personalization) settings. BootSwatch is a 3rd party
+           // is using e.g GA. Because NO control is possible on 3rd parties,
+           // for GDPR compliance, themes feature may disabled on
+           // privacy settings
+           //
+           // if (!user_consent.analysis || !user_consent.personalization)  {
+           //   logger.warn('\n' + 'disable themes feature because of privacy settings');
+           //   $("#themes_menu").hide();
+           // } else {
+           //   $("#themes_menu").show();
+           // }
+           if (themerOptions.enabled) {
+           // enable BS ThemeSwitcher
+           logger.info('\n' + 'themes detected as: enabled');
+           logger.info('\n' + 'theme is being initialized: ' + user_state.theme_name);
+           /* eslint-disable */
+           // load list of remote themes
+           $('#remote_themes').bootstrapThemeSwitcher.defaults = {
+             debug:                    themerOptions.debug,
+             saveToCookie:             themerOptions.saveToCookie,
+             cssThemeLink:             themerOptions.cssThemeLink,
+             cookieThemeName:          themerOptions.cookieThemeName,
+             cookieDefaultThemeName:   themerOptions.cookieDefaultThemeName,
+             cookieThemeCss:           themerOptions.cookieThemeCss,
+             cookieThemeExtensionCss:  themerOptions.cookieThemeExtensionCss,
+             cookieExpiration:         themerOptions.cookieExpiration,
+             cookiePath:               themerOptions.cookiePath,
+             defaultCssFile:           themerOptions.defaultCssFile,
+             bootswatchApiUrl:         themerOptions.bootswatchApiUrl,
+             bootswatchApiVersion:     themerOptions.bootswatchApiVersion,
+             loadFromBootswatch:       themerOptions.loadFromBootswatch,
+             localFeed:                themerOptions.localThemes,
+             excludeBootswatch:        themerOptions.excludeBootswatch,
+             includeBootswatch:        themerOptions.includeBootswatch,
+             skipIncludeBootswatch:    themerOptions.skipIncludeBootswatch
+           };
+           /* eslint-enable */
+           logger.info('\n' + 'theme loaded: ' + user_state.theme_name);
+           logger.info('\n' + 'theme css file: ' + user_state.theme_css);
+           _this.setState('finished');
+           logger.debug('\n' + 'state: ' + _this.getState());
+           logger.info('\n' + 'module initialized successfully');
+         } else {
+           _this.setState('finished');
+           logger.debug('\n' + 'state: ' + _this.getState());
+           logger.info('\n' + 'themes detected as: disabled');
+         }
+          clearInterval(dependencies_met_user_state_available);
+        }
+        if (interval_count > max_count) {
+          logger.error('\n' + 'interval max count reached: ' + max_count);
+          logger.error('\n' + 'check failed after: ' + max_count * 25 + ' ms');
+          logger.error('\n' + 'loading cookie failed: ' + cookie_names.user_state);
+          logger.debug('\n' + 'j1 cookies found:' + j1Cookies.length);
+          j1Cookies.forEach(item => console.log('j1.core.switcher: ' + item));
+          logger.debug('\n' + 'ga cookies found:' + gaCookies.length);
+          gaCookies.forEach(item => console.log('j1.core.switcher: ' + item));
+          // jadams, 2021-07-15: redirect to homepage
+          // NOTE: UNCLEAR why it is needed to create the user state
+          // cookie THIS way
+          //
+          logger.warn('\n' + 'redirect to home page');
+//        window.location.href = error_page;
+          window.location.href = '/';
+          clearInterval(dependencies_met_user_state_available);
+        }
+      }, 25); // END dependencies_met_user_state_available
+    }, // END init
+    // -------------------------------------------------------------------------
+    // messageHandler
+    // Manage messages send from other J1 modules
+    // -------------------------------------------------------------------------
+    messageHandler: function (sender, message) {
+      var json_message = JSON.stringify(message, undefined, 2);
+      logText = '\n' + 'received message from ' + sender + ': ' + json_message;
+      logger.info(logText);
+      // -----------------------------------------------------------------------
+      //  Process commands|actions
+      // -----------------------------------------------------------------------
+      if (message.type === 'command' && message.action === 'module_initialized') {
+        logger.info('\n' + message.text);
+        //
+        // Place handling of other command|action here
+        //
+      }
+    }, // END messageHandler
+    // -------------------------------------------------------------------------
+    // setState()
+    // Sets the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    setState: function (stat) {
+      _this.state = stat;
+    }, // END setState
+    // -------------------------------------------------------------------------
+    // getState()
+    // Returns the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    getState: function () {
+      return _this.state;
+    } // END getState
+  }; // END return
+})(j1, window);
+
 
 

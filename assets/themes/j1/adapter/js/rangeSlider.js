@@ -13,9 +13,334 @@
  # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2022-05-14 12:52:38 +0000
+ #  Adapter generated: 2022-05-18 07:02:35 +0000
  # -----------------------------------------------------------------------------
 */
-'use strict';j1.adapter.rangeSlider=function(e){function n(e,n){n.parentNode.insertBefore(e,n.nextSibling)}var t,a,r,i,l,d={},o=[];return{init:function(l){$.extend({module_name:'j1.adapter.rangeSlider',generated:'2022-05-14 12:52:38 +0000'},l);r=e.adapter.rangeSlider,i=log4javascript.getLogger('j1.adapter.rangeSlider'),t=null!=l?$.extend({},l):{},d=$.extend({},{enabled:!0,options:{orientation:"horizontal",connect:!0,step:1,cbOnUpdate:"j1.adapter.rangeSlider.cbOnUpdate",format:{decimals:0}},sliders:[{slider:{enabled:!0,id:"example_slider",options:{label:"Slider 1, range: [0,100], start at: 20",start:20,range:{min:0,max:100}}}},{slider:{enabled:!0,id:"example_slider_2",options:{label:"Slider 2, range: [0,200], start at: 80",start:80,range:{min:0,max:200}}}},{slider:{enabled:!0,id:"jgSlider_row_heigth",options:{label:"Image Row Height [px]",start:150,range:{min:100,max:300}}}},{slider:{enabled:!0,id:"jgSlider_thumb_spacing",options:{label:"Thumb Image Spacing [px]",start:1,range:{min:0,max:10}}}},{slider:{enabled:!0,id:"jgSlider_gallery_padding",options:{label:"Gallery Padding [px]",start:0,range:{min:0,max:50}}}}]}),void 0!==t&&(d=e.mergeData(d,t));var g=setInterval(function(){if('finished'==e.getState()){i.info("\nmodule is being initialized"),r.setState('started'),i.debug("\nstate: "+r.getState());var t=setInterval(function(){if((a=document.querySelectorAll('.range-slider')).length){i.info("\nnumber of rangeSlider elements found: "+a.length);var e="\nrangeSlider elements are being initialized";i.info(e),a.forEach(function(e){var t=e.id;if('example_slider'===t){i.info("\nconfigure rangeSlider: "+t);var a=document.getElementById('example_slider'),r=noUiSlider.create(a,{start:[20],connect:!0,step:1,orientation:'horizontal',range:{min:0,max:100},format:wNumb({decimals:0})}),l=document.createElement("label");l.classList.add('range-slider-label'),l.innerHTML='Slider 1, range: [0,100], start at: 20',n(l,document.getElementById(t)),a.noUiSlider.on('update',function(e,n){log4javascript.getLogger('j1.adapter.rangeSlider.cbOnUpdate').debug("\ncurrent value: "+e[n])}),o.push(r)}}),a.forEach(function(e){var t=e.id;if('example_slider_2'===t){i.info("\nconfigure rangeSlider: "+t);var a=document.getElementById('example_slider_2'),r=noUiSlider.create(a,{start:[80],connect:!0,step:1,orientation:'horizontal',range:{min:0,max:200},format:wNumb({decimals:0})}),l=document.createElement("label");l.classList.add('range-slider-label'),l.innerHTML='Slider 2, range: [0,200], start at: 80',n(l,document.getElementById(t)),a.noUiSlider.on('update',function(e,n){log4javascript.getLogger('j1.adapter.rangeSlider.cbOnUpdate').debug("\ncurrent value: "+e[n])}),o.push(r)}}),a.forEach(function(e){var t=e.id;if('jgSlider_row_heigth'===t){i.info("\nconfigure rangeSlider: "+t);var a=document.getElementById('jgSlider_row_heigth'),r=noUiSlider.create(a,{start:[150],connect:!0,step:1,orientation:'horizontal',range:{min:100,max:300},format:wNumb({decimals:0})}),l=document.createElement("label");l.classList.add('range-slider-label'),l.innerHTML='Image Row Height [px]',n(l,document.getElementById(t)),a.noUiSlider.on('update',function(e,n){log4javascript.getLogger('j1.adapter.rangeSlider.cbOnUpdate').debug("\ncurrent value: "+e[n])}),o.push(r)}}),a.forEach(function(e){var t=e.id;if('jgSlider_thumb_spacing'===t){i.info("\nconfigure rangeSlider: "+t);var a=document.getElementById('jgSlider_thumb_spacing'),r=noUiSlider.create(a,{start:[1],connect:!0,step:1,orientation:'horizontal',range:{min:0,max:10},format:wNumb({decimals:0})}),l=document.createElement("label");l.classList.add('range-slider-label'),l.innerHTML='Thumb Image Spacing [px]',n(l,document.getElementById(t)),a.noUiSlider.on('update',function(e,n){log4javascript.getLogger('j1.adapter.rangeSlider.cbOnUpdate').debug("\ncurrent value: "+e[n])}),o.push(r)}}),a.forEach(function(e){var t=e.id;if('jgSlider_gallery_padding'===t){i.info("\nconfigure rangeSlider: "+t);var a=document.getElementById('jgSlider_gallery_padding'),r=noUiSlider.create(a,{start:[0],connect:!0,step:1,orientation:'horizontal',range:{min:0,max:50},format:wNumb({decimals:0})}),l=document.createElement("label");l.classList.add('range-slider-label'),l.innerHTML='Gallery Padding [px]',n(l,document.getElementById(t)),a.noUiSlider.on('update',function(e,n){log4javascript.getLogger('j1.adapter.rangeSlider.cbOnUpdate').debug("\ncurrent value: "+e[n])}),o.push(r)}}),o.length?(i.info("\nnumber of rangeSlider instances configured: "+o.length),r.setState('finished'),i.debug("\nstate: "+r.getState()),i.info("\ninitializing module finished")):(i.error("\nno configured rangeSlider instances found"),i.warning("\ninitializing module failed"))}clearInterval(t)},25);clearInterval(g)}},25)},cbOnclick:function(e){log4javascript.getLogger('j1.adapter.rangeSlider.cbOnClick'),$(e.target).closest('li')[0];return!0},cbOnOpen:function(e){var n=log4javascript.getLogger('j1.adapter.rangeSlider.cbOnOpen'),t=e.id;return l="\nentered cbOnOpen on id: "+t,n.info(l),!0},cbOnClose:function(e){for(var n,t,a=log4javascript.getLogger('j1.adapter.rangeSlider.cbOnClose'),r=e.id,i='#'+e.id+" li",d=document.querySelectorAll(i),o=0;o<d.length;o++)d[o].classList.contains('active')&&(n=o,t=d[o].dataset.target);return l="\nentered cbOnClose on id: "+r,a.info(l),l="\nitem selected: "+n,a.info(l),l="\nvalue selected: "+t,a.info(l),!0},messageHandler:function(e,n){var t=JSON.stringify(n,undefined,2);return l="\nreceived message from "+e+': '+t,i.debug(l),'command'===n.type&&'module_initialized'===n.action&&i.info('\n'+n.text),!0},setState:function(e){r.state=e},getState:function(){return r.state}}}(j1,window);
+// -----------------------------------------------------------------------------
+// ESLint shimming
+// -----------------------------------------------------------------------------
+/* eslint indent: "off"                                                       */
+// -----------------------------------------------------------------------------
+'use strict';
+j1.adapter.rangeSlider = (function (j1, window) {
+  var environment   = 'development';
+  var moduleOptions = {};
+  var instances     = [];
+  var frontmatterOptions;
+  var elms;
+  var _this;
+  var logger;
+  var logText;
+  // ---------------------------------------------------------------------------
+  // Helper functions
+  // ---------------------------------------------------------------------------
+  function insertAfter(newNode, referenceNode) {
+      referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+  }
+  // ---------------------------------------------------------------------------
+  // Main object
+  // ---------------------------------------------------------------------------
+  return {
+    // -------------------------------------------------------------------------
+    // Initializer
+    // -------------------------------------------------------------------------
+    init: function (options) {
+      // -----------------------------------------------------------------------
+      // Default module settings
+      // -----------------------------------------------------------------------
+      var settings = $.extend({
+        module_name: 'j1.adapter.rangeSlider',
+        generated:   '2022-05-18 07:02:35 +0000'
+      }, options);
+      // -----------------------------------------------------------------------
+      // Global variable settings
+      // -----------------------------------------------------------------------
+      _this   = j1.adapter.rangeSlider;
+      logger  = log4javascript.getLogger('j1.adapter.rangeSlider');
+      // create settings object from frontmatterOptions
+      frontmatterOptions = options != null ? $.extend({}, options) : {};
+      moduleOptions = $.extend({}, {"enabled":true, "options":{"orientation":"horizontal", "connect":true, "step":1, "cbOnUpdate":"j1.adapter.rangeSlider.cbOnUpdate", "format":{"decimals":0}}, "sliders":[{"slider":{"enabled":true, "id":"example_slider", "options":{"label":"Slider 1, range: [0,100], start at: 20", "start":20, "range":{"min":0, "max":100}}}}, {"slider":{"enabled":true, "id":"example_slider_2", "options":{"label":"Slider 2, range: [0,200], start at: 80", "start":80, "range":{"min":0, "max":200}}}}, {"slider":{"enabled":true, "id":"jgSlider_row_heigth", "options":{"label":"Image Row Height [px]", "start":150, "range":{"min":100, "max":300}}}}, {"slider":{"enabled":true, "id":"jgSlider_thumb_spacing", "options":{"label":"Thumb Image Spacing [px]", "start":1, "range":{"min":0, "max":10}}}}, {"slider":{"enabled":true, "id":"jgSlider_gallery_padding", "options":{"label":"Gallery Padding [px]", "start":0, "range":{"min":0, "max":50}}}}]});
+      if (typeof frontmatterOptions !== 'undefined') {
+        moduleOptions = j1.mergeData(moduleOptions, frontmatterOptions);
+      }
+      var dependencies_met_j1_finished = setInterval(function() {
+        if (j1.getState() == 'finished') {
+          logger.info('\n' + 'module is being initialized');
+          // initialize state flag
+          _this.setState('started');
+          logger.debug('\n' + 'state: ' + _this.getState());
+          var dependencies_met_elms_loaded = setInterval(function() {
+            elms = document.querySelectorAll('.range-slider');
+            if (elms.length) {
+              logger.info('\n' + 'number of rangeSlider elements found: ' + elms.length);
+              // -------------------------------------------------------------------
+              // slider initializer
+              // -------------------------------------------------------------------
+              var log_text = '\n' + 'rangeSlider elements are being initialized';
+              logger.info(log_text);
+                elms.forEach(function (elm) {
+                  var id = elm.id;
+                  if (id === 'example_slider') {
+                    // processing rangeSlider: example_slider
+                    //
+                    logger.info('\n' + 'configure rangeSlider: ' + id);
+                    var slider_example_slider = document.getElementById('example_slider');
+                    var instance = noUiSlider.create(slider_example_slider, {
+                       start:       [20],
+                       connect:     true,
+                       step:        1,
+                       orientation: 'horizontal',
+                       range: {
+                         'min':     0,
+                         'max':     100
+                       },
+                       format: wNumb({
+                         decimals:  0
+                       })
+                    });
+                    var el = document.createElement("label");
+                    el.classList.add('range-slider-label');
+                    el.innerHTML = 'Slider 1, range: [0,100], start at: 20';
+                    var div = document.getElementById(id);
+                    insertAfter(el, div);
+                    slider_example_slider.noUiSlider.on('update', function (values, handle) {
+                      var logger = log4javascript.getLogger('j1.adapter.rangeSlider.cbOnUpdate');
+                      logger.debug('\n' + 'current value: ' + values[handle]);
+                    });
+                    instances.push(instance);
+                  }
+                }); // END forEach
+                elms.forEach(function (elm) {
+                  var id = elm.id;
+                  if (id === 'example_slider_2') {
+                    // processing rangeSlider: example_slider_2
+                    //
+                    logger.info('\n' + 'configure rangeSlider: ' + id);
+                    var slider_example_slider_2 = document.getElementById('example_slider_2');
+                    var instance = noUiSlider.create(slider_example_slider_2, {
+                       start:       [80],
+                       connect:     true,
+                       step:        1,
+                       orientation: 'horizontal',
+                       range: {
+                         'min':     0,
+                         'max':     200
+                       },
+                       format: wNumb({
+                         decimals:  0
+                       })
+                    });
+                    var el = document.createElement("label");
+                    el.classList.add('range-slider-label');
+                    el.innerHTML = 'Slider 2, range: [0,200], start at: 80';
+                    var div = document.getElementById(id);
+                    insertAfter(el, div);
+                    slider_example_slider_2.noUiSlider.on('update', function (values, handle) {
+                      var logger = log4javascript.getLogger('j1.adapter.rangeSlider.cbOnUpdate');
+                      logger.debug('\n' + 'current value: ' + values[handle]);
+                    });
+                    instances.push(instance);
+                  }
+                }); // END forEach
+                elms.forEach(function (elm) {
+                  var id = elm.id;
+                  if (id === 'jgSlider_row_heigth') {
+                    // processing rangeSlider: jgSlider_row_heigth
+                    //
+                    logger.info('\n' + 'configure rangeSlider: ' + id);
+                    var slider_jgSlider_row_heigth = document.getElementById('jgSlider_row_heigth');
+                    var instance = noUiSlider.create(slider_jgSlider_row_heigth, {
+                       start:       [150],
+                       connect:     true,
+                       step:        1,
+                       orientation: 'horizontal',
+                       range: {
+                         'min':     100,
+                         'max':     300
+                       },
+                       format: wNumb({
+                         decimals:  0
+                       })
+                    });
+                    var el = document.createElement("label");
+                    el.classList.add('range-slider-label');
+                    el.innerHTML = 'Image Row Height [px]';
+                    var div = document.getElementById(id);
+                    insertAfter(el, div);
+                    slider_jgSlider_row_heigth.noUiSlider.on('update', function (values, handle) {
+                      var logger = log4javascript.getLogger('j1.adapter.rangeSlider.cbOnUpdate');
+                      logger.debug('\n' + 'current value: ' + values[handle]);
+                    });
+                    instances.push(instance);
+                  }
+                }); // END forEach
+                elms.forEach(function (elm) {
+                  var id = elm.id;
+                  if (id === 'jgSlider_thumb_spacing') {
+                    // processing rangeSlider: jgSlider_thumb_spacing
+                    //
+                    logger.info('\n' + 'configure rangeSlider: ' + id);
+                    var slider_jgSlider_thumb_spacing = document.getElementById('jgSlider_thumb_spacing');
+                    var instance = noUiSlider.create(slider_jgSlider_thumb_spacing, {
+                       start:       [1],
+                       connect:     true,
+                       step:        1,
+                       orientation: 'horizontal',
+                       range: {
+                         'min':     0,
+                         'max':     10
+                       },
+                       format: wNumb({
+                         decimals:  0
+                       })
+                    });
+                    var el = document.createElement("label");
+                    el.classList.add('range-slider-label');
+                    el.innerHTML = 'Thumb Image Spacing [px]';
+                    var div = document.getElementById(id);
+                    insertAfter(el, div);
+                    slider_jgSlider_thumb_spacing.noUiSlider.on('update', function (values, handle) {
+                      var logger = log4javascript.getLogger('j1.adapter.rangeSlider.cbOnUpdate');
+                      logger.debug('\n' + 'current value: ' + values[handle]);
+                    });
+                    instances.push(instance);
+                  }
+                }); // END forEach
+                elms.forEach(function (elm) {
+                  var id = elm.id;
+                  if (id === 'jgSlider_gallery_padding') {
+                    // processing rangeSlider: jgSlider_gallery_padding
+                    //
+                    logger.info('\n' + 'configure rangeSlider: ' + id);
+                    var slider_jgSlider_gallery_padding = document.getElementById('jgSlider_gallery_padding');
+                    var instance = noUiSlider.create(slider_jgSlider_gallery_padding, {
+                       start:       [0],
+                       connect:     true,
+                       step:        1,
+                       orientation: 'horizontal',
+                       range: {
+                         'min':     0,
+                         'max':     50
+                       },
+                       format: wNumb({
+                         decimals:  0
+                       })
+                    });
+                    var el = document.createElement("label");
+                    el.classList.add('range-slider-label');
+                    el.innerHTML = 'Gallery Padding [px]';
+                    var div = document.getElementById(id);
+                    insertAfter(el, div);
+                    slider_jgSlider_gallery_padding.noUiSlider.on('update', function (values, handle) {
+                      var logger = log4javascript.getLogger('j1.adapter.rangeSlider.cbOnUpdate');
+                      logger.debug('\n' + 'current value: ' + values[handle]);
+                    });
+                    instances.push(instance);
+                  }
+                }); // END forEach
+              if (instances.length) {
+                logger.info('\n' + 'number of rangeSlider instances configured: ' + instances.length);
+                _this.setState('finished');
+                logger.debug('\n' + 'state: ' + _this.getState());
+                logger.info('\n' + 'initializing module finished');
+              } else {
+                logger.error('\n' + 'no configured rangeSlider instances found');
+                logger.warning('\n' + 'initializing module failed');
+              }
+            } // ENF if elms
+            clearInterval(dependencies_met_elms_loaded);
+          }, 25);
+          clearInterval(dependencies_met_j1_finished);
+        } // END dependencies_met_j1_finished
+      }, 25);
+    }, // END init
+    // -------------------------------------------------------------------------
+    // cbOnClick)
+    // Called by the rangeSlider CORE module when and dropdown element
+    // is clicked
+    // -------------------------------------------------------------------------
+    cbOnclick: function (event) {
+      var logger  = log4javascript.getLogger('j1.adapter.rangeSlider.cbOnClick');
+      var itemEl = $(event.target).closest('li')[0];
+      // logText = '\n' + 'entered cbOnClick on id: ' + id;
+      // logger.info(logText);
+      return true;
+    },
+    // -------------------------------------------------------------------------
+    // cbOnOpen()
+    // Called by the rangeSlider CORE module when dropdown get opened
+    // -------------------------------------------------------------------------
+    cbOnOpen: function (elm) {
+      var logger  = log4javascript.getLogger('j1.adapter.rangeSlider.cbOnOpen');
+      var id      = elm.id;
+      logText = '\n' + 'entered cbOnOpen on id: ' + id;
+      logger.info(logText);
+      return true;
+    },
+    // -------------------------------------------------------------------------
+    // cbOnClose()
+    // Called by the rangeSlider CORE module when dropdown get closed
+    // -------------------------------------------------------------------------
+    cbOnClose: function (elm) {
+      var logger    = log4javascript.getLogger('j1.adapter.rangeSlider.cbOnClose');
+      var id        = elm.id;
+      var listItems = '#' + elm.id + " li";
+      var menuItems = document.querySelectorAll(listItems);
+      var activeItem;
+      var activeValue;
+      // Loop through each <li> element and mark selected menuItem by class active
+      for (var i=0; i < menuItems.length; i++) {
+        if (menuItems[i].classList.contains('active')) {
+            activeItem  = i;
+            activeValue = menuItems[i].dataset.target;
+        }
+      }
+      logText = '\n' + 'entered cbOnClose on id: ' + id;
+      logger.info(logText);
+      logText = '\n' + 'item selected: ' + activeItem;
+      logger.info(logText);
+      logText = '\n' + 'value selected: ' + activeValue;
+      logger.info(logText);
+      return true;
+    },
+    // -------------------------------------------------------------------------
+    // messageHandler
+    // Manage messages send from other J1 modules
+    // -------------------------------------------------------------------------
+    messageHandler: function (sender, message) {
+      var json_message = JSON.stringify(message, undefined, 2);
+      logText = '\n' + 'received message from ' + sender + ': ' + json_message;
+      logger.debug(logText);
+      // -----------------------------------------------------------------------
+      //  Process commands|actions
+      // -----------------------------------------------------------------------
+      if (message.type === 'command' && message.action === 'module_initialized') {
+        //
+        // Place handling of command|action here
+        //
+        logger.info('\n' + message.text);
+      }
+      //
+      // Place handling of other command|action here
+      //
+      return true;
+    }, // END messageHandler
+    // -------------------------------------------------------------------------
+    // setState()
+    // Sets the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    setState: function (stat) {
+      _this.state = stat;
+    }, // END setState
+    // -------------------------------------------------------------------------
+    // getState()
+    // Returns the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    getState: function () {
+      return _this.state;
+    } // END getState
+  }; // END return
+})(j1, window);
+
 
 

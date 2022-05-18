@@ -1,1 +1,1 @@
-Sitemap: http://localhost:17000/sitemap.xml
+Sitemap: https://jekyll-one-org.github.io//sitemap.xml

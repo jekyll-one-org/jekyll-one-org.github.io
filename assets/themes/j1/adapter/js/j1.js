@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2022-05-14 12:52:38 +0000
+ # Adapter generated: 2022-05-18 07:02:35 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -31,22 +31,36 @@ var j1 = (function () {
   // ---------------------------------------------------------------------------
   // globals
   // ---------------------------------------------------------------------------
+  // base page resources
   var rePager                     =  new RegExp('navigator|dateview|tagview|archive');
-  var environment                 = 'production';
+  var environment                 = 'development';
   var moduleOptions               = {};
   var j1_runtime_data             = {};
-  // Status information
+  var _this;
+  var settings;
+  var json_data;
+  var ep;
+  var baseUrl;
+  var referrer;
+  // defaults for status information
   var state                       = 'not_started';
   var mode                        = 'not_detected';
-  // Default tracking provider information
-  // var tracking_enabled            = ('' === 'true') ? true: false;
-  // var tracking_id                 = '';
-  // var tracking_id_valid           = (tracking_id.includes('tracking-id')) ? false : true;
-  // Default comment provider information
+  // defaults for tracking providers
+  var tracking_enabled            = ('' === 'true') ? true: false;
+  var tracking_id                 = '';
+  var tracking_id_valid           = (tracking_id.includes('tracking-id')) ? false : true;
+  // defaults for comment providers
   var comment_provider            = '';
   var site_id                     = '';
   var checkCookies                = true;
   var expireCookiesOnRequiredOnly = ('true' === 'true') ? true: false;
+  // defaults for dynamic pages
+  var autoScrollRatioThreshold    = '140';
+  var pageGrowthRatio             = 0;                                          // ratio a dynamic page has grown in height
+  var pageBaseHeigth              = 0;  	                                      // base height of  a dynamic page
+  var staticPage                  = false;                                      // defalt: false, but decided in ResizeObserver
+  var pageHeight;                                                               // height of a page dynamic detected in ResizeObserver
+  // defaults for the cookie management
   var current_user_data;
   var current_page;
   var previous_page;
@@ -55,26 +69,20 @@ var j1 = (function () {
   var app_detected;
   var user_session_detected;
   var cookie_written;
-  // Theme information
+  // defaults for themes
   var themeName;
   var themeCss;
   var cssExtension              = (environment === 'production')
                                   ? '.min.css'
                                   : '.css'
-   // Pathes of J1 data files
+  // defaults for data files
   var colors_data_path          = '/assets/data/colors.json';
   var font_size_data_path       = '/assets/data/font_sizes.json';
   var runtime_data_path         = '/assets/data/runtime-data.yml';
   var message_catalog_data_path = '/assets/data/messages.yml';
-  // Logger
+  // Logger resources
   var logger;
   var logText;
-  var _this;
-  var settings;
-  var json_data;
-  var ep;
-  var baseUrl;
-  var referrer;
   // initial cookie settings
   var cookie_names = {
     'app_session':    'j1.app.session',
@@ -105,7 +113,7 @@ var j1 = (function () {
     'theme_name':           'UnoLight',
     'theme_css':            '',
     'theme_author':         'J1 Team',
-    'theme_version':        '2022.3.3',
+    'theme_version':        '2022.4.0',
     'session_active':       false,
     'google_translate':     'disabled',
     'translate_all_pages':  true,
@@ -140,7 +148,7 @@ var j1 = (function () {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2022-05-14 12:52:38 +0000'
+        generated:   '2022-05-18 07:02:35 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -162,40 +170,6 @@ var j1 = (function () {
       // -----------------------------------------------------------------------
       j1['xhrDataState'] = {};
       j1['xhrDOMState']  = {};
-      // -----------------------------------------------------------------------
-      // final updates before browser page|tab
-      // see: https://stackoverflow.com/questions/3888902/detect-browser-or-tab-closing
-      // -----------------------------------------------------------------------
-      window.addEventListener('beforeunload', function (event) {
-        var cookie_names              = j1.getCookieNames();
-        var date                      = new Date();
-        var timestamp_now             = date.toISOString();
-        var user_state                = j1.readCookie(cookie_names.user_state);
-        var user_consent              = j1.readCookie(cookie_names.user_consent);
-        var ep_status;
-        var url;
-        var baseUrl;
-        // final update of the user state cookie
-        user_state.session_active     = false;
-        user_state.last_session_ts    = timestamp_now;
-        if (!user_consent.analysis || !user_consent.personalization) {
-          logger.debug('\n' + 'write to cookie : ' + cookie_names.user_state);
-          cookie_written = j1.writeCookie({
-            name:     cookie_names.user_state,
-            data:     user_state,
-            secure:   secure,
-            expires:  0
-          });
-        } else {
-          logger.debug('\n' + 'write to cookie : ' + cookie_names.user_state);
-          cookie_written = j1.writeCookie({
-            name:     cookie_names.user_state,
-            data:     user_state,
-            secure:   secure,
-            expires:  365
-          });
-        }
-      }); // END beforeunload
       // -----------------------------------------------------------------------
       // initialize|load user cookies
       // -----------------------------------------------------------------------
@@ -226,11 +200,7 @@ var j1 = (function () {
           j1.expireCookie({ name: cookie_names.user_translate });
         }
       }
-      // initialize event handler for window/history/back on <ESC>
-      // -----------------------------------------------------------------------
-      window.onkeyup = function (event) {
-        if (event.keyCode == 27) window.history.back();
-      };
+      j1.registerEvents(logger);
       // detect middleware (mode 'app') and update user session cookie
       // -----------------------------------------------------------------------
       if (user_session.mode === 'app') {
@@ -706,12 +676,16 @@ var j1 = (function () {
             logger.info(logText);
             logText = '\n' + 'page finalized successfully';
             logger.info(logText);
-            // do a (smooth) scroll if all nav elements ready
+            // do a (smooth) scroll for static pages (if all nav elements ready)
             // -----------------------------------------------------------------
             var dependencies_met_navigator_finished = setInterval(function() {
-              if (j1.adapter.navigator.getState() == 'finished') {
+              // NOTE: dynamic pages scrolled at a growth ratio of 100 percent as well
+              if (j1.adapter.navigator.getState() == 'finished' && staticPage) {
                 // if a page requested contains an anchor element, do a smooth scroll
-                j1.scrollTo();
+                logger.debug('\n' + 'Scroll static page, growth ratio at 100 (percent)');
+                // NOTE: on some pages, the offset is NOT correct
+                var scrollOffset = j1.getScrollOffset();
+                j1.scrollTo(scrollOffset);
                 clearInterval(dependencies_met_navigator_finished);
               }
             }, 25);
@@ -721,7 +695,6 @@ var j1 = (function () {
         // web mode
         // ---------------------------------------------------------------------
         setTimeout (function() {
-          // j1.setState('finished');
           logger.info('\n' + 'state: finished');
           logger.info('\n' + 'page initialization: finished');
           // display the page loaded
@@ -832,12 +805,15 @@ var j1 = (function () {
           logger.info(logText);
           logText = '\n' + 'page finalized successfully';
           logger.info(logText);
-          // do a (smooth) scroll if all nav elements ready
+          // do a (smooth) scroll for static pages (if all nav elements ready)
           // -------------------------------------------------------------------
           var dependencies_met_navigator_finished = setInterval(function() {
-            if (j1.adapter.navigator.getState() == 'finished') {
+            if (j1.adapter.navigator.getState() == 'finished' && staticPage) {
+              logger.debug('\n' + 'Scroll static page, growth ratio at 100 (percent)');
               // if a page requested contains an anchor element, do a smooth scroll
-              j1.scrollTo();
+              // NOTE: on some pages, the offset is NOT correct
+              var scrollOffset = j1.getScrollOffset();
+              j1.scrollTo(scrollOffset);
               clearInterval(dependencies_met_navigator_finished);
             }
           }, 25);
@@ -883,15 +859,15 @@ var j1 = (function () {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2022.3.3';
+      return '2022.4.0';
     },
     // -------------------------------------------------------------------------
     // getScrollOffset()
-    // Calculate offset for correct (smooth) scroll position
+    // Calculate offset for a correct (smooth) scroll position
     // -------------------------------------------------------------------------
     getScrollOffset: function () {
       var scrollOffset;
-      var offsetCorrection;
+      var offsetCorrection = 0;
       var $pagehead     = $('.attic');
       var $navbar       = $('nav.navbar');
       var $adblock      = $('#adblock');
@@ -903,8 +879,9 @@ var j1 = (function () {
       var a             = $adblock.length ? $adblock.height() : 0;
       // Unclear why or what element cause the need of a correction
       // TODO: General revision of scrollOffset needed
+      // NOTE: Disabled for now
       //
-      offsetCorrection  = navbarType == 'fixed' ? 10 : -25;
+      // offsetCorrection  = navbarType == 'fixed' ? 10 : -25;
       scrollOffset      = navbarType == 'fixed'
                             ? -1*(n + a + f) + offsetCorrection
                             : -1*(n + a + f) + h + offsetCorrection;
@@ -915,21 +892,23 @@ var j1 = (function () {
     // Scrolls smooth to any anchor referenced by an page URL on
     // e.g. a page reload. Values e.g for delay are taken from
     // TOCCER module
+    // NOTE: crollTo() is triggered by 'onDocumentHeigthChange'
     // -------------------------------------------------------------------------
-    scrollTo: function () {
+    scrollTo: function (offset) {
       var logger          = log4javascript.getLogger('j1.scrollTo');
       var anchor          = window.location.href.split('#')[1];
       var anchor_id       = typeof anchor !== 'undefined' ? '#' + anchor : false;
       var scrollDuration  = 300;
-      var scrollOffset    = j1.getScrollOffset();
+      var scrollOffset    = offset ; // j1.getScrollOffset();
       var isSlider        = false;
-      var selector;
-      if (typeof anchor === 'undefined') {
-        return false;
-      } else if (anchor.includes("googtrans")) {
+      var selector        = $(anchor_id);
+      // skip invalid anchors|selectors
+      //
+      if (typeof anchor === 'undefined' || anchor.includes('googtrans') || !$(selector).length) {
         return false;
       }
       // Check if the anchor is an slider/gallery element
+      //
       if (typeof anchor !== 'undefined') {
         isSlider = anchor.includes('slide');
       }
@@ -937,6 +916,7 @@ var j1 = (function () {
         // scroll only, if an anchor is given with an URL
         selector = $(anchor_id);
         if (selector.length) {
+          logger.info('\n' + 'scrollTo header: ' + anchor_id);
           j1.core.scrollSmooth.scroll(anchor_id, {
             duration:   scrollDuration,
             offset:     scrollOffset,
@@ -1843,6 +1823,89 @@ var j1 = (function () {
     goBack: function () {
       // where visitor has come from
       window.location.href = document.referrer;
+    },
+    // -------------------------------------------------------------------------
+    // registerEvents()
+    // Redirect current page to last visited page (referrer)
+    // -------------------------------------------------------------------------
+    registerEvents: function (logger) {
+      // Add ResizeObserver to monitor the page height of dynamic pages
+      // see: https://stackoverflow.com/questions/14866775/detect-document-height-change
+      //
+      const observer = new ResizeObserver(entries => {
+        const scrollOffset = j1.getScrollOffset();
+        // Set autoScrollRatioThreshold if NOT specified
+        autoScrollRatioThreshold = autoScrollRatioThreshold ? autoScrollRatioThreshold : 100;
+        for (const entry of entries) {
+          // each entry is an instance of ResizeObserverEntry
+          pageHeight = Math.round(entry.contentRect.height);
+          // set base height on a page height <> 0
+          if (!pageBaseHeigth && pageHeight) {
+            pageBaseHeigth = pageHeight;
+          }
+          // calculation of the ratio a page that has lengthened
+          if (pageBaseHeigth) {
+            pageGrowthRatio = Math.round(pageHeight / pageBaseHeigth *100);
+          }
+          // log only if page grown above 'autoScrollRatioThreshold'
+          if (pageGrowthRatio > autoScrollRatioThreshold) {
+            logger.debug('\n' + 'Page growth ratio reached the threshold: ', pageGrowthRatio);
+          }
+          // identify a 'staticPage'
+          if (pageGrowthRatio < autoScrollRatioThreshold) {
+            staticPage = true;
+          } else {
+            // identify a page as 'dynamic' if autoScrollRatioThreshold reached
+            staticPage = false;
+          }
+          // dynamic page that has been increased in size above the threshold
+          if (pageGrowthRatio > autoScrollRatioThreshold) {
+            j1.scrollTo(scrollOffset);
+            logger.debug('\n' + 'Scroll dynamic page on growth ratio: ', pageGrowthRatio);
+          }
+        }
+      });
+      // monitor the page 'body'
+      observer.observe(document.querySelector('body'));
+      // -----------------------------------------------------------------------
+      // final updates before browser page|tab
+      // see: https://stackoverflow.com/questions/3888902/detect-browser-or-tab-closing
+      // -----------------------------------------------------------------------
+      window.addEventListener('beforeunload', function (event) {
+        var cookie_names  = j1.getCookieNames();
+        var date          = new Date();
+        var timestamp_now = date.toISOString();
+        var user_state    = j1.readCookie(cookie_names.user_state);
+        var user_consent  = j1.readCookie(cookie_names.user_consent);
+        var url           = new liteURL(window.location.href);
+        var secure        = (url.protocol.includes('https')) ? true : false;
+        var ep_status;
+        var url;
+        var baseUrl;
+        // final update of the user state cookie
+        user_state.session_active     = false;
+        user_state.last_session_ts    = timestamp_now;
+        if (!user_consent.analysis || !user_consent.personalization) {
+          cookie_written = j1.writeCookie({
+            name:     cookie_names.user_state,
+            data:     user_state,
+            secure:   secure,
+            expires:  0
+          });
+        } else {
+          cookie_written = j1.writeCookie({
+            name:     cookie_names.user_state,
+            data:     user_state,
+            secure:   secure,
+            expires:  365
+          });
+        }
+      }); // END beforeunload
+      // initialize event handler for window/history/back on <ESC>
+      //
+      window.onkeyup = function (event) {
+        if (event.keyCode == 27) window.history.back();
+      };
     }
   };
 }) (j1, window);
