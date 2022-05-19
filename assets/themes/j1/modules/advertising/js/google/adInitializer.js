@@ -14,40 +14,6 @@
  #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
 */
-$(document).ready(function() {
-  // [INFO   ] [j1.adapter.advertising                  ] [ detected advertising provider: google} ]
-  // [INFO   ] [j1.adapter.advertising                  ] [ advertising detected as: true ]
-  var logger              = log4javascript.getLogger('j1.core.advertising.google');
-  var ads_found           = document.getElementsByClassName('adsbygoogle').length;
-  var cookie_names        = j1.getCookieNames();
-  var user_consent        = j1.readCookie(cookie_names.user_consent);
-  var providerID          = '<your-publisher-id>';
-  var validProviderID     = (providerID.includes('your')) ? false : true;
-  var advertisingProvider = 'Google Adsense';
-  var dependencies_met_page_ready = setInterval (function (options) {
-    if (j1.getState() === 'finished') {
-      if (!validProviderID) {
-        logger.warn('\n' + 'disabled provider: ' + advertisingProvider);
-        clearInterval(dependencies_met_page_ready);
-        return false;
-      }
-      if (user_consent.personalization) {
-        if (ads_found) {
-          logger.info('\n' + 'initialize all ads in page: #' + ads_found);
-          [].forEach.call(document.querySelectorAll('.adsbygoogle'), function() {
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          });
-        } else {
-          logger.warn('\n' + 'no ads found in page');
-        }
-      } else {
-        logger.warn('\n' + 'initializing ads skipped');
-        logger.warn('\n' + 'consent on cookies disabled for personalization');
-      }
-      clearInterval(dependencies_met_page_ready);
-    }
-  }, 25);
-});
-
+$(document).ready(function(){var e=log4javascript.getLogger('j1.core.advertising.google'),n=document.getElementsByClassName('adsbygoogle').length,o=j1.getCookieNames(),a=j1.readCookie(o.user_consent),i=!'<your-publisher-id>'.includes('your'),l='Google Adsense',r=setInterval(function(){if('finished'===j1.getState()){if(!i)return e.warn("\ndisabled provider: "+l),clearInterval(r),!1;a.personalization?n?(e.info("\ninitialize all ads in page: #"+n),[].forEach.call(document.querySelectorAll('.adsbygoogle'),function(){(adsbygoogle=window.adsbygoogle||[]).push({})})):e.warn("\nno ads found in page"):(e.warn("\ninitializing ads skipped"),e.warn("\nconsent on cookies disabled for personalization")),clearInterval(r)}},25)});
 
 

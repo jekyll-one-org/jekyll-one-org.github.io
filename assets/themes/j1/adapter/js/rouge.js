@@ -16,7 +16,7 @@
  # Note:
  #  https://github.com/jirutka/asciidoctor-rouge/issues/9
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2022-05-18 20:57:28 +0000
+ #  Adapter generated: 2022-05-19 10:10:45 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -30,7 +30,7 @@ j1.adapter.rouge = (function (j1, window) {
   // ---------------------------------------------------------------------------
   // globals
   // ---------------------------------------------------------------------------
-  var environment             = 'development';
+  var environment             = 'production';
   var moduleOptions           = {};
   var user_state              = {};
   var cookie_names            = j1.getCookieNames();
@@ -61,7 +61,7 @@ j1.adapter.rouge = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.rouge',
-        generated:   '2022-05-18 20:57:28 +0000'
+        generated:   '2022-05-19 10:10:45 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
