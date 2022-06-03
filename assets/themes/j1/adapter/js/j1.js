@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2022-05-19 16:07:24 +0000
+ # Adapter generated: 2022-06-03 08:47:20 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -55,7 +55,7 @@ var j1 = (function () {
   var checkCookies                = true;
   var expireCookiesOnRequiredOnly = ('true' === 'true') ? true: false;
   // defaults for dynamic pages
-  var autoScrollRatioThreshold    = '140';
+  var autoScrollRatioThreshold    = '130';
   var pageGrowthRatio             = 0;                                          // ratio a dynamic page has grown in height
   var pageBaseHeigth              = 0;  	                                      // base height of  a dynamic page
   var staticPage                  = false;                                      // defalt: false, but decided in ResizeObserver
@@ -148,7 +148,7 @@ var j1 = (function () {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2022-05-19 16:07:24 +0000'
+        generated:   '2022-06-03 08:47:20 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
