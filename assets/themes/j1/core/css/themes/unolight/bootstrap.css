@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
  # -----------------------------------------------------------------------------
  #   ~/packages/100_template_css/theme-uno.scss
@@ -9259,6 +9260,9 @@ textarea.form-control-lg {
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
 */
+body {
+  background-color: #eceff1; }
+
 /* Chrome, IE 10+ */
 .hide-scrollbar {
   scrollbar-width: none;
@@ -10958,12 +10962,20 @@ a {
   text-decoration: none;
   border-bottom: 1px dotted; }
 
+a.link-no-decoration {
+  border-bottom: unset;
+  text-decoration: none; }
+
+a.link-no-decoration:hover {
+  color: #BDBDBD !important;
+  font-weight: 500 !important; }
+
 a:hover {
   color: #bdbdbd !important;
   font-weight: 500 !important; }
 
 li > a {
-  color: #607d8b !important;
+  color: #bdbdbd !important;
   font-weight: 500 !important;
   text-decoration: none !important; }
 
@@ -14781,6 +14793,7 @@ a.card-title:hover {
   color: #212121; }
 
 a.card-link {
+  text-decoration: none;
   border-bottom: unset; }
 
 .card-signup .header {
@@ -17304,6 +17317,138 @@ button.btn-fab-floating {
     order: 3; }
   .footer-mobile {
     order: 4; } }
+
+/*
+// -----------------------------------------------------------------------------
+// ~/scss/theme_uno/extensions/_plans.scss
+// Provides general styles for the J1 Plan Banner
+//
+// Product/Info:
+// https://jekyll.one
+//
+// Copyright (C) 2022 Juergen Adams
+//
+// J1 Template is licensed under the MIT License.
+// See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+// -----------------------------------------------------------------------------
+*/
+.plan-card {
+  margin-bottom: 2rem;
+  transition: all 0.42s cubic-bezier(0.19, 1, 0.22, 1);
+  position: relative;
+  background-color: #fff;
+  border-radius: 0.3rem;
+  margin: 0.1875rem;
+  height: 100%;
+  box-shadow: 0 0.0625rem 0.125rem 0 rgba(22, 45, 61, 0.1);
+  text-align: center;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.875rem;
+  color: #162d3d;
+  padding: 3rem 1.5rem 6.25rem;
+  cursor: default; }
+
+.plan-card:hover {
+  box-shadow: 0px 6px 6px -3px rgba(0, 0, 0, 0.2), 0px 10px 14px 1px rgba(0, 0, 0, 0.14), 0px 4px 18px 3px rgba(0, 0, 0, 0.12) !important;
+  transform: translateY(-0.75rem); }
+
+.plan-card .plan-name {
+  font-size: 1.3rem;
+  text-transform: uppercase; }
+
+.plan-card .plan-price {
+  position: relative;
+  margin-top: 0.625rem;
+  margin-right: 1.825rem; }
+
+.plan-card .price-currency {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1.25rem; }
+
+.plan-card .price-amount {
+  display: inline-block;
+  font-size: 3.5rem;
+  font-weight: 600;
+  line-height: 3.5rem; }
+
+.plan-card .price-period {
+  display: inline-block;
+  font-size: 0.9rem;
+  position: absolute;
+  bottom: 0; }
+
+.plan-card hr {
+  margin: 1.875rem 0; }
+
+.plan-card .plan-benefits {
+  text-align: left;
+  position: relative; }
+
+.plan-card .plan-benefits .plan-benefit::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: green; }
+
+.plan-card .plan-benefits .plan-disbenefit::before {
+  content: '✘';
+  position: absolute;
+  left: 0;
+  color: #dc1111; }
+
+.plan-card .plan-benefits .plan-benefit,
+.plan-card .plan-benefits .plan-disbenefit {
+  margin-bottom: 0.9375rem;
+  padding-left: 1rem; }
+
+.plan-card .plan-select {
+  text-transform: uppercase;
+  margin-top: 1.5625rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-radius: 1.5rem;
+  background-color: #2196f3;
+  border-color: #2196f3;
+  position: absolute;
+  bottom: 2.5rem;
+  left: 1.5rem;
+  right: 1.5rem; }
+
+.plan-card .plan-select:hover {
+  background: #0D47A1;
+  border-color: #0D47A1; }
+
+.plan-card.recommended {
+  box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2), 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.1), 0 0.625rem 5rem 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 0.3rem 0.3rem;
+  border: 1px solid #2196f3; }
+
+.plan-card.recommended::before {
+  content: 'Recommended';
+  height: 2.1875rem;
+  line-height: 2.1875rem;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: #2196f3;
+  color: #fff;
+  border-radius: 0.3rem 0.3rem 0 0;
+  margin-bottom: -0.1875rem;
+  position: absolute;
+  left: -1px;
+  top: -2.1875rem;
+  right: -1px; }
+
+.plan-card.recommended hr {
+  background: #2196f3; }
+
+@media (max-width: 991px) {
+  .plan-card.recommended {
+    border-radius: 0.3rem; }
+  .plan-card.recommended::before {
+    top: 0; } }
 
 /*
  # -----------------------------------------------------------------------------
@@ -23498,77 +23643,77 @@ a.md-bg-blue-gray-900:focus {
 
 a.md-grey:hover,
 a.md-grey:focus {
-  color: #757575 !important; }
+  color: #616161 !important; }
 
 .md-grey-50 {
   color: #fafafa !important; }
 
 a.md-grey-50:hover,
 a.md-grey-50:focus {
-  color: #f5f5f5 !important; }
+  color: #e0e0e0 !important; }
 
 .md-grey-100 {
   color: #f5f5f5 !important; }
 
 a.md-grey-100:hover,
 a.md-grey-100:focus {
-  color: #eeeeee !important; }
+  color: #bdbdbd !important; }
 
 .md-grey-200 {
-  color: #eeeeee !important; }
+  color: #eee !important; }
 
 a.md-grey-200:hover,
 a.md-grey-200:focus {
-  color: #e0e0e0 !important; }
+  color: #9e9e9e !important; }
 
 .md-grey-300 {
   color: #e0e0e0 !important; }
 
 a.md-grey-300:hover,
 a.md-grey-300:focus {
-  color: #bdbdbd !important; }
+  color: #757575 !important; }
 
 .md-grey-400 {
   color: #bdbdbd !important; }
 
 a.md-grey-400:hover,
 a.md-grey-400:focus {
-  color: #9e9e9e !important; }
+  color: #616161 !important; }
 
 .md-grey-500 {
   color: #9e9e9e !important; }
 
 a.md-grey-500:hover,
 a.md-grey-500:focus {
-  color: #757575 !important; }
+  color: #424242 !important; }
 
 .md-grey-600 {
   color: #757575 !important; }
 
 a.md-grey-600:hover,
 a.md-grey-600:focus {
-  color: #616161 !important; }
+  color: #e0e0e0 !important; }
 
 .md-grey-700 {
   color: #616161 !important; }
 
 a.md-grey-700:hover,
 a.md-grey-700:focus {
-  color: #424242 !important; }
+  color: #bdbdbd !important; }
 
 .md-grey-800 {
   color: #424242 !important; }
 
 a.md-grey-800:hover,
 a.md-grey-800:focus {
-  color: #2196f3 !important; }
+  color: #9e9e9e !important; }
 
 .md-grey-900 {
   color: #212121 !important; }
 
 a.md-grey-900:hover,
 a.md-grey-900:focus {
-  color: #2196f3 !important; }
+  color: #9e9e9e !important; }
 
 .md-bg-grey {
   background-color: #9e9e9e !important; }
@@ -25169,7 +25314,8 @@ li.dropdown.nav-item.nav-sub-item:before {
       position: relative;
       top: 5px; }
     nav.navbar.navigator.navbar-fixed {
-      position: fixed; }
+      position: fixed;
+      z-index: 999999999; }
       nav.navbar.navigator.navbar-fixed.navbar-transparent .logo-scrolled {
         display: none; }
       nav.navbar.navigator.navbar-fixed.navbar-transparent .logo-display {

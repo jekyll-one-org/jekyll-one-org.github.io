@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2022-06-03 09:01:43 +0000
+ # Adapter generated: 2022-06-26 19:49:30 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -42,6 +42,7 @@ var j1 = (function () {
   var ep;
   var baseUrl;
   var referrer;
+  var documentHeight;
   // defaults for status information
   var state                       = 'not_started';
   var mode                        = 'not_detected';
@@ -55,11 +56,16 @@ var j1 = (function () {
   var checkCookies                = true;
   var expireCookiesOnRequiredOnly = ('true' === 'true') ? true: false;
   // defaults for dynamic pages
-  var autoScrollRatioThreshold    = '130';
+  var timeoutScrollDynamicPages   = '2000';
   var pageGrowthRatio             = 0;                                          // ratio a dynamic page has grown in height
-  var pageBaseHeigth              = 0;  	                                      // base height of  a dynamic page
+  var pageBaseHeigth              = 0;                                          // base height of a dynamic page (not grown)
   var staticPage                  = false;                                      // defalt: false, but decided in ResizeObserver
-  var pageHeight;                                                               // height of a page dynamic detected in ResizeObserver
+  var pageHeight;
+  var pageBaseHeight;                                                              // height of a page dynamic detected in ResizeObserver
+  var growthRatio                 = 100;
+  var previousGrowthRatio         = 100;
+  var previousPageHeight;
+  var documentHeight;
   // defaults for the cookie management
   var current_user_data;
   var current_page;
@@ -113,7 +119,7 @@ var j1 = (function () {
     'theme_name':           'UnoLight',
     'theme_css':            '',
     'theme_author':         'J1 Team',
-    'theme_version':        '2022.4.2',
+    'theme_version':        '2022.4.4',
     'session_active':       false,
     'google_translate':     'disabled',
     'translate_all_pages':  true,
@@ -148,7 +154,7 @@ var j1 = (function () {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2022-06-03 09:01:43 +0000'
+        generated:   '2022-06-26 19:49:30 +0000'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -170,6 +176,16 @@ var j1 = (function () {
       // -----------------------------------------------------------------------
       j1['xhrDataState'] = {};
       j1['xhrDOMState']  = {};
+      j1['pageMonitor']  = {
+        eventNo:              0,
+        pageType:             'unknown',
+        pageBaseHeight:       0,
+//      totalGrowthRatio:     0,
+        currentPageHeight:    0,
+        previousPageHeight:   0,
+        currentGrowthRatio:   0,
+        previousGrowthRatio:  0
+      };
       // -----------------------------------------------------------------------
       // initialize|load user cookies
       // -----------------------------------------------------------------------
@@ -341,8 +357,12 @@ var j1 = (function () {
       // additional BS helpers from j1.core
       // -----------------------------------------------------------------------
       j1.core.bsFormClearButton();
-      // finalize and display page
+      // finalize and display current page
       j1.displayPage();
+      // scroll to an anchor in current page if given in URL
+      setTimeout (function() {
+        j1.scrollToAnchor();
+      }, timeoutScrollDynamicPages);
     },
     // -------------------------------------------------------------------------
     // initBanner()
@@ -427,6 +447,7 @@ var j1 = (function () {
         };
       };
       panel.push('home_intro_panel');
+      panel.push('home_plan_panel');
       panel.push('home_news_panel');
       if (panel.length) {
         for (var i in panel) {
@@ -587,6 +608,7 @@ var j1 = (function () {
           setTimeout (function() {
             // display page
             $('#no_flicker').css('display', 'block');
+            window.scrollTo(0, 0);
             // jadams, 2021-12-06: Check if access to cookies for this site failed.
             // Possibly, a third-party domain or an attacker tries to access it.
             if (checkCookies) {
@@ -685,7 +707,7 @@ var j1 = (function () {
                 logger.debug('\n' + 'Scroll static page, growth ratio at 100 (percent)');
                 // NOTE: on some pages, the offset is NOT correct
                 var scrollOffset = j1.getScrollOffset();
-                j1.scrollTo(scrollOffset);
+                // j1.scrollTo(scrollOffset);
                 clearInterval(dependencies_met_navigator_finished);
               }
             }, 25);
@@ -699,6 +721,7 @@ var j1 = (function () {
           logger.info('\n' + 'page initialization: finished');
           // display the page loaded
           $('#no_flicker').css('display', 'block');
+          window.scrollTo(0, 0);
           // jadams, 2021-12-06: Check if access to cookies for this site failed.
           // Possibly, a third-party domain or an attacker tries to access it.
           if (checkCookies) {
@@ -813,7 +836,7 @@ var j1 = (function () {
               // if a page requested contains an anchor element, do a smooth scroll
               // NOTE: on some pages, the offset is NOT correct
               var scrollOffset = j1.getScrollOffset();
-              j1.scrollTo(scrollOffset);
+              // j1.scrollTo(scrollOffset);
               clearInterval(dependencies_met_navigator_finished);
             }
           }, 25);
@@ -859,7 +882,7 @@ var j1 = (function () {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2022.4.2';
+      return '2022.4.4';
     },
     // -------------------------------------------------------------------------
     // getScrollOffset()
@@ -897,7 +920,7 @@ var j1 = (function () {
     scrollTo: function (offset) {
       var logger          = log4javascript.getLogger('j1.scrollTo');
       var anchor          = window.location.href.split('#')[1];
-      var anchor_id       = typeof anchor !== 'undefined' ? '#' + anchor : false;
+      var anchor_id       = (typeof anchor !== 'undefined') && (anchor != '') ? '#' + anchor : false;
       var scrollDuration  = 300;
       var scrollOffset    = offset ; // j1.getScrollOffset();
       var isSlider        = false;
@@ -1825,48 +1848,115 @@ var j1 = (function () {
       window.location.href = document.referrer;
     },
     // -------------------------------------------------------------------------
+    // scrollToAnchor()
+    // Scroll to an anchor in current page if given in URL
+    // TODO: Find a better solution for 'dynamic' pages to detect
+    // the content if fully loaded instead using a timeout
+    // -------------------------------------------------------------------------
+    scrollToAnchor: function () {
+      var logger = log4javascript.getLogger('j1.adapter.scrollToAnchor');
+      var dependencies_met_page_displayed = setInterval (function () {
+        if (j1.getState() == 'finished' && j1['pageMonitor'].currentGrowthRatio >= 100) {
+          if (j1['pageMonitor'].pageType == 'static') {
+            logger.info('\n' + 'Scroller: Scroll static page')
+            const scrollOffset = j1.getScrollOffset();
+            j1.scrollTo(scrollOffset);
+            clearInterval(dependencies_met_page_displayed);
+          } else if (j1['pageMonitor'].pageType == 'dynamic') {
+            setTimeout (function() {
+              const scrollOffset = j1.getScrollOffset();
+              j1.scrollTo(scrollOffset);
+              logger.info('\n' + 'Scroller: Scroll dynamic page on timeout')
+            }, timeoutScrollDynamicPages);
+            clearInterval(dependencies_met_page_displayed);
+          } else {
+            // failsave fallback
+            logger.warn('\n' + 'Scroller: Scroll page of unknown type')
+            const scrollOffset = j1.getScrollOffset();
+            j1.scrollTo(scrollOffset);
+            clearInterval(dependencies_met_page_displayed);
+          }
+        }
+      }, 25);
+    },
+    // -------------------------------------------------------------------------
     // registerEvents()
-    // Redirect current page to last visited page (referrer)
+    //
     // -------------------------------------------------------------------------
     registerEvents: function (logger) {
       // Add ResizeObserver to monitor the page height of dynamic pages
       // see: https://stackoverflow.com/questions/14866775/detect-document-height-change
       //
       const observer = new ResizeObserver(entries => {
-        const scrollOffset = j1.getScrollOffset();
-        // Set autoScrollRatioThreshold if NOT specified
-        autoScrollRatioThreshold = autoScrollRatioThreshold ? autoScrollRatioThreshold : 100;
+        const body              = document.body,
+              html              = document.documentElement,
+              scrollOffset      = j1.getScrollOffset();
+        // get the page height from the DOM
+        //
+        var documentHeight = Math.max (
+          body.scrollHeight,
+          body.offsetHeight,
+          html.clientHeight,
+          html.scrollHeight,
+          html.offsetHeight
+        );
+        // scroll the page to top on EVERY change of height
+        //
+        window.scrollTo(0, 0);
+        j1['pageMonitor'].eventNo += 1;
+        if (!j1['pageMonitor'].pageBaseHeight) {
+          // set INITAIL page properties
+          //
+          pageBaseHeight      = documentHeight;
+          previousGrowthRatio = 100;
+          growthRatio         = 0.00;
+          j1['pageMonitor'].pageBaseHeight      = documentHeight;
+          j1['pageMonitor'].currentPageHeight   = documentHeight;
+          j1['pageMonitor'].previousGrowthRatio = previousGrowthRatio;
+          j1['pageMonitor'].growthRatio         = growthRatio;
+        } else {
+          // set PREVIOUS page properties taken from GLOBAL vars
+          //
+          j1['pageMonitor'].previousPageHeight  = pageHeight;
+          j1['pageMonitor'].previousGrowthRatio = previousGrowthRatio;
+        }
+        // collect 'pageHeight' from 'entries'
+        // NOTE: each entry is an instance of ResizeObserverEntry
         for (const entry of entries) {
-          // each entry is an instance of ResizeObserverEntry
+          pageBaseHeight = j1['pageMonitor'].pageBaseHeight;
+          // get the page height (rounded to int) from observer
+          //
           pageHeight = Math.round(entry.contentRect.height);
-          // set base height on a page height <> 0
-          if (!pageBaseHeigth && pageHeight) {
-            pageBaseHeigth = pageHeight;
-          }
-          // calculation of the ratio a page that has lengthened
-          if (pageBaseHeigth) {
-            pageGrowthRatio = Math.round(pageHeight / pageBaseHeigth *100);
-          }
-          // log only if page grown above 'autoScrollRatioThreshold'
-          if (pageGrowthRatio > autoScrollRatioThreshold) {
-            logger.debug('\n' + 'Page growth ratio reached the threshold: ', pageGrowthRatio);
-          }
-          // identify a 'staticPage'
-          if (pageGrowthRatio < autoScrollRatioThreshold) {
-            staticPage = true;
-          } else {
-            // identify a page as 'dynamic' if autoScrollRatioThreshold reached
-            staticPage = false;
-          }
-          // dynamic page that has been increased in size above the threshold
-          if (pageGrowthRatio > autoScrollRatioThreshold) {
-            j1.scrollTo(scrollOffset);
-            logger.debug('\n' + 'Scroll dynamic page on growth ratio: ', pageGrowthRatio);
-          }
+          j1['pageMonitor'].currentPageHeight = pageHeight;
+          // total growth ratio
+          pageGrowthRatio = pageHeight / pageBaseHeight * 100;
+          pageGrowthRatio = pageGrowthRatio.toFixed(2);
+          j1['pageMonitor'].currentGrowthRatio = pageGrowthRatio;
+          growthRatio = ((pageGrowthRatio / previousGrowthRatio) - 1) * 100;
+          growthRatio = growthRatio.toFixed(2);
+          j1['pageMonitor'].growthRatio = growthRatio;
+        }
+        // detect the page 'type'
+        //
+        if (growthRatio > 0) {
+          // set a page as 'dynamic' if page has grown
+          //
+          j1['pageMonitor'].pageType = 'dynamic';
+          logger.debug('\n' + 'Observer: previousPageHeight|currentPageHeight (px): ', j1['pageMonitor'].previousPageHeight + '|' + pageHeight);
+          logger.debug('\n' + 'Observer: growthRatio relative|absolute (%): ', growthRatio + '|' + pageGrowthRatio);
+        } else {
+          // set a page as 'static' if no growth detected
+          //
+          j1['pageMonitor'].pageType = 'static';
         }
       });
-      // monitor the page 'body'
-      observer.observe(document.querySelector('body'));
+      // monitor the page growth if visible
+      var dependencies_met_page_displayed = setInterval (function () {
+        if (j1.getState() == 'finished') {
+          observer.observe(document.querySelector('body'));                     //    observer.observe(document.querySelector('#content'));
+          clearInterval(dependencies_met_page_displayed);
+        }
+      }, 25);
       // -----------------------------------------------------------------------
       // final updates before browser page|tab
       // see: https://stackoverflow.com/questions/3888902/detect-browser-or-tab-closing

@@ -8077,11 +8077,12 @@ textarea.form-control-lg {
 */
 .card {
   border: 0;
-  border-radius: 0; }
+  border-radius: 0;
+  background-color: #FAFAFA; }
   .card .card-header {
     border-bottom: 0; }
   .card .card-footer {
-    background-color: rgba(255, 255, 255, 0.4) !important;
+    background-color: #F5F5F5 !important;
     border-top: 1px dotted rgba(0, 0, 0, 0.7); }
   .card hr {
     border-top: 1px solid #757575 !important; }
@@ -8549,18 +8550,18 @@ table {
   background: #bdbdbd;
   border: solid 1px #424242; }
 
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th {
+  border: 1px solid #bdbdbd !important; }
+
 table.tableblock > .title {
   border-right: 1px solid #424242;
   border-left: 1px solid #424242;
   border-bottom: 1px solid #424242; }
-
-table.frame-all {
-  border-top: 1px solid #424242 !important;
-  border-left: 1px solid #424242 !important; }
-
-table tr th, table tr td {
-  border-right: 1px solid #424242 !important;
-  border-bottom: 1px solid #424242 !important; }
 
 table thead, table tfoot {
   background: #1976d2; }
@@ -8729,6 +8730,27 @@ table tr.even, table tr.alt, table tr:nth-of-type(even) {
   padding-bottom: .1rem;
   border-top: 1px solid rgba(0, 0, 0, 0.04);
   border-bottom: 1px solid rgba(0, 0, 0, 0.04); }
+
+/*
+// -----------------------------------------------------------------------------
+// ~/theme_uno_dark/extentions/_plans.scss
+// Provides general styles for the J1 Plan Banner
+//
+// Product/Info:
+// https://jekyll.one
+//
+// Copyright (C) 2022 Juergen Adams
+//
+// J1 Template is licensed under the MIT License.
+// See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+// -----------------------------------------------------------------------------
+*/
+.plan-card {
+  background: #393a3b;
+  color: #e4e6eb; }
+
+.plan-card.recommended {
+  box-shadow: 0 0.0625rem 0.125rem rgba(255, 255, 255, 0.2), 0 0.3125rem 0.9375rem rgba(255, 255, 255, 0.1), 0 0.625rem 5rem 0 rgba(255, 255, 255, 0.1); }
 
 /*
  # -----------------------------------------------------------------------------
