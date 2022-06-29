@@ -15,7 +15,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="template version" content="2022.4.4" />
   <title>scroller page</title>
-    <meta name="description" content="Create index pages (infinte scroll) for all posts. Used for infinite scroll for the news panel (home page)
+    <meta name="description" content="Create paginator pages for all posts. Used for infinite scroll for the news panel (home page)
 " />
   <link rel="icon" type="image/ico" href="/assets/images/modules/icons/j1/j1-32x32.ico" />
     <meta name="author" content="Juergen Adams" />
@@ -124,7 +124,7 @@
 <nav id="navigator_toc_mmenu"></nav>
 <nav id="navigator_sidebar_mmenu"></nav>
 <nav id="navigator_nav_navbar" class="navbar navigator navbar-expand-lg navbar-default light navbar-fixed navbar-transparent">
-      <a href="#" id="navbar-brand" class="navbar-brand"> <img src="/assets/images/modules/icons/j1/j1-512x512.png" height="48" alt="Jekyll One"></a>
+      <a href="#" id="navbar-brand" class="navbar-brand link-no-decoration"> <img src="/assets/images/modules/icons/j1/j1-512x512.png" height="48" alt="Jekyll One"></a>
     <button id="mmenu-button" type="button" class="navigator navbar-toggler animated fadeIn" data-bs-toggle="collapse" data-bs-target="#navigator_nav_menu" aria-controls="navigator_nav_menu" aria-expanded="false" aria-label="Toggle navigation">
       <i class="mdi mdi-menu mdi-36px"></i>
     </button>
@@ -133,9 +133,6 @@
 </nav>
 <div id="authclient_modals" class="authclient_modals"></div>
   <header id="header">
-  <div id="no_attic" class="attic" style="margin-bottom: 120px;">
-    <div class="container"></div>
-  </div>
   </header>
   <div id="content" class="container">
         <section class="container">
@@ -231,7 +228,7 @@ are the winter home of tens of thousands of red-sided garter snakes
             var logger = log4javascript.getLogger("j1.module_loader");
             var log_text = 'template core is being initialized';
             logger.info(log_text);
-                  var settings = $.extend({}, {"layout": "news_panel_posts", "fab_menu_id": "", "scrollbar": "", "toc": "false", "comments": "false"});
+                  var settings = $.extend({}, {"layout": "news_panel_posts", "fab_menu_id": "", "scrollbar": "", "toc": "false", "comments": "false", "scrollDynamicPagesTopOnChange": ""});
                     j1.init(settings);
            });
         </script>
@@ -262,7 +259,7 @@ are the winter home of tens of thousands of red-sided garter snakes
             var logger = log4javascript.getLogger("j1.module_loader");
             var log_text = 'module attic is being initialized';
             logger.info(log_text);
-                  var settings = $.extend({}, {"layout": "news_panel_posts", "fab_menu_id": "", "scrollbar": "", "toc": "false", "comments": "false"});
+                  var settings = $.extend({}, {"layout": "news_panel_posts", "fab_menu_id": "", "scrollbar": "", "toc": "false", "comments": "false", "scrollDynamicPagesTopOnChange": ""});
                     j1.adapter.attic.init(settings);
            });
         </script>
@@ -340,7 +337,7 @@ are the winter home of tens of thousands of red-sided garter snakes
             var logger = log4javascript.getLogger("j1.module_loader");
             var log_text = 'FAB Menus is being initialized';
             logger.info(log_text);
-                  var settings = $.extend({}, {"layout": "news_panel_posts", "fab_menu_id": "", "scrollbar": "", "toc": "false", "comments": "false"});
+                  var settings = $.extend({}, {"layout": "news_panel_posts", "fab_menu_id": "", "scrollbar": "", "toc": "false", "comments": "false", "scrollDynamicPagesTopOnChange": ""});
                     j1.adapter.fab.init(settings);
            });
         </script>

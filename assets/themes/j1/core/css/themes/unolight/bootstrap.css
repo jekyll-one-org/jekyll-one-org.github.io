@@ -14222,19 +14222,22 @@ table.tableblock > .title {
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- # NOTE: Styles for the attics module (page headers)
+ # NOTE: Styles for the attics module (master header)
  # -----------------------------------------------------------------------------
 */
+.no-attic {
+  padding-top: 80px;
+  margin-bottom: 50px;
+  background-color: #212121; }
+
 .attic {
   position: relative;
   width: 100%;
-  overflow: hidden;
-  /* jadams, 2017-12-11: needed for image headers */ }
+  overflow: hidden; }
 
 .attic .j1-booticon {
   margin: 0 auto 30px; }
 
-/* jadams, 2020-12-25: added line-height */
 .attic .head-title h2, .attic .head-title .h2 {
   margin-top: -1.2rem;
   margin-bottom: 0 !important;
@@ -14283,12 +14286,14 @@ table.tableblock > .title {
   color: rgba(255, 255, 255, 0.9) !important;
   text-decoration: none; }
 
-/* Media breakpoints
--------------------------------------------------------------------------------- */
 @media screen and (min-width: 992px) {
   .attic .lead {
     width: 90%;
     font-size: 30px; } }
+
+@media screen and (max-width: 992px) {
+  .no-attic {
+    padding-top: 48px; } }
 
 @media screen and (min-width: 768px) {
   .attic h1, .attic .h1 {
@@ -14297,13 +14302,19 @@ table.tableblock > .title {
     width: 95%;
     font-size: 24px; } }
 
+@media screen and (max-width: 768px) {
+  .no-attic {
+    padding-top: 48px; } }
+
 @media screen and (min-width: 480px) {
   .attic .btn {
     width: auto;
     margin-top: 10px; } }
 
-/* Helper styles
--------------------------------------------------------------------------------- */
+@media screen and (max-width: 480px) {
+  .no-attic {
+    padding-top: 48px; } }
+
 .text-emphasis-none {
   text-shadow: none !important; }
 
@@ -18456,7 +18467,7 @@ h2.timeline-header-box:after, .timeline-header-box.h2:after {
   padding-bottom: 5px;
   padding-left: 10px;
   display: inline-block;
-  border-bottom: 1px dotted theme-color(primary); }
+  border-bottom: 1px dotted #2196f3; }
 
 .timeline-title h4, .timeline-title .h4 {
   color: rgba(0, 0, 0, 0.5);
@@ -18464,7 +18475,7 @@ h2.timeline-header-box:after, .timeline-header-box.h2:after {
   margin: 0 0 -1px 0;
   padding-bottom: 5px;
   display: inline-block;
-  border-bottom: 1px dotted theme-color(primary); }
+  border-bottom: 1px dotted #2196f3; }
 
 .timeline-title h4:hover, .timeline-title .h4:hover {
   color: rgba(0, 0, 0, 0.9);
@@ -18507,7 +18518,7 @@ a.timeline-list-unstyled:hover {
   position: absolute;
   content: " ";
   width: 3px;
-  background-color: #f5f5f5;
+  background-color: #bdbdbd;
   left: 50%;
   margin-left: -1.5px; }
 
@@ -18564,9 +18575,9 @@ a.timeline-list-unstyled:hover {
   width: 10px;
   height: 10px;
   position: absolute;
-  background: theme-color(primary);
+  background: #2196f3;
   margin: 0 0 0 -5px;
-  box-shadow: 0 0 0 4px #f5f5f5;
+  box-shadow: 0 0 0 4px #bdbdbd;
   -webkit-font-smoothing: antialiased; }
 
 .timeline > li.timeline-inverted > .timeline-panel {
@@ -18703,6 +18714,95 @@ a.timeline-list-unstyled:hover {
     margin-bottom: 30px; }
   .timeline > li.timeline-inverted > .timeline-badge {
     left: -11px; } }
+
+/*
+ # -----------------------------------------------------------------------------
+ # ~/scss/theme_uno/bootstrap/extensions/mde/_transparency.scss
+ # Provides (Helper) Styles for standard transparency levels
+ # Inspired by Google MDC Web
+ #
+ # Product/Info:
+ # https://jekyll.one
+ #
+ # Copyright (C) 2022 Juergen Adams
+ #
+ # J1 Template is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # -----------------------------------------------------------------------------
+ # NOTE: MDE styles for transparency
+ # -----------------------------------------------------------------------------
+*/
+/*
+ * Applies the correct css rules needed to have an element transition
+ * between elevations. This mixin should be applied to elements whose
+ * elevation values will change depending on their context (e.g. when
+ * active or disabled).
+ */
+.transparency-0 {
+  opacity: 0 !important;
+  transition: opacity .5s ease-in-out;
+  -moz-transition: opacity .5s ease-in-out;
+  -webkit-transition: opacity .5s ease-in-out; }
+
+.transparency-1 {
+  opacity: .1 !important;
+  transition: opacity .5s ease-in-out;
+  -moz-transition: opacity .5s ease-in-out;
+  -webkit-transition: opacity .5s ease-in-out; }
+
+.transparency-2 {
+  opacity: .2 !important;
+  transition: opacity .5s ease-in-out;
+  -moz-transition: opacity .5s ease-in-out;
+  -webkit-transition: opacity .5s ease-in-out; }
+
+.transparency-3 {
+  opacity: .3 !important;
+  transition: opacity .5s ease-in-out;
+  -moz-transition: opacity .5s ease-in-out;
+  -webkit-transition: opacity .5s ease-in-out; }
+
+.transparency-4 {
+  opacity: .4 !important;
+  transition: opacity .5s ease-in-out;
+  -moz-transition: opacity .5s ease-in-out;
+  -webkit-transition: opacity .5s ease-in-out; }
+
+.transparency-5 {
+  opacity: .5 !important;
+  transition: opacity .5s ease-in-out;
+  -moz-transition: opacity .5s ease-in-out;
+  -webkit-transition: opacity .5s ease-in-out; }
+
+.transparency-6 {
+  opacity: .6 !important;
+  transition: opacity .5s ease-in-out;
+  -moz-transition: opacity .5s ease-in-out;
+  -webkit-transition: opacity .5s ease-in-out; }
+
+.transparency-7 {
+  opacity: .7 !important;
+  transition: opacity .5s ease-in-out;
+  -moz-transition: opacity .5s ease-in-out;
+  -webkit-transition: opacity .5s ease-in-out; }
+
+.transparency-8 {
+  opacity: .8 !important;
+  transition: opacity .5s ease-in-out;
+  -moz-transition: opacity .5s ease-in-out;
+  -webkit-transition: opacity .5s ease-in-out; }
+
+.transparency-9 {
+  opacity: .9 !important;
+  transition: opacity .5s ease-in-out;
+  -moz-transition: opacity .5s ease-in-out;
+  -webkit-transition: opacity .5s ease-in-out; }
+
+.transparency-10 {
+  opacity: 1 !important;
+  transition: opacity .5s ease-in-out;
+  -moz-transition: opacity .5s ease-in-out;
+  -webkit-transition: opacity .5s ease-in-out; }
 
 /*
  # -----------------------------------------------------------------------------
