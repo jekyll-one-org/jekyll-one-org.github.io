@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2022-06-30 13:11:19 +0000
+ # Adapter generated: 2022-07-02 15:05:20 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -120,7 +120,7 @@ var j1 = (function (options) {
     'theme_name':           'UnoLight',
     'theme_css':            '',
     'theme_author':         'J1 Team',
-    'theme_version':        '2022.4.4',
+    'theme_version':        '2022.4.5',
     'session_active':       false,
     'google_translate':     'disabled',
     'translate_all_pages':  true,
@@ -174,7 +174,7 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2022-06-30 13:11:19 +0000'
+        generated:   '2022-07-02 15:05:20 +0000'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
@@ -884,7 +884,7 @@ var j1 = (function (options) {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2022.4.4';
+      return '2022.4.5';
     },
     // -------------------------------------------------------------------------
     // getScrollOffset()
