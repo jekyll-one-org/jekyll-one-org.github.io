@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2022-07-04 10:23:46 +0000
+ # Adapter generated: 2022-07-05 18:13:56 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -76,17 +76,21 @@ var j1 = (function (options) {
   var app_detected;
   var user_session_detected;
   var cookie_written;
+  // defaults for the template
+  var template_version;
+  var template_previous_version;
+  var template_version_changed;
   // defaults for themes
   var themeName;
   var themeCss;
-  var cssExtension              = (environment === 'production')
-                                  ? '.min.css'
-                                  : '.css'
+  var cssExtension                = (environment === 'production')
+                                    ? '.min.css'
+                                    : '.css'
   // defaults for data files
-  var colors_data_path          = '/assets/data/colors.json';
-  var font_size_data_path       = '/assets/data/font_sizes.json';
-  var runtime_data_path         = '/assets/data/runtime-data.yml';
-  var message_catalog_data_path = '/assets/data/messages.yml';
+  var colors_data_path            = '/assets/data/colors.json';
+  var font_size_data_path         = '/assets/data/font_sizes.json';
+  var runtime_data_path           = '/assets/data/runtime-data.yml';
+  var message_catalog_data_path   = '/assets/data/messages.yml';
   // Logger resources
   var logger;
   var logText;
@@ -98,6 +102,7 @@ var j1 = (function (options) {
     'user_consent':   'j1.user.consent',
     'user_translate': 'j1.user.translate'
   };
+  var user_consent = {};
   var user_session = {
     'mode':                 'web',
     'writer':               'j1.adapter',
@@ -115,19 +120,24 @@ var j1 = (function (options) {
     'previous_page':        'na',
     'last_pager':           '/pages/public/blog/navigator/'
   };
-  var user_state = {
+  var user_state   = {
     'writer':               'j1.adapter',
+    'template_version':     '2022.4.7',
+//
+//  for testing only
+//  'template_version':     'undefined',
+//  'template_version':     '2022.4.4',
+//
     'theme_name':           'UnoLight',
     'theme_css':            '',
     'theme_author':         'J1 Team',
-    'theme_version':        '2022.4.5',
+    'theme_version':        '2022.4.7',
     'session_active':       false,
     'google_translate':     'disabled',
     'translate_all_pages':  true,
     'translate_locale':     navigator.language || navigator.userLanguage,
     'last_session_ts':      ''
   };
-  var user_consent = {};
   // ---------------------------------------------------------------------------
   // helper functions
   // ---------------------------------------------------------------------------
@@ -174,7 +184,7 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2022-07-04 10:23:46 +0000'
+        generated:   '2022-07-05 18:13:56 +0000'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
@@ -195,6 +205,8 @@ var j1 = (function (options) {
       var curr_state        = 'started';
       var gaCookies         = j1.findCookie('_ga');
       var themerOptions     = $.extend({}, {"enabled":true, "debug":false, "saveToCookie":true, "reloadPageOnChange":false, "retries":30, "preview_page":"/pages/public/previewer/theme/", "menu_icon_family":"MDI", "menu_icon_color":"#9E9E9E", "menu_icon_size":"mdi-sm", "cssThemeLink":"bootstrapTheme", "defaultCssFile":"https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css", "bootswatchApiUrl":"https://bootswatch.com/api", "bootswatchApiVersion":5, "loadFromBootswatch":true, "localThemes":"/assets/data/themes.json", "excludeBootswatch":"Default, default, Lux, Sketchy", "includeBootswatch":"", "skipIncludeBootswatch":""});
+      // current template version
+      template_version  = j1.getTemplateVersion();
       // -----------------------------------------------------------------------
       // status settings
       // save status into the adapter object for (later) global access
@@ -233,6 +245,25 @@ var j1 = (function (options) {
                             secure:   secure,
                             expires:  365
                           });
+      if (typeof user_state.template_version == 'undefined') {
+        // add for compatibility reasons
+        template_version_changed = true;
+        user_state.template_version = template_version;
+        logger.warn('\n' + 'template_version not found, set value to: ' +  template_version);
+        cookie_written = j1.writeCookie({
+          name:     cookie_names.user_state,
+          data:     user_state,
+          secure:   secure,
+          expires:  365
+        });
+      } else if (user_state.template_version != template_version) {
+        // update for changed template version
+        template_previous_version = user_state.template_version;
+        template_version_changed = true;
+        user_state.template_version = template_version;
+      } else {
+        template_version_changed = false;
+      }
       if (!user_consent.analysis || !user_consent.personalization)  {
         if (expireCookiesOnRequiredOnly) {
           // expire permanent cookies to session
@@ -833,6 +864,27 @@ var j1 = (function (options) {
           // update sidebar for changed theme data
           logger.info('\n' + 'update sidebar');
           user_state        = j1.readCookie(cookie_names.user_state);
+          if (template_version_changed) {
+            if (typeof template_previous_version == 'undefined') template_previous_version = 'na';
+            logger.warn('\n' + 'template version detected as changed');
+            logger.warn('\n' + 'template version previous|current: ' +  template_previous_version + '|' + template_version);
+            // Update the user_state cookie
+            // TODO:  replace theme_version by template_version as they
+            //        are alwas the same
+            //        disable: user_state.theme_version = template_version;
+            //
+            user_state.template_version = template_version;
+            cookie_written = j1.writeCookie({
+            	name:     cookie_names.user_state,
+            	data:     user_state,
+            	secure:   secure,
+            	expires:  365
+            });
+            logger.warn('\n' + 'template version updated to: ' +  template_version);
+          } else {
+            logger.info('\n' + 'template version detected: ' +  user_state.template_version);
+          }
+          // set current user data
           current_user_data = j1.mergeData(user_session, user_state);
           j1.core.navigator.updateSidebar(current_user_data);
           // set|log status
@@ -884,7 +936,7 @@ var j1 = (function (options) {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2022.4.5';
+      return '2022.4.7';
     },
     // -------------------------------------------------------------------------
     // getScrollOffset()
@@ -1502,7 +1554,7 @@ var j1 = (function (options) {
               $('#macro-theme-version').each(function() {
                 var $this = $(this);
                 var $html = $this.html();
-                $this.html($html.replace('??theme-version', user_data.theme_version));
+                $this.html($html.replace('??theme-version', user_data.template_version));
               });
             });
             logger.debug('\n' + 'met dependencies for: sidebarLoaded');
