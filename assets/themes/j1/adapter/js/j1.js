@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2022-07-05 18:13:56 +0000
+ # Adapter generated: 2022-07-18 09:03:11 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -122,7 +122,7 @@ var j1 = (function (options) {
   };
   var user_state   = {
     'writer':               'j1.adapter',
-    'template_version':     '2022.4.7',
+    'template_version':     '2022.4.9',
 //
 //  for testing only
 //  'template_version':     'undefined',
@@ -131,7 +131,7 @@ var j1 = (function (options) {
     'theme_name':           'UnoLight',
     'theme_css':            '',
     'theme_author':         'J1 Team',
-    'theme_version':        '2022.4.7',
+    'theme_version':        '2022.4.9',
     'session_active':       false,
     'google_translate':     'disabled',
     'translate_all_pages':  true,
@@ -152,24 +152,9 @@ var j1 = (function (options) {
     }
     return context[func].apply(context, args);
   }
-  function stringToBoolean(string) {
-    switch(string.toLowerCase().trim()) {
-      case "true":
-      case "yes":
-      case "1":
-        return true;
-      case "false":
-      case "no":
-      case "0":
-      case null:
-        return false;
-      default:
-        return Boolean(string);
-    }
-  }
   function isOdd(num) {
     var test = (num % 2).toString();
-    return stringToBoolean(test);
+    return j1.stringToBoolean(test);
   }
   // ---------------------------------------------------------------------------
   // main object
@@ -184,13 +169,13 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2022-07-05 18:13:56 +0000'
+        generated:   '2022-07-18 09:03:11 +0000'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
       // settings for dynamic pages
       scrollDynamicPagesTopOnChange = frontmatterOptions.scrollDynamicPagesTopOnChange ? frontmatterOptions.scrollDynamicPagesTopOnChange : 'false';
-      scrollDynamicPagesTopOnChange = stringToBoolean(scrollDynamicPagesTopOnChange);
+      scrollDynamicPagesTopOnChange = j1.stringToBoolean(scrollDynamicPagesTopOnChange);
       // -----------------------------------------------------------------------
       // Global variable settings
       // -----------------------------------------------------------------------
@@ -936,7 +921,7 @@ var j1 = (function (options) {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2022.4.7';
+      return '2022.4.9';
     },
     // -------------------------------------------------------------------------
     // getScrollOffset()
@@ -1933,6 +1918,25 @@ var j1 = (function (options) {
         }
       }, 25);
     },
+    // -------------------------------------------------------------------------
+    // stringToBoolean()
+    // convert a string to boolean
+    // -------------------------------------------------------------------------
+    stringToBoolean: function (string) {
+      switch(string.toLowerCase().trim()) {
+        case "true":
+        case "yes":
+        case "1":
+          return true;
+        case "false":
+        case "no":
+        case "0":
+        case null:
+          return false;
+        default:
+          return Boolean(string);
+      }
+    }, // END stringToBoolean
     // -------------------------------------------------------------------------
     // registerEvents()
     //

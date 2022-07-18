@@ -25415,7 +25415,7 @@ li.dropdown.nav-item.nav-sub-item:before {
       top: 5px; }
     nav.navbar.navigator.navbar-fixed {
       position: fixed;
-      z-index: 999999999; }
+      z-index: 1000; }
       nav.navbar.navigator.navbar-fixed.navbar-transparent .logo-scrolled {
         display: none; }
       nav.navbar.navigator.navbar-fixed.navbar-transparent .logo-display {
