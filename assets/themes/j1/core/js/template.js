@@ -2927,9 +2927,9 @@ module.exports = function navigator(options) {
           $('.megamenu-fw', this).each(function () {
             $('.title', this).off('click');
             $('a.dropdown-toggle', this).off('click');
-            $('.content').removeClass('animated');
+            $('.content').removeClass('animate__animated ');
           });
-          $('.dropdown-menu', this).addClass('animated');
+          $('.dropdown-menu', this).addClass('animate__animated ');
           $('li.dropdown', this).on('mouseenter', function (e) {
             $menu = $('.dropdown-menu', this).eq(0);
             $dropDown = $(this);
@@ -2970,7 +2970,7 @@ module.exports = function navigator(options) {
         $('.nav-full').css('height', windowHeight + 'px');
         $('.wrap-full-menu').css('height', windowHeight + 'px');
         $('.wrap-full-menu').css('width', windowWidth + 'px');
-        $('.navbar-collapse').addClass('animated');
+        $('.navbar-collapse').addClass('animate__animated ');
         $('.navbar-toggle').each(function () {
           var getId = $(this).data('target');
           $(this).off('click');
