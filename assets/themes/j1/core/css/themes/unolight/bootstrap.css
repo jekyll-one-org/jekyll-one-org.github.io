@@ -9912,7 +9912,7 @@ body {
  # -----------------------------------------------------------------------------
 */
 .btn {
-  color: unset !important; }
+  color: #000 !important; }
 
 .btn:hover {
   background-color: #f5f5f5 !important; }
@@ -10156,6 +10156,9 @@ code {
 .bmd-form-group .is-filled .bmd-label-floating {
   top: .5rem !important;
   margin-left: unset !important; }
+
+.form-control, label, input::placeholder {
+  color: var(--bs-body-color) !important; }
 
 form {
   margin-bottom: 1.125rem; }
@@ -11363,9 +11366,7 @@ fieldset[disabled][disabled] .has-danger .form-control, .has-danger .form-contro
       .bmd-form-group.is-focused .bmd-form-group.bmd-form-group-lg .form-control.form-control-danger {
         background-size: 100% 100%, 100% 100%, 1.1875rem 1.1875rem; }
 
-.form-control,
-label,
-input::placeholder {
+.form-control, label, input::placeholder {
   line-height: 1; }
 
 .radio label,
@@ -11584,7 +11585,7 @@ a.link-no-decoration {
   text-decoration: none; }
 
 a.link-no-decoration:hover {
-  color: #fafafa !important;
+  color: rgba(0, 0, 0, 0.9) !important;
   font-weight: 500 !important; }
 
 a:hover {
@@ -18893,6 +18894,62 @@ ul.scrollable-menu::-webkit-scrollbar-thumb {
 
 /*
  # -----------------------------------------------------------------------------
+ # ~/scss/theme_uno/extensions/_sticker.scss
+ # Provides styles for sticker images
+ #
+ # Product/Info:
+ # https://jekyll.one
+ #
+ # Copyright (C) 2022 Juergen Adams
+ #
+ # J1 Template is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # -----------------------------------------------------------------------------
+*/
+.sticker-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.sticker {
+  position: absolute;
+  z-index: 110; }
+
+.sticker-wrapper-150 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: transparent;
+  overflow: hidden; }
+
+.sticker-wrapper-200 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: transparent;
+  overflow: hidden; }
+
+.sticker-right-150 {
+  margin-top: -40px;
+  right: 470px;
+  position: absolute;
+  z-index: 110; }
+
+.sticker-right-200 {
+  margin-top: -60px;
+  right: 430px;
+  left: auto;
+  position: absolute;
+  z-index: 110; }
+
+/*
+ # -----------------------------------------------------------------------------
  # ~/scss/theme_uno/extensions/_switches.scss
  #
  # Product/Info:
@@ -26180,7 +26237,7 @@ li.dropdown.nav-item.nav-sub-item:before {
     top: 0; }
     .top-search .input-group-addon {
       border: none;
-      color: rgba(0, 0, 0, 0.75);
+      color: #212121;
       padding-left: 0;
       padding-right: 0;
       background-color: transparent; }
@@ -26189,7 +26246,6 @@ li.dropdown.nav-item.nav-sub-item:before {
     .top-search input.form-control {
       border: none;
       box-shadow: 0 0 0;
-      color: #ffffff;
       height: 40px;
       padding: 0 15px;
       background-color: transparent;

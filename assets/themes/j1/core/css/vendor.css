@@ -51,7 +51,11 @@ code {
   word-break: break-word;
   padding: 0.125em 0.275em 0.125em 0.275em !important;
   border-radius: 2px;
-  background-color: rgba(0, 0, 0, 0.1) !important; }
+  background-color: rgba(0, 0, 0, 0.1); }
+
+pre code {
+  padding: 0 !important;
+  background-color: transparent; }
 
 h2, .h2 {
   font-size: 200%;
