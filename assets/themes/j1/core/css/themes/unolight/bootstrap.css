@@ -14992,7 +14992,7 @@ table.tableblock > .title {
   text-shadow: 0 4px 0 rgba(0, 0, 0, 0.2) !important; }
 
 .attic__badge {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 4px 6px;
   display: inline-block;
   border-radius: 3px; }
@@ -19434,6 +19434,31 @@ a.timeline-list-unstyled:hover {
     margin-bottom: 30px; }
   .timeline > li.timeline-inverted > .timeline-badge {
     left: -11px; } }
+
+/*
+ # -----------------------------------------------------------------------------
+ # ~/scss/theme_uno/extensions/transitions.scss
+ #
+ # Product/Info:
+ # https://jekyll.one
+ #
+ # Copyright (C) 2022 Juergen Adams
+ #
+ # J1 Template is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # -----------------------------------------------------------------------------
+ # NOTE: Util styles added on button elements to create an PULSED animation
+ # -----------------------------------------------------------------------------
+*/
+.cssFadeIn {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 2s linear; }
+
+.cssFadeOut {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear; }
 
 /*
  # -----------------------------------------------------------------------------
