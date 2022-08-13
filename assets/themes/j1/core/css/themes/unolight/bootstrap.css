@@ -11585,8 +11585,8 @@ a.link-no-decoration {
   text-decoration: none; }
 
 a.link-no-decoration:hover {
-  color: rgba(0, 0, 0, 0.9) !important;
-  font-weight: 500 !important; }
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: 500; }
 
 a:hover {
   color: #757575 !important;
