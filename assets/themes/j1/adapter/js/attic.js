@@ -17,10 +17,1190 @@
  # Backstretch is licensed under the MIT License.
  # For details, see https://github.com/jquery-backstretch/jquery-backstretch
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2022-08-15 09:11:26 +0000
+ #  Adapter generated: 2022-10-13 14:59:16 +0000
  # -----------------------------------------------------------------------------
 */
-'use strict';j1.adapter.attic=function(t,e){var a,i,n;return{init:function(e){$.extend({module_name:'j1.adapter.attic',generated:'2022-08-15 09:11:26 +0000'},e);a=t.adapter.attic,i=log4javascript.getLogger('j1.adapter.attic'),a.state='pending';var n=null!=e?$.extend({},e):{},o=$.extend({},{debug:!1,circuit:!1,notranslate:!0,pauseOnHover:!1,icon_family:"MDI",icon_color:"#9E9E9E",icon_size:"default",raised_level:0,r_text:"enabled",text_emphasis:"stronger",padding_top:200,padding_bottom:50,margin_bottom:50,title_size:"3em",title_color:"rgba(255, 255, 255, 0.8)",title_animate:"animate__bounceInDown",title_animate_duration:"animate__slower",title_align:"left",tagline_size:"1.5em",tagline_color:"rgba(255, 255, 255, 0.8)",tagline_animate:"animate__fadeInRight",tagline_animate_duration:"animate__slower",tagline_align:"left",background_color_1:"#0D47A1",background_color_2:"#0D47A1",action_enabled:!1,action_url:"#void",action_button:"btn-default",action_icon:"download",action_icon_family:"MDI",action_text:"Download Now",logo_enabled:!1,logo_url:"/assets/images/modules/icons/j1/j1-512x512.png",logo_alt:"Jekyll-One-Template",logo_height:196,logo_animate:"animate__slideInDown",spinner:!1,caption:"",caption_href:"",caption_color:"rgba(255, 255, 255, 0.5)",opacity:1,alignX:.5,alignY:.5,scale:"cover",transition:"fadeInOut",duration:5e3,transitionDuration:"normal",animateFirst:!1,start:0,paused:!1,preload:2,preloadSize:1,bypassCss:!1,alwaysTestWindowResolution:!1,resolutionRefreshRate:2500,resolutionChangeRatioThreshold:.1,isVideo:!1,loop:!1,mute:!1,attics:[{name:"Home",attic:{enabled:!1,id:"attic_home",layout:"home",notranslate:!0}},{name:"Page_Post",attic:{enabled:!1,id:"attic_page_post",layout:["page","post"],notranslate:!0}},{name:"Text attic",attic:{enabled:!1,id:"attic_text",layout:["collection","app","raw"],notranslate:!0}}]}),s=$.extend({},{debug:!1,attics:[{name:"Home",attic:{enabled:!0,id:"attic_home",layout:"home",padding_top:400,padding_bottom:50,opacity:.5,background_color_1:"#0D47A1",background_color_2:"#0D47A1",filters:{grayscale:1,contrast:.8,brightness:.8}}},{name:"Pages and Posts",attic:{enabled:!0,id:"attic_page_post",layout:["page","post","blog_archive"],padding_top:400,padding_bottom:50,opacity:.5,filters:{grayscale:.5,sepia:.5}}},{name:"Raw pages",attic:{enabled:!0,id:"attic_raw",layout:["raw"],padding_top:400,padding_bottom:50,opacity:.5}},{name:"Text pages",attic:{enabled:!0,id:"attic_text",layout:["collection","app"]}}]}),d=$.extend({},o,s,n);a.frontmatterOptions=n,a.atticOptions=d,a.setState('started'),i.debug("\nstate: "+a.getState()),i.info("\nmodule is being initialized"),a.loadHeader()},loadHeader:function(){function t(t){$('#attic_home').length&&$('#attic_home').backstretch(t.slides,{debug:t.debug,spinner:t.spinner,alignX:t.alignX,alignY:t.alignY,scale:t.scale,transition:t.transition,transitionDuration:t.transitionDuration,animateFirst:t.animateFirst,duration:t.duration,paused:t.paused,start:t.start,preload:t.preload,preloadSize:t.preloadSize,bypassCss:t.bypassCss,alwaysTestWindowResolution:t.alwaysTestWindowResolution,resolutionRefreshRate:t.resolutionRefreshRate,resolutionChangeRatioThreshold:t.transition,isVideo:t.isVideo,loop:t.loop,mute:t.mute}),t.spinner&&$('.backstretch').addClass(t.spinner);var n=$('#attic_home').data('backstretch');t.pauseOnHover&&$('#attic_home').hover(function(){$('#attic_home').backstretch('pause')},function(){$('#attic_home').backstretch('resume')}),$(e).on('backstretch.before',function(t,e,i){var o=a.atticOptions;e.images[i].title,e.images[i].tagline;console.log('module attic - set state: backstretch_before'),a.setState('backstretch_before'),i===n.images.length-1&&(0==o.circuit&&$('#attic_home').backstretch('pause'),$('.backstretch').removeClass(o.spinner)),console.log('module attic - entered: backstretch.before'),console.log('module attic - apply: CSS filters'),$('.backstretch').css('filter','sepia(1) brightness(0.9) contrast(0.6)'),$('.backstretch').css('filter','grayscale(1) contrast(1) brightness(1)'),$('.textOverlay').css('opacity','0'),$('.attic-caption').css('opacity','0')}),$(e).on('backstretch.after',function(t,e,n){var o,s=e.images[n].title,d=e.images[n].tagline,l=a.atticOptions;a.frontmatterOptions;if('undefined'!=typeof e.images[n].badge)var r=e.images[n].badge.type,c=e.images[n].badge.author,p=e.images[n].badge.href;if(a.setState('backstretch_after'),'undefined'!=typeof e.images[n].caption){var g=e.images[n].caption.text,_=e.images[n].caption.href;_?$('.attic-caption').html('<a class="j1-masthead-caption-anchor" href="'+_+'" target="_blank">'+g+'</a>').show():$('.attic-caption').text(g).show()}else if('undefined'!=typeof e.images[n].badge&&'unsplash'===r){var u="<div class=\"attic__badge animate__animated animate__fadeIn animate__slower\"> <a class=\"attic__badge_unsplash link-no-decoration\"  href=\""+p+"?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge\"  target=\"_blank\"  rel=\"noopener noreferrer\"  title=\"Free high-resolution photos from "+c+"\">  <span class=\"attic__badge_unsplash_icon\">    <svg xmlns=\"http://www.w3.org/2000/svg\"\t   class=\"attic__badge_unsplash_icon-size\"      viewBox=\"0 0 32 32\">      <path d=\"M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z\"></path>    </svg>  </span>  <span class=\"attic__badge_unsplash_text\">"+c+"</span> </a></div>";$('.attic-caption').html(u).hide()}o="<div id=\"head-title\" class=\"head-title animate__animated \">  <h2 id=\"head-title-text\" class=\"notoc text-emphasis-stronger\">"+s+"</h2></div><div id=\"head-tagline\" class=\"head-tagline animate__animated \">  <h3 id=\"head-tagline-tagline\" class=\"notoc\">"+d+"</h3></div>",$('.textOverlay').html(o).hide(),$('#head-title').addClass(l.title_animate),$('#head-title').addClass(l.title_animate_delay),$('#head-title').addClass(l.title_animate_duration),$('#head-tagline').addClass(l.tagline_animate),$('#head-tagline').addClass(l.tagline_animate_duration),$('.textOverlay').show(),$('.textOverlay').css('opacity','1'),$('.attic-caption').show(),$('.attic-caption').css('opacity','1'),$('#attic_home').backstretch('resize'),a.setState('finished'),i.debug("\nstate: "+a.getState()),i.info("\nmodule initialized successfully")})}function n(t){$('#attic_page_post').length&&$('#attic_page_post').backstretch(t.slides,{debug:t.debug,spinner:t.spinner,alignX:t.alignX,alignY:t.alignY,scale:t.scale,transition:t.transition,transitionDuration:t.transitionDuration,animateFirst:t.animateFirst,duration:t.duration,paused:t.paused,start:t.start,preload:t.preload,preloadSize:t.preloadSize,bypassCss:t.bypassCss,alwaysTestWindowResolution:t.alwaysTestWindowResolution,resolutionRefreshRate:t.resolutionRefreshRate,resolutionChangeRatioThreshold:t.transition,isVideo:t.isVideo,loop:t.loop,mute:t.mute}),t.spinner&&$('.backstretch').addClass(t.spinner);var n=$('#attic_page_post').data('backstretch');t.pauseOnHover&&$('#attic_home').hover(function(){$('#attic_page_post').backstretch('pause')},function(){$('#attic_page_post').backstretch('resume')}),$(e).on('backstretch.before',function(t,e,i){var o=a.atticOptions;e.images[i].title,e.images[i].tagline;console.log('module attic - set state: backstretch_before'),a.setState('backstretch_before'),i===n.images.length-1&&(0==o.circuit&&$('#attic_page_post').backstretch('pause'),$('.backstretch').removeClass(o.spinner)),console.log('module attic - entered: backstretch.before'),console.log('module attic - apply: CSS filters'),$('.backstretch').css('filter','sepia(1) brightness(0.9) contrast(0.6)'),$('.backstretch').css('filter','grayscale(1) contrast(1) brightness(1)'),$('.textOverlay').css('opacity','0'),$('.attic-caption').css('opacity','0')}),$(e).on('backstretch.after',function(t,e,n){var o,s=e.images[n].title,d=e.images[n].tagline,l=a.atticOptions;a.frontmatterOptions;if('undefined'!=typeof e.images[n].badge)var r=e.images[n].badge.type,c=e.images[n].badge.author,p=e.images[n].badge.href;if(a.setState('backstretch_after'),'undefined'!=typeof e.images[n].caption){var g=e.images[n].caption.text,_=e.images[n].caption.href;_?$('.attic-caption').html('<a class="j1-masthead-caption-anchor" href="'+_+'" target="_blank">'+g+'</a>').show():$('.attic-caption').text(g).show()}else if('undefined'!=typeof e.images[n].badge&&'unsplash'===r){var u="<div class=\"attic__badge animate__animated animate__fadeIn animate__slower\"> <a class=\"attic__badge_unsplash link-no-decoration\"  href=\""+p+"?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge\"  target=\"_blank\"  rel=\"noopener noreferrer\"  title=\"Free high-resolution photos from "+c+"\">  <span class=\"attic__badge_unsplash_icon\">    <svg xmlns=\"http://www.w3.org/2000/svg\"\t   class=\"attic__badge_unsplash_icon-size\"      viewBox=\"0 0 32 32\">      <path d=\"M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z\"></path>    </svg>  </span>  <span class=\"attic__badge_unsplash_text\">"+c+"</span> </a></div>";$('.attic-caption').html(u).hide()}o="<div id=\"head-title\" class=\"head-title animate__animated \">  <h2 id=\"head-title-text\" class=\"notoc text-emphasis-stronger\">"+s+"</h2></div><div id=\"head-tagline\" class=\"head-tagline animate__animated \">  <h3 id=\"head-tagline-tagline\" class=\"notoc\">"+d+"</h3></div>",$('.textOverlay').html(o).hide(),$('#head-title').addClass(l.title_animate),$('#head-title').addClass(l.title_animate_delay),$('#head-title').addClass(l.title_animate_duration),$('#head-tagline').addClass(l.tagline_animate),$('#head-tagline').addClass(l.tagline_animate_duration),$('.textOverlay').show(),$('.textOverlay').css('opacity','1'),$('.attic-caption').show(),$('.attic-caption').css('opacity','1'),$('#attic_page_post').backstretch('resize'),a.setState('finished'),i.debug("\nstate: "+a.getState()),i.info("\nmodule initialized successfully")})}function o(t){$('#attic_raw').length&&$('#attic_raw').backstretch(t.slides,{debug:t.debug,spinner:t.spinner,alignX:t.alignX,alignY:t.alignY,scale:t.scale,transition:t.transition,transitionDuration:t.transitionDuration,animateFirst:t.animateFirst,duration:t.duration,paused:t.paused,start:t.start,preload:t.preload,preloadSize:t.preloadSize,bypassCss:t.bypassCss,alwaysTestWindowResolution:t.alwaysTestWindowResolution,resolutionRefreshRate:t.resolutionRefreshRate,resolutionChangeRatioThreshold:t.transition,isVideo:t.isVideo,loop:t.loop,mute:t.mute}),t.spinner&&$('.backstretch').addClass(t.spinner);var n=$('#attic_raw').data('backstretch');t.pauseOnHover&&$('#attic_home').hover(function(){$('#attic_raw').backstretch('pause')},function(){$('#attic_raw').backstretch('resume')}),$(e).on('backstretch.before',function(t,e,i){var o=a.atticOptions;e.images[i].title,e.images[i].tagline;console.log('module attic - set state: backstretch_before'),a.setState('backstretch_before'),i===n.images.length-1&&(0==o.circuit&&$('#attic_raw').backstretch('pause'),$('.backstretch').removeClass(o.spinner)),console.log('module attic - entered: backstretch.before'),console.log('module attic - apply: CSS filters'),$('.backstretch').css('filter','sepia(1) brightness(0.9) contrast(0.6)'),$('.backstretch').css('filter','grayscale(1) contrast(1) brightness(1)'),$('.textOverlay').css('opacity','0'),$('.attic-caption').css('opacity','0')}),$(e).on('backstretch.after',function(t,e,n){var o,s=e.images[n].title,d=e.images[n].tagline,l=a.atticOptions;a.frontmatterOptions;if('undefined'!=typeof e.images[n].badge)var r=e.images[n].badge.type,c=e.images[n].badge.author,p=e.images[n].badge.href;if(a.setState('backstretch_after'),'undefined'!=typeof e.images[n].caption){var g=e.images[n].caption.text,_=e.images[n].caption.href;_?$('.attic-caption').html('<a class="j1-masthead-caption-anchor" href="'+_+'" target="_blank">'+g+'</a>').show():$('.attic-caption').text(g).show()}else if('undefined'!=typeof e.images[n].badge&&'unsplash'===r){var u="<div class=\"attic__badge animate__animated animate__fadeIn animate__slower\"> <a class=\"attic__badge_unsplash link-no-decoration\"  href=\""+p+"?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge\"  target=\"_blank\"  rel=\"noopener noreferrer\"  title=\"Free high-resolution photos from "+c+"\">  <span class=\"attic__badge_unsplash_icon\">    <svg xmlns=\"http://www.w3.org/2000/svg\"\t   class=\"attic__badge_unsplash_icon-size\"      viewBox=\"0 0 32 32\">      <path d=\"M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z\"></path>    </svg>  </span>  <span class=\"attic__badge_unsplash_text\">"+c+"</span> </a></div>";$('.attic-caption').html(u).hide()}o="<div id=\"head-title\" class=\"head-title animate__animated \">  <h2 id=\"head-title-text\" class=\"notoc text-emphasis-stronger\">"+s+"</h2></div><div id=\"head-tagline\" class=\"head-tagline animate__animated \">  <h3 id=\"head-tagline-tagline\" class=\"notoc\">"+d+"</h3></div>",$('.textOverlay').html(o).hide(),$('#head-title').addClass(l.title_animate),$('#head-title').addClass(l.title_animate_delay),$('#head-title').addClass(l.title_animate_duration),$('#head-tagline').addClass(l.tagline_animate),$('#head-tagline').addClass(l.tagline_animate_duration),$('.textOverlay').show(),$('.textOverlay').css('opacity','1'),$('.attic-caption').show(),$('.attic-caption').css('opacity','1'),$('#attic_raw').backstretch('resize'),a.setState('finished'),i.debug("\nstate: "+a.getState()),i.info("\nmodule initialized successfully")})}function s(t){$('#attic_text').length&&$('#attic_text').backstretch(t.slides,{debug:t.debug,spinner:t.spinner,alignX:t.alignX,alignY:t.alignY,scale:t.scale,transition:t.transition,transitionDuration:t.transitionDuration,animateFirst:t.animateFirst,duration:t.duration,paused:t.paused,start:t.start,preload:t.preload,preloadSize:t.preloadSize,bypassCss:t.bypassCss,alwaysTestWindowResolution:t.alwaysTestWindowResolution,resolutionRefreshRate:t.resolutionRefreshRate,resolutionChangeRatioThreshold:t.transition,isVideo:t.isVideo,loop:t.loop,mute:t.mute}),t.spinner&&$('.backstretch').addClass(t.spinner);var n=$('#attic_text').data('backstretch');t.pauseOnHover&&$('#attic_home').hover(function(){$('#attic_text').backstretch('pause')},function(){$('#attic_text').backstretch('resume')}),$(e).on('backstretch.before',function(t,e,i){var o=a.atticOptions;e.images[i].title,e.images[i].tagline;console.log('module attic - set state: backstretch_before'),a.setState('backstretch_before'),i===n.images.length-1&&(0==o.circuit&&$('#attic_text').backstretch('pause'),$('.backstretch').removeClass(o.spinner)),console.log('module attic - entered: backstretch.before'),console.log('module attic - apply: CSS filters'),$('.backstretch').css('filter','sepia(1) brightness(0.9) contrast(0.6)'),$('.backstretch').css('filter','grayscale(1) contrast(1) brightness(1)'),$('.textOverlay').css('opacity','0'),$('.attic-caption').css('opacity','0')}),$(e).on('backstretch.after',function(t,e,n){var o,s=e.images[n].title,d=e.images[n].tagline,l=a.atticOptions;a.frontmatterOptions;if('undefined'!=typeof e.images[n].badge)var r=e.images[n].badge.type,c=e.images[n].badge.author,p=e.images[n].badge.href;if(a.setState('backstretch_after'),'undefined'!=typeof e.images[n].caption){var g=e.images[n].caption.text,_=e.images[n].caption.href;_?$('.attic-caption').html('<a class="j1-masthead-caption-anchor" href="'+_+'" target="_blank">'+g+'</a>').show():$('.attic-caption').text(g).show()}else if('undefined'!=typeof e.images[n].badge&&'unsplash'===r){var u="<div class=\"attic__badge animate__animated animate__fadeIn animate__slower\"> <a class=\"attic__badge_unsplash link-no-decoration\"  href=\""+p+"?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge\"  target=\"_blank\"  rel=\"noopener noreferrer\"  title=\"Free high-resolution photos from "+c+"\">  <span class=\"attic__badge_unsplash_icon\">    <svg xmlns=\"http://www.w3.org/2000/svg\"\t   class=\"attic__badge_unsplash_icon-size\"      viewBox=\"0 0 32 32\">      <path d=\"M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z\"></path>    </svg>  </span>  <span class=\"attic__badge_unsplash_text\">"+c+"</span> </a></div>";$('.attic-caption').html(u).hide()}o="<div id=\"head-title\" class=\"head-title animate__animated \">  <h2 id=\"head-title-text\" class=\"notoc text-emphasis-stronger\">"+s+"</h2></div><div id=\"head-tagline\" class=\"head-tagline animate__animated \">  <h3 id=\"head-tagline-tagline\" class=\"notoc\">"+d+"</h3></div>",$('.textOverlay').html(o).hide(),$('#head-title').addClass(l.title_animate),$('#head-title').addClass(l.title_animate_delay),$('#head-title').addClass(l.title_animate_duration),$('#head-tagline').addClass(l.tagline_animate),$('#head-tagline').addClass(l.tagline_animate_duration),$('.textOverlay').show(),$('.textOverlay').css('opacity','1'),$('.attic-caption').show(),$('.attic-caption').css('opacity','1'),$('#attic_text').backstretch('resize'),a.setState('finished'),i.debug("\nstate: "+a.getState()),i.info("\nmodule initialized successfully")})}var d=a.frontmatterOptions,l=$.extend({},a.atticOptions,a.frontmatterOptions);if($('#attic_home').length){var r={opacity:.5,padding_top:400,padding_bottom:50,background_color_1:"#0D47A1",background_color_2:"#0D47A1"},c={opacity:.5};l=$.extend({},l,r,c),d.background_color_1&&(l.background_color_1=d.background_color_1),d.background_color_2&&(l.background_color_2=d.background_color_2),d&&('undefined'!=typeof d.raised_level&&(l.raised_level=d.raised_level),'undefined'!=typeof d.r_text&&(l.r_text=d.r_text),'undefined'!=typeof d.text_emphasis&&(l.text_emphasis=d.text_emphasis),'undefined'!=typeof d.padding_top&&(l.padding_top=d.padding_top),'undefined'!=typeof d.padding_bottom&&(l.padding_bottom=d.padding_bottom),'undefined'!=typeof d.margin_bottom&&(l.margin_bottom=d.margin_bottom),'undefined'!=typeof d.title&&('undefined'!=typeof d.title.color&&(l.title_color=d.title.color),'undefined'!=typeof d.title.size&&(l.title_size=d.title.size),'undefined'!=typeof d.title.animate&&(l.title_animate=d.title.animate),'undefined'!=typeof d.title.align&&(l.title_align=d.title.align)),'undefined'!=typeof d.tagline&&('undefined'!=typeof d.tagline.color&&(l.tagline_color=d.tagline.color),'undefined'!=typeof d.tagline.size&&(l.tagline_size=d.tagline.size),'undefined'!=typeof d.tagline.animate&&(l.tagline_animate=d.tagline.animate),'undefined'!=typeof d.tagline.align&&(l.tagline_align=d.tagline.align)),'undefined'!=typeof d.spinner&&(l.spinner=d.spinner),'undefined'!=typeof d.opacity&&(l.opacity=d.opacity),'undefined'!=typeof d.alignX&&(l.alignX=d.alignX),'undefined'!=typeof d.alignY&&(l.alignY=d.alignY),'undefined'!=typeof d.scale&&(l.scale=d.scale),'undefined'!=typeof d.start&&(l.start=d.start),'undefined'!=typeof d.animateFirst&&(l.animateFirst=d.animateFirst),'undefined'!=typeof d.preload&&(l.preload=d.preload),'undefined'!=typeof d.preloadSize&&(l.preloadSize=d.preloadSize),'undefined'!=typeof d.mute&&(l.mute=d.mute),'undefined'!=typeof d.bypassCss&&(l.bypassCss=d.bypassCss),'undefined'!=typeof d.isVideo&&(l.isVideo=d.isVideo),'undefined'!=typeof d.loop&&(l.loop=d.loop),'undefined'!=typeof d.paused&&(l.paused=d.paused),'undefined'!=typeof d.transition&&(l.transition=d.transition),'undefined'!=typeof d.duration&&(l.duration=d.duration),'undefined'!=typeof d.transitionDuration&&(l.transitionDuration=d.transitionDuration),'undefined'!=typeof d.slides&&(l.slides=d.slides)),'enabled'==l.r_text&&$('#attic_home').addClass('r-text');var p='raised-z'+l.raised_level;$('#attic_home').addClass(p),$('#head-title').addClass(l.title_animate),$('#head-title').addClass(l.title_animate_delay),$('#head-title').addClass(l.title_animate_duration),$('#head-tagline').addClass(l.tagline_animate),$('#head-tagline').addClass(l.tagline_animate_duration);var g='text-emphasis-'+l.text_emphasis;$('#head-title-text').addClass(g),$('#head-tagline-text').addClass(g),l.notranslate&&$('#attic_home').addClass('notranslate');var _='';_+='<style> .attic { ',_+='background-image: -webkit-gradient(linear, left top, left bottom, from('+l.background_color_1+'), to('+l.background_color_2+')) !important;',_+='background-image: -webkit-linear-gradient(top, '+l.background_color_1+' 0%, '+l.background_color_2+' 100%) !important;',_+='background-image: -o-linear-gradient(top, '+l.background_color_1+' 0%, '+l.background_color_2+' 100%) !important;',_+='background-image: linear-gradient(to bottom, '+l.background_color_1+' 0%, '+l.background_color_2+' 100%) !important;',_+='filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="'+l.background_color_1+'", endColorstr="'+l.background_color_2+'", GradientType=0) !important;',_+='} </style>',$('head').append(_),_='',_='<style> .attic { padding-top: '+l.padding_top+'px; padding-bottom: '+l.padding_bottom+'px; margin-bottom: '+l.margin_bottom+'px; text-shadow: 0 1px 0 rgba(0,0,0,.1); </style>',$('head').append(_),$('head').append('<style> .attic .head-title h2 { color: '+l.title_color+';font-size: '+l.title_size+' !important; text-align: '+l.title_align+';} </style>'),$('head').append('<style> .attic .head-tagline h3 { color: '+l.tagline_color+';font-size: '+l.tagline_size+' !important; text-align: '+l.tagline_align+'; } </style>'),u='<style> .backstretch-item { opacity: '+l.opacity+'; </style>',$('head').append(u),a.setState('initialized'),i.debug("\nstate: "+a.getState()),'undefined'!=typeof l.slides&&$(function(){i.debug("\nLoad image header"),t(l),a.setState('completed'),i.debug("\nstate: "+a.getState())})}if($('#attic_page_post').length){r={opacity:.5,padding_top:400,padding_bottom:50},c={opacity:.5};l=$.extend({},l,r,c),d.background_color_1&&(l.background_color_1=d.background_color_1),d.background_color_2&&(l.background_color_2=d.background_color_2),d&&('undefined'!=typeof d.raised_level&&(l.raised_level=d.raised_level),'undefined'!=typeof d.r_text&&(l.r_text=d.r_text),'undefined'!=typeof d.text_emphasis&&(l.text_emphasis=d.text_emphasis),'undefined'!=typeof d.padding_top&&(l.padding_top=d.padding_top),'undefined'!=typeof d.padding_bottom&&(l.padding_bottom=d.padding_bottom),'undefined'!=typeof d.margin_bottom&&(l.margin_bottom=d.margin_bottom),'undefined'!=typeof d.title&&('undefined'!=typeof d.title.color&&(l.title_color=d.title.color),'undefined'!=typeof d.title.size&&(l.title_size=d.title.size),'undefined'!=typeof d.title.animate&&(l.title_animate=d.title.animate),'undefined'!=typeof d.title.align&&(l.title_align=d.title.align)),'undefined'!=typeof d.tagline&&('undefined'!=typeof d.tagline.color&&(l.tagline_color=d.tagline.color),'undefined'!=typeof d.tagline.size&&(l.tagline_size=d.tagline.size),'undefined'!=typeof d.tagline.animate&&(l.tagline_animate=d.tagline.animate),'undefined'!=typeof d.tagline.align&&(l.tagline_align=d.tagline.align)),'undefined'!=typeof d.spinner&&(l.spinner=d.spinner),'undefined'!=typeof d.opacity&&(l.opacity=d.opacity),'undefined'!=typeof d.alignX&&(l.alignX=d.alignX),'undefined'!=typeof d.alignY&&(l.alignY=d.alignY),'undefined'!=typeof d.scale&&(l.scale=d.scale),'undefined'!=typeof d.start&&(l.start=d.start),'undefined'!=typeof d.animateFirst&&(l.animateFirst=d.animateFirst),'undefined'!=typeof d.preload&&(l.preload=d.preload),'undefined'!=typeof d.preloadSize&&(l.preloadSize=d.preloadSize),'undefined'!=typeof d.mute&&(l.mute=d.mute),'undefined'!=typeof d.bypassCss&&(l.bypassCss=d.bypassCss),'undefined'!=typeof d.isVideo&&(l.isVideo=d.isVideo),'undefined'!=typeof d.loop&&(l.loop=d.loop),'undefined'!=typeof d.paused&&(l.paused=d.paused),'undefined'!=typeof d.transition&&(l.transition=d.transition),'undefined'!=typeof d.duration&&(l.duration=d.duration),'undefined'!=typeof d.transitionDuration&&(l.transitionDuration=d.transitionDuration),'undefined'!=typeof d.slides&&(l.slides=d.slides)),'enabled'==l.r_text&&$('#attic_page_post').addClass('r-text');p='raised-z'+l.raised_level;$('#attic_page_post').addClass(p),$('#head-title').addClass(l.title_animate),$('#head-title').addClass(l.title_animate_delay),$('#head-title').addClass(l.title_animate_duration),$('#head-tagline').addClass(l.tagline_animate),$('#head-tagline').addClass(l.tagline_animate_duration);g='text-emphasis-'+l.text_emphasis;$('#head-title-text').addClass(g),$('#head-tagline-text').addClass(g),l.notranslate&&$('#attic_page_post').addClass('notranslate');_='';_+='<style> .attic { ',_+='background-image: -webkit-gradient(linear, left top, left bottom, from('+l.background_color_1+'), to('+l.background_color_2+')) !important;',_+='background-image: -webkit-linear-gradient(top, '+l.background_color_1+' 0%, '+l.background_color_2+' 100%) !important;',_+='background-image: -o-linear-gradient(top, '+l.background_color_1+' 0%, '+l.background_color_2+' 100%) !important;',_+='background-image: linear-gradient(to bottom, '+l.background_color_1+' 0%, '+l.background_color_2+' 100%) !important;',_+='filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="'+l.background_color_1+'", endColorstr="'+l.background_color_2+'", GradientType=0) !important;',_+='} </style>',$('head').append(_),_='',_='<style> .attic { padding-top: '+l.padding_top+'px; padding-bottom: '+l.padding_bottom+'px; margin-bottom: '+l.margin_bottom+'px; text-shadow: 0 1px 0 rgba(0,0,0,.1); </style>',$('head').append(_),$('head').append('<style> .attic .head-title h2 { color: '+l.title_color+';font-size: '+l.title_size+' !important; text-align: '+l.title_align+';} </style>'),$('head').append('<style> .attic .head-tagline h3 { color: '+l.tagline_color+';font-size: '+l.tagline_size+' !important; text-align: '+l.tagline_align+'; } </style>'),u='<style> .backstretch-item { opacity: '+l.opacity+'; </style>',$('head').append(u),a.setState('initialized'),i.debug("\nstate: "+a.getState()),'undefined'!=typeof l.slides&&$(function(){i.debug("\nLoad image header"),n(l),a.setState('completed'),i.debug("\nstate: "+a.getState())})}if($('#attic_raw').length){r={opacity:.5,padding_top:400,padding_bottom:50},c={opacity:.5};l=$.extend({},l,r,c),d.background_color_1&&(l.background_color_1=d.background_color_1),d.background_color_2&&(l.background_color_2=d.background_color_2),d&&('undefined'!=typeof d.raised_level&&(l.raised_level=d.raised_level),'undefined'!=typeof d.r_text&&(l.r_text=d.r_text),'undefined'!=typeof d.text_emphasis&&(l.text_emphasis=d.text_emphasis),'undefined'!=typeof d.padding_top&&(l.padding_top=d.padding_top),'undefined'!=typeof d.padding_bottom&&(l.padding_bottom=d.padding_bottom),'undefined'!=typeof d.margin_bottom&&(l.margin_bottom=d.margin_bottom),'undefined'!=typeof d.title&&('undefined'!=typeof d.title.color&&(l.title_color=d.title.color),'undefined'!=typeof d.title.size&&(l.title_size=d.title.size),'undefined'!=typeof d.title.animate&&(l.title_animate=d.title.animate),'undefined'!=typeof d.title.align&&(l.title_align=d.title.align)),'undefined'!=typeof d.tagline&&('undefined'!=typeof d.tagline.color&&(l.tagline_color=d.tagline.color),'undefined'!=typeof d.tagline.size&&(l.tagline_size=d.tagline.size),'undefined'!=typeof d.tagline.animate&&(l.tagline_animate=d.tagline.animate),'undefined'!=typeof d.tagline.align&&(l.tagline_align=d.tagline.align)),'undefined'!=typeof d.spinner&&(l.spinner=d.spinner),'undefined'!=typeof d.opacity&&(l.opacity=d.opacity),'undefined'!=typeof d.alignX&&(l.alignX=d.alignX),'undefined'!=typeof d.alignY&&(l.alignY=d.alignY),'undefined'!=typeof d.scale&&(l.scale=d.scale),'undefined'!=typeof d.start&&(l.start=d.start),'undefined'!=typeof d.animateFirst&&(l.animateFirst=d.animateFirst),'undefined'!=typeof d.preload&&(l.preload=d.preload),'undefined'!=typeof d.preloadSize&&(l.preloadSize=d.preloadSize),'undefined'!=typeof d.mute&&(l.mute=d.mute),'undefined'!=typeof d.bypassCss&&(l.bypassCss=d.bypassCss),'undefined'!=typeof d.isVideo&&(l.isVideo=d.isVideo),'undefined'!=typeof d.loop&&(l.loop=d.loop),'undefined'!=typeof d.paused&&(l.paused=d.paused),'undefined'!=typeof d.transition&&(l.transition=d.transition),'undefined'!=typeof d.duration&&(l.duration=d.duration),'undefined'!=typeof d.transitionDuration&&(l.transitionDuration=d.transitionDuration),'undefined'!=typeof d.slides&&(l.slides=d.slides)),'enabled'==l.r_text&&$('#attic_raw').addClass('r-text');p='raised-z'+l.raised_level;$('#attic_raw').addClass(p),$('#head-title').addClass(l.title_animate),$('#head-title').addClass(l.title_animate_delay),$('#head-title').addClass(l.title_animate_duration),$('#head-tagline').addClass(l.tagline_animate),$('#head-tagline').addClass(l.tagline_animate_duration);g='text-emphasis-'+l.text_emphasis;$('#head-title-text').addClass(g),$('#head-tagline-text').addClass(g),l.notranslate&&$('#attic_raw').addClass('notranslate');_='';_+='<style> .attic { ',_+='background-image: -webkit-gradient(linear, left top, left bottom, from('+l.background_color_1+'), to('+l.background_color_2+')) !important;',_+='background-image: -webkit-linear-gradient(top, '+l.background_color_1+' 0%, '+l.background_color_2+' 100%) !important;',_+='background-image: -o-linear-gradient(top, '+l.background_color_1+' 0%, '+l.background_color_2+' 100%) !important;',_+='background-image: linear-gradient(to bottom, '+l.background_color_1+' 0%, '+l.background_color_2+' 100%) !important;',_+='filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="'+l.background_color_1+'", endColorstr="'+l.background_color_2+'", GradientType=0) !important;',_+='} </style>',$('head').append(_),_='',_='<style> .attic { padding-top: '+l.padding_top+'px; padding-bottom: '+l.padding_bottom+'px; margin-bottom: '+l.margin_bottom+'px; text-shadow: 0 1px 0 rgba(0,0,0,.1); </style>',$('head').append(_),$('head').append('<style> .attic .head-title h2 { color: '+l.title_color+';font-size: '+l.title_size+' !important; text-align: '+l.title_align+';} </style>'),$('head').append('<style> .attic .head-tagline h3 { color: '+l.tagline_color+';font-size: '+l.tagline_size+' !important; text-align: '+l.tagline_align+'; } </style>'),u='<style> .backstretch-item { opacity: '+l.opacity+'; </style>',$('head').append(u),a.setState('initialized'),i.debug("\nstate: "+a.getState()),'undefined'!=typeof l.slides&&$(function(){i.debug("\nLoad image header"),o(l),a.setState('completed'),i.debug("\nstate: "+a.getState())})}if($('#attic_text').length){r={},c={};l=$.extend({},l,r,c),d.background_color_1&&(l.background_color_1=d.background_color_1),d.background_color_2&&(l.background_color_2=d.background_color_2),d&&('undefined'!=typeof d.raised_level&&(l.raised_level=d.raised_level),'undefined'!=typeof d.r_text&&(l.r_text=d.r_text),'undefined'!=typeof d.text_emphasis&&(l.text_emphasis=d.text_emphasis),'undefined'!=typeof d.padding_top&&(l.padding_top=d.padding_top),'undefined'!=typeof d.padding_bottom&&(l.padding_bottom=d.padding_bottom),'undefined'!=typeof d.margin_bottom&&(l.margin_bottom=d.margin_bottom),'undefined'!=typeof d.title&&('undefined'!=typeof d.title.color&&(l.title_color=d.title.color),'undefined'!=typeof d.title.size&&(l.title_size=d.title.size),'undefined'!=typeof d.title.animate&&(l.title_animate=d.title.animate),'undefined'!=typeof d.title.align&&(l.title_align=d.title.align)),'undefined'!=typeof d.tagline&&('undefined'!=typeof d.tagline.color&&(l.tagline_color=d.tagline.color),'undefined'!=typeof d.tagline.size&&(l.tagline_size=d.tagline.size),'undefined'!=typeof d.tagline.animate&&(l.tagline_animate=d.tagline.animate),'undefined'!=typeof d.tagline.align&&(l.tagline_align=d.tagline.align)),'undefined'!=typeof d.spinner&&(l.spinner=d.spinner),'undefined'!=typeof d.opacity&&(l.opacity=d.opacity),'undefined'!=typeof d.alignX&&(l.alignX=d.alignX),'undefined'!=typeof d.alignY&&(l.alignY=d.alignY),'undefined'!=typeof d.scale&&(l.scale=d.scale),'undefined'!=typeof d.start&&(l.start=d.start),'undefined'!=typeof d.animateFirst&&(l.animateFirst=d.animateFirst),'undefined'!=typeof d.preload&&(l.preload=d.preload),'undefined'!=typeof d.preloadSize&&(l.preloadSize=d.preloadSize),'undefined'!=typeof d.mute&&(l.mute=d.mute),'undefined'!=typeof d.bypassCss&&(l.bypassCss=d.bypassCss),'undefined'!=typeof d.isVideo&&(l.isVideo=d.isVideo),'undefined'!=typeof d.loop&&(l.loop=d.loop),'undefined'!=typeof d.paused&&(l.paused=d.paused),'undefined'!=typeof d.transition&&(l.transition=d.transition),'undefined'!=typeof d.duration&&(l.duration=d.duration),'undefined'!=typeof d.transitionDuration&&(l.transitionDuration=d.transitionDuration),'undefined'!=typeof d.slides&&(l.slides=d.slides)),'enabled'==l.r_text&&$('#attic_text').addClass('r-text');p='raised-z'+l.raised_level;$('#attic_text').addClass(p),$('#head-title').addClass(l.title_animate),$('#head-title').addClass(l.title_animate_delay),$('#head-title').addClass(l.title_animate_duration),$('#head-tagline').addClass(l.tagline_animate),$('#head-tagline').addClass(l.tagline_animate_duration);g='text-emphasis-'+l.text_emphasis;$('#head-title-text').addClass(g),$('#head-tagline-text').addClass(g),
-l.notranslate&&$('#attic_text').addClass('notranslate');var u;_='';_+='<style> .attic { ',_+='background-image: -webkit-gradient(linear, left top, left bottom, from('+l.background_color_1+'), to('+l.background_color_2+')) !important;',_+='background-image: -webkit-linear-gradient(top, '+l.background_color_1+' 0%, '+l.background_color_2+' 100%) !important;',_+='background-image: -o-linear-gradient(top, '+l.background_color_1+' 0%, '+l.background_color_2+' 100%) !important;',_+='background-image: linear-gradient(to bottom, '+l.background_color_1+' 0%, '+l.background_color_2+' 100%) !important;',_+='filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="'+l.background_color_1+'", endColorstr="'+l.background_color_2+'", GradientType=0) !important;',_+='} </style>',$('head').append(_),_='',_='<style> .attic { padding-top: '+l.padding_top+'px; padding-bottom: '+l.padding_bottom+'px; margin-bottom: '+l.margin_bottom+'px; text-shadow: 0 1px 0 rgba(0,0,0,.1); </style>',$('head').append(_),$('head').append('<style> .attic .head-title h2 { color: '+l.title_color+';font-size: '+l.title_size+' !important; text-align: '+l.title_align+';} </style>'),$('head').append('<style> .attic .head-tagline h3 { color: '+l.tagline_color+';font-size: '+l.tagline_size+' !important; text-align: '+l.tagline_align+'; } </style>'),u='<style> .backstretch-item { opacity: '+l.opacity+'; </style>',$('head').append(u),a.setState('initialized'),i.debug("\nstate: "+a.getState()),'undefined'!=typeof l.slides&&$(function(){i.debug("\nLoad image header"),s(l),a.setState('completed'),i.debug("\nstate: "+a.getState())})}return $('#no_header').length&&(a.setState('completed'),i.debug("\nstate: "+a.getState()),i.warn("\nno header configured or found in page")),!0},messageHandler:function(t,e){var a=JSON.stringify(e,undefined,2);return n="\nreceived message from "+t+': '+a,i.debug(n),'command'===e.type&&'module_initialized'===e.action&&(status='completed',i.info('\n'+e.text)),!0},setState:function(t){a.state=t},getState:function(){return a.state}}}(j1,window);
+// -----------------------------------------------------------------------------
+// ESLint shimming
+// -----------------------------------------------------------------------------
+/* eslint indent: "off"                                                       */
+// -----------------------------------------------------------------------------
+'use strict';
+j1.adapter.attic = (function (j1, window) {
+  var environment   = 'development';
+  var moduleOptions = {};
+  var _this;
+  var logger;
+  var logText;
+  // ---------------------------------------------------------------------------
+  // Main object
+  // ---------------------------------------------------------------------------
+  return {
+    // -------------------------------------------------------------------------
+    // Initializer
+    // -------------------------------------------------------------------------
+    init: function (options) {
+      // -----------------------------------------------------------------------
+      // Default module settings
+      // -----------------------------------------------------------------------
+      var settings = $.extend({
+        module_name: 'j1.adapter.attic',
+        generated:   '2022-10-13 14:59:16 +0000'
+      }, options);
+      // -----------------------------------------------------------------------
+      // Global variable settings
+      // -----------------------------------------------------------------------
+      _this   = j1.adapter.attic;
+      logger  = log4javascript.getLogger('j1.adapter.attic');
+      // initialize state flag
+      _this.state = 'pending';
+      // create settings object from frontmatter
+      var frontmatterOptions  = options != null ? $.extend({}, options) : {};
+      // create settings object from attic options
+      var atticDefaults = $.extend({}, {"debug":false, "circuit":false, "notranslate":true, "pauseOnHover":false, "icon_family":"MDI", "icon_color":"#9E9E9E", "icon_size":"default", "raised_level":0, "r_text":"enabled", "text_emphasis":"stronger", "padding_top":200, "padding_bottom":50, "margin_bottom":50, "title_size":"3em", "title_color":"rgba(255, 255, 255, 0.8)", "title_animate":"animate__bounceInDown", "title_animate_duration":"animate__slower", "title_align":"left", "tagline_size":"1.5em", "tagline_color":"rgba(255, 255, 255, 0.8)", "tagline_animate":"animate__fadeInRight", "tagline_animate_duration":"animate__slower", "tagline_align":"left", "background_color_1":"#0D47A1", "background_color_2":"#0D47A1", "action_enabled":false, "action_url":"#void", "action_button":"btn-default", "action_icon":"download", "action_icon_family":"MDI", "action_text":"Download Now", "logo_enabled":false, "logo_url":"/assets/images/modules/icons/j1/j1-512x512.png", "logo_alt":"Jekyll-One-Template", "logo_height":196, "logo_animate":"animate__slideInDown", "spinner":false, "caption":"", "caption_href":"", "caption_color":"rgba(255, 255, 255, 0.5)", "opacity":1.0, "alignX":0.5, "alignY":0.5, "scale":"cover", "transition":"fadeInOut", "duration":5000, "transitionDuration":"normal", "animateFirst":false, "start":0, "paused":false, "preload":2, "preloadSize":1, "bypassCss":false, "alwaysTestWindowResolution":false, "resolutionRefreshRate":2500, "resolutionChangeRatioThreshold":0.1, "isVideo":false, "loop":false, "mute":false, "attics":[{"name":"Home", "attic":{"enabled":false, "id":"attic_home", "layout":"home", "notranslate":true}}, {"name":"Page_Post", "attic":{"enabled":false, "id":"attic_page_post", "layout":["page", "post"], "notranslate":true}}, {"name":"Text attic", "attic":{"enabled":false, "id":"attic_text", "layout":["collection", "app", "raw"], "notranslate":true}}]});
+      var atticSettings = $.extend({}, {"debug":false, "attics":[{"name":"Home", "attic":{"enabled":true, "id":"attic_home", "layout":"home", "padding_top":400, "padding_bottom":50, "opacity":0.5, "background_color_1":"#0D47A1", "background_color_2":"#0D47A1", "filters":{"grayscale":1, "contrast":0.8, "brightness":0.8}}}, {"name":"Pages and Posts", "attic":{"enabled":true, "id":"attic_page_post", "layout":["page", "post", "blog_archive"], "padding_top":400, "padding_bottom":50, "opacity":0.5, "filters":{"grayscale":0.5, "sepia":0.5}}}, {"name":"Raw pages", "attic":{"enabled":true, "id":"attic_raw", "layout":["raw"], "padding_top":400, "padding_bottom":50, "opacity":0.5}}, {"name":"Text pages", "attic":{"enabled":true, "id":"attic_text", "layout":["collection", "app"]}}]});
+//    merge all attic options
+      var atticOptions = $.extend({}, atticDefaults, atticSettings, frontmatterOptions);
+      // Save frontmatterOptions and atticOptions in the j1 namespace
+      // to be used later by j1.template.init() to load the header
+      //
+      _this['frontmatterOptions'] = frontmatterOptions;
+      _this['atticOptions']       = atticOptions;
+      _this.setState('started');
+      logger.debug('\n' + 'state: ' + _this.getState());
+      logger.info('\n' + 'module is being initialized');
+      _this.loadHeader();
+    }, // END init
+    // -------------------------------------------------------------------------
+    // Initialize all header supported
+    // -------------------------------------------------------------------------
+    loadHeader: function () {
+      var frontmatterOptions  = _this.frontmatterOptions;
+      // merge all attic options
+      var atticOptions = $.extend({}, _this.atticOptions, _this.frontmatterOptions);
+          // Create the SPECIFIC header loader FUNCTION of type: attic_home
+          function attic_home (atticOptions) {
+            // Fire backstretch for all slides of the header on attic_id
+            if ($('#attic_home').length) {
+              $('#attic_home').backstretch(
+                atticOptions.slides, {
+                  debug:                          atticOptions.debug,
+                  spinner:                        atticOptions.spinner,
+                  alignX:                         atticOptions.alignX,
+                  alignY:                         atticOptions.alignY,
+                  scale:                          atticOptions.scale,
+                  transition:                     atticOptions.transition,
+                  transitionDuration:             atticOptions.transitionDuration,
+                  animateFirst:                   atticOptions.animateFirst,
+                  duration:                       atticOptions.duration,
+                  paused:                         atticOptions.paused,
+                  start:                          atticOptions.start,
+                  preload:                        atticOptions.preload,
+                  preloadSize:                    atticOptions.preloadSize,
+                  bypassCss:                      atticOptions.bypassCss,
+                  alwaysTestWindowResolution:     atticOptions.alwaysTestWindowResolution,
+                  resolutionRefreshRate:          atticOptions.resolutionRefreshRate,
+                  resolutionChangeRatioThreshold: atticOptions.transition,
+                  isVideo:                        atticOptions.isVideo,
+                  loop:                           atticOptions.loop,
+                  mute:                           atticOptions.mute
+              });
+            }
+            if (atticOptions.spinner) {
+              $('.backstretch').addClass(atticOptions.spinner);
+            }
+            // Collect backstretch instance data for Backstretch callbacks
+            var backstretch_instance_data = $('#attic_home').data('backstretch');
+            // Add event for pauseOnHover
+            //
+            if (atticOptions.pauseOnHover) {
+              $('#attic_home').hover (
+                function() {
+                  $('#attic_home').backstretch('pause'); },
+                function() {
+                  $('#attic_home').backstretch('resume'); }
+              );
+            }
+           $(window).on('backstretch.before', function (e, instance, index) {
+              var evt                 = e;
+              var inst                = instance;
+              var idx                 = index;
+              var atticOptions        = _this.atticOptions;
+              var textOverlayTitle    = instance.images[index].title
+              var textOverlayTagline  = instance.images[index].tagline;
+              var textOverlayHTML;
+              // console.log('module attic - set state: backstretch_before');
+              _this.setState('backstretch_before');
+              if (index === backstretch_instance_data.images.length -1) {
+                if (atticOptions.circuit == false) {
+                  // Stop the slideshow after reached the last image
+                  $('#attic_home').backstretch('pause');
+                }
+                // remove class for the backstretch_intro background
+                $('.backstretch').removeClass(atticOptions.spinner);
+              }
+              // console.log('module attic - entered: backstretch.before');
+              // console.log('module attic - apply: CSS filters');
+              $('.backstretch').css('filter', 'sepia(1) brightness(0.9) contrast(0.6)');
+              $('.backstretch').css('filter', 'grayscale(1) contrast(1) brightness(1)');
+              // mute the overlay content while sliding
+              $('.textOverlay').css('opacity', '0');
+              // mute the badge while sliding
+              $('.attic-caption').css('opacity', '0');
+            }); // END on('backstretch.before')
+            $(window).on('backstretch.after', function (e, instance, index) {
+              var textOverlayTitle    = instance.images[index].title
+              var textOverlayTagline  = instance.images[index].tagline;
+              var atticOptions        = _this.atticOptions;
+              var frontmatterOptions  = _this.frontmatterOptions;
+              var textOverlayHTML;
+              // apply DEFAULT settings for textOverlayTitle|textOverlayTagline
+              // on the FIRST backstretch instance if title|tagline NOT set
+              //
+              if (index == 0) {
+                if (typeof instance.images[index].title == 'undefined') {
+                  textOverlayTitle    = frontmatterOptions.title;
+                }
+                if (typeof instance.images[index].tagline == 'undefined') {
+                  textOverlayTagline  = frontmatterOptions.tagline;
+                }
+              }
+              if (typeof instance.images[index].badge != 'undefined') {
+                var bType               = instance.images[index].badge.type;
+                var bAuthor             = instance.images[index].badge.author;
+                var bLink               = instance.images[index].badge.href;
+              }
+              _this.setState('backstretch_after');
+              if (typeof instance.images[index].caption != 'undefined') {
+                var cText = instance.images[index].caption.text;
+                var cLink = instance.images[index].caption.href;
+                if (cLink) {
+                  $('.attic-caption').html('<a class="j1-masthead-caption-anchor" href="' + cLink + '" target="_blank">'+cText+'</a>').show();
+                } else {
+                  $('.attic-caption').text(cText).show();
+                }
+              } else if (typeof instance.images[index].badge != 'undefined') {
+                if (bType === 'unsplash') {
+                  var badgeHTML = ''
+                      + '<div class="attic__badge animate__animated animate__fadeIn animate__slower">'
+                      + ' <a class="attic__badge_unsplash link-no-decoration"'
+                      + '  href="' +bLink+ '?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"'
+                      + '  target="_blank"'
+                      + '  rel="noopener noreferrer"'
+                      + '  title="Free high-resolution photos from ' +bAuthor+ '">'
+                      + '  <span class="attic__badge_unsplash_icon">'
+                      + '    <svg xmlns="http://www.w3.org/2000/svg"'
+                      + '	   class="attic__badge_unsplash_icon-size"'
+                      + '      viewBox="0 0 32 32">'
+                      + '      <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>'
+                      + '    </svg>'
+                      + '  </span>'
+                      + '  <span class="attic__badge_unsplash_text">' +bAuthor+ '</span>'
+                      + ' </a>'
+                      + '</div>';
+                      $('.attic-caption').html(badgeHTML).hide();
+                }
+              }
+              textOverlayHTML = ''
+                + '<div id="head-title" class="head-title animate__animated ">'
+                + '  <h2 id="head-title-text" class="notoc text-emphasis-stronger">' + textOverlayTitle + '</h2>'
+                + '</div>'
+                + '<div id="head-tagline" class="head-tagline animate__animated ">'
+                + '  <h3 id="head-tagline-tagline" class="notoc">' + textOverlayTagline + '</h3>'
+                + '</div>';
+               $('.textOverlay').html(textOverlayHTML).hide();
+              $('#head-title').addClass(atticOptions.title_animate);
+              $('#head-title').addClass(atticOptions.title_animate_delay);
+              $('#head-title').addClass(atticOptions.title_animate_duration);
+              $('#head-tagline').addClass(atticOptions.tagline_animate);
+              $('#head-tagline').addClass(atticOptions.tagline_animate_duration);
+              $('.textOverlay').show();
+              $('.textOverlay').css('opacity', '1');
+              // jadams, 2022-08-19: show a badge only if defined
+              //
+              if (typeof instance.images[index].badge != 'undefined') {
+                $('.attic-caption').show();
+                $('.attic-caption').css('opacity', '1');
+              }
+              // jadams, 2022-08-09:
+              // resize the (background-)image to make sure the 'attic'
+              // container is changed in size (heigth) if title/tagline
+              // expands 'multiline' on small viewports
+              // e.g. on mobile devices
+              //
+              $('#attic_home').backstretch('resize');
+              _this.setState('finished');
+              logger.debug('\n' + 'state: ' + _this.getState());
+              // logger.info('\n' + 'module initialized successfully');
+            }); // END on('backstretch.after')
+          } // END if attic_id exists
+          // Initialize the header found in page
+          if ($('#attic_home').length) {
+                // Create and json object for HEADER options taken from
+                // header config (YAML data file)
+                /* eslint-disable */
+                var atticOptionsHeader = {
+                                "opacity":                0.5, 
+                            "padding_top":            400, 
+                         "padding_bottom":         50, 
+                     "background_color_1":     "#0D47A1", 
+                     "background_color_2":     "#0D47A1", 
+                }
+                /* eslint-enable */
+                // Create an json object for BACKSTRETCH options taken from
+                // header config (yaml data file)
+                /* eslint-disable */
+                var atticOptionsBackstretch = {
+                                "opacity":                0.5, 
+                }
+                /* eslint-enable */
+                // Merge|Overload Attic OPTIONS
+                atticOptions = $.extend({}, atticOptions, atticOptionsHeader, atticOptionsBackstretch);
+                // Overload Attic OPTIONS by settings from frontmatterOptions
+                if (frontmatterOptions.background_color_1) atticOptions.background_color_1 = frontmatterOptions.background_color_1;
+                if (frontmatterOptions.background_color_2) atticOptions.background_color_2 = frontmatterOptions.background_color_2;
+               // ENDIF attic_id
+                 // ENDFOR item in header_config.attics
+            if (frontmatterOptions) {
+              if (typeof frontmatterOptions.raised_level != 'undefined') { atticOptions.raised_level = frontmatterOptions.raised_level; }
+              if (typeof frontmatterOptions.r_text != 'undefined') { atticOptions.r_text = frontmatterOptions.r_text; }
+              if (typeof frontmatterOptions.text_emphasis != 'undefined') { atticOptions.text_emphasis = frontmatterOptions.text_emphasis; }
+              if (typeof frontmatterOptions.padding_top != 'undefined') { atticOptions.padding_top = frontmatterOptions.padding_top; }
+              if (typeof frontmatterOptions.padding_bottom != 'undefined') { atticOptions.padding_bottom = frontmatterOptions.padding_bottom; }
+              if (typeof frontmatterOptions.margin_bottom != 'undefined') { atticOptions.margin_bottom = frontmatterOptions.margin_bottom; }
+              if (typeof frontmatterOptions.title != 'undefined') {
+                if (typeof frontmatterOptions.title.color != 'undefined') { atticOptions.title_color = frontmatterOptions.title.color; }
+                if (typeof frontmatterOptions.title.size != 'undefined') { atticOptions.title_size = frontmatterOptions.title.size; }
+                if (typeof frontmatterOptions.title.animate != 'undefined') { atticOptions.title_animate = frontmatterOptions.title.animate; }
+                if (typeof frontmatterOptions.title.align != 'undefined') { atticOptions.title_align = frontmatterOptions.title.align; }
+              }
+              if (typeof frontmatterOptions.tagline != 'undefined') {
+                if (typeof frontmatterOptions.tagline.color != 'undefined') { atticOptions.tagline_color = frontmatterOptions.tagline.color; }
+                if (typeof frontmatterOptions.tagline.size != 'undefined') { atticOptions.tagline_size = frontmatterOptions.tagline.size; }
+                if (typeof frontmatterOptions.tagline.animate != 'undefined') { atticOptions.tagline_animate = frontmatterOptions.tagline.animate; }
+                if (typeof frontmatterOptions.tagline.align != 'undefined') { atticOptions.tagline_align = frontmatterOptions.tagline.align; }
+              }
+              if (typeof frontmatterOptions.spinner != 'undefined') { atticOptions.spinner = frontmatterOptions.spinner; }
+              if (typeof frontmatterOptions.opacity != 'undefined') { atticOptions.opacity = frontmatterOptions.opacity; }
+              if (typeof frontmatterOptions.alignX != 'undefined') { atticOptions.alignX = frontmatterOptions.alignX; }
+              if (typeof frontmatterOptions.alignY != 'undefined') { atticOptions.alignY = frontmatterOptions.alignY; }
+              if (typeof frontmatterOptions.scale != 'undefined') { atticOptions.scale = frontmatterOptions.scale; }
+              if (typeof frontmatterOptions.start != 'undefined') { atticOptions.start = frontmatterOptions.start; }
+              if (typeof frontmatterOptions.animateFirst != 'undefined') { atticOptions.animateFirst = frontmatterOptions.animateFirst; }
+              if (typeof frontmatterOptions.preload != 'undefined') { atticOptions.preload = frontmatterOptions.preload; }
+              if (typeof frontmatterOptions.preloadSize != 'undefined') { atticOptions.preloadSize = frontmatterOptions.preloadSize; }
+              if (typeof frontmatterOptions.mute != 'undefined') { atticOptions.mute = frontmatterOptions.mute; }
+              if (typeof frontmatterOptions.bypassCss != 'undefined') { atticOptions.bypassCss = frontmatterOptions.bypassCss; }
+              if (typeof frontmatterOptions.isVideo != 'undefined') { atticOptions.isVideo = frontmatterOptions.isVideo; }
+              if (typeof frontmatterOptions.loop != 'undefined') { atticOptions.loop = frontmatterOptions.loop; }
+              if (typeof frontmatterOptions.paused != 'undefined') { atticOptions.paused = frontmatterOptions.paused; }
+              if (typeof frontmatterOptions.transition != 'undefined') { atticOptions.transition = frontmatterOptions.transition; }
+              if (typeof frontmatterOptions.duration != 'undefined') { atticOptions.duration = frontmatterOptions.duration; }
+              if (typeof frontmatterOptions.transitionDuration != 'undefined') { atticOptions.transitionDuration = frontmatterOptions.transitionDuration; }
+              if (typeof frontmatterOptions.slides != 'undefined') { atticOptions.slides = frontmatterOptions.slides; }
+            }
+            if (atticOptions.r_text == 'enabled') { $('#attic_home').addClass('r-text'); }
+            var raised_level = 'raised-z' +atticOptions.raised_level;
+            $('#attic_home').addClass(raised_level);
+            $('#head-title').addClass(atticOptions.title_animate);
+            $('#head-title').addClass(atticOptions.title_animate_delay);
+            $('#head-title').addClass(atticOptions.title_animate_duration);
+            $('#head-tagline').addClass(atticOptions.tagline_animate);
+            $('#head-tagline').addClass(atticOptions.tagline_animate_duration);
+            var text_emphasis = 'text-emphasis-' +atticOptions.text_emphasis;
+            $('#head-title-text').addClass(text_emphasis);
+            $('#head-tagline-text').addClass(text_emphasis);
+            // check if attic should be translated
+            //
+            if (atticOptions.notranslate) {
+              $('#attic_home').addClass('notranslate');
+            }
+            var attic_style = '';
+            // Initialze header background gradient
+            attic_style += '<style> .attic { ';
+            attic_style += 'background-image: -webkit-gradient(linear, left top, left bottom, from(' +atticOptions.background_color_1 + '), to(' +atticOptions.background_color_2+ ')) !important;';
+            attic_style += 'background-image: -webkit-linear-gradient(top, ' +atticOptions.background_color_1 + ' 0%, ' +atticOptions.background_color_2 + ' 100%) !important;';
+            attic_style += 'background-image: -o-linear-gradient(top, ' +atticOptions.background_color_1 + ' 0%, ' +atticOptions.background_color_2 + ' 100%) !important;';
+            attic_style += 'background-image: linear-gradient(to bottom, ' +atticOptions.background_color_1 + ' 0%, ' +atticOptions.background_color_2 + ' 100%) !important;';
+            attic_style += 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="' +atticOptions.background_color_1 + '", endColorstr="' +atticOptions.background_color_2 + '", GradientType=0) !important;';
+            attic_style += '} </style>';
+            $('head').append(attic_style);
+            // Initialze header sizes
+            attic_style = '';
+            attic_style = '<style> .attic { padding-top: ' +atticOptions.padding_top+ 'px; padding-bottom: ' +atticOptions.padding_bottom+ 'px; margin-bottom: ' +atticOptions.margin_bottom+ 'px; text-shadow: 0 1px 0 rgba(0,0,0,.1); </style>';
+            $('head').append(attic_style);
+            $('head').append('<style> .attic .head-title h2 { color: ' +atticOptions.title_color+ ';font-size: ' +atticOptions.title_size+ ' !important; text-align: ' +atticOptions.title_align+ ';} </style>');
+            $('head').append('<style> .attic .head-tagline h3 { color: ' +atticOptions.tagline_color+ ';font-size: ' +atticOptions.tagline_size+ ' !important; text-align: ' +atticOptions.tagline_align+ '; } </style>');
+            // Add opacity to all header images
+            // See: https://tympanus.net/codrops/2013/11/07/css-overlay-techniques/
+            var attic_opacity;
+            attic_opacity = '<style> .backstretch-item { opacity: ' +atticOptions.opacity+ '; </style>';
+            $('head').append(attic_opacity);
+            _this.setState('initialized');
+            logger.debug('\n' + 'state: ' + _this.getState());
+            if (typeof atticOptions.slides != 'undefined') {
+              // Load the image header if the page is ready (visible)
+              $(function() {
+                // logger.debug('\n' + 'Load image header on: ' + attic_home);
+                logger.debug('\n' + 'Load image header');
+                attic_home(atticOptions);
+                _this.setState('completed');
+                logger.debug('\n' + 'state: ' + _this.getState());
+              });
+            }
+          } // END if header id found in page
+         // END if header enabled
+          // Create the SPECIFIC header loader FUNCTION of type: attic_page_post
+          function attic_page_post (atticOptions) {
+            // Fire backstretch for all slides of the header on attic_id
+            if ($('#attic_page_post').length) {
+              $('#attic_page_post').backstretch(
+                atticOptions.slides, {
+                  debug:                          atticOptions.debug,
+                  spinner:                        atticOptions.spinner,
+                  alignX:                         atticOptions.alignX,
+                  alignY:                         atticOptions.alignY,
+                  scale:                          atticOptions.scale,
+                  transition:                     atticOptions.transition,
+                  transitionDuration:             atticOptions.transitionDuration,
+                  animateFirst:                   atticOptions.animateFirst,
+                  duration:                       atticOptions.duration,
+                  paused:                         atticOptions.paused,
+                  start:                          atticOptions.start,
+                  preload:                        atticOptions.preload,
+                  preloadSize:                    atticOptions.preloadSize,
+                  bypassCss:                      atticOptions.bypassCss,
+                  alwaysTestWindowResolution:     atticOptions.alwaysTestWindowResolution,
+                  resolutionRefreshRate:          atticOptions.resolutionRefreshRate,
+                  resolutionChangeRatioThreshold: atticOptions.transition,
+                  isVideo:                        atticOptions.isVideo,
+                  loop:                           atticOptions.loop,
+                  mute:                           atticOptions.mute
+              });
+            }
+            if (atticOptions.spinner) {
+              $('.backstretch').addClass(atticOptions.spinner);
+            }
+            // Collect backstretch instance data for Backstretch callbacks
+            var backstretch_instance_data = $('#attic_page_post').data('backstretch');
+            // Add event for pauseOnHover
+            //
+            if (atticOptions.pauseOnHover) {
+              $('#attic_home').hover (
+                function() {
+                  $('#attic_page_post').backstretch('pause'); },
+                function() {
+                  $('#attic_page_post').backstretch('resume'); }
+              );
+            }
+           $(window).on('backstretch.before', function (e, instance, index) {
+              var evt                 = e;
+              var inst                = instance;
+              var idx                 = index;
+              var atticOptions        = _this.atticOptions;
+              var textOverlayTitle    = instance.images[index].title
+              var textOverlayTagline  = instance.images[index].tagline;
+              var textOverlayHTML;
+              // console.log('module attic - set state: backstretch_before');
+              _this.setState('backstretch_before');
+              if (index === backstretch_instance_data.images.length -1) {
+                if (atticOptions.circuit == false) {
+                  // Stop the slideshow after reached the last image
+                  $('#attic_page_post').backstretch('pause');
+                }
+                // remove class for the backstretch_intro background
+                $('.backstretch').removeClass(atticOptions.spinner);
+              }
+              // console.log('module attic - entered: backstretch.before');
+              // console.log('module attic - apply: CSS filters');
+              $('.backstretch').css('filter', 'sepia(1) brightness(0.9) contrast(0.6)');
+              $('.backstretch').css('filter', 'grayscale(1) contrast(1) brightness(1)');
+              // mute the overlay content while sliding
+              $('.textOverlay').css('opacity', '0');
+              // mute the badge while sliding
+              $('.attic-caption').css('opacity', '0');
+            }); // END on('backstretch.before')
+            $(window).on('backstretch.after', function (e, instance, index) {
+              var textOverlayTitle    = instance.images[index].title
+              var textOverlayTagline  = instance.images[index].tagline;
+              var atticOptions        = _this.atticOptions;
+              var frontmatterOptions  = _this.frontmatterOptions;
+              var textOverlayHTML;
+              // apply DEFAULT settings for textOverlayTitle|textOverlayTagline
+              // on the FIRST backstretch instance if title|tagline NOT set
+              //
+              if (index == 0) {
+                if (typeof instance.images[index].title == 'undefined') {
+                  textOverlayTitle    = frontmatterOptions.title;
+                }
+                if (typeof instance.images[index].tagline == 'undefined') {
+                  textOverlayTagline  = frontmatterOptions.tagline;
+                }
+              }
+              if (typeof instance.images[index].badge != 'undefined') {
+                var bType               = instance.images[index].badge.type;
+                var bAuthor             = instance.images[index].badge.author;
+                var bLink               = instance.images[index].badge.href;
+              }
+              _this.setState('backstretch_after');
+              if (typeof instance.images[index].caption != 'undefined') {
+                var cText = instance.images[index].caption.text;
+                var cLink = instance.images[index].caption.href;
+                if (cLink) {
+                  $('.attic-caption').html('<a class="j1-masthead-caption-anchor" href="' + cLink + '" target="_blank">'+cText+'</a>').show();
+                } else {
+                  $('.attic-caption').text(cText).show();
+                }
+              } else if (typeof instance.images[index].badge != 'undefined') {
+                if (bType === 'unsplash') {
+                  var badgeHTML = ''
+                      + '<div class="attic__badge animate__animated animate__fadeIn animate__slower">'
+                      + ' <a class="attic__badge_unsplash link-no-decoration"'
+                      + '  href="' +bLink+ '?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"'
+                      + '  target="_blank"'
+                      + '  rel="noopener noreferrer"'
+                      + '  title="Free high-resolution photos from ' +bAuthor+ '">'
+                      + '  <span class="attic__badge_unsplash_icon">'
+                      + '    <svg xmlns="http://www.w3.org/2000/svg"'
+                      + '	   class="attic__badge_unsplash_icon-size"'
+                      + '      viewBox="0 0 32 32">'
+                      + '      <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>'
+                      + '    </svg>'
+                      + '  </span>'
+                      + '  <span class="attic__badge_unsplash_text">' +bAuthor+ '</span>'
+                      + ' </a>'
+                      + '</div>';
+                      $('.attic-caption').html(badgeHTML).hide();
+                }
+              }
+              textOverlayHTML = ''
+                + '<div id="head-title" class="head-title animate__animated ">'
+                + '  <h2 id="head-title-text" class="notoc text-emphasis-stronger">' + textOverlayTitle + '</h2>'
+                + '</div>'
+                + '<div id="head-tagline" class="head-tagline animate__animated ">'
+                + '  <h3 id="head-tagline-tagline" class="notoc">' + textOverlayTagline + '</h3>'
+                + '</div>';
+               $('.textOverlay').html(textOverlayHTML).hide();
+              $('#head-title').addClass(atticOptions.title_animate);
+              $('#head-title').addClass(atticOptions.title_animate_delay);
+              $('#head-title').addClass(atticOptions.title_animate_duration);
+              $('#head-tagline').addClass(atticOptions.tagline_animate);
+              $('#head-tagline').addClass(atticOptions.tagline_animate_duration);
+              $('.textOverlay').show();
+              $('.textOverlay').css('opacity', '1');
+              // jadams, 2022-08-19: show a badge only if defined
+              //
+              if (typeof instance.images[index].badge != 'undefined') {
+                $('.attic-caption').show();
+                $('.attic-caption').css('opacity', '1');
+              }
+              // jadams, 2022-08-09:
+              // resize the (background-)image to make sure the 'attic'
+              // container is changed in size (heigth) if title/tagline
+              // expands 'multiline' on small viewports
+              // e.g. on mobile devices
+              //
+              $('#attic_page_post').backstretch('resize');
+              _this.setState('finished');
+              logger.debug('\n' + 'state: ' + _this.getState());
+              // logger.info('\n' + 'module initialized successfully');
+            }); // END on('backstretch.after')
+          } // END if attic_id exists
+          // Initialize the header found in page
+          if ($('#attic_page_post').length) {
+                // Create and json object for HEADER options taken from
+                // header config (YAML data file)
+                /* eslint-disable */
+                var atticOptionsHeader = {
+                                "opacity":                0.5, 
+                            "padding_top":            400, 
+                         "padding_bottom":         50, 
+                }
+                /* eslint-enable */
+                // Create an json object for BACKSTRETCH options taken from
+                // header config (yaml data file)
+                /* eslint-disable */
+                var atticOptionsBackstretch = {
+                                "opacity":                0.5, 
+                }
+                /* eslint-enable */
+                // Merge|Overload Attic OPTIONS
+                atticOptions = $.extend({}, atticOptions, atticOptionsHeader, atticOptionsBackstretch);
+                // Overload Attic OPTIONS by settings from frontmatterOptions
+                if (frontmatterOptions.background_color_1) atticOptions.background_color_1 = frontmatterOptions.background_color_1;
+                if (frontmatterOptions.background_color_2) atticOptions.background_color_2 = frontmatterOptions.background_color_2;
+               // ENDIF attic_id
+                 // ENDFOR item in header_config.attics
+            if (frontmatterOptions) {
+              if (typeof frontmatterOptions.raised_level != 'undefined') { atticOptions.raised_level = frontmatterOptions.raised_level; }
+              if (typeof frontmatterOptions.r_text != 'undefined') { atticOptions.r_text = frontmatterOptions.r_text; }
+              if (typeof frontmatterOptions.text_emphasis != 'undefined') { atticOptions.text_emphasis = frontmatterOptions.text_emphasis; }
+              if (typeof frontmatterOptions.padding_top != 'undefined') { atticOptions.padding_top = frontmatterOptions.padding_top; }
+              if (typeof frontmatterOptions.padding_bottom != 'undefined') { atticOptions.padding_bottom = frontmatterOptions.padding_bottom; }
+              if (typeof frontmatterOptions.margin_bottom != 'undefined') { atticOptions.margin_bottom = frontmatterOptions.margin_bottom; }
+              if (typeof frontmatterOptions.title != 'undefined') {
+                if (typeof frontmatterOptions.title.color != 'undefined') { atticOptions.title_color = frontmatterOptions.title.color; }
+                if (typeof frontmatterOptions.title.size != 'undefined') { atticOptions.title_size = frontmatterOptions.title.size; }
+                if (typeof frontmatterOptions.title.animate != 'undefined') { atticOptions.title_animate = frontmatterOptions.title.animate; }
+                if (typeof frontmatterOptions.title.align != 'undefined') { atticOptions.title_align = frontmatterOptions.title.align; }
+              }
+              if (typeof frontmatterOptions.tagline != 'undefined') {
+                if (typeof frontmatterOptions.tagline.color != 'undefined') { atticOptions.tagline_color = frontmatterOptions.tagline.color; }
+                if (typeof frontmatterOptions.tagline.size != 'undefined') { atticOptions.tagline_size = frontmatterOptions.tagline.size; }
+                if (typeof frontmatterOptions.tagline.animate != 'undefined') { atticOptions.tagline_animate = frontmatterOptions.tagline.animate; }
+                if (typeof frontmatterOptions.tagline.align != 'undefined') { atticOptions.tagline_align = frontmatterOptions.tagline.align; }
+              }
+              if (typeof frontmatterOptions.spinner != 'undefined') { atticOptions.spinner = frontmatterOptions.spinner; }
+              if (typeof frontmatterOptions.opacity != 'undefined') { atticOptions.opacity = frontmatterOptions.opacity; }
+              if (typeof frontmatterOptions.alignX != 'undefined') { atticOptions.alignX = frontmatterOptions.alignX; }
+              if (typeof frontmatterOptions.alignY != 'undefined') { atticOptions.alignY = frontmatterOptions.alignY; }
+              if (typeof frontmatterOptions.scale != 'undefined') { atticOptions.scale = frontmatterOptions.scale; }
+              if (typeof frontmatterOptions.start != 'undefined') { atticOptions.start = frontmatterOptions.start; }
+              if (typeof frontmatterOptions.animateFirst != 'undefined') { atticOptions.animateFirst = frontmatterOptions.animateFirst; }
+              if (typeof frontmatterOptions.preload != 'undefined') { atticOptions.preload = frontmatterOptions.preload; }
+              if (typeof frontmatterOptions.preloadSize != 'undefined') { atticOptions.preloadSize = frontmatterOptions.preloadSize; }
+              if (typeof frontmatterOptions.mute != 'undefined') { atticOptions.mute = frontmatterOptions.mute; }
+              if (typeof frontmatterOptions.bypassCss != 'undefined') { atticOptions.bypassCss = frontmatterOptions.bypassCss; }
+              if (typeof frontmatterOptions.isVideo != 'undefined') { atticOptions.isVideo = frontmatterOptions.isVideo; }
+              if (typeof frontmatterOptions.loop != 'undefined') { atticOptions.loop = frontmatterOptions.loop; }
+              if (typeof frontmatterOptions.paused != 'undefined') { atticOptions.paused = frontmatterOptions.paused; }
+              if (typeof frontmatterOptions.transition != 'undefined') { atticOptions.transition = frontmatterOptions.transition; }
+              if (typeof frontmatterOptions.duration != 'undefined') { atticOptions.duration = frontmatterOptions.duration; }
+              if (typeof frontmatterOptions.transitionDuration != 'undefined') { atticOptions.transitionDuration = frontmatterOptions.transitionDuration; }
+              if (typeof frontmatterOptions.slides != 'undefined') { atticOptions.slides = frontmatterOptions.slides; }
+            }
+            if (atticOptions.r_text == 'enabled') { $('#attic_page_post').addClass('r-text'); }
+            var raised_level = 'raised-z' +atticOptions.raised_level;
+            $('#attic_page_post').addClass(raised_level);
+            $('#head-title').addClass(atticOptions.title_animate);
+            $('#head-title').addClass(atticOptions.title_animate_delay);
+            $('#head-title').addClass(atticOptions.title_animate_duration);
+            $('#head-tagline').addClass(atticOptions.tagline_animate);
+            $('#head-tagline').addClass(atticOptions.tagline_animate_duration);
+            var text_emphasis = 'text-emphasis-' +atticOptions.text_emphasis;
+            $('#head-title-text').addClass(text_emphasis);
+            $('#head-tagline-text').addClass(text_emphasis);
+            // check if attic should be translated
+            //
+            if (atticOptions.notranslate) {
+              $('#attic_page_post').addClass('notranslate');
+            }
+            var attic_style = '';
+            // Initialze header background gradient
+            attic_style += '<style> .attic { ';
+            attic_style += 'background-image: -webkit-gradient(linear, left top, left bottom, from(' +atticOptions.background_color_1 + '), to(' +atticOptions.background_color_2+ ')) !important;';
+            attic_style += 'background-image: -webkit-linear-gradient(top, ' +atticOptions.background_color_1 + ' 0%, ' +atticOptions.background_color_2 + ' 100%) !important;';
+            attic_style += 'background-image: -o-linear-gradient(top, ' +atticOptions.background_color_1 + ' 0%, ' +atticOptions.background_color_2 + ' 100%) !important;';
+            attic_style += 'background-image: linear-gradient(to bottom, ' +atticOptions.background_color_1 + ' 0%, ' +atticOptions.background_color_2 + ' 100%) !important;';
+            attic_style += 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="' +atticOptions.background_color_1 + '", endColorstr="' +atticOptions.background_color_2 + '", GradientType=0) !important;';
+            attic_style += '} </style>';
+            $('head').append(attic_style);
+            // Initialze header sizes
+            attic_style = '';
+            attic_style = '<style> .attic { padding-top: ' +atticOptions.padding_top+ 'px; padding-bottom: ' +atticOptions.padding_bottom+ 'px; margin-bottom: ' +atticOptions.margin_bottom+ 'px; text-shadow: 0 1px 0 rgba(0,0,0,.1); </style>';
+            $('head').append(attic_style);
+            $('head').append('<style> .attic .head-title h2 { color: ' +atticOptions.title_color+ ';font-size: ' +atticOptions.title_size+ ' !important; text-align: ' +atticOptions.title_align+ ';} </style>');
+            $('head').append('<style> .attic .head-tagline h3 { color: ' +atticOptions.tagline_color+ ';font-size: ' +atticOptions.tagline_size+ ' !important; text-align: ' +atticOptions.tagline_align+ '; } </style>');
+            // Add opacity to all header images
+            // See: https://tympanus.net/codrops/2013/11/07/css-overlay-techniques/
+            var attic_opacity;
+            attic_opacity = '<style> .backstretch-item { opacity: ' +atticOptions.opacity+ '; </style>';
+            $('head').append(attic_opacity);
+            _this.setState('initialized');
+            logger.debug('\n' + 'state: ' + _this.getState());
+            if (typeof atticOptions.slides != 'undefined') {
+              // Load the image header if the page is ready (visible)
+              $(function() {
+                // logger.debug('\n' + 'Load image header on: ' + attic_page_post);
+                logger.debug('\n' + 'Load image header');
+                attic_page_post(atticOptions);
+                _this.setState('completed');
+                logger.debug('\n' + 'state: ' + _this.getState());
+              });
+            }
+          } // END if header id found in page
+         // END if header enabled
+          // Create the SPECIFIC header loader FUNCTION of type: attic_raw
+          function attic_raw (atticOptions) {
+            // Fire backstretch for all slides of the header on attic_id
+            if ($('#attic_raw').length) {
+              $('#attic_raw').backstretch(
+                atticOptions.slides, {
+                  debug:                          atticOptions.debug,
+                  spinner:                        atticOptions.spinner,
+                  alignX:                         atticOptions.alignX,
+                  alignY:                         atticOptions.alignY,
+                  scale:                          atticOptions.scale,
+                  transition:                     atticOptions.transition,
+                  transitionDuration:             atticOptions.transitionDuration,
+                  animateFirst:                   atticOptions.animateFirst,
+                  duration:                       atticOptions.duration,
+                  paused:                         atticOptions.paused,
+                  start:                          atticOptions.start,
+                  preload:                        atticOptions.preload,
+                  preloadSize:                    atticOptions.preloadSize,
+                  bypassCss:                      atticOptions.bypassCss,
+                  alwaysTestWindowResolution:     atticOptions.alwaysTestWindowResolution,
+                  resolutionRefreshRate:          atticOptions.resolutionRefreshRate,
+                  resolutionChangeRatioThreshold: atticOptions.transition,
+                  isVideo:                        atticOptions.isVideo,
+                  loop:                           atticOptions.loop,
+                  mute:                           atticOptions.mute
+              });
+            }
+            if (atticOptions.spinner) {
+              $('.backstretch').addClass(atticOptions.spinner);
+            }
+            // Collect backstretch instance data for Backstretch callbacks
+            var backstretch_instance_data = $('#attic_raw').data('backstretch');
+            // Add event for pauseOnHover
+            //
+            if (atticOptions.pauseOnHover) {
+              $('#attic_home').hover (
+                function() {
+                  $('#attic_raw').backstretch('pause'); },
+                function() {
+                  $('#attic_raw').backstretch('resume'); }
+              );
+            }
+           $(window).on('backstretch.before', function (e, instance, index) {
+              var evt                 = e;
+              var inst                = instance;
+              var idx                 = index;
+              var atticOptions        = _this.atticOptions;
+              var textOverlayTitle    = instance.images[index].title
+              var textOverlayTagline  = instance.images[index].tagline;
+              var textOverlayHTML;
+              // console.log('module attic - set state: backstretch_before');
+              _this.setState('backstretch_before');
+              if (index === backstretch_instance_data.images.length -1) {
+                if (atticOptions.circuit == false) {
+                  // Stop the slideshow after reached the last image
+                  $('#attic_raw').backstretch('pause');
+                }
+                // remove class for the backstretch_intro background
+                $('.backstretch').removeClass(atticOptions.spinner);
+              }
+              // console.log('module attic - entered: backstretch.before');
+              // console.log('module attic - apply: CSS filters');
+              $('.backstretch').css('filter', 'sepia(1) brightness(0.9) contrast(0.6)');
+              $('.backstretch').css('filter', 'grayscale(1) contrast(1) brightness(1)');
+              // mute the overlay content while sliding
+              $('.textOverlay').css('opacity', '0');
+              // mute the badge while sliding
+              $('.attic-caption').css('opacity', '0');
+            }); // END on('backstretch.before')
+            $(window).on('backstretch.after', function (e, instance, index) {
+              var textOverlayTitle    = instance.images[index].title
+              var textOverlayTagline  = instance.images[index].tagline;
+              var atticOptions        = _this.atticOptions;
+              var frontmatterOptions  = _this.frontmatterOptions;
+              var textOverlayHTML;
+              // apply DEFAULT settings for textOverlayTitle|textOverlayTagline
+              // on the FIRST backstretch instance if title|tagline NOT set
+              //
+              if (index == 0) {
+                if (typeof instance.images[index].title == 'undefined') {
+                  textOverlayTitle    = frontmatterOptions.title;
+                }
+                if (typeof instance.images[index].tagline == 'undefined') {
+                  textOverlayTagline  = frontmatterOptions.tagline;
+                }
+              }
+              if (typeof instance.images[index].badge != 'undefined') {
+                var bType               = instance.images[index].badge.type;
+                var bAuthor             = instance.images[index].badge.author;
+                var bLink               = instance.images[index].badge.href;
+              }
+              _this.setState('backstretch_after');
+              if (typeof instance.images[index].caption != 'undefined') {
+                var cText = instance.images[index].caption.text;
+                var cLink = instance.images[index].caption.href;
+                if (cLink) {
+                  $('.attic-caption').html('<a class="j1-masthead-caption-anchor" href="' + cLink + '" target="_blank">'+cText+'</a>').show();
+                } else {
+                  $('.attic-caption').text(cText).show();
+                }
+              } else if (typeof instance.images[index].badge != 'undefined') {
+                if (bType === 'unsplash') {
+                  var badgeHTML = ''
+                      + '<div class="attic__badge animate__animated animate__fadeIn animate__slower">'
+                      + ' <a class="attic__badge_unsplash link-no-decoration"'
+                      + '  href="' +bLink+ '?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"'
+                      + '  target="_blank"'
+                      + '  rel="noopener noreferrer"'
+                      + '  title="Free high-resolution photos from ' +bAuthor+ '">'
+                      + '  <span class="attic__badge_unsplash_icon">'
+                      + '    <svg xmlns="http://www.w3.org/2000/svg"'
+                      + '	   class="attic__badge_unsplash_icon-size"'
+                      + '      viewBox="0 0 32 32">'
+                      + '      <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>'
+                      + '    </svg>'
+                      + '  </span>'
+                      + '  <span class="attic__badge_unsplash_text">' +bAuthor+ '</span>'
+                      + ' </a>'
+                      + '</div>';
+                      $('.attic-caption').html(badgeHTML).hide();
+                }
+              }
+              textOverlayHTML = ''
+                + '<div id="head-title" class="head-title animate__animated ">'
+                + '  <h2 id="head-title-text" class="notoc text-emphasis-stronger">' + textOverlayTitle + '</h2>'
+                + '</div>'
+                + '<div id="head-tagline" class="head-tagline animate__animated ">'
+                + '  <h3 id="head-tagline-tagline" class="notoc">' + textOverlayTagline + '</h3>'
+                + '</div>';
+               $('.textOverlay').html(textOverlayHTML).hide();
+              $('#head-title').addClass(atticOptions.title_animate);
+              $('#head-title').addClass(atticOptions.title_animate_delay);
+              $('#head-title').addClass(atticOptions.title_animate_duration);
+              $('#head-tagline').addClass(atticOptions.tagline_animate);
+              $('#head-tagline').addClass(atticOptions.tagline_animate_duration);
+              $('.textOverlay').show();
+              $('.textOverlay').css('opacity', '1');
+              // jadams, 2022-08-19: show a badge only if defined
+              //
+              if (typeof instance.images[index].badge != 'undefined') {
+                $('.attic-caption').show();
+                $('.attic-caption').css('opacity', '1');
+              }
+              // jadams, 2022-08-09:
+              // resize the (background-)image to make sure the 'attic'
+              // container is changed in size (heigth) if title/tagline
+              // expands 'multiline' on small viewports
+              // e.g. on mobile devices
+              //
+              $('#attic_raw').backstretch('resize');
+              _this.setState('finished');
+              logger.debug('\n' + 'state: ' + _this.getState());
+              // logger.info('\n' + 'module initialized successfully');
+            }); // END on('backstretch.after')
+          } // END if attic_id exists
+          // Initialize the header found in page
+          if ($('#attic_raw').length) {
+                // Create and json object for HEADER options taken from
+                // header config (YAML data file)
+                /* eslint-disable */
+                var atticOptionsHeader = {
+                                "opacity":                0.5, 
+                            "padding_top":            400, 
+                         "padding_bottom":         50, 
+                }
+                /* eslint-enable */
+                // Create an json object for BACKSTRETCH options taken from
+                // header config (yaml data file)
+                /* eslint-disable */
+                var atticOptionsBackstretch = {
+                                "opacity":                0.5, 
+                }
+                /* eslint-enable */
+                // Merge|Overload Attic OPTIONS
+                atticOptions = $.extend({}, atticOptions, atticOptionsHeader, atticOptionsBackstretch);
+                // Overload Attic OPTIONS by settings from frontmatterOptions
+                if (frontmatterOptions.background_color_1) atticOptions.background_color_1 = frontmatterOptions.background_color_1;
+                if (frontmatterOptions.background_color_2) atticOptions.background_color_2 = frontmatterOptions.background_color_2;
+               // ENDIF attic_id
+                 // ENDFOR item in header_config.attics
+            if (frontmatterOptions) {
+              if (typeof frontmatterOptions.raised_level != 'undefined') { atticOptions.raised_level = frontmatterOptions.raised_level; }
+              if (typeof frontmatterOptions.r_text != 'undefined') { atticOptions.r_text = frontmatterOptions.r_text; }
+              if (typeof frontmatterOptions.text_emphasis != 'undefined') { atticOptions.text_emphasis = frontmatterOptions.text_emphasis; }
+              if (typeof frontmatterOptions.padding_top != 'undefined') { atticOptions.padding_top = frontmatterOptions.padding_top; }
+              if (typeof frontmatterOptions.padding_bottom != 'undefined') { atticOptions.padding_bottom = frontmatterOptions.padding_bottom; }
+              if (typeof frontmatterOptions.margin_bottom != 'undefined') { atticOptions.margin_bottom = frontmatterOptions.margin_bottom; }
+              if (typeof frontmatterOptions.title != 'undefined') {
+                if (typeof frontmatterOptions.title.color != 'undefined') { atticOptions.title_color = frontmatterOptions.title.color; }
+                if (typeof frontmatterOptions.title.size != 'undefined') { atticOptions.title_size = frontmatterOptions.title.size; }
+                if (typeof frontmatterOptions.title.animate != 'undefined') { atticOptions.title_animate = frontmatterOptions.title.animate; }
+                if (typeof frontmatterOptions.title.align != 'undefined') { atticOptions.title_align = frontmatterOptions.title.align; }
+              }
+              if (typeof frontmatterOptions.tagline != 'undefined') {
+                if (typeof frontmatterOptions.tagline.color != 'undefined') { atticOptions.tagline_color = frontmatterOptions.tagline.color; }
+                if (typeof frontmatterOptions.tagline.size != 'undefined') { atticOptions.tagline_size = frontmatterOptions.tagline.size; }
+                if (typeof frontmatterOptions.tagline.animate != 'undefined') { atticOptions.tagline_animate = frontmatterOptions.tagline.animate; }
+                if (typeof frontmatterOptions.tagline.align != 'undefined') { atticOptions.tagline_align = frontmatterOptions.tagline.align; }
+              }
+              if (typeof frontmatterOptions.spinner != 'undefined') { atticOptions.spinner = frontmatterOptions.spinner; }
+              if (typeof frontmatterOptions.opacity != 'undefined') { atticOptions.opacity = frontmatterOptions.opacity; }
+              if (typeof frontmatterOptions.alignX != 'undefined') { atticOptions.alignX = frontmatterOptions.alignX; }
+              if (typeof frontmatterOptions.alignY != 'undefined') { atticOptions.alignY = frontmatterOptions.alignY; }
+              if (typeof frontmatterOptions.scale != 'undefined') { atticOptions.scale = frontmatterOptions.scale; }
+              if (typeof frontmatterOptions.start != 'undefined') { atticOptions.start = frontmatterOptions.start; }
+              if (typeof frontmatterOptions.animateFirst != 'undefined') { atticOptions.animateFirst = frontmatterOptions.animateFirst; }
+              if (typeof frontmatterOptions.preload != 'undefined') { atticOptions.preload = frontmatterOptions.preload; }
+              if (typeof frontmatterOptions.preloadSize != 'undefined') { atticOptions.preloadSize = frontmatterOptions.preloadSize; }
+              if (typeof frontmatterOptions.mute != 'undefined') { atticOptions.mute = frontmatterOptions.mute; }
+              if (typeof frontmatterOptions.bypassCss != 'undefined') { atticOptions.bypassCss = frontmatterOptions.bypassCss; }
+              if (typeof frontmatterOptions.isVideo != 'undefined') { atticOptions.isVideo = frontmatterOptions.isVideo; }
+              if (typeof frontmatterOptions.loop != 'undefined') { atticOptions.loop = frontmatterOptions.loop; }
+              if (typeof frontmatterOptions.paused != 'undefined') { atticOptions.paused = frontmatterOptions.paused; }
+              if (typeof frontmatterOptions.transition != 'undefined') { atticOptions.transition = frontmatterOptions.transition; }
+              if (typeof frontmatterOptions.duration != 'undefined') { atticOptions.duration = frontmatterOptions.duration; }
+              if (typeof frontmatterOptions.transitionDuration != 'undefined') { atticOptions.transitionDuration = frontmatterOptions.transitionDuration; }
+              if (typeof frontmatterOptions.slides != 'undefined') { atticOptions.slides = frontmatterOptions.slides; }
+            }
+            if (atticOptions.r_text == 'enabled') { $('#attic_raw').addClass('r-text'); }
+            var raised_level = 'raised-z' +atticOptions.raised_level;
+            $('#attic_raw').addClass(raised_level);
+            $('#head-title').addClass(atticOptions.title_animate);
+            $('#head-title').addClass(atticOptions.title_animate_delay);
+            $('#head-title').addClass(atticOptions.title_animate_duration);
+            $('#head-tagline').addClass(atticOptions.tagline_animate);
+            $('#head-tagline').addClass(atticOptions.tagline_animate_duration);
+            var text_emphasis = 'text-emphasis-' +atticOptions.text_emphasis;
+            $('#head-title-text').addClass(text_emphasis);
+            $('#head-tagline-text').addClass(text_emphasis);
+            // check if attic should be translated
+            //
+            if (atticOptions.notranslate) {
+              $('#attic_raw').addClass('notranslate');
+            }
+            var attic_style = '';
+            // Initialze header background gradient
+            attic_style += '<style> .attic { ';
+            attic_style += 'background-image: -webkit-gradient(linear, left top, left bottom, from(' +atticOptions.background_color_1 + '), to(' +atticOptions.background_color_2+ ')) !important;';
+            attic_style += 'background-image: -webkit-linear-gradient(top, ' +atticOptions.background_color_1 + ' 0%, ' +atticOptions.background_color_2 + ' 100%) !important;';
+            attic_style += 'background-image: -o-linear-gradient(top, ' +atticOptions.background_color_1 + ' 0%, ' +atticOptions.background_color_2 + ' 100%) !important;';
+            attic_style += 'background-image: linear-gradient(to bottom, ' +atticOptions.background_color_1 + ' 0%, ' +atticOptions.background_color_2 + ' 100%) !important;';
+            attic_style += 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="' +atticOptions.background_color_1 + '", endColorstr="' +atticOptions.background_color_2 + '", GradientType=0) !important;';
+            attic_style += '} </style>';
+            $('head').append(attic_style);
+            // Initialze header sizes
+            attic_style = '';
+            attic_style = '<style> .attic { padding-top: ' +atticOptions.padding_top+ 'px; padding-bottom: ' +atticOptions.padding_bottom+ 'px; margin-bottom: ' +atticOptions.margin_bottom+ 'px; text-shadow: 0 1px 0 rgba(0,0,0,.1); </style>';
+            $('head').append(attic_style);
+            $('head').append('<style> .attic .head-title h2 { color: ' +atticOptions.title_color+ ';font-size: ' +atticOptions.title_size+ ' !important; text-align: ' +atticOptions.title_align+ ';} </style>');
+            $('head').append('<style> .attic .head-tagline h3 { color: ' +atticOptions.tagline_color+ ';font-size: ' +atticOptions.tagline_size+ ' !important; text-align: ' +atticOptions.tagline_align+ '; } </style>');
+            // Add opacity to all header images
+            // See: https://tympanus.net/codrops/2013/11/07/css-overlay-techniques/
+            var attic_opacity;
+            attic_opacity = '<style> .backstretch-item { opacity: ' +atticOptions.opacity+ '; </style>';
+            $('head').append(attic_opacity);
+            _this.setState('initialized');
+            logger.debug('\n' + 'state: ' + _this.getState());
+            if (typeof atticOptions.slides != 'undefined') {
+              // Load the image header if the page is ready (visible)
+              $(function() {
+                // logger.debug('\n' + 'Load image header on: ' + attic_raw);
+                logger.debug('\n' + 'Load image header');
+                attic_raw(atticOptions);
+                _this.setState('completed');
+                logger.debug('\n' + 'state: ' + _this.getState());
+              });
+            }
+          } // END if header id found in page
+         // END if header enabled
+          // Create the SPECIFIC header loader FUNCTION of type: attic_text
+          function attic_text (atticOptions) {
+            // Fire backstretch for all slides of the header on attic_id
+            if ($('#attic_text').length) {
+              $('#attic_text').backstretch(
+                atticOptions.slides, {
+                  debug:                          atticOptions.debug,
+                  spinner:                        atticOptions.spinner,
+                  alignX:                         atticOptions.alignX,
+                  alignY:                         atticOptions.alignY,
+                  scale:                          atticOptions.scale,
+                  transition:                     atticOptions.transition,
+                  transitionDuration:             atticOptions.transitionDuration,
+                  animateFirst:                   atticOptions.animateFirst,
+                  duration:                       atticOptions.duration,
+                  paused:                         atticOptions.paused,
+                  start:                          atticOptions.start,
+                  preload:                        atticOptions.preload,
+                  preloadSize:                    atticOptions.preloadSize,
+                  bypassCss:                      atticOptions.bypassCss,
+                  alwaysTestWindowResolution:     atticOptions.alwaysTestWindowResolution,
+                  resolutionRefreshRate:          atticOptions.resolutionRefreshRate,
+                  resolutionChangeRatioThreshold: atticOptions.transition,
+                  isVideo:                        atticOptions.isVideo,
+                  loop:                           atticOptions.loop,
+                  mute:                           atticOptions.mute
+              });
+            }
+            if (atticOptions.spinner) {
+              $('.backstretch').addClass(atticOptions.spinner);
+            }
+            // Collect backstretch instance data for Backstretch callbacks
+            var backstretch_instance_data = $('#attic_text').data('backstretch');
+            // Add event for pauseOnHover
+            //
+            if (atticOptions.pauseOnHover) {
+              $('#attic_home').hover (
+                function() {
+                  $('#attic_text').backstretch('pause'); },
+                function() {
+                  $('#attic_text').backstretch('resume'); }
+              );
+            }
+           $(window).on('backstretch.before', function (e, instance, index) {
+              var evt                 = e;
+              var inst                = instance;
+              var idx                 = index;
+              var atticOptions        = _this.atticOptions;
+              var textOverlayTitle    = instance.images[index].title
+              var textOverlayTagline  = instance.images[index].tagline;
+              var textOverlayHTML;
+              // console.log('module attic - set state: backstretch_before');
+              _this.setState('backstretch_before');
+              if (index === backstretch_instance_data.images.length -1) {
+                if (atticOptions.circuit == false) {
+                  // Stop the slideshow after reached the last image
+                  $('#attic_text').backstretch('pause');
+                }
+                // remove class for the backstretch_intro background
+                $('.backstretch').removeClass(atticOptions.spinner);
+              }
+              // console.log('module attic - entered: backstretch.before');
+              // console.log('module attic - apply: CSS filters');
+              $('.backstretch').css('filter', 'sepia(1) brightness(0.9) contrast(0.6)');
+              $('.backstretch').css('filter', 'grayscale(1) contrast(1) brightness(1)');
+              // mute the overlay content while sliding
+              $('.textOverlay').css('opacity', '0');
+              // mute the badge while sliding
+              $('.attic-caption').css('opacity', '0');
+            }); // END on('backstretch.before')
+            $(window).on('backstretch.after', function (e, instance, index) {
+              var textOverlayTitle    = instance.images[index].title
+              var textOverlayTagline  = instance.images[index].tagline;
+              var atticOptions        = _this.atticOptions;
+              var frontmatterOptions  = _this.frontmatterOptions;
+              var textOverlayHTML;
+              // apply DEFAULT settings for textOverlayTitle|textOverlayTagline
+              // on the FIRST backstretch instance if title|tagline NOT set
+              //
+              if (index == 0) {
+                if (typeof instance.images[index].title == 'undefined') {
+                  textOverlayTitle    = frontmatterOptions.title;
+                }
+                if (typeof instance.images[index].tagline == 'undefined') {
+                  textOverlayTagline  = frontmatterOptions.tagline;
+                }
+              }
+              if (typeof instance.images[index].badge != 'undefined') {
+                var bType               = instance.images[index].badge.type;
+                var bAuthor             = instance.images[index].badge.author;
+                var bLink               = instance.images[index].badge.href;
+              }
+              _this.setState('backstretch_after');
+              if (typeof instance.images[index].caption != 'undefined') {
+                var cText = instance.images[index].caption.text;
+                var cLink = instance.images[index].caption.href;
+                if (cLink) {
+                  $('.attic-caption').html('<a class="j1-masthead-caption-anchor" href="' + cLink + '" target="_blank">'+cText+'</a>').show();
+                } else {
+                  $('.attic-caption').text(cText).show();
+                }
+              } else if (typeof instance.images[index].badge != 'undefined') {
+                if (bType === 'unsplash') {
+                  var badgeHTML = ''
+                      + '<div class="attic__badge animate__animated animate__fadeIn animate__slower">'
+                      + ' <a class="attic__badge_unsplash link-no-decoration"'
+                      + '  href="' +bLink+ '?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"'
+                      + '  target="_blank"'
+                      + '  rel="noopener noreferrer"'
+                      + '  title="Free high-resolution photos from ' +bAuthor+ '">'
+                      + '  <span class="attic__badge_unsplash_icon">'
+                      + '    <svg xmlns="http://www.w3.org/2000/svg"'
+                      + '	   class="attic__badge_unsplash_icon-size"'
+                      + '      viewBox="0 0 32 32">'
+                      + '      <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>'
+                      + '    </svg>'
+                      + '  </span>'
+                      + '  <span class="attic__badge_unsplash_text">' +bAuthor+ '</span>'
+                      + ' </a>'
+                      + '</div>';
+                      $('.attic-caption').html(badgeHTML).hide();
+                }
+              }
+              textOverlayHTML = ''
+                + '<div id="head-title" class="head-title animate__animated ">'
+                + '  <h2 id="head-title-text" class="notoc text-emphasis-stronger">' + textOverlayTitle + '</h2>'
+                + '</div>'
+                + '<div id="head-tagline" class="head-tagline animate__animated ">'
+                + '  <h3 id="head-tagline-tagline" class="notoc">' + textOverlayTagline + '</h3>'
+                + '</div>';
+               $('.textOverlay').html(textOverlayHTML).hide();
+              $('#head-title').addClass(atticOptions.title_animate);
+              $('#head-title').addClass(atticOptions.title_animate_delay);
+              $('#head-title').addClass(atticOptions.title_animate_duration);
+              $('#head-tagline').addClass(atticOptions.tagline_animate);
+              $('#head-tagline').addClass(atticOptions.tagline_animate_duration);
+              $('.textOverlay').show();
+              $('.textOverlay').css('opacity', '1');
+              // jadams, 2022-08-19: show a badge only if defined
+              //
+              if (typeof instance.images[index].badge != 'undefined') {
+                $('.attic-caption').show();
+                $('.attic-caption').css('opacity', '1');
+              }
+              // jadams, 2022-08-09:
+              // resize the (background-)image to make sure the 'attic'
+              // container is changed in size (heigth) if title/tagline
+              // expands 'multiline' on small viewports
+              // e.g. on mobile devices
+              //
+              $('#attic_text').backstretch('resize');
+              _this.setState('finished');
+              logger.debug('\n' + 'state: ' + _this.getState());
+              // logger.info('\n' + 'module initialized successfully');
+            }); // END on('backstretch.after')
+          } // END if attic_id exists
+          // Initialize the header found in page
+          if ($('#attic_text').length) {
+                // Create and json object for HEADER options taken from
+                // header config (YAML data file)
+                /* eslint-disable */
+                var atticOptionsHeader = {
+                }
+                /* eslint-enable */
+                // Create an json object for BACKSTRETCH options taken from
+                // header config (yaml data file)
+                /* eslint-disable */
+                var atticOptionsBackstretch = {
+                }
+                /* eslint-enable */
+                // Merge|Overload Attic OPTIONS
+                atticOptions = $.extend({}, atticOptions, atticOptionsHeader, atticOptionsBackstretch);
+                // Overload Attic OPTIONS by settings from frontmatterOptions
+                if (frontmatterOptions.background_color_1) atticOptions.background_color_1 = frontmatterOptions.background_color_1;
+                if (frontmatterOptions.background_color_2) atticOptions.background_color_2 = frontmatterOptions.background_color_2;
+               // ENDIF attic_id
+             // ENDFOR item in header_config.attics
+            if (frontmatterOptions) {
+              if (typeof frontmatterOptions.raised_level != 'undefined') { atticOptions.raised_level = frontmatterOptions.raised_level; }
+              if (typeof frontmatterOptions.r_text != 'undefined') { atticOptions.r_text = frontmatterOptions.r_text; }
+              if (typeof frontmatterOptions.text_emphasis != 'undefined') { atticOptions.text_emphasis = frontmatterOptions.text_emphasis; }
+              if (typeof frontmatterOptions.padding_top != 'undefined') { atticOptions.padding_top = frontmatterOptions.padding_top; }
+              if (typeof frontmatterOptions.padding_bottom != 'undefined') { atticOptions.padding_bottom = frontmatterOptions.padding_bottom; }
+              if (typeof frontmatterOptions.margin_bottom != 'undefined') { atticOptions.margin_bottom = frontmatterOptions.margin_bottom; }
+              if (typeof frontmatterOptions.title != 'undefined') {
+                if (typeof frontmatterOptions.title.color != 'undefined') { atticOptions.title_color = frontmatterOptions.title.color; }
+                if (typeof frontmatterOptions.title.size != 'undefined') { atticOptions.title_size = frontmatterOptions.title.size; }
+                if (typeof frontmatterOptions.title.animate != 'undefined') { atticOptions.title_animate = frontmatterOptions.title.animate; }
+                if (typeof frontmatterOptions.title.align != 'undefined') { atticOptions.title_align = frontmatterOptions.title.align; }
+              }
+              if (typeof frontmatterOptions.tagline != 'undefined') {
+                if (typeof frontmatterOptions.tagline.color != 'undefined') { atticOptions.tagline_color = frontmatterOptions.tagline.color; }
+                if (typeof frontmatterOptions.tagline.size != 'undefined') { atticOptions.tagline_size = frontmatterOptions.tagline.size; }
+                if (typeof frontmatterOptions.tagline.animate != 'undefined') { atticOptions.tagline_animate = frontmatterOptions.tagline.animate; }
+                if (typeof frontmatterOptions.tagline.align != 'undefined') { atticOptions.tagline_align = frontmatterOptions.tagline.align; }
+              }
+              if (typeof frontmatterOptions.spinner != 'undefined') { atticOptions.spinner = frontmatterOptions.spinner; }
+              if (typeof frontmatterOptions.opacity != 'undefined') { atticOptions.opacity = frontmatterOptions.opacity; }
+              if (typeof frontmatterOptions.alignX != 'undefined') { atticOptions.alignX = frontmatterOptions.alignX; }
+              if (typeof frontmatterOptions.alignY != 'undefined') { atticOptions.alignY = frontmatterOptions.alignY; }
+              if (typeof frontmatterOptions.scale != 'undefined') { atticOptions.scale = frontmatterOptions.scale; }
+              if (typeof frontmatterOptions.start != 'undefined') { atticOptions.start = frontmatterOptions.start; }
+              if (typeof frontmatterOptions.animateFirst != 'undefined') { atticOptions.animateFirst = frontmatterOptions.animateFirst; }
+              if (typeof frontmatterOptions.preload != 'undefined') { atticOptions.preload = frontmatterOptions.preload; }
+              if (typeof frontmatterOptions.preloadSize != 'undefined') { atticOptions.preloadSize = frontmatterOptions.preloadSize; }
+              if (typeof frontmatterOptions.mute != 'undefined') { atticOptions.mute = frontmatterOptions.mute; }
+              if (typeof frontmatterOptions.bypassCss != 'undefined') { atticOptions.bypassCss = frontmatterOptions.bypassCss; }
+              if (typeof frontmatterOptions.isVideo != 'undefined') { atticOptions.isVideo = frontmatterOptions.isVideo; }
+              if (typeof frontmatterOptions.loop != 'undefined') { atticOptions.loop = frontmatterOptions.loop; }
+              if (typeof frontmatterOptions.paused != 'undefined') { atticOptions.paused = frontmatterOptions.paused; }
+              if (typeof frontmatterOptions.transition != 'undefined') { atticOptions.transition = frontmatterOptions.transition; }
+              if (typeof frontmatterOptions.duration != 'undefined') { atticOptions.duration = frontmatterOptions.duration; }
+              if (typeof frontmatterOptions.transitionDuration != 'undefined') { atticOptions.transitionDuration = frontmatterOptions.transitionDuration; }
+              if (typeof frontmatterOptions.slides != 'undefined') { atticOptions.slides = frontmatterOptions.slides; }
+            }
+            if (atticOptions.r_text == 'enabled') { $('#attic_text').addClass('r-text'); }
+            var raised_level = 'raised-z' +atticOptions.raised_level;
+            $('#attic_text').addClass(raised_level);
+            $('#head-title').addClass(atticOptions.title_animate);
+            $('#head-title').addClass(atticOptions.title_animate_delay);
+            $('#head-title').addClass(atticOptions.title_animate_duration);
+            $('#head-tagline').addClass(atticOptions.tagline_animate);
+            $('#head-tagline').addClass(atticOptions.tagline_animate_duration);
+            var text_emphasis = 'text-emphasis-' +atticOptions.text_emphasis;
+            $('#head-title-text').addClass(text_emphasis);
+            $('#head-tagline-text').addClass(text_emphasis);
+            // check if attic should be translated
+            //
+            if (atticOptions.notranslate) {
+              $('#attic_text').addClass('notranslate');
+            }
+            var attic_style = '';
+            // Initialze header background gradient
+            attic_style += '<style> .attic { ';
+            attic_style += 'background-image: -webkit-gradient(linear, left top, left bottom, from(' +atticOptions.background_color_1 + '), to(' +atticOptions.background_color_2+ ')) !important;';
+            attic_style += 'background-image: -webkit-linear-gradient(top, ' +atticOptions.background_color_1 + ' 0%, ' +atticOptions.background_color_2 + ' 100%) !important;';
+            attic_style += 'background-image: -o-linear-gradient(top, ' +atticOptions.background_color_1 + ' 0%, ' +atticOptions.background_color_2 + ' 100%) !important;';
+            attic_style += 'background-image: linear-gradient(to bottom, ' +atticOptions.background_color_1 + ' 0%, ' +atticOptions.background_color_2 + ' 100%) !important;';
+            attic_style += 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="' +atticOptions.background_color_1 + '", endColorstr="' +atticOptions.background_color_2 + '", GradientType=0) !important;';
+            attic_style += '} </style>';
+            $('head').append(attic_style);
+            // Initialze header sizes
+            attic_style = '';
+            attic_style = '<style> .attic { padding-top: ' +atticOptions.padding_top+ 'px; padding-bottom: ' +atticOptions.padding_bottom+ 'px; margin-bottom: ' +atticOptions.margin_bottom+ 'px; text-shadow: 0 1px 0 rgba(0,0,0,.1); </style>';
+            $('head').append(attic_style);
+            $('head').append('<style> .attic .head-title h2 { color: ' +atticOptions.title_color+ ';font-size: ' +atticOptions.title_size+ ' !important; text-align: ' +atticOptions.title_align+ ';} </style>');
+            $('head').append('<style> .attic .head-tagline h3 { color: ' +atticOptions.tagline_color+ ';font-size: ' +atticOptions.tagline_size+ ' !important; text-align: ' +atticOptions.tagline_align+ '; } </style>');
+            // Add opacity to all header images
+            // See: https://tympanus.net/codrops/2013/11/07/css-overlay-techniques/
+            var attic_opacity;
+            attic_opacity = '<style> .backstretch-item { opacity: ' +atticOptions.opacity+ '; </style>';
+            $('head').append(attic_opacity);
+            _this.setState('initialized');
+            logger.debug('\n' + 'state: ' + _this.getState());
+            if (typeof atticOptions.slides != 'undefined') {
+              // Load the image header if the page is ready (visible)
+              $(function() {
+                // logger.debug('\n' + 'Load image header on: ' + attic_text);
+                logger.debug('\n' + 'Load image header');
+                attic_text(atticOptions);
+                _this.setState('completed');
+                logger.debug('\n' + 'state: ' + _this.getState());
+              });
+            }
+          } // END if header id found in page
+         // END if header enabled
+       // END for item in header_config.attics
+      // NO header found in page
+      if ($('#no_header').length) {
+        _this.setState('completed');
+        logger.debug('\n' + 'state: ' + _this.getState());
+        logger.warn('\n' + 'no header configured or found in page');
+      }
+      return true;
+    }, // END loadHeader
+    // -------------------------------------------------------------------------
+    // messageHandler: MessageHandler for J1 CookieConsent module
+    // Manage messages send from other J1 modules
+    // -------------------------------------------------------------------------
+    messageHandler: function (sender, message) {
+      var json_message = JSON.stringify(message, undefined, 2);
+      logText = '\n' + 'received message from ' + sender + ': ' + json_message;
+      logger.debug(logText);
+      // -----------------------------------------------------------------------
+      //  Process commands|actions
+      // -----------------------------------------------------------------------
+      if (message.type === 'command' && message.action === 'module_initialized') {
+        status = 'completed';
+        logger.info('\n' + message.text);
+      }
+      //
+      // Place handling of other command|action here
+      //
+      return true;
+    }, // END messageHandler
+    // -------------------------------------------------------------------------
+    // setState()
+    // Sets the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    setState: function (stat) {
+      _this.state = stat;
+    }, // END setState
+    // -------------------------------------------------------------------------
+    // getState()
+    // Returns the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    getState: function () {
+      return _this.state;
+    } // END getState
+  }; // END return
+})(j1, window);
+
 
 

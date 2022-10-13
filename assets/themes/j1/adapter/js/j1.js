@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2022-08-15 09:11:26 +0000
+ # Adapter generated: 2022-10-13 14:59:16 +0000
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -33,7 +33,7 @@ var j1 = (function (options) {
   // ---------------------------------------------------------------------------
   // base page resources
   var rePager                     =  new RegExp('navigator|dateview|tagview|archive');
-  var environment                 = 'production';
+  var environment                 = 'development';
   var moduleOptions               = {};
   var j1_runtime_data             = {};
   var _this;
@@ -122,7 +122,7 @@ var j1 = (function (options) {
   };
   var user_state   = {
     'writer':               'j1.adapter',
-    'template_version':     '2022.5.1',
+    'template_version':     '2022.6.0',
 //
 //  for testing only
 //  'template_version':     'undefined',
@@ -131,7 +131,7 @@ var j1 = (function (options) {
     'theme_name':           'UnoLight',
     'theme_css':            '',
     'theme_author':         'J1 Team',
-    'theme_version':        '2022.5.1',
+    'theme_version':        '2022.6.0',
     'session_active':       false,
     'google_translate':     'disabled',
     'translate_all_pages':  true,
@@ -169,7 +169,7 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2022-08-15 09:11:26 +0000'
+        generated:   '2022-10-13 14:59:16 +0000'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
@@ -921,7 +921,7 @@ var j1 = (function (options) {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2022.5.1';
+      return '2022.6.0';
     },
     // -------------------------------------------------------------------------
     // getScrollOffset()

@@ -13,9 +13,86 @@
  # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2022-08-15 09:11:26 +0000
+ #  Adapter generated: 2022-10-13 14:59:16 +0000
  # -----------------------------------------------------------------------------
 */
-'use strict';j1.adapter.comments=function(e){var t,n,i;(new Date).toISOString(),document.createElement('script'),document.createElement('script'),document.createElement('script'),'<your-hyvor-site-id>'.includes('your'),e.getCookieNames();return{init:function(){var t=setInterval(function(){'finished'==e.getState()&&((n=log4javascript.getLogger('j1.adapter.comments')).info("\ncomment services: disabled"),clearInterval(t))},25)},messageHandler:function(e,t){var r=JSON.stringify(t,undefined,2);return i="\nreceived message from "+e+': '+r,n.debug(i),'command'===t.type&&'module_initialized'===t.action&&n.info('\n'+t.text),!0},setState:function(e){t.state=e},getState:function(){return t.state}}}(j1,window);
+// -----------------------------------------------------------------------------
+// ESLint shimming
+// -----------------------------------------------------------------------------
+/* eslint indent: "off"                                                       */
+// -----------------------------------------------------------------------------
+'use strict';
+j1.adapter.comments = (function (j1, window) {
+var environment       = 'development';
+var date              = new Date();
+var timestamp_now     = date.toISOString();
+var comments_provider = 'hyvor';
+var dqApiScript       = document.createElement('script');
+var hvApiScript       = document.createElement('script');
+var hvCallbackScript  = document.createElement('script');
+var providerID        = '<your-hyvor-site-id>';
+var validProviderID   = (providerID.includes('your')) ? false : true;
+var comments_headline = 'Leave a comment';
+var cookie_names      = j1.getCookieNames();
+var user_consent;
+var _this;
+var logger;
+var logText;
+  // ---------------------------------------------------------------------------
+  // Main object
+  // ---------------------------------------------------------------------------
+  return {
+    // -------------------------------------------------------------------------
+    // init()
+    // adapter initializer
+    // -------------------------------------------------------------------------
+    init: function (options) {
+      var dependencies_met_page_ready = setInterval(function() {
+        if (j1.getState() == 'finished') {
+          logger = log4javascript.getLogger('j1.adapter.comments');
+          logger.info('\n' + 'comment services: disabled');
+          clearInterval(dependencies_met_page_ready);
+        }
+      }, 25);
+    }, // END init
+    // -------------------------------------------------------------------------
+    // messageHandler()
+    // manage messages send from other J1 modules
+    // -------------------------------------------------------------------------
+    messageHandler: function (sender, message) {
+      var json_message = JSON.stringify(message, undefined, 2);
+      logText = '\n' + 'received message from ' + sender + ': ' + json_message;
+      logger.debug(logText);
+      // -----------------------------------------------------------------------
+      //  Process commands|actions
+      // -----------------------------------------------------------------------
+      if (message.type === 'command' && message.action === 'module_initialized') {
+        //
+        // Place handling of command|action here
+        //
+        logger.info('\n' + message.text);
+      }
+      //
+      // Place handling of other command|action here
+      //
+      return true;
+    }, // END messageHandler
+    // -------------------------------------------------------------------------
+    // setState()
+    // Sets the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    setState: function (stat) {
+      _this.state = stat;
+    }, // END setState
+    // -------------------------------------------------------------------------
+    // getState()
+    // Returns the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    getState: function () {
+      return _this.state;
+    } // END getState
+  }; // END return
+})(j1, window);
+
 
 
