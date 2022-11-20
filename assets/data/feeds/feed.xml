@@ -1,2 +1,126 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.0">Jekyll</generator><link href="https://jekyll-one-org.github.io//assets/data/feeds/feed.xml" rel="self" type="application/atom+xml" /><link href="https://jekyll-one-org.github.io//" rel="alternate" type="text/html" /><updated>2022-10-22T18:43:55+02:00</updated><id>https://jekyll-one-org.github.io//assets/data/feeds/feed.xml</id><post_limited>1000000</post_limited><template_name>J1 Template</template_name><template_version>2022.6.0</template_version><title type="html">Jekyll One</title><subtitle>Made for Jekyll · Made for Your Web
-</subtitle><author><name>Juergen Adams</name><email>jadams@web.de</email></author><entry><title type="html">Welcome</title><link href="https://jekyll-one-org.github.io//posts/public/featured/2022/10/22/welcome-to-j1/" rel="alternate" type="text/html" title="Welcome" /><published>2022-10-22T00:00:00+02:00</published><updated>2022-10-22T00:00:00+02:00</updated><id>https://jekyll-one-org.github.io//posts/public/featured/2022/10/22/welcome-to-j1</id><author><name>Juergen Adams</name></author><category term="posts" /><category term="J1" /><category term="Jekyll" /><summary type="html"><![CDATA[All you’re doing at the end of the day is writing your content, and the J1 Template does all the tricky things: putting out HTML, Javascript, and CSS. As a result, the site creation process gets out of your way.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyll-one-org.github.io//assets/images/modules/attics/katie-moum-1920x1280.jpg" /><media:content medium="image" url="https://jekyll-one-org.github.io//assets/images/modules/attics/katie-moum-1920x1280.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">J1 Template</title><link href="https://jekyll-one-org.github.io//posts/public/featured/2022/02/01/about-j1/" rel="alternate" type="text/html" title="J1 Template" /><published>2022-02-01T00:00:00+02:00</published><updated>2022-02-01T00:00:00+02:00</updated><id>https://jekyll-one-org.github.io//posts/public/featured/2022/02/01/about-j1</id><author><name>Juergen Adams</name></author><category term="posts" /><category term="J1" /><category term="Template" /><category term="Jekyll" /><summary type="html"><![CDATA[The template system J1 was initially developed to create a simple but fully configurable creation tool for document servers. Document servers provide websites, or other digital content like PDF files, to publish the project documentation to the public.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyll-one-org.github.io//assets/images/modules/attics/1920x1280/alexander-redl.jpg" /><media:content medium="image" url="https://jekyll-one-org.github.io//assets/images/modules/attics/1920x1280/alexander-redl.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Site Generators</title><link href="https://jekyll-one-org.github.io//posts/public/featured/2021/02/01/site-generators/" rel="alternate" type="text/html" title="Site Generators" /><published>2021-02-01T00:00:00+02:00</published><updated>2021-02-01T00:00:00+02:00</updated><id>https://jekyll-one-org.github.io//posts/public/featured/2021/02/01/site-generators</id><author><name>Juergen Adams</name></author><category term="posts" /><category term="Jekyll" /><category term="Static" /><category term="Site" /><category term="Generators" /><summary type="html"><![CDATA[This article highlights top OpenSource projects providing static site generators in many different programming languages. And Jekyll is only one of them. Have a look if a full-blown CMS is (really) needed for your project.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyll-one-org.github.io//assets/images/modules/attics/machine-generator-1920x1280.jpg" /><media:content medium="image" url="https://jekyll-one-org.github.io//assets/images/modules/attics/machine-generator-1920x1280.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Cookies</title><link href="https://jekyll-one-org.github.io//posts/public/featured/2021/01/01/about-cookies/" rel="alternate" type="text/html" title="Cookies" /><published>2021-01-01T00:00:00+02:00</published><updated>2021-01-01T00:00:00+02:00</updated><id>https://jekyll-one-org.github.io//posts/public/featured/2021/01/01/about-cookies</id><author><name>Juergen Adams</name></author><category term="posts" /><category term="Cookies" /><summary type="html"><![CDATA[Is it needed for visitors to know what cookies are about? No doubts, you&#8217;re requested to inform - in Europe for legal reasons. All users visiting websites are bothered all the time to accept cookies. For good reasons.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyll-one-org.github.io//assets/images/modules/attics/cookies-1920x1200.jpg" /><media:content medium="image" url="https://jekyll-one-org.github.io//assets/images/modules/attics/cookies-1920x1200.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Columbia River</title><link href="https://jekyll-one-org.github.io//posts/public/series/2020/01/03/post-wiki-series/" rel="alternate" type="text/html" title="Columbia River" /><published>2020-01-03T00:00:00+02:00</published><updated>2020-01-03T00:00:00+02:00</updated><id>https://jekyll-one-org.github.io//posts/public/series/2020/01/03/post-wiki-series</id><author><name>Juergen Adams</name></author><category term="posts" /><category term="USA" /><category term="Rivers" /><summary type="html"><![CDATA[Columbia River is the largest river in the Pacific Northwest region of North America. It flows northwest and then south into the US state of Washington, then turns west to form most of the border between Washington and the state of Oregon before emptying into the Pacific Ocean.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyll-one-org.github.io//assets/images/collections/blog/wikipedia/columbia-river.1200x400.jpg" /><media:content medium="image" url="https://jekyll-one-org.github.io//assets/images/collections/blog/wikipedia/columbia-river.1200x400.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Narcisse Snake Dens</title><link href="https://jekyll-one-org.github.io//posts/public/series/2020/01/02/post-wiki-series/" rel="alternate" type="text/html" title="Narcisse Snake Dens" /><published>2020-01-02T00:00:00+02:00</published><updated>2020-01-02T00:00:00+02:00</updated><id>https://jekyll-one-org.github.io//posts/public/series/2020/01/02/post-wiki-series</id><author><name>Juergen Adams</name></author><category term="posts" /><category term="Canada" /><category term="Cities" /><category term="Narcisse" /><summary type="html"><![CDATA[Narcisse Snake Pits are located in the Rural Municipality of Armstrong about 6 kilometres (3.7 mi) north of Narcisse, Manitoba, Canada. The dens are the winter home of tens of thousands of red-sided garter snakes (Thamnophis sirtalis parietalis).]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyll-one-org.github.io//assets/images/collections/blog/wikipedia/narcise-snake-pits.1200x400.jpg" /><media:content medium="image" url="https://jekyll-one-org.github.io//assets/images/collections/blog/wikipedia/narcise-snake-pits.1200x400.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Minneapolis</title><link href="https://jekyll-one-org.github.io//posts/public/series/2020/01/01/post-wiki-series/" rel="alternate" type="text/html" title="Minneapolis" /><published>2020-01-01T00:00:00+02:00</published><updated>2020-01-01T00:00:00+02:00</updated><id>https://jekyll-one-org.github.io//posts/public/series/2020/01/01/post-wiki-series</id><author><name>Juergen Adams</name></author><category term="posts" /><category term="USA" /><category term="Minnesota" /><category term="Cities" /><category term="Minneapolis" /><summary type="html"><![CDATA[Minneapolis is the largest city in the state of Minnesota in the United States, and the county seat of Hennepin County. According to the United States Census Bureau, the city has a total area of 151.3 km² (58.4 mi²). 142.2 km² (54.9 mi²) of it is land and 9.1 km² (3.5 mi²) of it (6.01%) is water.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyll-one-org.github.io//assets/images/collections/blog/wikipedia/minneapolis.1200x400.jpg" /><media:content medium="image" url="https://jekyll-one-org.github.io//assets/images/collections/blog/wikipedia/minneapolis.1200x400.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom">
+  <generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator>
+  <link href="https://jekyll-one-org.github.io//assets/data/feeds/feed.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://jekyll-one-org.github.io//" rel="alternate" type="text/html"/>
+  <updated>2022-11-20T18:15:53+01:00</updated>
+  <id>https://jekyll-one-org.github.io//assets/data/feeds/feed.xml</id>
+  <post_limited>1000000</post_limited>
+  <template_name>J1 Template</template_name>
+  <template_version>2022.6.1</template_version>
+  <title type="html">Jekyll One</title>
+  <subtitle>Made for Jekyll &#xB7; Made for Your Web
+</subtitle>
+  <author>
+    <name>Juergen Adams</name>
+    <email>jadams@web.de</email>
+  </author>
+  <entry>
+    <title type="html">Welcome</title>
+    <link href="https://jekyll-one-org.github.io//posts/public/featured/2022/11/20/welcome-to-j1/" rel="alternate" type="text/html" title="Welcome"/>
+    <published>2022-11-20T00:00:00+01:00</published>
+    <updated>2022-11-20T00:00:00+01:00</updated>
+    <id>https://jekyll-one-org.github.io//posts/public/featured/2022/11/20/welcome-to-j1</id>
+    <author>
+      <name>Juergen Adams</name>
+    </author>
+    <category term="posts"/>
+    <category term="J1"/>
+    <category term="Jekyll"/>
+    <summary type="html"><![CDATA[All you’re doing at the end of the day is writing your content, and the J1 Template does all the tricky things: putting out HTML, Javascript, and CSS. As a result, the site creation process gets out of your way.]]></summary>
+    <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyll-one-org.github.io//assets/images/modules/attics/katie-moum-1920x1280.jpg"/>
+    <media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="https://jekyll-one-org.github.io//assets/images/modules/attics/katie-moum-1920x1280.jpg"/>
+  </entry>
+  <entry>
+    <title type="html">J1 Template</title>
+    <link href="https://jekyll-one-org.github.io//posts/public/featured/jekyll/2022/02/01/about-j1/" rel="alternate" type="text/html" title="J1 Template"/>
+    <published>2022-02-01T00:00:00+01:00</published>
+    <updated>2022-02-01T00:00:00+01:00</updated>
+    <id>https://jekyll-one-org.github.io//posts/public/featured/jekyll/2022/02/01/about-j1</id>
+    <author>
+      <name>Juergen Adams</name>
+    </author>
+    <category term="posts"/>
+    <category term="Template"/>
+    <summary type="html"><![CDATA[The template system J1 was initially developed to create a simple but fully configurable creation tool for document servers. Document servers provide websites, or other digital content like PDF files, to publish the project documentation to the public.]]></summary>
+    <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyll-one-org.github.io//assets/images/modules/attics/1920x1280/alexander-redl.jpg"/>
+    <media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="https://jekyll-one-org.github.io//assets/images/modules/attics/1920x1280/alexander-redl.jpg"/>
+  </entry>
+  <entry>
+    <title type="html">Site Generators</title>
+    <link href="https://jekyll-one-org.github.io//posts/public/featured/jekyll/2021/02/01/site-generators/" rel="alternate" type="text/html" title="Site Generators"/>
+    <published>2021-02-01T00:00:00+01:00</published>
+    <updated>2021-02-01T00:00:00+01:00</updated>
+    <id>https://jekyll-one-org.github.io//posts/public/featured/jekyll/2021/02/01/site-generators</id>
+    <author>
+      <name>Juergen Adams</name>
+    </author>
+    <category term="posts"/>
+    <category term="Template"/>
+    <summary type="html"><![CDATA[This article highlights top OpenSource projects providing static site generators in many different programming languages. And Jekyll is only one of them. Have a look if a full-blown CMS is (really) needed for your project.]]></summary>
+    <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyll-one-org.github.io//assets/images/modules/attics/machine-generator-1920x1280.jpg"/>
+    <media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="https://jekyll-one-org.github.io//assets/images/modules/attics/machine-generator-1920x1280.jpg"/>
+  </entry>
+  <entry>
+    <title type="html">Cookies</title>
+    <link href="https://jekyll-one-org.github.io//posts/public/featured/technology/2021/01/01/about-cookies/" rel="alternate" type="text/html" title="Cookies"/>
+    <published>2021-01-01T00:00:00+01:00</published>
+    <updated>2021-01-01T00:00:00+01:00</updated>
+    <id>https://jekyll-one-org.github.io//posts/public/featured/technology/2021/01/01/about-cookies</id>
+    <author>
+      <name>Juergen Adams</name>
+    </author>
+    <category term="posts"/>
+    <category term="Cookies"/>
+    <summary type="html"><![CDATA[Is it needed for visitors to know what cookies are about? No doubts, you&#8217;re requested to inform - in Europe for legal reasons. All users visiting websites are bothered all the time to accept cookies. For good reasons.]]></summary>
+    <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyll-one-org.github.io//assets/images/modules/attics/cookies-1920x1200.jpg"/>
+    <media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="https://jekyll-one-org.github.io//assets/images/modules/attics/cookies-1920x1200.jpg"/>
+  </entry>
+  <entry>
+    <title type="html">Columbia River</title>
+    <link href="https://jekyll-one-org.github.io//posts/public/series/wikipedia/2020/01/03/post-wiki-series/" rel="alternate" type="text/html" title="Columbia River"/>
+    <published>2020-01-03T00:00:00+01:00</published>
+    <updated>2020-01-03T00:00:00+01:00</updated>
+    <id>https://jekyll-one-org.github.io//posts/public/series/wikipedia/2020/01/03/post-wiki-series</id>
+    <author>
+      <name>Juergen Adams</name>
+    </author>
+    <category term="posts"/>
+    <category term="USA"/>
+    <category term="Rivers"/>
+    <summary type="html"><![CDATA[Columbia River is the largest river in the Pacific Northwest region of North America. It flows northwest and then south into the US state of Washington, then turns west to form most of the border between Washington and the state of Oregon before emptying into the Pacific Ocean.]]></summary>
+    <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyll-one-org.github.io//assets/images/collections/blog/wikipedia/columbia-river.1200x400.jpg"/>
+    <media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="https://jekyll-one-org.github.io//assets/images/collections/blog/wikipedia/columbia-river.1200x400.jpg"/>
+  </entry>
+  <entry>
+    <title type="html">Narcisse Snake Dens</title>
+    <link href="https://jekyll-one-org.github.io//posts/public/series/wikipedia/2020/01/02/post-wiki-series/" rel="alternate" type="text/html" title="Narcisse Snake Dens"/>
+    <published>2020-01-02T00:00:00+01:00</published>
+    <updated>2020-01-02T00:00:00+01:00</updated>
+    <id>https://jekyll-one-org.github.io//posts/public/series/wikipedia/2020/01/02/post-wiki-series</id>
+    <author>
+      <name>Juergen Adams</name>
+    </author>
+    <category term="posts"/>
+    <category term="Canada"/>
+    <category term="Cities"/>
+    <summary type="html"><![CDATA[Narcisse Snake Pits are located in the Rural Municipality of Armstrong about 6 kilometres (3.7 mi) north of Narcisse, Manitoba, Canada. The dens are the winter home of tens of thousands of red-sided garter snakes (Thamnophis sirtalis parietalis).]]></summary>
+    <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyll-one-org.github.io//assets/images/collections/blog/wikipedia/narcise-snake-pits.1200x400.jpg"/>
+    <media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="https://jekyll-one-org.github.io//assets/images/collections/blog/wikipedia/narcise-snake-pits.1200x400.jpg"/>
+  </entry>
+  <entry>
+    <title type="html">Minneapolis</title>
+    <link href="https://jekyll-one-org.github.io//posts/public/series/wikipedia/2020/01/01/post-wiki-series/" rel="alternate" type="text/html" title="Minneapolis"/>
+    <published>2020-01-01T00:00:00+01:00</published>
+    <updated>2020-01-01T00:00:00+01:00</updated>
+    <id>https://jekyll-one-org.github.io//posts/public/series/wikipedia/2020/01/01/post-wiki-series</id>
+    <author>
+      <name>Juergen Adams</name>
+    </author>
+    <category term="posts"/>
+    <category term="USA"/>
+    <category term="Cities"/>
+    <summary type="html"><![CDATA[Minneapolis is the largest city in the state of Minnesota in the United States, and the county seat of Hennepin County. According to the United States Census Bureau, the city has a total area of 151.3 km² (58.4 mi²). 142.2 km² (54.9 mi²) of it is land and 9.1 km² (3.5 mi²) of it (6.01%) is water.]]></summary>
+    <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyll-one-org.github.io//assets/images/collections/blog/wikipedia/minneapolis.1200x400.jpg"/>
+    <media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="https://jekyll-one-org.github.io//assets/images/collections/blog/wikipedia/minneapolis.1200x400.jpg"/>
+  </entry>
+</feed>

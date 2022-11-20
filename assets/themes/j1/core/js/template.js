@@ -2448,48 +2448,8 @@ module.exports = function navigator(options) {
         if ($('li.quicksearch')) {
           logger.debug('register OPEN event for QuickSearch');
           $('li.quicksearch > a', this).on('click', function (e) {
-            e.preventDefault(); // don't do the default browser action
             logger.debug('manage search action OPEN');
-            $('html,body').animate({
-              scrollTop: 0
-            }, 0);
-            $('.top-search').slideToggle('slow', 'swing', function () {
-              if ($('.top-search').is(':visible')) {
-                // disable scrolling (desktop)
-                $('body').addClass('stop-scrolling');
-                // disable scrolling (mobile)
-                $('body').bind('touchmove', function (e) {
-                  e.preventDefault();
-                });
-                // disable navbar
-                $('#' + defaultOptions.nav_bar.container_id).hide();
-              } else {
-                // enable scrolling (desktop)
-                $('body').removeClass('stop-scrolling');
-                // enable scrolling (mobile)
-                $('body').unbind('touchmove');
-                // enable navbar
-                $('#' + defaultOptions.nav_bar.container_id).show();
-              }
-            });
-            e.stopPropagation(); // don't bubble up the event
-          });
-
-          logger.debug('register CLOSE event for QuickSearch');
-          $('.input-group-addon.close-search').on('click', function (e) {
-            e.preventDefault(); // don't do the default browser action
-            logger.debug('manage search action CLOSE');
-            $('.top-search').slideUp('slow', 'swing');
-            $('html,body').animate({
-              scrollTop: 0
-            }, 0);
-            // enable scrolling (desktop)
-            $('body').removeClass('stop-scrolling');
-            // enable scrolling (mobile)
-            $('body').unbind('touchmove');
-            // enable navbar
-            $('#' + defaultOptions.nav_bar.container_id).show();
-            e.stopPropagation(); // don't bubble up the event
+            $('#searchModal').modal('show');
           });
         } // END QuickSearch
 

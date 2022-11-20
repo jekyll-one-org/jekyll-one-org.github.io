@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2022-10-22 18:43:55 +0200
+ # Adapter generated: 2022-11-20 18:15:53 +0100
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -33,7 +33,7 @@ var j1 = (function (options) {
   // ---------------------------------------------------------------------------
   // base page resources
   var rePager                     =  new RegExp('navigator|dateview|tagview|archive');
-  var environment                 = 'production';
+  var environment                 = 'development';
   var moduleOptions               = {};
   var j1_runtime_data             = {};
   var _this;
@@ -122,7 +122,7 @@ var j1 = (function (options) {
   };
   var user_state   = {
     'writer':               'j1.adapter',
-    'template_version':     '2022.6.0',
+    'template_version':     '2022.6.1',
 //
 //  for testing only
 //  'template_version':     'undefined',
@@ -131,7 +131,7 @@ var j1 = (function (options) {
     'theme_name':           'UnoLight',
     'theme_css':            '',
     'theme_author':         'J1 Team',
-    'theme_version':        '2022.6.0',
+    'theme_version':        '2022.6.1',
     'session_active':       false,
     'google_translate':     'disabled',
     'translate_all_pages':  true,
@@ -169,7 +169,7 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2022-10-22 18:43:55 +0200'
+        generated:   '2022-11-20 18:15:53 +0100'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
@@ -491,7 +491,6 @@ var j1 = (function (options) {
         };
       };
       panel.push('home_intro_panel');
-      panel.push('home_plan_panel');
       panel.push('home_service_panel');
       panel.push('home_news_panel');
       if (panel.length) {
@@ -921,7 +920,7 @@ var j1 = (function (options) {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2022.6.0';
+      return '2022.6.1';
     },
     // -------------------------------------------------------------------------
     // getScrollOffset()

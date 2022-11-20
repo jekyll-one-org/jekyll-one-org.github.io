@@ -1,0 +1,60 @@
+
+
+
+  <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<!-- [INFO   ] [~/assets/data/translator.html                ] [ set meta data (robots) to exclude HTML datafiles from index ] --><html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+  </head>
+  <body>
+    <div id="searchModal-en">
+      <!-- Modal Top Search -->
+      <div id="searchModal" class="modal fade top" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
+          <!-- Content -->
+          <div class="modal-content">
+            <!-- Body -->
+            <div class="modal-body">
+              <div id="navigator_nav_topsearch" class="top-search ml-4 mr-4">
+                <span class="bmd-form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="mdi mdi-magnify mdi-2x mb-2" style="color:#9E9E9E"></i></span>
+                    <input id="search-query" type="text" name="q" placeholder="Your search expression" autocomplete="off" class="form-control">
+                    <span id="clear-topsearch" class="form-clear form-clear-searcher d-none" style="margin-top: 0.75rem"> <i class="mdi mdi-format-clear mdi-2x" style="color:#9E9E9E"></i> </span>
+                  </div>
+                </span>
+                <!-- [INFO   ] [~/assets/data/top_search_modal.html                    ] [ place: results container ] -->
+                <div class="search-results hide-scrollbar mt-4">
+                  <section id="search-results" style="display: none;"></section>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END Content -->
+        </div>
+      </div>
+      <!-- END Modal Top Search -->
+      <!-- [INFO   ] [~/assets/data/top_search_modal.html                    ] [ place: JS Mustache template ] -->
+      <script id="search-results-template" type="text/mustache">
+        <ul style="list-style: none; margin-left: .5rem; margin-right: 4.25rem">
+        {{#docs}}
+          <li>
+            <h4 class="result-item"> <a class="link-no-decoration" href="{{url}}" target="_blank">{{title}} · {{tagline}}</a> </h4>
+            <p class="result-item-text small text-muted mt-2 mb-0">
+              <i class="mdi mdi-calendar-blank mdi-18px mr-1"></i>{{displaydate}}
+            </p>
+            <p class="result-item-text">{{description}}</p>
+            <p class="result-item-text small text-muted mb-3">
+              <i class="mdi mdi-tag-text-outline mdi-18px mr-1"></i><span class="sr-categories">{{#categories}} {{.}} · {{/categories}}</span>
+              <i class="mdi mdi-tag mdi-18px mr-1 ml-2"></i><span class="sr-tags">{{#tags}} {{.}} · {{/tags}}</span>
+            </p>
+          </li>
+        {{/docs}}
+        <ul>
+      </script>
+    </div>
+  </body>
+</html>
+
+

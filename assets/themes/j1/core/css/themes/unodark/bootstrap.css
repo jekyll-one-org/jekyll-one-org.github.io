@@ -156,7 +156,7 @@
   --bs-border-style: solid;
   --bs-border-color: #e0e0e0;
   --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
-  --bs-border-radius: 0.375rem;
+  --bs-border-radius: 0.125rem;
   --bs-border-radius-sm: 0.25rem;
   --bs-border-radius-lg: 0.5rem;
   --bs-border-radius-xl: 1rem;
@@ -584,7 +584,7 @@ progress {
   padding: 0.25rem;
   background-color: #424242;
   border: 1px solid var(--bs-border-color);
-  border-radius: 0.375rem;
+  border-radius: 0.125rem;
   max-width: 100%;
   height: auto; }
 
@@ -1666,7 +1666,7 @@ progress {
   background-clip: padding-box;
   border: 1px solid #bdbdbd;
   appearance: none;
-  border-radius: 0.375rem;
+  border-radius: 0.125rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
   @media (prefers-reduced-motion: reduce) {
     .form-control {
@@ -1761,9 +1761,9 @@ textarea.form-control-lg {
     cursor: pointer; }
   .form-control-color::-moz-color-swatch {
     border: 0 !important;
-    border-radius: 0.375rem; }
+    border-radius: 0.125rem; }
   .form-control-color::-webkit-color-swatch {
-    border-radius: 0.375rem; }
+    border-radius: 0.125rem; }
   .form-control-color.form-control-sm {
     height: calc(1.5em + 0.5rem + 2px); }
   .form-control-color.form-control-lg {
@@ -1784,7 +1784,7 @@ textarea.form-control-lg {
   background-position: right 1rem center;
   background-size: 16px 12px;
   border: 1px solid #bdbdbd;
-  border-radius: 0.375rem;
+  border-radius: 0.125rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   appearance: none; }
   @media (prefers-reduced-motion: reduce) {
@@ -2067,7 +2067,7 @@ textarea.form-control-lg {
   white-space: nowrap;
   background-color: #eee;
   border: 1px solid #bdbdbd;
-  border-radius: 0.375rem; }
+  border-radius: 0.125rem; }
 
 .input-group-lg > .form-control,
 .input-group-lg > .form-select,
@@ -2131,7 +2131,7 @@ textarea.form-control-lg {
   font-size: 0.82031rem;
   color: #000;
   background-color: rgba(76, 175, 80, 0.9);
-  border-radius: 0.375rem; }
+  border-radius: 0.125rem; }
 
 .was-validated :valid ~ .valid-feedback,
 .was-validated :valid ~ .valid-tooltip,
@@ -2205,7 +2205,7 @@ textarea.form-control-lg {
   font-size: 0.82031rem;
   color: #000;
   background-color: rgba(244, 67, 54, 0.9);
-  border-radius: 0.375rem; }
+  border-radius: 0.125rem; }
 
 .was-validated :invalid ~ .invalid-feedback,
 .was-validated :invalid ~ .invalid-tooltip,
@@ -2272,7 +2272,7 @@ textarea.form-control-lg {
   --bs-btn-bg: transparent;
   --bs-btn-border-width: 1px;
   --bs-btn-border-color: transparent;
-  --bs-btn-border-radius: 0.375rem;
+  --bs-btn-border-radius: 0.125rem;
   --bs-btn-hover-border-color: transparent;
   --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
   --bs-btn-disabled-opacity: 0.65;
@@ -2675,9 +2675,9 @@ textarea.form-control-lg {
   --bs-dropdown-color: #bdbdbd;
   --bs-dropdown-bg: #424242;
   --bs-dropdown-border-color: rgba(0, 0, 0, 0.6);
-  --bs-dropdown-border-radius: 0.375rem;
+  --bs-dropdown-border-radius: 0.125rem;
   --bs-dropdown-border-width: 1px;
-  --bs-dropdown-inner-border-radius: calc(0.375rem - 1px);
+  --bs-dropdown-inner-border-radius: calc(0.125rem - 1px);
   --bs-dropdown-divider-bg: rgba(0, 0, 0, 0.15);
   --bs-dropdown-divider-margin-y: 0.5rem;
   --bs-dropdown-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
@@ -2948,7 +2948,7 @@ textarea.form-control-lg {
     width: auto; }
 
 .btn-group {
-  border-radius: 0.375rem; }
+  border-radius: 0.125rem; }
   .btn-group > :not(.btn-check:first-child) + .btn,
   .btn-group > .btn-group:not(:first-child) {
     margin-left: -1px; }
@@ -3034,7 +3034,7 @@ textarea.form-control-lg {
 .nav-tabs {
   --bs-nav-tabs-border-width: 1px;
   --bs-nav-tabs-border-color: rgba(0, 0, 0, 0.6);
-  --bs-nav-tabs-border-radius: 0.375rem;
+  --bs-nav-tabs-border-radius: 0.125rem;
   --bs-nav-tabs-link-hover-border-color: rgba(0, 0, 0, 0.6);
   --bs-nav-tabs-link-active-color: #fff;
   --bs-nav-tabs-link-active-bg: #424242;
@@ -3064,7 +3064,7 @@ textarea.form-control-lg {
     border-top-right-radius: 0; }
 
 .nav-pills {
-  --bs-nav-pills-border-radius: 0.375rem;
+  --bs-nav-pills-border-radius: 0.125rem;
   --bs-nav-pills-link-active-color: #fff;
   --bs-nav-pills-link-active-bg: #2196f3; }
   .nav-pills .nav-link {
@@ -3119,7 +3119,7 @@ textarea.form-control-lg {
   --bs-navbar-toggler-font-size: 1.17188rem;
   --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
   --bs-navbar-toggler-border-color: rgba(0, 0, 0, 0.1);
-  --bs-navbar-toggler-border-radius: 0.375rem;
+  --bs-navbar-toggler-border-radius: 0.125rem;
   --bs-navbar-toggler-focus-width: 0.25rem;
   --bs-navbar-toggler-transition: box-shadow 0.15s ease-in-out;
   position: relative;
@@ -3448,9 +3448,9 @@ textarea.form-control-lg {
   --bs-card-title-spacer-y: 0.5rem;
   --bs-card-border-width: 1px;
   --bs-card-border-color: rgba(0, 0, 0, 0.6);
-  --bs-card-border-radius: 0.375rem;
+  --bs-card-border-radius: 0.125rem;
   --bs-card-box-shadow: ;
-  --bs-card-inner-border-radius: calc(0.375rem - 1px);
+  --bs-card-inner-border-radius: calc(0.125rem - 1px);
   --bs-card-cap-padding-y: 0.5rem;
   --bs-card-cap-padding-x: 1rem;
   --bs-card-cap-bg: #5c5c5c;
@@ -3598,8 +3598,8 @@ textarea.form-control-lg {
   --bs-accordion-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
   --bs-accordion-border-color: var(--bs-border-color);
   --bs-accordion-border-width: 1px;
-  --bs-accordion-border-radius: 0.375rem;
-  --bs-accordion-inner-border-radius: calc(0.375rem - 1px);
+  --bs-accordion-border-radius: 0.125rem;
+  --bs-accordion-inner-border-radius: calc(0.125rem - 1px);
   --bs-accordion-btn-padding-x: 1.25rem;
   --bs-accordion-btn-padding-y: 1rem;
   --bs-accordion-btn-color: #bdbdbd;
@@ -3740,7 +3740,7 @@ textarea.form-control-lg {
   --bs-pagination-bg: transparent;
   --bs-pagination-border-width: 1px;
   --bs-pagination-border-color: rgba(0, 0, 0, 0.6);
-  --bs-pagination-border-radius: 0.375rem;
+  --bs-pagination-border-radius: 0.125rem;
   --bs-pagination-hover-color: #fff;
   --bs-pagination-hover-bg: transparent;
   --bs-pagination-hover-border-color: rgba(0, 0, 0, 0.6);
@@ -3823,7 +3823,7 @@ textarea.form-control-lg {
   --bs-badge-font-size: 0.75em;
   --bs-badge-font-weight: 700;
   --bs-badge-color: #fff;
-  --bs-badge-border-radius: 0.375rem;
+  --bs-badge-border-radius: 0.125rem;
   display: inline-block;
   padding: var(--bs-badge-padding-y) var(--bs-badge-padding-x);
   font-size: var(--bs-badge-font-size);
@@ -3849,7 +3849,7 @@ textarea.form-control-lg {
   --bs-alert-color: inherit;
   --bs-alert-border-color: transparent;
   --bs-alert-border: 1px solid var(--bs-alert-border-color);
-  --bs-alert-border-radius: 0.375rem;
+  --bs-alert-border-radius: 0.125rem;
   position: relative;
   padding: var(--bs-alert-padding-y) var(--bs-alert-padding-x);
   margin-bottom: var(--bs-alert-margin-bottom);
@@ -3937,7 +3937,7 @@ textarea.form-control-lg {
   --bs-progress-height: 1rem;
   --bs-progress-font-size: 0.70313rem;
   --bs-progress-bg: #141414;
-  --bs-progress-border-radius: 0.375rem;
+  --bs-progress-border-radius: 0.125rem;
   --bs-progress-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
   --bs-progress-bar-color: #757575;
   --bs-progress-bar-bg: #2196f3;
@@ -3978,7 +3978,7 @@ textarea.form-control-lg {
   --bs-list-group-bg: #4f4f4f;
   --bs-list-group-border-color: rgba(0, 0, 0, 0.6);
   --bs-list-group-border-width: 1px;
-  --bs-list-group-border-radius: 0.375rem;
+  --bs-list-group-border-radius: 0.125rem;
   --bs-list-group-item-padding-x: 1rem;
   --bs-list-group-item-padding-y: 0.5rem;
   --bs-list-group-action-color: #fff;
@@ -4256,7 +4256,7 @@ textarea.form-control-lg {
   color: #000;
   background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
   border: 0;
-  border-radius: 0.375rem;
+  border-radius: 0.125rem;
   opacity: 0.5; }
   .btn-close:hover {
     color: #000;
@@ -4285,7 +4285,7 @@ textarea.form-control-lg {
   --bs-toast-bg: #4f4f4f;
   --bs-toast-border-width: 1px;
   --bs-toast-border-color: rgba(0, 0, 0, 0.2);
-  --bs-toast-border-radius: 0.375rem;
+  --bs-toast-border-radius: 0.125rem;
   --bs-toast-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   --bs-toast-header-color: #bdbdbd;
   --bs-toast-header-bg: #4f4f4f;
@@ -4584,7 +4584,7 @@ textarea.form-control-lg {
   --bs-tooltip-font-size: 0.82031rem;
   --bs-tooltip-color: #fff;
   --bs-tooltip-bg: #000;
-  --bs-tooltip-border-radius: 0.375rem;
+  --bs-tooltip-border-radius: 0.125rem;
   --bs-tooltip-opacity: 0.9;
   --bs-tooltip-arrow-width: 0.8rem;
   --bs-tooltip-arrow-height: 0.4rem;
@@ -8661,37 +8661,6 @@ textarea.form-control-lg {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/bootstrap/_cards.scss
- #
- # Product/Info:
- # https://jekyll.one
- #
- # Copyright (C) 2022 Juergen Adams
- #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- # -----------------------------------------------------------------------------
-*/
-.card {
-  border: 0;
-  border-radius: 0;
-  background-color: #bdbdbd; }
-  .card .card-header {
-    border-bottom: 0; }
-  .card .card-body {
-    margin-top: 0; }
-  .card .card-link {
-    color: #616161 !important; }
-  .card .card-link:hover {
-    color: #bdbdbd !important; }
-  .card .card-footer {
-    background-color: #f5f5f5 !important;
-    border-top: 1px dotted rgba(0, 0, 0, 0.7); }
-  .card hr {
-    border-top: 1px solid #757575 !important; }
-
-/*
- # -----------------------------------------------------------------------------
  # ~/scss/theme_uno/theme_uno_dark/bootstrap/_code.scss
  #
  # Product/Info:
@@ -9298,7 +9267,7 @@ cite, em, var, address, dfn {
 */
 /*
  # -----------------------------------------------------------------------------
- # ~/theme_uno_dark/extentions/_bs-doc.scss
+ # ~/100_template_css/scss/theme_uno_dark/extentions/_bs-doc.scss
  #
  # Product/Info:
  # https:#jekyll.one
@@ -9315,7 +9284,7 @@ cite, em, var, address, dfn {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/scss/theme_uno_dark/extensions/_drawer.scss
+ # ~/100_template_css/scss/theme_uno_dark/extensions/_drawer.scss
  #
  # Product/Info:
  # https://github.com/FezVrasta/bootstrap-material-design
@@ -9330,65 +9299,8 @@ cite, em, var, address, dfn {
   background: #424242; }
 
 /*
- # -----------------------------------------------------------------------------
- # ~/theme_uno/extentions/_lane.scss
- #
- # Product/Info:
- # https://jekyll.one
- #
- # Copyright (C) 2022 Juergen Adams
- #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- # -----------------------------------------------------------------------------
- # NOTE: Styles for J1 Template Lanes
- # -----------------------------------------------------------------------------
-*/
-.elevated-z0 {
-  background-color: transparent;
-  padding-top: 0;
-  padding-bottom: 0;
-  border-top: 0;
-  border-bottom: 0; }
-
-.elevated-z1 {
-  background-color: #212121;
-  padding-top: .1rem;
-  padding-bottom: .1rem;
-  border-top: 0;
-  border-bottom: 0; }
-
-.elevated-z2 {
-  background-color: #212121;
-  padding-top: .1rem;
-  padding-bottom: .1rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.01);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.01); }
-
-.elevated-z3 {
-  background-color: #212121;
-  padding-top: .1rem;
-  padding-bottom: .1rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.02);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.02); }
-
-.elevated-z4 {
-  background-color: #212121;
-  padding-top: .1rem;
-  padding-bottom: .1rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.03);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.03); }
-
-.elevated-z5 {
-  background-color: #212121;
-  padding-top: .1rem;
-  padding-bottom: .1rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.04);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04); }
-
-/*
 // -----------------------------------------------------------------------------
-// ~/theme_uno_dark/extentions/_plans.scss
+// ~/100_template_css/scss/theme_uno_dark/extentions/_plans.scss
 // Provides general styles for the J1 Plan Banner
 //
 // Product/Info:
@@ -9433,7 +9345,7 @@ cite, em, var, address, dfn {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/scss/theme_uno_dark/extensions/_switches.scss
+ # ~/100_template_css/scss/theme_uno_dark/extensions/_switches.scss
  #
  # Product/Info:
  # https://github.com/FezVrasta/bootstrap-material-design
@@ -9521,9 +9433,6 @@ cite, em, var, address, dfn {
  # NOTE: Provides styles for the module J1 Header (attic)
  # -----------------------------------------------------------------------------
 */
-.attic {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
-
 /*
  # -----------------------------------------------------------------------------
  # ~/scss/theme_uno_dark/modules/_clipboard.scss

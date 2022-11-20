@@ -51,39 +51,18 @@
  # -----------------------------------------------------------------------------
 */
 /*
- # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/bootstrap/mixins.scss
- #
- # Product/Info:
- # https://jekyll.one
- #
- # Copyright (C) 2022 Juergen Adams
- #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- # -----------------------------------------------------------------------------
- # NOTE: This is the (SASS) entry point for all theme specific mixins
- # -----------------------------------------------------------------------------
-*/
-/*
- # -----------------------------------------------------------------------------
- #  ~/vendor/bmd/mixins/_forms.scss
- #
- #  Product/Info:
- #  https://github.com/FezVrasta/bootstrap-material-design
- #
- #  Copyright (C) 2020 Federico Zivolo and Contributors
- #
- #  Bootstrap Material Design is licensed under the MIT License.
- #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
- # -----------------------------------------------------------------------------
- # NOTE:
- # -----------------------------------------------------------------------------
- # TODO:
- # jadams, 2019-03-10: See lines 176ff. Unclear why fixed/downloaded
- # BS4 version requires an additional argument ?!
- # Issue seen 2019-03-10 after reset!
- # -----------------------------------------------------------------------------
+$line-height-lg:                      (4 / 3) !default;
+$line-height-sm:                      1.5 !default;
+
+$border-radius:                         .1rem !default; // .25rem !default;
+$border-radius-lg:                      .1rem !default;
+$border-radius-sm:                      .0625rem !default; // .2rem !default;
+
+$component-active-color:              #fff !default;
+$component-active-bg:                 $brand-primary !default;
+
+$caret-width:                         .3em !default;
+$caret-width-lg:                      $caret-width !default;
 */
 /*!
    * Bootstrap  v5.2.2 (https://getbootstrap.com/)
@@ -148,9 +127,9 @@
   --bs-border-style: solid;
   --bs-border-color: #e0e0e0;
   --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
-  --bs-border-radius: 0.1rem;
-  --bs-border-radius-sm: 0.0625rem;
-  --bs-border-radius-lg: 0.1rem;
+  --bs-border-radius: 0.125rem;
+  --bs-border-radius-sm: 0.25rem;
+  --bs-border-radius-lg: 0.5rem;
   --bs-border-radius-xl: 1rem;
   --bs-border-radius-2xl: 2rem;
   --bs-border-radius-pill: 50rem;
@@ -327,7 +306,7 @@ kbd {
   font-size: 0.875em;
   color: var(--bs-body-bg);
   background-color: var(--bs-body-color);
-  border-radius: 0.0625rem; }
+  border-radius: 0.25rem; }
   kbd kbd {
     padding: 0;
     font-size: 1em; }
@@ -575,7 +554,7 @@ progress {
   padding: 0.25rem;
   background-color: #fff;
   border: 1px solid var(--bs-border-color);
-  border-radius: 0.1rem;
+  border-radius: 0.125rem;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   max-width: 100%;
   height: auto; }
@@ -1911,7 +1890,7 @@ progress {
   min-height: calc(1.5em + 0.5rem + 2px);
   padding: 0.25rem 0;
   font-size: 0.875rem;
-  border-radius: 0.0625rem; }
+  border-radius: 0.25rem; }
   .form-control-sm::file-selector-button {
     padding: 0.25rem 0;
     margin: -0.25rem 0;
@@ -1921,7 +1900,7 @@ progress {
   min-height: calc(1.5em + 1.125rem + 2px);
   padding: 0.5625rem 0;
   font-size: 1.25rem;
-  border-radius: 0.1rem; }
+  border-radius: 0.5rem; }
   .form-control-lg::file-selector-button {
     padding: 0.5625rem 0;
     margin: -0.5625rem 0;
@@ -1992,14 +1971,14 @@ textarea.form-control-lg {
   padding-bottom: 0.25rem;
   padding-left: 0;
   font-size: 0.875rem;
-  border-radius: 0.0625rem; }
+  border-radius: 0.25rem; }
 
 .form-select-lg {
   padding-top: 0.5625rem;
   padding-bottom: 0.5625rem;
   padding-left: 0;
   font-size: 1.25rem;
-  border-radius: 0.1rem; }
+  border-radius: 0.5rem; }
 
 .form-check {
   display: block;
@@ -2263,7 +2242,7 @@ textarea.form-control-lg {
 .input-group-lg > .btn {
   padding: 0.5625rem 0;
   font-size: 1.25rem;
-  border-radius: 0.1rem; }
+  border-radius: 0.5rem; }
 
 .input-group-sm > .form-control,
 .input-group-sm > .form-select,
@@ -2271,7 +2250,7 @@ textarea.form-control-lg {
 .input-group-sm > .btn {
   padding: 0.25rem 0;
   font-size: 0.875rem;
-  border-radius: 0.0625rem; }
+  border-radius: 0.25rem; }
 
 .input-group-lg > .form-select,
 .input-group-sm > .form-select {
@@ -2319,7 +2298,7 @@ textarea.form-control-lg {
   font-size: 0.875rem;
   color: #000;
   background-color: rgba(76, 175, 80, 0.9);
-  border-radius: 0.1rem; }
+  border-radius: 0.125rem; }
 
 .was-validated :valid ~ .valid-feedback,
 .was-validated :valid ~ .valid-tooltip,
@@ -2393,7 +2372,7 @@ textarea.form-control-lg {
   font-size: 0.875rem;
   color: #000;
   background-color: rgba(244, 67, 54, 0.9);
-  border-radius: 0.1rem; }
+  border-radius: 0.125rem; }
 
 .was-validated :invalid ~ .invalid-feedback,
 .was-validated :invalid ~ .invalid-tooltip,
@@ -2460,7 +2439,7 @@ textarea.form-control-lg {
   --bs-btn-bg: transparent;
   --bs-btn-border-width: 1px;
   --bs-btn-border-color: transparent;
-  --bs-btn-border-radius: 0.1rem;
+  --bs-btn-border-radius: 0.125rem;
   --bs-btn-hover-border-color: transparent;
   --bs-btn-box-shadow: none;
   --bs-btn-disabled-opacity: 0.65;
@@ -2800,13 +2779,13 @@ textarea.form-control-lg {
   --bs-btn-padding-y: 0.5rem;
   --bs-btn-padding-x: 1rem;
   --bs-btn-font-size: 1.25rem;
-  --bs-btn-border-radius: 0.1rem; }
+  --bs-btn-border-radius: 0.5rem; }
 
 .btn-sm, .btn-group-sm > .btn {
   --bs-btn-padding-y: 0.40625rem;
   --bs-btn-padding-x: 0.5rem;
   --bs-btn-font-size: 0.875rem;
-  --bs-btn-border-radius: 0.0625rem; }
+  --bs-btn-border-radius: 0.25rem; }
 
 .fade {
   transition: opacity 0.15s linear; }
@@ -2866,9 +2845,9 @@ textarea.form-control-lg {
   --bs-dropdown-color: #424242;
   --bs-dropdown-bg: #fff;
   --bs-dropdown-border-color: var(--bs-border-color-translucent);
-  --bs-dropdown-border-radius: 0.1rem;
+  --bs-dropdown-border-radius: 0.125rem;
   --bs-dropdown-border-width: 1px;
-  --bs-dropdown-inner-border-radius: calc(0.1rem - 1px);
+  --bs-dropdown-inner-border-radius: calc(0.125rem - 1px);
   --bs-dropdown-divider-bg: var(--bs-border-color-translucent);
   --bs-dropdown-divider-margin-y: 0.5rem;
   --bs-dropdown-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
@@ -3140,7 +3119,7 @@ textarea.form-control-lg {
     width: auto; }
 
 .btn-group {
-  border-radius: 0.1rem; }
+  border-radius: 0.125rem; }
   .btn-group > :not(.btn-check:first-child) + .btn,
   .btn-group > .btn-group:not(:first-child) {
     margin-left: -1px; }
@@ -3231,7 +3210,7 @@ textarea.form-control-lg {
 .nav-tabs {
   --bs-nav-tabs-border-width: 1px;
   --bs-nav-tabs-border-color: #e0e0e0;
-  --bs-nav-tabs-border-radius: 0.1rem;
+  --bs-nav-tabs-border-radius: 0.125rem;
   --bs-nav-tabs-link-hover-border-color: #eee #eee #e0e0e0;
   --bs-nav-tabs-link-active-color: #616161;
   --bs-nav-tabs-link-active-bg: #fff;
@@ -3261,7 +3240,7 @@ textarea.form-control-lg {
     border-top-right-radius: 0; }
 
 .nav-pills {
-  --bs-nav-pills-border-radius: 0.1rem;
+  --bs-nav-pills-border-radius: 0.125rem;
   --bs-nav-pills-link-active-color: #fff;
   --bs-nav-pills-link-active-bg: #2196f3; }
   .nav-pills .nav-link {
@@ -3316,7 +3295,7 @@ textarea.form-control-lg {
   --bs-navbar-toggler-font-size: 1.25rem;
   --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
   --bs-navbar-toggler-border-color: rgba(0, 0, 0, 0.1);
-  --bs-navbar-toggler-border-radius: 0.1rem;
+  --bs-navbar-toggler-border-radius: 0.125rem;
   --bs-navbar-toggler-focus-width: 0.25rem;
   --bs-navbar-toggler-transition: box-shadow 0.15s ease-in-out;
   position: relative;
@@ -3651,9 +3630,9 @@ textarea.form-control-lg {
   --bs-card-title-spacer-y: 0.5rem;
   --bs-card-border-width: 1px;
   --bs-card-border-color: var(--bs-border-color-translucent);
-  --bs-card-border-radius: 0.1rem;
+  --bs-card-border-radius: 0.125rem;
   --bs-card-box-shadow: ;
-  --bs-card-inner-border-radius: calc(0.1rem - 1px);
+  --bs-card-inner-border-radius: calc(0.125rem - 1px);
   --bs-card-cap-padding-y: 0.5rem;
   --bs-card-cap-padding-x: 1rem;
   --bs-card-cap-bg: rgba(0, 0, 0, 0.03);
@@ -3802,8 +3781,8 @@ textarea.form-control-lg {
   --bs-accordion-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
   --bs-accordion-border-color: var(--bs-border-color);
   --bs-accordion-border-width: 1px;
-  --bs-accordion-border-radius: 0.1rem;
-  --bs-accordion-inner-border-radius: calc(0.1rem - 1px);
+  --bs-accordion-border-radius: 0.125rem;
+  --bs-accordion-inner-border-radius: calc(0.125rem - 1px);
   --bs-accordion-btn-padding-x: 1.25rem;
   --bs-accordion-btn-padding-y: 1rem;
   --bs-accordion-btn-color: #424242;
@@ -3944,7 +3923,7 @@ textarea.form-control-lg {
   --bs-pagination-bg: transparent;
   --bs-pagination-border-width: 0;
   --bs-pagination-border-color: #e0e0e0;
-  --bs-pagination-border-radius: 0.1rem;
+  --bs-pagination-border-radius: 0.125rem;
   --bs-pagination-hover-color: var(--bs-link-hover-color);
   --bs-pagination-hover-bg: #eee;
   --bs-pagination-hover-border-color: #e0e0e0;
@@ -4013,13 +3992,13 @@ textarea.form-control-lg {
   --bs-pagination-padding-x: 0;
   --bs-pagination-padding-y: 0.75rem;
   --bs-pagination-font-size: 1.25rem;
-  --bs-pagination-border-radius: 0.1rem; }
+  --bs-pagination-border-radius: 0.5rem; }
 
 .pagination-sm {
   --bs-pagination-padding-x: 0;
   --bs-pagination-padding-y: 0.25rem;
   --bs-pagination-font-size: 0.875rem;
-  --bs-pagination-border-radius: 0.0625rem; }
+  --bs-pagination-border-radius: 0.25rem; }
 
 .badge {
   --bs-badge-padding-x: 0.65em;
@@ -4027,7 +4006,7 @@ textarea.form-control-lg {
   --bs-badge-font-size: 0.75em;
   --bs-badge-font-weight: 700;
   --bs-badge-color: #fff;
-  --bs-badge-border-radius: 0.1rem;
+  --bs-badge-border-radius: 0.125rem;
   display: inline-block;
   padding: var(--bs-badge-padding-y) var(--bs-badge-padding-x);
   font-size: var(--bs-badge-font-size);
@@ -4053,7 +4032,7 @@ textarea.form-control-lg {
   --bs-alert-color: inherit;
   --bs-alert-border-color: transparent;
   --bs-alert-border: 1px solid var(--bs-alert-border-color);
-  --bs-alert-border-radius: 0.1rem;
+  --bs-alert-border-radius: 0.125rem;
   position: relative;
   padding: var(--bs-alert-padding-y) var(--bs-alert-padding-x);
   margin-bottom: var(--bs-alert-margin-bottom);
@@ -4141,7 +4120,7 @@ textarea.form-control-lg {
   --bs-progress-height: 1rem;
   --bs-progress-font-size: 0.75rem;
   --bs-progress-bg: #eee;
-  --bs-progress-border-radius: 0.1rem;
+  --bs-progress-border-radius: 0.125rem;
   --bs-progress-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
   --bs-progress-bar-color: #fff;
   --bs-progress-bar-bg: #2196f3;
@@ -4183,7 +4162,7 @@ textarea.form-control-lg {
   --bs-list-group-bg: #fff;
   --bs-list-group-border-color: rgba(0, 0, 0, 0.125);
   --bs-list-group-border-width: 1px;
-  --bs-list-group-border-radius: 0.1rem;
+  --bs-list-group-border-radius: 0.125rem;
   --bs-list-group-item-padding-x: 1rem;
   --bs-list-group-item-padding-y: 0.5rem;
   --bs-list-group-action-color: #616161;
@@ -4461,7 +4440,7 @@ textarea.form-control-lg {
   color: #000;
   background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
   border: 0;
-  border-radius: 0.1rem;
+  border-radius: 0.125rem;
   opacity: 0.5; }
   .btn-close:hover {
     color: #000;
@@ -4490,7 +4469,7 @@ textarea.form-control-lg {
   --bs-toast-bg: rgba(255, 255, 255, 0.85);
   --bs-toast-border-width: 1px;
   --bs-toast-border-color: var(--bs-border-color-translucent);
-  --bs-toast-border-radius: 0.1rem;
+  --bs-toast-border-radius: 0.125rem;
   --bs-toast-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   --bs-toast-header-color: #757575;
   --bs-toast-header-bg: rgba(255, 255, 255, 0.85);
@@ -4547,9 +4526,9 @@ textarea.form-control-lg {
   --bs-modal-bg: #fff;
   --bs-modal-border-color: var(--bs-border-color-translucent);
   --bs-modal-border-width: 1px;
-  --bs-modal-border-radius: 0.1rem;
+  --bs-modal-border-radius: 0.5rem;
   --bs-modal-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-  --bs-modal-inner-border-radius: calc(0.1rem - 1px);
+  --bs-modal-inner-border-radius: calc(0.5rem - 1px);
   --bs-modal-header-padding-x: 1rem;
   --bs-modal-header-padding-y: 1rem;
   --bs-modal-header-padding: 1rem 1rem;
@@ -4790,7 +4769,7 @@ textarea.form-control-lg {
   --bs-tooltip-font-size: 0.875rem;
   --bs-tooltip-color: #fff;
   --bs-tooltip-bg: #000;
-  --bs-tooltip-border-radius: 0.1rem;
+  --bs-tooltip-border-radius: 0.125rem;
   --bs-tooltip-opacity: 0.9;
   --bs-tooltip-arrow-width: 0.8rem;
   --bs-tooltip-arrow-height: 0.4rem;
@@ -4878,8 +4857,8 @@ textarea.form-control-lg {
   --bs-popover-bg: #fff;
   --bs-popover-border-width: 1px;
   --bs-popover-border-color: var(--bs-border-color-translucent);
-  --bs-popover-border-radius: 0.1rem;
-  --bs-popover-inner-border-radius: calc(0.1rem - 1px);
+  --bs-popover-border-radius: 0.5rem;
+  --bs-popover-inner-border-radius: calc(0.5rem - 1px);
   --bs-popover-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   --bs-popover-header-padding-x: 1rem;
   --bs-popover-header-padding-y: 0.5rem;
@@ -9792,6 +9771,41 @@ textarea.form-control-lg {
 
 /*
  # -----------------------------------------------------------------------------
+ # ~/scss/theme_uno/bootstrap/mixins.scss
+ #
+ # Product/Info:
+ # https://jekyll.one
+ #
+ # Copyright (C) 2022 Juergen Adams
+ #
+ # J1 Template is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # -----------------------------------------------------------------------------
+ # NOTE: This is the (SASS) entry point for all theme specific mixins
+ # -----------------------------------------------------------------------------
+*/
+/*
+ # -----------------------------------------------------------------------------
+ #  ~/vendor/bmd/mixins/_forms.scss
+ #
+ #  Product/Info:
+ #  https://github.com/FezVrasta/bootstrap-material-design
+ #
+ #  Copyright (C) 2020 Federico Zivolo and Contributors
+ #
+ #  Bootstrap Material Design is licensed under the MIT License.
+ #  See: https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md
+ # -----------------------------------------------------------------------------
+ # NOTE:
+ # -----------------------------------------------------------------------------
+ # TODO:
+ # jadams, 2019-03-10: See lines 176ff. Unclear why fixed/downloaded
+ # BS4 version requires an additional argument ?!
+ # Issue seen 2019-03-10 after reset!
+ # -----------------------------------------------------------------------------
+*/
+/*
+ # -----------------------------------------------------------------------------
  # ~/scss/theme_uno/bootstrap.scss
  #
  # Product/Info:
@@ -9933,7 +9947,7 @@ body {
   color: #000 !important; }
 
 .btn:hover {
-  background-color: #f5f5f5 !important; }
+  background-color: #f5f5f5; }
 
 .btn-link {
   color: #2196f3; }
@@ -9960,6 +9974,12 @@ body {
 .btn.btn-dark {
   background-color: #9e9e9e;
   border-color: #9e9e9e; }
+
+.btn-sm, .btn-group-sm > .btn, .btn-group-sm > .btn {
+  --bs-btn-border-radius: $border-radius; }
+
+.btn-lg, .btn-group-lg > .btn, .btn-group-lg > .btn {
+  --bs-btn-border-radius: $border-radius; }
 
 /*
  # -----------------------------------------------------------------------------
@@ -10014,7 +10034,7 @@ label.checkbox-inline {
       height: 1.25rem;
       overflow: hidden;
       border: 0.125rem solid #9e9e9e;
-      border-radius: 0.1rem; }
+      border-radius: 0.125rem; }
       .checkbox label .checkbox-decorator .check::before,
       label.checkbox-inline .checkbox-decorator .check::before {
         position: absolute;
@@ -10600,7 +10620,7 @@ fieldset[disabled][disabled] .form-control, .form-control.disabled, .form-contro
   font-size: 0.875rem;
   color: #fff;
   background-color: rgba(97, 97, 97, 0.9);
-  border-radius: 0.1rem; }
+  border-radius: 0.125rem; }
 
 .was-validated .is-focused:valid ~ .valid-feedback,
 .was-validated .is-focused:valid ~ .valid-tooltip, .is-focused.is-valid ~ .valid-feedback,
@@ -10754,7 +10774,7 @@ fieldset[disabled][disabled] .has-success .form-control, .has-success .form-cont
   font-size: 0.875rem;
   color: #000;
   background-color: rgba(76, 175, 80, 0.9);
-  border-radius: 0.1rem; }
+  border-radius: 0.125rem; }
 
 .was-validated .has-success .is-focused:valid ~ .valid-feedback,
 .was-validated .has-success .is-focused:valid ~ .valid-tooltip, .has-success .is-focused.is-valid ~ .valid-feedback,
@@ -10874,7 +10894,7 @@ fieldset[disabled][disabled] .has-info .form-control, .has-info .form-control.di
   font-size: 0.875rem;
   color: #000;
   background-color: rgba(0, 188, 212, 0.9);
-  border-radius: 0.1rem; }
+  border-radius: 0.125rem; }
 
 .was-validated .has-info .is-focused:valid ~ .valid-feedback,
 .was-validated .has-info .is-focused:valid ~ .valid-tooltip, .has-info .is-focused.is-valid ~ .valid-feedback,
@@ -10994,7 +11014,7 @@ fieldset[disabled][disabled] .has-warning .form-control, .has-warning .form-cont
   font-size: 0.875rem;
   color: #000;
   background-color: rgba(255, 235, 59, 0.9);
-  border-radius: 0.1rem; }
+  border-radius: 0.125rem; }
 
 .was-validated .has-warning .is-focused:valid ~ .valid-feedback,
 .was-validated .has-warning .is-focused:valid ~ .valid-tooltip, .has-warning .is-focused.is-valid ~ .valid-feedback,
@@ -11114,7 +11134,7 @@ fieldset[disabled][disabled] .has-danger .form-control, .has-danger .form-contro
   font-size: 0.875rem;
   color: #000;
   background-color: rgba(244, 67, 54, 0.9);
-  border-radius: 0.1rem; }
+  border-radius: 0.125rem; }
 
 .was-validated .has-danger .is-focused:valid ~ .valid-feedback,
 .was-validated .has-danger .is-focused:valid ~ .valid-tooltip, .has-danger .is-focused.is-valid ~ .valid-feedback,
@@ -11626,7 +11646,7 @@ li > a:hover {
 
 .modal-content {
   border: 0;
-  border-radius: 0.1rem; }
+  border-radius: 0.125rem; }
   .modal-content .modal-header {
     padding: 24px 24px 0;
     border-bottom: 0; }
@@ -14844,12 +14864,6 @@ table.tableblock > .title {
   color: #324353;
   padding: 0.5rem 3rem; }
 
-.accordion .highlight .btn {
-  color: #2196f3; }
-
-.accordion .highlight i {
-  transform: rotate(180deg); }
-
 .collapsible-link[aria-expanded='true']::after {
   transform: rotate(90deg) translateX(-1px); }
 
@@ -15112,9 +15126,11 @@ span.badge > a {
  # SPEC:
  # -----------------------------------------------------------------------------
 */
-.card.card-same-height {
-  height: calc(100% - 1.75rem);
-  overflow: hidden; }
+.card {
+  background-color: #f5f5f5; }
+  .card.card-same-height {
+    height: calc(100% - 1.75rem);
+    overflow: hidden; }
 
 .card .not-rounded {
   border-radius: unset !important; }
@@ -15127,20 +15143,17 @@ span.badge > a {
   border-radius: 0 !important; }
 
 .card-body {
-  margin-top: 1rem;
+  margin-top: .75rem !important;
   text-align: initial;
   color: rgba(0, 0, 0, 0.87) !important;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: #f5f5f5;
   line-height: 1.5; }
 
 .card .card-footer {
   line-height: 1.25;
   padding: 1.25rem;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: var(--bs-gray-300);
   border-top: 1px dotted rgba(0, 0, 0, 0.3); }
-
-.card .card-footer .footer-body {
-  color: #212121; }
 
 /* jadams: Overwrite Bootstraps heading margins for cards */
 /* .card > h1, h2, h3, h4, h5 { */
@@ -15569,7 +15582,8 @@ a.card-link {
 
 .card-profile,
 .card-testimonial {
-  text-align: center; }
+  text-align: center;
+  background-color: #f5f5f5; }
 
 .card-tabs {
   margin-top: 60px; }
@@ -15595,6 +15609,12 @@ a.card-link {
 .card-profile.card-plain .card-avatar,
 .card-testimonial.card-plain .card-avatar {
   margin-top: 0; }
+
+a.btn.btn-link.card-profile {
+  background-color: #e0e0e0; }
+
+a.btn.btn-link.card-profile:hover {
+  background-color: #e0e0e0; }
 
 .card-testimonial .card-avatar {
   max-width: 100px;
@@ -17209,8 +17229,8 @@ a.card-link {
   margin-right: .125rem !important; }
 
 p.dropcap {
-  margin-right: 0.125rem !important;
-  line-height: 1.5; }
+  margin-top: .75rem;
+  margin-right: 0.125rem; }
 
 @media screen and (min-width: 992px) {
   .j1-dropcap {
@@ -17514,8 +17534,7 @@ button.btn-fab-floating {
 */
 .footer {
   padding-top: 2em;
-  background: #212121;
-  border-top: 1px solid rgba(255, 255, 255, 0.3); }
+  background: #212121; }
 
 .footer__title_color {
   color: rgba(255, 255, 255, 0.5);
@@ -17729,7 +17748,7 @@ button.btn-fab-floating {
 /*
  # -----------------------------------------------------------------------------
  # ~/scss/theme_uno/extensions/_lane.scss
- # Helper classen for J! template lanes
+ # Helper classen for J! template lanes (fick dich)
  # Product/Info:
  # https://jekyll.one
  #
@@ -17742,46 +17761,22 @@ button.btn-fab-floating {
  # -----------------------------------------------------------------------------
 */
 .elevated-z0 {
-  background-color: transparent;
-  padding-top: 0;
-  padding-bottom: 0;
-  border-top: 0;
-  border-bottom: 0; }
+  background-color: transparent; }
 
 .elevated-z1 {
-  background-color: rgba(0, 0, 0, 0.1);
-  padding-top: .1rem;
-  padding-bottom: .1rem;
-  border-top: 0;
-  border-bottom: 0; }
+  background-color: rgba(0, 0, 0, 0.05); }
 
 .elevated-z2 {
-  background-color: rgba(0, 0, 0, 0.2);
-  padding-top: .1rem;
-  padding-bottom: .1rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+  background-color: rgba(0, 0, 0, 0.1); }
 
 .elevated-z3 {
-  background-color: rgba(0, 0, 0, 0.3);
-  padding-top: .1rem;
-  padding-bottom: .1rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
+  background-color: rgba(0, 0, 0, 0.2); }
 
 .elevated-z4 {
-  background-color: rgba(0, 0, 0, 0.4);
-  padding-top: .1rem;
-  padding-bottom: .1rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.3);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3); }
+  background-color: rgba(0, 0, 0, 0.3); }
 
 .elevated-z5 {
-  background-color: rgba(0, 0, 0, 0.5);
-  padding-top: .1rem;
-  padding-bottom: .1rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.4);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.4); }
+  background-color: rgba(0, 0, 0, 0.4); }
 
 /*
  # -----------------------------------------------------------------------------
@@ -19243,10 +19238,10 @@ a.timeline-list-unstyled:hover {
   bottom: 0;
   position: absolute;
   content: " ";
-  width: 3px;
+  width: 1px;
   background-color: #bdbdbd;
   left: 50%;
-  margin-left: -1.5px; }
+  margin-left: -0.5px; }
 
 .timeline > li {
   margin-bottom: 40px;
@@ -19392,7 +19387,8 @@ a.timeline-list-unstyled:hover {
 @media screen and (max-width: 767px) {
   ul.timeline:before {
     /* left: 40px; */
-    left: 0px; }
+    left: 0;
+    margin-left: 0; }
   ul.timeline > li {
     margin-bottom: 20px;
     position: relative;
@@ -20253,6 +20249,20 @@ a.timeline-list-unstyled:hover {
  # NOTE: This is the (SASS) entry point for global theme variables
  # -----------------------------------------------------------------------------
 */
+/*
+$line-height-lg:                      (4 / 3) !default;
+$line-height-sm:                      1.5 !default;
+
+$border-radius:                         .1rem !default; // .25rem !default;
+$border-radius-lg:                      .1rem !default;
+$border-radius-sm:                      .0625rem !default; // .2rem !default;
+
+$component-active-color:              #fff !default;
+$component-active-bg:                 $brand-primary !default;
+
+$caret-width:                         .3em !default;
+$caret-width-lg:                      $caret-width !default;
+*/
 .show {
   display: block; }
 
@@ -20375,6 +20385,191 @@ a.timeline-list-unstyled:hover {
 
 .g-max-height-500 {
   min-height: 500px !important; }
+
+/*
+ # -----------------------------------------------------------------------------
+ # ~/scss/theme_uno/extensions/_utilities.scss
+ #
+ # Product/Info:
+ # https://jekyll.one
+ #
+ # Copyright (C) 2022 Juergen Adams
+ #
+ # J1 Template is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # -----------------------------------------------------------------------------
+ # NOTE: Additional utility styles
+ # -----------------------------------------------------------------------------
+*/
+/*
+ # -----------------------------------------------------------------------------
+ # ~/scss/theme_uno/bootstrap/variables.scss
+ #
+ # Product/Info:
+ # https://jekyll.one
+ #
+ # Copyright (C) 2022 Juergen Adams
+ #
+ # J1 Template is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # -----------------------------------------------------------------------------
+ # NOTE: This is the (SASS) entry point for global theme variables
+ # -----------------------------------------------------------------------------
+*/
+/*
+$line-height-lg:                      (4 / 3) !default;
+$line-height-sm:                      1.5 !default;
+
+$border-radius:                         .1rem !default; // .25rem !default;
+$border-radius-lg:                      .1rem !default;
+$border-radius-sm:                      .0625rem !default; // .2rem !default;
+
+$component-active-color:              #fff !default;
+$component-active-bg:                 $brand-primary !default;
+
+$caret-width:                         .3em !default;
+$caret-width-lg:                      $caret-width !default;
+*/
+.show {
+  display: block; }
+
+.hide {
+  display: none; }
+
+.border--solid {
+  border: 1px solid #616161; }
+
+.border--dotted {
+  border: 1px dotted #616161; }
+
+.wm-200, .wmax-200 {
+  max-width: 200px !important; }
+
+.wm-400, .wmax-400 {
+  max-width: 400px !important; }
+
+.wm-600, .wmax-600 {
+  max-width: 600px !important; }
+
+.wm-800, .wmax-800 {
+  max-width: 800px !important; }
+
+.g-color-white-opacity-0_6, .g-color-white-opacity-0_6--hover:hover {
+  color: rgba(255, 255, 255, 0.6) !important; }
+
+.g-color-white-opacity-0_9, .g-color-white-opacity-0_9--hover:hover {
+  color: rgba(255, 255, 255, 0.9) !important; }
+
+.g-mb-0 {
+  margin-bottom: 0 !important; }
+
+.g-mb-5 {
+  margin-bottom: 0.35714rem !important; }
+
+.g-mb-10 {
+  margin-bottom: 0.71429rem !important; }
+
+.g-width-50 {
+  width: 50px !important; }
+
+.g-height-2 {
+  height: 2px; }
+
+.g-line-height-1_4 {
+  line-height: 1.4 !important; }
+
+.g-line-height-1_6 {
+  line-height: 1.6 !important; }
+
+.g-font-weight-400 {
+  font-weight: 400; }
+
+.g-font-weight-500 {
+  font-weight: 500; }
+
+.g-font-weight-600 {
+  font-weight: 600; }
+
+.g-text-upper {
+  text-transform: uppercase; }
+
+.g-font-size-12 {
+  font-size: 0.85714rem !important; }
+
+.g-font-size-18 {
+  font-size: 1.28571rem !important; }
+
+.g-height-100 {
+  height: 100px !important; }
+
+.g-height-150 {
+  height: 150px !important; }
+
+.g-height-200 {
+  height: 200px !important; }
+
+.g-height-300 {
+  height: 300px !important; }
+
+.g-height-400 {
+  height: 400px !important; }
+
+.g-height-500 {
+  height: 500px !important; }
+
+.g-min-height-100 {
+  min-height: 100px !important; }
+
+.g-min-height-150 {
+  min-height: 150px !important; }
+
+.g-min-height-200 {
+  min-height: 200px !important; }
+
+.g-min-height-300 {
+  min-height: 300px !important; }
+
+.g-min-height-400 {
+  min-height: 400px !important; }
+
+.g-min-height-500 {
+  min-height: 500px !important; }
+
+.g-max-height-100 {
+  min-height: 100px !important; }
+
+.g-max-height-150 {
+  min-height: 150px !important; }
+
+.g-max-height-200 {
+  min-height: 200px !important; }
+
+.g-max-height-300 {
+  min-height: 300px !important; }
+
+.g-max-height-400 {
+  min-height: 400px !important; }
+
+.g-max-height-500 {
+  min-height: 500px !important; }
+
+/*
+ # -----------------------------------------------------------------------------
+ # ~/scss/theme_uno/extensions/_wave.scss
+ # Helper classen for J! template lanes (fick dich)
+ # Product/Info:
+ # https://jekyll.one
+ #
+ # Copyright (C) 2022 Juergen Adams
+ #
+ # J1 Template is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # -----------------------------------------------------------------------------
+ # NOTE: Styles for J1 Template Lanes
+ # -----------------------------------------------------------------------------
+*/
+.wave {
+  display: none; }
 
 /*
  # -----------------------------------------------------------------------------
@@ -25513,7 +25708,7 @@ body.scrollable {
   overflow-y: auto; }
 
 .modal .modal-content {
-  border-radius: 0.1rem !important;
+  border-radius: 0.125rem !important;
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.5) !important; }
 
 .modal .modal-header {
@@ -25670,17 +25865,11 @@ body.scrollable {
 .modal-dialog.modal-notify.modal-primary .modal-header {
   background-color: #2196f3; }
 
-.modal-dialog.modal-notify.modal-primary .mdi {
-  color: #f5f5f5; }
-
 .modal-dialog.modal-notify.modal-info .badge {
   background-color: #00bcd4; }
 
 .modal-dialog.modal-notify.modal-info .modal-header {
   background-color: #00bcd4; }
-
-.modal-dialog.modal-notify.modal-info .mdi {
-  color: #f5f5f5; }
 
 .modal-dialog.modal-notify.modal-warning .badge {
   background-color: #fbc02d; }
@@ -25688,26 +25877,17 @@ body.scrollable {
 .modal-dialog.modal-notify.modal-warning .modal-header {
   background-color: #fbc02d; }
 
-.modal-dialog.modal-notify.modal-warning .mdi {
-  color: #f5f5f5; }
-
 .modal-dialog.modal-notify.modal-success .badge {
   background-color: #4caf50; }
 
 .modal-dialog.modal-notify.modal-success .modal-header {
   background-color: #4caf50; }
 
-.modal-dialog.modal-notify.modal-success .mdi {
-  color: #f5f5f5; }
-
 .modal-dialog.modal-notify.modal-danger .badge {
   background-color: #f44336; }
 
 .modal-dialog.modal-notify.modal-danger .modal-header {
   background-color: #f44336; }
-
-.modal-dialog.modal-notify.modal-danger .mdi {
-  color: #f5f5f5; }
 
 /*
  # -----------------------------------------------------------------------------
@@ -26261,26 +26441,6 @@ li.dropdown.nav-item.nav-sub-item:before {
           margin-left: 55px;
           width: 250px;
           left: -250px; }
-  .top-search {
-    padding: 10px 0 10px 0;
-    display: none;
-    position: sticky;
-    top: 0; }
-    .top-search .input-group-addon {
-      border: none;
-      color: #212121;
-      padding-left: 0;
-      padding-right: 0;
-      background-color: transparent; }
-      .top-search .input-group-addon.close-search {
-        cursor: pointer; }
-    .top-search input.form-control {
-      border: none;
-      box-shadow: 0 0 0;
-      height: 40px;
-      padding: 0 15px;
-      background-color: transparent;
-      height: 61px; }
   body {
     transition: all 0.3s ease-in-out; }
     body.on-side {
@@ -26751,6 +26911,41 @@ code[class^="language-"] {
   background-color: transparent !important;
   padding: 0 !important;
   font-size: 87.5% !important; }
+
+/*
+ # -----------------------------------------------------------------------------
+ # ~/scss/theme_uno/modules/_searcher.scss
+ #
+ # Product/Info:
+ # https://jekyll.one
+ #
+ # Copyright (C) 2022 Juergen Adams
+ #
+ # J1 Template is licensed under MIT License.
+ # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # -----------------------------------------------------------------------------
+ # NOTE:
+ # -----------------------------------------------------------------------------
+*/
+.top-search {
+  padding: 10px 0 10px 0;
+  position: sticky;
+  top: 0; }
+  .top-search .input-group-addon {
+    border: none;
+    color: #212121;
+    padding-left: 0;
+    padding-right: 0;
+    background-color: transparent; }
+    .top-search .input-group-addon.close-search {
+      cursor: pointer; }
+  .top-search input.form-control {
+    border: none;
+    box-shadow: 0 0 0;
+    height: 40px;
+    padding: 0 15px;
+    background-color: transparent;
+    height: 61px; }
 
 /*
  # -----------------------------------------------------------------------------
