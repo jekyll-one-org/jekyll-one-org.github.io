@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2022-11-20 19:23:09 +0100
+ #  Adapter generated: 2022-11-23 12:33:33 +0100
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -56,7 +56,7 @@ j1.adapter.rangeSlider = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.rangeSlider',
-        generated:   '2022-11-20 19:23:09 +0100'
+        generated:   '2022-11-23 12:33:33 +0100'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
