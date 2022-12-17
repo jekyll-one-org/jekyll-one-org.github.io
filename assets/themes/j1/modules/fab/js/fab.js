@@ -10,8 +10,8 @@
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
  # TODO:
  # jadams, 2020-10-11: module needs to be rewitten to PURE jQuery

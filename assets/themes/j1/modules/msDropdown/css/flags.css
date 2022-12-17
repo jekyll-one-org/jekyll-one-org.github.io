@@ -11,8 +11,8 @@
  #
  # msDropdown is licensed under MIT License.
  # See: https://github.com/marghoobsuleman/ms-Dropdown/blob/master/MIT-LICENSE.txt
- # J1 Template is licensed under MIT License.
- # See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under MIT License.
+ # See: https://github.com/jekyll-one/J1 Theme/blob/master/LICENSE
  # -----------------------------------------------------------------------------
  # NOTE:
  # https://github.com/marghoobsuleman/ms-Dropdown

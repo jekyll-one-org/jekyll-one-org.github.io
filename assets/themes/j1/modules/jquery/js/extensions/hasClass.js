@@ -1,7 +1,7 @@
 /*
  # -----------------------------------------------------------------------------
  # ~/assets/themes/j1/modules/jquery/js/extensions/hasClass.js
- # jQuery Plugin for J1 Template
+ # jQuery Plugin for J1 Theme
  # Used to check whether selected elements have specified class name or not.
  #
  # Product/Info:
@@ -10,8 +10,8 @@
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
 'use strict';

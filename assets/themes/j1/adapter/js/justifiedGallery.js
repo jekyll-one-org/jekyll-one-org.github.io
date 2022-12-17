@@ -12,12 +12,12 @@
  # Copyright (C) 2022 Juergen Adams
  # Copyright (C) 2016 Miro Mannino
  #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # Justified Gallery is licensed under the MIT license
  # See: https://github.com/miromannino/Justified-Gallery
  # -----------------------------------------------------------------------------
- # Adapter generated: 2022-11-23 14:40:17 +0100
+ # Adapter generated: 2022-12-17 18:18:46 +0100
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -48,7 +48,7 @@ j1.adapter.justifiedGallery = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.justifiedGallery',
-        generated:   '2022-11-23 14:40:17 +0100'
+        generated:   '2022-12-17 18:18:46 +0100'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings

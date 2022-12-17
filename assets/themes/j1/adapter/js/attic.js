@@ -12,12 +12,12 @@
  # Copyright (C) 2022 Juergen Adams
  # Copyright (C) 2012 Scott Robbin
  #
- # J1 Template is licensed under the MIT License.
+ # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # Backstretch is licensed under the MIT License.
  # For details, see https://github.com/jquery-backstretch/jquery-backstretch
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2022-11-23 14:40:17 +0100
+ #  Adapter generated: 2022-12-17 18:18:46 +0100
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -45,7 +45,7 @@ j1.adapter.attic = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.attic',
-        generated:   '2022-11-23 14:40:17 +0100'
+        generated:   '2022-12-17 18:18:46 +0100'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -139,14 +139,16 @@ j1.adapter.attic = (function (j1, window) {
                 // remove class for the backstretch_intro background
                 $('.backstretch').removeClass(atticOptions.spinner);
               }
-              // console.log('module attic - entered: backstretch.before');
-              // console.log('module attic - apply: CSS filters');
               $('.backstretch').css('filter', 'sepia(1) brightness(0.9) contrast(0.6)');
               $('.backstretch').css('filter', 'grayscale(1) contrast(1) brightness(1)');
               // mute the overlay content while sliding
               $('.textOverlay').css('opacity', '0');
               // mute the badge while sliding
               $('.attic-caption').css('opacity', '0');
+              // re-initialze particles on a slideshow if exists
+              if ($('.particles-js-canvas-el').length > 0) {
+                j1.adapter.particles.init();
+              }
             }); // END on('backstretch.before')
             $(window).on('backstretch.after', function (e, instance, index) {
               var textOverlayTitle    = instance.images[index].title
@@ -411,14 +413,16 @@ j1.adapter.attic = (function (j1, window) {
                 // remove class for the backstretch_intro background
                 $('.backstretch').removeClass(atticOptions.spinner);
               }
-              // console.log('module attic - entered: backstretch.before');
-              // console.log('module attic - apply: CSS filters');
               $('.backstretch').css('filter', 'sepia(1) brightness(0.9) contrast(0.6)');
               $('.backstretch').css('filter', 'grayscale(1) contrast(1) brightness(1)');
               // mute the overlay content while sliding
               $('.textOverlay').css('opacity', '0');
               // mute the badge while sliding
               $('.attic-caption').css('opacity', '0');
+              // re-initialze particles on a slideshow if exists
+              if ($('.particles-js-canvas-el').length > 0) {
+                j1.adapter.particles.init();
+              }
             }); // END on('backstretch.before')
             $(window).on('backstretch.after', function (e, instance, index) {
               var textOverlayTitle    = instance.images[index].title
@@ -681,14 +685,16 @@ j1.adapter.attic = (function (j1, window) {
                 // remove class for the backstretch_intro background
                 $('.backstretch').removeClass(atticOptions.spinner);
               }
-              // console.log('module attic - entered: backstretch.before');
-              // console.log('module attic - apply: CSS filters');
               $('.backstretch').css('filter', 'sepia(1) brightness(0.9) contrast(0.6)');
               $('.backstretch').css('filter', 'grayscale(1) contrast(1) brightness(1)');
               // mute the overlay content while sliding
               $('.textOverlay').css('opacity', '0');
               // mute the badge while sliding
               $('.attic-caption').css('opacity', '0');
+              // re-initialze particles on a slideshow if exists
+              if ($('.particles-js-canvas-el').length > 0) {
+                j1.adapter.particles.init();
+              }
             }); // END on('backstretch.before')
             $(window).on('backstretch.after', function (e, instance, index) {
               var textOverlayTitle    = instance.images[index].title
@@ -951,14 +957,16 @@ j1.adapter.attic = (function (j1, window) {
                 // remove class for the backstretch_intro background
                 $('.backstretch').removeClass(atticOptions.spinner);
               }
-              // console.log('module attic - entered: backstretch.before');
-              // console.log('module attic - apply: CSS filters');
               $('.backstretch').css('filter', 'sepia(1) brightness(0.9) contrast(0.6)');
               $('.backstretch').css('filter', 'grayscale(1) contrast(1) brightness(1)');
               // mute the overlay content while sliding
               $('.textOverlay').css('opacity', '0');
               // mute the badge while sliding
               $('.attic-caption').css('opacity', '0');
+              // re-initialze particles on a slideshow if exists
+              if ($('.particles-js-canvas-el').length > 0) {
+                j1.adapter.particles.init();
+              }
             }); // END on('backstretch.before')
             $(window).on('backstretch.after', function (e, instance, index) {
               var textOverlayTitle    = instance.images[index].title

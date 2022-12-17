@@ -1,7 +1,7 @@
 /*
  # -----------------------------------------------------------------------------
  # ~/theme_uno/modules/lightbox/js/lightbox.js
- # Lightbox v.2.11.2 implementation for J1 Template.
+ # Lightbox v.2.11.2 implementation for J1 Theme.
  #
  # Product/Info:
  # https://jekyll.one
@@ -10,8 +10,8 @@
  # Copyright (C) 2022 Juergen Adams
  # Copyright (C) 2015-2019 Lokesh Dhakar
  #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # Lightbox is licensed under the MIT License.
  # See: https://github.com/lokesh/lightbox2/blob/master/LICENSE
  # -----------------------------------------------------------------------------

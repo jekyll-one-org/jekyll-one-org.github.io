@@ -1,7 +1,7 @@
 /*
  # -----------------------------------------------------------------------------
  # ~/assets/themes/j1/modules/lunr/js/quicksearch.js
- # jQuery plugin to use Lunr Search for J1 template
+ # jQuery plugin to use Lunr Search for J1 Theme
  #
  # Product/Info:
  # https://jekyll.one
@@ -9,8 +9,8 @@
  # Copyright (C) 2020 Oliver Nightingale
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
  # TODO: Add multi-language support
  # -----------------------------------------------------------------------------

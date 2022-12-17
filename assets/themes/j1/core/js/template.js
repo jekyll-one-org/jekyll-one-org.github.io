@@ -15,8 +15,8 @@
  #
  #  Copyright (C) 2022 Juergen Adams
  #
- #  J1 Template is licensed under MIT License.
- #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ #  J1 Theme is licensed under MIT License.
+ #  See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
 
@@ -58,8 +58,8 @@ module.exports = function (j1, window) {
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
  # TODO: Improve lanuage settings
  # TODO: Improve auto-hide functionality for the results block
@@ -1623,7 +1623,7 @@ module.exports = anime;
 
 /*
  # -----------------------------------------------------------------------------
- #  ~200_template_js/js/asciidoctor/asciidoctor.js
+ #  ~200_theme_js/js/asciidoctor/asciidoctor.js
  #  Provides JS functions to (dynamically) modify Asciidoctor HTML elements
  #
  #  Product/Info:
@@ -1631,8 +1631,8 @@ module.exports = anime;
  #
  #  Copyright (C) 2022 Juergen Adams
  #
- #  J1 Template is licensed under MIT License.
- #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
+ #  J1 Theme is licensed under MIT License.
+ #  See: https://github.com/jekyll-one/J1 Theme/blob/master/LICENSE
  # -----------------------------------------------------------------------------
  #  NOTE:
  # -----------------------------------------------------------------------------
@@ -1728,8 +1728,8 @@ module.exports = function asciidoctor(options) {
  #
  #  Copyright (C) 2022 Juergen Adams
  #
- #  J1 Template is licensed under MIT License.
- #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ #  J1 Theme is licensed under MIT License.
+ #  See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
 
@@ -2115,8 +2115,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
  #  Copyright (C) 2022 Juergen Adams
  #  Copyright (C) 2016 adamnurdin01
  #
- #  J1 Template is licensed under MIT License.
- #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ #  J1 Theme is licensed under MIT License.
+ #  See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  #  Bootsnav is licensed under MIT License.
  #  See: https://github.com/adamnurdin01/navigator
  #
@@ -2761,8 +2761,8 @@ module.exports = function navigator(options) {
  #
  #
  #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
 
@@ -3411,7 +3411,7 @@ module.exports = function parseContent(options) {
 /*
  # -----------------------------------------------------------------------------
  #  ~/js/tocbot/scroll-smooth/index.js
- #  Scroll-Smooth (Tocbot v4.12.0) implementation for J1 template
+ #  Scroll-Smooth (Tocbot v4.12.0) implementation for J1 Theme
  #
  #  Product/Info:
  #  https://jekyll.one
@@ -3421,8 +3421,8 @@ module.exports = function parseContent(options) {
  #  Copyright (C) 2022 Juergen Adams
  #  Copyright (C) 2016 Tim Scanlin
  #
- #  J1 Template is licensed under MIT License.
- #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ #  J1 Theme is licensed under MIT License.
+ #  See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  #  Tocbot is licensed under the MIT License.
  #  For details, https://github.com/tscanlin/tocbot/blob/master/LICENSE
  # -----------------------------------------------------------------------------
@@ -3564,7 +3564,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /*
  # -----------------------------------------------------------------------------
  #  ~/js/tocbot/tocbot.js
- #  Tocbot v4.12.0 implementation for J1 template
+ #  Tocbot v4.12.0 implementation for J1 Theme
  #
  #  Product/Info:
  #  https://jekyll.one
@@ -3574,8 +3574,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
  #  Copyright (C) 2022 Juergen Adams
  #  Copyright (C) 2016 Tim Scanlin
  #
- #  J1 Template is licensed under MIT License.
- #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ #  J1 Theme is licensed under MIT License.
+ #  See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  #  Tocbot is licensed under the MIT License.
  #  For details, https://github.com/tscanlin/tocbot/blob/master/LICENSE
  # -----------------------------------------------------------------------------
@@ -9722,15 +9722,15 @@ var __webpack_exports__ = {};
 /*
  # -----------------------------------------------------------------------------
  #  ~/src/template.js
- #  J1 Template Javascript Core library
+ #  J1 Theme Javascript Core library
  #
  #  Product/Info:
  #  https://jekyll.one
  #
  #  Copyright (C) 2022 Juergen Adams
  #
- #  J1 Template is licensed under the MIT License.
- #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ #  J1 Theme is licensed under the MIT License.
+ #  See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  #
  # -----------------------------------------------------------------------------
 */
@@ -9744,8 +9744,8 @@ var __webpack_exports__ = {};
 // -----------------------------------------------------------------------------
 // Import SASS sources for HMR
 // -----------------------------------------------------------------------------
-// import '../100_template_css/scss/theme_uno/components/_footer.scss';
-// import '../100_template_css/theme_uno.css';  // <-- yes, also require (s)css. This is a Webpack thing
+// import '../100_theme_css/scss/theme_uno/components/_footer.scss';
+// import '../100_theme_css/theme_uno.css';  // <-- yes, also require (s)css. This is a Webpack thing
 
 // Core Libraries - imported|required from NODE|NPM modules
 // -----------------------------------------------------------------------------
@@ -9853,9 +9853,9 @@ var J1AdocResultViewer = __webpack_require__(253);
 //     console.log('[HMR] Accepting the updated template.js module!');
 //   });
 //
-//   module.hot.accept('../100_template_css/theme_uno.scss', function () {
+//   module.hot.accept('../100_theme_css/theme_uno.scss', function () {
 //     console.log('[HMR] Accepting the updated style.css module!');
-//     require('../100_template_css/theme_uno.scss')
+//     require('../100_theme_css/theme_uno.scss')
 //   })
 //
 // React to the current status...

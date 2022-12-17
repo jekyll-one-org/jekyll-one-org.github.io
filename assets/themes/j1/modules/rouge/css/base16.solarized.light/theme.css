@@ -10,8 +10,8 @@
  #  Copyright (C) 2022 Juergen Adams
  #  Copyright (c) 2012 Jeanine Adkisson
  #
- #  J1 Template is licensed under the MIT License.
- #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ #  J1 Theme is licensed under the MIT License.
+ #  See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  #  Rouge is licensed under the MIT License.
  #  See: https://github.com/rouge-ruby/rouge/blob/master/LICENSE
  # -----------------------------------------------------------------------------

@@ -10,8 +10,8 @@
  # Copyright (C) 2022 Juergen Adams
  #
  # Cash is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- # J1 Template is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
+ # J1 Theme is licensed under the MIT License.
  # See: https://github.com/fabiospampinato/cash/blob/master/LICENSE.md
  # -----------------------------------------------------------------------------
  # NOTE: cash-dom 1.3.5, https://github.com/kenwheeler/cash

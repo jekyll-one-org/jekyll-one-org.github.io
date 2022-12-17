@@ -1,6 +1,6 @@
 /*
  # -----------------------------------------------------------------------------
- #   ~/packages/100_template_css/theme-uno-dark.scss
+ #   ~/packages/100_theme_css/theme-uno-dark.scss
  #   Theme Uno - Dark variant
  #
  #   Product/Info:
@@ -8,13 +8,13 @@
  #
  #   Copyright (C) 2022 Juergen Adams
  #
- #   J1 Template is licensed under the MIT License.
- #   See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ #   J1 Theme is licensed under the MIT License.
+ #   See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
 /*
 // -----------------------------------------------------------------------------
-// ~/100_template_css/scss/theme_uno_dark.scss
+// ~/100_theme_css/scss/theme_uno_dark.scss
 // Theme Uno - Dark (inspired by Slate@Bootswatch 4.5.2)
 //
 // Product/Info:
@@ -22,34 +22,34 @@
 //
 // Copyright (C) 2022 Juergen Adams
 //
-// J1 Template is licensed under the MIT License.
-// See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+// J1 Theme is licensed under the MIT License.
+// See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
 // -----------------------------------------------------------------------------
 */
 /*
 // -----------------------------------------------------------------------------
-// ~/100_template_css/scss/theme_uno_dark/variables.scss
+// ~/100_theme_css/scss/theme_uno_dark/variables.scss
 //
 // Product/Info:
 // https://jekyll.one
 //
 // Copyright (C) 2022 Juergen Adams
 //
-// J1 Template is licensed under the MIT License.
-// See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+// J1 Theme is licensed under the MIT License.
+// See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
 // -----------------------------------------------------------------------------
 */
 /*
   # ----------------------------------------------------------------------------
-  # ~/100_template_css/scss/theme_uno_dark/variables/_colors.scss
+  # ~/100_theme_css/scss/theme_uno_dark/variables/_colors.scss
   #
   # Product/Info:
   # https://jekyll.one
   #
   # Copyright (C) 2022 Juergen Adams
   #
-  # J1 Template is licensed under the MIT License.
-  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+  # J1 Theme is licensed under the MIT License.
+  # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
   # ----------------------------------------------------------------------------
 */
 .bg-light {
@@ -60,15 +60,15 @@
 
 /*
   # ----------------------------------------------------------------------------
-  # ~/100_template_css/scss/theme_uno_dark/variables/_variables.scss
+  # ~/100_theme_css/scss/theme_uno_dark/variables/_variables.scss
   #
   # Product/Info:
   # https://jekyll.one
   #
   # Copyright (C) 2022 Juergen Adams
   #
-  # J1 Template is licensed under the MIT License.
-  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+  # J1 Theme is licensed under the MIT License.
+  # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
   # ----------------------------------------------------------------------------
   # NOTE:
   # Variables should follow the `$component-state-property-size` formula
@@ -82,19 +82,19 @@
 */
 /*
 // -----------------------------------------------------------------------------
-// ~/100_template_css/scss/theme_uno_dark/mixins.scss
+// ~/100_theme_css/scss/theme_uno_dark/mixins.scss
 //
 // Product/Info:
 // https://jekyll.one
 //
 // Copyright (C) 2022 Juergen Adams
 //
-// J1 Template is licensed under the MIT License.
-// See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+// J1 Theme is licensed under the MIT License.
+// See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
 // -----------------------------------------------------------------------------
 */
 /*!
-   * Bootstrap  v5.2.2 (https://getbootstrap.com/)
+   * Bootstrap  v5.2.3 (https://getbootstrap.com/)
    * Copyright 2011-2022 The Bootstrap Authors
    * Copyright 2011-2022 Twitter, Inc.
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -4831,7 +4831,6 @@ textarea.form-control-lg {
 .carousel-item-prev {
   display: block; }
 
-/* rtl:begin:ignore */
 .carousel-item-next:not(.carousel-item-start),
 .active.carousel-item-end {
   transform: translateX(100%); }
@@ -4840,7 +4839,6 @@ textarea.form-control-lg {
 .active.carousel-item-start {
   transform: translateX(-100%); }
 
-/* rtl:end:ignore */
 .carousel-fade .carousel-item {
   opacity: 0;
   transition-property: opacity;
@@ -8484,7 +8482,7 @@ textarea.form-control-lg {
 
 /*
 // -----------------------------------------------------------------------------
-// ~/100_template_css/scss/theme_uno_dark/bootstrap.scss
+// ~/100_theme_css/scss/theme_uno_dark/bootstrap.scss
 // Bootstrap Overloads
 //
 // Product/Info:
@@ -8492,21 +8490,21 @@ textarea.form-control-lg {
 //
 // Copyright (C) 2022 Juergen Adams
 //
-// J1 Template is licensed under the MIT License.
-// See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+// J1 Theme is licensed under the MIT License.
+// See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
 // -----------------------------------------------------------------------------
 */
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/bootstrap/_alert.scss
+ # ~/100_theme_css/scss/theme_uno_dark/bootstrap/_alert.scss
  #
  # Product/Info:
  # https://jekyll.one
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
 .alert .close {
@@ -8544,15 +8542,15 @@ textarea.form-control-lg {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/bootstrap/_badge.scss
+ # ~/100_theme_css/scss/theme_uno_dark/bootstrap/_badge.scss
  #
  # Product/Info:
  # https://jekyll.one
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
 .badge-success, .badge-warning, .badge-info {
@@ -8560,15 +8558,15 @@ textarea.form-control-lg {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/bootstrap/_breadcrumbs.scss
+ # ~/100_theme_css/scss/theme_uno_dark/bootstrap/_breadcrumbs.scss
  #
  # Product/Info:
  # https://jekyll.one
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
 .breadcrumb {
@@ -8580,15 +8578,15 @@ textarea.form-control-lg {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/bootstrap/_buttons.scss
+ # ~/100_theme_css/scss/theme_uno_dark/bootstrap/_buttons.scss
  #
  # Product/Info:
  # https://jekyll.one
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
 .btn {
@@ -8668,8 +8666,8 @@ textarea.form-control-lg {
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
 code {
@@ -8677,15 +8675,15 @@ code {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/bootstrap/_dropdowns.scss
+ # ~/100_theme_css/scss/theme_uno_dark/bootstrap/_dropdowns.scss
  #
  # Product/Info:
  # https://jekyll.one
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
 .dropdown-item.active, .dropdown-item:active {
@@ -8693,15 +8691,15 @@ code {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/bootstrap/_forms.scss
+ # ~/100_theme_css/scss/theme_uno_dark/bootstrap/_forms.scss
  #
  # Product/Info:
  # https://jekyll.one
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
 legend {
@@ -8916,7 +8914,7 @@ select.form-control[multiple] {
 */
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/bootstrap/_links.scss
+ # ~/100_theme_css/scss/theme_uno_dark/bootstrap/_links.scss
  # Provides custom styles and overloads
  #
  # Product/Info:
@@ -8924,8 +8922,8 @@ select.form-control[multiple] {
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
 a {
@@ -8954,8 +8952,8 @@ li > a:hover {
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
 .list-group-item {
@@ -8967,15 +8965,15 @@ li > a:hover {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/bootstrap/_navs.scss
+ # ~/100_theme_css/scss/theme_uno_dark/bootstrap/_navs.scss
  #
  # Product/Info:
  # https://jekyll.one
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
 .navbar .container {
@@ -9103,7 +9101,7 @@ li > a:hover {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/bootstrap/_progress.scss
+ # ~/100_theme_css/scss/theme_uno_dark/bootstrap/_progress.scss
  #
  # Product/Info:
  # https://github.com/FezVrasta/bootstrap-material-design
@@ -9121,15 +9119,15 @@ li > a:hover {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/bootstrap/_tables.scss
+ # ~/100_theme_css/scss/theme_uno_dark/bootstrap/_tables.scss
  #
  # Product/Info:
  # https://jekyll.one
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
 table {
@@ -9222,15 +9220,15 @@ table tr.even, table tr.alt, table tr:nth-of-type(even) {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/bootstrap/_typography.scss
+ # ~/100_theme_css/scss/theme_uno_dark/bootstrap/_typography.scss
  #
  # Product/Info:
  # https://jekyll.one
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
  # NOTE: Typography styles for resposive text (rtext)
  #  Provides flowting text styles for dynamic|responsible text.
@@ -9253,7 +9251,7 @@ cite, em, var, address, dfn {
 
 /*
 // -----------------------------------------------------------------------------
-// ~/100_template_css/scss/theme_uno_dark/extentions.scss
+// ~/100_theme_css/scss/theme_uno_dark/extentions.scss
 // CSS styles for additional elements that extents the theme
 //
 // Product/Info:
@@ -9261,21 +9259,21 @@ cite, em, var, address, dfn {
 //
 // Copyright (C) 2022 Juergen Adams
 //
-// J1 Template is licensed under the MIT License.
-// See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+// J1 Theme is licensed under the MIT License.
+// See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
 // -----------------------------------------------------------------------------
 */
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/extentions/_bs-doc.scss
+ # ~/100_theme_css/scss/theme_uno_dark/extentions/_bs-doc.scss
  #
  # Product/Info:
  # https:#jekyll.one
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
 .doc-example {
@@ -9284,7 +9282,7 @@ cite, em, var, address, dfn {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/extensions/_drawer.scss
+ # ~/100_theme_css/scss/theme_uno_dark/extensions/_drawer.scss
  #
  # Product/Info:
  # https://github.com/FezVrasta/bootstrap-material-design
@@ -9300,7 +9298,7 @@ cite, em, var, address, dfn {
 
 /*
 // -----------------------------------------------------------------------------
-// ~/100_template_css/scss/theme_uno_dark/extentions/_plans.scss
+// ~/100_theme_css/scss/theme_uno_dark/extentions/_plans.scss
 // Provides general styles for the J1 Plan Banner
 //
 // Product/Info:
@@ -9308,8 +9306,8 @@ cite, em, var, address, dfn {
 //
 // Copyright (C) 2022 Juergen Adams
 //
-// J1 Template is licensed under the MIT License.
-// See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+// J1 Theme is licensed under the MIT License.
+// See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
 // -----------------------------------------------------------------------------
 */
 .plan-card {
@@ -9321,15 +9319,15 @@ cite, em, var, address, dfn {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/extentions/_posts.scss
+ # ~/100_theme_css/scss/theme_uno_dark/extentions/_posts.scss
  #
  # Product/Info:
  # https:#jekyll.one
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
 .post-headline h1, .post-headline .h1,
@@ -9343,9 +9341,15 @@ cite, em, var, address, dfn {
 .series-navigation ul li a {
   background-color: #e0e0e0; }
 
+.series-navigation ul li a:hover {
+  color: #2196f3 !important; }
+
+.series-navigation ul li.current a {
+  background-color: rgba(255, 255, 255, 0.3); }
+
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/extensions/_switches.scss
+ # ~/100_theme_css/scss/theme_uno_dark/extensions/_switches.scss
  #
  # Product/Info:
  # https://github.com/FezVrasta/bootstrap-material-design
@@ -9363,15 +9367,15 @@ cite, em, var, address, dfn {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/extentions/_tags.scss
+ # ~/100_theme_css/scss/theme_uno_dark/extentions/_tags.scss
  #
  # Product/Info:
  # https:#jekyll.one
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
 .tagbox {
@@ -9382,15 +9386,15 @@ cite, em, var, address, dfn {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_template_css/scss/theme_uno_dark/extentions/_timeline.scss
+ # ~/100_theme_css/scss/theme_uno_dark/extentions/_timeline.scss
  #
  # Product/Info:
  # https:#jekyll.one
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
 .tmicon {
@@ -9406,7 +9410,7 @@ cite, em, var, address, dfn {
 
 /*
 // -----------------------------------------------------------------------------
-// ~/100_template_css/scss/theme_uno_dark/modules.scss
+// ~/100_theme_css/scss/theme_uno_dark/modules.scss
 // CSS styles for additional elements that extents the theme
 //
 // Product/Info:
@@ -9414,8 +9418,8 @@ cite, em, var, address, dfn {
 //
 // Copyright (C) 2022 Juergen Adams
 //
-// J1 Template is licensed under the MIT License.
-// See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+// J1 Theme is licensed under the MIT License.
+// See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
 // -----------------------------------------------------------------------------
 */
 /*
@@ -9427,8 +9431,8 @@ cite, em, var, address, dfn {
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
  # NOTE: Provides styles for the module J1 Header (attic)
  # -----------------------------------------------------------------------------
@@ -9442,8 +9446,8 @@ cite, em, var, address, dfn {
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
  # NOTE: Provides styles for the module J1 Toccer
  # -----------------------------------------------------------------------------
@@ -9460,8 +9464,8 @@ cite, em, var, address, dfn {
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
  # NOTE: Provides styles for the module J1 Toccer
  # -----------------------------------------------------------------------------
@@ -9481,8 +9485,8 @@ cite, em, var, address, dfn {
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
  # NOTE: Provides styles for the module J1 Toccer
  # -----------------------------------------------------------------------------
@@ -9514,8 +9518,8 @@ item {
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
  # NOTE: Provides styles for the module J1 Searcher
  # -----------------------------------------------------------------------------
@@ -9532,8 +9536,8 @@ item {
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
  # NOTE: Provides styles for the module J1 Toccer
  # -----------------------------------------------------------------------------
@@ -9543,7 +9547,7 @@ a.toc-link:hover {
 
 /*
 // -----------------------------------------------------------------------------
-// ~/100_template_css/scss/theme_uno_dark/vendor.scss
+// ~/100_theme_css/scss/theme_uno_dark/vendor.scss
 // CSS styles for vendor (3rd party) elements that extents the theme
 //
 // Product/Info:
@@ -9551,8 +9555,8 @@ a.toc-link:hover {
 //
 // Copyright (C) 2022 Juergen Adams
 //
-// J1 Template is licensed under the MIT License.
-// See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+// J1 Theme is licensed under the MIT License.
+// See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
 // -----------------------------------------------------------------------------
 */
 /*
@@ -9565,8 +9569,8 @@ a.toc-link:hover {
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
 .bqplot > svg .plotarea_background {
@@ -9582,8 +9586,8 @@ a.toc-link:hover {
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
 .bqplot > svg .plotarea_background {
@@ -9616,8 +9620,8 @@ a.toc-link:hover {
  # Copyright (C) 2022 Juergen Adams
  # Copyright (C) 2015 xLs51
  #
- # J1 Template is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # Twemoji-Picker is licensed under under the MIT License.
  # For details, https://github.com/xLs51/Twemoji-Picker
  # -----------------------------------------------------------------------------

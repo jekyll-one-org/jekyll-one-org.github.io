@@ -8,8 +8,8 @@
  #
  #  Copyright (C) 2022 Juergen Adams
  #
- #  J1 Template is licensed under MIT License.
- #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
+ #  J1 Theme is licensed under MIT License.
+ #  See: https://github.com/jekyll-one/J1 Theme/blob/master/LICENSE
  # -----------------------------------------------------------------------------
 */
 

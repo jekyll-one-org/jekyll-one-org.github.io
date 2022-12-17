@@ -12,7 +12,7 @@
  # Copyright (C) 2022 Juergen Adams
  # Copyright (C) 2014 Joseph Guadagno
  #
- # J1 Template is licensed under the MIT License.
+ # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # bootstrapThemeSwitcher is licensed under the MIT License.
  # For details, see https://github.com/jguadagno/bootstrapThemeSwitcher/blob/master/LICENSE
@@ -21,7 +21,7 @@
  #  Setup of theme loaders for local_themes|remote_themes moved
  #  to adapter navigator.js
  # -----------------------------------------------------------------------------
- # Adapter generated: 2022-11-23 14:40:17 +0100
+ # Adapter generated: 2022-12-17 18:18:46 +0100
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -90,7 +90,7 @@ j1.adapter.themer = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.themer',
-        generated:   '2022-11-23 14:40:17 +0100'
+        generated:   '2022-12-17 18:18:46 +0100'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings

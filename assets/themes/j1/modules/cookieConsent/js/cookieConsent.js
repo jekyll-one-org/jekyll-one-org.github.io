@@ -12,16 +12,16 @@
  #
  #  bootstrap-cookie-banner is licensed under MIT License.
  #  See: https://github.com/shaack/bootstrap-cookie-banner/blob/master/LICENSE
- #  J1 Template is licensed under MIT License.
- #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
+ #  J1 Theme is licensed under MIT License.
+ #  See: https://github.com/jekyll-one/J1 Theme/blob/master/LICENSE
  # -----------------------------------------------------------------------------
  # TODO:
  #
  # -----------------------------------------------------------------------------
  # NOTE:
  #  BS Cookie Consent is a MODIFIED version of bootstrap-cookie-banner
- #  for the use with J1 Template. This modified version cannot be used
- #  outside of J1 Template!
+ #  for the use with J1 Theme. This modified version cannot be used
+ #  outside of J1 Theme!
  # -----------------------------------------------------------------------------
 */
 

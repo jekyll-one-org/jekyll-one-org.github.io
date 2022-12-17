@@ -9,10 +9,10 @@
  #
  #  Copyright (C) 2022 Juergen Adams
  #
- #  J1 Template is licensed under MIT License.
- #  See: https://github.com/jekyll-one/J1 Template/blob/master/LICENSE
+ #  J1 Theme is licensed under MIT License.
+ #  See: https://github.com/jekyll-one/J1 Theme/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2022-11-23 14:40:17 +0100
+ #  Adapter generated: 2022-12-17 18:18:46 +0100
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -64,7 +64,7 @@ j1.adapter.translator = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.translator',
-        generated:   '2022-11-23 14:40:17 +0100'
+        generated:   '2022-12-17 18:18:46 +0100'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings

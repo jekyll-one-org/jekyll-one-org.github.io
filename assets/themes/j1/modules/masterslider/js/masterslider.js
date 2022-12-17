@@ -1,6 +1,6 @@
 /*!
  * Master Slider – Responsive Touch Swipe Slider [lite version]
- * Extended version for J1 Template
+ * Extended version for J1 Theme
  *
  * Copyright © 2022 All Rights Reserved.
  *
@@ -5422,7 +5422,7 @@ MSViewEvents.CHANGE_END         = 'slideChangeEnd';
 
 
 /**
- * Master Slider Filters Plugin for J1 Template
+ * Master Slider Filters Plugin for J1 Theme
  * This plugin adds CSS3 filters to the slides, like brightness, grayscale,
  * sepia etc. It works for all modern browsers and devices.
  */

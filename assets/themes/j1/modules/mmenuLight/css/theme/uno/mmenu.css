@@ -5,15 +5,11 @@
  #
  #  Product/Info:
  #  https://jekyll.one
- #  https://github.com/FrDH/mmenu-light
  #
  #  Copyright (C) 2022 Juergen Adams
- #  Copyright (C) 2015-2020 Fred Heusschen
  #
- #  J1 Template is licensed under the MIT License.
- #  See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
- #  Mmenu Light is licensed under the CC-BY-4.0 License.
- #  See: http://creativecommons.org/licenses/by/4.0/
+ #  J1 Theme is licensed under the MIT License.
+ #  See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
 
@@ -64,7 +60,7 @@
 }
 
 /* Themes */
-/* jadams, 2020-06-20: set j1 template colors (dark theme) */
+/* jadams, 2020-06-20: set J1 Theme colors (dark theme) */
 .mm-spn.mm-spn--dark {
   color: #e3e3e3;
   background: #000 !important;
@@ -214,7 +210,7 @@ NOTE: For unknown reason, style "mm-ocd--left" is NOT applied correctly
 /* Desktop 2 (intermediate|responsive size)
    Small devices (landscape phones, 576px and up)
 */
-@media only screen and (min-width: 576px) {
+@media only screen and (max-width: 576px) {
   .mm-ocd {
     top: 48px; /* drawer top offset to NAV bar */
   }

@@ -3,20 +3,20 @@
   /*
  # -----------------------------------------------------------------------------
  # ~/assets/themes/j1/adapter/js/j1_template.js
- # JS Adapter for J1 Template
+ # JS Adapter for J1 Theme
  #
  # Product/Info:
  # https://jekyll.one
  #
  # Copyright (C) 2022 Juergen Adams
  #
- # J1 Template is licensed under the MIT License.
+ # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2022-11-23 14:40:17 +0100
+ # Adapter generated: 2022-12-17 18:18:46 +0100
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -122,7 +122,7 @@ var j1 = (function (options) {
   };
   var user_state   = {
     'writer':               'j1.adapter',
-    'template_version':     '2022.6.1',
+    'template_version':     '2023.0.0',
 //
 //  for testing only
 //  'template_version':     'undefined',
@@ -131,7 +131,7 @@ var j1 = (function (options) {
     'theme_name':           'UnoLight',
     'theme_css':            '',
     'theme_author':         'J1 Team',
-    'theme_version':        '2022.6.1',
+    'theme_version':        '2023.0.0',
     'session_active':       false,
     'google_translate':     'disabled',
     'translate_all_pages':  true,
@@ -169,7 +169,7 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2022-11-23 14:40:17 +0100'
+        generated:   '2022-12-17 18:18:46 +0100'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
@@ -920,7 +920,7 @@ var j1 = (function (options) {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2022.6.1';
+      return '2023.0.0';
     },
     // -------------------------------------------------------------------------
     // getScrollOffset()
@@ -1695,7 +1695,7 @@ var j1 = (function (options) {
       }
     },
     // -------------------------------------------------------------------------
-    //  Returns the names of cookies used for J1 Template
+    //  Returns the names of cookies used for J1 Theme
     // -------------------------------------------------------------------------
     getCookieNames: function () {
       return cookie_names;

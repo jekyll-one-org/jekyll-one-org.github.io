@@ -3,7 +3,7 @@
   {
     "demo_text_carousel" : [
       {
-        "text"    : "<big>Jekyll One Template</big>         </br> <i>Clean, responsive and fully featured Template made for Jekyll</i>"
+        "text"    : "<big>Jekyll One Theme</big>         </br> <i>Clean, responsive and fully featured Template made for Jekyll</i>"
       },
       {
         "text"    : "<big>Jekyll meets Bootstrap</big>      </br> <i>Best of OpenSource and commercial software for the Web</i>"
@@ -20,7 +20,7 @@
     ],
     "demo_text_carousel_parallax" : [
       {
-        "text"    : "<big>Jekyll One Template</big>         </br> <i>Clean, responsive and fully featured Template made for Jekyll</i>"
+        "text"    : "<big>Jekyll One Theme</big>         </br> <i>Clean, responsive and fully featured Template made for Jekyll</i>"
       },
       {
         "text"    : "<big>Jekyll meets Bootstrap</big>      </br> <i>Best of OpenSource and commercial software for the Web</i>"

@@ -1,6 +1,6 @@
 /*
   # ----------------------------------------------------------------------------
-  # ~/100_template_css/scss/theme_vapor.scss
+  # ~/100_theme_css/scss/theme_vapor.scss
   # Theme Uno - Definitions AND partial index file|s
   #
   # Product/Info:
@@ -8,8 +8,8 @@
   #
   # Copyright (C) 2022 Juergen Adams
   #
-  # J1 Template is licensed under the MIT License.
-  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+  # J1 Theme is licensed under the MIT License.
+  # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
   # ----------------------------------------------------------------------------
   # NOTE:
   # jadams, 2017-11-18: modified (applied fixes) to _drawer.scss|_forms.scss (mixins)
@@ -22,7 +22,7 @@
 */
 /*
   # ----------------------------------------------------------------------------
-  # ~/100_template_css/scss/theme_vapor.scss
+  # ~/100_theme_css/scss/theme_vapor.scss
   # Theme Vapor - Definitions AND partial index file|s taken
   # from 'Bootswatch'
   #
@@ -32,14 +32,14 @@
   # Copyright (C) 2022 Juergen Adams
   # Copyright (C) 2013 Thomas Park
   #
-  # J1 Template is licensed under the MIT License.
-  # See: https://github.com/jekyll-one-org/J1 Template/blob/master/LICENSE
+  # J1 Theme is licensed under the MIT License.
+  # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
   # Bootswatch themes are licensed under the MIT License.
   # See: https://github.com/thomaspark/bootswatch/blob/v5/LICENSE
   # ----------------------------------------------------------------------------
 */
 /*!
-   * Bootstrap  v5.2.2 (https://getbootstrap.com/)
+   * Bootstrap  v5.2.3 (https://getbootstrap.com/)
    * Copyright 2011-2022 The Bootstrap Authors
    * Copyright 2011-2022 Twitter, Inc.
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -4776,7 +4776,6 @@ textarea.form-control-lg {
 .carousel-item-prev {
   display: block; }
 
-/* rtl:begin:ignore */
 .carousel-item-next:not(.carousel-item-start),
 .active.carousel-item-end {
   transform: translateX(100%); }
@@ -4785,7 +4784,6 @@ textarea.form-control-lg {
 .active.carousel-item-start {
   transform: translateX(-100%); }
 
-/* rtl:end:ignore */
 .carousel-fade .carousel-item {
   opacity: 0;
   transition-property: opacity;
