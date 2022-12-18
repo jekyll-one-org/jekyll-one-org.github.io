@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2022-12-17 18:18:46 +0100
+ # Adapter generated: 2022-12-18 12:15:04 +0100
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -33,7 +33,7 @@ var j1 = (function (options) {
   // ---------------------------------------------------------------------------
   // base page resources
   var rePager                     =  new RegExp('navigator|dateview|tagview|archive');
-  var environment                 = 'development';
+  var environment                 = 'production';
   var moduleOptions               = {};
   var j1_runtime_data             = {};
   var _this;
@@ -169,7 +169,7 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2022-12-17 18:18:46 +0100'
+        generated:   '2022-12-18 12:15:04 +0100'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
