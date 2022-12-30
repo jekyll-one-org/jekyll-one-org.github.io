@@ -8,7 +8,7 @@
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2022 Juergen Adams
+ # Copyright (C) 2023 Juergen Adams
  #
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2022-12-18 12:15:04 +0100
+ # Adapter generated: 2022-12-30 16:55:47 +0100
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -169,7 +169,7 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2022-12-18 12:15:04 +0100'
+        generated:   '2022-12-30 16:55:47 +0100'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
@@ -965,7 +965,7 @@ var j1 = (function (options) {
       var selector        = $(anchor_id);
       // skip invalid anchors|selectors
       //
-      if (typeof anchor === 'undefined' || anchor.includes('googtrans') || !$(selector).length) {
+      if (typeof anchor === 'undefined' || anchor.includes('slide') || anchor.includes('googtrans') || !$(selector).length) {
         return false;
       }
       // Check if the anchor is an slider/gallery element

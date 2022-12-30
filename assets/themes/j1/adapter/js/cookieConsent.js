@@ -7,12 +7,12 @@
  #  Product/Info:
  #  http://jekyll.one
  #
- #  Copyright (C) 2022 Juergen Adams
+ #  Copyright (C) 2023 Juergen Adams
  #
  #  J1 Theme is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Theme/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2022-12-18 12:15:04 +0100
+ #  Adapter generated: 2022-12-30 16:55:47 +0100
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -64,7 +64,7 @@ j1.adapter.cookieConsent = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.cookieConsent',
-        generated:   '2022-12-18 12:15:04 +0100'
+        generated:   '2022-12-30 16:55:47 +0100'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings

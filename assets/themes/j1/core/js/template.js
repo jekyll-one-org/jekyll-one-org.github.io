@@ -13,7 +13,7 @@
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2022 Juergen Adams
+ #  Copyright (C) 2023 Juergen Adams
  #
  #  J1 Theme is licensed under MIT License.
  #  See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
@@ -56,7 +56,7 @@ module.exports = function (j1, window) {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2022 Juergen Adams
+ # Copyright (C) 2023 Juergen Adams
  #
  # J1 Theme is licensed under MIT License.
  # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
@@ -1629,7 +1629,7 @@ module.exports = anime;
  #  Product/Info:
  #  http://jekyll.one
  #
- #  Copyright (C) 2022 Juergen Adams
+ #  Copyright (C) 2023 Juergen Adams
  #
  #  J1 Theme is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Theme/blob/master/LICENSE
@@ -1653,7 +1653,7 @@ module.exports = anime;
 // -----------------------------------------------------------------------------
 /*!
  * J1 Asciidoctor
- * Copyright (C) 2022 Juergen Adams
+ * Copyright (C) 2023 Juergen Adams
  * Licensed under MIT License.
  */
 module.exports = function asciidoctor(options) {
@@ -1726,7 +1726,7 @@ module.exports = function asciidoctor(options) {
  #  https://jekyll.one
  #  http://getbootstrap.com/
  #
- #  Copyright (C) 2022 Juergen Adams
+ #  Copyright (C) 2023 Juergen Adams
  #
  #  J1 Theme is licensed under MIT License.
  #  See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
@@ -1745,7 +1745,7 @@ module.exports = function asciidoctor(options) {
 // module.exports = function core ( options ) {
 /*!
  * J1 Core
- * Copyright (C) 2022 Juergen Adams
+ * Copyright (C) 2023 Juergen Adams
  * Licensed under MIT License.
  */
 module.exports = function (options) {
@@ -2112,7 +2112,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
  #  https://github.com/adamnurdin01/bootsnav
  #  http://corenav.anurdin.net/
  #
- #  Copyright (C) 2022 Juergen Adams
+ #  Copyright (C) 2023 Juergen Adams
  #  Copyright (C) 2016 adamnurdin01
  #
  #  J1 Theme is licensed under MIT License.
@@ -3418,7 +3418,7 @@ module.exports = function parseContent(options) {
  #  https://tscanlin.github.io/tocbot
  #  https://github.com/tscanlin/tocbot
  #
- #  Copyright (C) 2022 Juergen Adams
+ #  Copyright (C) 2023 Juergen Adams
  #  Copyright (C) 2016 Tim Scanlin
  #
  #  J1 Theme is licensed under MIT License.
@@ -3571,7 +3571,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
  #  https://tscanlin.github.io/tocbot
  #  https://github.com/tscanlin/tocbot
  #
- #  Copyright (C) 2022 Juergen Adams
+ #  Copyright (C) 2023 Juergen Adams
  #  Copyright (C) 2016 Tim Scanlin
  #
  #  J1 Theme is licensed under MIT License.
@@ -9727,7 +9727,7 @@ var __webpack_exports__ = {};
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2022 Juergen Adams
+ #  Copyright (C) 2023 Juergen Adams
  #
  #  J1 Theme is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md

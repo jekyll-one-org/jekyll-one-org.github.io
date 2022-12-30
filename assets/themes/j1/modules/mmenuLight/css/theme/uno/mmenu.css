@@ -6,7 +6,7 @@
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2022 Juergen Adams
+ #  Copyright (C) 2023 Juergen Adams
  #
  #  J1 Theme is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
@@ -24,11 +24,11 @@
 /* Drawer */
 
 .mm-ocd--left .mm-ocd__content {
-  background-color: #191919;
+  background-color: #000;
 }
 
 .mm-ocd--right .mm-ocd__content {
-  background-color: #191919;
+  background-color: #000;
 }
 
 /* Additional CSS styles for BS Theme Switcher
@@ -183,18 +183,6 @@ NOTE: For unknown reason, style "mm-ocd--left" is NOT applied correctly
       queries as well (but MUST be removed if fixed!!!)
 -------------------------------------------------------------------------------- */
 
-/* Large desktop
-   X-Large devices (large desktops, 1200px and up)
-*/
-@media only screen and (min-width: 1200px) {
-  .mm-ocd {
-    top: 80px; /* drawer top offset to NAV bar */
-  }
-  .mm-ocd__content {
-      background-color: #191919;
-  }
-}
-
 /* Desktop
    Large devices (desktops, 992px and up)
 */
@@ -203,28 +191,18 @@ NOTE: For unknown reason, style "mm-ocd--left" is NOT applied correctly
     top: 80px; /* drawer top offset to NAV bar */
   }
   .mm-ocd__content {
-      background-color: #191919;
+      background-color: #000; /* black */
   }
 }
 
-/* Desktop 2 (intermediate|responsive size)
-   Small devices (landscape phones, 576px and up)
+/* Mobile
+   Small devices (992px and below)
 */
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 992px) {
   .mm-ocd {
     top: 48px; /* drawer top offset to NAV bar */
   }
   .mm-ocd__content {
-      background-color: #191919;
-  }
-}
-
-/* X-Small devices (portrait phones, less than 576px) */
-@media only screen and (max-width: 576px){
-  .mm-ocd {
-    top: 48px; /* drawer top offset to NAV bar */
-  }
-  .mm-ocd__content {
-      background-color: #191919;
+      background-color: #000; /* black */
   }
 }
