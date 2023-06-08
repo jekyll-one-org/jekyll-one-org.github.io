@@ -1,6 +1,3 @@
 Sitemap: https://starter.jekyll.one//sitemap.xml
 
 
-
-
-

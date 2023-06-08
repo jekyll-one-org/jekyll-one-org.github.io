@@ -12,7 +12,7 @@
  #  J1 Theme is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Theme/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-06-08 20:47:56 +0200
+ #  Adapter generated: 2023-06-08 21:16:43 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -67,7 +67,7 @@ j1.adapter.translator = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.translator',
-        generated:   '2023-06-08 20:47:56 +0200'
+        generated:   '2023-06-08 21:16:43 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -130,11 +130,9 @@ j1.adapter.translator = (function (j1, window) {
         } else  {
           domainAttribute = '';
         }
-        var pageState     = $('#no_flicker').css("display");
-        var pageVisible   = (pageState == 'block') ? true: false;
-        var atticFinished = (j1.adapter.attic.getState() == 'finished') ? true: false;
-        if (j1.getState() === 'finished' && pageVisible) {
-//      if (j1.getState() === 'finished' && pageVisible && atticFinished) {
+        var pageState   = $('#no_flicker').css("display");
+        var pageVisible = (pageState == 'block') ? true: false;
+        if ( j1.getState() === 'finished' && pageVisible ) {
           _this.setState('started');
           logger.debug('\n' + 'state: ' + _this.getState());
           logger.info('\n' + 'module is being initialized');
@@ -250,7 +248,7 @@ j1.adapter.translator = (function (j1, window) {
           logger.debug('\n' + 'module initialized successfully');
           clearInterval(dependencies_met_page_ready);
         }
-      }, 5);
+      }, 25);
     }, // END init
     // -------------------------------------------------------------------------
     // messageHandler: MessageHandler for J1 google_translate module
