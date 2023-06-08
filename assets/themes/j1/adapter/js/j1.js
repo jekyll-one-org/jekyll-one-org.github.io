@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-06-08 21:43:28 +0200
+ # Adapter generated: 2023-06-08 22:06:55 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -178,7 +178,7 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2023-06-08 21:43:28 +0200'
+        generated:   '2023-06-08 22:06:55 +0200'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
@@ -272,12 +272,10 @@ var j1 = (function (options) {
       }
       var dependencies_met_page_loaded = setInterval (function () {
         if (j1.getState() == 'finished') {
-          // register observers
-          //
-          j1.registerMonitors();
+          j1.registerEvents(logger);
         }
         clearInterval(dependencies_met_page_loaded);
-      }, 5); // END dependencies_met_page_loaded
+      }, 25); // END dependencies_met_page_loaded
       // detect middleware (mode 'app') and update user session cookie
       // -----------------------------------------------------------------------
       if (user_session.mode === 'app') {
@@ -328,7 +326,7 @@ var j1 = (function (options) {
                 clearInterval(dependencies_met_page_displayed);
               }
             }
-          }, 5);
+          }, 25);
         })
         .catch(function(error) {
           // jadams, 2018-08-31
@@ -625,11 +623,6 @@ var j1 = (function (options) {
       // personalized content require user consent
       var meta_personalization  = $('meta[name=personalization]').attr('content');
       var personalization       = (meta_personalization === 'true') ? true: false;
-      const cb = (list) => {
-          list.getEntries().forEach(entry => {
-              console.log(entry);
-          });
-      }
       // if personalized content detected, page requires user consent
       // -----------------------------------------------------------------------
       if (personalization && !user_consent.personalization) {
@@ -790,7 +783,7 @@ var j1 = (function (options) {
               }, 1000 );
               clearInterval(dependencies_met_page_ready);
             }
-          }, 5);
+          }, 25);
           // set|log status
           state = 'finished';
           j1.setState(state);
@@ -958,7 +951,7 @@ var j1 = (function (options) {
             }, 1000 );
             clearInterval(dependencies_met_page_ready);
           }
-        }, 5);
+        }, 25);
         // set|log status
         state = 'finished';
         j1.setState(state);
@@ -1665,7 +1658,7 @@ var j1 = (function (options) {
             return false;
           }
         }
-      }, 5);
+      }, 25);
     },
     // -------------------------------------------------------------------------
     // Update MACROs
@@ -1718,7 +1711,7 @@ var j1 = (function (options) {
             return false;
           }
         }
-      }, 5);
+      }, 25);
     },
     // -------------------------------------------------------------------------
     // getMessage
@@ -2041,7 +2034,7 @@ var j1 = (function (options) {
             clearInterval(dependencies_met_page_displayed);
           }
         }
-      }, 5);
+      }, 25);
     },
     // -------------------------------------------------------------------------
     // stringToBoolean()
@@ -2063,61 +2056,15 @@ var j1 = (function (options) {
       }
     }, // END stringToBoolean
     // -------------------------------------------------------------------------
-    // registerMonitors()
+    // registerEvents()
     //
     // -------------------------------------------------------------------------
-    registerMonitors: function () {
-      // add PerformanceObserver to monitor the 'CLS' of a page load
-      // see: https://requestmetrics.com/web-performance/cumulative-layout-shift
-      //
-      var cls     = 0;
-      var prevCLS = 1000000000; // suppress first page changes
-      var roundedCLS;
-      const performanceObserverCLS = new PerformanceObserver(entryList => {
-        var logger  = log4javascript.getLogger('PerformanceObserver');
-        var entries = entryList.getEntries() || [];
-        entries.forEach(entry => {
-          // omit entries likely caused by user input
-          if (!entry.hadRecentInput) {
-            cls += entry.value;
-            roundedCLS = cls.toFixed(3);
-          }
-          // if (entry.sources) {
-          //
-          //   for (const {node, currentRect, previousRect} of entry.sources) {
-          //
-          //     if (typeof node.firstElementChild != 'null' && typeof node.firstElementChild != 'undefined') {
-          //
-          //       var id = '';
-          //       try {
-          //         id = node.firstElementChild.id;
-          //       }
-          //       catch(err) {
-          //         id = 'missing';
-          //       }
-          //
-          //       if (id !== 'missing' && id !== '') {
-          //         logger.debug('\n' + 'Cumulative Layout Shift (CLS) on id: ', id);
-          //         logger.debug('\n' + 'Cumulative Layout Shift (CLS): ', roundedCLS);
-          //       }
-          //
-          //     }
-          //   }
-          // }
-        });
-        if (roundedCLS > prevCLS) {
-          if (roundedCLS > 0.25) {
-            logger.debug('\n' + 'Cumulative Layout Shift (CLS): ', roundedCLS);
-          }
-        }
-        prevCLS = roundedCLS;
-      });
-      // add ResizeObserver to monitor the page height of dynamic pages
+    registerEvents: function (logger) {
+      // Add ResizeObserver to monitor the page height of dynamic pages
       // see: https://stackoverflow.com/questions/14866775/detect-document-height-change
       //
-      const resizeObserver = new ResizeObserver(entries => {
+      const observer = new ResizeObserver(entries => {
         var scrollOffsetCorrection  = scrollerOptions.smoothscroll.offsetCorrection;
-        var logger                = log4javascript.getLogger('ResizeObserver');
         const body                  = document.body,
               html                  = document.documentElement,
               scrollOffset          = j1.getScrollOffset(scrollOffsetCorrection);
@@ -2131,11 +2078,9 @@ var j1 = (function (options) {
           html.offsetHeight
         );
         j1['pageMonitor'].eventNo += 1;
-        // skip first Observer event
-        //
+        // Skip first Observer events as data returne found  unusable
         if (j1['pageMonitor'].eventNo == 2) {
           // Set initial data from second event
-          //
           j1['pageMonitor'].pageBaseHeight      = document.body.scrollHeight;
           j1['pageMonitor'].currentPageHeight   = document.body.scrollHeight;
           j1['pageMonitor'].previousPageHeight  = document.body.scrollHeight;
@@ -2145,7 +2090,7 @@ var j1 = (function (options) {
           growthRatio         = 0.00;
         } else {
           // collect 'pageHeight' from 'entries'
-          //
+          // NOTE: each entry is an instance of ResizeObserverEntry
           for (const entry of entries) {
             pageBaseHeight = j1['pageMonitor'].pageBaseHeight;
             if (pageBaseHeight > 0) {
@@ -2154,7 +2099,6 @@ var j1 = (function (options) {
               pageHeight = Math.round(entry.contentRect.height);
               j1['pageMonitor'].currentPageHeight = pageHeight;
               // total growth ratio
-              //
               pageGrowthRatio = pageHeight / pageBaseHeight * 100;
               pageGrowthRatio = pageGrowthRatio.toFixed(2);
               j1['pageMonitor'].currentGrowthRatio = pageGrowthRatio;
@@ -2163,37 +2107,29 @@ var j1 = (function (options) {
               j1['pageMonitor'].growthRatio = growthRatio;
             }
           }
-          // detect the 'page type'
-          //
-          if (growthRatio >= 5) {
+          // detect the page 'type'
+          if (growthRatio >= 10) {
             j1['pageMonitor'].pageType = 'dynamic';
-            logger.debug('\n' + 'growthRatio: ' + j1['pageMonitor'].growthRatio + '%');
-            logger.debug('\n' + 'page detected as: dynamic');
+//          logger.debug('\n' + 'Observer: previousPageHeight|currentPageHeight (px): ', j1['pageMonitor'].previousPageHeight + '|' + pageHeight);
+//          logger.debug('\n' + 'Observer: growthRatio relative|absolute (%): ', growthRatio + '|' + pageGrowthRatio);
+            logger.debug('\n' + 'Observer: page growthRatio (%): ', j1['pageMonitor'].growthRatio);
+            logger.debug('\n' + 'Observer: page detected as: dynamic');
           } else {
             // set the page type to 'static' if low growth detected
             //
-            if (typeof j1['pageMonitor'].growthRatio != 'undefined' && j1['pageMonitor'].growthRatio > 0) {
-              logger.debug('\n' + 'growthRatio: ' + j1['pageMonitor'].growthRatio + '%');
-              j1['pageMonitor'].pageType = 'static';
-              logger.debug('\n' + 'page detected as: static');
-            }
+            logger.debug('\n' + 'Observer: page growthRatio (%): ', j1['pageMonitor'].growthRatio);
+            j1['pageMonitor'].pageType = 'static';
+            logger.debug('\n' + 'Observer: page detected as: static');
           }
         } // END Observer data evaluation
       }); // END Observer
-      // run observers to monitor page
-      //
+      // monitor the page growth if visible
       var dependencies_met_page_finished = setInterval (function () {
         if (j1.getState() == 'finished') {
-          // monitor 'CLS'
-          performanceObserverCLS.observe({
-            type: 'layout-shift',
-            buffered: true
-          });
-          // monitor 'page growth'
-          resizeObserver.observe(document.querySelector('body'));
+          observer.observe(document.querySelector('body'));                     //    observer.observe(document.querySelector('#content'));
           clearInterval(dependencies_met_page_finished);
         }
-      }, 5);
+      }, 25);
       // -----------------------------------------------------------------------
       // final updates before browser page|tab
       // see: https://stackoverflow.com/questions/3888902/detect-browser-or-tab-closing
@@ -2247,7 +2183,7 @@ var j1 = (function (options) {
         }
       }
      });
-   } // END registerMonitors
+   } // END registerEvents
   };
 }) (j1, window);
 

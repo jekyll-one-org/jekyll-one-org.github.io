@@ -24,11 +24,11 @@
 /* Drawer */
 
 .mm-ocd--left .mm-ocd__content {
-  background-color: #212121;
+  background-color: #000;
 }
 
 .mm-ocd--right .mm-ocd__content {
-  background-color: #212121;
+  background-color: #000;
 }
 
 /* Additional CSS styles for BS Theme Switcher
