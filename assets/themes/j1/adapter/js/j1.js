@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-06-08 20:12:05 +0200
+ # Adapter generated: 2023-06-08 20:23:45 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -33,7 +33,7 @@ var j1 = (function (options) {
   // ---------------------------------------------------------------------------
   // base page resources
   var rePager          =  new RegExp('navigator|dateview|tagview|archive');
-  var environment      = 'development';
+  var environment      = 'production';
   var moduleOptions    = {};
   var j1_runtime_data  = {};
   var scrollerSettings = {};
@@ -131,7 +131,7 @@ var j1 = (function (options) {
   };
   var user_state   = {
     'writer':               'j1.adapter',
-    'template_version':     '2023.3.5',
+    'template_version':     '2023.3.4',
 //
 //  for testing only
 //  'template_version':     'undefined',
@@ -140,7 +140,7 @@ var j1 = (function (options) {
     'theme_name':           'UnoLight',
     'theme_css':            '',
     'theme_author':         'J1 Team',
-    'theme_version':        '2023.3.5',
+    'theme_version':        '2023.3.4',
     'session_active':       false,
     'google_translate':     'disabled',
     'translate_all_pages':  true,
@@ -178,7 +178,7 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2023-06-08 20:12:05 +0200'
+        generated:   '2023-06-08 20:23:45 +0200'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
@@ -277,7 +277,7 @@ var j1 = (function (options) {
           j1.registerMonitors();
         }
         clearInterval(dependencies_met_page_loaded);
-      }, 5); // END dependencies_met_page_loaded
+      }, 25); // END dependencies_met_page_loaded
       // detect middleware (mode 'app') and update user session cookie
       // -----------------------------------------------------------------------
       if (user_session.mode === 'app') {
@@ -328,7 +328,7 @@ var j1 = (function (options) {
                 clearInterval(dependencies_met_page_displayed);
               }
             }
-          }, 5);
+          }, 25);
         })
         .catch(function(error) {
           // jadams, 2018-08-31
@@ -787,10 +787,10 @@ var j1 = (function (options) {
               setTimeout (function() {
                 // scroll to an anchor in current page if given in URL
                 j1.scrollToAnchor();
-              }, 1000 );
+              }, 10 );
               clearInterval(dependencies_met_page_ready);
             }
-          }, 5);
+          }, 25);
           // set|log status
           state = 'finished';
           j1.setState(state);
@@ -955,10 +955,10 @@ var j1 = (function (options) {
             setTimeout (function() {
               // scroll to an anchor in current page if given in URL
               j1.scrollToAnchor();
-            }, 1000 );
+            }, 10 );
             clearInterval(dependencies_met_page_ready);
           }
-        }, 5);
+        }, 25);
         // set|log status
         state = 'finished';
         j1.setState(state);
@@ -1007,7 +1007,7 @@ var j1 = (function (options) {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2023.3.5';
+      return '2023.3.4';
     },
     // -------------------------------------------------------------------------
     // getScrollOffset()
@@ -1665,7 +1665,7 @@ var j1 = (function (options) {
             return false;
           }
         }
-      }, 5);
+      }, 25);
     },
     // -------------------------------------------------------------------------
     // Update MACROs
@@ -1718,7 +1718,7 @@ var j1 = (function (options) {
             return false;
           }
         }
-      }, 5);
+      }, 25);
     },
     // -------------------------------------------------------------------------
     // getMessage
@@ -2037,11 +2037,11 @@ var j1 = (function (options) {
               scrollOffsetCorrection = scrollerOptions.smoothscroll.offsetCorrection;
               scrollOffset = j1.getScrollOffset(scrollOffsetCorrection);
               j1.scrollTo(scrollOffset);
-            }, 1000 );
+            }, 10 );
             clearInterval(dependencies_met_page_displayed);
           }
         }
-      }, 5);
+      }, 25);
     },
     // -------------------------------------------------------------------------
     // stringToBoolean()
@@ -2193,7 +2193,7 @@ var j1 = (function (options) {
           resizeObserver.observe(document.querySelector('body'));
           clearInterval(dependencies_met_page_finished);
         }
-      }, 5);
+      }, 25);
       // -----------------------------------------------------------------------
       // final updates before browser page|tab
       // see: https://stackoverflow.com/questions/3888902/detect-browser-or-tab-closing
