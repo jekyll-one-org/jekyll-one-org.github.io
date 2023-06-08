@@ -36,7 +36,7 @@ module.exports = function (j1, window) {
     // _init_
     // Global initializer for the adapter object
     // -------------------------------------------------------------------------
-    _init_: function _init_() {
+    _init_: function () {
       return;
     } // END _init_
   }; // END return
@@ -168,46 +168,46 @@ function applyArguments(func, args) {
   return func.apply(null, args);
 }
 var is = {
-  arr: function arr(a) {
+  arr: function (a) {
     return Array.isArray(a);
   },
-  obj: function obj(a) {
+  obj: function (a) {
     return stringContains(Object.prototype.toString.call(a), 'Object');
   },
-  pth: function pth(a) {
+  pth: function (a) {
     return is.obj(a) && a.hasOwnProperty('totalLength');
   },
-  svg: function svg(a) {
+  svg: function (a) {
     return a instanceof SVGElement;
   },
-  inp: function inp(a) {
+  inp: function (a) {
     return a instanceof HTMLInputElement;
   },
-  dom: function dom(a) {
+  dom: function (a) {
     return a.nodeType || is.svg(a);
   },
-  str: function str(a) {
+  str: function (a) {
     return typeof a === 'string';
   },
-  fnc: function fnc(a) {
+  fnc: function (a) {
     return typeof a === 'function';
   },
-  und: function und(a) {
+  und: function (a) {
     return typeof a === 'undefined';
   },
-  hex: function hex(a) {
+  hex: function (a) {
     return /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(a);
   },
-  rgb: function rgb(a) {
+  rgb: function (a) {
     return /^rgb/.test(a);
   },
-  hsl: function hsl(a) {
+  hsl: function (a) {
     return /^hsl/.test(a);
   },
-  col: function col(a) {
+  col: function (a) {
     return is.hex(a) || is.rgb(a) || is.hsl(a);
   },
-  key: function key(a) {
+  key: function (a) {
     return !defaultInstanceSettings.hasOwnProperty(a) && !defaultTweenSettings.hasOwnProperty(a) && a !== 'targets' && a !== 'keyframes';
   }
 };
@@ -372,29 +372,29 @@ var penner = function () {
   // Based on jQuery UI's implemenation of easing equations from Robert Penner (http://www.robertpenner.com/easing)
 
   var eases = {
-    linear: function linear() {
+    linear: function () {
       return function (t) {
         return t;
       };
     }
   };
   var functionEasings = {
-    Sine: function Sine() {
+    Sine: function () {
       return function (t) {
         return 1 - Math.cos(t * Math.PI / 2);
       };
     },
-    Circ: function Circ() {
+    Circ: function () {
       return function (t) {
         return 1 - Math.sqrt(1 - t * t);
       };
     },
-    Back: function Back() {
+    Back: function () {
       return function (t) {
         return t * t * (3 * t - 2);
       };
     },
-    Bounce: function Bounce() {
+    Bounce: function () {
       return function (t) {
         var pow2,
           b = 4;
@@ -402,7 +402,7 @@ var penner = function () {
         return 1 / Math.pow(4, 3 - b) - 7.5625 * Math.pow((pow2 * 3 - 2) / 22 - t, 2);
       };
     },
-    Elastic: function Elastic(amplitude, period) {
+    Elastic: function (amplitude, period) {
       if (amplitude === void 0) amplitude = 1;
       if (period === void 0) period = .5;
       var a = minMax(amplitude, 1, 10);
@@ -944,7 +944,7 @@ function flattenKeyframes(keyframes) {
     return a;
   }, []);
   var properties = {};
-  var loop = function loop(i) {
+  var loop = function (i) {
     var propName = propertyNames[i];
     properties[propName] = keyframes.map(function (key) {
       var newKey = {};
@@ -960,9 +960,7 @@ function flattenKeyframes(keyframes) {
       return newKey;
     });
   };
-  for (var i = 0; i < propertyNames.length; i++) {
-    loop(i);
-  }
+  for (var i = 0; i < propertyNames.length; i++) loop(i);
   return properties;
 }
 function getProperties(tweenSettings, params) {
@@ -1035,16 +1033,16 @@ function normalizeTweens(prop, animatable) {
 // Tween progress
 
 var setProgressValue = {
-  css: function css(t, p, v) {
+  css: function (t, p, v) {
     return t.style[p] = v;
   },
-  attribute: function attribute(t, p, v) {
+  attribute: function (t, p, v) {
     return t.setAttribute(p, v);
   },
-  object: function object(t, p, v) {
+  object: function (t, p, v) {
     return t[p] = v;
   },
-  transform: function transform(t, p, v, transforms, manual) {
+  transform: function (t, p, v, transforms, manual) {
     transforms.list.set(p, v);
     if (p === transforms.last || manual) {
       var str = '';
@@ -1106,7 +1104,7 @@ function getAnimations(animatables, properties) {
 
 function getInstanceTimings(animations, tweenSettings) {
   var animLength = animations.length;
-  var getTlOffset = function getTlOffset(anim) {
+  var getTlOffset = function (anim) {
     return anim.timelineOffset ? anim.timelineOffset : 0;
   };
   var timings = {};
@@ -1661,7 +1659,7 @@ module.exports = function asciidoctor(options) {
     // -------------------------------------------------------------------------
     // module initializer
     // -------------------------------------------------------------------------
-    init: function init(options) {
+    init: function (options) {
       var moduleOptions = options;
       var logger = log4javascript.getLogger('j1.core.asciidoctor');
       var moduleDefaults = {
@@ -1679,7 +1677,7 @@ module.exports = function asciidoctor(options) {
     // manage callouts (HTML)
     // -------------------------------------------------------------------------
     // see: https://stackoverflow.com/questions/19393493/add-colgroup-for-each-table-column
-    callouts: function callouts(options) {
+    callouts: function (options) {
       var colgroupList = '';
 
       // If the colist does not have a <colgroup> structure
@@ -1695,7 +1693,7 @@ module.exports = function asciidoctor(options) {
     // -------------------------------------------------------------------------
     // manage callouts (HTML)
     // -------------------------------------------------------------------------
-    conums: function conums(options) {
+    conums: function (options) {
       var dependencies_met_page_finished = setInterval(function () {
         if (j1.getState() == 'finished') {
           // If the colist does not have a <colgroup> structure
@@ -1770,7 +1768,7 @@ module.exports = function (options) {
     // _init_
     // Global initializer for the core object
     // -------------------------------------------------------------------------
-    _init_: function _init_(options) {
+    _init_: function (options) {
       //
       // Place handling of options here
       //
@@ -1782,7 +1780,7 @@ module.exports = function (options) {
     // -------------------------------------------------------------------------
     //  Returns the current (processing) state of the module
     // -------------------------------------------------------------------------
-    getState: function getState() {
+    getState: function () {
       return state;
     },
     // END state
@@ -1791,7 +1789,7 @@ module.exports = function (options) {
     // isMobile
     // Return true if the current platform is a mobile device
     // -------------------------------------------------------------------------
-    isMobile: function isMobile(ua_name) {
+    isMobile: function (ua_name) {
       var mobile = false;
       (function (a) {
         if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw-(n|u)|c55\/|capi|ccwa|cdm|cell|chtm|cldc|cmd|co(mp|nd)|craw|da(it|ll|ng)|dbte|dcs|devi|dica|dmob|do(c|p)o|ds(12|d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(|_)|g1 u|g560|gene|gf5|gmo|go(\.w|od)|gr(ad|un)|haie|hcit|hd(m|p|t)|hei|hi(pt|ta)|hp( i|ip)|hsc|ht(c(| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i(20|go|ma)|i230|iac( ||\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|[a-w])|libw|lynx|m1w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|mcr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|([1-8]|c))|phil|pire|pl(ay|uc)|pn2|po(ck|rt|se)|prox|psio|ptg|qaa|qc(07|12|21|32|60|[2-7]|i)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h|oo|p)|sdk\/|se(c(|0|1)|47|mc|nd|ri)|sgh|shar|sie(|m)|sk0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h|v|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl|tdg|tel(i|m)|tim|tmo|to(pl|sh)|ts(70|m|m3|m5)|tx9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas|your|zeto|zte/i.test(a.substr(0, 4))) mobile = true;
@@ -1803,7 +1801,7 @@ module.exports = function (options) {
     // -------------------------------------------------------------------------
     // Clear button for input fields (forms)
     // -------------------------------------------------------------------------
-    bsFormClearButton: function bsFormClearButton() {
+    bsFormClearButton: function () {
       //    $('.position-relative :input').on('keydown focus', function() {
       $(':input').on('keydown focus change mouseover', function () {
         if ($(this).val().length > 0) {
@@ -1828,7 +1826,7 @@ module.exports = function (options) {
     // -------------------------------------------------------------------------
     // Initialize Backdrops on all <p> elements of class "dropcap"
     // -------------------------------------------------------------------------
-    createDropCap: function createDropCap() {
+    createDropCap: function () {
       // add class dropcap
       $('.paragraph.dropcap').children('p').addClass('dropcap');
 
@@ -1853,7 +1851,6 @@ module.exports = function (options) {
 /***/ 610:
 /***/ (() => {
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 /*
   A simple jQuery function that can add listeners on attribute change.
   http://meetselva.github.io/attrchange/
@@ -1905,7 +1902,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   //initialize Mutation Observer
   var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
   $.fn.attrchange = function (a, b) {
-    if (_typeof(a) == 'object') {
+    if (typeof a == 'object') {
       //core
       var cfg = {
         trackValues: false,
@@ -1985,7 +1982,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   };
   $.fn.attrchange.extensions = {
     /*attrchange option/extension*/
-    disconnect: function disconnect(o) {
+    disconnect: function (o) {
       if (typeof o !== 'undefined' && o.isPhysicalDisconnect) {
         return this.each(function () {
           var attrchangeMethod = $(this).data('attrchange-method');
@@ -2003,12 +2000,12 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       }
     },
 
-    remove: function remove(o) {
+    remove: function (o) {
       return $.fn.attrchange.extensions['disconnect'].call(this, {
         isPhysicalDisconnect: true
       });
     },
-    getProperties: function getProperties(o) {
+    getProperties: function (o) {
       var attrchangeMethod = $(this).data('attrchange-method');
       var pollInterval = $(this).data('attrchange-pollInterval');
       return {
@@ -2018,11 +2015,11 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
         status: typeof attrchangeMethod === 'undefined' ? 'removed' : $(this).data('attrchange-status')
       };
     },
-    reconnect: function reconnect(o) {
+    reconnect: function (o) {
       //reconnect possible only when there is a logical disconnect
       return this.data('attrchange-status', 'connected');
     },
-    polling: function polling(o) {
+    polling: function (o) {
       if (o.hasOwnProperty('isComputedStyle') && o.isComputedStyle == 'true') {
         /* extensive and slow - polling to check on computed style properties */
         return this.each(function (i, _this) {
@@ -2167,7 +2164,7 @@ module.exports = function navigator(options) {
     // -------------------------------------------------------------------------
     // module initializer
     // -------------------------------------------------------------------------
-    init: function init(defaultOptions, menuOptions) {
+    init: function (defaultOptions, menuOptions) {
       logger = log4javascript.getLogger('j1.core.navigator');
       logText = 'core is being initialized';
       logger.info(logText);
@@ -2189,7 +2186,7 @@ module.exports = function navigator(options) {
     // -------------------------------------------------------------------------
     // event handler
     // -------------------------------------------------------------------------
-    eventHandler: function eventHandler(options) {
+    eventHandler: function (options) {
       var defaultOptions = options;
       var logger = log4javascript.getLogger('j1.core.navigator.eventHandler');
       var $getNav = $('nav.navbar.navigator');
@@ -2355,7 +2352,7 @@ module.exports = function navigator(options) {
         var firstList = postsArr.splice(0, Math.round(postsArr.length / 2));
         var secondList = postsArr;
         var ListHTML = '';
-        var createHTML = function createHTML(list) {
+        var createHTML = function (list) {
           ListHTML = '';
           for (var i = 0; i < list.length; i++) {
             ListHTML += '<li>' + list[i] + '</li>';
@@ -2490,7 +2487,7 @@ module.exports = function navigator(options) {
     // -------------------------------------------------------------------------
     // Manage the Menu Dropdowns for Desktop|Mobile
     // -------------------------------------------------------------------------
-    manageDropdownMenu: function manageDropdownMenu(defaultOptions, menuOptions) {
+    manageDropdownMenu: function (defaultOptions, menuOptions) {
       var navDefaultOptions = defaultOptions;
       var navMenuOptions = menuOptions;
       var $getNav = $('nav.navbar.navigator');
@@ -2701,7 +2698,7 @@ module.exports = function navigator(options) {
     // -------------------------------------------------------------------------
     // Sticky Navbar
     // -------------------------------------------------------------------------
-    navbarSticky: function navbarSticky() {
+    navbarSticky: function () {
       var $getNav = $('nav.navbar.navigator'),
         navSticky = $getNav.hasClass('navbar-sticky');
       if (navSticky) {
@@ -2727,7 +2724,7 @@ module.exports = function navigator(options) {
     // updateSidebar
     // Note:
     // -------------------------------------------------------------------------
-    updateSidebar: function updateSidebar(user_data) {
+    updateSidebar: function (user_data) {
       var logger = log4javascript.getLogger('j1.core.navigator.updateSidebar');
       var json_message;
 
@@ -2800,7 +2797,7 @@ module.exports = function scrollSmooth(options) {
     // -------------------------------------------------------------------------
     // Initialize scrollSmooth
     // -------------------------------------------------------------------------
-    scroll: function scroll(target, options) {
+    scroll: function (target, options) {
       var logger;
       var logText;
       logger = log4javascript.getLogger('j1.core.scrollSmooth');
@@ -2831,7 +2828,7 @@ module.exports = function scrollSmooth(options) {
     // DecodeURI is usded for nonASCII hashes, they was encoded,
     // but id was not encoded, it lead to not finding the tgt element by id.
     // -------------------------------------------------------------------------
-    scrollTo: function scrollTo(target, options) {
+    scrollTo: function (target, options) {
       var start = window.pageYOffset;
       var opt = {
         duration: options.duration,
@@ -3214,7 +3211,7 @@ module.exports = {
   // Smooth scroll offset.
   scrollSmoothOffset: 0,
   // Callback for scroll end.
-  scrollEndCallback: function scrollEndCallback(e) {},
+  scrollEndCallback: function (e) {},
   // Headings offset between the headings and the top of the document (this is meant for minor adjustments).
   headingsOffset: 1,
   // Timeout between events firing to make sure it's
@@ -3235,7 +3232,7 @@ module.exports = {
   // onclick function to apply to all links in toc. will be called with
   // the event as the first parameter, and this can be used to stop,
   // propagation, prevent default or perform action
-  onClick: function onClick(e) {},
+  onClick: function (e) {},
   // orderedList can be set to false to generate unordered lists (ul)
   // instead of ordered lists (ol)
   orderedList: true,
@@ -3560,8 +3557,7 @@ function jump(target, options) {
 /***/ 799:
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-/*
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
  # -----------------------------------------------------------------------------
  #  ~/js/tocbot/tocbot.js
  #  Tocbot v4.12.0 implementation for J1 Theme
@@ -9790,8 +9786,8 @@ window.j1.core.scrollSmooth = __webpack_require__(814);
 //const Bootstrap                         = require('./js/bootstrap/bootstrap.js');
 //const J1JekyllSearch                    = require('./js/jekyll_search/jekyll_search.js');
 //const J1Yaml                            = require('js-yaml');
-var J1Tocbot = __webpack_require__(799);
-var J1AttrChangeListener = __webpack_require__(610);
+const J1Tocbot = __webpack_require__(799);
+const J1AttrChangeListener = __webpack_require__(610);
 
 // const J1jQueryExt                         = require('./js/jquery-extensions/jquery-regex.js');
 
@@ -9834,7 +9830,7 @@ var J1AttrChangeListener = __webpack_require__(610);
 
 // Additional Vanilla JS helpers
 // -----------------------------------------------------------------------------
-var J1AdocResultViewer = __webpack_require__(253);
+const J1AdocResultViewer = __webpack_require__(253);
 // const MSIEPolyfills                  = require('./js/polyfills/ms-ie.js');
 
 // HMR messages  (currently NOT used)

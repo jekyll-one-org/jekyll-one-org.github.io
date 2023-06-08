@@ -16,7 +16,7 @@
  #  TODO:
  #
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-01-04 16:26:30 +0100
+ # Adapter generated: 2023-06-07 07:10:34 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -32,10 +32,13 @@ var j1 = (function (options) {
   // globals
   // ---------------------------------------------------------------------------
   // base page resources
-  var rePager                     =  new RegExp('navigator|dateview|tagview|archive');
-  var environment                 = 'production';
-  var moduleOptions               = {};
-  var j1_runtime_data             = {};
+  var rePager          =  new RegExp('navigator|dateview|tagview|archive');
+  var environment      = 'development';
+  var moduleOptions    = {};
+  var j1_runtime_data  = {};
+  var scrollerSettings = {};
+  var scrollerOptions  = {};
+  var scrollerDefaults = {};
   var _this;
   var settings;
   var json_data;
@@ -43,6 +46,8 @@ var j1 = (function (options) {
   var baseUrl;
   var referrer;
   var documentHeight;
+  var scrollOffset;
+  var scrollOffsetCorrection;
   // defaults for status information
   var state                         = 'not_started';
   var mode                          = 'not_detected';
@@ -55,6 +60,10 @@ var j1 = (function (options) {
   var site_id                       = '';
   var checkCookies                  = true;
   var expireCookiesOnRequiredOnly   = ('true' === 'true') ? true: false;
+  // animation on page load
+  var bodyAnimation                 = ('true' === 'true') ? true: false;
+  var bodyAnimationType             = 'fadeIn';
+  var bodyAnimationDuration         = '2';
   // defaults for dynamic pages
   var timeoutScrollDynamicPages     = '2000';
   var scrollDynamicPagesTopOnChange = 'false';
@@ -63,8 +72,8 @@ var j1 = (function (options) {
   var staticPage                    = false;                                      // defalt: false, but decided in ResizeObserver
   var pageHeight;
   var pageBaseHeight;                                                              // height of a page dynamic detected in ResizeObserver
-  var growthRatio                   = 100;
-  var previousGrowthRatio           = 100;
+  var growthRatio                   = 0.00;
+  var previousGrowthRatio           = 0.00;
   var previousPageHeight;
   var documentHeight;
   // defaults for the cookie management
@@ -122,7 +131,7 @@ var j1 = (function (options) {
   };
   var user_state   = {
     'writer':               'j1.adapter',
-    'template_version':     '2023.0.0',
+    'template_version':     '2023.3.4',
 //
 //  for testing only
 //  'template_version':     'undefined',
@@ -131,7 +140,7 @@ var j1 = (function (options) {
     'theme_name':           'UnoLight',
     'theme_css':            '',
     'theme_author':         'J1 Team',
-    'theme_version':        '2023.0.0',
+    'theme_version':        '2023.3.4',
     'session_active':       false,
     'google_translate':     'disabled',
     'translate_all_pages':  true,
@@ -139,7 +148,7 @@ var j1 = (function (options) {
     'last_session_ts':      ''
   };
   // ---------------------------------------------------------------------------
-  // helper functions
+  // Helper functions
   // ---------------------------------------------------------------------------
   // See: https://stackoverflow.com/questions/359788/how-to-execute-a-javascript-function-when-i-have-its-name-as-a-string
   //
@@ -169,10 +178,14 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2023-01-04 16:26:30 +0100'
+        generated:   '2023-06-07 07:10:34 +0200'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
+      // Load scroller module DEFAULTS|CONFIGs
+      scrollerDefaults = $.extend({}, {"enabled":false, "smoothscroll":{"offsetCorrection":0, "offsetCorrectionLocal":0}});
+      scrollerSettings = $.extend({}, {"enabled":true, "smoothscroll":{"offsetCorrection":-10, "offsetCorrectionLocal":-90}, "scrollers":[{"scroller":{"enabled":true, "type":"showOnScroll", "id":"home_intro_panel", "container":"home_intro_panel", "showDelay":1000, "scrollOffset":500}}, {"scroller":{"enabled":false, "type":"showOnScroll", "id":"home_service_panel", "container":"home_service_panel", "showDelay":700, "scrollOffset":200}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"home_news_panel", "container":"home_news_panel-scroll-group", "pagePath":"/assets/data/news_panel_posts/page", "elementScroll":true, "scrollOffset":200, "lastPage":2, "infoLastPage":true, "lastPageInfo_en":"More articles can be found with the <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n", "lastPageInfo_de":"Weitere Artikel finden Sie im <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n"}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"blog_navigator_preview", "container":"timeline", "pagePath":"/pages/public/blog/navigator/page", "elementScroll":true, "scrollOffset":200, "lastPage":1000000, "infoLastPage":false, "lastPageInfo_en":"", "lastPageInfo_de":""}}]});
+      scrollerOptions  = $.extend(true, {}, scrollerDefaults, scrollerSettings);
       // settings for dynamic pages
       scrollDynamicPagesTopOnChange = frontmatterOptions.scrollDynamicPagesTopOnChange ? frontmatterOptions.scrollDynamicPagesTopOnChange : 'false';
       scrollDynamicPagesTopOnChange = j1.stringToBoolean(scrollDynamicPagesTopOnChange);
@@ -257,7 +270,14 @@ var j1 = (function (options) {
           j1.expireCookie({ name: cookie_names.user_translate });
         }
       }
-      j1.registerEvents(logger);
+      var dependencies_met_page_loaded = setInterval (function () {
+        if (j1.getState() == 'finished') {
+          // register observers
+          //
+          j1.registerMonitors();
+        }
+        clearInterval(dependencies_met_page_loaded);
+      }, 25); // END dependencies_met_page_loaded
       // detect middleware (mode 'app') and update user session cookie
       // -----------------------------------------------------------------------
       if (user_session.mode === 'app') {
@@ -311,7 +331,8 @@ var j1 = (function (options) {
           }, 25);
         })
         .catch(function(error) {
-          // jadams, 2018-08-31: Why a hell a setTimeout is needed ???
+          // jadams, 2018-08-31
+          // TODO:  Check why a timeout is required
           setTimeout (function() {
             var logger                  = log4javascript.getLogger('j1.init');
             user_session                = j1.readCookie(cookie_names.user_session);
@@ -379,8 +400,10 @@ var j1 = (function (options) {
         secure:   secure,
         expires:  0
       });
+      // -----------------------------------------------------------------------
+      // load|initialize page resources for block elements
       // NOTE: asynchronous calls should be rewitten to xhrData
-      // initialize page resources for blocks
+      // -----------------------------------------------------------------------
       j1.initBanner(settings);
       j1.initPanel(settings);
       j1.initFooter(settings);
@@ -395,15 +418,14 @@ var j1 = (function (options) {
         expires:  0
       });
       // -----------------------------------------------------------------------
-      // additional BS helpers from j1.core
+      // run additional helpers from j1.core
       // -----------------------------------------------------------------------
       j1.core.bsFormClearButton();
-      // finalize and display current page
-      j1.displayPage();
-      // scroll to an anchor in current page if given in URL
-      setTimeout (function() {
-        j1.scrollToAnchor();
-      }, timeoutScrollDynamicPages);
+      // -----------------------------------------------------------------------
+      // finalize current page
+      // -----------------------------------------------------------------------
+      //
+      j1.finalizePage();
     },
     // -------------------------------------------------------------------------
     // initBanner()
@@ -449,7 +471,7 @@ var j1 = (function (options) {
           if (selector.length) {
             logText = '\n' + 'loading banner on id: ' +banner[i];
             logger.info(logText);
-            var banner_data_path = '/assets/data/banner/index.html ' + id;
+            var banner_data_path = '/assets/data/banner/index.html ' + id + '_content';
             selector.load(banner_data_path, cb_load_closure(id));
           }
         }
@@ -491,6 +513,7 @@ var j1 = (function (options) {
         };
       };
       panel.push('home_intro_panel');
+      panel.push('home_plan_panel');
       panel.push('home_service_panel');
       panel.push('home_news_panel');
       if (panel.length) {
@@ -500,7 +523,7 @@ var j1 = (function (options) {
           if ( selector.length ) {
             logText = '\n' + 'loading panel on id: ' +panel[i];
             logger.info(logText);
-            var panel_data_path = '/assets/data/panel/index.html ' + id;
+            var panel_data_path = '/assets/data/panel/index.html ' + id + '_content';
             selector.load(panel_data_path, cb_load_closure(id));
           }
         }
@@ -561,8 +584,8 @@ var j1 = (function (options) {
       return true;
     },
     // -------------------------------------------------------------------------
-    // displayPage
-    // show the page after timeout of  ms
+    // finalizePage
+    // DISABLED: show the page after timeout of  ms
     // -------------------------------------------------------------------------
     // NOTE:
     //  jadams, 2019-08-21: for unknown reason, the user state data
@@ -570,9 +593,9 @@ var j1 = (function (options) {
     //  To make correct data sure for APP mode, a status request is done
     //  to load the current state from the middleware (skipped in WEB mode)
     // -------------------------------------------------------------------------
-    displayPage: function (options) {
-      var logger              = log4javascript.getLogger('j1.adapter.displayPage');
-      var flickerTimeout      = 150;
+    finalizePage: function (options) {
+      var logger              = log4javascript.getLogger('j1.adapter.finalizePage');
+//    var flickerTimeout      = ;
       var url                 = new liteURL(window.location.href);
       var baseUrl             = url.origin;
       var secure              = (url.protocol.includes('https')) ? true : false;
@@ -602,6 +625,11 @@ var j1 = (function (options) {
       // personalized content require user consent
       var meta_personalization  = $('meta[name=personalization]').attr('content');
       var personalization       = (meta_personalization === 'true') ? true: false;
+      const cb = (list) => {
+          list.getEntries().forEach(entry => {
+              console.log(entry);
+          });
+      }
       // if personalized content detected, page requires user consent
       // -----------------------------------------------------------------------
       if (personalization && !user_consent.personalization) {
@@ -617,7 +645,7 @@ var j1 = (function (options) {
         logger.info('\n' + 'mode detected: app');
         $.when ($.ajax(ep_status))
         .then(function(data) {
-          var logger = log4javascript.getLogger('j1.displayPage');
+          var logger = log4javascript.getLogger('j1.finalizePage');
           user_session = j1.mergeData(user_session, data);
           user_session.current_page = current_url.pathname;
           logger.debug('\n' + 'write to cookie : ' + cookie_names.user_session);
@@ -648,109 +676,27 @@ var j1 = (function (options) {
               return false;
             }
           }
-          // show the page delayed
-          setTimeout (function() {
-            // display page
-            $('#no_flicker').css('display', 'block');
-            // jadams, 2021-12-06: Check if access to cookies for this site failed.
-            // Possibly, a third-party domain or an attacker tries to access it.
-            if (checkCookies) {
-              var j1Cookies = j1.findCookie('j1');
-              if (!j1.existsCookie(cookie_names.user_state)) {
-                logger.error('\n' + 'Access to cookie failed or cookie not found: ' + cookie_names.user_state);
-                logger.info('\n' + 'j1 cookies found:' + j1Cookies.length);
-                // redirect to error page: blocked content
-                window.location.href = '/446.html';
-              } else {
-                logger.info('\n' + 'j1 cookies found:' + j1Cookies.length);
-              }
-            }
-            // manage Dropcaps if translation is enabled|disabled
-            // -----------------------------------------------------------------
-            if (user_translate.translationEnabled) {
-             logger.info('\n' + 'translation enabled: ' + user_translate.translationEnabled);
-             logger.debug('\n' + 'skipped processing of dropcaps');
-            } else {
-             // initialize dropcaps
-             logger.info('\n' + 'post processing: createDropCap');
-             j1.core.createDropCap();
-            }
-            // TODO: should MOVED to Cookiebar ???
-            // show|hide cookie icon
-            if (j1.existsCookie(cookie_names.user_consent)) {
-              // Display cookie icon
-              logText = '\n' + 'show cookie icon';
-              logger.info(logText);
-              $('#quickLinksCookieButton').css('display', 'block');
-            } else {
-              logText = '\n' + 'hide cookie icon';
-              logger.info(logText);
-              // Display cookie icon
-              $('#quickLinksCookieButton').css('display', 'none');
-            }
-            // TODO: should MOVED to ControlCenter Adapter ???
-            // -----------------------------------------------------------------
-            // show cc icon (currently NOT supported)
-            // $('#quickLinksControlCenterButton').css('display', 'block');
-            if (j1.authEnabled()) {
-              if (user_session.authenticated === 'true') {
-                // set signout
-                logger.info('\n' + 'show signout icon');
-                $('#navLinkSignInOut').attr('data-bs-target','#modalOmniSignOut');
-                $('#iconSignInOut').removeClass('mdi-login').addClass('mdi-logout');
-              } else {
-                // set signin
-                logger.info('\n' + 'show signin icon');
-                $('#navLinkSignInOut').attr('data-bs-target','#modalOmniSignIn');
-                $('#iconSignInOut').removeClass('mdi-logout').addClass('mdi-login');
-              }
-              logger.info('\n' + 'authentication detected as: ' + user_session.authenticated);
-              $('#quickLinksSignInOutButton').css('display', 'block');
-            }
-            // TODO: should MOVED to Themer ???
-            // jadams, 2021-07-25: hide|show themes menu on cookie consent
-            // (analysis|personalization) settings. BootSwatch is a 3rd party
-            // is using e.g GA. Because NO control is possible on 3rd parties,
-            // for GDPR compliance, themes feature may disabled on
-            // privacy settings
-            if (!user_consent.personalization)  {
-              logger.debug('\n' + 'disable themes feature because of privacy settings');
-              logger.debug('\n' + 'personalization not allowed, privacy settings for personalization: ' + user_consent.personalization);
-              $("#themes_menu").hide();
-            } else {
-              $("#themes_menu").show();
-            }
-            // detect if a loaded page has been chenged
-            if (user_session.previous_page !== user_session.current_page) {
-              logText = '\n' + 'page change detected';
-              logger.info(logText);
-              logText = '\n' + 'previous page: ' + user_session.previous_page;
-              logger.info(logText);
-              logText = '\n' + 'current page: ' + user_session.current_page;
-              logger.info(logText);
-            }
-            // update sidebar for changed theme data
-            logger.info('\n' + 'update sidebar');
-            user_state        = j1.readCookie(cookie_names.user_state);
-            current_user_data = j1.mergeData(user_session, user_state);
-            j1.core.navigator.updateSidebar(current_user_data);
-            // set|log status
-            state = 'finished';
-            j1.setState(state);
-            logText = '\n' + 'state: ' + state;
-            logger.info(logText);
-            logText = '\n' + 'page finalized successfully';
-            logger.info(logText);
-          }, flickerTimeout);
-        });
-      } else {
-        // web mode
-        // ---------------------------------------------------------------------
-        setTimeout (function() {
-          logger.info('\n' + 'state: finished');
-          logger.info('\n' + 'page initialization: finished');
-          // display the page loaded
-          $('#no_flicker').css('display', 'block');
+          // enable (body) animation on page load if enabled
+          if (bodyAnimation) {
+            var body_animation_fadein  = '<style id="body_animation">';
+            body_animation_fadein     += '  body {';
+            body_animation_fadein     += '    animation: fadeInAnimation ease ' + bodyAnimationDuration + 's;';
+            body_animation_fadein     += '    animation-iteration-count: 1;';
+            body_animation_fadein     += '    animation-fill-mode: forwards;';
+            body_animation_fadein     += '  }';
+            body_animation_fadein     += '  @keyframes fadeInAnimation {';
+            body_animation_fadein     += '    0% {';
+            body_animation_fadein     += '    	opacity: 0;';
+            body_animation_fadein     += '    }';
+            body_animation_fadein     += '    100% {';
+            body_animation_fadein     += '    	opacity: 1;';
+            body_animation_fadein     += '    }';
+            body_animation_fadein     += '  }';
+            body_animation_fadein     += '</style>';
+            $('head').append(body_animation_fadein);
+          }
+          // display the page loaded is managed by module "themer"
+          // $('#no_flicker').css('display', 'block');
           // jadams, 2021-12-06: Check if access to cookies for this site failed.
           // Possibly, a third-party domain or an attacker tries to access it.
           if (checkCookies) {
@@ -764,52 +710,16 @@ var j1 = (function (options) {
               logger.info('\n' + 'j1 cookies found:' + j1Cookies.length);
             }
           }
-          // jadams, 2021-11-19: test code for 'tapTarget' of 'materializeCss'
-          // See:
-          //  https://stackoverflow.com/questions/49422111/opening-tap-target-in-materialize-css-for-2-seconds
-          // -------------------------------------------------------------------
-          // $('#features').tapTarget();
-          // $('#features').click(function(e) {
-          //   logger.info('\n' + 'call default action');
-          //   $('#features').tapTarget('open');
-          // });
-          // jadams, 2021-11-19: additional code for accordions (collapsible)
-          // used e.g for the 'SERVICE Panel'
-          // -------------------------------------------------------------------
-          // Add minus icon for collapse element which is open by default
-          $(".collapse.show").each(function(){
-              $(this).prev(".card-header").addClass("highlight");
-          });
-          // Highlight open collapsed element
-          $(".card-header .btn").click(function(){
-              $(".card-header").not($(this).parents()).removeClass("highlight");
-              $(this).parents(".card-header").toggleClass("highlight");
-          });
           // manage Dropcaps if translation is enabled|disabled
-          // -------------------------------------------------------------------
-          if (user_translate.translationEnabled) {
-            logger.info('\n' + 'translation enabled: ' + user_translate.translationEnabled);
-            logger.debug('\n' + 'skipped processing of dropcaps');
-          } else {
-            // initialize dropcaps
-            logger.info('\n' + 'post processing: createDropCap');
-            j1.core.createDropCap();
-          }
-          logger.info('\n' + 'mode detected: web');
-          logger.info('\n' + 'hide signin icon');
-          $('#quickLinksSignInOutButton').css('display', 'none');
-          user_session.current_page = current_url.pathname;
-          logger.debug('\n' + 'write to cookie : ' + cookie_names.user_session);
-          cookie_written = j1.writeCookie({
-              name:     cookie_names.user_session,
-              data:     user_session,
-              secure:   secure,
-              expires:  0
-          });
-          // TODO: should MOVED to ControlCenter Adapter ???
           // -----------------------------------------------------------------
-          // show cc icon (currently NOT supported)
-          // $('#quickLinksControlCenterButton').css('display', 'block');
+          if (user_translate.translationEnabled) {
+           logger.info('\n' + 'translation enabled: ' + user_translate.translationEnabled);
+           logger.debug('\n' + 'skipped processing of dropcaps');
+          } else {
+           // initialize dropcaps
+           logger.info('\n' + 'post processing: createDropCap');
+           j1.core.createDropCap();
+          }
           // TODO: should MOVED to Cookiebar ???
           // show|hide cookie icon
           if (j1.existsCookie(cookie_names.user_consent)) {
@@ -822,6 +732,25 @@ var j1 = (function (options) {
             logger.info(logText);
             // Display cookie icon
             $('#quickLinksCookieButton').css('display', 'none');
+          }
+          // TODO: should MOVED to ControlCenter Adapter ???
+          // -----------------------------------------------------------------
+          // show cc icon (currently NOT supported)
+          // $('#quickLinksControlCenterButton').css('display', 'block');
+          if (j1.authEnabled()) {
+            if (user_session.authenticated === 'true') {
+              // set signout
+              logger.info('\n' + 'show signout icon');
+              $('#navLinkSignInOut').attr('data-bs-target','#modalOmniSignOut');
+              $('#iconSignInOut').removeClass('mdi-login').addClass('mdi-logout');
+            } else {
+              // set signin
+              logger.info('\n' + 'show signin icon');
+              $('#navLinkSignInOut').attr('data-bs-target','#modalOmniSignIn');
+              $('#iconSignInOut').removeClass('mdi-logout').addClass('mdi-login');
+            }
+            logger.info('\n' + 'authentication detected as: ' + user_session.authenticated);
+            $('#quickLinksSignInOutButton').css('display', 'block');
           }
           // TODO: should MOVED to Themer ???
           // jadams, 2021-07-25: hide|show themes menu on cookie consent
@@ -848,29 +777,20 @@ var j1 = (function (options) {
           // update sidebar for changed theme data
           logger.info('\n' + 'update sidebar');
           user_state        = j1.readCookie(cookie_names.user_state);
-          if (template_version_changed) {
-            if (typeof template_previous_version == 'undefined') template_previous_version = 'na';
-            logger.warn('\n' + 'template version detected as changed');
-            logger.warn('\n' + 'template version previous|current: ' +  template_previous_version + '|' + template_version);
-            // Update the user_state cookie
-            // TODO:  replace theme_version by template_version as they
-            //        are alwas the same
-            //        disable: user_state.theme_version = template_version;
-            //
-            user_state.template_version = template_version;
-            cookie_written = j1.writeCookie({
-            	name:     cookie_names.user_state,
-            	data:     user_state,
-            	secure:   secure,
-            	expires:  365
-            });
-            logger.warn('\n' + 'template version updated to: ' +  template_version);
-          } else {
-            logger.info('\n' + 'template version detected: ' +  user_state.template_version);
-          }
-          // set current user data
           current_user_data = j1.mergeData(user_session, user_state);
           j1.core.navigator.updateSidebar(current_user_data);
+          // initiate smooth scroller if page is ready and visible
+          var dependencies_met_page_ready = setInterval (function (options) {
+            var pageState   = $('#no_flicker').css("display");
+            var pageVisible = (pageState == 'block') ? true: false;
+            if ( j1.getState() === 'finished' && pageVisible ) {
+              setTimeout (function() {
+                // scroll to an anchor in current page if given in URL
+                j1.scrollToAnchor();
+              }, 1000 );
+              clearInterval(dependencies_met_page_ready);
+            }
+          }, 25);
           // set|log status
           state = 'finished';
           j1.setState(state);
@@ -878,7 +798,174 @@ var j1 = (function (options) {
           logger.info(logText);
           logText = '\n' + 'page finalized successfully';
           logger.info(logText);
-        }, flickerTimeout);
+        });
+      } else {
+        // web mode
+        // ---------------------------------------------------------------------
+        logger.info('\n' + 'state: finished');
+        logger.info('\n' + 'page initialization: finished');
+        // enable (body) animation on page load if enabled
+        if (bodyAnimation) {
+          var body_animation_fadein  = '<style id="body_animation">';
+          body_animation_fadein     += '  body {';
+          body_animation_fadein     += '    animation: fadeInAnimation ease ' + bodyAnimationDuration + 's;';
+          body_animation_fadein     += '    animation-iteration-count: 1;';
+          body_animation_fadein     += '    animation-fill-mode: forwards;';
+          body_animation_fadein     += '  }';
+          body_animation_fadein     += '  @keyframes fadeInAnimation {';
+          body_animation_fadein     += '    0% {';
+          body_animation_fadein     += '    	opacity: 0;';
+          body_animation_fadein     += '    }';
+          body_animation_fadein     += '    100% {';
+          body_animation_fadein     += '    	opacity: 1;';
+          body_animation_fadein     += '    }';
+          body_animation_fadein     += '  }';
+          body_animation_fadein     += '</style>';
+          $('head').append(body_animation_fadein);
+        }
+        // display the page loaded is managed by module "themer"
+        // $('#no_flicker').css('display', 'block');
+        // jadams, 2021-12-06: Check if access to cookies for this site failed.
+        // Possibly, a third-party domain or an attacker tries to access it.
+        if (checkCookies) {
+          var j1Cookies = j1.findCookie('j1');
+          if (!j1.existsCookie(cookie_names.user_state)) {
+            logger.error('\n' + 'Access to cookie failed or cookie not found: ' + cookie_names.user_state);
+            logger.info('\n' + 'j1 cookies found:' + j1Cookies.length);
+            // redirect to error page: blocked content
+            window.location.href = '/446.html';
+          } else {
+            logger.info('\n' + 'j1 cookies found:' + j1Cookies.length);
+          }
+        }
+        // jadams, 2021-11-19: test code for 'tapTarget' of 'materializeCss'
+        // See:
+        //  https://stackoverflow.com/questions/49422111/opening-tap-target-in-materialize-css-for-2-seconds
+        // -------------------------------------------------------------------
+        // $('#features').tapTarget();
+        // $('#features').click(function(e) {
+        //   logger.info('\n' + 'call default action');
+        //   $('#features').tapTarget('open');
+        // });
+        // jadams, 2021-11-19: additional code for accordions (collapsible)
+        // used e.g for the 'SERVICE Panel'
+        // -------------------------------------------------------------------
+        // Add minus icon for collapse element which is open by default
+        $(".collapse.show").each(function(){
+            $(this).prev(".card-header").addClass("highlight");
+        });
+        // Highlight open collapsed element
+        $(".card-header .btn").click(function(){
+            $(".card-header").not($(this).parents()).removeClass("highlight");
+            $(this).parents(".card-header").toggleClass("highlight");
+        });
+        // manage Dropcaps if translation is enabled|disabled
+        // -------------------------------------------------------------------
+        if (user_translate.translationEnabled) {
+          logger.info('\n' + 'translation enabled: ' + user_translate.translationEnabled);
+          logger.debug('\n' + 'skipped processing of dropcaps');
+        } else {
+          // initialize dropcaps
+          logger.info('\n' + 'post processing: createDropCap');
+          j1.core.createDropCap();
+        }
+        logger.info('\n' + 'mode detected: web');
+        logger.info('\n' + 'hide signin icon');
+        $('#quickLinksSignInOutButton').css('display', 'none');
+        user_session.current_page = current_url.pathname;
+        logger.debug('\n' + 'write to cookie : ' + cookie_names.user_session);
+        cookie_written = j1.writeCookie({
+            name:     cookie_names.user_session,
+            data:     user_session,
+            secure:   secure,
+            expires:  0
+        });
+        // TODO: should MOVED to ControlCenter Adapter ???
+        // -----------------------------------------------------------------
+        // show cc icon (currently NOT supported)
+        // $('#quickLinksControlCenterButton').css('display', 'block');
+        // TODO: should MOVED to Cookiebar ???
+        // show|hide cookie icon
+        if (j1.existsCookie(cookie_names.user_consent)) {
+          // Display cookie icon
+          logText = '\n' + 'show cookie icon';
+          logger.info(logText);
+          $('#quickLinksCookieButton').css('display', 'block');
+        } else {
+          logText = '\n' + 'hide cookie icon';
+          logger.info(logText);
+          // Display cookie icon
+          $('#quickLinksCookieButton').css('display', 'none');
+        }
+        // TODO: should MOVED to Themer ???
+        // jadams, 2021-07-25: hide|show themes menu on cookie consent
+        // (analysis|personalization) settings. BootSwatch is a 3rd party
+        // is using e.g GA. Because NO control is possible on 3rd parties,
+        // for GDPR compliance, themes feature may disabled on
+        // privacy settings
+        if (!user_consent.personalization)  {
+          logger.debug('\n' + 'disable themes feature because of privacy settings');
+          logger.debug('\n' + 'personalization not allowed, privacy settings for personalization: ' + user_consent.personalization);
+          $("#themes_menu").hide();
+        } else {
+          $("#themes_menu").show();
+        }
+        // detect if a loaded page has been chenged
+        if (user_session.previous_page !== user_session.current_page) {
+          logText = '\n' + 'page change detected';
+          logger.info(logText);
+          logText = '\n' + 'previous page: ' + user_session.previous_page;
+          logger.info(logText);
+          logText = '\n' + 'current page: ' + user_session.current_page;
+          logger.info(logText);
+        }
+        // update sidebar for changed theme data
+        logger.info('\n' + 'update sidebar');
+        user_state        = j1.readCookie(cookie_names.user_state);
+        if (template_version_changed) {
+          if (typeof template_previous_version == 'undefined') template_previous_version = 'na';
+          logger.warn('\n' + 'template version detected as changed');
+          logger.warn('\n' + 'template version previous|current: ' +  template_previous_version + '|' + template_version);
+          // Update the user_state cookie
+          // TODO:  replace theme_version by template_version as they
+          //        are alwas the same
+          //        disable: user_state.theme_version = template_version;
+          //
+          user_state.template_version = template_version;
+          cookie_written = j1.writeCookie({
+          	name:     cookie_names.user_state,
+          	data:     user_state,
+          	secure:   secure,
+          	expires:  365
+          });
+          logger.warn('\n' + 'template version updated to: ' +  template_version);
+        } else {
+          logger.info('\n' + 'template version detected: ' +  user_state.template_version);
+        }
+        // set current user data
+        current_user_data = j1.mergeData(user_session, user_state);
+        j1.core.navigator.updateSidebar(current_user_data);
+        // initiate smooth scroller if page is ready and visible
+        var dependencies_met_page_ready = setInterval (function (options) {
+          var pageState   = $('#no_flicker').css("display");
+          var pageVisible = (pageState == 'block') ? true: false;
+          if ( j1.getState() === 'finished' && pageVisible ) {
+            // TODO: Hide GoogleTranslator
+            // $('.skiptranslate').hide();
+            setTimeout (function() {
+              // scroll to an anchor in current page if given in URL
+              j1.scrollToAnchor();
+            }, 1000 );
+            clearInterval(dependencies_met_page_ready);
+          }
+        }, 25);
+        // set|log status
+        state = 'finished';
+        j1.setState(state);
+        logText = '\n' + 'state: ' + state;
+        logger.info(logText);
+        logText = '\n' + 'page finalized successfully';
+        logger.info(logText);
       }
     },
     // -------------------------------------------------------------------------
@@ -920,17 +1007,17 @@ var j1 = (function (options) {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2023.0.0';
+      return '2023.3.4';
     },
     // -------------------------------------------------------------------------
     // getScrollOffset()
     // Calculate offset for a correct (smooth) scroll position
     // -------------------------------------------------------------------------
-    getScrollOffset: function () {
-      var scrollOffset;
-      var offsetCorrection = 0;
+    getScrollOffset: function (offsetCorrection) {
+//     var scrollOffset;
+//      var offsetCorrection = 0;
       var $pagehead     = $('.attic');
-      var $navbar       = $('nav.navbar');
+      var $navbar       = $('#navigator_nav_navbar');
       var $adblock      = $('#adblock');
       var navbarType    = $navbar.hasClass('navbar-fixed') ? 'fixed' : 'scrolled';
       var fontSize      = $('body').css('font-size').replace('px','');
@@ -1171,6 +1258,34 @@ var j1 = (function (options) {
             allsuspects[i].parentNode.removeChild(allsuspects[i])
       }
     },
+    // -------------------------------------------------------------------------
+    // subdomain()
+    // Returns true|false if a subdomain is used for a given URL
+    // -------------------------------------------------------------------------
+    subdomain: function (url) {
+      // See: https://snipplr.com/view/5449/check-if-a-url-contains-a-subdomain
+      // IF THERE, REMOVE WHITE SPACE FROM BOTH ENDS
+      url = url.replace(new RegExp(/^\s+/),""); // START
+      url = url.replace(new RegExp(/\s+$/),""); // END
+      // IF FOUND, CONVERT BACK SLASHES TO FORWARD SLASHES
+      url = url.replace(new RegExp(/\\/g),"/");
+      // IF THERE, REMOVES 'http://', 'https://' or 'ftp://' FROM THE START
+      url = url.replace(new RegExp(/^http\:\/\/|^https\:\/\/|^ftp\:\/\//i),"");
+      // IF THERE, REMOVES 'www.' FROM THE START OF THE STRING
+      url = url.replace(new RegExp(/^www\./i),"");
+      // REMOVE COMPLETE STRING FROM FIRST FORWARD SLASH ON
+      url = url.replace(new RegExp(/\/(.*)/),"");
+      // REMOVES '.??.??' OR '.???.??' FROM END - e.g. '.CO.UK', '.COM.AU'
+      if (url.match(new RegExp(/\.[a-z]{2,3}\.[a-z]{2}$/i))) {
+            url = url.replace(new RegExp(/\.[a-z]{2,3}\.[a-z]{2}$/i),"");
+      // REMOVES '.??' or '.???' or '.????' FROM END - e.g. '.US', '.COM', '.INFO'
+      } else if (url.match(new RegExp(/\.[a-z]{2,4}$/i))) {
+            url = url.replace(new RegExp(/\.[a-z]{2,4}$/i),"");
+      }
+      // CHECK TO SEE IF THERE IS A DOT '.' LEFT IN THE STRING
+      var isSubDomain = (url.match(new RegExp(/\./g))) ? true : false;
+      return(isSubDomain);
+    }, // END subdomain
     // -------------------------------------------------------------------------
     //  readCookie (Vanilla JS)
     // -------------------------------------------------------------------------
@@ -1893,25 +2008,36 @@ var j1 = (function (options) {
     // -------------------------------------------------------------------------
     scrollToAnchor: function () {
       var logger = log4javascript.getLogger('j1.adapter.scrollToAnchor');
+      var scrollOffset;
       var dependencies_met_page_displayed = setInterval (function () {
-        if (j1.getState() == 'finished' && j1['pageMonitor'].currentGrowthRatio >= 100) {
+        var pageState   = $('#no_flicker').css("display");
+        var pageVisible = (pageState == 'block') ? true: false;
+        if (j1.getState() == 'finished' && j1['pageMonitor'].pageType !== 'unknown' && pageVisible) {
+          // TODO: Check why a timeout is required to run the smmoth scroller (j1.scrollTo)
           if (j1['pageMonitor'].pageType == 'static') {
-            logger.info('\n' + 'Scroller: Scroll static page')
-            const scrollOffset = j1.getScrollOffset();
-            j1.scrollTo(scrollOffset);
+            setTimeout (function() {
+              logger.debug('\n' + 'Scroller: Scroll static page');
+              scrollOffsetCorrection = scrollerOptions.smoothscroll.offsetCorrection;
+              scrollOffset = j1.getScrollOffset(scrollOffsetCorrection);
+              j1.scrollTo(scrollOffset);
+            },  );
             clearInterval(dependencies_met_page_displayed);
           } else if (j1['pageMonitor'].pageType == 'dynamic') {
             setTimeout (function() {
-              const scrollOffset = j1.getScrollOffset();
+              scrollOffsetCorrection = scrollerOptions.smoothscroll.offsetCorrection;
+              scrollOffset = j1.getScrollOffset(scrollOffsetCorrection);
               j1.scrollTo(scrollOffset);
-              logger.info('\n' + 'Scroller: Scroll dynamic page on timeout')
-            }, timeoutScrollDynamicPages);
+              logger.debug('\n' + 'Scroller: Scroll dynamic page on timeout');
+          }, 2000 );
             clearInterval(dependencies_met_page_displayed);
           } else {
             // failsave fallback
-            logger.warn('\n' + 'Scroller: Scroll page of unknown type')
-            const scrollOffset = j1.getScrollOffset();
-            j1.scrollTo(scrollOffset);
+            setTimeout (function() {
+              logger.debug('\n' + 'Scroller: Scroll page of unknown type');
+              scrollOffsetCorrection = scrollerOptions.smoothscroll.offsetCorrection;
+              scrollOffset = j1.getScrollOffset(scrollOffsetCorrection);
+              j1.scrollTo(scrollOffset);
+            }, 1000 );
             clearInterval(dependencies_met_page_displayed);
           }
         }
@@ -1937,17 +2063,64 @@ var j1 = (function (options) {
       }
     }, // END stringToBoolean
     // -------------------------------------------------------------------------
-    // registerEvents()
+    // registerMonitors()
     //
     // -------------------------------------------------------------------------
-    registerEvents: function (logger) {
-      // Add ResizeObserver to monitor the page height of dynamic pages
+    registerMonitors: function () {
+      // add PerformanceObserver to monitor the 'CLS' of a page load
+      // see: https://requestmetrics.com/web-performance/cumulative-layout-shift
+      //
+      var cls     = 0;
+      var prevCLS = 1000000000; // suppress first page changes
+      var roundedCLS;
+      const performanceObserverCLS = new PerformanceObserver(entryList => {
+        var logger  = log4javascript.getLogger('PerformanceObserver');
+        var entries = entryList.getEntries() || [];
+        entries.forEach(entry => {
+          // omit entries likely caused by user input
+          if (!entry.hadRecentInput) {
+            cls += entry.value;
+            roundedCLS = cls.toFixed(3);
+          }
+          // if (entry.sources) {
+          //
+          //   for (const {node, currentRect, previousRect} of entry.sources) {
+          //
+          //     if (typeof node.firstElementChild != 'null' && typeof node.firstElementChild != 'undefined') {
+          //
+          //       var id = '';
+          //       try {
+          //         id = node.firstElementChild.id;
+          //       }
+          //       catch(err) {
+          //         id = 'missing';
+          //       }
+          //
+          //       if (id !== 'missing' && id !== '') {
+          //         logger.debug('\n' + 'Cumulative Layout Shift (CLS) on id: ', id);
+          //         logger.debug('\n' + 'Cumulative Layout Shift (CLS): ', roundedCLS);
+          //       }
+          //
+          //     }
+          //   }
+          // }
+        });
+        if (roundedCLS > prevCLS) {
+          if (roundedCLS > 0.25) {
+            logger.debug('\n' + 'Cumulative Layout Shift (CLS): ', roundedCLS);
+          }
+        }
+        prevCLS = roundedCLS;
+      });
+      // add ResizeObserver to monitor the page height of dynamic pages
       // see: https://stackoverflow.com/questions/14866775/detect-document-height-change
       //
-      const observer = new ResizeObserver(entries => {
-        const body              = document.body,
-              html              = document.documentElement,
-              scrollOffset      = j1.getScrollOffset();
+      const resizeObserver = new ResizeObserver(entries => {
+        var scrollOffsetCorrection  = scrollerOptions.smoothscroll.offsetCorrection;
+        var logger                = log4javascript.getLogger('ResizeObserver');
+        const body                  = document.body,
+              html                  = document.documentElement,
+              scrollOffset          = j1.getScrollOffset(scrollOffsetCorrection);
         // get the page height from the DOM
         //
         var documentHeight = Math.max (
@@ -1958,65 +2131,67 @@ var j1 = (function (options) {
           html.offsetHeight
         );
         j1['pageMonitor'].eventNo += 1;
-        if (!j1['pageMonitor'].pageBaseHeight) {
-          // set INITAIL page properties
+        // skip first Observer event
+        //
+        if (j1['pageMonitor'].eventNo == 2) {
+          // Set initial data from second event
           //
-          pageBaseHeight      = documentHeight;
+          j1['pageMonitor'].pageBaseHeight      = document.body.scrollHeight;
+          j1['pageMonitor'].currentPageHeight   = document.body.scrollHeight;
+          j1['pageMonitor'].previousPageHeight  = document.body.scrollHeight;
+          j1['pageMonitor'].previousGrowthRatio = 0.00;
+          pageBaseHeight      = document.body.scrollHeight;
           previousGrowthRatio = 100;
           growthRatio         = 0.00;
-          j1['pageMonitor'].pageBaseHeight      = documentHeight;
-          j1['pageMonitor'].currentPageHeight   = documentHeight;
-          j1['pageMonitor'].previousGrowthRatio = previousGrowthRatio;
-          j1['pageMonitor'].growthRatio         = growthRatio;
         } else {
-          // set PREVIOUS page properties taken from GLOBAL vars
+          // collect 'pageHeight' from 'entries'
           //
-          j1['pageMonitor'].previousPageHeight  = pageHeight;
-          j1['pageMonitor'].previousGrowthRatio = previousGrowthRatio;
-        }
-        // collect 'pageHeight' from 'entries'
-        // NOTE: each entry is an instance of ResizeObserverEntry
-        for (const entry of entries) {
-          pageBaseHeight = j1['pageMonitor'].pageBaseHeight;
-          // get the page height (rounded to int) from observer
-          //
-          pageHeight = Math.round(entry.contentRect.height);
-          j1['pageMonitor'].currentPageHeight = pageHeight;
-          // total growth ratio
-          pageGrowthRatio = pageHeight / pageBaseHeight * 100;
-          pageGrowthRatio = pageGrowthRatio.toFixed(2);
-          j1['pageMonitor'].currentGrowthRatio = pageGrowthRatio;
-          growthRatio = ((pageGrowthRatio / previousGrowthRatio) - 1) * 100;
-          growthRatio = growthRatio.toFixed(2);
-          j1['pageMonitor'].growthRatio = growthRatio;
-        }
-        // detect the page 'type'
-        //
-        if (growthRatio > 0) {
-          // scroll the page to top if content has grown
-          //
-          if (scrollDynamicPagesTopOnChange) {
-            // limit scrolling to reduce the flicker (for chromium browsers)
-            if (j1['pageMonitor'].eventNo > 3) {
-              window.scrollTo(0, 0);
+          for (const entry of entries) {
+            pageBaseHeight = j1['pageMonitor'].pageBaseHeight;
+            if (pageBaseHeight > 0) {
+              // get the page height (rounded to int) from observer
+              //
+              pageHeight = Math.round(entry.contentRect.height);
+              j1['pageMonitor'].currentPageHeight = pageHeight;
+              // total growth ratio
+              //
+              pageGrowthRatio = pageHeight / pageBaseHeight * 100;
+              pageGrowthRatio = pageGrowthRatio.toFixed(2);
+              j1['pageMonitor'].currentGrowthRatio = pageGrowthRatio;
+              growthRatio = ((pageGrowthRatio / previousGrowthRatio) - 1) * 100;
+              growthRatio = growthRatio.toFixed(2);
+              j1['pageMonitor'].growthRatio = growthRatio;
             }
           }
-          // set the page type to 'dynamic' if content has grown
+          // detect the 'page type'
           //
-          j1['pageMonitor'].pageType = 'dynamic';
-          logger.debug('\n' + 'Observer: previousPageHeight|currentPageHeight (px): ', j1['pageMonitor'].previousPageHeight + '|' + pageHeight);
-          logger.debug('\n' + 'Observer: growthRatio relative|absolute (%): ', growthRatio + '|' + pageGrowthRatio);
-        } else {
-          // set the page type to 'static' if no growth detected
-          //
-          j1['pageMonitor'].pageType = 'static';
-        }
-      });
-      // monitor the page growth if visible
-      var dependencies_met_page_displayed = setInterval (function () {
+          if (growthRatio >= 5) {
+            j1['pageMonitor'].pageType = 'dynamic';
+            logger.debug('\n' + 'growthRatio: ' + j1['pageMonitor'].growthRatio + '%');
+            logger.debug('\n' + 'page detected as: dynamic');
+          } else {
+            // set the page type to 'static' if low growth detected
+            //
+            if (typeof j1['pageMonitor'].growthRatio != 'undefined' && j1['pageMonitor'].growthRatio > 0) {
+              logger.debug('\n' + 'growthRatio: ' + j1['pageMonitor'].growthRatio + '%');
+              j1['pageMonitor'].pageType = 'static';
+              logger.debug('\n' + 'page detected as: static');
+            }
+          }
+        } // END Observer data evaluation
+      }); // END Observer
+      // run observers to monitor page
+      //
+      var dependencies_met_page_finished = setInterval (function () {
         if (j1.getState() == 'finished') {
-          observer.observe(document.querySelector('body'));                     //    observer.observe(document.querySelector('#content'));
-          clearInterval(dependencies_met_page_displayed);
+          // monitor 'CLS'
+          performanceObserverCLS.observe({
+            type: 'layout-shift',
+            buffered: true
+          });
+          // monitor 'page growth'
+          resizeObserver.observe(document.querySelector('body'));
+          clearInterval(dependencies_met_page_finished);
         }
       }, 25);
       // -----------------------------------------------------------------------
@@ -2058,7 +2233,21 @@ var j1 = (function (options) {
       window.onkeyup = function (event) {
         if (event.keyCode == 27) window.history.back();
       };
-    }
+      $("a[href*='#']:not([href='#'])").click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+        if (target.length) {
+          var scrollOffsetCorrection  = scrollerOptions.smoothscroll.offsetCorrectionLocal;
+          var offset                  = target.offset().top + scrollOffsetCorrection;
+          $('html,body').animate({
+            scrollTop: offset
+          }, 1000);
+          return false;
+        }
+      }
+     });
+   } // END registerMonitors
   };
 }) (j1, window);
 

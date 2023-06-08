@@ -12,7 +12,7 @@
  #  J1 Theme is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Theme/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-01-04 16:26:30 +0100
+ #  Adapter generated: 2023-06-07 07:10:34 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -23,12 +23,18 @@
 // -----------------------------------------------------------------------------
 'use strict';
 j1.adapter.cookieConsent = (function (j1, window) {
-  var environment                 = 'production';
+  var environment                 = 'development';
   var tracking_enabled            = ('false' === 'true') ? true: false;
-  var tracking_id                 = '<your-tracking-id>';
+  var tracking_id                 = '';
   var tracking_id_valid           = (tracking_id.includes('tracking-id')) ? false : true;
-  var expireCookiesOnRequiredOnly = ('true' === 'true') ? true: false;
-  var moduleOptions               = {};
+  var stringifiedAttributes       = '';
+  var expireCookiesOnRequiredOnly;
+  var cookieDefaults;
+  var cookieSettings;
+  var cookieOptions;
+  var cookieConsentDefaults;
+  var cookieConsentSettings;
+  var cookieConsentOptions;
   var _this;
   var $modal;
   var cookie_names;
@@ -38,7 +44,7 @@ j1.adapter.cookieConsent = (function (j1, window) {
   var baseUrl;
   var hostname;
   var auto_domain;
-  var cookie_option_domain;
+  var check_cookie_option_domain;
   var cookie_domain;
   var secure;
   var logText;
@@ -64,7 +70,7 @@ j1.adapter.cookieConsent = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.cookieConsent',
-        generated:   '2023-01-04 16:26:30 +0100'
+        generated:   '2023-06-07 07:10:34 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -76,32 +82,41 @@ j1.adapter.cookieConsent = (function (j1, window) {
       baseUrl               = url.origin;
       hostname              = url.hostname;
       auto_domain           = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
-      cookie_option_domain  = ('false' === 'true');
       secure                = (url.protocol.includes('https')) ? true : false;
       contentLanguage       = 'en';
       navigatorLanguage     = navigator.language || navigator.userLanguage;
+      // Load cookie DEFAULTS|CONFIG
+      cookieDefaults        = $.extend({}, {"enabled":true, "checkCookies":false, "encryptCookiesOnHttp":false, "expireCookiesOnRequiredOnly":true, "path":"/", "domain":false, "expires":365, "same_site":"Strict", "secure":"auto", "http_only":false});
+      cookieSettings        = $.extend({}, {"enabled":true, "checkCookies":true, "same_site":"Strict"});
+      cookieOptions         = $.extend(true, {}, cookieDefaults, cookieSettings);
+      // Load  module DEFAULTS|CONFIG
+      cookieConsentDefaults = $.extend({}, {"enabled":false, "show_cookie_icon":false, "expire_cookies_on_required_only":true, "reloadPageOnChange":true, "autoShowDialog":true, "dialogLanguage":"content", "dialogLanguages":["en", "de"], "contentURL":"/assets/data/cookieconsent", "whitelisted":[], "xhrDataElement":"consent-data", "dialogContainerID":"consent-dialog", "postSelectionCallback":"j1.adapter.cookieConsent.cbCookie", "modal_settings":{"title":{"de":"Ihre Privatsphäre", "en":"Your Privacy"}, "body_text":{"en":"This website uses cookies and similar technologies that are required for operation. You are free to decide to give, refuse or withdraw your consent at any time by clicking the <b>My Settings</b> button. Changes are possible at any time by clicking on the cookie icon in the menu bar. Additional cookies are used only with your consent. Additional cookies are used to analyze the use of this website or to store your personal settings for this website. Personal settings allow all visitors to save preferences of the use of services. For more information about what data is collected and shared with partners, please find more information with <b>Privacy Notice</b>. <br><br> To visit this website, your consent on cookies is required by clicking the <b>I Agree</b> button.\n", "de":"Diese Website verwendet Cookies und ähnliche Technologien, die für den Betrieb dieser Website erforderlich sind. Sie können zu jederzeit entscheiden, ob Sie Ihre Zustimmung geben, verweigern oder zurückziehen. Sie können Ihre Zustimmung geben, indem Sie auf die Schaltfläche <b>Einverstanden</b> klicken. Nachträgliche Änderungen sind jederzeit möglich, indem Sie auf das Cookie Symbol in der Menüleiste klicken. <br><br> Erweiterte Cookies werden nur mit Ihrer <b>Zustimmung</b> verwendet. Zusätzliche Cookies werden verwendet, um die Nutzung dieser Website zu analysieren oder Ihre persönlichen Einstellungen für diese Webseite zu speichern. Analysen der Nutzung der Website helfen uns, Ihnen eine optimaler Nutzung diese Website zu ermöglichen. Persönliche Einstellungen erlauben es allen Besuchern, Präferenzen der Nutzung von Diensten zu speichern. <br><br> Weitere Informationen darüber, welche Daten gesammelt und an Partner weitergegeben werden finden Sie in der <b>Datenschutzrichtlinie</b>. Oder in Kurzform, indem Sie auf <b>Datenschutzerklärung</b> klicken. <br><br> Wenn Sie diese Website besuchen, ist Ihre Zustimmung zur Verwendung von Cookies erforderlich, indem Sie auf die Schaltfläche <b>Einverstanden</b> klicken.\n"}, "privacy_notice":{"en":"The operator of this website takes the protection of your personal data seriously. We treat your data confidential and comply with the General Data Protection Regulation (GDPR) of the European Union to protect your privacy. A set of data is stored in persistent cookies and remain on your computer for later use. Our partners and we make use of persistent vookies. Those additional cookies are only used with your consent. <br> <ul>\n  <li style=\"list-style-type: none;\">\n    <b>Necessary</b>\n    <p>\n      This website is based on static content, and no database is used behind it.\n      All information (data) needed to control this site is stored in so-called\n      session Cookies. Your browser automatically removes all session cookies\n      if you close all windows in the browser.\n    </p>\n  </li>\n  <li style=\"list-style-type: none;\">\n    <b>Analysis</b>\n    <p>\n      Analysis of the usage of this website helps optimize the site's pages to\n      improve the visitor's experience. For traffic analysis, the service\n      Google Analytics (GA) is used. GA uses persistent cookies that remain on\n      your computer for its service. This website does <b>not</b> transfer any\n      personal data to GA. Implicit personal information, like IP addresses, is\n      anonymized to protect your privacy.\n    </p>\n  </li>\n  <li style=\"list-style-type: none;\">\n    <b>Personalization</b>\n    <p>\n      Remebering your personal settings provides additional services like themes\n      translation, comments, or running advertising campaigns to provide visitors\n      with a website free of charge. Partners use persistent cookies that\n      remain on your computer for their services. Our partners like Bootswatch,\n      Hyvor, Disqus, or Google provide excellent personalized services and finance\n      running this site.\n    </p>\n  </li>\n</ul>\n", "de":"Der Betreiber dieser Website nimmt den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre Daten vertraulich und halten uns an die <b>Datenschutzgrundverordnung (DSGVO)</b> der Europäischen Union zum Schutz Ihrer Privatsphäre. <br><br> Eine Reihe von Daten wird in dauerhaften Cookies gespeichert. Unsere Partner und wir verwenden dauerhafte Cookies. Diese zusätzlichen Daten werden nur mit Ihrer <b>Zustimmung</b> gespeichert. <br> <ul>\n  <li style=\"list-style-type: none;\">\n    <b>Notwendig</b>\n    <p>\n      Diese Website speichert <b>keine</b> persönliche Daten\n      in Datenbanken. Alle Informationen (Daten) die zur Steuerung dieser Seite\n      notwendig sind, werden in sogenannten Sitzungscookies gespeichert. Ihr\n      Browser <b>entfernt</b> Sitzungscookies automatisch ohne Ihr zutun, wenn Sie\n      alle Browserfenster schließen.\n    </p>\n  <li style=\"list-style-type: none;\">\n    <b>Analysen</b>\n    <p>\n      Die Nutzung von Verkehrsanalysen hilft bei der Optimierung der\n      Website, um die Nutzung für alle Besucher zu verbessern. Für die Analyse wird\n      der Dienst Google Analytics (GA) verwendet. GA verwendet dauerhafte\n      Cookies die auf Ihrem Computer verbleiben, um diesen Dienst zu ermöglichen.\n      Diese Website überträgt <b>keine</b> persönlichen Daten an den Dienst GA.\n      Implizite persönliche Informationen, wie IP-Adressen, werden zum Schutz der\n      Privatsphäre unserer Besucher anonymisiert.\n    </p>\n  </li>\n  <li style=\"list-style-type: none;\">\n    <b>Personalisierung</b>\n    <p>\n      Die Speicherung persönlichger Einstellungen wird verwendet, um zusätzliche\n      Dienste anzubieten. Dazu gehören Themen, Übersetzungen, Kommentare oder Werbekampagnen\n      die allen Anwendern einen kostenlosen Besuch dieser Website ermöglichen.\n      Partner verwenden für ihre Dienste dauerhafte Cookies, die auf Ihrem Computer\n      verbleiben. Unsere Partner wie Bootswatch, Disqus, oder Google bieten hervorragende\n      personalisierte Dienste und finanzieren die Kosten für den Betrieb dieser Seiten.\n    <p>\n  </li>\n</ul>\n"}}});
+      cookieConsentSettings = $.extend({}, {"enabled":true, "show_cookie_icon":true});
+      cookieConsentOptions  = $.extend(true, {}, cookieConsentDefaults, cookieConsentSettings);
       // initialize state flag
       _this.state = 'pending';
       // Load  module DEFAULTS|CONFIG
       /* eslint-disable */
-      moduleOptions = $.extend({}, {"enabled":true, "reloadPageOnChange":true, "autoShowDialog":true, "dialogLanguage":"content", "dialogLanguages":["en", "de"], "contentURL":"/assets/data/cookieconsent", "whitelisted":[], "xhrDataElement":"consent-data", "dialogContainerID":"consent-dialog", "postSelectionCallback":"j1.adapter.cookieConsent.cbCookie", "modal_settings":{"title":{"de":"Ihre Privatsphäre", "en":"Your Privacy"}, "body_text":{"en":"This website uses cookies and similar technologies that are required for operation. You are free to decide to give, refuse or withdraw your consent at any time by clicking the <code>My Settings</code> button. Changes are possible at any time by clicking on the <code>cookie</code> icon in the menu bar. Additional cookies are used only with your consent. Additional cookies are used to analyze the use of this website or to store your personal settings for this website. Personal settings allow all visitors to save preferences of the use of services. For more information about what data is collected and shared with partners, please find more information with <code>Privacy Notice</code>. <br><br> To visit this website, your consent on cookies is required by clicking the <code>I Agree</code> button.\n", "de":"Diese Website verwendet Cookies und ähnliche Technologien, die für den Betrieb dieser Website erforderlich sind. Sie können zu jederzeit entscheiden, ob Sie Ihre Zustimmung geben, verweigern oder zurückziehen. Sie können Ihre Zustimmung geben, indem Sie auf die Schaltfläche <code>Einverstanden</code> klicken. Nachträgliche Änderungen sind jederzeit möglich, indem Sie auf das <code>Cookie</code> Symbol in der Menüleiste klicken. <br><br> Erweiterte Cookies werden nur mit Ihrer <b>Zustimmung</b> verwendet. Zusätzliche Cookies werden verwendet, um die Nutzung dieser Website zu analysieren oder Ihre persönlichen Einstellungen für diese Webseite zu speichern. Analysen der Nutzung der Website helfen uns, Ihnen eine optimaler Nutzung diese Website zu ermöglichen. Persönliche Einstellungen erlauben es allen Besuchern, Präferenzen der Nutzung von Diensten zu speichern. <br><br> Weitere Informationen darüber, welche Daten gesammelt und an Partner weitergegeben werden finden Sie in der <code>Datenschutzrichtlinie</code>. Oder in Kurzform, indem Sie auf <code>Datenschutzerklärung</code> klicken. <br><br> Wenn Sie diese Website besuchen, ist Ihre Zustimmung zur Verwendung von Cookies erforderlich, indem Sie auf die Schaltfläche <code>Einverstanden</code> klicken.\n"}, "privacy_notice":{"en":"The operator of this website takes the protection of your personal data seriously. We treat your data confidential and comply with the General Data Protection Regulation (GDPR) of the European Union to protect your privacy. A set of data is stored in <b>Persistent Cookies</b>. Our partners and we make use of Persistent Cookies. Those <b>additional</b> cookies are only used with your consent. <br> <ul>\n  <li>\n    <code>Necessary</code> This website is based on static content, and no\n    database is used behind it. All information (data) needed to control this\n    site is stored in so-called <b>Session Cookies</b>. Your browser automatically\n    <b>removes</b> session cookies if you close all windows of the browser.\n  </li>\n  <li>\n    <code>Analysis</code> of this website's usage helps optimize the site's\n    pages to improve the visitor's experience. For analysis, Google Analytics\n    (GA) is used. GA uses <b>Persistent Cookies</b> that remain on your computer\n    for its service. This website does <b>not</b> transfer any personal data to GA.\n    Implicit personal information, like IP addresses, is anonymized to protect\n    your privacy.\n  </li>\n  <li>\n    <code>Personalization</code> provides <b>additional services</b> like themes,\n    translation, comments, or running advertising campaigns to provide visitors\n    with a website free of charge. Partners use <b>Persistent Cookies</b> that\n    remain on your computer for their services. Our partners like Bootswatch,\n    Disqus, or Google provide excellent personalized services and finance running\n    this site.\n  </li>\n</ul>\n", "de":"Der Betreiber dieser Website nimmt den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre Daten vertraulich und halten uns an die <b>Datenschutzgrundverordnung</b> (DSGVO) der Europäischen Union zum Schutz Ihrer Privatsphäre. <br><br> Eine Reihe von Daten wird in <b>dauerhaften Cookies</b> gespeichert. Unsere Partner und wir verwenden dauerhafte Cookies. Diese <b>zusätzlichen</b> Daten werden nur mit Ihrer <b>Zustimmung</b> gespeichert. <br> <ul>\n  <li>\n    <code>Notwendig</code> Diese Website speichert <b>keine</b> persönliche Daten\n    in Datenbanken. Alle Informationen (Daten) die zur Steuerung dieser Seite\n    notwendig sind, werden in sogenannten <b>Sitzungscookies</b> gespeichert. Ihr\n    Browser <b>entfernt</b> Sitzungscookies automatisch ohne Ihr zutun, wenn Sie\n    alle Browserfenster schließen.\n  <li>\n    <code>Analysen</code> der Nutzung dieser Website hilft bei der Optimierung der\n    Website, um die Nutzung für alle Besucher zu verbessern. Für die Analyse wird\n    der Dienst <em>Google Analytics</em> (GA) verwendet. GA verwendet dauerhafte\n    Cookies die auf Ihrem Computer verbleiben, um diesen Dienst zu ermöglichen.\n    Diese Website überträgt <b>keine</b> persönlichen Daten an den Dienst GA.\n    Implizite persönliche Informationen, wie IP-Adressen, werden zum Schutz der\n    Privatsphäre unserer Besucher anonymisiert.\n  </li>\n  <li>\n    <code>Personalisierung</code> wird verwendet, um <b>zusätzliche</b> Dienste\n    anzubieten. Dazu gehören Themen, Übersetzungen, Kommentare oder Werbekampagnen\n    die allen Anwendern einen kostenlosen Besuch dieser Website ermöglichen.\n    Partner verwenden für ihre Dienste dauerhafte Cookies, die auf Ihrem Computer\n    verbleiben. Unsere Partner wie Bootswatch, Disqus, oder Google bieten hervorragende\n    personalisierte Dienste und finanzieren die Kosten für den Betrieb dieser Seiten.\n  </li>\n</ul>\n"}}, "show_cookie_icon":true, "expire_cookies_on_required_only":true});
+      // moduleOptions = $.extend({}, {"enabled":true, "show_cookie_icon":true, "expire_cookies_on_required_only":true, "reloadPageOnChange":true, "autoShowDialog":true, "dialogLanguage":"content", "dialogLanguages":["en", "de"], "contentURL":"/assets/data/cookieconsent", "whitelisted":[], "xhrDataElement":"consent-data", "dialogContainerID":"consent-dialog", "postSelectionCallback":"j1.adapter.cookieConsent.cbCookie", "modal_settings":{"title":{"de":"Ihre Privatsphäre", "en":"Your Privacy"}, "body_text":{"en":"This website uses cookies and similar technologies that are required for operation. You are free to decide to give, refuse or withdraw your consent at any time by clicking the <b>My Settings</b> button. Changes are possible at any time by clicking on the cookie icon in the menu bar. Additional cookies are used only with your consent. Additional cookies are used to analyze the use of this website or to store your personal settings for this website. Personal settings allow all visitors to save preferences of the use of services. For more information about what data is collected and shared with partners, please find more information with <b>Privacy Notice</b>. <br><br> To visit this website, your consent on cookies is required by clicking the <b>I Agree</b> button.\n", "de":"Diese Website verwendet Cookies und ähnliche Technologien, die für den Betrieb dieser Website erforderlich sind. Sie können zu jederzeit entscheiden, ob Sie Ihre Zustimmung geben, verweigern oder zurückziehen. Sie können Ihre Zustimmung geben, indem Sie auf die Schaltfläche <b>Einverstanden</b> klicken. Nachträgliche Änderungen sind jederzeit möglich, indem Sie auf das Cookie Symbol in der Menüleiste klicken. <br><br> Erweiterte Cookies werden nur mit Ihrer <b>Zustimmung</b> verwendet. Zusätzliche Cookies werden verwendet, um die Nutzung dieser Website zu analysieren oder Ihre persönlichen Einstellungen für diese Webseite zu speichern. Analysen der Nutzung der Website helfen uns, Ihnen eine optimaler Nutzung diese Website zu ermöglichen. Persönliche Einstellungen erlauben es allen Besuchern, Präferenzen der Nutzung von Diensten zu speichern. <br><br> Weitere Informationen darüber, welche Daten gesammelt und an Partner weitergegeben werden finden Sie in der <b>Datenschutzrichtlinie</b>. Oder in Kurzform, indem Sie auf <b>Datenschutzerklärung</b> klicken. <br><br> Wenn Sie diese Website besuchen, ist Ihre Zustimmung zur Verwendung von Cookies erforderlich, indem Sie auf die Schaltfläche <b>Einverstanden</b> klicken.\n"}, "privacy_notice":{"en":"The operator of this website takes the protection of your personal data seriously. We treat your data confidential and comply with the General Data Protection Regulation (GDPR) of the European Union to protect your privacy. A set of data is stored in persistent cookies and remain on your computer for later use. Our partners and we make use of persistent vookies. Those additional cookies are only used with your consent. <br> <ul>\n  <li style=\"list-style-type: none;\">\n    <b>Necessary</b>\n    <p>\n      This website is based on static content, and no database is used behind it.\n      All information (data) needed to control this site is stored in so-called\n      session Cookies. Your browser automatically removes all session cookies\n      if you close all windows in the browser.\n    </p>\n  </li>\n  <li style=\"list-style-type: none;\">\n    <b>Analysis</b>\n    <p>\n      Analysis of the usage of this website helps optimize the site's pages to\n      improve the visitor's experience. For traffic analysis, the service\n      Google Analytics (GA) is used. GA uses persistent cookies that remain on\n      your computer for its service. This website does <b>not</b> transfer any\n      personal data to GA. Implicit personal information, like IP addresses, is\n      anonymized to protect your privacy.\n    </p>\n  </li>\n  <li style=\"list-style-type: none;\">\n    <b>Personalization</b>\n    <p>\n      Remebering your personal settings provides additional services like themes\n      translation, comments, or running advertising campaigns to provide visitors\n      with a website free of charge. Partners use persistent cookies that\n      remain on your computer for their services. Our partners like Bootswatch,\n      Hyvor, Disqus, or Google provide excellent personalized services and finance\n      running this site.\n    </p>\n  </li>\n</ul>\n", "de":"Der Betreiber dieser Website nimmt den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre Daten vertraulich und halten uns an die <b>Datenschutzgrundverordnung (DSGVO)</b> der Europäischen Union zum Schutz Ihrer Privatsphäre. <br><br> Eine Reihe von Daten wird in dauerhaften Cookies gespeichert. Unsere Partner und wir verwenden dauerhafte Cookies. Diese zusätzlichen Daten werden nur mit Ihrer <b>Zustimmung</b> gespeichert. <br> <ul>\n  <li style=\"list-style-type: none;\">\n    <b>Notwendig</b>\n    <p>\n      Diese Website speichert <b>keine</b> persönliche Daten\n      in Datenbanken. Alle Informationen (Daten) die zur Steuerung dieser Seite\n      notwendig sind, werden in sogenannten Sitzungscookies gespeichert. Ihr\n      Browser <b>entfernt</b> Sitzungscookies automatisch ohne Ihr zutun, wenn Sie\n      alle Browserfenster schließen.\n    </p>\n  <li style=\"list-style-type: none;\">\n    <b>Analysen</b>\n    <p>\n      Die Nutzung von Verkehrsanalysen hilft bei der Optimierung der\n      Website, um die Nutzung für alle Besucher zu verbessern. Für die Analyse wird\n      der Dienst Google Analytics (GA) verwendet. GA verwendet dauerhafte\n      Cookies die auf Ihrem Computer verbleiben, um diesen Dienst zu ermöglichen.\n      Diese Website überträgt <b>keine</b> persönlichen Daten an den Dienst GA.\n      Implizite persönliche Informationen, wie IP-Adressen, werden zum Schutz der\n      Privatsphäre unserer Besucher anonymisiert.\n    </p>\n  </li>\n  <li style=\"list-style-type: none;\">\n    <b>Personalisierung</b>\n    <p>\n      Die Speicherung persönlichger Einstellungen wird verwendet, um zusätzliche\n      Dienste anzubieten. Dazu gehören Themen, Übersetzungen, Kommentare oder Werbekampagnen\n      die allen Anwendern einen kostenlosen Besuch dieser Website ermöglichen.\n      Partner verwenden für ihre Dienste dauerhafte Cookies, die auf Ihrem Computer\n      verbleiben. Unsere Partner wie Bootswatch, Disqus, oder Google bieten hervorragende\n      personalisierte Dienste und finanzieren die Kosten für den Betrieb dieser Seiten.\n    <p>\n  </li>\n</ul>\n"}}});
       /* eslint-enable */
-      if (typeof settings !== 'undefined') {
-        moduleOptions = $.extend({}, moduleOptions, settings);
+      // if (typeof settings !== 'undefined') {
+      //   moduleOptions = $.extend({}, moduleOptions, settings);
+      // }
+      if (cookieConsentOptions.dialogLanguage === 'auto') {
+        cookieConsentOptions.dialogLanguage = navigatorLanguage;
+      } else if (cookieConsentOptions.dialogLanguage === 'content') {
+        cookieConsentOptions.dialogLanguage = contentLanguage;
       }
-      if (moduleOptions.dialogLanguage === 'auto') {
-        moduleOptions.dialogLanguage = navigatorLanguage;
-      } else if (moduleOptions.dialogLanguage === 'content') {
-        moduleOptions.dialogLanguage = contentLanguage;
-      }
+      check_cookie_option_domain  = (cookieOptions.domain === 'false') ? false : true;
+      expireCookiesOnRequiredOnly = (cookieOptions.expireCookiesOnRequiredOnly === 'true') ? true: false;
       // -----------------------------------------------------------------------
       // initializer
       // -----------------------------------------------------------------------
       var dependencies_met_page_ready = setInterval (function (options) {
-        var same_site = 'Strict';
+        var same_site = cookieOptions.same_site;
         var expires;
-        if (moduleOptions.enabled) {
-          expires = '365';
+        if (cookieConsentOptions.enabled) {
+          expires = cookieOptions.expires;
         } else {
           // expire permanent cookies to session
           j1.expireCookie({ name: cookie_names.user_state });
@@ -116,14 +131,16 @@ j1.adapter.cookieConsent = (function (j1, window) {
           logger.warn('\n' + 'disable module: Trranslator');
         }
         // set domain used by cookies
-        if (cookie_option_domain) {
-          if (cookie_option_domain == 'auto') {
+        if (check_cookie_option_domain) {
+          if (cookieOptions.domain == 'auto') {
             domainAttribute = auto_domain;
             stringifiedAttributes += '; ' + 'Domain=' + domainAttribute;
-          } else if (cookie_option_domain)  {
-            domainAttribute = domain;
+          } else  {
+            domainAttribute = cookieOptions.domain;
             stringifiedAttributes += '; ' + 'Domain=' + domainAttribute;
           }
+        } else {
+          domainAttribute = cookieOptions.domain;
         }
         // Failsafe: if 'None' is given for samesite in non-secure
         // environments open access to cookies to subdomains
@@ -133,22 +150,22 @@ j1.adapter.cookieConsent = (function (j1, window) {
         }
         if ( j1.getState() === 'finished' ) {
           _this.setState('started');
-          if (moduleOptions.enabled) {
+          if (cookieConsentOptions.enabled) {
             logger.debug('\n' + 'state: ' + _this.getState());
             logger.info('\n' + 'module is being initialized');
             j1.cookieConsent = new CookieConsent ({
-              contentURL:             moduleOptions.contentURL,                   // dialog content (modals) for all supported languages
-              cookieName:             cookie_names.user_consent,                  // name of the consent cookie
-              cookieStorageDays:      expires,                                    // lifetime of a cookie [0..365], 0: session cookie
-              cookieSameSite:         same_site,                                  // restrict consent cookie
-              cookieSecure:           secure,                                     // only sent to the server with an encrypted request over HTTPS
-              cookieDomain:           domainAttribute,                            // set domain (hostname|domain)
-              dialogLanguage:         moduleOptions.dialogLanguage,               // language for the dialog (modal)
-              whitelisted:            moduleOptions.whitelisted,                  // pages NO cookie dialog is shown
-              reloadPageOnChange:     moduleOptions.reloadPageOnChange,           // reload if setzings has changed
-              dialogContainerID:      moduleOptions.dialogContainerID,            // container, the dialog modal is (dynamically) loaded
-              xhrDataElement:         moduleOptions.xhrDataElement,               // container for all language-specific dialogs (modals)
-              postSelectionCallback:  moduleOptions.postSelectionCallback,        // callback function, called after the user has made his selection
+              contentURL:             cookieConsentOptions.contentURL,          // dialog content (modals) for all supported languages
+              cookieName:             cookie_names.user_consent,                // name of the consent cookie
+              cookieStorageDays:      expires,                                  // lifetime of a cookie [0..365], 0: session cookie
+              cookieSameSite:         same_site,                                // restrict consent cookie
+              cookieSecure:           secure,                                   // only sent to the server with an encrypted request over HTTPS
+              cookieDomain:           domainAttribute,                          // set domain (hostname|domain)
+              dialogLanguage:         cookieConsentOptions.dialogLanguage,      // language for the dialog (modal)
+              whitelisted:            cookieConsentOptions.whitelisted,         // pages NO cookie dialog is shown
+              reloadPageOnChange:     cookieConsentOptions.reloadPageOnChange,  // reload if setzings has changed
+              dialogContainerID:      cookieConsentOptions.dialogContainerID,   // container, the dialog modal is (dynamically) loaded
+              xhrDataElement:         cookieConsentOptions.xhrDataElement,      // container for all language-specific dialogs (modals)
+              postSelectionCallback:  cookieConsentOptions.postSelectionCallback, // callback function, called after the user has made his selection
             });
           } else {
             logger.warn('\n' + 'module is disabled');
@@ -250,7 +267,7 @@ j1.adapter.cookieConsent = (function (j1, window) {
           j1.expireCookie({ name: cookie_names.user_consent });
           j1.expireCookie({ name: cookie_names.user_translate });
         }
-        if (moduleOptions.reloadPageOnChange) {
+        if (cookieConsentOptions.reloadPageOnChange) {
           // reload current page (skip cache)
           location.reload(true);
         }
@@ -305,7 +322,7 @@ j1.adapter.cookieConsent = (function (j1, window) {
             j1.expireCookie({ name: cookie_names.user_translate });
           }
         }
-        if (moduleOptions.reloadPageOnChange) {
+        if (cookieConsentOptions.reloadPageOnChange) {
           // reload current page (skip cache)
           location.reload(true);
         }
