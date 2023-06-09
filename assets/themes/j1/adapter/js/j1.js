@@ -13,7 +13,7 @@
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-06-09 21:13:58 +0200
+ # Adapter generated: 2023-06-10 01:29:59 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -30,19 +30,20 @@ var j1 = (function (options) {
   // ---------------------------------------------------------------------------
   // base page resources
   var rePager          =  new RegExp('navigator|dateview|tagview|archive');
-  var environment      = 'development';
+  var environment      = 'production';
   var moduleOptions    = {};
   var j1_runtime_data  = {};
   var scrollerSettings = {};
   var scrollerOptions  = {};
   var scrollerDefaults = {};
-  var _this;
+  var _this            = j1;;
   var settings;
   var json_data;
   var ep;
   var baseUrl;
   var referrer;
   var documentHeight;
+  var banner            = [];
   var scrollOffset;
   var scrollOffsetCorrection;
   // defaults for status information
@@ -175,7 +176,7 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2023-06-09 21:13:58 +0200'
+        generated:   '2023-06-10 01:29:59 +0200'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
@@ -267,6 +268,7 @@ var j1 = (function (options) {
           j1.expireCookie({ name: cookie_names.user_translate });
         }
       }
+      logger.info('\n' + 'register monitors');
       j1.registerMonitors();
       // detect middleware (mode 'app') and update user session cookie
       // -----------------------------------------------------------------------
@@ -394,9 +396,32 @@ var j1 = (function (options) {
       // load|initialize page resources for block elements
       // NOTE: asynchronous calls should be rewitten to xhrData
       // -----------------------------------------------------------------------
-      j1.initBanner(settings);
-      j1.initPanel(settings);
-      j1.initFooter(settings);
+      var dependencies_met_page_ready = setInterval (function (options) {
+        var pageState     = $('#no_flicker').css("display");
+        var pageVisible   = (pageState == 'block') ? true : false;
+        var atticFinished = (j1.adapter.attic.getState() == 'finished') ? true: false;
+        if (j1.getState() === 'finished' && pageVisible) {
+          logger.info('\n' + 'load block elements');
+          j1.initBanner(settings);
+          j1.initPanel(settings);
+          j1.initFooter(settings);
+          var dependencies_met_blocks_ready = setInterval (function (settings) {
+            var banner_state = j1.getXhrDataState('#home_teaser_banner');
+            var panel_state = j1.getXhrDataState('#home_teaser_banner');
+            var footer_state = j1.getXhrDataState('#home_teaser_banner');
+            // show content section for dynamic 'block elements' to optimze CLS
+            if (banner_state == 'success' && footer_state == 'success') {
+              // show main content
+              $('#content').show();
+              clearInterval(dependencies_met_blocks_ready);
+            }
+          }, 10);
+          // show content for (dynamic) 'page content' to optimze CLS
+          $('#content').show();
+          clearInterval(dependencies_met_page_ready);
+        }
+      }, 10);
+      j1.xhrDOMState["#home_teaser_banner"] == 'success'
       state = 'running';
       logger.debug('\n' + 'state: ' + state);
       user_session.timestamp = timestamp_now;
@@ -430,7 +455,7 @@ var j1 = (function (options) {
       var cb_load_closure = function(banner_id) {
         return function ( responseTxt, statusTxt, xhr ) {
           if ( statusTxt ==  'success' ) {
-            var logger = log4javascript.getLogger('j1.adapter.xhrData');
+            // var logger = log4javascript.getLogger('j1.adapter.xhrData');
             logText = '\n' + 'loading banner completed on id: ' +banner_id;
             logger.info(logText);
             j1.setXhrDataState(banner_id, statusTxt);
@@ -687,6 +712,7 @@ var j1 = (function (options) {
           }
           // display the page loaded is managed by module "themer"
           // $('#no_flicker').css('display', 'block');
+          // $('#no_flicker').show();
           // jadams, 2021-12-06: Check if access to cookies for this site failed.
           // Possibly, a third-party domain or an attacker tries to access it.
           if (checkCookies) {
@@ -815,6 +841,7 @@ var j1 = (function (options) {
         }
         // display the page loaded is managed by module "themer"
         // $('#no_flicker').css('display', 'block');
+        // $('#no_flicker').show();
         // jadams, 2021-12-06: Check if access to cookies for this site failed.
         // Possibly, a third-party domain or an attacker tries to access it.
         if (checkCookies) {
@@ -2067,17 +2094,21 @@ var j1 = (function (options) {
         const lastEntry   = entries[entries.length - 1];
         var lastEntryText = JSON.stringify(lastEntry, null, 2);
         cumulated_lcp += lastEntry.renderTime;
-        // lcp = cumulated_lcp.toFixed(3);
         var lcp_full = cumulated_lcp/1000;
         lcp = lcp_full.toFixed(3);
         if ( lastEntry.url != '' ) {
           logger.debug('\n' + 'Largest Contentful Paint (LCP), image/url:', lastEntry.url);
         } else {
-          logger.debug('\n' + 'Largest Contentful Paint (LCP), text:' + '\n', lastEntry.element.innerText.substring(0, 80) + ' ...');
+          // jadams, 2023-06-07:
+          // logger.debug('\n' + 'Largest Contentful Paint (LCP), text:' + '\n', lastEntry.element.innerText.substring(0, 80) + ' ...');
         }
         // logger.debug('\n' + 'Largest Contentful Paint (LCP):', lastEntryText);
-        logger.debug('\n' + 'Largest Contentful Paint (LCP), cumulated:', lcp);
-      });
+        if (lcp > 2.5) {
+            logger.warn('\n' + 'Largest Contentful Paint (LCP), cumulated:', lcp);
+        } else {
+            logger.info('\n' + 'Largest Contentful Paint (LCP), cumulated:', lcp);
+        }
+      }); // END observer
       var cls;
       var cumulated_cls = 0;
       const performanceObserverCLS = new PerformanceObserver(entryList => {
@@ -2105,17 +2136,19 @@ var j1 = (function (options) {
                   id = 'missing';
                 }
                 if (id !== 'missing' && id !== '' && cls > 0.01) {
-                  logger.debug('\n' + 'Cumulative Layout Shift (CLS), entry id: ', id);
-                  logger.debug('\n' + 'Cumulative Layout Shift (CLS): ', cls);
+                  if (cls > 0.1) {
+                    logger.warn('\n' + 'Cumulative Layout Shift (CLS), entry id: ', id);
+                    logger.warn('\n' + 'Cumulative Layout Shift (CLS): ', cls);
+                  } else {
+                    logger.info('\n' + 'Cumulative Layout Shift (CLS), entry id: ', id);
+                    logger.info('\n' + 'Cumulative Layout Shift (CLS): ', cls);
+                  }
                 }
-                // if (cls > 0.01) {
-                //   logger.debug('\n' + 'Cumulative Layout Shift (CLS): ', cls);
-                // }
-              }
-            }
-          }
-        });
-      });
+              } // END if typeof
+            } // END for
+          } // END if  entry.sources
+        }); // END forEach entry
+      }); // END observer
       // add ResizeObserver to monitor the page height of dynamic pages
       // see: https://stackoverflow.com/questions/14866775/detect-document-height-change
       //
@@ -2166,7 +2199,7 @@ var j1 = (function (options) {
               growthRatio = growthRatio.toFixed(2);
               j1['pageMonitor'].growthRatio = growthRatio;
             }
-          }
+          } // END for entries
           // detect the 'page type'
           //
           if (growthRatio >= 5) {
@@ -2181,8 +2214,8 @@ var j1 = (function (options) {
               j1['pageMonitor'].pageType = 'static';
               logger.debug('\n' + 'page detected as: static');
             }
-          }
-        } // END Observer data evaluation
+          } // END if growthRatio
+        } // END if j1['pageMonitor']
       }); // END Observer
       // -----------------------------------------------------------------------
       // run all observers for page monitoring
