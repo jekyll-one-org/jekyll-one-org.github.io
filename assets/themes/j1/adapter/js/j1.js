@@ -13,10 +13,7 @@
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  TODO:
- #
- # -----------------------------------------------------------------------------
- # Adapter generated: 2023-06-08 22:06:55 +0200
+ # Adapter generated: 2023-06-09 21:13:58 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -33,7 +30,7 @@ var j1 = (function (options) {
   // ---------------------------------------------------------------------------
   // base page resources
   var rePager          =  new RegExp('navigator|dateview|tagview|archive');
-  var environment      = 'production';
+  var environment      = 'development';
   var moduleOptions    = {};
   var j1_runtime_data  = {};
   var scrollerSettings = {};
@@ -178,7 +175,7 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2023-06-08 22:06:55 +0200'
+        generated:   '2023-06-09 21:13:58 +0200'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
@@ -270,12 +267,7 @@ var j1 = (function (options) {
           j1.expireCookie({ name: cookie_names.user_translate });
         }
       }
-      var dependencies_met_page_loaded = setInterval (function () {
-        if (j1.getState() == 'finished') {
-          j1.registerEvents(logger);
-        }
-        clearInterval(dependencies_met_page_loaded);
-      }, 25); // END dependencies_met_page_loaded
+      j1.registerMonitors();
       // detect middleware (mode 'app') and update user session cookie
       // -----------------------------------------------------------------------
       if (user_session.mode === 'app') {
@@ -326,7 +318,7 @@ var j1 = (function (options) {
                 clearInterval(dependencies_met_page_displayed);
               }
             }
-          }, 25);
+          }, 10);
         })
         .catch(function(error) {
           // jadams, 2018-08-31
@@ -623,6 +615,11 @@ var j1 = (function (options) {
       // personalized content require user consent
       var meta_personalization  = $('meta[name=personalization]').attr('content');
       var personalization       = (meta_personalization === 'true') ? true: false;
+      const cb = (list) => {
+          list.getEntries().forEach(entry => {
+              console.log(entry);
+          });
+      }
       // if personalized content detected, page requires user consent
       // -----------------------------------------------------------------------
       if (personalization && !user_consent.personalization) {
@@ -780,10 +777,10 @@ var j1 = (function (options) {
               setTimeout (function() {
                 // scroll to an anchor in current page if given in URL
                 j1.scrollToAnchor();
-              }, 1000 );
+              }, 10 );
               clearInterval(dependencies_met_page_ready);
             }
-          }, 25);
+          }, 10);
           // set|log status
           state = 'finished';
           j1.setState(state);
@@ -948,10 +945,10 @@ var j1 = (function (options) {
             setTimeout (function() {
               // scroll to an anchor in current page if given in URL
               j1.scrollToAnchor();
-            }, 1000 );
+            }, 10 );
             clearInterval(dependencies_met_page_ready);
           }
-        }, 25);
+        }, 10);
         // set|log status
         state = 'finished';
         j1.setState(state);
@@ -1316,12 +1313,10 @@ var j1 = (function (options) {
     // -------------------------------------------------------------------------
     // MAX-AGE Cookies: To leave cookies for a specific time, set the expires
     // part into a FUTUTE date. FOR GDPR compliance, MAX-AGE is 365 days.
-    // TODO:
-    //    Change attribute "Secure" to true, if HTTPS is used.
-    //    Checks and config changes are to be done.
+    // TODO:  Change attribute "Secure" to true, if HTTPS is used.
+    //        Checks and config changes are to be done.
     // -------------------------------------------------------------------------
-    // TODO:
-    //    Handling of  attribute "SameSite".
+    // TODO: Handling of  attribute "SameSite".
     //    Config to use this attribute should be configurable
     //    (what config file?).
     //    Disabled use for now in general.
@@ -1658,7 +1653,7 @@ var j1 = (function (options) {
             return false;
           }
         }
-      }, 25);
+      }, 10);
     },
     // -------------------------------------------------------------------------
     // Update MACROs
@@ -1711,7 +1706,7 @@ var j1 = (function (options) {
             return false;
           }
         }
-      }, 25);
+      }, 10);
     },
     // -------------------------------------------------------------------------
     // getMessage
@@ -2030,11 +2025,11 @@ var j1 = (function (options) {
               scrollOffsetCorrection = scrollerOptions.smoothscroll.offsetCorrection;
               scrollOffset = j1.getScrollOffset(scrollOffsetCorrection);
               j1.scrollTo(scrollOffset);
-            }, 1000 );
+            }, 10 );
             clearInterval(dependencies_met_page_displayed);
           }
         }
-      }, 25);
+      }, 10);
     },
     // -------------------------------------------------------------------------
     // stringToBoolean()
@@ -2056,15 +2051,77 @@ var j1 = (function (options) {
       }
     }, // END stringToBoolean
     // -------------------------------------------------------------------------
-    // registerEvents()
+    // registerMonitors()
     //
     // -------------------------------------------------------------------------
-    registerEvents: function (logger) {
-      // Add ResizeObserver to monitor the page height of dynamic pages
+    registerMonitors: function () {
+      // add PerformanceObserver to monitor the 'LCP' of a page load
+      // see: https://developer.mozilla.org/en-US/docs/Web/API/LargestContentfulPaint
+      //
+      var lcp;
+      var cumulated_lcp = 0;
+      const performanceObserverLCP = new PerformanceObserver((entryList) => {
+        var logger        = log4javascript.getLogger('PerformanceObserver');
+        const entries     = entryList.getEntries();
+        // Use the latest LCP candidate
+        const lastEntry   = entries[entries.length - 1];
+        var lastEntryText = JSON.stringify(lastEntry, null, 2);
+        cumulated_lcp += lastEntry.renderTime;
+        // lcp = cumulated_lcp.toFixed(3);
+        var lcp_full = cumulated_lcp/1000;
+        lcp = lcp_full.toFixed(3);
+        if ( lastEntry.url != '' ) {
+          logger.debug('\n' + 'Largest Contentful Paint (LCP), image/url:', lastEntry.url);
+        } else {
+          logger.debug('\n' + 'Largest Contentful Paint (LCP), text:' + '\n', lastEntry.element.innerText.substring(0, 80) + ' ...');
+        }
+        // logger.debug('\n' + 'Largest Contentful Paint (LCP):', lastEntryText);
+        logger.debug('\n' + 'Largest Contentful Paint (LCP), cumulated:', lcp);
+      });
+      var cls;
+      var cumulated_cls = 0;
+      const performanceObserverCLS = new PerformanceObserver(entryList => {
+        var logger  = log4javascript.getLogger('PerformanceObserver');
+        var entries = entryList.getEntries() || [];
+        entries.forEach(entry => {
+          // var entryID = entry.sources[0].node.firstElementChild.id;
+          // logger.debug('\n' + 'Cumulative Layout Shift (CLS), entry object:', entryID);
+          // var entryText = JSON.stringify(entry.sources[0], null, 2);
+          // logger.debug('\n' + 'Cumulative Layout Shift (CLS), entry object:', entryText);
+          if (entry.sources) {
+            // omit entries likely caused by user input
+            if (!entry.hadRecentInput) {
+              // cumulate values
+              cumulated_cls += entry.value;
+              cls = cumulated_cls.toFixed(3);
+            }
+            for (const {node, currentRect, previousRect} of entry.sources) {
+              if (typeof node.firstElementChild != 'null' && typeof node.firstElementChild != 'undefined') {
+                var id = '';
+                try {
+                  id = node.firstElementChild.id;
+                }
+                catch(err) {
+                  id = 'missing';
+                }
+                if (id !== 'missing' && id !== '' && cls > 0.01) {
+                  logger.debug('\n' + 'Cumulative Layout Shift (CLS), entry id: ', id);
+                  logger.debug('\n' + 'Cumulative Layout Shift (CLS): ', cls);
+                }
+                // if (cls > 0.01) {
+                //   logger.debug('\n' + 'Cumulative Layout Shift (CLS): ', cls);
+                // }
+              }
+            }
+          }
+        });
+      });
+      // add ResizeObserver to monitor the page height of dynamic pages
       // see: https://stackoverflow.com/questions/14866775/detect-document-height-change
       //
-      const observer = new ResizeObserver(entries => {
+      const resizeObserver = new ResizeObserver(entries => {
         var scrollOffsetCorrection  = scrollerOptions.smoothscroll.offsetCorrection;
+        var logger                = log4javascript.getLogger('ResizeObserver');
         const body                  = document.body,
               html                  = document.documentElement,
               scrollOffset          = j1.getScrollOffset(scrollOffsetCorrection);
@@ -2078,9 +2135,11 @@ var j1 = (function (options) {
           html.offsetHeight
         );
         j1['pageMonitor'].eventNo += 1;
-        // Skip first Observer events as data returne found  unusable
+        // skip first Observer event
+        //
         if (j1['pageMonitor'].eventNo == 2) {
           // Set initial data from second event
+          //
           j1['pageMonitor'].pageBaseHeight      = document.body.scrollHeight;
           j1['pageMonitor'].currentPageHeight   = document.body.scrollHeight;
           j1['pageMonitor'].previousPageHeight  = document.body.scrollHeight;
@@ -2090,7 +2149,7 @@ var j1 = (function (options) {
           growthRatio         = 0.00;
         } else {
           // collect 'pageHeight' from 'entries'
-          // NOTE: each entry is an instance of ResizeObserverEntry
+          //
           for (const entry of entries) {
             pageBaseHeight = j1['pageMonitor'].pageBaseHeight;
             if (pageBaseHeight > 0) {
@@ -2099,6 +2158,7 @@ var j1 = (function (options) {
               pageHeight = Math.round(entry.contentRect.height);
               j1['pageMonitor'].currentPageHeight = pageHeight;
               // total growth ratio
+              //
               pageGrowthRatio = pageHeight / pageBaseHeight * 100;
               pageGrowthRatio = pageGrowthRatio.toFixed(2);
               j1['pageMonitor'].currentGrowthRatio = pageGrowthRatio;
@@ -2107,29 +2167,42 @@ var j1 = (function (options) {
               j1['pageMonitor'].growthRatio = growthRatio;
             }
           }
-          // detect the page 'type'
-          if (growthRatio >= 10) {
+          // detect the 'page type'
+          //
+          if (growthRatio >= 5) {
             j1['pageMonitor'].pageType = 'dynamic';
-//          logger.debug('\n' + 'Observer: previousPageHeight|currentPageHeight (px): ', j1['pageMonitor'].previousPageHeight + '|' + pageHeight);
-//          logger.debug('\n' + 'Observer: growthRatio relative|absolute (%): ', growthRatio + '|' + pageGrowthRatio);
-            logger.debug('\n' + 'Observer: page growthRatio (%): ', j1['pageMonitor'].growthRatio);
-            logger.debug('\n' + 'Observer: page detected as: dynamic');
+            logger.debug('\n' + 'growthRatio: ' + j1['pageMonitor'].growthRatio + '%');
+            logger.debug('\n' + 'page detected as: dynamic');
           } else {
             // set the page type to 'static' if low growth detected
             //
-            logger.debug('\n' + 'Observer: page growthRatio (%): ', j1['pageMonitor'].growthRatio);
-            j1['pageMonitor'].pageType = 'static';
-            logger.debug('\n' + 'Observer: page detected as: static');
+            if (typeof j1['pageMonitor'].growthRatio != 'undefined' && j1['pageMonitor'].growthRatio > 0) {
+              logger.debug('\n' + 'growthRatio: ' + j1['pageMonitor'].growthRatio + '%');
+              j1['pageMonitor'].pageType = 'static';
+              logger.debug('\n' + 'page detected as: static');
+            }
           }
         } // END Observer data evaluation
       }); // END Observer
-      // monitor the page growth if visible
-      var dependencies_met_page_finished = setInterval (function () {
-        if (j1.getState() == 'finished') {
-          observer.observe(document.querySelector('body'));                     //    observer.observe(document.querySelector('#content'));
-          clearInterval(dependencies_met_page_finished);
-        }
-      }, 25);
+      // -----------------------------------------------------------------------
+      // run all observers for page monitoring
+      // -----------------------------------------------------------------------
+      // monitor 'LCP'
+      //
+      performanceObserverLCP.observe({
+         type: 'largest-contentful-paint',
+         buffered: true
+      });
+      // monitor 'CLS'
+      //
+      performanceObserverCLS.observe({
+         type: 'layout-shift',
+         buffered: true
+      });
+      // monitor 'GROWTH'
+      resizeObserver.observe(
+        document.querySelector('body')
+      );
       // -----------------------------------------------------------------------
       // final updates before browser page|tab
       // see: https://stackoverflow.com/questions/3888902/detect-browser-or-tab-closing
@@ -2183,7 +2256,7 @@ var j1 = (function (options) {
         }
       }
      });
-   } // END registerEvents
+   } // END registerMonitors
   };
 }) (j1, window);
 

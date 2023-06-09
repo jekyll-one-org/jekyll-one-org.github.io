@@ -1,3 +1,19 @@
+/*
+ # -----------------------------------------------------------------------------
+ # ~/theme_uno/modules/iconPicker/js/universal-icon-picker.js
+ # UniversalIconPicker v.1.1.0 implementation for J1 Theme
+ #
+ # Product/Info:
+ # https://jekyll.one
+ # https://github.com/migliori/universal-icon-picker
+ #
+ # Copyright (C) 2023 Juergen Adams
+ # Copyright (C) 2023 Gilles Migliori
+ #
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
+ # -----------------------------------------------------------------------------
+*/
 const iconPickerUrl = document.currentScript.src.replace(/js\/([a-z\.-]+)$/gm, '');
 const loadedDependencies = [];
 
@@ -104,7 +120,7 @@ const loadedDependencies = [];
         this.sideBarBtn = '';
         this.sideBarList = [];
 
-        this.universalWrap = '<div class="uip-modal uip-open" id="uip-modal' + this.idSuffix + '"><div class="uip-modal--content"><div class="uip-modal--header"><div class="uip-modal--header-logo-area"><span class="uip-modal--header-logo-title">Icon Picker</span></div><div class="uip-modal--header-close-btn"><img src="' + iconPickerUrl + '/images/xmark-solid.svg" width="20" height="16" alt="Close" title="Close" /></div></div><div class="uip-modal--body"><div id="uip-modal--sidebar' + this.idSuffix + '" class="uip-modal--sidebar"><div class="uip-modal--sidebar-tabs"></div></div><div id="uip-modal--icon-preview-wrap' + this.idSuffix + '" class="uip-modal--icon-preview-wrap"><div class="uip-modal--icon-search"><input name="" value="" placeholder="Filter by name..."><img src="' + iconPickerUrl + '/images/magnifying-glass-solid.svg" width="20" height="16" alt="Search" title="Search" /></div><div class="uip-modal--icon-preview-inner"><div id="uip-modal--icon-preview' + this.idSuffix + '" class="uip-modal--icon-preview"></div></div></div></div><div class="uip-modal--footer"><button class="uip-insert-icon-button mt-3 mb-3 mr-6">Insert</button></div></div></div>';
+        this.universalWrap = '<div class="uip-modal uip-open" id="uip-modal' + this.idSuffix + '"><div class="uip-modal--content"><div class="uip-modal--header"><div class="uip-modal--header-logo-area"><span class="uip-modal--header-logo-title">Icon Picker</span></div><div class="uip-modal--header-close-btn"><img src="' + iconPickerUrl + '/images/xmark-solid.svg" width="40" height="40" alt="Close" title="Close" /></div></div><div class="uip-modal--body"><div id="uip-modal--sidebar' + this.idSuffix + '" class="uip-modal--sidebar"><div class="uip-modal--sidebar-tabs"></div></div><div id="uip-modal--icon-preview-wrap' + this.idSuffix + '" class="uip-modal--icon-preview-wrap"><div class="uip-modal--icon-search"><input name="" value="" placeholder="Filter by name..."><img src="' + iconPickerUrl + '/images/magnifying-glass-solid.svg" width="20" height="16" alt="Search" title="Search" /></div><div class="uip-modal--icon-preview-inner"><div id="uip-modal--icon-preview' + this.idSuffix + '" class="uip-modal--icon-preview"></div></div></div></div><div class="uip-modal--footer"><button class="uip-insert-icon-button mt-3 mb-3 mr-6">Copy to clipboard</button></div></div></div>';
 
         this.universalDomEle = createDomEle(this.universalWrap);
         this.sidebarTabs = this.universalDomEle.querySelector('.uip-modal--sidebar-tabs');
@@ -122,7 +138,7 @@ const loadedDependencies = [];
     UniversalIconPicker.prototype = {
 
         /* Public functions
-        -------------------------------------------------- */
+        ------------------------------------------------------------------------ */
 
         init: function () {
             this._loadCssFiles();
@@ -147,16 +163,21 @@ const loadedDependencies = [];
             this._loadIconLibraries().then(() => {
                 this.iconLibrariesLoaded = true;
                 if (!document.getElementById('uip-modal' + this.idSuffix)) {
-                    //push universal dom to body
+                    // push universal dom to body
                     document.body.appendChild(this.universalDomEle);
 
-                    //Icon library close by clicking close button
+                    // jadams, 2023-05-21: disable page scrolling if modal is OPEN
+                    document.body.classList.add('stop-scrolling');
+
+                    // Icon library close by clicking close button
                     this.universalDomEle.querySelector('.uip-modal--header-close-btn').addEventListener('click', () => {
                         this.universalDomEle.classList.add('uip-close');
                         this.universalDomEle.classList.remove('uip-open');
+                        // jadams, 2023-05-21: (re-)enable page scrolling if modal is CLOSED
+                        document.body.classList.remove('stop-scrolling');
                     });
 
-                    //Insert button
+                    // Insert button
                     this.universalDomEle.querySelector('.uip-insert-icon-button').addEventListener('click', () => {
                         let selected = this.universalDomEle.querySelector('.universal-selected');
 
@@ -179,13 +200,16 @@ const loadedDependencies = [];
 
                             this.options.onSelect(jsonOutput);
                         }
-                        this.universalDomEle.classList.add('uip-close');
-                        this.universalDomEle.classList.remove('uip-open');
+                        // jadams, 2023-05-21: disable modal CLOSE on a select
+                        // this.universalDomEle.classList.add('uip-close');
+                        // this.universalDomEle.classList.remove('uip-open');
                     });
                 } else {
-                    //Icon library open if dom element exist
+                    // Icon library open if dom element exist
                     this.universalDomEle.classList.remove('uip-close');
                     this.universalDomEle.classList.add('uip-open');
+                    // jadams, 2023-05-21: disable page scrolling if modal is OPEN
+                    document.body.classList.add('stop-scrolling');
                 }
 
                 if (!this.iconEventsLoaded) {
@@ -222,7 +246,7 @@ const loadedDependencies = [];
         },
 
         /* Private functions
-        -------------------------------------------------- */
+        ------------------------------------------------------------------------ */
 
         _clickHandlerFunc: function (e) {
             if (!e.currentTarget.classList.contains('universal-active')) {
@@ -238,6 +262,7 @@ const loadedDependencies = [];
             let markup = '',
                 library = libraryItem['icon-style'],
                 prefix = libraryItem['prefix'];
+
             if (this.options.allowEmpty) {
                 markup += '<div class="uip-icon-item" data-library-id="' + library + '" data-filter="" data-library-name="' + libraryName + '"><div class="uip-icon-item-inner"><i class="' + prefix + ' uip-icon-none">&nbsp;</i><div class="uip-icon-item-name" title="None">None</div></div></div>';
             }
