@@ -13,7 +13,7 @@
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-06-10 01:29:59 +0200
+ # Adapter generated: 2023-06-10 02:03:01 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -176,7 +176,7 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2023-06-10 01:29:59 +0200'
+        generated:   '2023-06-10 02:03:01 +0200'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
@@ -406,11 +406,12 @@ var j1 = (function (options) {
           j1.initPanel(settings);
           j1.initFooter(settings);
           var dependencies_met_blocks_ready = setInterval (function (settings) {
-            var banner_state = j1.getXhrDataState('#home_teaser_banner');
-            var panel_state = j1.getXhrDataState('#home_teaser_banner');
-            var footer_state = j1.getXhrDataState('#home_teaser_banner');
+            var banner_state        = j1.getXhrDataState('#home_teaser_banner');
+            var service_panel_state = j1.getXhrDataState('#home_service_panel');
+            var news_panel_state    = j1.getXhrDataState('#home_news_panel');
+            var footer_state        = j1.getXhrDataState('#j1_footer');
             // show content section for dynamic 'block elements' to optimze CLS
-            if (banner_state == 'success' && footer_state == 'success') {
+            if (banner_state == 'success' && service_panel_state == 'success' && news_panel_state == 'success' && footer_state == 'success') {
               // show main content
               $('#content').show();
               clearInterval(dependencies_met_blocks_ready);
