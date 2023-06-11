@@ -158,11 +158,11 @@ $caret-width-lg:                      $caret-width !default;
   --bs-tertiary-bg: #f5f5f5;
   --bs-tertiary-bg-rgb: 245, 245, 245;
   --bs-heading-color: inherit;
-  --bs-link-color: #2196f3;
-  --bs-link-color-rgb: 33, 150, 243;
+  --bs-link-color: #0d47a1;
+  --bs-link-color-rgb: 13, 71, 161;
   --bs-link-decoration: underline;
-  --bs-link-hover-color: #1a78c2;
-  --bs-link-hover-color-rgb: 26, 120, 194;
+  --bs-link-hover-color: #0a3981;
+  --bs-link-hover-color-rgb: 10, 57, 129;
   --bs-code-color: #e91e63;
   --bs-highlight-bg: #fff9c4;
   --bs-border-width: 1px;
@@ -2915,7 +2915,7 @@ textarea.form-control-lg {
   --bs-btn-disabled-color: rgba(0, 0, 0, 0.26);
   --bs-btn-disabled-border-color: transparent;
   --bs-btn-box-shadow: 0 0 0 #000;
-  --bs-btn-focus-shadow-rgb: 28, 128, 207;
+  --bs-btn-focus-shadow-rgb: 49, 99, 175;
   text-decoration: underline; }
   .btn-link:focus-visible {
     color: var(--bs-btn-color); }
@@ -11184,8 +11184,17 @@ label.checkbox-inline {
  # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
-code {
-  color: #212121; }
+code, pre {
+  border-radius: 2px;
+  font-weight: 500;
+  word-break: break-word;
+  padding: 0.125em 0.275em 0.125em 0.275em;
+  color: #212121;
+  background-color: rgba(0, 0, 0, 0.1); }
+
+pre code {
+  padding: 0 !important;
+  background-color: transparent !important; }
 
 /*
  # -----------------------------------------------------------------------------
@@ -22486,7 +22495,7 @@ a.btn.btn-link.card-profile:hover {
     margin-bottom: 0; } }
 
 .drawer-toggler {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.9);
   padding: .25rem .75rem;
   font-size: 1.25rem;
   line-height: 1;
@@ -22496,7 +22505,7 @@ a.btn.btn-link.card-profile:hover {
   outline: none !important; }
 
 .drawer-toggler:focus, .drawer-toggler:hover {
-  color: rgba(255, 255, 255, 0.9); }
+  color: rgba(255, 255, 255, 0.4); }
 
 /*
   Generates the drawer (left/right) for post series at different sizes that

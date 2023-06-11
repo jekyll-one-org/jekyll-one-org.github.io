@@ -47,16 +47,6 @@
   border-left: 0 !important;
   border-radius: 2px !important; }
 
-code {
-  word-break: break-word;
-  padding: 0.125em 0.275em 0.125em 0.275em !important;
-  border-radius: 2px;
-  background-color: rgba(0, 0, 0, 0.1); }
-
-pre code {
-  padding: 0 !important;
-  background-color: transparent; }
-
 h2, .h2 {
   font-size: 200% !important;
   font-weight: 500; }
@@ -218,10 +208,6 @@ tbody tr th p,
 tfoot tr th,
 tfoot tr th p {
   font-weight: bold; }
-
-p.tableblock > code:only-child {
-  background: none;
-  padding: 0; }
 
 p.tableblock {
   font-size: 1em; }
