@@ -13,7 +13,7 @@
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-06-10 03:20:11 +0200
+ # Adapter generated: 2023-06-11 07:38:21 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -129,7 +129,7 @@ var j1 = (function (options) {
   };
   var user_state   = {
     'writer':               'j1.adapter',
-    'template_version':     '2023.3.5',
+    'template_version':     '2023.3.6',
 //
 //  for testing only
 //  'template_version':     'undefined',
@@ -138,7 +138,7 @@ var j1 = (function (options) {
     'theme_name':           'UnoLight',
     'theme_css':            '',
     'theme_author':         'J1 Team',
-    'theme_version':        '2023.3.5',
+    'theme_version':        '2023.3.6',
     'session_active':       false,
     'google_translate':     'disabled',
     'translate_all_pages':  true,
@@ -176,13 +176,13 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2023-06-10 03:20:11 +0200'
+        generated:   '2023-06-11 07:38:21 +0200'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
       // Load scroller module DEFAULTS|CONFIGs
       scrollerDefaults = $.extend({}, {"enabled":false, "smoothscroll":{"offsetCorrection":0, "offsetCorrectionLocal":0}});
-      scrollerSettings = $.extend({}, {"enabled":true, "smoothscroll":{"offsetCorrection":-10, "offsetCorrectionLocal":-90}, "scrollers":[{"scroller":{"enabled":true, "type":"showOnScroll", "id":"home_intro_panel", "container":"home_intro_panel", "showDelay":1000, "scrollOffset":500}}, {"scroller":{"enabled":false, "type":"showOnScroll", "id":"home_service_panel", "container":"home_service_panel", "showDelay":700, "scrollOffset":200}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"home_news_panel", "container":"home_news_panel-scroll-group", "pagePath":"/assets/data/news_panel_posts/page", "elementScroll":true, "scrollOffset":200, "lastPage":2, "infoLastPage":true, "lastPageInfo_en":"More articles can be found with the <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n", "lastPageInfo_de":"Weitere Artikel finden Sie im <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n"}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"blog_navigator_preview", "container":"timeline", "pagePath":"/pages/public/blog/navigator/page", "elementScroll":true, "scrollOffset":200, "lastPage":1000000, "infoLastPage":false, "lastPageInfo_en":"", "lastPageInfo_de":""}}]});
+      scrollerSettings = $.extend({}, {"enabled":true, "smoothscroll":{"offsetCorrection":-10, "offsetCorrectionLocal":-90}, "scrollers":[{"scroller":{"enabled":true, "type":"showOnScroll", "id":"panel_home_intro", "container":"panel_home_intro", "showDelay":1000, "scrollOffset":500}}, {"scroller":{"enabled":false, "type":"showOnScroll", "id":"panel_home_service", "container":"panel_home_service", "showDelay":700, "scrollOffset":200}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"panel_home_news", "container":"panel_home_news-scroll-group", "pagePath":"/assets/data/news_panel_posts/page", "elementScroll":true, "scrollOffset":200, "lastPage":2, "infoLastPage":true, "lastPageInfo_en":"More articles can be found with the <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n", "lastPageInfo_de":"Weitere Artikel finden Sie im <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n"}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"blog_navigator_preview", "container":"timeline", "pagePath":"/pages/public/blog/navigator/page", "elementScroll":true, "scrollOffset":200, "lastPage":1000000, "infoLastPage":false, "lastPageInfo_en":"", "lastPageInfo_de":""}}]});
       scrollerOptions  = $.extend(true, {}, scrollerDefaults, scrollerSettings);
       // settings for dynamic pages
       scrollDynamicPagesTopOnChange = frontmatterOptions.scrollDynamicPagesTopOnChange ? frontmatterOptions.scrollDynamicPagesTopOnChange : 'false';
@@ -340,6 +340,56 @@ var j1 = (function (options) {
               secure:   secure,
               expires:  0
             });
+            // -----------------------------------------------------------------------
+            // load|initialize page resources for block elements
+            // NOTE: asynchronous calls should be rewitten to xhrData
+            // NOTE: Find $('#content').hide() conterpart in themer adapter
+            // -----------------------------------------------------------------------
+            var dependencies_met_page_ready = setInterval (function (options) {
+              var pageState     = $('#no_flicker').css("display");
+              var pageVisible   = (pageState == 'block') ? true : false;
+              var atticFinished = (j1.adapter.attic.getState() == 'finished') ? true: false;
+              var banner_blocks = document.querySelectorAll('[id^="banner"]');
+              var panel_blocks  = document.querySelectorAll('[id^="panel"]');
+              if (j1.getState() === 'finished' && pageVisible) {
+                logger.info('\n' + 'load block elements');
+                j1.initBanner(settings);
+                j1.initPanel(settings);
+                j1.initFooter(settings);
+                if (banner_blocks.length || panel_blocks.length) {
+                  var dependencies_met_blocks_ready = setInterval (function (settings) {
+                    var banner_state = 'failed';
+                    var panel_state  = 'failed';
+                    var footer_state = j1.getXhrDataState('#j1_footer');
+                    // check banner states if HTML content loaded successfully
+                    Object.entries(j1.xhrDataState).forEach(entry => {
+                      const [key, value] = entry;
+                      if (key.includes('banner')) {
+                        banner_state = value;
+                      }
+                    });
+                    // check panel states if HTML content  loaded successfully
+                    Object.entries(j1.xhrDataState).forEach(entry => {
+                      const [key, value] = entry;
+                      if (key.includes('panel')) {
+                        panel_state = value;
+                      }
+                    });
+                    // show the content section for 'block content' to optimze CLS
+                    if (banner_state == 'success' && panel_state == 'success' && footer_state == 'success') {
+                      // show main content
+                      $('#content').show();
+                      clearInterval(dependencies_met_blocks_ready);
+                      clearInterval(dependencies_met_page_ready);
+                    }
+                  }, 10);
+                } else {
+                  // show the content for 'page content' to optimze CLS
+                  $('#content').show();
+                  clearInterval(dependencies_met_page_ready);
+                }
+              }
+            }, 10);
             j1.setState(curr_state);
             logger.debug('\n' + 'state: ' + j1.getState());
           }, detectTimeout);
@@ -366,7 +416,7 @@ var j1 = (function (options) {
       // Save last page access
       // see: https://stackoverflow.com/questions/3528324/how-to-get-the-previous-url-in-javascript
       // see: https://developer.mozilla.org/de/docs/Web/API/Window/history
-      //
+      // -----------------------------------------------------------------------
       user_session.timestamp      = timestamp_now;
       referrer                    = new liteURL(document.referrer);
       current_page                = window.location.pathname;
@@ -395,34 +445,54 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       // load|initialize page resources for block elements
       // NOTE: asynchronous calls should be rewitten to xhrData
+      // NOTE: Find $('#content').hide() conterpart in themer adapter
       // -----------------------------------------------------------------------
       var dependencies_met_page_ready = setInterval (function (options) {
         var pageState     = $('#no_flicker').css("display");
         var pageVisible   = (pageState == 'block') ? true : false;
         var atticFinished = (j1.adapter.attic.getState() == 'finished') ? true: false;
+        var banner_blocks = document.querySelectorAll('[id^="banner"]');
+        var panel_blocks  = document.querySelectorAll('[id^="panel"]');
         if (j1.getState() === 'finished' && pageVisible) {
           logger.info('\n' + 'load block elements');
           j1.initBanner(settings);
           j1.initPanel(settings);
           j1.initFooter(settings);
-          var dependencies_met_blocks_ready = setInterval (function (settings) {
-            var banner_state        = j1.getXhrDataState('#home_teaser_banner');
-            var service_panel_state = j1.getXhrDataState('#home_service_panel');
-            var news_panel_state    = j1.getXhrDataState('#home_news_panel');
-            var footer_state        = j1.getXhrDataState('#j1_footer');
-            // show content section for dynamic 'block elements' to optimze CLS
-            if (banner_state == 'success' && service_panel_state == 'success' && news_panel_state == 'success' && footer_state == 'success') {
-              // show main content
-              $('#content').show();
-              clearInterval(dependencies_met_blocks_ready);
-            }
-          }, 10);
-          // show content for (dynamic) 'page content' to optimze CLS
-          $('#content').show();
-          clearInterval(dependencies_met_page_ready);
+          if (banner_blocks.length || panel_blocks.length) {
+            var dependencies_met_blocks_ready = setInterval (function (settings) {
+              var banner_state = 'failed';
+              var panel_state  = 'failed';
+              var footer_state = j1.getXhrDataState('#j1_footer');
+              // check banner states if HTML content loaded successfully
+              Object.entries(j1.xhrDataState).forEach(entry => {
+                const [key, value] = entry;
+                if (key.includes('banner')) {
+                  banner_state = value;
+                }
+              });
+              // check panel states if HTML content  loaded successfully
+              Object.entries(j1.xhrDataState).forEach(entry => {
+                const [key, value] = entry;
+                if (key.includes('panel')) {
+                  panel_state = value;
+                }
+              });
+              // show the content section for 'block content' to optimze CLS
+              if (banner_state == 'success' && panel_state == 'success' && footer_state == 'success') {
+                // show main content
+                $('#content').show();
+                clearInterval(dependencies_met_blocks_ready);
+                clearInterval(dependencies_met_page_ready);
+              }
+            }, 10);
+          } else {
+            // show the content for 'page content' to optimze CLS
+            $('#content').show();
+            clearInterval(dependencies_met_page_ready);
+          }
         }
       }, 10);
-      j1.xhrDOMState["#home_teaser_banner"] == 'success'
+//    j1.xhrDOMState["#home_teaser_banner"] == 'success'
       state = 'running';
       logger.debug('\n' + 'state: ' + state);
       user_session.timestamp = timestamp_now;
@@ -474,11 +544,11 @@ var j1 = (function (options) {
           }
         };
       };
-            banner.push('divider-1');
-            banner.push('divider-2');
-            banner.push('home_teaser_banner');
-            banner.push('home_parallax_banner');
-            banner.push('home_image_banner');
+            banner.push('banner_divider_1');
+            banner.push('banner_divider_2');
+            banner.push('banner_home_teaser');
+            banner.push('banner_home_parallax');
+            banner.push('banner_home_image');
       banner.push('exception_container');
       if ( banner.length ) {
         for (var i in banner) {
@@ -523,15 +593,15 @@ var j1 = (function (options) {
             j1.setXhrDataState(panel_id, statusTxt);
             j1.setXhrDomState(panel_id, statusTxt);
             // Set|Log status
-            state = 'Error';
+            state = 'error';
             logger.error('\n' + 'state: ' + state);
           }
         };
       };
-      panel.push('home_intro_panel');
-      panel.push('home_plan_panel');
-      panel.push('home_service_panel');
-      panel.push('home_news_panel');
+      panel.push('panel_home_intro');
+      panel.push('panel_home_plan');
+      panel.push('panel_home_service');
+      panel.push('panel_home_news');
       if (panel.length) {
         for (var i in panel) {
           var id = '#' + panel[i];
@@ -804,7 +874,7 @@ var j1 = (function (options) {
               setTimeout (function() {
                 // scroll to an anchor in current page if given in URL
                 j1.scrollToAnchor();
-              }, 10 );
+              }, 1000 );
               clearInterval(dependencies_met_page_ready);
             }
           }, 10);
@@ -973,7 +1043,7 @@ var j1 = (function (options) {
             setTimeout (function() {
               // scroll to an anchor in current page if given in URL
               j1.scrollToAnchor();
-            }, 10 );
+            }, 1000 );
             clearInterval(dependencies_met_page_ready);
           }
         }, 10);
@@ -1025,7 +1095,7 @@ var j1 = (function (options) {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2023.3.5';
+      return '2023.3.6';
     },
     // -------------------------------------------------------------------------
     // getScrollOffset()
@@ -2053,7 +2123,7 @@ var j1 = (function (options) {
               scrollOffsetCorrection = scrollerOptions.smoothscroll.offsetCorrection;
               scrollOffset = j1.getScrollOffset(scrollOffsetCorrection);
               j1.scrollTo(scrollOffset);
-            }, 10 );
+            }, 1000 );
             clearInterval(dependencies_met_page_displayed);
           }
         }
