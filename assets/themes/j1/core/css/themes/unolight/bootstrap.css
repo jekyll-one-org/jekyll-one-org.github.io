@@ -10898,6 +10898,25 @@ body {
 
 /*
  # -----------------------------------------------------------------------------
+ # ~/100_theme_css/scss/theme_uno_dark/extentions/_bs-doc.scss
+ #
+ # Product/Info:
+ # https:#jekyll.one
+ #
+ # Copyright (C) 2023 Juergen Adams
+ #
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
+ # -----------------------------------------------------------------------------
+*/
+.doc-example {
+  padding: 1.5rem;
+  border-radius: 1px;
+  border: 1px solid #9e9e9e;
+  background-color: transparent; }
+
+/*
+ # -----------------------------------------------------------------------------
  # ~/scss/theme_uno/bootstrap/_bs4styles.scss
  # Old BS4 style for migration reasons
  #
@@ -16155,7 +16174,7 @@ a.md-red-500:focus {
   color: #424242; }
 
 .md-red-600 {
-  color: #e53935 !important; }
+  color: e53935 !important; }
 
 a.md-red-600:hover,
 a.md-red-600:focus {
@@ -16260,7 +16279,7 @@ a.md-bg-red-500:focus {
   background-color: #424242; }
 
 .md-bg-red-600 {
-  background-color: #e53935 !important; }
+  background-color: e53935 !important; }
 
 a.md-bg-red-600:hover,
 a.md-bg-red-600:focus {
@@ -21206,28 +21225,6 @@ span.badge > a {
   margin-left: -1rem;
   padding: 0.75rem;
   border-top: 1px solid #e0e0e0; }
-
-/*
- # -----------------------------------------------------------------------------
- # ~/scss/theme_uno/extensions/_bs-doc.scss
- # Provides additional styles taken from BS DOC template
- #
- # Product/Info:
- # https://jekyll.one
- #
- # Copyright (C) 2023 Juergen Adams
- #
- # J1 Theme is licensed under the MIT License.
- # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
- # -----------------------------------------------------------------------------
-*/
-.doc-example {
-  background-color: #f5f5f5;
-  border: 1px solid rgba(0, 0, 0, 0.4);
-  margin: 0;
-  padding: 1.5rem;
-  border-radius: 1px;
-  margin-bottom: 0.25rem; }
 
 /*
  # -----------------------------------------------------------------------------

@@ -5,7 +5,7 @@
 <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="template version" content="2023.3.6">
+<meta name="template version" content="2023.3.7">
   <link rel="icon" type="image/ico" href="/assets/images/icons/j1/favicon.ico">
   <link rel="shortcut icon" href="/assets/images/icons/j1/favicon.ico">
 <meta name="robots" content="noindex">
@@ -27,8 +27,8 @@
 <meta name="description" content="Create paginator pages for all posts. Used for infinite scroll for the news panel (home page)" />
 <meta property="og:description" content="Create paginator pages for all posts. Used for infinite scroll for the news panel (home page)" />
 <meta property="twitter:description" content="Create paginator pages for all posts. Used for infinite scroll for the news panel (home page)" />
-<link rel="canonical" href="http://localhost:40000/assets/data/news_panel_posts/page4/" />
-<meta property="og:url" content="http://localhost:40000/assets/data/news_panel_posts/page4/" />
+<link rel="canonical" href="http://localhost:30000/assets/data/news_panel_posts/page4/" />
+<meta property="og:url" content="http://localhost:30000/assets/data/news_panel_posts/page4/" />
 <meta property="og:site_name" content="Starter" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
@@ -36,7 +36,7 @@
 <meta name="twitter:site" content="@" />
 <meta name="twitter:creator" content="@Juergen Adams" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Juergen Adams","url":"https://jekyll.one/"},"description":"Create paginator pages for all posts. Used for infinite scroll for the news panel (home page)","headline":"Starter","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:40000/assets/images/icons/j1/j1-512x512.png"},"name":"Juergen Adams"},"url":"http://localhost:40000/assets/data/news_panel_posts/page4/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Juergen Adams","url":"https://jekyll.one/"},"description":"Create paginator pages for all posts. Used for infinite scroll for the news panel (home page)","headline":"Starter","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:30000/assets/images/icons/j1/j1-512x512.png"},"name":"Juergen Adams"},"url":"http://localhost:30000/assets/data/news_panel_posts/page4/"}</script>
              <link rel="stylesheet" href="/assets/themes/j1/modules/spinner/css/spin.min.css"> 
              <link rel="stylesheet" href="/assets/themes/j1/core/css/icon-fonts/mdi.min.css"> 
              <link rel="stylesheet" href="/assets/themes/j1/core/css/icon-fonts/mdil.min.css"> 
@@ -88,6 +88,7 @@
              <script defer  src="/assets/themes/j1/modules/translator/js/translator.min.js"></script> 
                       <script defer  src="/assets/themes/j1/adapter/js/analytics.js"></script>
                       <script defer  src="/assets/themes/j1/adapter/js/waves.js"></script>
+                      <script defer  src="/assets/themes/j1/adapter/js/themeToggler.js"></script>
   </head>
   <body class="nomathjax">
     <div id="no_flicker" style="overflow: hidden; display: none">
@@ -329,6 +330,11 @@ for your project.</p>
         <script>
           $(function() {
                     j1.adapter.waves.init();
+           });
+        </script>
+        <script>
+          $(function() {
+                    j1.adapter.themeToggler.init();
            });
         </script>
     </div>

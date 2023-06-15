@@ -13,7 +13,7 @@
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-06-11 21:37:54 +0200
+ # Adapter generated: 2023-06-15 22:21:02 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -129,7 +129,7 @@ var j1 = (function (options) {
   };
   var user_state   = {
     'writer':               'j1.adapter',
-    'template_version':     '2023.3.6',
+    'template_version':     '2023.3.7',
 //
 //  for testing only
 //  'template_version':     'undefined',
@@ -138,7 +138,7 @@ var j1 = (function (options) {
     'theme_name':           'UnoLight',
     'theme_css':            '',
     'theme_author':         'J1 Team',
-    'theme_version':        '2023.3.6',
+    'theme_version':        '2023.3.7',
     'session_active':       false,
     'google_translate':     'disabled',
     'translate_all_pages':  true,
@@ -176,13 +176,13 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2023-06-11 21:37:54 +0200'
+        generated:   '2023-06-15 22:21:02 +0200'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
       // Load scroller module DEFAULTS|CONFIGs
       scrollerDefaults = $.extend({}, {"enabled":false, "smoothscroll":{"offsetCorrection":0, "offsetCorrectionLocal":0}});
-      scrollerSettings = $.extend({}, {"enabled":true, "smoothscroll":{"offsetCorrection":-10, "offsetCorrectionLocal":-90}, "scrollers":[{"scroller":{"enabled":true, "type":"showOnScroll", "id":"panel_home_intro", "container":"panel_home_intro", "showDelay":1000, "scrollOffset":500}}, {"scroller":{"enabled":false, "type":"showOnScroll", "id":"panel_home_service", "container":"panel_home_service", "showDelay":700, "scrollOffset":200}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"panel_home_news", "container":"panel_home_news-scroll-group", "pagePath":"/assets/data/news_panel_posts/page", "elementScroll":true, "scrollOffset":200, "lastPage":2, "infoLastPage":true, "lastPageInfo_en":"More articles can be found with the <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n", "lastPageInfo_de":"Weitere Artikel finden Sie im <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n"}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"blog_navigator_preview", "container":"timeline", "pagePath":"/pages/public/blog/navigator/page", "elementScroll":true, "scrollOffset":200, "lastPage":1000000, "infoLastPage":false, "lastPageInfo_en":"", "lastPageInfo_de":""}}]});
+      scrollerSettings = $.extend({}, {"enabled":true, "smoothscroll":{"offsetCorrection":-8, "offsetCorrectionLocal":-90}, "scrollers":[{"scroller":{"enabled":true, "type":"showOnScroll", "id":"panel_home_intro", "container":"panel_home_intro", "showDelay":1000, "scrollOffset":500}}, {"scroller":{"enabled":false, "type":"showOnScroll", "id":"panel_home_service", "container":"panel_home_service", "showDelay":700, "scrollOffset":200}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"panel_home_news", "container":"panel_home_news-scroll-group", "pagePath":"/assets/data/news_panel_posts/page", "elementScroll":true, "scrollOffset":200, "lastPage":2, "infoLastPage":true, "lastPageInfo_en":"More articles can be found with the <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n", "lastPageInfo_de":"Weitere Artikel finden Sie im <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n"}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"blog_navigator_preview", "container":"timeline", "pagePath":"/pages/public/blog/navigator/page", "elementScroll":true, "scrollOffset":200, "lastPage":1000000, "infoLastPage":false, "lastPageInfo_en":"", "lastPageInfo_de":""}}]});
       scrollerOptions  = $.extend(true, {}, scrollerDefaults, scrollerSettings);
       // settings for dynamic pages
       scrollDynamicPagesTopOnChange = frontmatterOptions.scrollDynamicPagesTopOnChange ? frontmatterOptions.scrollDynamicPagesTopOnChange : 'false';
@@ -213,7 +213,6 @@ var j1 = (function (options) {
         eventNo:              0,
         pageType:             'unknown',
         pageBaseHeight:       0,
-//      totalGrowthRatio:     0,
         currentPageHeight:    0,
         previousPageHeight:   0,
         currentGrowthRatio:   0,
@@ -351,16 +350,20 @@ var j1 = (function (options) {
               var atticFinished = (j1.adapter.attic.getState() == 'finished') ? true: false;
               var banner_blocks = document.querySelectorAll('[id^="banner"]');
               var panel_blocks  = document.querySelectorAll('[id^="panel"]');
-              if (j1.getState() === 'finished' && pageVisible) {
+              var footer_blocks  = document.getElementById('j1_footer');
+              var banner_state;
+              var panel_state;
+              var footer_state;
+              if (j1.getState() === 'finished' && pageVisible && atticFinished) {
                 logger.info('\n' + 'load block elements');
+                j1.initFooter(settings);
                 j1.initBanner(settings);
                 j1.initPanel(settings);
-                j1.initFooter(settings);
                 if (banner_blocks.length || panel_blocks.length) {
                   var dependencies_met_blocks_ready = setInterval (function (settings) {
-                    var banner_state = 'failed';
-                    var panel_state  = 'failed';
-                    var footer_state = j1.getXhrDataState('#j1_footer');
+                    banner_state = 'failed';
+                    panel_state  = 'failed';
+                    footer_state = j1.getXhrDataState('#j1_footer');
                     // check banner states if HTML content loaded successfully
                     Object.entries(j1.xhrDataState).forEach(entry => {
                       const [key, value] = entry;
@@ -379,14 +382,19 @@ var j1 = (function (options) {
                     if (banner_state == 'success' && panel_state == 'success' && footer_state == 'success') {
                       // show main content
                       $('#content').show();
-                      clearInterval(dependencies_met_blocks_ready);
+                      $('#j1_footer').show();
                       clearInterval(dependencies_met_page_ready);
+                      clearInterval(dependencies_met_blocks_ready);
                     }
                   }, 10);
                 } else {
-                  // show the content for 'page content' to optimze CLS
-                  $('#content').show();
-                  clearInterval(dependencies_met_page_ready);
+                  // show the content section for 'block content' to optimze CLS
+                  footer_state = j1.getXhrDataState('#j1_footer');
+                  if (footer_state == 'success') {
+                    $('#content').show();
+                    $('#j1_footer').show();
+                    clearInterval(dependencies_met_page_ready);
+                  }
                 }
               }
             }, 10);
@@ -453,16 +461,20 @@ var j1 = (function (options) {
         var atticFinished = (j1.adapter.attic.getState() == 'finished') ? true: false;
         var banner_blocks = document.querySelectorAll('[id^="banner"]');
         var panel_blocks  = document.querySelectorAll('[id^="panel"]');
-        if (j1.getState() === 'finished' && pageVisible) {
+        var footer_blocks = document.querySelectorAll('[id^="panel"]');
+        var banner_state;
+        var panel_state;
+        var footer_state;
+        if (j1.getState() === 'finished' && pageVisible && atticFinished) {
           logger.info('\n' + 'load block elements');
+          j1.initFooter(settings);
           j1.initBanner(settings);
           j1.initPanel(settings);
-          j1.initFooter(settings);
           if (banner_blocks.length || panel_blocks.length) {
             var dependencies_met_blocks_ready = setInterval (function (settings) {
-              var banner_state = 'failed';
-              var panel_state  = 'failed';
-              var footer_state = j1.getXhrDataState('#j1_footer');
+              banner_state = 'failed';
+              panel_state  = 'failed';
+              footer_state = j1.getXhrDataState('#j1_footer');
               // check banner states if HTML content loaded successfully
               Object.entries(j1.xhrDataState).forEach(entry => {
                 const [key, value] = entry;
@@ -481,18 +493,22 @@ var j1 = (function (options) {
               if (banner_state == 'success' && panel_state == 'success' && footer_state == 'success') {
                 // show main content
                 $('#content').show();
-                clearInterval(dependencies_met_blocks_ready);
+                $('#j1_footer').show();
                 clearInterval(dependencies_met_page_ready);
+                clearInterval(dependencies_met_blocks_ready);
               }
             }, 10);
           } else {
-            // show the content for 'page content' to optimze CLS
-            $('#content').show();
-            clearInterval(dependencies_met_page_ready);
+            // show the content section for 'block content' to optimze CLS
+            footer_state = j1.getXhrDataState('#j1_footer');
+            if ( footer_state == 'success') {
+              $('#content').show();
+              $('#j1_footer').show();
+              clearInterval(dependencies_met_page_ready);
+            }
           }
         }
       }, 10);
-//    j1.xhrDOMState["#home_teaser_banner"] == 'success'
       state = 'running';
       logger.debug('\n' + 'state: ' + state);
       user_session.timestamp = timestamp_now;
@@ -874,7 +890,7 @@ var j1 = (function (options) {
               setTimeout (function() {
                 // scroll to an anchor in current page if given in URL
                 j1.scrollToAnchor();
-              }, 1000 );
+              }, 1000);
               clearInterval(dependencies_met_page_ready);
             }
           }, 10);
@@ -1038,12 +1054,10 @@ var j1 = (function (options) {
           var pageState   = $('#no_flicker').css("display");
           var pageVisible = (pageState == 'block') ? true: false;
           if ( j1.getState() === 'finished' && pageVisible ) {
-            // TODO: Hide GoogleTranslator
-            // $('.skiptranslate').hide();
             setTimeout (function() {
               // scroll to an anchor in current page if given in URL
               j1.scrollToAnchor();
-            }, 1000 );
+            }, 1000);
             clearInterval(dependencies_met_page_ready);
           }
         }, 10);
@@ -1095,7 +1109,7 @@ var j1 = (function (options) {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2023.3.6';
+      return '2023.3.7';
     },
     // -------------------------------------------------------------------------
     // getScrollOffset()
