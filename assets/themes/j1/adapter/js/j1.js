@@ -13,7 +13,7 @@
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-06-15 22:21:02 +0200
+ # Adapter generated: 2023-06-16 02:30:00 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -63,7 +63,7 @@ var j1 = (function (options) {
   var bodyAnimationType             = 'fadeIn';
   var bodyAnimationDuration         = '2';
   // defaults for dynamic pages
-  var timeoutScrollDynamicPages     = '2000';
+  var timeoutScrollDynamicPages     = '1000';
   var scrollDynamicPagesTopOnChange = 'false';
   var pageGrowthRatio               = 0;                                          // ratio a dynamic page has grown in height
   var pageBaseHeigth                = 0;                                          // base height of a dynamic page (not grown)
@@ -176,7 +176,7 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2023-06-15 22:21:02 +0200'
+        generated:   '2023-06-16 02:30:00 +0200'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
@@ -2128,7 +2128,7 @@ var j1 = (function (options) {
               scrollOffset = j1.getScrollOffset(scrollOffsetCorrection);
               j1.scrollTo(scrollOffset);
               logger.debug('\n' + 'Scroller: Scroll dynamic page on timeout');
-          }, 2000 );
+          }, 1000 );
             clearInterval(dependencies_met_page_displayed);
           } else {
             // failsave fallback
