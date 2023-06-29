@@ -13,9 +13,202 @@
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-06-17 21:16:55 +0200
+ #  Adapter generated: 2023-06-30 00:03:58 +0200
  # -----------------------------------------------------------------------------
 */
-'use strict';j1.adapter.dropdowns=function(e){var t,n,o,r,a,i=[];return{init:function(a){$.extend({module_name:'j1.adapter.dropdowns',generated:'2023-06-17 21:16:55 +0200'},a);o=e.adapter.dropdowns,r=log4javascript.getLogger('j1.adapter.dropdowns'),t=$.extend({}),n=$.extend({}),$.extend(!0,{},t,n),o.setState('started'),r.debug("\nstate: "+o.getState()),r.info("\nmodule is being initialized");var d=setInterval(function(){var t='block'==$('#no_flicker').css("display");e.adapter.attic.getState();if('finished'==e.getState()&&t){var n=document.querySelectorAll('.dropdowns'),a="\ndropdowns is being initialized";r.info(a),n.forEach(function(t){if('icon-dropdown'===t.dataset.target){var n=e.dropdowns.init(t,{alignment:"bottom",autoTrigger:!0,constrainWidth:!0,coverTrigger:!0,closeOnClick:!0,hover:!0,inDuration:"300",outDuration:"300",onOpen:"j1.adapter.dropdowns.cbOnOpen",onClose:"j1.adapter.dropdowns.cbOnClose",onItemClick:"false"});i.push(n)}}),n.forEach(function(t){if('button-dropdown'===t.dataset.target){var n=e.dropdowns.init(t,{alignment:"left",autoTrigger:!0,constrainWidth:!0,coverTrigger:!0,closeOnClick:!0,hover:!1,inDuration:"150",outDuration:"250",onOpen:"j1.adapter.dropdowns.cbOnOpen",onClose:"j1.adapter.dropdowns.cbOnClose",onItemClick:"false"});i.push(n)}}),o.setState('finished'),r.debug("\nstate: "+o.getState()),clearInterval(d)}},10)},cbOnclick:function(e){log4javascript.getLogger('j1.adapter.dropdowns.cbOnClick'),$(e.target).closest('li')[0];return!0},cbOnOpen:function(e){var t=log4javascript.getLogger('j1.adapter.dropdowns.cbOnOpen'),n=e.id;return a="\nentered cbOnOpen on id: "+n,t.info(a),!0},cbOnClose:function(e){for(var t,n,o=log4javascript.getLogger('j1.adapter.dropdowns.cbOnClose'),r=e.id,i='#'+e.id+" li",d=document.querySelectorAll(i),s=0;s<d.length;s++)d[s].classList.contains('active')&&(t=s,n=d[s].dataset.target);return a="\nentered cbOnClose on id: "+r,o.info(a),a="\nitem selected: "+t,o.info(a),a="\nvalue selected: "+n,o.info(a),!0},messageHandler:function(e,t){var n=JSON.stringify(t,undefined,2);return a="\nreceived message from "+e+': '+n,r.debug(a),'command'===t.type&&'module_initialized'===t.action&&r.info('\n'+t.text),!0},setState:function(e){o.state=e},getState:function(){return o.state}}}(j1,window);
+// -----------------------------------------------------------------------------
+// ESLint shimming
+// -----------------------------------------------------------------------------
+/* eslint indent: "off"                                                       */
+// -----------------------------------------------------------------------------
+'use strict';
+j1.adapter.dropdowns = (function (j1, window) {
+  var environment   = 'development';
+  var instances     = [];
+  var dropdownsDefaults;
+  var dropdownsSettings;
+  var dropdownsOptions;
+  var _this;
+  var logger;
+  var logText;
+  // ---------------------------------------------------------------------------
+  // Helper functions
+  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
+  // Main object
+  // ---------------------------------------------------------------------------
+  return {
+    // -------------------------------------------------------------------------
+    // Initializer
+    // -------------------------------------------------------------------------
+    init: function (options) {
+      // -----------------------------------------------------------------------
+      // Default module settings
+      // -----------------------------------------------------------------------
+      var settings = $.extend({
+        module_name: 'j1.adapter.dropdowns',
+        generated:   '2023-06-30 00:03:58 +0200'
+      }, options);
+      // -----------------------------------------------------------------------
+      // Global variable settings
+      // -----------------------------------------------------------------------
+      _this   = j1.adapter.dropdowns;
+      logger  = log4javascript.getLogger('j1.adapter.dropdowns');
+      // Load  module DEFAULTS|CONFIG
+      dropdownsDefaults = $.extend({}, );
+      dropdownsSettings = $.extend({}, );
+      dropdownsOptions  = $.extend(true, {}, dropdownsDefaults, dropdownsSettings);
+      // initialize state flag
+      _this.setState('started');
+      logger.debug('\n' + 'state: ' + _this.getState());
+      logger.info('\n' + 'module is being initialized');
+      var dependencies_met_j1_finished = setInterval(function() {
+        var pageState     = $('#no_flicker').css("display");
+        var pageVisible   = (pageState == 'block') ? true : false;
+        var atticFinished = (j1.adapter.attic.getState() == 'finished') ? true: false;
+        if (j1.getState() == 'finished' && pageVisible) {
+//      if (j1.getState() == 'finished' && pageVisible && atticFinished) {
+          var elms = document.querySelectorAll('.dropdowns');
+          // -------------------------------------------------------------------
+          // dropdowns initializer
+          // -------------------------------------------------------------------
+          var log_text = '\n' + 'dropdowns is being initialized';
+          logger.info(log_text);
+            elms.forEach(function (elm) {
+              var id = elm.dataset.target;
+              if (id === 'icon-dropdown') {
+                // processing: icon-dropdown
+                //
+                var instance = j1.dropdowns.init(elm, {
+                  alignment:        "bottom",
+                  autoTrigger:      true,
+                  constrainWidth:   true,
+                  coverTrigger:     true,
+                  closeOnClick:     true,
+                  hover:            true,
+                  inDuration:       "300",
+                  outDuration:      "300",
+                  onOpen:           "j1.adapter.dropdowns.cbOnOpen",
+                  onClose:          "j1.adapter.dropdowns.cbOnClose",
+                  onItemClick:      "false"
+                });
+                instances.push(instance);
+              }
+            });
+            elms.forEach(function (elm) {
+              var id = elm.dataset.target;
+              if (id === 'button-dropdown') {
+                // processing: button-dropdown
+                //
+                var instance = j1.dropdowns.init(elm, {
+                  alignment:        "left",
+                  autoTrigger:      true,
+                  constrainWidth:   true,
+                  coverTrigger:     true,
+                  closeOnClick:     true,
+                  hover:            false,
+                  inDuration:       "150",
+                  outDuration:      "250",
+                  onOpen:           "j1.adapter.dropdowns.cbOnOpen",
+                  onClose:          "j1.adapter.dropdowns.cbOnClose",
+                  onItemClick:      "false"
+                });
+                instances.push(instance);
+              }
+            });
+          _this.setState('finished');
+          logger.debug('\n' + 'state: ' + _this.getState());
+          clearInterval(dependencies_met_j1_finished);
+        } // END dependencies_met_j1_finished
+      }, 10);
+    }, // END init
+    // -------------------------------------------------------------------------
+    // cbOnClick)
+    // Called by the dropdowns CORE module when and dropdown element
+    // is clicked
+    // -------------------------------------------------------------------------
+    cbOnclick: function (event) {
+      var logger  = log4javascript.getLogger('j1.adapter.dropdowns.cbOnClick');
+      var itemEl = $(event.target).closest('li')[0];
+      // logText = '\n' + 'entered cbOnClick on id: ' + id;
+      // logger.info(logText);
+      return true;
+    },
+    // -------------------------------------------------------------------------
+    // cbOnOpen()
+    // Called by the dropdowns CORE module when dropdown get opened
+    // -------------------------------------------------------------------------
+    cbOnOpen: function (elm) {
+      var logger  = log4javascript.getLogger('j1.adapter.dropdowns.cbOnOpen');
+      var id      = elm.id;
+      logText = '\n' + 'entered cbOnOpen on id: ' + id;
+      logger.info(logText);
+      return true;
+    },
+    // -------------------------------------------------------------------------
+    // cbOnClose()
+    // Called by the dropdowns CORE module when dropdown get closed
+    // -------------------------------------------------------------------------
+    cbOnClose: function (elm) {
+      var logger    = log4javascript.getLogger('j1.adapter.dropdowns.cbOnClose');
+      var id        = elm.id;
+      var listItems = '#' + elm.id + " li";
+      var menuItems = document.querySelectorAll(listItems);
+      var activeItem;
+      var activeValue;
+      // Loop through each <li> element and mark selected menuItem by class active
+      for (var i=0; i < menuItems.length; i++) {
+        if (menuItems[i].classList.contains('active')) {
+            activeItem  = i;
+            activeValue = menuItems[i].dataset.target;
+        }
+      }
+      logText = '\n' + 'entered cbOnClose on id: ' + id;
+      logger.info(logText);
+      logText = '\n' + 'item selected: ' + activeItem;
+      logger.info(logText);
+      logText = '\n' + 'value selected: ' + activeValue;
+      logger.info(logText);
+      return true;
+    },
+    // -------------------------------------------------------------------------
+    // messageHandler
+    // Manage messages send from other J1 modules
+    // -------------------------------------------------------------------------
+    messageHandler: function (sender, message) {
+      var json_message = JSON.stringify(message, undefined, 2);
+      logText = '\n' + 'received message from ' + sender + ': ' + json_message;
+      logger.debug(logText);
+      // -----------------------------------------------------------------------
+      //  Process commands|actions
+      // -----------------------------------------------------------------------
+      if (message.type === 'command' && message.action === 'module_initialized') {
+        //
+        // Place handling of command|action here
+        //
+        logger.info('\n' + message.text);
+      }
+      //
+      // Place handling of other command|action here
+      //
+      return true;
+    }, // END messageHandler
+    // -------------------------------------------------------------------------
+    // setState()
+    // Sets the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    setState: function (stat) {
+      _this.state = stat;
+    }, // END setState
+    // -------------------------------------------------------------------------
+    // getState()
+    // Returns the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    getState: function () {
+      return _this.state;
+    } // END getState
+  }; // END return
+})(j1, window);
+
 
 

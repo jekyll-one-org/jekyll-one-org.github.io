@@ -12,7 +12,7 @@
  #  J1 Theme is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Theme/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-06-17 21:16:55 +0200
+ #  Adapter generated: 2023-06-30 00:03:58 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -23,7 +23,7 @@
 // -----------------------------------------------------------------------------
 'use strict';
 j1.adapter.cookieConsent = (function (j1, window) {
-  var environment                 = 'production';
+  var environment                 = 'development';
   var tracking_enabled            = ('false' === 'true') ? true: false;
   var tracking_id                 = '';
   var tracking_id_valid           = (tracking_id.includes('tracking-id')) ? false : true;
@@ -70,7 +70,7 @@ j1.adapter.cookieConsent = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.cookieConsent',
-        generated:   '2023-06-17 21:16:55 +0200'
+        generated:   '2023-06-30 00:03:58 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings

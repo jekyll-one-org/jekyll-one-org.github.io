@@ -10898,7 +10898,7 @@ body {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_theme_css/scss/theme_uno_dark/extentions/_bs-doc.scss
+ # ~/scss/theme_uno_dark/extentions/_bs-doc.scss
  #
  # Product/Info:
  # https:#jekyll.one
@@ -12700,7 +12700,7 @@ li > a:hover {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_theme_css/scss/theme_uno_dark/bootstrap/_navbar.scss
+ # ~/scss/theme_uno_dark/bootstrap/_navbar.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -20944,7 +20944,7 @@ figcaption .caption-title {
  # J1 Theme is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- # NOTE: MDE styles for the Advertising module (Ads)
+ # NOTE: Styles for the advertising module (Google Adsense)
  # -----------------------------------------------------------------------------
 */
 .advertising {
@@ -20956,6 +20956,19 @@ figcaption .caption-title {
   margin-bottom: 0.25rem;
   z-index: 9; }
 
+/*
+ # -----------------------------------------------------------------------------
+ # ~/scss/theme_uno/extensions/_article.scss
+ #
+ # Product/Info:
+ # https://jekyll.one
+ #
+ # Copyright (C) 2023 Juergen Adams
+ #
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
+ # -----------------------------------------------------------------------------
+*/
 .article-item {
   max-width: 26rem;
   margin-left: auto;
@@ -20963,7 +20976,8 @@ figcaption .caption-title {
   .article-item .article-link {
     position: relative;
     display: block;
-    margin: 0 auto; }
+    margin: 0 auto;
+    border-bottom: none; }
     .article-item .article-link .article-hover {
       display: flex;
       position: absolute;
@@ -21710,7 +21724,7 @@ a.card-link {
   color: #212121; }
 
 a.card-link:hover {
-  color: #757575; }
+  color: #9e9e9e; }
 
 .card-signup .header {
   box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);

@@ -28,7 +28,7 @@
 */
 /*
 // -----------------------------------------------------------------------------
-// ~/100_theme_css/scss/theme_uno_dark/variables.scss
+// ~/scss/theme_uno_dark/variables.scss
 //
 // Product/Info:
 // https://jekyll.one
@@ -41,7 +41,7 @@
 */
 /*
   # ----------------------------------------------------------------------------
-  # ~/100_theme_css/scss/theme_uno_dark/variables/_variables.scss
+  # ~/scss/theme_uno_dark/variables/_variables.scss
   #
   # Product/Info:
   # https://jekyll.one
@@ -9355,7 +9355,7 @@ textarea.form-control-lg {
 
 /*
 // -----------------------------------------------------------------------------
-// ~/100_theme_css/scss/theme_uno_dark/bootstrap.scss
+// ~/scss/theme_uno_dark/bootstrap.scss
 // Bootstrap Overloads (BS@5)
 //
 // Product/Info:
@@ -9369,7 +9369,7 @@ textarea.form-control-lg {
 */
 /*
  # -----------------------------------------------------------------------------
- # ~/100_theme_css/scss/theme_uno_dark/bootstrap/_badge.scss
+ # ~/scss/theme_uno_dark/bootstrap/_badge.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -9385,7 +9385,7 @@ textarea.form-control-lg {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_theme_css/scss/theme_uno_dark/extentions/_bs-doc.scss
+ # ~/scss/theme_uno_dark/extentions/_bs-doc.scss
  #
  # Product/Info:
  # https:#jekyll.one
@@ -9401,7 +9401,7 @@ textarea.form-control-lg {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_theme_css/scss/theme_uno_dark/bootstrap/_buttons.scss
+ # ~/scss/theme_uno_dark/bootstrap/_buttons.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -9428,14 +9428,14 @@ textarea.form-control-lg {
  # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
-a.card-link:hover {
-  color: #f5f5f5 !important; }
-
 .card .card-header {
   background-color: #78909c; }
 
 .card .card-footer {
   background-color: #78909c; }
+
+a.card-link:hover {
+  color: #b0bec5 !important; }
 
 a.btn.btn-link.card-profile {
   background-color: #78909c; }
@@ -9461,7 +9461,7 @@ code, pre {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_theme_css/scss/theme_uno_dark/bootstrap/_dropdowns.scss
+ # ~/scss/theme_uno_dark/bootstrap/_dropdowns.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -9477,7 +9477,7 @@ code, pre {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_theme_css/scss/theme_uno_dark/bootstrap/_forms.scss
+ # ~/scss/theme_uno_dark/bootstrap/_forms.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -9522,7 +9522,7 @@ select.form-control[size],
 select.form-control[multiple] {
   overflow-y: hidden; }
 
-.text-muted, .bmd-help {
+.bmd-help {
   --bs-text-opacity: 1;
   color: #bdbdbd !important; }
 
@@ -9703,7 +9703,7 @@ select.form-control[multiple] {
 */
 /*
  # -----------------------------------------------------------------------------
- # ~/100_theme_css/scss/theme_uno_dark/bootstrap/_links.scss
+ # ~/scss/theme_uno_dark/bootstrap/_links.scss
  # Provides custom styles and overloads
  #
  # Product/Info:
@@ -9762,7 +9762,7 @@ li > a:hover {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_theme_css/scss/theme_uno_dark/bootstrap/_links.scss
+ # ~/scss/theme_uno_dark/bootstrap/_links.scss
  # Provides custom styles and overloads
  #
  # Product/Info:
@@ -9787,7 +9787,7 @@ li > a:hover {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_theme_css/scss/theme_uno_dark/bootstrap/_progress.scss
+ # ~/scss/theme_uno_dark/bootstrap/_progress.scss
  #
  # Product/Info:
  # https://github.com/FezVrasta/bootstrap-material-design
@@ -9805,7 +9805,7 @@ li > a:hover {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_theme_css/scss/theme_uno_dark/bootstrap/_tables.scss
+ # ~/scss/theme_uno_dark/bootstrap/_tables.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -9971,7 +9971,7 @@ table tr.even, table tr.alt, table tr:nth-of-type(even) {
 */
 /*
  # -----------------------------------------------------------------------------
- # ~/100_theme_css/scss/theme_uno_dark/bootstrap/_typography.scss
+ # ~/scss/theme_uno_dark/bootstrap/_typography.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -9990,8 +9990,11 @@ table tr.even, table tr.alt, table tr:nth-of-type(even) {
  # SPEC: general  - https://www.google.com/design/spec/style/typography.html#typography-styles
  # -----------------------------------------------------------------------------
 */
+.text-muted {
+  color: #b0bec5 !important; }
+
 ptagline {
-  color: #e0e0e0; }
+  color: #90a4ae; }
 
 b,
 strong {
@@ -10002,14 +10005,14 @@ cite, em, var, address, dfn {
   color: #fff; }
 
 .quoteblock blockquote:before {
-  color: #e0e0e0 !important; }
+  color: #90a4ae !important; }
 
 .blockquote-footer {
-  color: #e0e0e0; }
+  color: #90a4ae; }
 
 /*
 // -----------------------------------------------------------------------------
-// ~/100_theme_css/scss/theme_uno_dark/extentions.scss
+// ~/scss/theme_uno_dark/extentions.scss
 // CSS styles for additional elements that extents the theme
 //
 // Product/Info:
@@ -10023,7 +10026,61 @@ cite, em, var, address, dfn {
 */
 /*
  # -----------------------------------------------------------------------------
- # ~/100_theme_css/scss/theme_uno_dark/extensions/_drawer.scss
+ # ~/scss/theme_uno_dark/extensions/_advertising.scss
+ #
+ # Product/Info:
+ # https://jekyll.one
+ #
+ # Copyright (C) 2023 Juergen Adams
+ #
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
+ # -----------------------------------------------------------------------------
+ # NOTE: Styles for the advertising module (Google Adsense)
+ # -----------------------------------------------------------------------------
+*/
+.advertising {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  margin: 0;
+  padding: 1.5rem;
+  border-radius: 3px;
+  margin-bottom: 0.25rem;
+  z-index: 9; }
+
+/*
+ # -----------------------------------------------------------------------------
+ # ~/scss/theme_uno_dark/extensions/_article.scss
+ #
+ # Product/Info:
+ # https://jekyll.one
+ #
+ # Copyright (C) 2023 Juergen Adams
+ #
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
+ # -----------------------------------------------------------------------------
+*/
+.article-item {
+  max-width: 26rem;
+  margin-left: auto;
+  margin-right: auto; }
+  .article-item .article-link {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    color: #37474f;
+    border-bottom: none; }
+  .article-item .article-link:hover {
+    color: #cfd8dc !important; }
+  .article-item .article-caption {
+    padding: 1.5rem;
+    text-align: center;
+    background-color: #78909c; }
+
+/*
+ # -----------------------------------------------------------------------------
+ # ~/scss/theme_uno_dark/extensions/_drawer.scss
  #
  # Product/Info:
  # https://github.com/FezVrasta/bootstrap-material-design
@@ -10036,6 +10093,23 @@ cite, em, var, address, dfn {
 */
 .bmd-layout-drawer {
   background: #424242; }
+
+/*
+// -----------------------------------------------------------------------------
+// ~/scss/theme_uno_dark/extensions/_dropcap.scss
+// Provides general styles for the J1 Dropcaps
+//
+// Product/Info:
+// https://jekyll.one
+//
+// Copyright (C) 2023 Juergen Adams
+//
+// J1 Theme is licensed under the MIT License.
+// See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
+// -----------------------------------------------------------------------------
+*/
+.j1-dropcap {
+  color: #f5f5f5 !important; }
 
 /*
 // -----------------------------------------------------------------------------
@@ -10056,7 +10130,7 @@ cite, em, var, address, dfn {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_theme_css/scss/theme_uno_dark/extentions/_lane.scss
+ # ~/scss/theme_uno_dark/extentions/_lane.scss
  #
  # Product/Info:
  # https://jekyll.one
@@ -10089,7 +10163,7 @@ cite, em, var, address, dfn {
 
 /*
 // -----------------------------------------------------------------------------
-// ~/100_theme_css/scss/theme_uno_dark/extentions/_plans.scss
+// ~/scss/theme_uno_dark/extentions/_plans.scss
 // Provides general styles for the J1 Plan Banner
 //
 // Product/Info:
@@ -10110,7 +10184,7 @@ cite, em, var, address, dfn {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_theme_css/scss/theme_uno_dark/extentions/_posts.scss
+ # ~/scss/theme_uno_dark/extentions/_posts.scss
  #
  # Product/Info:
  # https:#jekyll.one
@@ -10140,7 +10214,7 @@ cite, em, var, address, dfn {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_theme_css/scss/theme_uno_dark/extensions/_switches.scss
+ # ~/scss/theme_uno_dark/extensions/_switches.scss
  #
  # Product/Info:
  # https://github.com/FezVrasta/bootstrap-material-design
@@ -10158,7 +10232,7 @@ cite, em, var, address, dfn {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_theme_css/scss/theme_uno_dark/extentions/_tags.scss
+ # ~/scss/theme_uno_dark/extentions/_tags.scss
  #
  # Product/Info:
  # https:#jekyll.one
@@ -10177,7 +10251,7 @@ cite, em, var, address, dfn {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/100_theme_css/scss/theme_uno_dark/extentions/_timeline.scss
+ # ~/scss/theme_uno_dark/extentions/_timeline.scss
  #
  # Product/Info:
  # https:#jekyll.one
@@ -10201,7 +10275,7 @@ cite, em, var, address, dfn {
 
 /*
 // -----------------------------------------------------------------------------
-// ~/100_theme_css/scss/theme_uno_dark/modules.scss
+// ~/scss/theme_uno_dark/modules.scss
 // CSS styles for additional elements that extents the theme
 //
 // Product/Info:
@@ -10385,7 +10459,7 @@ a.toc-link:hover {
 
 /*
 // -----------------------------------------------------------------------------
-// ~/100_theme_css/scss/theme_uno_dark/vendor.scss
+// ~/scss/theme_uno_dark/vendor.scss
 // CSS styles for vendor (3rd party) elements that extents the theme
 //
 // Product/Info:

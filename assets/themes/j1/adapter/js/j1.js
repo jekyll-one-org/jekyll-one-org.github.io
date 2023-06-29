@@ -13,7 +13,7 @@
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-06-17 21:16:55 +0200
+ # Adapter generated: 2023-06-30 00:03:58 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -30,7 +30,7 @@ var j1 = (function (options) {
   // ---------------------------------------------------------------------------
   // base page resources
   var rePager          =  new RegExp('navigator|dateview|tagview|archive');
-  var environment      = 'production';
+  var environment      = 'development';
   var moduleOptions    = {};
   var j1_runtime_data  = {};
   var scrollerSettings = {};
@@ -129,7 +129,7 @@ var j1 = (function (options) {
   };
   var user_state   = {
     'writer':               'j1.adapter',
-    'template_version':     '2023.3.10',
+    'template_version':     '2023.3.1',
 //
 //  for testing only
 //  'template_version':     'undefined',
@@ -138,7 +138,7 @@ var j1 = (function (options) {
     'theme_name':           'UnoLight',
     'theme_css':            '',
     'theme_author':         'J1 Team',
-    'theme_version':        '2023.3.10',
+    'theme_version':        '2023.3.1',
     'session_active':       false,
     'google_translate':     'disabled',
     'translate_all_pages':  true,
@@ -176,7 +176,7 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2023-06-17 21:16:55 +0200'
+        generated:   '2023-06-30 00:03:58 +0200'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
@@ -339,60 +339,88 @@ var j1 = (function (options) {
               secure:   secure,
               expires:  0
             });
-            // -----------------------------------------------------------------------
+            // -----------------------------------------------------------------
             // load|initialize page resources for block elements
             // NOTE: asynchronous calls should be rewitten to xhrData
             // NOTE: Find $('#content').hide() conterpart in themer adapter
-            // -----------------------------------------------------------------------
+            // -----------------------------------------------------------------
             var dependencies_met_page_ready = setInterval (function (options) {
               var pageState     = $('#no_flicker').css("display");
               var pageVisible   = (pageState == 'block') ? true : false;
               var atticFinished = (j1.adapter.attic.getState() == 'finished') ? true: false;
-              var banner_blocks = document.querySelectorAll('[id^="banner"]');
-              var panel_blocks  = document.querySelectorAll('[id^="panel"]');
-              var footer_blocks  = document.getElementById('j1_footer');
+              var banner_blocks = document.querySelectorAll('[id^="banner"]').length;
+              var panel_blocks  = document.querySelectorAll('[id^="panel"]').length;
+              var footer_blocks = document.querySelectorAll('[id^="footer"]').length;
+              var banners_exits = (banner_blocks > 0) ? true : false;
+              var panels_exists = (panel_blocks > 0)  ? true : false;
+              var footer_exists = (footer_blocks > 0) ? true : false;
               var banner_state;
               var panel_state;
               var footer_state;
               if (j1.getState() === 'finished' && pageVisible && atticFinished) {
                 logger.info('\n' + 'load block elements');
-                j1.initFooter(settings);
-                j1.initBanner(settings);
-                j1.initPanel(settings);
-                if (banner_blocks.length || panel_blocks.length) {
+                if (banners_exits) {j1.initBanner(settings);}
+                if (panels_exists) {j1.initPanel(settings)};
+                if (footer_exists) {j1.initFooter(settings);}
+                if (banner_blocks || panel_blocks) {
+                  // pages having banners or panels
                   var dependencies_met_blocks_ready = setInterval (function (settings) {
-                    banner_state = 'failed';
-                    panel_state  = 'failed';
-                    footer_state = j1.getXhrDataState('#j1_footer');
-                    // check banner states if HTML content loaded successfully
-                    Object.entries(j1.xhrDataState).forEach(entry => {
-                      const [key, value] = entry;
-                      if (key.includes('banner')) {
-                        banner_state = value;
-                      }
-                    });
-                    // check panel states if HTML content  loaded successfully
-                    Object.entries(j1.xhrDataState).forEach(entry => {
-                      const [key, value] = entry;
-                      if (key.includes('panel')) {
-                        panel_state = value;
-                      }
-                    });
+                    if (footer_exists) {
+                      footer_state = j1.getXhrDataState('#footer_uno');
+                    } else {
+                      // pages w/o footer
+                      footer_state = 'success';
+                    }
+                    // check bannern if HTML content loaded successfully
+                    //
+                    if (banners_exits) {
+                      Object.entries(j1.xhrDataState).forEach(entry => {
+                        const [key, value] = entry;
+                        if (key.includes('banner')) {
+                          banner_state = value;
+                        }
+                      });
+                    } else {
+                      // pages w/o banners
+                      banner_state = 'success';
+                    }
+                    // check panels if HTML content loaded successfully
+                    //
+                    if (panels_exists)  {
+                      Object.entries(j1.xhrDataState).forEach(entry => {
+                        const [key, value] = entry;
+                        if (key.includes('panel')) {
+                          panel_state = value;
+                        }
+                      });
+                    } else {
+                      // pages w/o panels
+                      panel_state = 'success';
+                    }
                     // show the content section for 'block content' to optimze CLS
+                    //
                     if (banner_state == 'success' && panel_state == 'success' && footer_state == 'success') {
-                      // show main content
+                      // show the content|footer
+                      //
                       $('#content').show();
-                      $('#j1_footer').show();
+                      $('#footer_uno').show();
                       clearInterval(dependencies_met_page_ready);
                       clearInterval(dependencies_met_blocks_ready);
                     }
                   }, 10);
                 } else {
-                  // show the content section for 'block content' to optimze CLS
-                  footer_state = j1.getXhrDataState('#j1_footer');
-                  if (footer_state == 'success') {
+                  // pages w/o banners or panels
+                  if (footer_exists) {
+                    footer_state = j1.getXhrDataState('#footer_uno');
+                  } else {
+                    // pages w/o footer
+                    footer_state = 'success';
+                  }
+                  // show the content|footer
+                  //
+                  if ( footer_state == 'success') {
                     $('#content').show();
-                    $('#j1_footer').show();
+                    $('#footer_uno').show();
                     clearInterval(dependencies_met_page_ready);
                   }
                 }
@@ -459,51 +487,79 @@ var j1 = (function (options) {
         var pageState     = $('#no_flicker').css("display");
         var pageVisible   = (pageState == 'block') ? true : false;
         var atticFinished = (j1.adapter.attic.getState() == 'finished') ? true: false;
-        var banner_blocks = document.querySelectorAll('[id^="banner"]');
-        var panel_blocks  = document.querySelectorAll('[id^="panel"]');
-        var footer_blocks = document.querySelectorAll('[id^="panel"]');
+        var banner_blocks = document.querySelectorAll('[id^="banner"]').length;
+        var panel_blocks  = document.querySelectorAll('[id^="panel"]').length;
+        var footer_blocks = document.querySelectorAll('[id^="footer"]').length;
+        var banners_exits = (banner_blocks > 0) ? true : false;
+        var panels_exists = (panel_blocks > 0)  ? true : false;
+        var footer_exists = (footer_blocks > 0) ? true : false;
         var banner_state;
         var panel_state;
         var footer_state;
         if (j1.getState() === 'finished' && pageVisible && atticFinished) {
           logger.info('\n' + 'load block elements');
-          j1.initFooter(settings);
-          j1.initBanner(settings);
-          j1.initPanel(settings);
-          if (banner_blocks.length || panel_blocks.length) {
+          if (banners_exits) {j1.initBanner(settings);}
+          if (panels_exists) {j1.initPanel(settings)};
+          if (footer_exists) {j1.initFooter(settings);}
+          if (banner_blocks || panel_blocks) {
+            // pages having banners or panels
             var dependencies_met_blocks_ready = setInterval (function (settings) {
-              banner_state = 'failed';
-              panel_state  = 'failed';
-              footer_state = j1.getXhrDataState('#j1_footer');
-              // check banner states if HTML content loaded successfully
-              Object.entries(j1.xhrDataState).forEach(entry => {
-                const [key, value] = entry;
-                if (key.includes('banner')) {
-                  banner_state = value;
-                }
-              });
-              // check panel states if HTML content  loaded successfully
-              Object.entries(j1.xhrDataState).forEach(entry => {
-                const [key, value] = entry;
-                if (key.includes('panel')) {
-                  panel_state = value;
-                }
-              });
+              if (footer_exists) {
+                footer_state = j1.getXhrDataState('#footer_uno');
+              } else {
+                // pages w/o footer
+                footer_state = 'success';
+              }
+              // check bannern if HTML content loaded successfully
+              //
+              if (banners_exits) {
+                Object.entries(j1.xhrDataState).forEach(entry => {
+                  const [key, value] = entry;
+                  if (key.includes('banner')) {
+                    banner_state = value;
+                  }
+                });
+              } else {
+                // pages w/o banners
+                banner_state = 'success';
+              }
+              // check panels if HTML content loaded successfully
+              //
+              if (panels_exists)  {
+                Object.entries(j1.xhrDataState).forEach(entry => {
+                  const [key, value] = entry;
+                  if (key.includes('panel')) {
+                    panel_state = value;
+                  }
+                });
+              } else {
+                // pages w/o panels
+                panel_state = 'success';
+              }
               // show the content section for 'block content' to optimze CLS
+              //
               if (banner_state == 'success' && panel_state == 'success' && footer_state == 'success') {
-                // show main content
+                // show the content|footer
+                //
                 $('#content').show();
-                $('#j1_footer').show();
+                $('#footer_uno').show();
                 clearInterval(dependencies_met_page_ready);
                 clearInterval(dependencies_met_blocks_ready);
               }
             }, 10);
           } else {
-            // show the content section for 'block content' to optimze CLS
-            footer_state = j1.getXhrDataState('#j1_footer');
+            // pages w/o banners or panels
+            if (footer_exists) {
+              footer_state = j1.getXhrDataState('#footer_uno');
+            } else {
+              // pages w/o footer
+              footer_state = 'success';
+            }
+            // show the content|footer
+            //
             if ( footer_state == 'success') {
               $('#content').show();
-              $('#j1_footer').show();
+              $('#footer_uno').show();
               clearInterval(dependencies_met_page_ready);
             }
           }
@@ -671,9 +727,9 @@ var j1 = (function (options) {
           }
         };
       };
-      var id = '#' + 'j1_footer';
+      var id = '#' + 'footer_uno';
       var selector = $(id);
-      if ( selector.length ) {
+      if (selector.length) {
         var footer_data_path = '/assets/data/footer/index.html ' + id;
         selector.load(footer_data_path, cb_load_closure(id));
       } else {
@@ -1109,7 +1165,7 @@ var j1 = (function (options) {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2023.3.10';
+      return '2023.3.1';
     },
     // -------------------------------------------------------------------------
     // getScrollOffset()
@@ -2171,7 +2227,7 @@ var j1 = (function (options) {
       var lcp
       var cumulated_cls = 0;
       var cumulated_lcp = 0;
-      const development = ('production'.includes('prod')) ? false : true;
+      const development = ('development'.includes('prod')) ? false : true;
       // PerformanceObserver to monitor the 'LCP' of a page load
       // see: https://developer.mozilla.org/en-US/docs/Web/API/LargestContentfulPaint
       //
@@ -2227,7 +2283,8 @@ var j1 = (function (options) {
               cls            = cumulated_cls.toFixed(3);
             }
             for (const {node, currentRect, previousRect} of entry.sources) {
-              if (node.hasOwnProperty('firstElementChild') && typeof node.firstElementChild != 'null' && typeof node.firstElementChild != 'undefined') {
+              var hasProperty = (node.hasOwnProperty('firstElementChild')) ? true : false;
+              if (hasProperty) {
                 var id = '';
                 try {
                   id = node.firstElementChild.id;
