@@ -13,7 +13,7 @@
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-06-30 00:59:32 +0200
+ # Adapter generated: 2023-07-01 01:56:16 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -176,7 +176,7 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2023-06-30 00:59:32 +0200'
+        generated:   '2023-07-01 01:56:16 +0200'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
@@ -269,6 +269,7 @@ var j1 = (function (options) {
       }
       logger.info('\n' + 'register monitors');
       j1.registerMonitors();
+      j1.registerLazyLoadCss();
       // detect middleware (mode 'app') and update user session cookie
       // -----------------------------------------------------------------------
       if (user_session.mode === 'app') {
@@ -2218,6 +2219,49 @@ var j1 = (function (options) {
           return Boolean(string);
       }
     }, // END stringToBoolean
+    // -------------------------------------------------------------------------
+    // registerLazyLoadCss()
+    // CSS loader to speed up inital rendering
+    //
+    // Requires the following config serrings:
+    //
+    //    src:        the 'location' of the CSS file
+    //    selector:   the 'selector' that triggers the observer
+    //    rootMargin: the 'margin' before the load is trigged
+    //
+    // -------------------------------------------------------------------------
+    //
+    registerLazyLoadCss: function () {
+      console.log('register CSS files for lazy loading');
+      // load MDI Light CSS
+      //
+      j1.lazyCss().observe({
+        'src':        '/assets/themes/j1/core/css/icon-fonts/mdil.min.css',
+        'selector':   '.mdil',
+        'rootMargin': '150px 0px'
+      });
+      // load FA CSS
+      //
+      j1.lazyCss().observe({
+        'src':        '/assets/themes/j1/core/css/icon-fonts/fontawesome.min.css',
+        'selector':   '.fa',
+        'rootMargin': '150px 0px'
+      });
+      // load rTable CSS
+      //
+      j1.lazyCss().observe({
+        'src':        '/assets/themes/j1/modules/rtable/css/theme/uno/rtable.min.css',
+        'selector':   '.rtable',
+        'rootMargin': '150px 0px'
+      });
+      // load CountryFlags CSS
+      //
+      j1.lazyCss().observe({
+        'src':        '/assets/themes/j1/core/country-flags/css/theme/uno.min.css',
+        'selector':   '.flag-icon',
+        'rootMargin': '150px 0px'
+      });
+    }, // END registerLazyLoadCss
     // -------------------------------------------------------------------------
     // registerMonitors()
     //

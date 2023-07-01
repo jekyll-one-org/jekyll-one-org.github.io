@@ -49,7 +49,7 @@ module.exports = function (j1, window) {
 
 /*
  # -----------------------------------------------------------------------------
- # ~/js/adoc_result_viewer/view_results.js
+ # ~/200_theme_js/js/adoc_result_viewer/view_results.js
  # Provides JavaScript functions displaying results for Asciidoctor
  # example block
  #
@@ -117,12 +117,24 @@ $(insert_result_links);
 
 "use strict";
 /*
- * anime.js v3.2.0
- * (c) 2020 Julian Garnier
- * Released under the MIT license
- * animejs.com
- */
-
+ # -----------------------------------------------------------------------------
+ # ~/200_theme_js/js/anime/anime.js
+ # lightweight JavaScript animation library with a simple, yet powerful API.
+ # v3.2.0
+ #
+ # Product/Info:
+ # https://jekyll.one
+ #
+ # Copyright (C) 2020 Julian Garnier
+ # Copyright (C) 2023 Juergen Adams
+ #
+ # Anime is licensed under the MIT License.
+ # See: https://github.com/juliangarnier/anime/blob/master/LICENSE.md
+ #
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
+ # -----------------------------------------------------------------------------
+*/
 
 
 // Defaults
@@ -1621,7 +1633,7 @@ module.exports = anime;
 
 /*
  # -----------------------------------------------------------------------------
- #  ~200_theme_js/js/asciidoctor/asciidoctor.js
+ #  ~/200_theme_js/js/asciidoctor/asciidoctor.js
  #  Provides JS functions to (dynamically) modify Asciidoctor HTML elements
  #
  #  Product/Info:
@@ -1848,19 +1860,79 @@ module.exports = function (options) {
 
 /***/ }),
 
+/***/ 611:
+/***/ ((module) => {
+
+/*
+ # -----------------------------------------------------------------------------
+ # ~/200_theme_js/js/lazyCss/lazyCss.js
+ # CSS loader to speed up inital rendering
+ #
+ # Product/Info:
+ # https://jekyll.one
+ #
+ # Copyright (C) 2023 Juergen Adams
+ #
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
+ # -----------------------------------------------------------------------------
+*/
+module.exports = function lazyCss() {
+  let options = {};
+  const observe = o => {
+    options = o;
+    ('IntersectionObserver' in window && !sessionStorage[options.selector] ? fnCssObserver : fnCssDomLink)();
+  };
+  const fnCssDomLink = () => {
+    let link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = options.src;
+    document.head.appendChild(link);
+  };
+  const fnCssObserver = () => {
+    let fas = document.querySelectorAll(options.selector);
+    let observer = new IntersectionObserver((entry, observer) => {
+      if (entry[0].intersectionRatio > 0) {
+        fnCssDomLink();
+        sessionStorage[options.selector] = true;
+        observer.disconnect();
+      }
+    }, {
+      rootMargin: options.rootMargin
+    });
+    fas.forEach(fa => {
+      observer.observe(fa);
+    });
+  };
+  return {
+    observe
+  };
+};
+
+/***/ }),
+
 /***/ 610:
 /***/ (() => {
 
 /*
-  A simple jQuery function that can add listeners on attribute change.
-  http://meetselva.github.io/attrchange/
-
-  About License:
-  Copyright (C) 2013-2014 Selvakumar Arumugam
-  You may use attrchange plugin under the terms of the MIT Licese.
-  https://github.com/meetselva/attrchange/blob/master/MIT-License.txt
+ # -----------------------------------------------------------------------------
+ # ~/200_theme_js/js/listen-attribute-changes/attrchange.js
+ # A simple jQuery function that can add listeners on attribute change.
+ #
+ # Product/Info:
+ # https://jekyll.one
+ #
+ # Copyright (C) 2013-2014 Selvakumar Arumugam
+ # Copyright (C) 2023 Juergen Adams
+ #
+ # Attrchange is licensed under the MIT License.
+ # See: https://github.com/meetselva/attrchange/blob/master/MIT-License.txt
+ #
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
+ # -----------------------------------------------------------------------------
 */
-
 ;
 (function ($) {
   function isDOMAttrModifiedSupported() {
@@ -2750,13 +2822,11 @@ module.exports = function navigator(options) {
 "use strict";
 /*
  # -----------------------------------------------------------------------------
- # ~/js/scroll-smooth/scroll-smooth.js
+ # ~/200_theme_js/js/scroll-smooth/scroll-smooth.js
  # Provides Javascript functions for smooth scrolling
  #
  # Product/Info:
  # http://jekyll.one
- #
- #
  #
  # J1 Theme is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
@@ -9772,6 +9842,7 @@ window.platform = __webpack_require__(727);
 // -----------------------------------------------------------------------------
 window.j1.adapter = __webpack_require__(476);
 window.j1.anime = __webpack_require__(921); // added for fam
+window.j1.lazyCss = __webpack_require__(611);
 window.j1.core = __webpack_require__(602);
 window.j1.core.navigator = __webpack_require__(490);
 window.j1.core.asciidoctor = __webpack_require__(977);
@@ -9787,9 +9858,10 @@ window.j1.core.scrollSmooth = __webpack_require__(814);
 //const J1JekyllSearch                    = require('./js/jekyll_search/jekyll_search.js');
 //const J1Yaml                            = require('js-yaml');
 const J1Tocbot = __webpack_require__(799);
+// const J1LazyCss                           = require('./js/lazyCss/lazyCss.js');
 const J1AttrChangeListener = __webpack_require__(610);
 
-// const J1jQueryExt                         = require('./js/jquery-extensions/jquery-regex.js');
+// const J1jQueryExt                      = require('./js/jquery-extensions/jquery-regex.js');
 
 //const J1ThemeSwitcher                   = require('./js/bs_theme_switcher/switcher.js');
 // const J1MmenuLight                     = require('./js/mmenu-light/mmenu.js');

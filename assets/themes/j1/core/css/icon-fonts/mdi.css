@@ -65,15 +65,11 @@
  # -----------------------------------------------------------------------------
 */
 @font-face {
-  src: url("/assets/themes/j1/core/fonts/material_design_icons/fonts/materialdesignicons-webfont.woff") format("woff");
   src: url("/assets/themes/j1/core/fonts/material_design_icons/fonts/materialdesignicons-webfont.woff2") format("woff2");
-  src: url("/assets/themes/j1/core/fonts/material_design_icons/fonts/eot/materialdesignicons-webfont.eot?v=6.9.96");
-  src: url("/assets/themes/j1/core/fonts/material_design_icons/fonts/eot/materialdesignicons-webfont.eot?#iefix&v=6.9.96") format("embedded-opentype");
-  src: url("/assets/themes/j1/core/fonts/material_design_icons/fonts/svg/materialdesignicons-webfont.svg?v=6.9.96#materialdesigniconsregular") format("svg");
-  src: url("/assets/themes/j1/core/fonts/material_design_icons/fonts/ttf/materialdesignicons-webfont.ttf?v=6.9.96") format("truetype");
   font-family: "Material Design Icons";
   font-weight: normal;
-  font-style: normal; }
+  font-style: normal;
+  font-display: block; }
 
 /*
  # -----------------------------------------------------------------------------
