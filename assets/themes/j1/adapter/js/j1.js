@@ -13,7 +13,7 @@
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-07-02 17:53:58 +0200
+ # Adapter generated: 2023-07-02 20:26:42 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -177,7 +177,7 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2023-07-02 17:53:58 +0200'
+        generated:   '2023-07-02 20:26:42 +0200'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
@@ -405,7 +405,7 @@ var j1 = (function (options) {
                       // show the content|footer
                       //
                       $('#content').show();
-                      $('#footer_uno').show();
+                      $('.active_footer').show();
                       clearInterval(dependencies_met_page_ready);
                       clearInterval(dependencies_met_blocks_ready);
                     }
@@ -422,7 +422,7 @@ var j1 = (function (options) {
                   //
                   if ( footer_state == 'success') {
                     $('#content').show();
-                    $('#footer_uno').show();
+                    $('.active_footer').show();
                     clearInterval(dependencies_met_page_ready);
                   }
                 }
@@ -544,7 +544,7 @@ var j1 = (function (options) {
                 // show the content|footer
                 //
                 $('#content').show();
-                $('#footer_uno').show();
+                $('.active_footer').show();
                 clearInterval(dependencies_met_page_ready);
                 clearInterval(dependencies_met_blocks_ready);
               }
@@ -561,7 +561,7 @@ var j1 = (function (options) {
             //
             if ( footer_state == 'success') {
               $('#content').show();
-              $('#footer_uno').show();
+              $('.active_footer').show();
               clearInterval(dependencies_met_page_ready);
             }
           }
