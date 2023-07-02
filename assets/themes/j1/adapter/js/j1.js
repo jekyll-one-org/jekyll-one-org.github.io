@@ -13,7 +13,7 @@
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-07-01 01:56:16 +0200
+ # Adapter generated: 2023-07-02 17:53:58 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -49,6 +49,7 @@ var j1 = (function (options) {
   // defaults for status information
   var state                         = 'not_started';
   var mode                          = 'not_detected';
+  var performance_monitors_enabled  = ('false' === 'true') ? true: false;
   // defaults for tracking providers
   var tracking_enabled              = ('' === 'true') ? true: false;
   var tracking_id                   = '';
@@ -176,7 +177,7 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2023-07-01 01:56:16 +0200'
+        generated:   '2023-07-02 17:53:58 +0200'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
@@ -200,7 +201,7 @@ var j1 = (function (options) {
       var timestamp_now     = date.toISOString();
       var curr_state        = 'started';
       var gaCookies         = j1.findCookie('_ga');
-      var themerOptions     = $.extend({}, {"enabled":true, "debug":false, "saveToCookie":true, "reloadPageOnChange":false, "retries":30, "preview_page":"/pages/public/previewer/current_theme/", "menu_icon_family":"MDI", "menu_icon_color":"#9E9E9E", "menu_icon_size":"mdi-sm", "cssThemeLink":"bootstrapTheme", "defaultCssFile":"https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css", "bootswatchApiUrl":"https://bootswatch.com/api", "bootswatchApiVersion":5, "loadFromBootswatch":true, "localThemes":"/assets/data/themes.json", "excludeBootswatch":"Default, default, Lux, Sketchy", "includeBootswatch":"", "skipIncludeBootswatch":""});
+      var themerOptions     = $.extend({}, {"enabled":false, "debug":false, "saveToCookie":true, "reloadPageOnChange":false, "retries":30, "preview_page":"/pages/public/previewer/current_theme/", "menu_icon_family":"mdib", "menu_icon_color":"#9E9E9E", "menu_icon_size":"mdi-sm", "cssThemeLink":"bootstrapTheme", "defaultCssFile":"https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css", "bootswatchApiUrl":"https://bootswatch.com/api", "bootswatchApiVersion":5, "loadFromBootswatch":true, "localThemes":"/assets/data/themes.json", "excludeBootswatch":"Default, default, Lux, Sketchy", "includeBootswatch":"", "skipIncludeBootswatch":""});
       // current template version
       template_version  = j1.getTemplateVersion();
       // -----------------------------------------------------------------------
@@ -2240,6 +2241,13 @@ var j1 = (function (options) {
         'selector':   '.mdil',
         'rootMargin': '150px 0px'
       });
+      // load MDI Regular CSS
+      //
+      j1.lazyCss().observe({
+        'src':        '/assets/themes/j1/core/css/icon-fonts/mdi.min.css',
+        'selector':   '.mdi',
+        'rootMargin': '150px 0px'
+      });
       // load FA CSS
       //
       j1.lazyCss().observe({
@@ -2429,18 +2437,20 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       // run all observers for page monitoring
       // -----------------------------------------------------------------------
-      // monitor 'LCP'
-      //
-      performanceObserverLCP.observe({
-         type: 'largest-contentful-paint',
-         buffered: true
-      });
-      // monitor 'CLS'
-      //
-      performanceObserverCLS.observe({
-         type: 'layout-shift',
-         buffered: true
-      });
+      if (performance_monitors_enabled) {
+        // monitor 'LCP'
+        //
+        performanceObserverLCP.observe({
+           type: 'largest-contentful-paint',
+           buffered: true
+        });
+        // monitor 'CLS'
+        //
+        performanceObserverCLS.observe({
+           type: 'layout-shift',
+           buffered: true
+        });
+      } // END if 'performance_monitors'
       // monitor 'GROWTH'
       resizeObserver.observe(
         document.querySelector('body')
