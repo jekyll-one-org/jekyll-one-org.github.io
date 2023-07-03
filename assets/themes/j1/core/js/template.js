@@ -2469,7 +2469,7 @@ module.exports = function navigator(options) {
         // Add Class to body
         $('nav.navbar.navigator').find('ul.nav').wrap('<div class=\'wrap-full-menu\'></div>');
         $('.wrap-full-menu').wrap('<div class=\'nav-full\'></div>');
-        $('ul.nav.navbar-nav').prepend('<li class=\'close-full-menu\'><a href=\'#\'><i class=\'mdi mdi-close\'></i></a></li>');
+        $('ul.nav.navbar-nav').prepend('<li class=\'close-full-menu\'><a href=\'#\'><i class=\'mdib mdib-close\'></i></a></li>');
       } else if ($getNav.hasClass('navbar-mobile')) {
         $getNav.removeClass('no-full');
       } else {
@@ -9734,7 +9734,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -9748,17 +9748,17 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
@@ -9771,7 +9771,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /******/ 			}
 /******/ 		})();
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/node module decorator */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nmd = (module) => {
@@ -9780,7 +9780,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /******/ 			return module;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
@@ -9840,6 +9840,9 @@ window.platform = __webpack_require__(727);
 // Following source objects|modules are *explicitely* forced to be
 // exposed for run-time to the global namespace (window).
 // -----------------------------------------------------------------------------
+// window.deeplTranslator               = require('./js/deepl-translator');     // J1 Module deeplAPI used instead
+// window.j1.fam                        = require('./js/fam/fam.js');           // cannot used until NOT rewritten to jQuery
+
 window.j1.adapter = __webpack_require__(476);
 window.j1.anime = __webpack_require__(921); // added for fam
 window.j1.lazyCss = __webpack_require__(611);
@@ -9848,23 +9851,16 @@ window.j1.core.navigator = __webpack_require__(490);
 window.j1.core.asciidoctor = __webpack_require__(977);
 window.j1.core.scrollSmooth = __webpack_require__(814);
 
-// window.deeplTranslator               = require('./js/deepl-translator');     // J1 Module deeplAPI used instead
-// window.j1.fam                        = require('./js/fam/fam.js');           // cannot used until NOT rewritten to jQuery
-
 // Following source objects|modules are *implicetly* forced to be
 // exposed for run-time to the global namespace (window).
 // -----------------------------------------------------------------------------
-//const Bootstrap                         = require('./js/bootstrap/bootstrap.js');
-//const J1JekyllSearch                    = require('./js/jekyll_search/jekyll_search.js');
-//const J1Yaml                            = require('js-yaml');
-const J1Tocbot = __webpack_require__(799);
-// const J1LazyCss                           = require('./js/lazyCss/lazyCss.js');
-const J1AttrChangeListener = __webpack_require__(610);
-
+// const J1Yaml                           = require('js-yaml');
 // const J1jQueryExt                      = require('./js/jquery-extensions/jquery-regex.js');
-
-//const J1ThemeSwitcher                   = require('./js/bs_theme_switcher/switcher.js');
+// const J1ThemeSwitcher                  = require('./js/bs_theme_switcher/switcher.js');
 // const J1MmenuLight                     = require('./js/mmenu-light/mmenu.js');
+
+const J1Tocbot = __webpack_require__(799);
+const J1AttrChangeListener = __webpack_require__(610);
 
 // Passing log data over Internet|SeeMe (currently NOT used)
 // -----------------------------------------------------------------------------
@@ -9889,7 +9885,6 @@ const J1AttrChangeListener = __webpack_require__(610);
 // exposed for run-time to the global namespace (window).
 // -----------------------------------------------------------------------------
 // const Bootstrap                      = require('./js/bootstrap/bootstrap.js');
-
 // const J1JekyllSearch                 = require('./js/jekyll_search/jekyll_search.js'); // Buffer Kack
 // const J1Tocbot                       = require('./js/tocbot/tocbot.js');
 
