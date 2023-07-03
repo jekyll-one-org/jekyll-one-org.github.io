@@ -13,7 +13,7 @@
  #  J1 Theme is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Theme/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-07-03 19:02:58 +0200
+ #  Adapter generated: 2023-07-03 19:24:00 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -65,7 +65,7 @@ j1.adapter.slick = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.cookieConsent',
-        generated:   '2023-07-03 19:02:58 +0200'
+        generated:   '2023-07-03 19:24:00 +0200'
       }, options);
       // Load  module DEFAULTS|CONFIG
       atticDefaults         = $.extend({}, );

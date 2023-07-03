@@ -1860,7 +1860,7 @@ module.exports = function (options) {
 
 /***/ }),
 
-/***/ 611:
+/***/ 131:
 /***/ ((module) => {
 
 /*
@@ -1877,7 +1877,7 @@ module.exports = function (options) {
  # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
-module.exports = function lazyCss() {
+module.exports = function lazyCSS() {
   let options = {};
   const observe = o => {
     options = o;
@@ -2469,7 +2469,7 @@ module.exports = function navigator(options) {
         // Add Class to body
         $('nav.navbar.navigator').find('ul.nav').wrap('<div class=\'wrap-full-menu\'></div>');
         $('.wrap-full-menu').wrap('<div class=\'nav-full\'></div>');
-        $('ul.nav.navbar-nav').prepend('<li class=\'close-full-menu\'><a href=\'#\'><i class=\'mdib mdib-close\'></i></a></li>');
+        $('ul.nav.navbar-nav').prepend('<li class=\'close-full-menu\'><a href=\'#\'><i class=\'mdi mdi-close\'></i></a></li>');
       } else if ($getNav.hasClass('navbar-mobile')) {
         $getNav.removeClass('no-full');
       } else {
@@ -9734,7 +9734,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/
+/******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -9748,17 +9748,17 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
-/******/
+/******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
+/******/ 	
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/
+/******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
@@ -9771,7 +9771,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /******/ 			}
 /******/ 		})();
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/node module decorator */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nmd = (module) => {
@@ -9780,7 +9780,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /******/ 			return module;
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
@@ -9845,7 +9845,7 @@ window.platform = __webpack_require__(727);
 
 window.j1.adapter = __webpack_require__(476);
 window.j1.anime = __webpack_require__(921); // added for fam
-window.j1.lazyCss = __webpack_require__(611);
+window.j1.lazyCSS = __webpack_require__(131);
 window.j1.core = __webpack_require__(602);
 window.j1.core.navigator = __webpack_require__(490);
 window.j1.core.asciidoctor = __webpack_require__(977);
