@@ -13,7 +13,7 @@
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-07-03 19:24:00 +0200
+ # Adapter generated: 2023-07-03 19:37:15 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -30,7 +30,7 @@ var j1 = (function (options) {
   // ---------------------------------------------------------------------------
   // base page resources
   var rePager          =  new RegExp('navigator|dateview|tagview|archive');
-  var environment      = 'development';
+  var environment      = 'production';
   var moduleOptions    = {};
   var j1_runtime_data  = {};
   var scrollerSettings = {};
@@ -177,7 +177,7 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2023-07-03 19:24:00 +0200'
+        generated:   '2023-07-03 19:37:15 +0200'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
@@ -2278,7 +2278,7 @@ var j1 = (function (options) {
       var lcp
       var cumulated_cls = 0;
       var cumulated_lcp = 0;
-      const development = ('development'.includes('prod')) ? false : true;
+      const development = ('production'.includes('prod')) ? false : true;
       // PerformanceObserver to monitor the 'LCP' of a page load
       // see: https://developer.mozilla.org/en-US/docs/Web/API/LargestContentfulPaint
       //

@@ -12,7 +12,7 @@
  #  J1 Theme is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Theme/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-07-03 19:24:00 +0200
+ #  Adapter generated: 2023-07-03 19:37:15 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -27,7 +27,7 @@
 // https://www.marghoobsuleman.com/image-dropdown/advanced-help
 'use strict';
 j1.adapter.translator = (function (j1, window) {
-  var environment       = 'development';
+  var environment       = 'production';
   var user_translate    = {};
   var translatorDefaults;
   var translatorSettings;
@@ -67,7 +67,7 @@ j1.adapter.translator = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.translator',
-        generated:   '2023-07-03 19:24:00 +0200'
+        generated:   '2023-07-03 19:37:15 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
