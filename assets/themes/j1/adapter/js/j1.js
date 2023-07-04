@@ -13,7 +13,7 @@
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-07-03 19:37:15 +0200
+ # Adapter generated: 2023-07-04 15:54:48 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -49,7 +49,7 @@ var j1 = (function (options) {
   // defaults for status information
   var state                         = 'not_started';
   var mode                          = 'not_detected';
-  var performance_monitors_enabled  = ('true' === 'true') ? true: false;
+  var performance_monitors_enabled  = ('false' === 'true') ? true: false;
   // defaults for tracking providers
   var tracking_enabled              = ('' === 'true') ? true: false;
   var tracking_id                   = '';
@@ -177,13 +177,13 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2023-07-03 19:37:15 +0200'
+        generated:   '2023-07-04 15:54:48 +0200'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
       // Load scroller module DEFAULTS|CONFIGs
       scrollerDefaults = $.extend({}, {"enabled":false, "smoothscroll":{"offsetCorrection":0, "offsetCorrectionLocal":0}});
-      scrollerSettings = $.extend({}, {"enabled":true, "smoothscroll":{"offsetCorrection":-9, "offsetCorrectionLocal":-90}, "scrollers":[{"scroller":{"enabled":true, "type":"showOnScroll", "id":"panel_home_intro", "container":"panel_home_intro", "showDelay":1000, "scrollOffset":500}}, {"scroller":{"enabled":false, "type":"showOnScroll", "id":"panel_home_service", "container":"panel_home_service", "showDelay":700, "scrollOffset":200}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"preview_content", "container":"panel_home_news-scroll-group", "pagePath":"/assets/data/news_panel_posts/page", "elementScroll":true, "scrollOffset":200, "lastPage":2, "infoLastPage":true, "lastPageInfo_en":"More articles can be found with the <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n", "lastPageInfo_de":"Weitere Artikel finden Sie im <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n"}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"preview_content", "container":"timeline", "pagePath":"/pages/public/blog/navigator/page", "elementScroll":true, "scrollOffset":200, "lastPage":1000000, "infoLastPage":false, "lastPageInfo_en":"", "lastPageInfo_de":""}}]});
+      scrollerSettings = $.extend({}, {"enabled":true, "smoothscroll":{"offsetCorrection":-9, "offsetCorrectionLocal":-90}, "scrollers":[{"scroller":{"enabled":true, "type":"showOnScroll", "id":"panel_home_intro", "container":"panel_home_intro", "showDelay":1000, "scrollOffset":500}}, {"scroller":{"enabled":false, "type":"showOnScroll", "id":"panel_home_service", "container":"panel_home_service", "showDelay":700, "scrollOffset":200}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"preview_content", "container":"panel_home_news-scroll-group", "pagePath":"/assets/data/news_panel_posts/page", "elementScroll":true, "scrollOffset":200, "lastPage":2, "infoLastPage":true, "lastPageInfo_en":"More articles can be found with the <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n", "lastPageInfo_de":"Weitere Artikel finden Sie im <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n"}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"preview_content", "container":"timeline", "pagePath":"/pages/public/blog/navigator/page", "elementScroll":true, "scrollOffset":200, "lastPage":5, "infoLastPage":false, "lastPageInfo_en":"", "lastPageInfo_de":""}}]});
       scrollerOptions  = $.extend(true, {}, scrollerDefaults, scrollerSettings);
       // settings for dynamic pages
       scrollDynamicPagesTopOnChange = frontmatterOptions.scrollDynamicPagesTopOnChange ? frontmatterOptions.scrollDynamicPagesTopOnChange : 'false';
@@ -201,7 +201,7 @@ var j1 = (function (options) {
       var timestamp_now     = date.toISOString();
       var curr_state        = 'started';
       var gaCookies         = j1.findCookie('_ga');
-      var themerOptions     = $.extend({}, {"enabled":true, "debug":false, "saveToCookie":true, "reloadPageOnChange":false, "retries":30, "preview_page":"/pages/public/previewer/current_theme/", "menu_icon_family":"mdib", "menu_icon_color":"#9E9E9E", "menu_icon_size":"mdib-sm", "cssThemeLink":"bootstrapTheme", "defaultCssFile":"https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css", "bootswatchApiUrl":"https://bootswatch.com/api", "bootswatchApiVersion":5, "loadFromBootswatch":true, "localThemes":"/assets/data/themes.json", "excludeBootswatch":"Default, default, Lux, Sketchy", "includeBootswatch":"", "skipIncludeBootswatch":""});
+      var themerOptions     = $.extend({}, {"enabled":false, "debug":false, "saveToCookie":true, "reloadPageOnChange":false, "retries":30, "preview_page":"/pages/public/previewer/current_theme/", "menu_icon_family":"mdib", "menu_icon_color":"#9E9E9E", "menu_icon_size":"mdib-sm", "cssThemeLink":"bootstrapTheme", "defaultCssFile":"https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css", "bootswatchApiUrl":"https://bootswatch.com/api", "bootswatchApiVersion":5, "loadFromBootswatch":true, "localThemes":"/assets/data/themes.json", "excludeBootswatch":"Default, default, Lux, Sketchy", "includeBootswatch":"", "skipIncludeBootswatch":""});
       // current template version
       template_version  = j1.getTemplateVersion();
       // -----------------------------------------------------------------------
@@ -2279,87 +2279,6 @@ var j1 = (function (options) {
       var cumulated_cls = 0;
       var cumulated_lcp = 0;
       const development = ('production'.includes('prod')) ? false : true;
-      // PerformanceObserver to monitor the 'LCP' of a page load
-      // see: https://developer.mozilla.org/en-US/docs/Web/API/LargestContentfulPaint
-      //
-      const performanceObserverLCP = new PerformanceObserver((entryList) => {
-        const entries     = entryList.getEntries();
-        // logger API used for deveöopment only
-        //
-        if (development) {
-          var logger = log4javascript.getLogger('PerformanceObserver');
-        }
-        // Use the latest LCP candidate
-        const lastEntry   = entries[entries.length - 1];
-        var lastEntryText = JSON.stringify(lastEntry, null, 2);
-        cumulated_lcp  += lastEntry.renderTime;
-        var lcp_full    = cumulated_lcp/1000;
-        lcp             = lcp_full.toFixed(3);
-        var url       = lastEntry.url;
-        var pathname  = url.replace( /^[a-zA-Z]{3,5}\:\/{2}[a-zA-Z0-9_.:-]+\//, '' );
-        if (development && lastEntry.url != '') {
-          logger.debug('\n' + 'Largest Contentful Paint (LCP), url:', pathname);
-        } else {
-          console.debug(`Largest Contentful Paint (LCP), url: ${pathname}`);
-        }
-        if (development) {
-          if (lcp > 2.5) {
-            logger.warn('\n' + 'Largest Contentful Paint (LCP), cumulated:', lcp);
-          } else {
-            logger.info('\n' + 'Largest Contentful Paint (LCP), cumulated:', lcp);
-          }
-        } else {
-          if (lcp > 2.5) {
-            console.warn(`Largest Contentful Paint (LCP), cumulated: ${lcp}`);
-          } else {
-            console.debug(`Largest Contentful Paint (LCP), cumulated: ${lcp}`);
-          }
-        }
-      }); // END performanceObserverLCP
-      // PerformanceObserver to monitor the 'CLS' of a page load
-      //
-      const performanceObserverCLS = new PerformanceObserver(entryList => {
-        var entries = entryList.getEntries() || [];
-        // logger API used for deveöopment only
-        //
-        if (development) {
-          var logger = log4javascript.getLogger('PerformanceObserver');
-        }
-        entries.forEach(entry => {
-          if (entry.sources) {
-            // omit entries likely caused by user input
-            if (!entry.hadRecentInput) {
-              // cumulate values
-              cumulated_cls += entry.value;
-              cls            = cumulated_cls.toFixed(3);
-            }
-            for (const {node, currentRect, previousRect} of entry.sources) {
-              var hasProperty = node.hasOwnProperty('firstElementChild');
-              if (hasProperty == null) {
-                hasProperty = false;
-              }
-              if (hasProperty) {
-                var id = '';
-                try {
-                  id = node.firstElementChild.id;
-                }
-                catch(err) {
-                  id = 'missing';
-                }
-                if (development && id !== 'missing' && id !== '' && cls > 0.01) {
-                  if (cls > 0.1) {
-                    logger.warn('\n' + 'Cumulative Layout Shift (CLS), entry id: ', id);
-                    logger.warn('\n' + 'Cumulative Layout Shift (CLS): ', cls);
-                  } else {
-                    logger.info('\n' + 'Cumulative Layout Shift (CLS), entry id: ', id);
-                    logger.info('\n' + 'Cumulative Layout Shift (CLS): ', cls);
-                  }
-                }
-              } // END if typeof
-            } // END for
-          } // END if  entry.sources
-        }); // END forEach entry
-      }); // END performanceObserverCLS
       // ResizeObserver to monitor the changes on page height (dynamic pages)
       // see: https://stackoverflow.com/questions/14866775/detect-document-height-change
       //
@@ -2439,20 +2358,6 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       // run all observers for page monitoring
       // -----------------------------------------------------------------------
-      if (performance_monitors_enabled) {
-        // monitor 'LCP'
-        //
-        performanceObserverLCP.observe({
-           type: 'largest-contentful-paint',
-           buffered: true
-        });
-        // monitor 'CLS'
-        //
-        performanceObserverCLS.observe({
-           type: 'layout-shift',
-           buffered: true
-        });
-      } // END if 'performance_monitors'
       // monitor 'GROWTH'
       resizeObserver.observe(
         document.querySelector('body')

@@ -1,0 +1,608 @@
+<!DOCTYPE html> <html lang="en"> <head data-proofer-ignore> <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="template version" content="2023.3.2"> <link rel="icon" type="image/ico" href="/assets/images/icons/j1/favicon.ico"> <link rel="shortcut icon" href="/assets/images/icons/j1/favicon.ico"> <meta name="robots" content="index"> <meta name="robots" content="follow"> <meta name="analytics" content="false"> <meta name="comments" content="false"> <meta name="advertising" content="false"> <meta name="translation" content="false"> <meta name="youtube" content="true"> <meta name="vimeo" content="true"> <meta name="personalization" content="false"> <link rel="dns-prefetch" href="https://bootswatch.com"> <link rel="preconnect" href="https://bootswatch.com"> <title>Banner and Panel | Jekyll One</title> <meta name="generator" content="Jekyll v4.3.2" /> <meta property="og:title" content="Banner and Panel" /> <meta name="author" content="Juergen Adams" /> <meta property="og:locale" content="en_US" /> <meta name="description" content="The base idea of the J1 Theme is to give all people a toolset at their hands to create a website with no need to start by web development or web design from the beginning. A website based on J1 is using configurable build-in blocks, modules and apps." /> <meta property="og:description" content="The base idea of the J1 Theme is to give all people a toolset at their hands to create a website with no need to start by web development or web design from the beginning. A website based on J1 is using configurable build-in blocks, modules and apps." /> <meta property="twitter:description" content="The base idea of the J1 Theme is to give all people a toolset at their hands to create a website with no need to start by web development or web design from the beginning. A website based on J1 is using configurable build-in blocks, modules and apps." /> <link rel="canonical" href="https://jekyll.one/pages/public/manuals/components/j1/blocks/banner_panel/" /> <meta property="og:url" content="https://jekyll.one/pages/public/manuals/components/j1/blocks/banner_panel/" /> <meta property="og:site_name" content="Jekyll One" /> <meta property="og:image" content="https://jekyll.one/assets/images/modules/attics/jeshoots-1-1920x1280.jpg" /> <meta property="og:image:height" content="1280" /> <meta property="og:image:width" content="1920" /> <meta property="og:image:alt" content="Photo by JESHOOTS.COM on Unsplash" /> <meta property="og:type" content="article" /> <meta property="article:published_time" content="2022-08-14T02:00:00+02:00" /> <meta name="twitter:card" content="summary_large_image" /> <meta property="twitter:image" content="https://jekyll.one/assets/images/modules/attics/jeshoots-1-1920x1280.jpg" /> <meta name="twitter:image:alt" content="Photo by JESHOOTS.COM on Unsplash" /> <meta property="twitter:title" content="Banner and Panel" /> <meta name="twitter:site" content="@" /> <meta name="twitter:creator" content="@Juergen Adams" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Juergen Adams","url":"https://jekyll.one/"},"dateModified":"2022-08-14T02:00:00+02:00","datePublished":"2022-08-14T02:00:00+02:00","description":"The base idea of the J1 Theme is to give all people a toolset at their hands to create a website with no need to start by web development or web design from the beginning. A website based on J1 is using configurable build-in blocks, modules and apps.","headline":"Banner and Panel","image":{"width":1920,"height":1280,"alt":"Photo by JESHOOTS.COM on Unsplash","url":"https://jekyll.one/assets/images/modules/attics/jeshoots-1-1920x1280.jpg","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://jekyll.one/pages/public/manuals/components/j1/blocks/banner_panel/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://jekyll.one/assets/images/icons/j1/j1-512x512.png"},"name":"Juergen Adams"},"url":"https://jekyll.one/pages/public/manuals/components/j1/blocks/banner_panel/"}</script> <link rel="stylesheet" href="/assets/themes/j1/core/css/themes/unolight/bootstrap.min.css"> <link rel="stylesheet" href="/assets/themes/j1/core/css/icon-fonts/mdib.min.css"> <link rel="stylesheet" href="/assets/themes/j1/core/css/vendor.min.css"> <script src="/assets/themes/j1/adapter/js/j1.js"></script> <script src="/assets/themes/j1/modules/jquery/js/jquery.min.js"></script> <script src="/assets/themes/j1/modules/jquery/js/extensions/hasClass.min.js"></script> <script src="/assets/themes/j1/modules/jquery/js/extensions/removeClass.min.js"></script> <script src="/assets/themes/j1/modules/popper/js/popper.min.js"></script> <script src="/assets/themes/j1/core/js/template.min.js"></script> <script src="/assets/themes/j1/modules/bootstrap/js/bootstrap.min.js"></script> <script src="/assets/themes/j1/adapter/js/bmd.js"></script> <script src="/assets/themes/j1/modules/bmd/js/bmd.min.js"></script> <script defer src="/assets/themes/j1/modules/gtag-opt-in/js/gtag-opt-in.min.js"></script> <script src="/assets/themes/j1/adapter/js/logger.js"></script> <script src="/assets/themes/j1/modules/log4javascript/js/log4javascript.min.js"></script> <script src="/assets/themes/j1/modules/backstretch/js/backstretch.min.js"></script> <script src="/assets/themes/j1/adapter/js/attic.js"></script> <script src="/assets/themes/j1/adapter/js/navigator.js"></script> <link rel="stylesheet" href="/assets/themes/j1/modules/mmenuLight/css/mmenu-light.min.css"> <link rel="stylesheet" href="/assets/themes/j1/modules/mmenuLight/css/theme/uno/mmenu.min.css"> <script defer src="/assets/themes/j1/adapter/js/mmenu.js"></script> <script defer src="/assets/themes/j1/modules/mmenuLight/js/mmenu.min.js"></script> <script src="/assets/themes/j1/adapter/js/themer.js"></script> <script src="/assets/themes/j1/adapter/js/toccer.js"></script> <script src="/assets/themes/j1/adapter/js/cookieConsent.js"></script> <script src="/assets/themes/j1/modules/cookieConsent/js/cookieConsent.min.js"></script> <link rel="stylesheet" href="/assets/themes/j1/modules/lunr/css/j1.min.css"> <script src="/assets/themes/j1/adapter/js/lunr.js"></script> <script src="/assets/themes/j1/modules/lunr/js/lunr.min.js"></script> <script src="/assets/themes/j1/modules/lunr/js/mustache.min.js"></script> <script src="/assets/themes/j1/modules/lunr/js/dateformat.min.js"></script> <script src="/assets/themes/j1/modules/lunr/js/uri.min.js"></script> <script src="/assets/themes/j1/modules/lunr/js/j1.min.js"></script> <script defer src="/assets/themes/j1/modules/fab/js/cash.js"></script> <script defer src="/assets/themes/j1/modules/fab/js/fab.js"></script> <script defer src="/assets/themes/j1/adapter/js/fab.js"></script> <script src="/assets/themes/j1/modules/themeSwitcher/js/switcher.min.js"></script> <script src="/assets/themes/j1/adapter/js/rtable.js"></script> <script src="/assets/themes/j1/modules/rtable/js/rtable.min.js"></script> <script defer src="/assets/themes/j1/adapter/js/asciidoctor.js"></script> <script defer src="/assets/themes/j1/modules/msDropdown/js/msDropdown.min.js"></script> <link rel="stylesheet" href="/assets/themes/j1/modules/translator/css/translator.min.css"> <script defer src="/assets/themes/j1/adapter/js/translator.js"></script> <script defer src="/assets/themes/j1/modules/translator/js/translator.min.js"></script> <script defer src="/assets/themes/j1/adapter/js/analytics.js"></script> <link rel="stylesheet" href="/assets/themes/j1/modules/rouge/css/base16/theme.css"> <script defer src="/assets/themes/j1/adapter/js/rouge.js"></script> <link rel="stylesheet" href="/assets/themes/j1/core/css/animate.min.css"> <link rel="stylesheet" href="/assets/themes/j1/modules/lightbox/css/lightbox.min.css"> <link rel="stylesheet" href="/assets/themes/j1/modules/lightbox/css/theme/uno.min.css"> <script defer src="/assets/themes/j1/adapter/js/lightbox.js"></script> <script defer src="/assets/themes/j1/modules/lightbox/js/lightbox.min.js"></script> <link rel="stylesheet" href="/assets/themes/j1/modules/clipboard/css/theme/uno.min.css"> <script defer src="/assets/themes/j1/adapter/js/clipboard.js"></script> <script defer src="/assets/themes/j1/modules/clipboard/js/clipboard.min.js"></script> <script defer src="/assets/themes/j1/adapter/js/comments.js"></script> <script defer src="/assets/themes/j1/adapter/js/themeToggler.js"></script> <script defer src="/assets/themes/j1/adapter/js/lazyLoader.js"></script> </head> <body class="nomathjax"> <div id="no_flicker" style="overflow: hidden; display: none"> <nav id="navigator_nav_mmenu"></nav> <nav id="navigator_toc_mmenu"></nav> <nav id="navigator_sidebar_mmenu"></nav> <nav id="navigator_nav_navbar" class="navbar navigator navbar-expand-lg navbar-default d-flex light navbar-fixed navbar-transparent"> <a href="#" id="navbar-brand" class="navbar-brand link-no-decoration"> <img src="/assets/images/icons/j1/j1-512x512.png" style="height: 48px !important;" alt="Jekyll One"></a> <button id="mmenu-button" type="button" class="navigator navbar-toggler animated fadeIn" data-bs-toggle="collapse" data-bs-target="#navigator_nav_menu" aria-controls="navigator_nav_menu" aria-expanded="false" aria-label="Toggle navigation"> <i class="mdib mdib-menu mdib-36px"></i> </button> <div id="navigator_nav_menu" class="collapse"></div> <div id="navigator_nav_quicklinks" class="quicklink-nav collapse navbar-collapse justify-content-end pr-4"></div> </nav> <div id="authclient_modals" class="authclient_modals"></div> <div id="searchModal" class="modal fade top" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static"> <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document"> <div class="modal-content"> <div class="modal-body"> <div id="navigator_nav_topsearch" class="top-search ml-4 mr-4"> <div class="bmd-form-group"> <div class="input-group"> <span class="input-group-addon"><i class="mdib mdib-magnify mdib-2x mb-2" style="color:#9E9E9E"></i></span> <input id="search-query" type="text" name="q" placeholder="Your search expression" autocomplete="off" class="form-control"> <span id="clear-topsearch" class="form-clear form-clear-searcher d-none" style="margin-top: 0.75rem"> <i class="mdib mdib-format-clear mdib-2x" style="color:#9E9E9E"></i> </span> <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="margin-top: 24px;"></button> </div> </div> <div class="search-results hide-scrollbar mt-4"> <div id="search-results" style="display: none;"></div> </div> </div> </div> </div> </div> </div> <script id="search-results-template" type="text/mustache"> <ul style="list-style: none; margin-left: .5rem; margin-right: 4.25rem"> {{#docs}} <li> <h4 class="result-item"> <a class="link-no-decoration" href="{{url}}" target="_blank">{{title}} · {{tagline}}</a> </h4> <p class="result-item-text small text-muted mt-2 mb-0"> <i class="mdib mdib-calendar-blank mdib-18px mr-1"></i>{{displaydate}} </p> <p class="result-item-text">{{description}}</p> <p class="result-item-text small text-muted mb-3"> <i class="mdib mdib-tag-text-outline mdib-18px mr-1"></i><span class="sr-categories">{{#categories}} {{.}} · {{/categories}}</span> <i class="mdib mdib-tag mdib-18px mr-1 ml-2"></i><span class="sr-tags">{{#tags}} {{.}} · {{/tags}}</span> </p> </li> {{/docs}} </ul> </script> <header id="header"> <div id="attic_page" class="attic "> <div class="container textOverlay" style="display: none"> </div> <div class="attic-caption" style="display: none"></div> </div> </header> <div id="content" class="container mb-5"> <main id="main-content" class="r-text-300 js-toc-content"> <div class="paragraph dropcap"> <p>The base idea of the J1 Theme is to give all people a toolset at their hands to create a website with no need to start by web development or web design from the beginning. A website based on J1 is using configurable build-in blocks, modules and apps. As a result, the process to generate HTML code from your content is done automatically and allows you to concentrate on what truly matters: Your Content.</p> </div> <div class="paragraph"> <p>Find with the following section what banner and panel elements are available with J1. Banner and panel elements are building blocks typically used on the home page (landing page) presenting to your audiance what contents, products or services are available.</p> </div> <div class="sect1 mt-4"> <h2 id="banner">Banner</h2> <div class="sectionbody"> <div class="paragraph"> <p>Building blocks of type <code>banner</code> are more simple elements to present base information of a website like the <a href="#teaser-banner">Teaser Banner</a> or provide structuring elements like a <a href="#divider-banner">Divider Banner</a> or image contents like <a href="#image-banner">Image Banner</a> or <a href="#parallax-banner">Parallax Banner</a> to enrich text-based content on the home page.</p> </div> <div class="admonitionblock note"> <table> <tr> <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> <td class="content"> <div class="paragraph"> <p>The setup data for banner and panel elements consists in two parts; the:</p> </div> <div class="ulist"> <ul> <li> <p><strong>block</strong> configuration</p> </li> <li> <p><strong>placement</strong> configuration (typically the home page)</p> </li> </ul> </div> <div class="paragraph"> <p>Find for the following examples the <strong>block</strong> configuration followed by the <strong>placement</strong> configuration for the layout <code>home</code>.</p> </div> </td> </tr> </table> </div> <div class="sect2"> <h3 id="teaser-banner">Teaser Banner</h3> <div class="paragraph"> <p>A Teaser Banner should be understood as an introduction element to give an overview of the contents of a website. Additionally, a button row can be placed to point your readers directly to important content pages or other functionality.</p> </div> <div id="lb-blocks--teaser-banner" class="imageblock"> <div class="title notranslate">Teaser Banner</div> <div class="content " style="margin-bottom: 1.75rem;"> <a class="notoc link-no-decoration" href="/assets/images/pages/manuals/components/1280x600/teaser_banner.jpg" data-lightbox="assets/images/pages/manuals/components/1280x600/teaser_banner.jpg" data-title="Teaser Banner"> <img class="img-fluid" src="/assets/images/pages/manuals/components/1280x600/teaser_banner.jpg" alt="Teaser Banner" width="1280"/> </a> </div> </div> <div class="sect3"> <h4 id="configuration">Configuration</h4> <div class="paragraph"> <p>Find the block configuration followed by the placement setup for the layout <code>home</code>.</p> </div> <div class="listingblock noclip"> <div class="title">Block Configuration from <code>~/_data/blocks/banner.yml</code> (excerpt)</div> <div class="content"><pre class="rouge highlight"><code data-lang="yaml"><span class="na">teaser</span><span class="pi">:</span>
+  <span class="c1"># --------------------------------------------------------------------------</span>
+  <span class="c1"># HOME Teaser Banner</span>
+  <span class="c1">#</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span>                             <span class="s">Home Teaser Banner</span>
+    <span class="na">banner</span><span class="pi">:</span>
+      <span class="na">enabled</span><span class="pi">:</span>                        <span class="kc">true</span>
+      <span class="na">id</span><span class="pi">:</span>                             <span class="s">home_teaser_banner</span>
+      <span class="na">comment</span><span class="pi">:</span>                        <span class="s">Top teaser shown on home page</span>
+      <span class="na">type</span><span class="pi">:</span>                           <span class="s">teaser</span>
+      <span class="na">badges</span><span class="pi">:</span>                         <span class="kc">false</span>
+      <span class="na">icon_family</span><span class="pi">:</span>                    <span class="s">MDI</span>
+      <span class="na">properties</span><span class="pi">:</span>                     <span class="s">mt-3 mb-9</span>
+      <span class="na">cards</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span>                       <span class="s">Teaser Content</span>
+          <span class="na">card</span><span class="pi">:</span>
+            <span class="na">enabled</span><span class="pi">:</span>                  <span class="kc">true</span>
+            <span class="na">width</span><span class="pi">:</span>                    <span class="m">12</span>
+            <span class="na">type</span><span class="pi">:</span>                     <span class="s">text</span>
+            <span class="na">title</span><span class="pi">:</span>                    <span class="s">Jekyll One Template</span>
+            <span class="na">translate_title</span><span class="pi">:</span>          <span class="s">notranslate</span>
+            <span class="na">tagline</span><span class="pi">:</span>                  <span class="s">&lt;b&gt;powerful modern static websites&lt;/b&gt;</span>
+            <span class="na">description_properties</span><span class="pi">:</span>   <span class="s">mt-3 mb-3</span>
+            <span class="na">description</span><span class="pi">:</span> <span class="pi">&gt;</span>
+                                      <span class="s">&lt;p class="dropcap"&gt;</span>
+                                        <span class="s">Jekyll One is a full-featured template for Jekyll to</span>
+                                        <span class="s">create modern dynamic websites. J1 provides creative</span>
+                                        <span class="s">people with a rich toolset to build great sites and</span>
+                                        <span class="s">easy-to-use project management to simplify the build</span>
+                                        <span class="s">and deployment processes.</span>
+                                      <span class="s">&lt;/p&gt;</span>
+                                      <span class="s">&lt;p&gt;</span>
+                                        <span class="s">J1 meets Jekyll and Bootstrap and makes a lot of friends.</span>
+                                        <span class="s">The template system combines the best free software for</span>
+                                        <span class="s">the Web. Jekyll One Template is OpenSource and the modules</span>
+                                        <span class="s">included are free to use as well. No license issues for</span>
+                                        <span class="s">private or professional use.</span>
+                                      <span class="s">&lt;/p&gt;</span>
+                                      <span class="s">&lt;p&gt;</span>
+                                        <span class="s">Explore what's possible if you go for static websites.</span>
+                                      <span class="s">&lt;/p&gt;</span>
+            <span class="na">buttons</span><span class="pi">:</span>
+              <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span>                 <span class="s">Roundtrip</span>
+                <span class="na">button</span><span class="pi">:</span>
+                  <span class="na">enabled</span><span class="pi">:</span>            <span class="kc">true</span>
+                  <span class="na">id</span><span class="pi">:</span>                 <span class="s">roundtrip</span>
+                  <span class="na">translate</span><span class="pi">:</span>          <span class="s">notranslate</span>
+                  <span class="na">title</span><span class="pi">:</span>              <span class="s">Roundtrip</span>
+                  <span class="na">tagline</span><span class="pi">:</span>            <span class="s">learn top features</span>
+                  <span class="na">class</span><span class="pi">:</span>              <span class="s">btn btn-xl btn-primary text-uppercase text-left mr-2 mb-2</span>
+                  <span class="na">style</span><span class="pi">:</span>              <span class="s2">"</span><span class="s">min-width:</span><span class="nv"> </span><span class="s">270px"</span>
+                  <span class="na">icon</span><span class="pi">:</span>               <span class="s">briefcase-search-outline</span>
+                  <span class="na">icon_color</span><span class="pi">:</span>
+                  <span class="na">icon_size</span><span class="pi">:</span>          <span class="s">3x</span>
+                  <span class="na">href</span><span class="pi">:</span>               <span class="s">/pages/public/learn/roundtrip/present_images/</span>
+                  <span class="na">target</span><span class="pi">:</span>
+              <span class="s">...</span></code></pre></div> </div> <div class="listingblock noclip"> <div class="title">Placement from <code>~/_data/layouts/home.yml</code></div> <div class="content"><pre class="rouge highlight"><code data-lang="yaml"><span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># ~/_data/layouts/home.yml</span>
+<span class="c1"># Configuration data to specify the (HTML) Layout of all content</span>
+<span class="c1"># pages of type HOME placed by the content loader</span>
+<span class="c1">#</span>
+<span class="c1"># Product/Info:</span>
+<span class="c1"># https://jekyll.one</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (C) 2023 Juergen Adams</span>
+<span class="c1">#</span>
+<span class="c1"># J1 Theme is licensed under the MIT License.</span>
+<span class="c1"># See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md</span>
+<span class="c1">#</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Layout configuration settings</span>
+<span class="c1">#</span>
+<span class="na">lanes</span><span class="pi">:</span>
+  <span class="c1"># ----------------------------------------------------------------------------</span>
+  <span class="c1"># TEASER banner</span>
+  <span class="c1">#</span>
+  <span class="pi">-</span> <span class="na">lane</span><span class="pi">:</span>
+      <span class="na">enabled</span><span class="pi">:</span>                          <span class="kc">true</span>
+      <span class="na">id</span><span class="pi">:</span>                               <span class="s">home_teaser_banner</span>
+      <span class="na">region</span><span class="pi">:</span>                           <span class="s">body-main</span>
+      <span class="na">type</span><span class="pi">:</span>                             <span class="s">async</span>
+      <span class="na">properties</span><span class="pi">:</span>                       <span class="s">elevated-z0</span></code></pre></div> </div> </div> </div> <div class="sect2"> <h3 id="divider-banner">Divider Banner</h3> <div class="paragraph"> <p>Divider banners are pure decorative element for structuring a page by placing line-based delimiters.</p> </div> <div id="lb-blocks--divider-banner" class="imageblock"> <div class="title notranslate">Divider Banner</div> <div class="content " style="margin-bottom: 1.75rem;"> <a class="notoc link-no-decoration" href="/assets/images/pages/manuals/components/1280x600/divider_banner.jpg" data-lightbox="assets/images/pages/manuals/components/1280x600/divider_banner.jpg" data-title="Divider Banner"> <img class="img-fluid" src="/assets/images/pages/manuals/components/1280x600/divider_banner.jpg" alt="Divider Banner" width="1280"/> </a> </div> </div> <div class="sect3"> <h4 id="configuration-2">Configuration</h4> <div class="paragraph"> <p>Find the block configuration followed by the placement setup for the layout <code>home</code>.</p> </div> <div class="listingblock noclip"> <div class="title">Block Configuration from <code>~/_data/blocks/banner.yml</code> (excerpt)</div> <div class="content"><pre class="rouge highlight"><code data-lang="yaml"><span class="na">divider</span><span class="pi">:</span>
+  <span class="c1"># --------------------------------------------------------------------------</span>
+  <span class="c1"># DIVIDER properties</span>
+  <span class="c1">#</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span>                             <span class="s">Divider Banner </span><span class="m">1</span>
+    <span class="na">banner</span><span class="pi">:</span>
+      <span class="na">enabled</span><span class="pi">:</span>                        <span class="kc">true</span>
+      <span class="na">id</span><span class="pi">:</span>                             <span class="s">divider-1</span>
+      <span class="na">comment</span><span class="pi">:</span>                        <span class="s">Divider Banner </span><span class="m">1</span>
+      <span class="na">type</span><span class="pi">:</span>                           <span class="s">divider</span>
+  <span class="s">...</span></code></pre></div> </div> <div class="listingblock noclip"> <div class="title">Placement from <code>~/_data/layouts/home.yml</code></div> <div class="content"><pre class="rouge highlight"><code data-lang="yaml"><span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># ~/_data/layouts/home.yml</span>
+<span class="c1"># Configuration data to specify the (HTML) Layout of all content</span>
+<span class="c1"># pages of type HOME placed by the content loader</span>
+<span class="c1">#</span>
+<span class="c1"># Product/Info:</span>
+<span class="c1"># https://jekyll.one</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (C) 2023 Juergen Adams</span>
+<span class="c1">#</span>
+<span class="c1"># J1 Theme is licensed under the MIT License.</span>
+<span class="c1"># See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md</span>
+<span class="c1">#</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Layout configuration settings</span>
+<span class="c1">#</span>
+<span class="na">lanes</span><span class="pi">:</span>
+  <span class="c1"># ----------------------------------------------------------------------------</span>
+  <span class="c1"># DIVIDER banner</span>
+  <span class="c1">#</span>
+  <span class="pi">-</span> <span class="na">lane</span><span class="pi">:</span>
+      <span class="na">enabled</span><span class="pi">:</span>                          <span class="kc">true</span>
+      <span class="na">id</span><span class="pi">:</span>                               <span class="s">divider-1</span>
+      <span class="na">region</span><span class="pi">:</span>                           <span class="s">body-main</span>
+      <span class="na">type</span><span class="pi">:</span>                             <span class="s">async</span>
+      <span class="na">properties</span><span class="pi">:</span>                       <span class="s">mt-4 mb-4</span></code></pre></div> </div> </div> </div> <div class="sect2"> <h3 id="image-based-banners">Image-based Banners</h3> <div class="paragraph"> <p>Image based banners are decorative elements as well to add image content in between of mainly text-based content.</p> </div> <div class="sect3"> <h4 id="image-banner">Image Banner</h4> <div class="paragraph"> <p>Places an configurable image (full width).</p> </div> <div id="lb-blocks--image-banner" class="imageblock"> <div class="title notranslate">Image Banner</div> <div class="content " style="margin-bottom: 1.75rem;"> <a class="notoc link-no-decoration" href="/assets/images/pages/manuals/components/1280x600/image_banner.jpg" data-lightbox="assets/images/pages/manuals/components/1280x600/image_banner.jpg" data-title="Image Banner"> <img class="img-fluid" src="/assets/images/pages/manuals/components/1280x600/image_banner.jpg" alt="Image Banner" width="1280"/> </a> </div> </div> </div> <div class="sect3"> <h4 id="configuration-3">Configuration</h4> <div class="paragraph"> <p>Find the block configuration followed by the placement setup for the layout <code>home</code>.</p> </div> <div class="listingblock noclip"> <div class="title">Block Configuration from <code>~/_data/blocks/banner.yml</code> (excerpt)</div> <div class="content"><pre class="rouge highlight"><code data-lang="yaml"><span class="na">image</span><span class="pi">:</span>
+  <span class="c1"># --------------------------------------------------------------------------</span>
+  <span class="c1"># home_image_banner</span>
+  <span class="c1">#</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span>                               <span class="s">Home Image Banner</span>
+    <span class="na">banner</span><span class="pi">:</span>
+      <span class="na">enabled</span><span class="pi">:</span>                          <span class="kc">true</span>
+      <span class="na">id</span><span class="pi">:</span>                               <span class="s">home_image_banner</span>
+      <span class="na">comment</span><span class="pi">:</span>                          <span class="s">Image banner shown on home page</span>
+      <span class="na">type</span><span class="pi">:</span>                             <span class="s">image</span>
+      <span class="na">properties</span><span class="pi">:</span>                       <span class="s">mt-6 mb-6</span>
+      <span class="na">image</span><span class="pi">:</span>
+        <span class="na">gridify</span><span class="pi">:</span>                        <span class="kc">false</span>
+        <span class="na">height</span><span class="pi">:</span>                         <span class="m">450</span>
+        <span class="na">justify</span><span class="pi">:</span>                        <span class="kc">true</span>
+        <span class="na">brightness</span><span class="pi">:</span>                     <span class="m">80</span>
+        <span class="na">opacity</span><span class="pi">:</span>                        <span class="kc">false</span>
+        <span class="na">picture</span><span class="pi">:</span>                        <span class="s">/assets/images/modules/attics/ideas-start-here-1920x1280.jpg</span></code></pre></div> </div> <div class="listingblock noclip"> <div class="title">Placement from <code>~/_data/layouts/home.yml</code></div> <div class="content"><pre class="rouge highlight"><code data-lang="yaml"><span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># ~/_data/layouts/home.yml</span>
+<span class="c1"># Configuration data to specify the (HTML) Layout of all content</span>
+<span class="c1"># pages of type HOME placed by the content loader</span>
+<span class="c1">#</span>
+<span class="c1"># Product/Info:</span>
+<span class="c1"># https://jekyll.one</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (C) 2023 Juergen Adams</span>
+<span class="c1">#</span>
+<span class="c1"># J1 Theme is licensed under the MIT License.</span>
+<span class="c1"># See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md</span>
+<span class="c1">#</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Layout configuration settings</span>
+<span class="c1">#</span>
+<span class="na">lanes</span><span class="pi">:</span>
+  <span class="c1"># ----------------------------------------------------------------------------</span>
+  <span class="c1"># IMAGE banner</span>
+  <span class="c1">#</span>
+  <span class="pi">-</span> <span class="na">lane</span><span class="pi">:</span>
+      <span class="na">enabled</span><span class="pi">:</span>                          <span class="kc">true</span>
+      <span class="na">id</span><span class="pi">:</span>                               <span class="s">home_image_banner</span>
+      <span class="na">region</span><span class="pi">:</span>                           <span class="s">body-main</span>
+      <span class="na">type</span><span class="pi">:</span>                             <span class="s">async</span></code></pre></div> </div> </div> <div class="sect3"> <h4 id="parallax-banner">Parallax Banner</h4> <div class="paragraph"> <p>Places an image (full width) with a parallax effect. Additionally, a quotation text is configurable and placed centered on top of the image.</p> </div> <div id="lb-blocks--parallax-banner" class="imageblock"> <div class="title notranslate">Parallax Banner</div> <div class="content " style="margin-bottom: 1.75rem;"> <a class="notoc link-no-decoration" href="/assets/images/pages/manuals/components/1280x600/parallax_banner.jpg" data-lightbox="assets/images/pages/manuals/components/1280x600/parallax_banner.jpg" data-title="Parallax Banner"> <img class="img-fluid" src="/assets/images/pages/manuals/components/1280x600/parallax_banner.jpg" alt="Parallax Banner" width="1280"/> </a> </div> </div> </div> <div class="sect3"> <h4 id="configuration-4">Configuration</h4> <div class="paragraph"> <p>Find the block configuration followed by the placement setup for the layout <code>home</code>.</p> </div> <div class="listingblock noclip"> <div class="title">Block Configuration from <code>~/_data/blocks/banner.yml</code> (excerpt)</div> <div class="content"><pre class="rouge highlight"><code data-lang="yaml"><span class="na">parallax</span><span class="pi">:</span>
+  <span class="c1"># --------------------------------------------------------------------------</span>
+  <span class="c1"># home_parallax_banner</span>
+  <span class="c1">#</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span>                               <span class="s">Home Parallax Banner</span>
+    <span class="na">banner</span><span class="pi">:</span>
+      <span class="na">enabled</span><span class="pi">:</span>                          <span class="kc">true</span>
+      <span class="na">id</span><span class="pi">:</span>                               <span class="s">home_parallax_banner</span>
+      <span class="na">comment</span><span class="pi">:</span>                          <span class="s">Main parallax banner shown on home page</span>
+      <span class="na">type</span><span class="pi">:</span>                             <span class="s">parallax</span>
+      <span class="na">properties</span><span class="pi">:</span>
+      <span class="na">cards</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span>                         <span class="s">Quote settings</span>
+          <span class="na">card</span><span class="pi">:</span>
+            <span class="na">enabled</span><span class="pi">:</span>                    <span class="kc">true</span>
+            <span class="na">type</span><span class="pi">:</span>                       <span class="s">quote</span>
+            <span class="na">cite_text_size</span><span class="pi">:</span>             <span class="s">300%</span>
+            <span class="na">cite_text_quotes</span><span class="pi">:</span>           <span class="kc">false</span>
+            <span class="na">cite_text</span><span class="pi">:</span> <span class="pi">&gt;</span>
+                                        <span class="s">&lt;strong&gt;</span>
+                                          <span class="s">&lt;span class="text-primary"&gt;Making is&lt;/span&gt;</span>
+                                          <span class="s">&lt;span class="text-light"&gt;like Wanting, &lt;br&gt; but even&lt;/span&gt;</span>
+                                          <span class="s">&lt;span class="text-primary"&gt;Better&lt;/span&gt;</span>
+                                        <span class="s">&lt;/strong&gt;</span>
+            <span class="na">text_color</span><span class="pi">:</span>                 <span class="s2">"</span><span class="s">#E0E0E0"</span>
+            <span class="na">gridify</span><span class="pi">:</span>                    <span class="kc">true</span>
+            <span class="na">size_y</span><span class="pi">:</span>                     <span class="m">450</span>
+            <span class="na">darken</span><span class="pi">:</span>                     <span class="m">6</span>
+            <span class="na">background_image</span><span class="pi">:</span>           <span class="s">/assets/images/modules/attics/ideas-start-here-1920x1280.jpg</span></code></pre></div> </div> <div class="listingblock noclip"> <div class="title">Placement from <code>~/_data/layouts/home.yml</code></div> <div class="content"><pre class="rouge highlight"><code data-lang="yaml"><span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># ~/_data/layouts/home.yml</span>
+<span class="c1"># Configuration data to specify the (HTML) Layout of all content</span>
+<span class="c1"># pages of type HOME placed by the content loader</span>
+<span class="c1">#</span>
+<span class="c1"># Product/Info:</span>
+<span class="c1"># https://jekyll.one</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (C) 2023 Juergen Adams</span>
+<span class="c1">#</span>
+<span class="c1"># J1 Theme is licensed under the MIT License.</span>
+<span class="c1"># See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md</span>
+<span class="c1">#</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Layout configuration settings</span>
+<span class="c1">#</span>
+<span class="na">lanes</span><span class="pi">:</span>
+  <span class="c1"># ----------------------------------------------------------------------------</span>
+  <span class="c1"># PARALLAX banner</span>
+  <span class="c1">#</span>
+  <span class="pi">-</span> <span class="na">lane</span><span class="pi">:</span>
+      <span class="na">enabled</span><span class="pi">:</span>                          <span class="kc">true</span>
+      <span class="na">id</span><span class="pi">:</span>                               <span class="s">home_parallax_banner</span>
+      <span class="na">region</span><span class="pi">:</span>                           <span class="s">body-main</span>
+      <span class="na">type</span><span class="pi">:</span>                             <span class="s">async</span>
+      <span class="na">properties</span><span class="pi">:</span>                       <span class="s">mt-4 mb-4</span></code></pre></div> </div> </div> </div> </div> </div> <div class="sect1"> <h2 id="panels">Panels</h2> <div class="sectionbody"> <div class="paragraph"> <p>Building blocks of type <code>panel</code> are complex elements to present detailed information of a website.</p> </div> <div class="sect2"> <h3 id="intro-panel">Intro Panel</h3> <div class="paragraph"> <p>Fully configurable display element, mainly used on landing pages, to give an overview on the services provided by the website.</p> </div> <div id="lb-blocks--intro-panel" class="imageblock"> <div class="title notranslate">Intro Panel</div> <div class="content " style="margin-bottom: 1.75rem;"> <a class="notoc link-no-decoration" href="/assets/images/pages/manuals/components/1280x600/intro_panel.jpg" data-lightbox="assets/images/pages/manuals/components/1280x600/intro_panel.jpg" data-title="Intro Panel"> <img class="img-fluid" src="/assets/images/pages/manuals/components/1280x600/intro_panel.jpg" alt="Intro Panel" width="1280"/> </a> </div> </div> <div class="sect3"> <h4 id="configuration-5">Configuration</h4> <div class="paragraph"> <p>Find the block configuration followed by the placement setup for the layout <code>home</code>.</p> </div> <div class="listingblock noclip"> <div class="title">Block Configuration from <code>~/_data/blocks/panel.yml</code> (excerpt)</div> <div class="content"><pre class="rouge highlight"><code data-lang="yaml"><span class="na">intro</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span>                             <span class="s">Home Intro Panel</span>
+    <span class="na">panel</span><span class="pi">:</span>
+      <span class="na">enabled</span><span class="pi">:</span>                        <span class="kc">true</span>
+      <span class="na">id</span><span class="pi">:</span>                             <span class="s">home_intro_panel</span>
+      <span class="na">comment</span><span class="pi">:</span>                        <span class="s">Home Intro Panel</span>
+      <span class="na">type</span><span class="pi">:</span>                           <span class="s">intro</span>
+      <span class="na">animate</span><span class="pi">:</span>                        <span class="kc">false</span>
+      <span class="na">properties</span><span class="pi">:</span>                     <span class="s">mt-5 mb-5</span>
+      <span class="na">title</span><span class="pi">:</span>                          <span class="s">All in One</span>
+      <span class="na">title_translate</span><span class="pi">:</span>                <span class="s">notranslate</span>
+      <span class="na">tagline</span><span class="pi">:</span>                        <span class="s">top features</span>
+      <span class="na">description_properties</span><span class="pi">:</span>         <span class="s">mt-3 mr-3 mb-3</span>
+      <span class="na">description</span><span class="pi">:</span> <span class="pi">&gt;</span>
+                                      <span class="s">&lt;p class="dropcap"&gt;</span>
+                                        <span class="s">People quite often ask if static websites make sense</span>
+                                        <span class="s">for anything beyond a one-page website. Some others see in</span>
+                                        <span class="s">static websites the stone age of the World Wide Web. What's</span>
+                                        <span class="s">about static websites today? What's achievable?</span>
+                                      <span class="s">&lt;/p&gt;</span>
+                                      <span class="s">&lt;p&gt;</span>
+                                        <span class="s">This board highlights top features, which make static webs</span>
+                                        <span class="s">not only an option, but an attractive method to create fast,</span>
+                                        <span class="s">secure, and sophisticated websites for many use cases.</span>
+                                      <span class="s">&lt;/p&gt;</span>
+      <span class="na">cards</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span>                       <span class="s">Tools</span>
+          <span class="na">card</span><span class="pi">:</span>
+            <span class="na">enabled</span><span class="pi">:</span>                  <span class="kc">true</span>
+            <span class="na">type</span><span class="pi">:</span>                     <span class="s">text</span>
+            <span class="na">title</span><span class="pi">:</span>                    <span class="s">Tools</span>
+            <span class="na">title_translate</span><span class="pi">:</span>          <span class="s">notranslate</span>
+            <span class="na">tagline</span><span class="pi">:</span>                  <span class="s">J1 Theme</span>
+            <span class="na">icon</span><span class="pi">:</span>                     <span class="s">tools</span>
+            <span class="na">icon_family</span><span class="pi">:</span>              <span class="s">MDI</span>
+            <span class="na">icon_size</span><span class="pi">:</span>                <span class="s">3x</span>
+            <span class="na">icon_color</span><span class="pi">:</span>
+            <span class="na">text</span><span class="pi">:</span> <span class="pi">&gt;</span>
+                                      <span class="s">&lt;p class="dropcap mt-3"&gt;</span>
+                                        <span class="s">Current Technology and Design. Excellent performance in running</span>
+                                        <span class="s">a website. Use Jekyll One to present your content at its best.</span>
+                                      <span class="s">&lt;/p&gt;</span>
+            <span class="na">buttons</span><span class="pi">:</span>
+              <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span>                 <span class="s">Read More</span>
+                <span class="na">button</span><span class="pi">:</span>
+                  <span class="na">type</span><span class="pi">:</span>               <span class="s">text</span>
+                  <span class="na">text</span><span class="pi">:</span>               <span class="s">Make your Web Site unique</span>
+                  <span class="na">class</span><span class="pi">:</span>
+                  <span class="na">icon</span><span class="pi">:</span>
+                  <span class="na">icon_size</span><span class="pi">:</span>
+                  <span class="na">icon_color</span><span class="pi">:</span>
+                  <span class="na">href</span><span class="pi">:</span>               <span class="s">/pages/public/panels/intro_panel#current-technology</span>
+      <span class="s">...</span></code></pre></div> </div> <div class="listingblock noclip"> <div class="title">Placement from <code>~/_data/layouts/home.yml</code></div> <div class="content"><pre class="rouge highlight"><code data-lang="yaml"><span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># ~/_data/layouts/home.yml</span>
+<span class="c1"># Configuration data to specify the (HTML) Layout of all content</span>
+<span class="c1"># pages of type HOME placed by the content loader</span>
+<span class="c1">#</span>
+<span class="c1"># Product/Info:</span>
+<span class="c1"># https://jekyll.one</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (C) 2023 Juergen Adams</span>
+<span class="c1">#</span>
+<span class="c1"># J1 Theme is licensed under the MIT License.</span>
+<span class="c1"># See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md</span>
+<span class="c1">#</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Layout configuration settings</span>
+<span class="c1">#</span>
+<span class="na">lanes</span><span class="pi">:</span>
+  <span class="c1"># ----------------------------------------------------------------------------</span>
+  <span class="c1"># INTRO panel</span>
+  <span class="c1">#</span>
+  <span class="pi">-</span> <span class="na">lane</span><span class="pi">:</span>
+      <span class="na">enabled</span><span class="pi">:</span>                          <span class="kc">true</span>
+      <span class="na">id</span><span class="pi">:</span>                               <span class="s">home_intro_panel</span>
+      <span class="na">region</span><span class="pi">:</span>                           <span class="s">body-main</span>
+      <span class="na">type</span><span class="pi">:</span>                             <span class="s">async</span>
+      <span class="na">properties</span><span class="pi">:</span>                       <span class="s">elevated-z0</span></code></pre></div> </div> </div> </div> <div class="sect2"> <h3 id="service-panel">Service Panel</h3> <div class="paragraph"> <p>Complex, but fully configurake display element (mainly used on landing pages) to give a detailed inside view on the services provided by the website.</p> </div> <div id="lb-blocks--service-panel" class="imageblock"> <div class="title notranslate">Service Panel</div> <div class="content " style="margin-bottom: 1.75rem;"> <a class="notoc link-no-decoration" href="/assets/images/pages/manuals/components/1280x600/service_panel.jpg" data-lightbox="assets/images/pages/manuals/components/1280x600/service_panel.jpg" data-title="Service Panel"> <img class="img-fluid" src="/assets/images/pages/manuals/components/1280x600/service_panel.jpg" alt="Service Panel" width="1280"/> </a> </div> </div> <div class="sect3"> <h4 id="configuration-6">Configuration</h4> <div class="paragraph"> <p>Find the block configuration followed by the placement setup for the layout <code>home</code>.</p> </div> <div class="listingblock noclip"> <div class="title">Block Configuration from <code>~/_data/blocks/panel.yml</code> (excerpt)</div> <div class="content"><pre class="rouge highlight"><code data-lang="yaml"><span class="na">service</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span>                             <span class="s">Home Service Panel</span>
+    <span class="na">panel</span><span class="pi">:</span>
+      <span class="na">enabled</span><span class="pi">:</span>                        <span class="kc">true</span>
+      <span class="na">id</span><span class="pi">:</span>                             <span class="s">home_service_panel</span>
+      <span class="na">comment</span><span class="pi">:</span>                        <span class="s">Home Service Panel</span>
+      <span class="na">type</span><span class="pi">:</span>                           <span class="s">service</span>
+      <span class="na">scroller</span><span class="pi">:</span>                       <span class="kc">true</span>
+      <span class="na">properties</span><span class="pi">:</span>                     <span class="s">mt-5 mb-5</span>
+      <span class="na">title</span><span class="pi">:</span>                          <span class="s">Jekyll One</span>
+      <span class="na">tagline</span><span class="pi">:</span>                        <span class="s">featured template for jekyll</span>
+      <span class="na">description_properties</span><span class="pi">:</span>         <span class="s">mt-3 mr-3 mb-3</span>
+      <span class="na">description</span><span class="pi">:</span> <span class="pi">&gt;</span>
+                                      <span class="s">&lt;p class="dropcap"&gt;</span>
+                                        <span class="s">People quite often ask if static websites make sense for</span>
+                                        <span class="s">anything beyond a one-page website. Some others see in</span>
+                                        <span class="s">static websites the stone age of the World Wide Web.</span>
+                                        <span class="s">What's about static websites today? What's achievable?</span>
+                                      <span class="s">&lt;/p&gt;</span>
+                                      <span class="s">&lt;p&gt;</span>
+                                        <span class="s">This board highlights top features, which make static webs</span>
+                                        <span class="s">not only an option but a state-of-the-art technology to create</span>
+                                        <span class="s">fast, secure, and sophisticated websites for many use cases.</span>
+                                      <span class="s">&lt;/p&gt;</span>
+                                      <span class="s">&lt;ul&gt;</span>
+                                        <span class="s">&lt;li&gt;</span>
+                                          <span class="s">Current Technology and Design. Excellent performance on all devices.</span>
+                                        <span class="s">&lt;/li&gt;</span>
+                                        <span class="s">&lt;li&gt;</span>
+                                          <span class="s">Fully Responsive. Best results on PCs, Tablets, and SmartPhones.</span>
+                                        <span class="s">&lt;/li&gt;</span>
+                                        <span class="s">&lt;li&gt;</span>
+                                          <span class="s">Start in no time. No programming is needed using Jekyll One.</span>
+                                        <span class="s">&lt;/li&gt;</span>
+                                      <span class="s">&lt;/ul&gt;</span>
+      <span class="na">cards</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span>                       <span class="s">General Features</span>
+          <span class="na">card</span><span class="pi">:</span>
+            <span class="na">enabled</span><span class="pi">:</span>                  <span class="kc">true</span>
+            <span class="na">id</span><span class="pi">:</span>                       <span class="s">card_1</span>
+            <span class="na">icon</span><span class="pi">:</span>                     <span class="s">globe-model</span>
+            <span class="na">icon_family</span><span class="pi">:</span>              <span class="s">MDI</span>
+            <span class="na">icon_size</span><span class="pi">:</span>                <span class="s">mdi-6x</span>
+            <span class="na">icon_color</span><span class="pi">:</span>               <span class="s">md-white</span>
+            <span class="na">href</span><span class="pi">:</span>                     <span class="s">/pages/public/features/general_features/</span>
+            <span class="na">title</span><span class="pi">:</span>                    <span class="s">Jekyll One</span>
+            <span class="na">tagline</span><span class="pi">:</span>                  <span class="s">General Features</span>
+            <span class="na">header_translate</span><span class="pi">:</span>         <span class="s">notranslate</span>
+            <span class="na">text</span><span class="pi">:</span> <span class="pi">&gt;</span>
+                                      <span class="s">&lt;p class="dropcap mt-3"&gt;</span>
+                                        <span class="s">Current software counts. Excellent tools in their latest versions</span>
+                                        <span class="s">make the rocket engine for each and every website. Jekyll One</span>
+                                        <span class="s">is using current software in their latest versions. All of them</span>
+                                        <span class="s">are OpenSource and free to use. No license issues for private or</span>
+                                        <span class="s">professional use.</span>
+                                      <span class="s">&lt;/p&gt;</span>
+                                      <span class="s">&lt;p&gt;</span>
+                                        <span class="s">The base of J1.</span>
+                                      <span class="s">&lt;/p&gt;</span>
+            <span class="na">services</span><span class="pi">:</span>
+              <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span>                 <span class="s">Platforms</span>
+                <span class="na">service</span><span class="pi">:</span>
+                  <span class="na">id</span><span class="pi">:</span>                 <span class="s">A1</span>
+                  <span class="na">description</span><span class="pi">:</span> <span class="pi">&gt;</span>
+                                      <span class="s">&lt;p&gt;</span>
+                                        <span class="s">The template system J1 is based on the &lt;i&gt;Ruby&lt;/i&gt; language of version</span>
+                                        <span class="s">2.x. For sure, not the latest language version for &lt;i&gt;Ruby&lt;/i&gt; but the</span>
+                                        <span class="s">supported platform for the latest &lt;i&gt;Jekyll&lt;/i&gt; software.</span>
+                                      <span class="s">&lt;/p&gt;</span>
+                                      <span class="s">&lt;p&gt;</span>
+                                        <span class="s">Websites created by Jekyll One are projects managed by NodeJS. The</span>
+                                        <span class="s">built-in script engine provided by the package manager npm of NodeJS</span>
+                                        <span class="s">simplifies the management of J1 projects a lot. Well-known commands</span>
+                                        <span class="s">typically used to manage software projects are at your fingertips.</span>
+                                        <span class="s">Easy to learn, easy to remember. Commands support creators to</span>
+                                        <span class="s">concentrate on the content.</span>
+                                      <span class="s">&lt;/p&gt;</span>
+                                      <span class="s">&lt;p&gt;</span>
+                                        <span class="s">Not get lost in project management.</span>
+                                      <span class="s">&lt;/p&gt;</span>
+                                      <span class="s">&lt;p&gt;</span>
+                                        <span class="s">&lt;i class="mdi mdi-24px md-gray ml-3 mr-2 mdi-language-ruby"&gt;&lt;/i&gt;</span>
+                                        <span class="s">Ruby 2.7 &lt;br /&gt;</span>
+                                        <span class="s">&lt;i class="mdi mdi-24px md-gray ml-3 mr-2 mdi-language-ruby"&gt;&lt;/i&gt;</span>
+                                        <span class="s">Jekyll 4.3 &lt;br /&gt;</span>
+                                        <span class="s">&lt;i class="mdi mdi-24px md-gray ml-3 mr-2 mdi-nodejs"&gt;&lt;/i&gt;</span>
+                                        <span class="s">NodeJS 14.x &lt;br /&gt;</span>
+                                      <span class="s">&lt;/p&gt;</span>
+                  <span class="na">title</span><span class="pi">:</span>              <span class="s">Platforms</span>
+                  <span class="na">href</span><span class="pi">:</span>               <span class="s2">"</span><span class="s">/pages/public/features/general_features/#platforms"</span>
+      <span class="s">...</span></code></pre></div> </div> <div class="listingblock noclip"> <div class="title">Placement from <code>~/_data/layouts/home.yml</code></div> <div class="content"><pre class="rouge highlight"><code data-lang="yaml"><span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># ~/_data/layouts/home.yml</span>
+<span class="c1"># Configuration data to specify the (HTML) Layout of all content</span>
+<span class="c1"># pages of type HOME placed by the content loader</span>
+<span class="c1">#</span>
+<span class="c1"># Product/Info:</span>
+<span class="c1"># https://jekyll.one</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (C) 2023 Juergen Adams</span>
+<span class="c1">#</span>
+<span class="c1"># J1 Theme is licensed under the MIT License.</span>
+<span class="c1"># See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md</span>
+<span class="c1">#</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Layout configuration settings</span>
+<span class="c1">#</span>
+<span class="na">lanes</span><span class="pi">:</span>
+  <span class="c1"># ----------------------------------------------------------------------------</span>
+  <span class="c1"># SERVIVE panel</span>
+  <span class="c1">#</span>
+  <span class="pi">-</span> <span class="na">lane</span><span class="pi">:</span>
+      <span class="na">enabled</span><span class="pi">:</span>                          <span class="kc">true</span>
+      <span class="na">id</span><span class="pi">:</span>                               <span class="s">home_service_panel</span>
+      <span class="na">region</span><span class="pi">:</span>                           <span class="s">body-main</span>
+      <span class="na">type</span><span class="pi">:</span>                             <span class="s">async</span>
+      <span class="na">properties</span><span class="pi">:</span>                       <span class="s">elevated-z0</span></code></pre></div> </div> </div> </div> <div class="sect2"> <h3 id="plan-panel">Plan Panel</h3> <div class="paragraph"> <p>Displays a fully configurable pricing plan. For commercial use or for collecting donations, e.g. via GitHub Sponsors.</p> </div> <div id="lb-blocks--plan-panel" class="imageblock"> <div class="title notranslate">Plan Panel</div> <div class="content " style="margin-bottom: 1.75rem;"> <a class="notoc link-no-decoration" href="/assets/images/pages/manuals/components/1280x600/plan_panel.jpg" data-lightbox="assets/images/pages/manuals/components/1280x600/plan_panel.jpg" data-title="Plan Panel"> <img class="img-fluid" src="/assets/images/pages/manuals/components/1280x600/plan_panel.jpg" alt="Plan Panel" width="1280"/> </a> </div> </div> <div class="sect3"> <h4 id="configuration-7">Configuration</h4> <div class="paragraph"> <p>Find the block configuration followed by the placement setup for the layout <code>home</code>.</p> </div> <div class="listingblock noclip"> <div class="title">Block Configuration from <code>~/_data/blocks/panel.yml</code> (excerpt)</div> <div class="content"><pre class="rouge highlight"><code data-lang="yaml"><span class="na">plan</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span>                             <span class="s">Home Plan Panel</span>
+    <span class="na">panel</span><span class="pi">:</span>
+      <span class="na">enabled</span><span class="pi">:</span>                        <span class="kc">true</span>
+      <span class="na">id</span><span class="pi">:</span>                             <span class="s">home_plan_panel</span>
+      <span class="na">comment</span><span class="pi">:</span>                        <span class="s">Plan Panel</span>
+      <span class="na">type</span><span class="pi">:</span>                           <span class="s">plan</span>
+      <span class="na">scroller</span><span class="pi">:</span>                       <span class="kc">false</span>
+      <span class="na">properties</span><span class="pi">:</span>                     <span class="s">mt-5 mb-5</span>
+      <span class="na">plan_details_page</span><span class="pi">:</span>              <span class="s">/pages/public/plans/plan_details/</span>
+      <span class="na">provider</span><span class="pi">:</span>                       <span class="s">Github</span>
+      <span class="na">account</span><span class="pi">:</span>                        <span class="s">daattali</span>
+      <span class="na">title</span><span class="pi">:</span>                          <span class="s">J1 Plans</span>
+      <span class="na">title_translate</span><span class="pi">:</span>                <span class="s">notranslate</span>
+      <span class="na">tagline</span><span class="pi">:</span>                        <span class="s">your way</span>
+      <span class="na">description_properties</span><span class="pi">:</span>         <span class="s">mt-3 mr-3 mb-3</span>
+      <span class="na">description</span><span class="pi">:</span> <span class="pi">&gt;</span>
+                                      <span class="s">&lt;p class="dropcap"&gt;</span>
+                                        <span class="s">Github Sponsores support to invest in the open source</span>
+                                        <span class="s">projects you like to use or for businesses: you depend on.</span>
+                                        <span class="s">Contributors are working behind the scenes to make open</span>
+                                        <span class="s">source better for everyone — give them the help and</span>
+                                        <span class="s">recognition they deserve.</span>
+                                      <span class="s">&lt;/p&gt;</span>
+                                      <span class="s">&lt;p&gt;</span>
+                                        <span class="s">Fund our project that make up your web site easy to manage</span>
+                                        <span class="s">for excellent performance, reliability, and stability.</span>
+                                      <span class="s">&lt;/p&gt;</span>
+      <span class="na">cards</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span>                       <span class="s">Starter</span>
+          <span class="na">card</span><span class="pi">:</span>
+            <span class="na">enabled</span><span class="pi">:</span>                  <span class="kc">true</span>
+            <span class="na">recommended</span><span class="pi">:</span>              <span class="kc">false</span>
+            <span class="na">name</span><span class="pi">:</span>                     <span class="s">Starter</span>
+            <span class="na">name_translate</span><span class="pi">:</span>           <span class="s">notranslate</span>
+            <span class="na">price</span><span class="pi">:</span>
+              <span class="na">amount</span><span class="pi">:</span>                 <span class="m">0</span>
+              <span class="na">period</span><span class="pi">:</span>                 <span class="s">month</span>
+              <span class="na">currency</span><span class="pi">:</span>               <span class="s">$</span>
+            <span class="na">benefits</span><span class="pi">:</span>
+              <span class="pi">-</span> <span class="na">benefit</span><span class="pi">:</span>              <span class="s">Use lifetime at no costs</span>
+              <span class="pi">-</span> <span class="na">benefit</span><span class="pi">:</span>              <span class="s">Base modules included</span>
+            <span class="na">disbenefits</span><span class="pi">:</span>
+              <span class="pi">-</span> <span class="na">disbenefit</span><span class="pi">:</span>           <span class="s">No access to JS and CSS sources</span>
+              <span class="pi">-</span> <span class="na">disbenefit</span><span class="pi">:</span>           <span class="s">No early access to latest versions</span>
+              <span class="pi">-</span> <span class="na">disbenefit</span><span class="pi">:</span>           <span class="s">No access to Hotfixes and Prereleases</span>
+              <span class="pi">-</span> <span class="na">disbenefit</span><span class="pi">:</span>           <span class="s">No extended modules available</span>
+              <span class="pi">-</span> <span class="na">disbenefit</span><span class="pi">:</span>           <span class="s">No support offered</span>
+              <span class="pi">-</span> <span class="na">disbenefit</span><span class="pi">:</span>           <span class="s">No customized Template GEMs</span>
+            <span class="na">buttons</span><span class="pi">:</span>
+              <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span>                 <span class="s">Select</span>
+                <span class="na">id</span><span class="pi">:</span>                   <span class="s">starter-plan</span>
+                <span class="na">translate</span><span class="pi">:</span>            <span class="s">notranslate</span>
+                <span class="na">title</span><span class="pi">:</span>                <span class="s">Select</span>
+                <span class="na">href</span><span class="pi">:</span>
+                  <span class="na">tier_id</span><span class="pi">:</span>            <span class="s">plan_details_page</span>
+                  <span class="na">target</span><span class="pi">:</span>             <span class="s">blank</span>
+      <span class="s">...</span></code></pre></div> </div> <div class="listingblock noclip"> <div class="title">Placement from <code>~/_data/layouts/home.yml</code></div> <div class="content"><pre class="rouge highlight"><code data-lang="yaml"><span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># ~/_data/layouts/home.yml</span>
+<span class="c1"># Configuration data to specify the (HTML) Layout of all content</span>
+<span class="c1"># pages of type HOME placed by the content loader</span>
+<span class="c1">#</span>
+<span class="c1"># Product/Info:</span>
+<span class="c1"># https://jekyll.one</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (C) 2023 Juergen Adams</span>
+<span class="c1">#</span>
+<span class="c1"># J1 Theme is licensed under the MIT License.</span>
+<span class="c1"># See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md</span>
+<span class="c1">#</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Layout configuration settings</span>
+<span class="c1">#</span>
+<span class="na">lanes</span><span class="pi">:</span>
+  <span class="c1"># ----------------------------------------------------------------------------</span>
+  <span class="c1"># PLAN panel</span>
+  <span class="c1">#</span>
+  <span class="pi">-</span> <span class="na">lane</span><span class="pi">:</span>
+      <span class="na">enabled</span><span class="pi">:</span>                          <span class="kc">true</span>
+      <span class="na">id</span><span class="pi">:</span>                               <span class="s">home_plan_panel</span>
+      <span class="na">region</span><span class="pi">:</span>                           <span class="s">body-main</span>
+      <span class="na">type</span><span class="pi">:</span>                             <span class="s">async</span>
+      <span class="na">properties</span><span class="pi">:</span>                       <span class="s">elevated-z0</span></code></pre></div> </div> </div> </div> <div class="sect2"> <h3 id="news-panel">News Panel</h3> <div class="paragraph"> <p>The news panel displays a configurable number of available posts. The panel is a previewer for most recent posts provided by a website.</p> </div> <div id="lb-blocks--news-panel" class="imageblock"> <div class="title notranslate">News Panel</div> <div class="content " style="margin-bottom: 1.75rem;"> <a class="notoc link-no-decoration" href="/assets/images/pages/manuals/components/1280x600/news_panel.jpg" data-lightbox="assets/images/pages/manuals/components/1280x600/news_panel.jpg" data-title="News Panel"> <img class="img-fluid" src="/assets/images/pages/manuals/components/1280x600/news_panel.jpg" alt="News Panel" width="1280"/> </a> </div> </div> <div class="sect3"> <h4 id="configuration-8">Configuration</h4> <div class="paragraph"> <p>Find the block configuration followed by the placement setup for the layout <code>home</code>.</p> </div> <div class="listingblock noclip"> <div class="title">Block Configuration from <code>~/_data/blocks/panel.yml</code> (excerpt)</div> <div class="content"><pre class="rouge highlight"><code data-lang="yaml"><span class="na">news</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span>                             <span class="s">News Panel</span>
+    <span class="na">panel</span><span class="pi">:</span>
+      <span class="na">enabled</span><span class="pi">:</span>                        <span class="kc">true</span>
+      <span class="na">id</span><span class="pi">:</span>                             <span class="s">home_news_panel</span>
+      <span class="na">comment</span><span class="pi">:</span>                        <span class="s">Home News Panel</span>
+      <span class="na">type</span><span class="pi">:</span>                           <span class="s">news</span>
+      <span class="na">category_blacklist</span><span class="pi">:</span>             <span class="pi">[</span> <span class="nv">posts</span><span class="pi">,</span> <span class="nv">public</span><span class="pi">,</span> <span class="nv">private</span><span class="pi">,</span> <span class="nv">protected</span><span class="pi">,</span> <span class="nv">featured</span><span class="pi">,</span> <span class="nv">series</span> <span class="pi">]</span>
+      <span class="na">properties</span><span class="pi">:</span>                     <span class="s">mt-5 mb-7</span>
+      <span class="na">title</span><span class="pi">:</span>                          <span class="s">Latest News</span>
+      <span class="na">tagline</span><span class="pi">:</span>                        <span class="s">blog articles</span>
+      <span class="na">description_properties</span><span class="pi">:</span>         <span class="s">mt-3 mr-3 mb-3</span>
+      <span class="na">description</span><span class="pi">:</span> <span class="pi">&gt;</span>
+                                      <span class="s">&lt;p class="dropcap mb-4"&gt;</span>
+                                        <span class="s">Explore the blog and find interesting articles around Jekyll and</span>
+                                        <span class="s">website creation processes in general. And this blog is an excellent</span>
+                                        <span class="s">example of how J1 and Jekyll can be used for blogging.</span>
+                                      <span class="s">&lt;/p&gt;</span>
+      <span class="na">cards</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span>                       <span class="s">Recent Posts</span>
+          <span class="na">card</span><span class="pi">:</span>
+            <span class="na">infinite_scroll</span><span class="pi">:</span>          <span class="kc">true</span>
+            <span class="na">animate</span><span class="pi">:</span>                  <span class="s">fadeInLeft</span>
+            <span class="na">block</span><span class="pi">:</span>                    <span class="s">card-list</span>
+            <span class="na">num_per_row</span><span class="pi">:</span>              <span class="m">2</span>
+            <span class="na">max_posts</span><span class="pi">:</span>                <span class="s">2</span></code></pre></div> </div> <div class="listingblock noclip"> <div class="title">Placement from <code>~/_data/layouts/home.yml</code></div> <div class="content"><pre class="rouge highlight"><code data-lang="yaml"><span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># ~/_data/layouts/home.yml</span>
+<span class="c1"># Configuration data to specify the (HTML) Layout of all content</span>
+<span class="c1"># pages of type HOME placed by the content loader</span>
+<span class="c1">#</span>
+<span class="c1"># Product/Info:</span>
+<span class="c1"># https://jekyll.one</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (C) 2023 Juergen Adams</span>
+<span class="c1">#</span>
+<span class="c1"># J1 Theme is licensed under the MIT License.</span>
+<span class="c1"># See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md</span>
+<span class="c1">#</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Layout configuration settings</span>
+<span class="c1">#</span>
+<span class="na">lanes</span><span class="pi">:</span>
+  <span class="c1"># ----------------------------------------------------------------------------</span>
+  <span class="c1"># NEWS panel</span>
+  <span class="c1">#</span>
+  <span class="pi">-</span> <span class="na">lane</span><span class="pi">:</span>
+      <span class="na">enabled</span><span class="pi">:</span>                          <span class="kc">true</span>
+      <span class="na">id</span><span class="pi">:</span>                               <span class="s">home_news_panel</span>
+      <span class="na">region</span><span class="pi">:</span>                           <span class="s">body-main</span>
+      <span class="na">type</span><span class="pi">:</span>                             <span class="s">async</span>
+      <span class="na">properties</span><span class="pi">:</span>                       <span class="s">elevated-z0</span></code></pre></div> </div> </div> </div> </div> </div> <div class="sect1"> <h2 id="custom-content">Custom Content</h2> <div class="sectionbody"> <div class="paragraph"> <p>Beside alreday <strong>existing</strong> block elements like banner and panel blocks, <strong>custom</strong> content elements can be used.</p> </div> <div id="lb-blocks--custom-panel" class="imageblock"> <div class="title notranslate">Custom Panel</div> <div class="content " style="margin-bottom: 1.75rem;"> <a class="notoc link-no-decoration" href="/assets/images/pages/manuals/components/1280x600/custom_panel.jpg" data-lightbox="assets/images/pages/manuals/components/1280x600/custom_panel.jpg" data-title="Custom Panel"> <img class="img-fluid" src="/assets/images/pages/manuals/components/1280x600/custom_panel.jpg" alt="Custom Panel" width="1280"/> </a> </div> </div> <div class="sect2"> <h3 id="configuration-9">Configuration</h3> <div class="paragraph"> <p>Find the block configuration followed by the placement setup for the layout <code>home</code>.</p> </div> <div class="listingblock noclip"> <div class="title">Block Configuration taken from <code>~/index.html</code></div> <div class="content"><pre class="rouge highlight"><code data-lang="yaml"><span class="na">accordion</span><span class="pi">:</span>
+  <span class="na">debug</span><span class="pi">:</span>                                <span class="kc">false</span>
+  <span class="na">name</span><span class="pi">:</span>                                 <span class="s">custom_panel</span>
+  <span class="na">id</span><span class="pi">:</span>                                   <span class="s">bs5_accordion</span>
+  <span class="na">header</span><span class="pi">:</span>
+    <span class="na">title</span><span class="pi">:</span>                              <span class="s">Custom Panel</span>
+    <span class="na">tagline</span><span class="pi">:</span>                            <span class="s">creating dynamic content</span>
+    <span class="na">description</span><span class="pi">:</span> <span class="pi">&gt;</span>
+                                        <span class="s">&lt;p class="dropcap"&gt;</span>
+                                          <span class="s">This is an example for a Custom Panel based on Bootstrap V5. The example</span>
+                                          <span class="s">code for the &lt;b&gt;dynamic content&lt;/b&gt; is taken from the Bootstrap V5 Doc</span>
+                                          <span class="s">pages at:</span>
+                                        <span class="s">&lt;/p&gt;</span>
+                                        <span class="s">&lt;a class="ml-3 mb-5"</span>
+                                           <span class="s">href="https://getbootstrap.com/docs/5.2/components/accordion/"</span>
+                                           <span class="s">target="_blank" rel="noopener noreferrer"&gt;</span>
+                                          <span class="s">Accordion · Bootstrap v5.2</span>
+                                        <span class="s">&lt;/a&gt;</span>
+  <span class="na">elements</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">element</span><span class="pi">:</span>
+      <span class="na">expanded</span><span class="pi">:</span>                         <span class="kc">true</span>
+      <span class="na">title</span><span class="pi">:</span>                            <span class="s2">"</span><span class="s">Accordion</span><span class="nv"> </span><span class="s">Item</span><span class="nv"> </span><span class="s">#1"</span>
+      <span class="na">content</span><span class="pi">:</span> <span class="pi">&gt;</span>
+                                        <span class="s">&lt;strong&gt;This is the first item's accordion body.&lt;/strong&gt; It is</span>
+                                        <span class="s">shown by default, until the collapse plugin adds the appropriate</span>
+                                        <span class="s">classes that we use to style each element.</span>
+                                        <span class="s">These classes control the overall appearance, as well as the showing</span>
+                                        <span class="s">and hiding via CSS transitions. You can modify any of this with</span>
+                                        <span class="s">custom CSS or overriding our default variables.</span>
+                                        <span class="s">It's also worth noting that just about any HTML can go within the</span>
+                                        <span class="s">&lt;code&gt;.accordion-body&lt;/code&gt;,</span>
+                                        <span class="s">though the transition does limit overflow.</span>
+  <span class="s">...</span></code></pre></div> </div> <div class="listingblock noclip"> <div class="title">Placement from <code>~/_data/layouts/home.yml</code></div> <div class="content"><pre class="rouge highlight"><code data-lang="yaml"><span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># ~/_data/layouts/home.yml</span>
+<span class="c1"># Configuration data to specify the (HTML) Layout of all content</span>
+<span class="c1"># pages of type HOME placed by the content loader</span>
+<span class="c1">#</span>
+<span class="c1"># Product/Info:</span>
+<span class="c1"># https://jekyll.one</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (C) 2023 Juergen Adams</span>
+<span class="c1">#</span>
+<span class="c1"># J1 Theme is licensed under the MIT License.</span>
+<span class="c1"># See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md</span>
+<span class="c1">#</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Layout configuration settings</span>
+<span class="c1">#</span>
+<span class="na">lanes</span><span class="pi">:</span>
+  <span class="c1"># ----------------------------------------------------------------------------</span>
+  <span class="c1"># CUSTOM content</span>
+  <span class="c1">#</span>
+  <span class="pi">-</span> <span class="na">lane</span><span class="pi">:</span>
+      <span class="na">enabled</span><span class="pi">:</span>                          <span class="kc">false</span>
+      <span class="na">id</span><span class="pi">:</span>                               <span class="s">custom_content</span>
+      <span class="na">region</span><span class="pi">:</span>                           <span class="s">body-main</span>
+      <span class="na">type</span><span class="pi">:</span>                             <span class="s">sync</span>
+      <span class="na">base</span><span class="pi">:</span>                             <span class="s">_includes/custom</span>
+      <span class="na">path</span><span class="pi">:</span>                             <span class="s">templates</span>
+      <span class="na">file</span><span class="pi">:</span>                             <span class="s">bs5_accordion.html</span></code></pre></div> </div> </div> </div> </div> <div class="sect1"> <h2 id="waves">Waves</h2> <div class="sectionbody"> <div class="paragraph"> <p>Block elements like footers, banners, and panels are typically rectangular in geometry. To make block elements appear less angular, shapes can be used to surround them.</p> </div> <div id="lb-blocks--intro-panel-waves" class="imageblock"> <div class="title notranslate">Intro Panel using top and bottom shapes</div> <div class="content " style="margin-bottom: 1.75rem;"> <a class="notoc link-no-decoration" href="/assets/images/pages/manuals/components/1280x600/intro_panel_waves.jpg" data-lightbox="assets/images/pages/manuals/components/1280x600/intro_panel_waves.jpg" data-title="Intro Panel using Waves"> <img class="img-fluid" src="/assets/images/pages/manuals/components/1280x600/intro_panel_waves.jpg" alt="Intro Panel using top and bottom shapes" width="1280"/> </a> </div> </div> <div class="listingblock"> <div class="title">Wave Configuration for the Intro Panel</div> <div class="content"><pre class="rouge highlight"><code data-lang="yaml"><span class="na">wave</span><span class="pi">:</span>
+  <span class="na">top</span><span class="pi">:</span>
+    <span class="na">enabled</span><span class="pi">:</span>                      <span class="kc">false</span>
+    <span class="na">height</span><span class="pi">:</span>                       <span class="m">3</span>
+    <span class="na">style</span><span class="pi">:</span>                        <span class="s">wave-1</span>
+    <span class="na">color</span><span class="pi">:</span>                        <span class="s2">"</span><span class="s">#dcdcdc"</span>
+    <span class="na">background_color</span><span class="pi">:</span>             <span class="s2">"</span><span class="s">#f5f5f5"</span>
+    <span class="na">transform</span><span class="pi">:</span>                    <span class="kc">false</span>
+  <span class="na">bottom</span><span class="pi">:</span>
+    <span class="na">enabled</span><span class="pi">:</span>                      <span class="kc">false</span>
+    <span class="na">height</span><span class="pi">:</span>                       <span class="m">3</span>
+    <span class="na">style</span><span class="pi">:</span>                        <span class="s">wave-4</span>
+    <span class="na">color</span><span class="pi">:</span>                        <span class="s2">"</span><span class="s">#dcdcdc"</span>
+    <span class="na">background_color</span><span class="pi">:</span>             <span class="s2">"</span><span class="s">#f5f5f5"</span>
+    <span class="na">transform</span><span class="pi">:</span>                    <span class="s">rotate</span></code></pre></div> </div> <div class="admonitionblock note"> <table> <tr> <td class="icon"> <i class="fa icon-note" title="Note"></i> </td> <td class="content"> Waves can enclose block elements by placing a shape on the top and (or) at the bottom. </td> </tr> </table> </div> <table class="tableblock frame-all grid-all stretch rtable mt-3"> <caption class="title">Table 1. Wave Properties</caption> <colgroup> <col style="width: 16.6666%;"> <col style="width: 33.3333%;"> <col style="width: 50.0001%;"> </colgroup> <thead> <tr> <th class="tableblock halign-center valign-top">Propertiy</th> <th class="tableblock halign-center valign-top">Values</th> <th class="tableblock halign-center valign-top">Description</th> </tr> </thead> <tbody> <tr> <td class="tableblock halign-center valign-top"><p class="tableblock"><code>enabled</code></p></td> <td class="tableblock halign-center valign-top"><div class="content"><div class="paragraph"> <p><code>true</code>|<code>false</code></p> </div></div></td> <td class="tableblock halign-center valign-top"><div class="content"><div class="paragraph"> <p>Enables (show) or disables (hide) a shape. <br> <strong>Default</strong>: No default.</p> </div></div></td> </tr> <tr> <td class="tableblock halign-center valign-top"><p class="tableblock"><code>height</code></p></td> <td class="tableblock halign-center valign-top"><div class="content"><div class="paragraph"> <p>Value out of <code>1 .. 9</code></p> </div></div></td> <td class="tableblock halign-center valign-top"><div class="content"><div class="paragraph"> <p>Scales the height of a shape.<br> <strong>Default</strong>: 3</p> </div></div></td> </tr> <tr> <td class="tableblock halign-center valign-top"><p class="tableblock"><code>style</code></p></td> <td class="tableblock halign-center valign-top"><div class="content"><div class="paragraph"> <p><code>wave-1</code>|<code>wave-2</code>|<code>wave-3</code>|<code>wave-4</code></p> </div></div></td> <td class="tableblock halign-center valign-top"><div class="content"><div class="paragraph"> <p>Select a specific wave (shape).<br> <strong>Default</strong>: <code>wave-1</code></p> </div></div></td> </tr> <tr> <td class="tableblock halign-center valign-top"><p class="tableblock"><code>color</code></p></td> <td class="tableblock halign-center valign-top"><div class="content"><div class="paragraph"> <p>RGB value</p> </div></div></td> <td class="tableblock halign-center valign-top"><div class="content"><div class="paragraph"> <p>(Foreground-)Color of the wave element.<br> <strong>Default</strong>: <code>#dcdcdc</code></p> </div></div></td> </tr> <tr> <td class="tableblock halign-center valign-top"><p class="tableblock"><code>background_color</code></p></td> <td class="tableblock halign-center valign-top"><div class="content"><div class="paragraph"> <p>RGB value</p> </div></div></td> <td class="tableblock halign-center valign-top"><div class="content"><div class="paragraph"> <p>Background color of the wave element.<br> <strong>Default</strong>: <code>#f5f5f5</code></p> </div></div></td> </tr> <tr> <td class="tableblock halign-center valign-top"><p class="tableblock"><code>transform</code></p></td> <td class="tableblock halign-center valign-top"><div class="content"><div class="paragraph"> <p><code>rotate</code>|<code>flip-x</code>|<code>flip-y</code></p> </div></div></td> <td class="tableblock halign-center valign-top"><div class="content"><div class="paragraph"> <p>Transform a wave element. To use a wave at the bottom, the default style may needed to be tranformed by rotating or flipping.<br> <strong>Default</strong>: No default.</p> </div></div></td> </tr> </tbody> </table> <div class="sect2"> <h3 id="shapes">Shapes</h3> <div class="paragraph"> <p>For wave elements, four different shapes are available. Using different sizes or transformations like <strong>rotate</strong> and <strong>flip</strong>, multiple variations of shapes can be created.</p> </div> <table class="tableblock frame-all grid-all stretch rtable mt-3"> <colgroup> <col style="width: 16.6666%;"> <col style="width: 16.6666%;"> <col style="width: 66.6668%;"> </colgroup> <thead> <tr> <th class="tableblock halign-center valign-top">Wave</th> <th class="tableblock halign-center valign-top">Height</th> <th class="tableblock halign-center valign-top">Example</th> </tr> </thead> <tbody> <tr> <td class="tableblock halign-center valign-top"><p class="tableblock"><code>wave-1</code></p></td> <td class="tableblock halign-center valign-top"><div class="content"><div class="paragraph"> <p>5</p> </div></div></td> <td class="tableblock halign-center valign-top"><div class="content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 100" transform="translate(0,-20) scale(1,1.5)" class="mt-5"> <path fill="#212121" fill-opacity="1" d="m 0,71.532704 h 71.111114 c 71.111116,0 213.333326,0 355.555566,-18.948546 C 568.88891,33.279773 711.11114,-4.0835522 853.33336,0.36446289 995.55556,4.8124779 1137.7778,52.851042 1208.8889,76.2476 L 1280,100 v 0 h -71.1111 c -71.1111,0 -213.33334,0 -355.55554,0 -142.22222,0 -284.44445,0 -426.66668,0 -142.22224,0 -284.44445,0 -355.555566,0 H 0 Z"> </path> </svg></div></td> </tr> <tr> <td class="tableblock halign-center valign-top"><p class="tableblock"><code>wave-2</code></p></td> <td class="tableblock halign-center valign-top"><div class="content"><div class="paragraph"> <p>5</p> </div></div></td> <td class="tableblock halign-center valign-top"><div class="content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 100" transform="translate(0,-20) scale(1,1.5)" class="mt-5"> <path fill="#212121" fill-opacity="1" d="M 0,13.637791 106.66667,8.8698767 C 213.33334,3.7421199 426.66668,-5.2539441 640.00003,4.0120013 853.33333,13.637791 1066.6667,42.425196 1173.3334,56.8189 L 1280,71.212604 V 100 h -106.6666 c -106.6667,0 -320.00007,0 -533.33337,0 -213.33335,0 -426.66669,0 -533.33336,0 H 0 Z"> </path> </svg></div></td> </tr> <tr> <td class="tableblock halign-center valign-top"><p class="tableblock"><code>wave-3</code></p></td> <td class="tableblock halign-center valign-top"><div class="content"><div class="paragraph"> <p>5</p> </div></div></td> <td class="tableblock halign-center valign-top"><div class="content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 100" transform="translate(0,-20) scale(1,1.5)" class="mt-5"> <path fill="#212121" fill-opacity="1" d="m 0,0 106.66667,11.111108 c 106.66666,11.111113 320,33.333338 533.33333,46.284725 213.33333,13.09028 426.6667,16.5625 533.3333,18.541667 L 1280,77.777779 V 100 h -106.6667 c -106.6666,0 -319.99997,0 -533.3333,0 -213.33333,0 -426.66667,0 -533.33333,0 H 0 Z"> </path> </svg></div></td> </tr> <tr> <td class="tableblock halign-center valign-top"><p class="tableblock"><code>wave-4</code></p></td> <td class="tableblock halign-center valign-top"><div class="content"><div class="paragraph"> <p>5</p> </div></div></td> <td class="tableblock halign-center valign-top"><div class="content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 100" transform="translate(0,-20) scale(1,1.5)" class="mt-5"> <path fill="#212121" fill-opacity="1" d="m 1280,55.555554 -106.6667,7.395833 C 1066.6667,70.486113 853.33333,85.069446 640,75.9375 426.66667,66.666667 213.3333,33.333333 106.6667,16.666667 L 0,0 v 100 h 106.6667 c 106.6666,0 319.99997,0 533.3333,0 213.33333,0 426.6667,0 533.3333,0 H 1280 Z"> </path> </svg></div></td> </tr> </tbody> </table> </div> <div class="sect2"> <h3 id="sizes">Sizes</h3> <div class="paragraph"> <p>Waves are scalable in height. Find below some examples of scaled shapes.</p> </div> <table class="tableblock frame-all grid-all stretch rtable mt-3"> <colgroup> <col style="width: 16.6666%;"> <col style="width: 16.6666%;"> <col style="width: 66.6668%;"> </colgroup> <thead> <tr> <th class="tableblock halign-center valign-top">Wave</th> <th class="tableblock halign-center valign-top">Height</th> <th class="tableblock halign-center valign-top">Example</th> </tr> </thead> <tbody> <tr> <td class="tableblock halign-center valign-top"><p class="tableblock"><code>wave-1</code></p></td> <td class="tableblock halign-center valign-top"><div class="content"><div class="paragraph"> <p>1</p> </div></div></td> <td class="tableblock halign-center valign-top"><div class="content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 100" transform="translate(0,-4) scale(1,1.1)" class="mt-5"> <path fill="#212121" fill-opacity="1" d="m 0,71.532704 h 71.111114 c 71.111116,0 213.333326,0 355.555566,-18.948546 C 568.88891,33.279773 711.11114,-4.0835522 853.33336,0.36446289 995.55556,4.8124779 1137.7778,52.851042 1208.8889,76.2476 L 1280,100 v 0 h -71.1111 c -71.1111,0 -213.33334,0 -355.55554,0 -142.22222,0 -284.44445,0 -426.66668,0 -142.22224,0 -284.44445,0 -355.555566,0 H 0 Z"></path> </svg></div></td> </tr> <tr> <td class="tableblock halign-center valign-top"><p class="tableblock"><code>wave-1</code></p></td> <td class="tableblock halign-center valign-top"><div class="content"><div class="paragraph"> <p>3</p> </div></div></td> <td class="tableblock halign-center valign-top"><div class="content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 100" transform="translate(0,-12) scale(1,1.3)" class="mt-5"> <path fill="#212121" fill-opacity="1" d="m 0,71.532704 h 71.111114 c 71.111116,0 213.333326,0 355.555566,-18.948546 C 568.88891,33.279773 711.11114,-4.0835522 853.33336,0.36446289 995.55556,4.8124779 1137.7778,52.851042 1208.8889,76.2476 L 1280,100 v 0 h -71.1111 c -71.1111,0 -213.33334,0 -355.55554,0 -142.22222,0 -284.44445,0 -426.66668,0 -142.22224,0 -284.44445,0 -355.555566,0 H 0 Z"></path> </svg></div></td> </tr> <tr> <td class="tableblock halign-center valign-top"><p class="tableblock"><code>wave-1</code></p></td> <td class="tableblock halign-center valign-top"><div class="content"><div class="paragraph"> <p>5</p> </div></div></td> <td class="tableblock halign-center valign-top"><div class="content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 100" transform="translate(0,-20) scale(1,1.5)" class="mt-5"> <path fill="#212121" fill-opacity="1" d="m 0,71.532704 h 71.111114 c 71.111116,0 213.333326,0 355.555566,-18.948546 C 568.88891,33.279773 711.11114,-4.0835522 853.33336,0.36446289 995.55556,4.8124779 1137.7778,52.851042 1208.8889,76.2476 L 1280,100 v 0 h -71.1111 c -71.1111,0 -213.33334,0 -355.55554,0 -142.22222,0 -284.44445,0 -426.66668,0 -142.22224,0 -284.44445,0 -355.555566,0 H 0 Z"></path> </svg></div></td> </tr> <tr> <td class="tableblock halign-center valign-top"><p class="tableblock"><code>wave-1</code></p></td> <td class="tableblock halign-center valign-top"><div class="content"><div class="paragraph"> <p>9</p> </div></div></td> <td class="tableblock halign-center valign-top"><div class="content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 100" transform="translate(0,-36) scale(1,1.9)" class="mt-6"> <path fill="#212121" fill-opacity="1" d="m 0,71.532704 h 71.111114 c 71.111116,0 213.333326,0 355.555566,-18.948546 C 568.88891,33.279773 711.11114,-4.0835522 853.33336,0.36446289 995.55556,4.8124779 1137.7778,52.851042 1208.8889,76.2476 L 1280,100 v 0 h -71.1111 c -71.1111,0 -213.33334,0 -355.55554,0 -142.22222,0 -284.44445,0 -426.66668,0 -142.22224,0 -284.44445,0 -355.555566,0 H 0 Z"></path> </svg></div></td> </tr> </tbody> </table> </div> <div class="sect2"> <h3 id="rotate-and-flip">Rotate and Flip</h3> <div class="paragraph"> <p>To place a wave at the <strong>bottom</strong> of a block element, the default shape may needed to be transformed by rotating or flipping.</p> </div> <table class="tableblock frame-all grid-all stretch rtable mt-3"> <colgroup> <col style="width: 16.6666%;"> <col style="width: 16.6666%;"> <col style="width: 66.6668%;"> </colgroup> <thead> <tr> <th class="tableblock halign-center valign-top">Wave</th> <th class="tableblock halign-center valign-top">Transform</th> <th class="tableblock halign-center valign-top">Example</th> </tr> </thead> <tbody> <tr> <td class="tableblock halign-center valign-top"><p class="tableblock"><code>wave-1</code></p></td> <td class="tableblock halign-center valign-top"><div class="content"><div class="paragraph"> <p>none</p> </div></div></td> <td class="tableblock halign-center valign-top"><div class="content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 100" transform="translate(0,-20) scale(1,1.5)" class="mt-5"> <path fill="#212121" fill-opacity="1" d="m 0,71.532704 h 71.111114 c 71.111116,0 213.333326,0 355.555566,-18.948546 C 568.88891,33.279773 711.11114,-4.0835522 853.33336,0.36446289 995.55556,4.8124779 1137.7778,52.851042 1208.8889,76.2476 L 1280,100 v 0 h -71.1111 c -71.1111,0 -213.33334,0 -355.55554,0 -142.22222,0 -284.44445,0 -426.66668,0 -142.22224,0 -284.44445,0 -355.555566,0 H 0 Z"> </path> </svg></div></td> </tr> <tr> <td class="tableblock halign-center valign-top"><p class="tableblock"><code>wave-1</code></p></td> <td class="tableblock halign-center valign-top"><div class="content"><div class="paragraph"> <p>rotate</p> </div></div></td> <td class="tableblock halign-center valign-top"><div class="content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 100" transform="translate(0,-20) scale(1,1.5) rotate(180)" class="mt-5"> <path fill="#212121" fill-opacity="1" d="m 0,71.532704 h 71.111114 c 71.111116,0 213.333326,0 355.555566,-18.948546 C 568.88891,33.279773 711.11114,-4.0835522 853.33336,0.36446289 995.55556,4.8124779 1137.7778,52.851042 1208.8889,76.2476 L 1280,100 v 0 h -71.1111 c -71.1111,0 -213.33334,0 -355.55554,0 -142.22222,0 -284.44445,0 -426.66668,0 -142.22224,0 -284.44445,0 -355.555566,0 H 0 Z"> </path> </svg></div></td> </tr> <tr> <td class="tableblock halign-center valign-top"><p class="tableblock"><code>wave-1</code></p></td> <td class="tableblock halign-center valign-top"><div class="content"><div class="paragraph"> <p>flip-x</p> </div></div></td> <td class="tableblock halign-center valign-top"><div class="content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 100" transform="translate(0,-20) scale(1,1.5) scale(1,-1)" class="mt-5"> <path fill="#212121" fill-opacity="1" d="m 0,71.532704 h 71.111114 c 71.111116,0 213.333326,0 355.555566,-18.948546 C 568.88891,33.279773 711.11114,-4.0835522 853.33336,0.36446289 995.55556,4.8124779 1137.7778,52.851042 1208.8889,76.2476 L 1280,100 v 0 h -71.1111 c -71.1111,0 -213.33334,0 -355.55554,0 -142.22222,0 -284.44445,0 -426.66668,0 -142.22224,0 -284.44445,0 -355.555566,0 H 0 Z"> </path> </svg></div></td> </tr> <tr> <td class="tableblock halign-center valign-top"><p class="tableblock"><code>wave-1</code></p></td> <td class="tableblock halign-center valign-top"><div class="content"><div class="paragraph"> <p>flip-y</p> </div></div></td> <td class="tableblock halign-center valign-top"><div class="content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 100" transform="translate(0,-20) scale(1,1.5) scale(-1,1)" class="mt-5"> <path fill="#212121" fill-opacity="1" d="m 0,71.532704 h 71.111114 c 71.111116,0 213.333326,0 355.555566,-18.948546 C 568.88891,33.279773 711.11114,-4.0835522 853.33336,0.36446289 995.55556,4.8124779 1137.7778,52.851042 1208.8889,76.2476 L 1280,100 v 0 h -71.1111 c -71.1111,0 -213.33334,0 -355.55554,0 -142.22222,0 -284.44445,0 -426.66668,0 -142.22224,0 -284.44445,0 -355.555566,0 H 0 Z"> </path> </svg></div></td> </tr> </tbody> </table> </div> </div> </div> </main> </div> <footer id="exception_container" class="container-fluid no-padding"></footer> <footer id="footer_uno" class="active_footer"></footer> <script> $(function() { var settings = $.extend({}, {"layout": "page", "title": "Banner and Panel", "tagline": "User Guide For J1 Theme", "fab_menu_id": "open_toc", "scrollbar": "false", "toc": "true", "comments": "false", "scrollDynamicPagesTopOnChange": ""}); j1.init (settings); }); </script> <script> $(function() { }); </script> <script> $(function() { j1.adapter.bmd.init(); }); </script> <script> $(function() { }); </script> <script> $(function() { j1.adapter.logger.init(); }); </script> <script> $(function() { }); </script> <script> $(function() { var settings = $.extend({}, {"slides":[{"url":"/assets/images/modules/attics/jeshoots-1-1920x1280.jpg", "alt":"Photo by JESHOOTS.COM on Unsplash", "badge":{"type":"unsplash", "author":"JESHOOTS.COM", "href":"https://unsplash.com/@jeshoots"}}]}, {"layout": "page", "title": "Banner and Panel", "tagline": "User Guide For J1 Theme", "scrollbar": "false", "toc": "true", "comments": "false"}); j1.adapter.attic.init (settings); }); </script> <script> $(function() { j1.adapter.navigator.init(); }); </script> <script> $(function() { j1.adapter.mmenu.init(); }); </script> <script> $(function() { j1.adapter.themer.init(); }); </script> <script> $(function() { var settings = $.extend({}, {"layout": "page", "title": "Banner and Panel", "tagline": "User Guide For J1 Theme", "fab_menu_id": "open_toc", "scrollbar": "false", "toc": "true", "comments": "false", "scrollDynamicPagesTopOnChange": ""}); j1.adapter.toccer.init (settings); }); </script> <script> $(function() { j1.adapter.cookieConsent.init(); }); </script> <script> $(function() { j1.adapter.lunr.init(); }); </script> <script> $(function() { var settings = $.extend({}, {"layout": "page", "title": "Banner and Panel", "tagline": "User Guide For J1 Theme", "fab_menu_id": "open_toc", "scrollbar": "false", "toc": "true", "comments": "false", "scrollDynamicPagesTopOnChange": ""}); j1.adapter.fab.init (settings); }); </script> <script> $(function() { }); </script> <script> $(function() { j1.adapter.rtable.init(); }); </script> <script> $(function() { j1.adapter.asciidoctor.init(); }); </script> <script> $(function() { }); </script> <script> $(function() { j1.adapter.translator.init(); }); </script> <script> $(function() { j1.adapter.analytics.init(); }); </script> <script> $(function() { j1.adapter.rouge.init(); }); </script> <script> $(function() { }); </script> <script> $(function() { var settings = $.extend({}, {"layout": "page", "title": "Banner and Panel", "tagline": "User Guide For J1 Theme", "fab_menu_id": "open_toc", "scrollbar": "false", "toc": "true", "comments": "false", "scrollDynamicPagesTopOnChange": ""}); j1.adapter.lightbox.init (settings); }); </script> <script> $(function() { j1.adapter.clipboard.init(); }); </script> <script> $(function() { var settings = $.extend({}, {"layout": "page", "title": "Banner and Panel", "tagline": "User Guide For J1 Theme", "fab_menu_id": "open_toc", "scrollbar": "false", "toc": "true", "comments": "false", "scrollDynamicPagesTopOnChange": ""}); j1.adapter.comments.init (settings); }); </script> <script> $(function() { j1.adapter.themeToggler.init(); }); </script> <script> $(function() { j1.adapter.lazyLoader.init(); }); </script> </div> <div id="bg-primary" class="bg-primary" style="display: none"></div> <div id="fab-container"></div> <script> $(function() { var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]')); var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) { return new bootstrap.Tooltip(tooltipTriggerEl) }); var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]')); var popoverList = popoverTriggerList.map(function (popoverTriggerEl) { return new bootstrap.Popover(popoverTriggerEl) }); }); </script> </body> </html>
