@@ -1850,6 +1850,9 @@
 .mdib-cloud:before {
   content: "\F015F"; }
 
+.mdib-cloud-outline:before {
+  content: "\F0163"; }
+
 .mdib-clouds:before {
   content: "\F1B95"; }
 
@@ -2488,6 +2491,24 @@
 
 .mdib-disqus:before {
   content: "\F01D2"; }
+
+.mdib-distribute-horizontal-center:before {
+  content: "\F11C9"; }
+
+.mdib-distribute-horizontal-left:before {
+  content: "\F11C8"; }
+
+.mdib-distribute-horizontal-right:before {
+  content: "\F11CA"; }
+
+.mdib-distribute-vertical-bottom:before {
+  content: "\F11CB"; }
+
+.mdib-distribute-vertical-center:before {
+  content: "\F11CC"; }
+
+.mdib-distribute-vertical-top:before {
+  content: "\F11CD"; }
 
 .mdib-diving:before {
   content: "\F1977"; }
@@ -3130,6 +3151,12 @@
 
 .mdib-feather:before {
   content: "\F06D3"; }
+
+.mdib-feature-search:before {
+  content: "\F0A49"; }
+
+.mdib-feature-search-outline:before {
+  content: "\F0A4A"; }
 
 .mdib-fedora:before {
   content: "\F08DB"; }
@@ -4948,6 +4975,33 @@
 
 .mdib-material-ui:before {
   content: "\F0357"; }
+
+.mdib-math-compass:before {
+  content: "\F0358"; }
+
+.mdib-math-cos:before {
+  content: "\F0C96"; }
+
+.mdib-math-integral:before {
+  content: "\F0FC8"; }
+
+.mdib-math-integral-box:before {
+  content: "\F0FC9"; }
+
+.mdib-math-log:before {
+  content: "\F1085"; }
+
+.mdib-math-norm:before {
+  content: "\F0FCA"; }
+
+.mdib-math-norm-box:before {
+  content: "\F0FCB"; }
+
+.mdib-math-sin:before {
+  content: "\F0C97"; }
+
+.mdib-math-tan:before {
+  content: "\F0C98"; }
 
 .mdib-matrix:before {
   content: "\F0628"; }
