@@ -1,2 +1,1390 @@
-<!DOCTYPE html> <html lang="en"> <head data-proofer-ignore> <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="template version" content="2023.4.0"> <link rel="icon" type="image/ico" href="/assets/images/icons/j1/favicon.ico"> <link rel="shortcut icon" href="/assets/images/icons/j1/favicon.ico"> <meta name="robots" content="index"> <meta name="robots" content="follow"> <meta name="analytics" content="false"> <meta name="comments" content="false"> <meta name="advertising" content="false"> <meta name="translation" content="false"> <meta name="youtube" content="true"> <meta name="vimeo" content="true"> <meta name="personalization" content="false"> <link rel="dns-prefetch" href="https://bootswatch.com"> <link rel="preconnect" href="https://bootswatch.com"> <title>Core Web Vitals | Starter</title> <meta name="generator" content="Jekyll v4.3.2"> <meta property="og:title" content="Core Web Vitals"> <meta name="author" content="Juergen Adams"> <meta property="og:locale" content="en_US"> <meta name="description" content="Optimizing the user experience you offer on your website is essential for the success of any online business. Google does use different user experience-related metrics to rank web pages for SEO and has continued to provide multiple tools to measure and improve web performance."> <meta property="og:description" content="Optimizing the user experience you offer on your website is essential for the success of any online business. Google does use different user experience-related metrics to rank web pages for SEO and has continued to provide multiple tools to measure and improve web performance."> <meta property="twitter:description" content="Optimizing the user experience you offer on your website is essential for the success of any online business. Google does use different user experience-related metrics to rank web pages for SEO and has continued to provide multiple tools to measure and improve web performance."> <link rel="canonical" href="http://localhost:30000/pages/public/learn/core_web_vitals/"> <meta property="og:url" content="http://localhost:30000/pages/public/learn/core_web_vitals/"> <meta property="og:site_name" content="Starter"> <meta property="og:image" content="http://localhost:30000/assets/images/modules/attics/leon-1920x1280.jpg"> <meta property="og:image:height" content="1280"> <meta property="og:image:width" content="1920"> <meta property="og:image:alt" content="Photo by Leon"> <meta property="og:type" content="article"> <meta property="article:published_time" content="2023-06-07T01:00:00+02:00"> <meta name="twitter:card" content="summary_large_image"> <meta property="twitter:image" content="http://localhost:30000/assets/images/modules/attics/leon-1920x1280.jpg"> <meta name="twitter:image:alt" content="Photo by Leon"> <meta property="twitter:title" content="Core Web Vitals"> <meta name="twitter:site" content="@"> <meta name="twitter:creator" content="@Juergen Adams"> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Juergen Adams","url":"https://jekyll.one/"},"dateModified":"2023-06-07T01:00:00+02:00","datePublished":"2023-06-07T01:00:00+02:00","description":"Optimizing the user experience you offer on your website is essential for the success of any online business. Google does use different user experience-related metrics to rank web pages for SEO and has continued to provide multiple tools to measure and improve web performance.","headline":"Core Web Vitals","image":{"width":1920,"height":1280,"alt":"Photo by Leon","url":"http://localhost:30000/assets/images/modules/attics/leon-1920x1280.jpg","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:30000/pages/public/learn/core_web_vitals/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:30000/assets/images/icons/j1/j1-512x512.png"},"name":"Juergen Adams"},"url":"http://localhost:30000/pages/public/learn/core_web_vitals/"}</script> <link rel="stylesheet" href="/assets/themes/j1/core/css/themes/unolight/bootstrap.min.css"> <link rel="stylesheet" href="/assets/themes/j1/core/css/icon-fonts/mdib.min.css"> <link rel="stylesheet" href="/assets/themes/j1/core/css/vendor.min.css"> <script src="/assets/themes/j1/adapter/js/j1.js"></script> <script src="/assets/themes/j1/modules/jquery/js/jquery.min.js"></script> <script src="/assets/themes/j1/modules/jquery/js/extensions/hasClass.min.js"></script> <script src="/assets/themes/j1/modules/jquery/js/extensions/removeClass.min.js"></script> <script src="/assets/themes/j1/modules/popper/js/popper.min.js"></script> <script src="/assets/themes/j1/core/js/template.min.js"></script> <script src="/assets/themes/j1/modules/bootstrap/js/bootstrap.min.js"></script> <script src="/assets/themes/j1/adapter/js/bmd.js"></script> <script src="/assets/themes/j1/modules/bmd/js/bmd.min.js"></script> <script defer src="/assets/themes/j1/modules/gtag-opt-in/js/gtag-opt-in.min.js"></script> <script src="/assets/themes/j1/adapter/js/logger.js"></script> <script src="/assets/themes/j1/modules/log4javascript/js/log4javascript.min.js"></script> <script src="/assets/themes/j1/modules/backstretch/js/backstretch.min.js"></script> <script src="/assets/themes/j1/adapter/js/attic.js"></script> <script src="/assets/themes/j1/adapter/js/navigator.js"></script> <link rel="stylesheet" href="/assets/themes/j1/modules/mmenuLight/css/mmenu-light.min.css"> <link rel="stylesheet" href="/assets/themes/j1/modules/mmenuLight/css/theme/uno/mmenu.min.css"> <script defer src="/assets/themes/j1/adapter/js/mmenu.js"></script> <script defer src="/assets/themes/j1/modules/mmenuLight/js/mmenu.min.js"></script> <script src="/assets/themes/j1/adapter/js/themer.js"></script> <script src="/assets/themes/j1/adapter/js/toccer.js"></script> <script src="/assets/themes/j1/adapter/js/cookieConsent.js"></script> <script src="/assets/themes/j1/modules/cookieConsent/js/cookieConsent.min.js"></script> <link rel="stylesheet" href="/assets/themes/j1/modules/lunr/css/j1.min.css"> <script src="/assets/themes/j1/adapter/js/lunr.js"></script> <script src="/assets/themes/j1/modules/lunr/js/lunr.min.js"></script> <script src="/assets/themes/j1/modules/lunr/js/mustache.min.js"></script> <script src="/assets/themes/j1/modules/lunr/js/dateformat.min.js"></script> <script src="/assets/themes/j1/modules/lunr/js/uri.min.js"></script> <script src="/assets/themes/j1/modules/lunr/js/j1.min.js"></script> <script defer src="/assets/themes/j1/modules/fab/js/cash.js"></script> <script defer src="/assets/themes/j1/modules/fab/js/fab.js"></script> <script defer src="/assets/themes/j1/adapter/js/fab.js"></script> <script src="/assets/themes/j1/modules/themeSwitcher/js/switcher.min.js"></script> <script src="/assets/themes/j1/adapter/js/rtable.js"></script> <script src="/assets/themes/j1/modules/rtable/js/rtable.min.js"></script> <script defer src="/assets/themes/j1/adapter/js/asciidoctor.js"></script> <script defer src="/assets/themes/j1/modules/msDropdown/js/msDropdown.min.js"></script> <link rel="stylesheet" href="/assets/themes/j1/modules/translator/css/translator.min.css"> <script defer src="/assets/themes/j1/adapter/js/translator.js"></script> <script defer src="/assets/themes/j1/modules/translator/js/translator.min.js"></script> <script defer src="/assets/themes/j1/adapter/js/analytics.js"></script> <link rel="stylesheet" href="/assets/themes/j1/modules/rouge/css/base16/theme.css"> <script defer src="/assets/themes/j1/adapter/js/rouge.js"></script> <link rel="stylesheet" href="/assets/themes/j1/core/css/animate.min.css"> <link rel="stylesheet" href="/assets/themes/j1/modules/lightbox/css/lightbox.min.css"> <link rel="stylesheet" href="/assets/themes/j1/modules/lightbox/css/theme/uno.min.css"> <script defer src="/assets/themes/j1/adapter/js/lightbox.js"></script> <script defer src="/assets/themes/j1/modules/lightbox/js/lightbox.min.js"></script> <link rel="stylesheet" href="/assets/themes/j1/modules/clipboard/css/theme/uno.min.css"> <script defer src="/assets/themes/j1/adapter/js/clipboard.js"></script> <script defer src="/assets/themes/j1/modules/clipboard/js/clipboard.min.js"></script> <script defer src="/assets/themes/j1/adapter/js/themeToggler.js"></script> <script defer src="/assets/themes/j1/adapter/js/lazyLoader.js"></script> </head> <body class="nomathjax"> <div id="no_flicker" style="overflow: hidden; display: none"> <nav id="navigator_nav_mmenu"></nav> <nav id="navigator_toc_mmenu"></nav> <nav id="navigator_sidebar_mmenu"></nav> <nav id="navigator_nav_navbar" class="navbar navigator navbar-expand-lg navbar-default d-flex light navbar-fixed navbar-transparent"> <a href="#" id="navbar-brand" class="navbar-brand link-no-decoration"> <img src="/assets/images/icons/j1/j1-512x512.png" style="height: 48px !important;" alt="Jekyll One"></a> <button id="mmenu-button" type="button" class="navigator navbar-toggler animated fadeIn" data-bs-toggle="collapse" data-bs-target="#navigator_nav_menu" aria-controls="navigator_nav_menu" aria-expanded="false" aria-label="Toggle navigation"> <i class="mdib mdib-menu mdib-36px"></i> </button> <div id="navigator_nav_menu" class="collapse"></div> <div id="navigator_nav_quicklinks" class="quicklink-nav collapse navbar-collapse justify-content-end pr-4"></div> </nav> <div id="authclient_modals" class="authclient_modals"></div> <div id="searchModal" class="modal fade top" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static"> <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document"> <div class="modal-content"> <div class="modal-body"> <div id="navigator_nav_topsearch" class="top-search ml-4 mr-4"> <div class="bmd-form-group"> <div class="input-group"> <span class="input-group-addon"><i class="mdib mdib-magnify mdib-2x mb-2" style="color:#9E9E9E"></i></span> <input id="search-query" type="text" name="q" placeholder="Your search expression" autocomplete="off" class="form-control"> <span id="clear-topsearch" class="form-clear form-clear-searcher d-none" style="margin-top: 0.75rem"> <i class="mdib mdib-format-clear mdib-2x" style="color:#9E9E9E"></i> </span> <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="margin-top: 24px;"></button> </div> </div> <div class="search-results hide-scrollbar mt-4"> <div id="search-results" style="display: none;"></div> </div> </div> </div> </div> </div> </div> <script id="search-results-template" type="text/mustache"> <ul style="list-style: none; margin-left: .5rem; margin-right: 4.25rem"> {{#docs}} <li> <h4 class="result-item"> <a class="link-no-decoration" href="{{url}}" target="_blank">{{title}} · {{tagline}}</a> </h4> <p class="result-item-text small text-muted mt-2 mb-0"> <i class="mdib mdib-calendar-blank mdib-18px mr-1"></i>{{displaydate}} </p> <p class="result-item-text">{{description}}</p> <p class="result-item-text small text-muted mb-3"> <i class="mdib mdib-tag-text-outline mdib-18px mr-1"></i><span class="sr-categories">{{#categories}} {{.}} · {{/categories}}</span> <i class="mdib mdib-tag mdib-18px mr-1 ml-2"></i><span class="sr-tags">{{#tags}} {{.}} · {{/tags}}</span> </p> </li> {{/docs}} </ul> </script> <header id="header"> <div id="attic_page" class="attic "> <div class="container textOverlay" style="display: none"> </div> <div class="attic-caption" style="display: none"></div> </div> </header> <div id="content" class="container mb-5"> <main id="main-content" class="r-text-300 js-toc-content"> <div class="paragraph dropcap"> <p>Optimizing the user experience you provide on your website is essential to the success of any online business. Google uses various user experience-related metrics to rank websites for SEO and continues to provide several tools to measure and improve web performance.</p> </div> <div class="sect1"> <h2 id="core-web-vitals">Core Web Vitals</h2> <div class="sectionbody"> <div class="paragraph"> <p>In its recent attempt to make measuring and understanding a good user experience easier, <em>Google</em> has standardized the site&#8217;s user experience metrics. These standardized metrics, called <strong>Core Web Vitals</strong>, help evaluate the <strong>real-world</strong> user experience of a website.</p> </div> <div class="paragraph"> <p><strong>Core Web Vitals</strong> is a set of specific website performance metrics introduced by Google to measure and quantify the user experience of a web page. They focus on key aspects of web <strong>page loading</strong>, <strong>interactivity</strong>, and <strong>visual stability</strong>, which are crucial for providing a good user experience.</p> </div> <div class="paragraph"> <p>The Core Web Vitals <strong>metrics</strong> are:</p> </div> <div class="ulist"> <ul> <li> <p>First Contentful Paint (FCP): <code>FCP</code> measures how long it takes the browser to render the <strong>first piece of DOM content</strong> after a user navigates to your page. Images, non-white <code>&lt;canvas&gt;</code> elements, and SVGs on your page are considered DOM content; anything inside an iframe isn&#8217;t included. Values should less than <strong>1.8 seconds</strong>.</p> </li> <li> <p>Largest Contentful Paint (LCP): LCP measures the loading speed of the main content on a web page. It represents the time taken for the largest visible element, such as an image or a block of text, to be rendered within the viewport. To provide a good user experience, the <code>LCP</code> should occur within the first <strong>2.5 seconds</strong> of the page starting to load.</p> </li> <li> <p>Total Blocking Time: <code>TBT</code> measures the total amount of time that a page is blocked from responding to user input, such as mouse clicks, screen taps, or keyboard presses. The sum is calculated by adding the blocking portion of all <strong>long tasks</strong> between <strong>First Contentful Paint</strong> (FCP) and <strong>Time to Interactive</strong>. Any task that executes for more than <strong>50 ms</strong> is a <strong>long task</strong>. Values for <code>TBT</code> should in total less than <strong>200 milliseconds</strong>.</p> </li> <li> <p>Cumulative Layout Shift (CLS): <code>CLS</code> measures the <strong>visual</strong> stability of a web page. It quantifies how much the page layout <strong>shifts</strong> during the loading process. Layout shifts can be disruptive, causing users to accidentally click on the wrong elements or lose their place on the page. A good user experience aims for a <code>CLS</code> score of less than <strong>0.1</strong>.</p> </li> </ul> </div> <div class="paragraph"> <p>Very good (excellent) website performance values for <strong>Core Web Vitals</strong> takes a lot of work to achieve. Values like the screenshot below require much work in the optimization and even then, can only rarely be achieved.</p> </div> <div id="lb-core_web_vitals_best_full" class="imageblock"> <div class="title notranslate">Excellent performance values (Lighthouse)</div> <div class="content mt-3" style="margin-bottom: 1.75rem;"> <a class="notoc link-no-decoration" href="/assets/images/pages/core_web_vitals/core_web_vitals_best_full.jpg" data-lightbox="assets/images/pages/core_web_vitals/core_web_vitals_best_full.jpg" data-title="Excellent performance values (Lighthouse)"> <img class="img-fluid" src="/assets/images/pages/core_web_vitals/core_web_vitals_best_full.jpg" alt="Excellent performance values (Lighthouse)" width="800"/> </a> </div> </div> <div class="paragraph"> <p>Nevertheless, it makes sense to achieve the best possible performance. The ranking of a website will improve a lot, and above all: the readers will appreciate it and visit such sites again.</p> </div> </div> </div> <div class="sect1"> <h2 id="j1-template-build-in-optimizations">J1 Template Build-in Optimizations</h2> <div class="sectionbody"> <div class="paragraph"> <p>Optimizations of the <strong>Core Web Vitals</strong> are already done for all pages the template system.</p> </div> <div class="paragraph"> <p>Bla &#8230;&#8203;</p> </div> <div class="dlist"> <dl> <dt class="hdlist1">First Contentful Paint (FCP</dt> <dd> <p>Bla &#8230;&#8203;</p> </dd> <dt class="hdlist1">Largest Contentful Paint (LCP)</dt> <dd> <p>Bla &#8230;&#8203;</p> </dd> <dt class="hdlist1">Total Blocking Time</dt> <dd> <p>Bla &#8230;&#8203;</p> </dd> <dt class="hdlist1">Cumulative Layout Shift (CLS)</dt> <dd> <p>Bla &#8230;&#8203;</p> </dd> </dl> </div> </div> </div> <div class="sect1"> <h2 id="optimizise-lcp">Optimizise LCP</h2> <div class="sectionbody"> <div class="paragraph"> <p>The Largest Contentful Paint or short <strong>LCP</strong> is one of the Core Web Vitals metrics that measure when the largest <strong>content element</strong> becomes <strong>visible</strong> in the browser. While other metrics like <strong>TTFB</strong> (time to first byte) and First Contentful Paint (<strong>FCP</strong>) also help measure page experience, they don&#8217;t indicate when the page has become <strong>meaningful</strong> to the user.</p> </div> <div class="paragraph"> <p>Typically, the page provides only a less context information to the user until the largest element becomes fully visible. LCP is, therefore, more representative of user expectations. As a Core Web Vital metric, LCP accounts for <strong>25%</strong> of the total performance ccore, making it one of the most important metrics to optimize a page.</p> </div> <div class="paragraph"> <p>As per Google, the types of elements considered for Largest Contentful Paint are:</p> </div> <div class="ulist"> <ul> <li> <p><code>&lt;img&gt;</code> elements</p> </li> <li> <p><code>&lt;image&gt;</code> elements inside an <code>&lt;svg&gt;</code> element</p> </li> <li> <p><code>&lt;video&gt;</code> elements (the poster image is used)</p> </li> <li> <p>An element with a background image loaded via the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/url">url()</a> function (as opposed to a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Using_CSS_gradients">CSS</a>) gradient</p> </li> <li> <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements">Block-level</a> elements containing text nodes or other inline-level text elements.</p> </li> </ul> </div> <div class="paragraph"> <p>Now, there are multiple ways to measure the LCP of your page. The easiest ways to measure it online is available on <a href="https://imagekit.io/blog/improve-google-pagespeed-insights-score-for-images/?utm_source=css-tricks&amp;utm_medium=sponsored_content&amp;utm_campaign=csstricks_LCP" target="_blank" rel="noopener">PageSpeed Insights</a>.</p> </div> <div class="paragraph"> <p>Other Tools:</p> </div> <div class="ulist"> <ul> <li> <p>Google Chrome Developer Tools (Lighthouse)</p> </li> <li> <p>Search Console (Core Web Vitals Report)</p> </li> </ul> </div> <div class="paragraph"> <p>For example, <strong>Google PageSpeed Insights</strong> in its report indicates the element considered for calculating the LCP.</p> </div> <div class="paragraph"> <p>Now that you know what is LCP and what our target should be let’s look at ways to improve LCP on our website. The underlying principle of reducing LCP in all of the techniques mentioned below is to reduce the data downloaded on the user’s device and reduce the time it takes to send and execute that content.</p> </div> <div class="sect2"> <h3 id="optimizing-images">Optimizing Images</h3> <div class="paragraph"> <p>On most websites, the above-the-fold content usually contains a large image which gets considered for LCP. It could either be a hero image, a banner, or a carousel. It is, therefore, crucial that you optimize these images for a better LCP.</p> </div> <div class="paragraph"> <p>To optimize your images, you should use a third-party image CDN like ImageKit.io. The advantage of using a third-party <a href="https://imagekit.io/blog/what-is-image-cdn-guide/?utm_source=css-tricks&amp;utm_medium=sponsored_content&amp;utm_campaign=csstricks_LCP" target="_blank" rel="noopener">image CDN</a> is that you can focus on your actual business and leave image optimization to the image CDN.</p> </div> <div class="paragraph"> <p>The image CDN would stay at the edge of technology evolution, and you always get the best possible features with minimum ongoing investment.</p> </div> <div class="paragraph"> <p>ImageKit is a complete real-time image CDN that integrates with any existing cloud storage like AWS S3, Azure, Google Cloud Storage, etc. It even comes with its integrated image storage and manager called the Media Library.</p> </div> <div class="paragraph"> <p>Here is how ImageKit can help you improve your LCP score.</p> </div> <div class="sect3"> <h4 id="images-in-lighter-formats">Images in Lighter Formats</h4> <div class="paragraph"> <p>ImageKit detects if the user’s browser supports modern lighter formats like WebP or AVIF and automatically delivers the image in the <strong>lightest</strong> possible format in real-time. Formats like WebP are over 30% lighter compared to their JPEG equivalents.</p> </div> </div> <div class="sect3"> <h4 id="automatically-compress-images">Automatically Compress Images</h4> <div class="paragraph"> <p>Not just converting the image to the correct format, ImageKit also compresses your image to a smaller size. In doing so, it balances the image’s visual quality and the output size.</p> </div> <div class="paragraph"> <p>You get the option to alter the compression level (or quality) in real-time by just changing a URL parameter, thereby balancing your business requirements of visual quality and load time.</p> </div> </div> <div class="sect3"> <h4 id="real-time-transformations-for-images">Real-time Transformations for Images</h4> <div class="paragraph"> <p>Google uses mobile-first indexing for almost all websites. It is therefore essential to optimize LCP for mobile more than that for desktop. Every image needs to be scaled down to as per the layout’s requirement.</p> </div> <div class="paragraph"> <p>For example, you would need the image in a smaller size on the product listing page and a larger size on the product detail page. This resizing ensures that you are not sending any additional bytes than what is required for that particular page.</p> </div> <div class="paragraph"> <p>ImageKit allows you to transform <a href="https://imagekit.io/responsive-images/?utm_source=css-tricks&amp;utm_medium=sponsored_content&amp;utm_campaign=csstricks_LCP" target="_blank" rel="noopener">responsive images</a> in real-time just by adding the corresponding transformation in the image URL. For example, the following image is resized to width 200px and height 300px by adding the height and width transformation parameters in its URL.</p> </div> </div> <div class="sect3"> <h4 id="caching-images">Caching Images</h4> <div class="paragraph"> <p>Image CDNs use a global <a href="https://imagekit.io/blog/what-is-content-delivery-network-cdn-guide/?utm_source=css-tricks&amp;utm_medium=sponsored_content&amp;utm_campaign=csstricks_LCP" target="_blank" rel="noopener">Content Delivery Network</a> (CDN) to deliver the images. Using a CDN ensures that images load from a location closer to the user instead of your server, which could be halfway across the globe.</p> </div> <div class="paragraph"> <p>ImageKit, for example, uses AWS Cloudfront as its CDN, which has over 220 deliver nodes globally. A vast majority of the images get loaded in less than 50ms. Additionally, it uses the proper caching directives to cache the images on the user’s device, CDN nodes, and even its processing network for a faster load time.</p> </div> <div class="paragraph"> <p>This helps to improve LCP on your website.</p> </div> </div> </div> <div class="sect2"> <h3 id="client-side-optimization">Client-side Optimization</h3> <div class="sect3"> <h4 id="preload-critical-resources">Preload Critical Resources</h4> <div class="paragraph"> <p>There are certain cases where the browser may not prioritize loading a visually important resource that impacts LCP. For example, a banner image above the fold could be specified as a background image inside a CSS file. Since the browser would never know about this image until the CSS file is downloaded and parsed along with the DOM tree, it will not prioritize loading it.</p> </div> <div class="paragraph"> <p>For such resources, you can preload them by adding a <code>&lt;link&gt;</code> tag with a <code>rel= "preload"</code> attribute to the head section of your HTML document.</p> </div> <div class="listingblock"> <div class="content"><pre class="rouge highlight"><code data-lang="html"><span class="c">&lt;!-- Example of preloading --&gt;</span>
-<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"preload"</span> <span class="na">src=</span><span class="s">"banner_image.jpg"</span><span class="nt">&gt;</span></code></pre></div> </div> <div class="paragraph"> <p>While you can preload multiple resources in a document, you should always restrict it to above-the-fold images or videos, page-wide font files, or critical CSS and JS files.</p> </div> </div> <div class="sect3"> <h4 id="preconnect-third-party-origins">Preconnect Third-party Origins</h4> <div class="paragraph"> <p>If you use third-party domains to deliver critical above-the-fold content like JS, CSS, or images, then you would benefit by indicating to the browser that a connection to that third-party domain needs to be made as soon as possible. This is done using the <code>rel="preconnect"</code> attribute of the <code>&lt;link&gt;</code> tag.</p> </div> <div class="listingblock"> <div class="content"><pre class="rouge highlight"><code data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"preconnect"</span> <span class="na">href=</span><span class="s">"https://static.example.com"</span><span class="nt">&gt;</span></code></pre></div> </div> <div class="paragraph"> <p>With <code>preconnect</code> in place, the browser can save the domain connection time when it downloads the actual resource later.</p> </div> <div class="paragraph"> <p>Subdomains like static.example.com, of your main website domain example.com are also third-party domains in this context.</p> </div> <div class="paragraph"> <p>You can also use the <em>dns-prefetch</em> as a fallback in browsers that don’t support preconnect. This directive instructs the browser to complete the DNS resolution to the third-party domain even if it cannot establish a proper connection.</p> </div> </div> <div class="sect3"> <h4 id="compress-text-files">Compress Text Files</h4> <div class="paragraph"> <p>Any text-based data you load on your webpage should be compressed when transferred over the network using a compression algorithm like gzip or Brotli. SVGs, JSONs, API responses, JS and CSS files, and your main page’s HTML are good candidates for compression using these algorithms. This compression significantly reduces the amount of data that will get downloaded on page load, therefore bringing down the LCP.</p> </div> </div> <div class="sect3"> <h4 id="remove-render-blocking-resources">Remove Render-blocking Resources</h4> <div class="paragraph"> <p>When the browser receives the HTML page from your server, it parses the DOM tree. If there is any external stylesheet or JS file in the DOM, the browser has to pause for them before moving ahead with the parsing of the remaining DOM tree.</p> </div> <div class="paragraph"> <p>These JS and CSS files are called render-blocking resources and delay the LCP time. Here are some ways to reduce the blocking time for JS and CSS files:</p> </div> </div> <div class="sect3"> <h4 id="remove-unnecessary-bundles">Remove Unnecessary Bundles</h4> <div class="paragraph"> <p>Avoid shipping huge bundles of JS and CSS files to the browser if they are not needed. If the CSS can be downloaded a lot later, or a JS functionality is not needed on a particular page, there is no reason to load it up front and block the render in the browser.</p> </div> <div class="paragraph"> <p>Suppose you cannot split a particular file into smaller bundles, but it is not critical to the functioning of the page either. In that case, you can use the defer attribute of the script tag to indicate to the browser that it can go ahead with the DOM parsing and continue to execute the JS file at a later stage. Adding the defer attribute removes any blocker for DOM parsing. The LCP, therefore, goes down.</p> </div> </div> <div class="sect3"> <h4 id="use-inline-css">Use Inline CSS</h4> <div class="paragraph"> <p>Critical CSS comprises the style definitions needed for the DOM that appears in the first fold of your page. If the style definitions for this part of the page are inline, i.e., in each element’s <code>style</code> attribute, the browser has no dependency on the external CSS to style these elements. Therefore, it can render the page quickly, and the LCP goes down.</p> </div> </div> <div class="sect3"> <h4 id="minify-content">Minify Content</h4> <div class="paragraph"> <p>You should always minify the CSS and JS files before loading them in the browser. CSS and JS files contain whitespace to make them legible, but they are unnecessary for code execution. So, you can remove them, which reduces the file size on production. Smaller file size means that the files can load quickly, thereby reducing your LCP time.</p> </div> <div class="paragraph"> <p>Compression techniques, as discussed earlier, use data compression algorithms to bring down the file size delivered over the network. Gzip and Brotli are two compression algorithms. <a href="https://imagekit.io/blog/what-and-why-brotli-compression/?utm_source=css-tricks&amp;utm_medium=sponsored_content&amp;utm_campaign=csstricks_LCP" target="_blank" rel="noopener">Brotli compression</a> offers a superior compression ratio compared to Gzip and is now supported on all major browsers, servers, and CDNs.</p> </div> </div> </div> <div class="sect2"> <h3 id="server-side-optimization">Server-side Optimization</h3> <div class="paragraph"> <p>A lot of computation, DB queries, and page construction happens on the server. You should analyze the requests going to your servers and identify the possible bottlenecks for responding to the requests. It could be a DB query slowing things down or the building of the page on your server.</p> </div> <div class="paragraph"> <p>You can apply best practices like caching of DB responses, pre-rendering of pages, amongst others, to reduce the time it takes for your server to respond to requests.</p> </div> <div class="paragraph"> <p>Of course, if the above does not improve the response time, you might need to increase your server capacity to handle the number of requests coming in.</p> </div> <div class="sect3"> <h4 id="reduce-response-times">Reduce Response Times</h4> <div class="paragraph"> <p>If your server takes long to respond to a request, then the time it takes to render the page on the screen also goes up. It, therefore, negatively affects every page speed metric, including LCP. To improve your server response times, here is what you should do.</p> </div> </div> <div class="sect3"> <h4 id="content-delivery-network-cdn">Content Delivery Network (CDN)</h4> <div class="paragraph"> <p>We have already seen above that using an image CDN like ImageKit improves the loading time for your images. Your users get the content delivered from a CDN node close to their location in milliseconds.</p> </div> <div class="paragraph"> <p>You should extend the same to other content on your website. Using a CDN for your static content like JS, CSS, and font files will significantly speed up their load time. ImageKit does support the delivery of static content through its systems.</p> </div> <div class="paragraph"> <p>You can also try to use a CDN for your HTML and APIs to cache those responses on the CDN nodes. Given the dynamic nature of such content, using a CDN for HTML or APIs can be a lot more complex than using a CDN for static content.</p> </div> </div> </div> </div> </div> </main> </div> <footer id="exception_container" class="container-fluid no-padding"></footer> <footer id="footer_uno" class="active_footer"></footer> <script> $(function() { var settings = $.extend({}, {"layout": "page", "title": "Core Web Vitals", "tagline": "Improve the user experience", "fab_menu_id": "open_toc", "scrollbar": "false", "toc": "true", "comments": "false", "scrollDynamicPagesTopOnChange": ""}); j1.init (settings); }); </script> <script> $(function() { }); </script> <script> $(function() { j1.adapter.bmd.init(); }); </script> <script> $(function() { }); </script> <script> $(function() { j1.adapter.logger.init(); }); </script> <script> $(function() { }); </script> <script> $(function() { var settings = $.extend({}, {"slides":[{"url":"/assets/images/modules/attics/leon-1920x1280.jpg", "alt":"Photo by Leon"}]}, {"layout": "page", "title": "Core Web Vitals", "tagline": "Improve the user experience", "scrollbar": "false", "toc": "true", "comments": "false"}); j1.adapter.attic.init (settings); }); </script> <script> $(function() { j1.adapter.navigator.init(); }); </script> <script> $(function() { j1.adapter.mmenu.init(); }); </script> <script> $(function() { j1.adapter.themer.init(); }); </script> <script> $(function() { var settings = $.extend({}, {"layout": "page", "title": "Core Web Vitals", "tagline": "Improve the user experience", "fab_menu_id": "open_toc", "scrollbar": "false", "toc": "true", "comments": "false", "scrollDynamicPagesTopOnChange": ""}); j1.adapter.toccer.init (settings); }); </script> <script> $(function() { j1.adapter.cookieConsent.init(); }); </script> <script> $(function() { j1.adapter.lunr.init(); }); </script> <script> $(function() { var settings = $.extend({}, {"layout": "page", "title": "Core Web Vitals", "tagline": "Improve the user experience", "fab_menu_id": "open_toc", "scrollbar": "false", "toc": "true", "comments": "false", "scrollDynamicPagesTopOnChange": ""}); j1.adapter.fab.init (settings); }); </script> <script> $(function() { }); </script> <script> $(function() { j1.adapter.rtable.init(); }); </script> <script> $(function() { j1.adapter.asciidoctor.init(); }); </script> <script> $(function() { }); </script> <script> $(function() { j1.adapter.translator.init(); }); </script> <script> $(function() { j1.adapter.analytics.init(); }); </script> <script> $(function() { j1.adapter.rouge.init(); }); </script> <script> $(function() { }); </script> <script> $(function() { var settings = $.extend({}, {"layout": "page", "title": "Core Web Vitals", "tagline": "Improve the user experience", "fab_menu_id": "open_toc", "scrollbar": "false", "toc": "true", "comments": "false", "scrollDynamicPagesTopOnChange": ""}); j1.adapter.lightbox.init (settings); }); </script> <script> $(function() { j1.adapter.clipboard.init(); }); </script> <script> $(function() { j1.adapter.themeToggler.init(); }); </script> <script> $(function() { j1.adapter.lazyLoader.init(); }); </script> </div> <div id="bg-primary" class="bg-primary" style="display: none"></div> <div id="fab-container"></div> <script> $(function() { var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]')); var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) { return new bootstrap.Tooltip(tooltipTriggerEl) }); var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]')); var popoverList = popoverTriggerList.map(function (popoverTriggerEl) { return new bootstrap.Popover(popoverTriggerEl) }); }); </script> </body> </html>
+<!DOCTYPE html>
+<html lang="en">
+  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2023-07-06 14:55:58 +0200 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ environment detected as: development ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2023.4.0 ] -->
+  <head data-proofer-ignore>
+    <!-- [INFO   ] [j1.layout.default.html                ] [ call default_writer for region: 'head' ] -->
+    <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: page ] -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ start meta-data processing: place meta tags (taken from site config|page frontmatter) ] -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ page|content encoding ] -->
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ added for MS Edge Browser ] -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ initial zoom level when the page is first loaded by the browser ] -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ added version info for the templte ] -->
+    <meta name="template version" content="2023.4.0">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ favicon for browser ] -->
+    <link rel="icon" type="image/ico" href="/assets/images/icons/j1/favicon.ico">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ favicon for the google crawler ] -->
+    <link rel="shortcut icon" href="/assets/images/icons/j1/favicon.ico">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ Check robot settings from SITE configuration ] -->
+    <!-- [DEBUG  ] [j1.layout.meta_data_generator.html    ] [ Found SITE configuration robots_index: true ] -->
+    <!-- [DEBUG  ] [j1.layout.meta_data_generator.html    ] [ Found SITE configuration robots_follow: true ] -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ Check robot settings from PAGE configuration ] -->
+    <!-- [DEBUG  ] [j1.layout.meta_data_generator.html    ] [ Found PAGE configuration robots_index: true ] -->
+    <!-- [DEBUG  ] [j1.layout.meta_data_generator.html    ] [ Found PAGE configuration robots_follow: true ] -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ Place detected/overloaded meta tags for robots ] -->
+    <meta name="robots" content="index">
+    <meta name="robots" content="follow">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for provider APIs: analytics ] -->
+    <meta name="analytics" content="false">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for provider APIs: comments ] -->
+    <meta name="comments" content="false">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for provider APIs: advertising ] -->
+    <meta name="advertising" content="false">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for provider APIs: advertising ] -->
+    <meta name="translation" content="false">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for provider APIs: youtube ] -->
+    <meta name="youtube" content="true">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for provider APIs: vimeo ] -->
+    <meta name="vimeo" content="true">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ meta tag for privacy settings: personalization ] -->
+    <meta name="personalization" content="false">
+    <!-- Google fonts -->
+    <!-- link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" / -->
+    <!-- [INFO  ] [j1.layout.meta_data_generator.html    ] [ start SEO Optimization ] -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ PRELOAD of fonts: disabled ] -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ Consider! PRELOAD primary used fonts to prioritize fetching ] -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ PRELOAD of css: disabled ] -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ Consider! PRELOAD primary used css files to prioritize fetching ] -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ PRELOAD of js: disabled ] -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ Consider! PRELOAD primary used js files to prioritize fetching ] -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ PRELOAD of images: disabled ] -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ Consider! PRELOAD primary|globally used image files to prioritize fetching ] -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ Gratulations! PRECONNECT of remote URLs: enabled ] -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ request PRECONNECT of 3rd party origins to speed up remote connections ] -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ establish early connection: https://bootswatch.com ] -->
+    <link rel="dns-prefetch" href="https://bootswatch.com">
+    <link rel="preconnect" href="https://bootswatch.com">
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ add J1 SEO Tags ] -->
+    <!-- Begin J1 SEO tags -->
+    <title>Core Web Vitals | Starter</title>
+    <meta name="generator" content="Jekyll v4.3.2">
+    <meta property="og:title" content="Core Web Vitals">
+    <meta name="author" content="Juergen Adams">
+    <meta property="og:locale" content="en_US">
+    <meta name="description" content="Optimizing the user experience you offer on your website is essential for the success of any online business. Google does use different user experience-related metrics to rank web pages for SEO and has continued to provide multiple tools to measure and improve web performance.">
+    <meta property="og:description" content="Optimizing the user experience you offer on your website is essential for the success of any online business. Google does use different user experience-related metrics to rank web pages for SEO and has continued to provide multiple tools to measure and improve web performance.">
+    <meta property="twitter:description" content="Optimizing the user experience you offer on your website is essential for the success of any online business. Google does use different user experience-related metrics to rank web pages for SEO and has continued to provide multiple tools to measure and improve web performance.">
+    <link rel="canonical" href="http://localhost:30000/pages/public/learn/core_web_vitals/">
+    <meta property="og:url" content="http://localhost:30000/pages/public/learn/core_web_vitals/">
+    <meta property="og:site_name" content="Starter">
+    <meta property="og:image" content="http://localhost:30000/assets/images/modules/attics/leon-1920x1280.jpg">
+    <meta property="og:image:height" content="1280">
+    <meta property="og:image:width" content="1920">
+    <meta property="og:image:alt" content="Photo by Leon">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2023-06-07T01:00:00+02:00">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:image" content="http://localhost:30000/assets/images/modules/attics/leon-1920x1280.jpg">
+    <meta name="twitter:image:alt" content="Photo by Leon">
+    <meta property="twitter:title" content="Core Web Vitals">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@Juergen Adams">
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Juergen Adams","url":"https://jekyll.one/"},"dateModified":"2023-06-07T01:00:00+02:00","datePublished":"2023-06-07T01:00:00+02:00","description":"Optimizing the user experience you offer on your website is essential for the success of any online business. Google does use different user experience-related metrics to rank web pages for SEO and has continued to provide multiple tools to measure and improve web performance.","headline":"Core Web Vitals","image":{"width":1920,"height":1280,"alt":"Photo by Leon","url":"http://localhost:30000/assets/images/modules/attics/leon-1920x1280.jpg","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:30000/pages/public/learn/core_web_vitals/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:30000/assets/images/icons/j1/j1-512x512.png"},"name":"Juergen Adams"},"url":"http://localhost:30000/pages/public/learn/core_web_vitals/"}
+    </script>
+    <!-- End J1 SEO tags -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ end SEO Optimization ] -->
+    <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ end meta-data processing ] -->
+    <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
+    <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: page ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ start processing region: head, layout: page ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: core ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module J1 Theme Core ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place css files for resource ID: core ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" href="/assets/themes/j1/core/css/themes/unolight/bootstrap.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module J1 Theme Core ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place css files for resource ID: core ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" href="/assets/themes/j1/core/css/icon-fonts/mdib.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module J1 Theme Core ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place css files for resource ID: core ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" href="/assets/themes/j1/core/css/vendor.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module J1 Theme Core ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: core ] -->
+    <script src="/assets/themes/j1/adapter/js/j1.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all Module J1 Theme Core ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: core ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script src="/assets/themes/j1/modules/jquery/js/jquery.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all Module J1 Theme Core ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: core ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script src="/assets/themes/j1/modules/jquery/js/extensions/hasClass.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all Module J1 Theme Core ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: core ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script src="/assets/themes/j1/modules/jquery/js/extensions/removeClass.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all Module J1 Theme Core ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: core ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script src="/assets/themes/j1/modules/popper/js/popper.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all Module J1 Theme Core ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: core ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script src="/assets/themes/j1/core/js/template.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: bs5 ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module Bootstrap JS ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: bs5 ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all Module Bootstrap JS ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: bs5 ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script src="/assets/themes/j1/modules/bootstrap/js/bootstrap.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: bmd ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module BMD ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: bmd ] -->
+    <script src="/assets/themes/j1/adapter/js/bmd.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all Module BMD ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: bmd ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script src="/assets/themes/j1/modules/bmd/js/bmd.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: materialze ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: ga-opt-in ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module GA OptIn ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: ga-opt-in ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all Module GA OptIn ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: ga-opt-in ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script defer src="/assets/themes/j1/modules/gtag-opt-in/js/gtag-opt-in.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: logger ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module J1 Logger ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: logger ] -->
+    <script src="/assets/themes/j1/adapter/js/logger.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all Module J1 Logger ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: logger ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script src="/assets/themes/j1/modules/log4javascript/js/log4javascript.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: backstretch ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module Backstretch ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: backstretch ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all Module Backstretch ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: backstretch ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script src="/assets/themes/j1/modules/backstretch/js/backstretch.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: attic ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module Attic ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: attic ] -->
+    <script src="/assets/themes/j1/adapter/js/attic.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: navigator ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module Navigator ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: navigator ] -->
+    <script src="/assets/themes/j1/adapter/js/navigator.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: mmenu ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module MMenu ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place css files for resource ID: mmenu ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" href="/assets/themes/j1/modules/mmenuLight/css/mmenu-light.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module MMenu ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place css files for resource ID: mmenu ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" href="/assets/themes/j1/modules/mmenuLight/css/theme/uno/mmenu.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module MMenu ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: mmenu ] -->
+    <script defer src="/assets/themes/j1/adapter/js/mmenu.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all Module MMenu ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: mmenu ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script defer src="/assets/themes/j1/modules/mmenuLight/js/mmenu.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: themer ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module Themer ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: themer ] -->
+    <script src="/assets/themes/j1/adapter/js/themer.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: toccer ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive, Module Toccer ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive, place general file resources for resource_settings.id: toccer ] -->
+    <script src="/assets/themes/j1/adapter/js/toccer.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: cookieConsent ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module J1 CookieConsent ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: cookieConsent ] -->
+    <script src="/assets/themes/j1/adapter/js/cookieConsent.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all Module J1 CookieConsent ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: cookieConsent ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script src="/assets/themes/j1/modules/cookieConsent/js/cookieConsent.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: lunr ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module Lunr ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place css files for resource ID: lunr ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" href="/assets/themes/j1/modules/lunr/css/j1.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module Lunr ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: lunr ] -->
+    <script src="/assets/themes/j1/adapter/js/lunr.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all Module Lunr ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: lunr ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script src="/assets/themes/j1/modules/lunr/js/lunr.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all Module Lunr ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: lunr ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script src="/assets/themes/j1/modules/lunr/js/mustache.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all Module Lunr ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: lunr ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script src="/assets/themes/j1/modules/lunr/js/dateformat.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all Module Lunr ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: lunr ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script src="/assets/themes/j1/modules/lunr/js/uri.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all Module Lunr ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: lunr ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script src="/assets/themes/j1/modules/lunr/js/j1.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: fab ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module J1 Floating Action Buttons ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: fab ] -->
+    <script defer src="/assets/themes/j1/modules/fab/js/cash.js"></script>
+    <script defer src="/assets/themes/j1/modules/fab/js/fab.js"></script>
+    <script defer src="/assets/themes/j1/adapter/js/fab.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: jquery-ui ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: jq_mouse_wheel ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: theme_switcher ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module Theme Switcher ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: theme_switcher ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all Module Theme Switcher ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: theme_switcher ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script src="/assets/themes/j1/modules/themeSwitcher/js/switcher.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: rtable ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module J1 Responsive Tables ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: rtable ] -->
+    <script src="/assets/themes/j1/adapter/js/rtable.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all Module J1 Responsive Tables ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: rtable ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script src="/assets/themes/j1/modules/rtable/js/rtable.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: asciidoctor ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: app, Module J1 Asciidoctor ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: app, place general file resources for resource_settings.id: asciidoctor ] -->
+    <script defer src="/assets/themes/j1/adapter/js/asciidoctor.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: rtextresizer ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: msDropdown ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module J1 MsDropdown ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: msDropdown ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all Module J1 MsDropdown ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: msDropdown ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script defer src="/assets/themes/j1/modules/msDropdown/js/msDropdown.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: translator ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module J1 Translator ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place css files for resource ID: translator ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" href="/assets/themes/j1/modules/translator/css/translator.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module J1 Translator ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: translator ] -->
+    <script defer src="/assets/themes/j1/adapter/js/translator.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all Module J1 Translator ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: translator ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script defer src="/assets/themes/j1/modules/translator/js/translator.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: analytics ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module Analytics ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: analytics ] -->
+    <script defer src="/assets/themes/j1/adapter/js/analytics.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: CustomModule ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: customFunctions ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: rouge ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: app, Module Rouge Highlighter Themes ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: app, place general file resources for resource_settings.id: rouge ] -->
+    <link rel="stylesheet" href="/assets/themes/j1/modules/rouge/css/base16/theme.css">
+    <script defer src="/assets/themes/j1/adapter/js/rouge.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: animate ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module AnimateCSS ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place css files for resource ID: animate ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" href="/assets/themes/j1/core/css/animate.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module AnimateCSS ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: animate ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: justifiedGalleryCustomizer ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: framer ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: lightbox ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive, Module Lightbox V2 ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive, place css files for resource ID: lightbox ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" href="/assets/themes/j1/modules/lightbox/css/lightbox.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive, Module Lightbox V2 ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive, place css files for resource ID: lightbox ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" href="/assets/themes/j1/modules/lightbox/css/theme/uno.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive, Module Lightbox V2 ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive, place general file resources for resource_settings.id: lightbox ] -->
+    <script defer src="/assets/themes/j1/adapter/js/lightbox.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: blog_archive Module Lightbox V2 ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout blog_archive, place js files for resource ID: lightbox ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script defer src="/assets/themes/j1/modules/lightbox/js/lightbox.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: twemoji ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: twemoji_picker ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: iconify ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: Module Algolia API ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: clipboard ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: collection, Module J1 Clipboard ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: collection, place css files for resource ID: clipboard ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <link rel="stylesheet" href="/assets/themes/j1/modules/clipboard/css/theme/uno.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: collection, Module J1 Clipboard ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: collection, place general file resources for resource_settings.id: clipboard ] -->
+    <script defer src="/assets/themes/j1/adapter/js/clipboard.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: collection Module J1 Clipboard ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout collection, place js files for resource ID: clipboard ] -->
+    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
+    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
+    <script defer src="/assets/themes/j1/modules/clipboard/js/clipboard.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: carousel ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: masterslider ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: mastersliderpro ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: justifiedGallery ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: lightGallery ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: video_js ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: vimeo_froogaloop ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: vimeo_player ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: rangeslider ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: datatables ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: scroller ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: deeplAPI ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: crypto ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: advertising ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: comments ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: dropdowns ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: nbinteract ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: plotly ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: bokeh ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: vega ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: require ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: waves ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: particles ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: slick ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: masonry ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: iconpicker ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: theme_toggler ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module Theme Toggler ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: theme_toggler ] -->
+    <script defer src="/assets/themes/j1/adapter/js/themeToggler.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: lazy_loader ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module lazyCSSLoader ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: lazy_loader ] -->
+    <script defer src="/assets/themes/j1/adapter/js/lazyLoader.js"></script>
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ end processing ] -->
+    <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
+    <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ placement for all lane items finished ] -->
+    <!-- [DEBUG  ] [j1.layout.default_writer.proc         ] [ reset all lane items ] -->
+    <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing ] -->
+    <!-- [INFO   ] [j1.layout.default.html                ] [ end default_writer for region: 'head' ] -->
+  </head>
+  <body class="nomathjax">
+    <!-- [INFO   ] [j1.layout.default.html                ] [ check if a noscript page is enabled ] -->
+    <!-- [INFO   ] [j1.layout.default.html                ] [ noscript page is enabled: false ] -->
+    <!-- [INFO   ] [j1.layout.default.html                ] [ start page processing for region: 'body' ] -->
+    <!-- [INFO   ] [j1.layout.default.html                ] [ place wrapper to prevent "DOM flicker" ] -->
+    <!-- [INFO   ] [j1.layout.default.html                ] [ make page hidden (suppress flicker) ] -->
+    <!-- [INFO   ] [j1.layout.default.html                ] [ suppress page overflows (overflow: hidden) ] -->
+    <!-- [INFO   ] [j1.layout.default.html                ] [ hide page (display: none) on id "no_flicker" ] -->
+    <div id="no_flicker" style="overflow: hidden; display: none">
+      <!-- [INFO   ] [j1.layout.default.html                ] [ call default_writer for region: 'body-navigation' ] -->
+      <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region body-navigation, layout: page ] -->
+      <!-- [INFO   ] [~/_includes/themes/j1/modules/navigator/generator.html ] [ start processing: mmenu ] -->
+      <!-- [INFO   ] [~/_includes/themes/j1/modules/navigator/generator.html ] [ place mmenu container navigator_nav_mmenu for AJAX load ] -->
+      <nav id="navigator_nav_mmenu"></nav>
+      <!-- [INFO   ] [~/_includes/themes/j1/modules/navigator/generator.html ] [ place mmenu container navigator_toc_mmenu for AJAX load ] -->
+      <nav id="navigator_toc_mmenu"></nav>
+      <!-- [INFO   ] [~/_includes/themes/j1/modules/navigator/generator.html ] [ place mmenu container navigator_sidebar_mmenu for AJAX load ] -->
+      <nav id="navigator_sidebar_mmenu"></nav>
+      <!-- [INFO   ] [~/_includes/themes/j1/modules/navigator/generator.html ] [ start processing: navigation ] -->
+      <nav id="navigator_nav_navbar" class="navbar navigator navbar-expand-lg navbar-default d-flex  light navbar-fixed navbar-transparent">
+        <!-- [INFO   ] [~/_includes/themes/j1/modules/navigator/generator.html ] [ start processing: main menue ] -->
+        <!-- [INFO   ] [~/_includes/themes/j1/modules/navigator/generator.html ] [ place brand to the: right ] -->
+        <a href="#" id="navbar-brand" class="navbar-brand link-no-decoration"> <img src="/assets/images/icons/j1/j1-512x512.png" style="height: 48px !important;" alt="Jekyll One"></a>
+        <!-- [INFO   ] [~/_includes/themes/j1/modules/navigator/generator.html ] [ place mobile menu button to the: left ] -->
+        <button id="mmenu-button" type="button" class="navigator navbar-toggler animated fadeIn" data-bs-toggle="collapse" data-bs-target="#navigator_nav_menu" aria-controls="navigator_nav_menu" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="mdib mdib-menu mdib-36px"></i>
+        </button>
+        <!-- [INFO   ] [~/_includes/themes/j1/modules/navigator/generator.html ] [ start processing: nav bar ] -->
+        <!-- [INFO   ] [~/_includes/themes/j1/modules/navigator/generator.html ] [ place nav menu container for AJAX load (desktop) ] -->
+        <div id="navigator_nav_menu" class="collapse"></div>
+        <!-- [INFO   ] [~/_includes/themes/j1/modules/navigator/generator.html ] [ check for quicklinks ] -->
+        <!-- [INFO   ] [~/_includes/themes/j1/modules/navigator/generator.html ] [ place container for: quicklinks ] -->
+        <div id="navigator_nav_quicklinks" class="quicklink-nav collapse navbar-collapse justify-content-end pr-4"></div>
+      </nav>
+      <!-- [INFO   ] [~/_includes/themes/j1/modules/navigator/generator.html ] [ check for: authclient ] -->
+      <!-- [INFO   ] [~/_includes/themes/j1/modules/navigator/generator.html ] [ authclient enabled: false ] -->
+      <!-- [INFO   ] [~/_includes/themes/j1/modules/navigator/generator.html ] [ place container for: authclient ] -->
+      <div id="authclient_modals" class="authclient_modals"></div>
+      <!-- [INFO   ] [~/_includes/themes/j1/modules/navigator/generator.html ] [ end processing: auth_client ] -->
+      <!-- [INFO   ] [~/_includes/themes/j1/modules/navigator/generator.html ] [ end processing: navigation ] -->
+      <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
+      <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region body-navigation, layout: page ] -->
+      <!-- [INFO   ] [_includes/themes/j1/modules/searcher/generator.html ] [ check for topsearch ] -->
+      <!-- [INFO   ] [~/_includes/themes/j1/modules/searcher/generator.html ] [ start processing: topsearch ] -->
+      <!-- Modal Top Search -->
+      <div id="searchModal" class="modal fade top" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
+          <!-- MODAL Content -->
+          <div class="modal-content">
+            <!-- MODAL Body -->
+            <div class="modal-body">
+              <div id="navigator_nav_topsearch" class="top-search ml-4 mr-4">
+                <div class="bmd-form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="mdib mdib-magnify mdib-2x mb-2" style="color:#9E9E9E"></i></span>
+                    <input id="search-query" type="text" name="q" placeholder="Your search expression" autocomplete="off" class="form-control">
+                    <span id="clear-topsearch" class="form-clear form-clear-searcher d-none" style="margin-top: 0.75rem"> <i class="mdib mdib-format-clear mdib-2x" style="color:#9E9E9E"></i> </span>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="margin-top: 24px;"></button>
+                  </div>
+                </div>
+                <!-- [INFO   ] [~/assets/data/top_search_modal.html                    ] [ place: results container ] -->
+                <div class="search-results hide-scrollbar mt-4">
+                  <div id="search-results" style="display: none;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END MODAL Content -->
+        </div>
+      </div>
+      <!-- END Modal Top Search -->
+      <!-- [INFO   ] [_includes/themes/j1/modules/searcher/procedures/topsearch.proc ] [ place: mustache template ] -->
+      <script id="search-results-template" type="text/mustache">
+        <ul style="list-style: none; margin-left: .5rem; margin-right: 4.25rem">
+        {{#docs}}
+          <li>
+            <h4 class="result-item"> <a class="link-no-decoration" href="{{url}}" target="_blank">{{title}} · {{tagline}}</a> </h4>
+            <p class="result-item-text small text-muted mt-2 mb-0">
+              <i class="mdib mdib-calendar-blank mdib-18px mr-1"></i>{{displaydate}}
+            </p>
+            <p class="result-item-text">{{description}}</p>
+            <p class="result-item-text small text-muted mb-3">
+              <i class="mdib mdib-tag-text-outline mdib-18px mr-1"></i><span class="sr-categories">{{#categories}} {{.}} · {{/categories}}</span>
+              <i class="mdib mdib-tag mdib-18px mr-1 ml-2"></i><span class="sr-tags">{{#tags}} {{.}} · {{/tags}}</span>
+            </p>
+          </li>
+        {{/docs}}
+        </ul>
+      </script>
+      <!-- [INFO   ] [_includes/themes/j1/modules/searcher/procedures/topsearch.proc ] [ end processing: top search ] -->
+      <!-- [INFO   ] _includes/themes/j1/modules/searcher/generator.html ] [ end processing: topsearch ] -->
+      <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
+      <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ placement for all lane items finished ] -->
+      <!-- [DEBUG  ] [j1.layout.default_writer.proc         ] [ reset all lane items ] -->
+      <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing ] -->
+      <!-- [INFO   ] [j1.layout.default.html                ] [ end processing default_writer for region: 'body-navigation' ] -->
+      <!-- [INFO   ] [j1.layout.default.html                ] [ place content inherited by layout: page ] -->
+      <!-- [INFO   ]  [j1.layout.page.html                   ] [ start content processing ] -->
+      <!-- [INFO   ] [j1.layout.page.html                    ] [ call default_writer for region: 'body-header' ] -->
+      <header id="header">
+        <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region body-header, layout: page ] -->
+        <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ load page specific header data from yaml data file ] -->
+        <!-- [INFO   ] [~/_includes/themes/j1/modules/attics/generator.html ] [ attic enabled: true ] -->
+        <!-- [INFO   ] [~/_includes/themes/j1/modules/attics/generator.html ] [ attic enabled for layout: page ] -->
+        <!-- [INFO   ] [~/_includes/themes/j1/modules/attics/generator.html ] [ place attic detected: attic_page ] -->
+        <!-- div id="attic_page" class="attic notranslate" -->
+        <div id="attic_page" class="attic ">
+          <div class="container textOverlay" style="display: none">
+          </div>
+          <div class="attic-caption" style="display: none"></div>
+        </div>
+        <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
+        <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
+        <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ placement for all lane items finished ] -->
+        <!-- [DEBUG  ] [j1.layout.default_writer.proc         ] [ reset all lane items ] -->
+        <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing ] -->
+      </header>
+      <!-- [INFO   ] [j1.layout.page.html                    ] [ end default_writer processing for region: 'body-header' ] -->
+      <!-- [INFO   ] [j1.layout.page.html                    ] [ call content_writer for region: 'body-main' ] -->
+      <div id="content" class="container mb-5">
+        <!-- [INFO   ] [j1.layout.content_writer.proc         ] [ start processing: load CONTENT portion for layout: page ] -->
+        <!-- [INFO   ] [j1.layout.content_writer.proc         ] [ load region 'body-main' for layout: page ] -->
+        <!-- [INFO   ] [j1.layout.content_generator_page.html ] [ start main for full page ] -->
+        <main id="main-content" class="r-text-300 js-toc-content">
+          <!-- [INFO   ] [j1.layout.content_generator_page.html ] [ begin place content ] -->
+          <div class="paragraph dropcap">
+            <p>Optimizing the user experience you provide on your website is essential to
+              the success of any online business. Google uses various user experience-related
+              metrics to rank websites for SEO and continues to provide several tools to
+              measure and improve web performance.</p>
+          </div>
+          <div class="sect1">
+            <h2 id="core-web-vitals">Core Web Vitals</h2>
+            <div class="sectionbody">
+              <div class="paragraph">
+                <p>In its recent attempt to make measuring and understanding a good user
+                  experience easier, <em>Google</em> has standardized the site’s user experience
+                  metrics. These standardized metrics, called <strong>Core Web Vitals</strong>, help
+                  evaluate the <strong>real-world</strong> user experience of a website.</p>
+              </div>
+              <div class="paragraph">
+                <p><strong>Core Web Vitals</strong> is a set of specific website performance metrics introduced
+                  by Google to measure and quantify the user experience of a web page. They
+                  focus on key aspects of web <strong>page loading</strong>, <strong>interactivity</strong>, and
+                  <strong>visual stability</strong>, which are crucial for providing a good user experience.</p>
+              </div>
+              <div class="paragraph">
+                <p>The Core Web Vitals <strong>metrics</strong> are:</p>
+              </div>
+              <div class="ulist">
+                <ul>
+                  <li>
+                    <p>First Contentful Paint (FCP): <code>FCP</code> measures how long it takes the browser
+                      to render the <strong>first piece of DOM content</strong> after a user navigates to your
+                      page. Images, non-white <code>&lt;canvas&gt;</code> elements, and SVGs on your page are
+                      considered DOM content; anything inside an iframe isn’t included.
+                      Values should less than <strong>1.8 seconds</strong>.</p>
+                  </li>
+                  <li>
+                    <p>Largest Contentful Paint (LCP): LCP measures the loading speed of
+                      the main content on a web page. It represents the time taken for the
+                      largest visible element, such as an image or a block of text, to be
+                      rendered within the viewport. To provide a good user experience, the
+                      <code>LCP</code> should occur within the first <strong>2.5 seconds</strong> of the page starting
+                      to load.</p>
+                  </li>
+                  <li>
+                    <p>Total Blocking Time: <code>TBT</code> measures the total amount of time that a page
+                      is blocked from responding to user input, such as mouse clicks, screen
+                      taps, or keyboard presses. The sum is calculated by adding the blocking
+                      portion of all <strong>long tasks</strong> between <strong>First Contentful Paint</strong> (FCP) and
+                      <strong>Time to Interactive</strong>. Any task that executes for more than <strong>50 ms</strong> is a
+                      <strong>long task</strong>. Values for <code>TBT</code> should in total less than
+                      <strong>200 milliseconds</strong>.</p>
+                  </li>
+                  <li>
+                    <p>Cumulative Layout Shift (CLS): <code>CLS</code> measures the <strong>visual</strong> stability
+                      of a web page. It quantifies how much the page layout <strong>shifts</strong> during
+                      the loading process. Layout shifts can be disruptive, causing users
+                      to accidentally click on the wrong elements or lose their place on
+                      the page. A good user experience aims for a <code>CLS</code> score of less than
+                      <strong>0.1</strong>.</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="paragraph">
+                <p>Very good (excellent) website performance values for <strong>Core Web Vitals</strong>
+                  takes a lot of work to achieve. Values like the screenshot below require
+                  much work in the optimization and even then, can only rarely be achieved.</p>
+              </div>
+              <div id="lb-core_web_vitals_best_full" class="imageblock">
+                <div class="title notranslate">Excellent performance values (Lighthouse)</div>
+                <div class="content mt-3" style="margin-bottom: 1.75rem;">
+                  <a class="notoc link-no-decoration" href="/assets/images/pages/core_web_vitals/core_web_vitals_best_full.jpg" data-lightbox="assets/images/pages/core_web_vitals/core_web_vitals_best_full.jpg" data-title="Excellent performance values (Lighthouse)">
+                    <img class="img-fluid" src="/assets/images/pages/core_web_vitals/core_web_vitals_best_full.jpg" alt="Excellent performance values (Lighthouse)" width="800">
+                  </a>
+                </div>
+              </div>
+              <div class="paragraph">
+                <p>Nevertheless, it makes sense to achieve the best possible performance. The
+                  ranking of a website will improve a lot, and above all: the readers will
+                  appreciate it and visit such sites again.</p>
+              </div>
+            </div>
+          </div>
+          <div class="sect1">
+            <h2 id="j1-template-build-in-optimizations">J1 Template Build-in Optimizations</h2>
+            <div class="sectionbody">
+              <div class="paragraph">
+                <p>Optimizations of the <strong>Core Web Vitals</strong> are already done for all pages
+                  the template system.</p>
+              </div>
+              <div class="paragraph">
+                <p>Bla …​</p>
+              </div>
+              <div class="dlist">
+                <dl>
+                  <dt class="hdlist1">First Contentful Paint (FCP</dt>
+                  <dd>
+                    <p>Bla …​</p>
+                  </dd>
+                  <dt class="hdlist1">Largest Contentful Paint (LCP)</dt>
+                  <dd>
+                    <p>Bla …​</p>
+                  </dd>
+                  <dt class="hdlist1">Total Blocking Time</dt>
+                  <dd>
+                    <p>Bla …​</p>
+                  </dd>
+                  <dt class="hdlist1">Cumulative Layout Shift (CLS)</dt>
+                  <dd>
+                    <p>Bla …​</p>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <div class="sect1">
+            <h2 id="optimizise-lcp">Optimizise LCP</h2>
+            <div class="sectionbody">
+              <div class="paragraph">
+                <p>The Largest Contentful Paint or short <strong>LCP</strong> is one of the Core Web Vitals
+                  metrics that measure when the largest <strong>content element</strong> becomes <strong>visible</strong> in
+                  the browser. While other metrics like <strong>TTFB</strong> (time to first byte) and
+                  First Contentful Paint (<strong>FCP</strong>) also help measure page experience, they don’t
+                  indicate when the page has become <strong>meaningful</strong> to the user.</p>
+              </div>
+              <div class="paragraph">
+                <p>Typically, the page provides only a less context information to the user
+                  until the largest element becomes fully visible. LCP is, therefore, more
+                  representative of user expectations. As a Core Web Vital metric, LCP accounts
+                  for <strong>25%</strong> of the total performance ccore, making it one of the most important
+                  metrics to optimize a page.</p>
+              </div>
+              <div class="paragraph">
+                <p>As per Google, the types of elements considered for Largest Contentful
+                  Paint are:</p>
+              </div>
+              <div class="ulist">
+                <ul>
+                  <li>
+                    <p><code>&lt;img&gt;</code> elements</p>
+                  </li>
+                  <li>
+                    <p><code>&lt;image&gt;</code> elements inside an <code>&lt;svg&gt;</code> element</p>
+                  </li>
+                  <li>
+                    <p><code>&lt;video&gt;</code> elements (the poster image is used)</p>
+                  </li>
+                  <li>
+                    <p>An element with a background image loaded via the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/url">url()</a>
+                      function (as opposed to a
+                      <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Using_CSS_gradients">CSS</a>)
+                      gradient</p>
+                  </li>
+                  <li>
+                    <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements">Block-level</a>
+                      elements containing text nodes or other inline-level text elements.</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="paragraph">
+                <p>Now, there are multiple ways to measure the LCP of your page. The easiest
+                  ways to measure it online is available on
+                  <a href="https://imagekit.io/blog/improve-google-pagespeed-insights-score-for-images/?utm_source=css-tricks&amp;utm_medium=sponsored_content&amp;utm_campaign=csstricks_LCP" target="_blank" rel="noopener">PageSpeed Insights</a>.</p>
+              </div>
+              <div class="paragraph">
+                <p>Other Tools:</p>
+              </div>
+              <div class="ulist">
+                <ul>
+                  <li>
+                    <p>Google Chrome Developer Tools (Lighthouse)</p>
+                  </li>
+                  <li>
+                    <p>Search Console (Core Web Vitals Report)</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="paragraph">
+                <p>For example, <strong>Google PageSpeed Insights</strong> in
+                  its report indicates the element considered for calculating the LCP.</p>
+              </div>
+              <div class="paragraph">
+                <p>Now that you know what is LCP and what our target should be let’s look at
+                  ways to improve LCP on our website. The underlying principle of reducing
+                  LCP in all of the techniques mentioned below is to reduce the data downloaded
+                  on the user’s device and reduce the time it takes to send and execute that
+                  content.</p>
+              </div>
+              <div class="sect2">
+                <h3 id="optimizing-images">Optimizing Images</h3>
+                <div class="paragraph">
+                  <p>On most websites, the above-the-fold content usually contains a large
+                    image which gets considered for LCP. It could either be a hero image, a
+                    banner, or a carousel. It is, therefore, crucial that you optimize these
+                    images for a better LCP.</p>
+                </div>
+                <div class="paragraph">
+                  <p>To optimize your images, you should use a third-party image CDN like
+                    ImageKit.io. The advantage of using a third-party
+                    <a href="https://imagekit.io/blog/what-is-image-cdn-guide/?utm_source=css-tricks&amp;utm_medium=sponsored_content&amp;utm_campaign=csstricks_LCP" target="_blank" rel="noopener">image CDN</a>
+                    is that you can focus on your actual business and leave image
+                    optimization to the image CDN.</p>
+                </div>
+                <div class="paragraph">
+                  <p>The image CDN would stay at the edge of technology evolution, and you
+                    always get the best possible features with minimum ongoing investment.</p>
+                </div>
+                <div class="paragraph">
+                  <p>ImageKit is a complete real-time image CDN that integrates with any
+                    existing cloud storage like AWS S3, Azure, Google Cloud Storage, etc. It
+                    even comes with its integrated image storage and manager called the
+                    Media Library.</p>
+                </div>
+                <div class="paragraph">
+                  <p>Here is how ImageKit can help you improve your LCP score.</p>
+                </div>
+                <div class="sect3">
+                  <h4 id="images-in-lighter-formats">Images in Lighter Formats</h4>
+                  <div class="paragraph">
+                    <p>ImageKit detects if the user’s browser supports modern lighter formats
+                      like WebP or AVIF and automatically delivers the image in the <strong>lightest</strong>
+                      possible format in real-time. Formats like WebP are over 30% lighter
+                      compared to their JPEG equivalents.</p>
+                  </div>
+                </div>
+                <div class="sect3">
+                  <h4 id="automatically-compress-images">Automatically Compress Images</h4>
+                  <div class="paragraph">
+                    <p>Not just converting the image to the correct format, ImageKit also
+                      compresses your image to a smaller size. In doing so, it balances the
+                      image’s visual quality and the output size.</p>
+                  </div>
+                  <div class="paragraph">
+                    <p>You get the option to alter the compression level (or quality) in
+                      real-time by just changing a URL parameter, thereby balancing your
+                      business requirements of visual quality and load time.</p>
+                  </div>
+                </div>
+                <div class="sect3">
+                  <h4 id="real-time-transformations-for-images">Real-time Transformations for Images</h4>
+                  <div class="paragraph">
+                    <p>Google uses mobile-first indexing for almost all websites. It is
+                      therefore essential to optimize LCP for mobile more than that for
+                      desktop. Every image needs to be scaled down to as per the layout’s
+                      requirement.</p>
+                  </div>
+                  <div class="paragraph">
+                    <p>For example, you would need the image in a smaller size on the product
+                      listing page and a larger size on the product detail page. This resizing
+                      ensures that you are not sending any additional bytes than what is
+                      required for that particular page.</p>
+                  </div>
+                  <div class="paragraph">
+                    <p>ImageKit allows you to transform
+                      <a href="https://imagekit.io/responsive-images/?utm_source=css-tricks&amp;utm_medium=sponsored_content&amp;utm_campaign=csstricks_LCP" target="_blank" rel="noopener">responsive images</a>
+                      in real-time just by adding the corresponding transformation in
+                      the image URL. For example, the following image is resized to width
+                      200px and height 300px by adding the height and width transformation
+                      parameters in its URL.</p>
+                  </div>
+                </div>
+                <div class="sect3">
+                  <h4 id="caching-images">Caching Images</h4>
+                  <div class="paragraph">
+                    <p>Image CDNs use a global
+                      <a href="https://imagekit.io/blog/what-is-content-delivery-network-cdn-guide/?utm_source=css-tricks&amp;utm_medium=sponsored_content&amp;utm_campaign=csstricks_LCP" target="_blank" rel="noopener">Content Delivery Network</a>
+                      (CDN) to deliver the images. Using a CDN ensures that images load from a
+                      location closer to the user instead of your server, which could be halfway
+                      across the globe.</p>
+                  </div>
+                  <div class="paragraph">
+                    <p>ImageKit, for example, uses AWS Cloudfront as its CDN, which has over
+                      220 deliver nodes globally. A vast majority of the images get loaded in
+                      less than 50ms. Additionally, it uses the proper caching directives to
+                      cache the images on the user’s device, CDN nodes, and even its
+                      processing network for a faster load time.</p>
+                  </div>
+                  <div class="paragraph">
+                    <p>This helps to improve LCP on your website.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="sect2">
+                <h3 id="client-side-optimization">Client-side Optimization</h3>
+                <div class="sect3">
+                  <h4 id="preload-critical-resources">Preload Critical Resources</h4>
+                  <div class="paragraph">
+                    <p>There are certain cases where the browser may not prioritize loading a
+                      visually important resource that impacts LCP. For example, a banner
+                      image above the fold could be specified as a background image inside a
+                      CSS file. Since the browser would never know about this image until the
+                      CSS file is downloaded and parsed along with the DOM tree, it will not
+                      prioritize loading it.</p>
+                  </div>
+                  <div class="paragraph">
+                    <p>For such resources, you can preload them by adding a <code>&lt;link&gt;</code> tag with a
+                      <code>rel= "preload"</code> attribute to the head section of your HTML document.</p>
+                  </div>
+                  <div class="listingblock">
+                    <div class="content">
+                      <pre class="rouge highlight"><code data-lang="html"><span class="c">&lt;!-- Example of preloading --&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"preload"</span> <span class="na">src=</span><span class="s">"banner_image.jpg"</span><span class="nt">&gt;</span></code></pre>
+                    </div>
+                  </div>
+                  <div class="paragraph">
+                    <p>While you can preload multiple resources in a document, you should
+                      always restrict it to above-the-fold images or videos, page-wide font
+                      files, or critical CSS and JS files.</p>
+                  </div>
+                </div>
+                <div class="sect3">
+                  <h4 id="preconnect-third-party-origins">Preconnect Third-party Origins</h4>
+                  <div class="paragraph">
+                    <p>If you use third-party domains to deliver critical above-the-fold
+                      content like JS, CSS, or images, then you would benefit by indicating to
+                      the browser that a connection to that third-party domain needs to be
+                      made as soon as possible. This is done using the <code>rel="preconnect"</code>
+                      attribute of the <code>&lt;link&gt;</code> tag.</p>
+                  </div>
+                  <div class="listingblock">
+                    <div class="content">
+                      <pre class="rouge highlight"><code data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"preconnect"</span> <span class="na">href=</span><span class="s">"https://static.example.com"</span><span class="nt">&gt;</span></code></pre>
+                    </div>
+                  </div>
+                  <div class="paragraph">
+                    <p>With <code>preconnect</code> in place, the browser can save the domain connection
+                      time when it downloads the actual resource later.</p>
+                  </div>
+                  <div class="paragraph">
+                    <p>Subdomains like static.example.com, of your main website domain
+                      example.com are also third-party domains in this context.</p>
+                  </div>
+                  <div class="paragraph">
+                    <p>You can also use the <em>dns-prefetch</em> as a fallback in browsers that don’t
+                      support preconnect. This directive instructs the browser to complete the
+                      DNS resolution to the third-party domain even if it cannot establish a
+                      proper connection.</p>
+                  </div>
+                </div>
+                <div class="sect3">
+                  <h4 id="compress-text-files">Compress Text Files</h4>
+                  <div class="paragraph">
+                    <p>Any text-based data you load on your webpage should be compressed when
+                      transferred over the network using a compression algorithm like gzip or
+                      Brotli. SVGs, JSONs, API responses, JS and CSS files, and your main
+                      page’s HTML are good candidates for compression using these algorithms.
+                      This compression significantly reduces the amount of data that will get
+                      downloaded on page load, therefore bringing down the LCP.</p>
+                  </div>
+                </div>
+                <div class="sect3">
+                  <h4 id="remove-render-blocking-resources">Remove Render-blocking Resources</h4>
+                  <div class="paragraph">
+                    <p>When the browser receives the HTML page from your server, it parses the
+                      DOM tree. If there is any external stylesheet or JS file in the DOM, the
+                      browser has to pause for them before moving ahead with the parsing of
+                      the remaining DOM tree.</p>
+                  </div>
+                  <div class="paragraph">
+                    <p>These JS and CSS files are called render-blocking resources and delay
+                      the LCP time. Here are some ways to reduce the blocking time for JS and
+                      CSS files:</p>
+                  </div>
+                </div>
+                <div class="sect3">
+                  <h4 id="remove-unnecessary-bundles">Remove Unnecessary Bundles</h4>
+                  <div class="paragraph">
+                    <p>Avoid shipping huge bundles of JS and CSS files to the browser if they
+                      are not needed. If the CSS can be downloaded a lot later, or a JS
+                      functionality is not needed on a particular page, there is no reason to
+                      load it up front and block the render in the browser.</p>
+                  </div>
+                  <div class="paragraph">
+                    <p>Suppose you cannot split a particular file into smaller bundles, but it
+                      is not critical to the functioning of the page either. In that case, you
+                      can use the defer attribute of the script tag to indicate to the browser
+                      that it can go ahead with the DOM parsing and continue to execute the JS
+                      file at a later stage. Adding the defer attribute removes any blocker
+                      for DOM parsing. The LCP, therefore, goes down.</p>
+                  </div>
+                </div>
+                <div class="sect3">
+                  <h4 id="use-inline-css">Use Inline CSS</h4>
+                  <div class="paragraph">
+                    <p>Critical CSS comprises the style definitions needed for the DOM that
+                      appears in the first fold of your page. If the style definitions for
+                      this part of the page are inline, i.e., in each element’s <code>style</code>
+                      attribute, the browser has no dependency on the external CSS to style
+                      these elements. Therefore, it can render the page quickly, and the LCP
+                      goes down.</p>
+                  </div>
+                </div>
+                <div class="sect3">
+                  <h4 id="minify-content">Minify Content</h4>
+                  <div class="paragraph">
+                    <p>You should always minify the CSS and JS files before loading them in the
+                      browser. CSS and JS files contain whitespace to make them legible, but
+                      they are unnecessary for code execution. So, you can remove them, which
+                      reduces the file size on production. Smaller file size means that the
+                      files can load quickly, thereby reducing your LCP time.</p>
+                  </div>
+                  <div class="paragraph">
+                    <p>Compression techniques, as discussed earlier, use data compression
+                      algorithms to bring down the file size delivered over the network. Gzip
+                      and Brotli are two compression algorithms.
+                      <a href="https://imagekit.io/blog/what-and-why-brotli-compression/?utm_source=css-tricks&amp;utm_medium=sponsored_content&amp;utm_campaign=csstricks_LCP" target="_blank" rel="noopener">Brotli compression</a>
+                      offers a superior compression ratio compared to Gzip and is
+                      now supported on all major browsers, servers, and CDNs.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="sect2">
+                <h3 id="server-side-optimization">Server-side Optimization</h3>
+                <div class="paragraph">
+                  <p>A lot of computation, DB queries, and page construction happens on the
+                    server. You should analyze the requests going to your servers and
+                    identify the possible bottlenecks for responding to the requests. It
+                    could be a DB query slowing things down or the building of the page on
+                    your server.</p>
+                </div>
+                <div class="paragraph">
+                  <p>You can apply best practices like caching of DB responses, pre-rendering
+                    of pages, amongst others, to reduce the time it takes for your server to
+                    respond to requests.</p>
+                </div>
+                <div class="paragraph">
+                  <p>Of course, if the above does not improve the response time, you might
+                    need to increase your server capacity to handle the number of requests
+                    coming in.</p>
+                </div>
+                <div class="sect3">
+                  <h4 id="reduce-response-times">Reduce Response Times</h4>
+                  <div class="paragraph">
+                    <p>If your server takes long to respond to a request, then the time it
+                      takes to render the page on the screen also goes up. It, therefore,
+                      negatively affects every page speed metric, including LCP. To improve
+                      your server response times, here is what you should do.</p>
+                  </div>
+                </div>
+                <div class="sect3">
+                  <h4 id="content-delivery-network-cdn">Content Delivery Network (CDN)</h4>
+                  <div class="paragraph">
+                    <p>We have already seen above that using an image CDN like ImageKit
+                      improves the loading time for your images. Your users get the content
+                      delivered from a CDN node close to their location in milliseconds.</p>
+                  </div>
+                  <div class="paragraph">
+                    <p>You should extend the same to other content on your website. Using a CDN
+                      for your static content like JS, CSS, and font files will significantly
+                      speed up their load time. ImageKit does support the delivery of static
+                      content through its systems.</p>
+                  </div>
+                  <div class="paragraph">
+                    <p>You can also try to use a CDN for your HTML and APIs to cache those
+                      responses on the CDN nodes. Given the dynamic nature of such content,
+                      using a CDN for HTML or APIs can be a lot more complex than using a CDN
+                      for static content.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- [INFO   ] [j1.layout.content_generator_page.html ] [ end place content ] -->
+        </main>
+        <!-- [INFO   ] [j1.layout.content_generator_page.html ] [ end main for full page ] -->
+        <!-- [INFO   ] [j1.page.Core Web Vitals                   ] [Save the current page to j1_user_state cookie] -->
+        <!-- script>
+  var logger          = log4javascript.getLogger("j1.page.core web vitals.init");
+  var cookieUserState = 'j1.user.state'
+  var log_text        = 'Save the current browser page (core web vitals) to cookie: ' +cookieUserState;
+  var j1_user_state = {
+    'authenticated' : 'false',
+    'cookies_accepted' : 'false',
+    'theme_css' : 'unknown',
+    'theme_extension_css' : 'unknown',
+    'theme_name' : 'unknown',
+    'last_page' : 'unknown',
+    'last_provider' : 'unknown',
+    'last_signin' : 'unknown',
+    'provider' : 'unknown',
+    'user_name' : 'unknown',
+    'user_id' : 'unknown'
+  };
+  // Set|Detect J1 App status
+  j1_user_state.last_page = "/pages/public/learn/core_web_vitals/"
+  j1.setUserState( j1_user_state );
+  logger.info(log_text);
+</script -->
+        <!-- [INFO   ] [j1.layout.content_writer.proc         ] [ placement for all lane items finished ] -->
+        <!-- [DEBUG  ] [j1.layout.content_writer.proc         ] [ reset all lane items ] -->
+        <!-- [INFO   ] [j1.layout.content_writer.proc         ] [ end processing ] -->
+      </div>
+      <!-- [INFO   ] [j1.layout.page.html                    ] [ end content_writer processing for region: 'body-main' ] -->
+      <!-- [INFO   ] [j1.layout.default.html                ] [ end content inherited by layout: page ] -->
+      <!-- [INFO   ] [j1.layout.default.html                ] [ call default_writer for region: 'body-footer' ] -->
+      <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region body-footer, layout: page ] -->
+      <footer id="exception_container" class="container-fluid no-padding"></footer>
+      <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
+      <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region body-footer, layout: page ] -->
+      <footer id="footer_uno" class="active_footer"></footer>
+      <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
+      <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region body-footer, layout: page ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ start processing. collect data for region: body-footer, layout: page ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: core ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: core ] -->
+      <script>
+        $(function() {
+                // [INFO   ] [j1.layout.module_writer.proc          ] [ pass init data for: core ]
+                var settings = $.extend({}, {"layout": "page", "title": "Core Web Vitals", "tagline": "Improve the user experience", "fab_menu_id": "open_toc", "scrollbar": "false", "toc": "true", "comments": "false", "scrollDynamicPagesTopOnChange": ""});
+                  j1.init (settings);
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: bs5 ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: bs5 ] -->
+      <script>
+        $(function() {
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: bmd ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: bmd ] -->
+      <script>
+        $(function() {
+                  j1.adapter.bmd.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: materialze ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ materialze module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: ga-opt-in ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: ga-opt-in ] -->
+      <script>
+        $(function() {
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: logger ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: logger ] -->
+      <script>
+        $(function() {
+                  j1.adapter.logger.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: backstretch ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: backstretch ] -->
+      <script>
+        $(function() {
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: attic ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: attic ] -->
+      <script>
+        $(function() {
+              // [INFO   ] [j1.layout.module_writer.proc          ] [ pass module specific frontmatter options for: attic ]
+              var settings = $.extend({}, {"slides":[{"url":"/assets/images/modules/attics/leon-1920x1280.jpg", "alt":"Photo by Leon"}]}, {"layout": "page", "title": "Core Web Vitals", "tagline": "Improve the user experience", "scrollbar": "false", "toc": "true", "comments": "false"});
+                j1.adapter.attic.init (settings);
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: navigator ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: navigator ] -->
+      <script>
+        $(function() {
+                  j1.adapter.navigator.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: mmenu ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: mmenu ] -->
+      <script>
+        $(function() {
+                  j1.adapter.mmenu.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: themer ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: themer ] -->
+      <script>
+        $(function() {
+                  j1.adapter.themer.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: toccer ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: toccer ] -->
+      <script>
+        $(function() {
+                // [INFO   ] [j1.layout.module_writer.proc          ] [ pass init data for: toccer ]
+                var settings = $.extend({}, {"layout": "page", "title": "Core Web Vitals", "tagline": "Improve the user experience", "fab_menu_id": "open_toc", "scrollbar": "false", "toc": "true", "comments": "false", "scrollDynamicPagesTopOnChange": ""});
+                  j1.adapter.toccer.init (settings);
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: cookieConsent ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: cookieConsent ] -->
+      <script>
+        $(function() {
+                  j1.adapter.cookieConsent.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: lunr ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: lunr ] -->
+      <script>
+        $(function() {
+                  j1.adapter.lunr.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: fab ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: fab ] -->
+      <script>
+        $(function() {
+                // [INFO   ] [j1.layout.module_writer.proc          ] [ pass init data for: fab ]
+                var settings = $.extend({}, {"layout": "page", "title": "Core Web Vitals", "tagline": "Improve the user experience", "fab_menu_id": "open_toc", "scrollbar": "false", "toc": "true", "comments": "false", "scrollDynamicPagesTopOnChange": ""});
+                  j1.adapter.fab.init (settings);
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: jquery-ui ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ jquery-ui module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: jq_mouse_wheel ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ jq_mouse_wheel module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: theme_switcher ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: theme_switcher ] -->
+      <script>
+        $(function() {
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: rtable ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: rtable ] -->
+      <script>
+        $(function() {
+                  j1.adapter.rtable.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: asciidoctor ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: asciidoctor ] -->
+      <script>
+        $(function() {
+                  j1.adapter.asciidoctor.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: rtextresizer ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ rtextresizer module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: msDropdown ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: msDropdown ] -->
+      <script>
+        $(function() {
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: translator ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: translator ] -->
+      <script>
+        $(function() {
+                  j1.adapter.translator.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: analytics ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: analytics ] -->
+      <script>
+        $(function() {
+                  j1.adapter.analytics.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: CustomModule ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ CustomModule module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: customFunctions ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ customFunctions module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: rouge ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: rouge ] -->
+      <script>
+        $(function() {
+                  j1.adapter.rouge.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: animate ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: animate ] -->
+      <script>
+        $(function() {
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: justifiedGalleryCustomizer ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: framer ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: lightbox ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: lightbox ] -->
+      <script>
+        $(function() {
+                // [INFO   ] [j1.layout.module_writer.proc          ] [ pass init data for: lightbox ]
+                var settings = $.extend({}, {"layout": "page", "title": "Core Web Vitals", "tagline": "Improve the user experience", "fab_menu_id": "open_toc", "scrollbar": "false", "toc": "true", "comments": "false", "scrollDynamicPagesTopOnChange": ""});
+                  j1.adapter.lightbox.init (settings);
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: twemoji ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ twemoji module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: twemoji_picker ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ twemoji_picker module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: iconify ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: Module Algolia API ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ Module Algolia API module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: clipboard ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: clipboard ] -->
+      <script>
+        $(function() {
+                  j1.adapter.clipboard.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: carousel ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: masterslider ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: mastersliderpro ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ mastersliderpro module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: justifiedGallery ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: lightGallery ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: video_js ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: vimeo_froogaloop ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: vimeo_player ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: rangeslider ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: datatables ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ datatables module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: scroller ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: deeplAPI ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ deeplAPI module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: crypto ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ crypto module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: advertising ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: comments ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: dropdowns ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: nbinteract ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ nbinteract module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: plotly ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ plotly module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: bokeh ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ bokeh module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: vega ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ vega module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: require ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ require module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: waves ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ waves module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: particles ] -->
+      <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ particles module detected as: false ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: slick ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: masonry ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: iconpicker ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: theme_toggler ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: theme_toggler ] -->
+      <script>
+        $(function() {
+                  j1.adapter.themeToggler.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: lazy_loader ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: lazy_loader ] -->
+      <script>
+        $(function() {
+                  j1.adapter.lazyLoader.init();
+         });
+      </script>
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->
+      <!-- [DEBUG  ] [j1.layout.module_writer.proc          ] [ reset all data_keys ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ end processing ] -->
+      <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
+      <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ placement for all lane items finished ] -->
+      <!-- [DEBUG  ] [j1.layout.default_writer.proc         ] [ reset all lane items ] -->
+      <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing ] -->
+      <!-- [INFO   ] [j1.layout.default.html                ] [ end content_writer default_writer for region: 'body-footer' ] -->
+    </div>
+    <!-- [INFO   ] [j1.layout.default.html                ] [ end suppress flicker ] -->
+    <!-- [INFO   ] [j1.layout.default.html                ] [ place hidden color selector/themes: bg-primary ] -->
+    <div id="bg-primary" class="bg-primary" style="display: none"></div>
+    <!-- [INFO   ] [j1.layout.default.html                ] [ end default writer] -->
+    <!-- [INFO   ] [j1.layout.default.html                ] [ place container for the floating action button (FAB) ] -->
+    <div id="fab-container"></div>
+    <!-- [INFO   ] [j1.layout.default.html                ] [ initialize global JS scripts ] -->
+    <script>
+      //  BS tooltips and popovers
+      $(function() {
+          // initialize BS tooltips
+          var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+          var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+          });
+          // initialize BS popovers
+          var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+          var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl)
+          });
+      });
+    </script>
+  </body>
+  <!-- [INFO   ] [j1.layout.default.html                ] [ end page processing ] -->
+</html>
+  
