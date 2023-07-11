@@ -1879,19 +1879,29 @@ module.exports = function (options) {
 */
 module.exports = function lazyCSS() {
   let options = {};
-  const observe = o => {
-    options = o;
-    ('IntersectionObserver' in window && !sessionStorage[options.selector] ? fnCssObserver : fnCssDomLink)();
+  const observe = opt => {
+    options = opt;
+
+    // sessionStorage NOT used
+    //
+    // (('IntersectionObserver' in window && !sessionStorage[options.selector]) ? fnCssObserver : fnCssDomLink)();
+    ('IntersectionObserver' in window ? fnCssObserver : doNothing)();
+  };
+  const doNothing = () => {
+    observe = false;
   };
   const fnCssDomLink = () => {
     let link = document.createElement('link');
+    let id = 'lazy' + options.selector;
+    link.id = id.replace('.', '_');
+    ;
     link.rel = 'stylesheet';
     link.type = 'text/css';
     link.href = options.src;
     document.head.appendChild(link);
   };
   const fnCssObserver = () => {
-    let fas = document.querySelectorAll(options.selector);
+    let selectors = document.querySelectorAll(options.selector);
     let observer = new IntersectionObserver((entry, observer) => {
       if (entry[0].intersectionRatio > 0) {
         fnCssDomLink();
@@ -1901,8 +1911,8 @@ module.exports = function lazyCSS() {
     }, {
       rootMargin: options.rootMargin
     });
-    fas.forEach(fa => {
-      observer.observe(fa);
+    selectors.forEach(selector => {
+      observer.observe(selector);
     });
   };
   return {
