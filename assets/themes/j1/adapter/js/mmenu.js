@@ -19,7 +19,7 @@
  # NOTE: For getStyleValue helper see
  #  https://stackoverflow.com/questions/16965515/how-to-get-a-style-attribute-from-a-css-class-by-javascript-jquery
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-07-13 16:40:11 +0200
+ # Adapter generated: 2023-07-14 14:24:29 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -62,7 +62,7 @@ j1.adapter.mmenu = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.mmenu',
-        generated:   '2023-07-13 16:40:11 +0200'
+        generated:   '2023-07-14 14:24:29 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
