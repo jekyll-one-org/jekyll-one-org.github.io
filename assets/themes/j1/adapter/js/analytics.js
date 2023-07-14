@@ -13,7 +13,7 @@
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-07-14 14:24:29 +0200
+ #  Adapter generated: 2023-07-14 14:44:50 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -60,7 +60,7 @@ var logText;
         var pageState   = $('#no_flicker').css("display");
         var pageVisible = (pageState == 'block') ? true: false;
         if ( j1.getState() === 'finished' && pageVisible ) {
-            logger = log4javascript.getLogger('j1.adapter.analytics');
+            logger = log4javascript.getLogger('j1.adapter.analytics.google');
             logger.info('\n' + 'Google Analytics: disabled');
         }
         clearInterval(dependencies_met_page_ready);
