@@ -2,11 +2,11 @@
   <generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator>
   <link href="https://jekyll-one-org.github.io/assets/data/feeds/feed.xml" rel="self" type="application/atom+xml">
     <link href="https://jekyll-one-org.github.io/" rel="alternate" type="text/html"/>
-    <updated>2023-07-14T14:44:50+02:00</updated>
+    <updated>2023-07-15T16:17:28+02:00</updated>
     <id>https://jekyll-one-org.github.io/assets/data/feeds/feed.xml</id>
     <post_limited>1000000</post_limited>
     <template_name>J1 Theme</template_name>
-    <template_version>2023.4.2</template_version>
+    <template_version>2023.4.5</template_version>
     <title type="html">Starter</title>
     <subtitle>Jekyll One Starter Theme. This template gives web developers and hobbyists a clean implementation in Jekyll for starting new projects and combines the best of open source software for the Web. Jekyll One is open source and the modules packed as well. No pain for private or professional purposes.
 </subtitle>
@@ -16,17 +16,17 @@
     </author>
     <entry>
       <title type="html">Welcome to Jekyll</title>
-      <link href="https://jekyll-one-org.github.io/posts/public/featured/jekyll/2023/07/11/welcome-to-j1/" rel="alternate" type="text/html" title="Welcome to Jekyll">
-        <published>2023-07-11T00:00:00+02:00</published>
-        <updated>2023-07-11T00:00:00+02:00</updated>
-        <id>https://jekyll-one-org.github.io/posts/public/featured/jekyll/2023/07/11/welcome-to-j1</id>
+      <link href="https://jekyll-one-org.github.io/posts/public/featured/jekyll/2023/07/15/welcome-to-j1/" rel="alternate" type="text/html" title="Welcome to Jekyll">
+        <published>2023-07-15T00:00:00+02:00</published>
+        <updated>2023-07-15T00:00:00+02:00</updated>
+        <id>https://jekyll-one-org.github.io/posts/public/featured/jekyll/2023/07/15/welcome-to-j1</id>
         <author>
           <name>Juergen Adams</name>
         </author>
         <category term="posts">
-          <category term="Template">
-            <category term="Jekyll">
-              <summary type="html"><![CDATA[Jekyll is a static site generator that allows you to build websites using Markdown, HTML, and CSS. It uses templates and layouts to generate the static files that make up your website, which can be hosted on any web server. Jekyll is built with Ruby and requires basic command line knowledge.]]></summary>
+          <category term="Post">
+            <category term="Template">
+              <summary type="html"><![CDATA[J1 Template is a Bootstrap V5 website template for the static site generator Jekyll. Jekyll is a static site generator that allows you to build websites using Markdown, HTML, and CSS. It uses templates and layouts to generate the static files that make up your website, which can be hosted on any web server. Jekyll is built with Ruby and requires basic command line knowledge.]]></summary>
               <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyll-one-org.github.io/assets/images/modules/attics/katie-moum-1920x1280.jpg">
                 <media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="https://jekyll-one-org.github.io/assets/images/modules/attics/katie-moum-1920x1280.jpg"/>
                 <entry>
@@ -40,7 +40,7 @@
                     </author>
                     <category term="posts">
                       <category term="Theme">
-                        <summary type="html"><![CDATA[The template system J1 was initially developed to create a simple but fully configurable creation tool for document servers. Document servers provide websites, or other digital content like PDF files, to publish the project documentation to the public.]]></summary>
+                        <summary type="html"><![CDATA[J1 Template is a Bootstrap V5 website template for the static site generator Jekyll. The template system J1 was initially developed to create a simple but fully configurable creation tool for document servers. Document servers provide websites, or other digital content like PDF files, to publish the project documentation to the public.]]></summary>
                         <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyll-one-org.github.io/assets/images/modules/attics/1920x1280/j1-starter-mockup-1.jpg">
                           <media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="https://jekyll-one-org.github.io/assets/images/modules/attics/1920x1280/j1-starter-mockup-1.jpg"/>
                           <entry>
@@ -54,7 +54,7 @@
                               </author>
                               <category term="posts">
                                 <category term="Generators">
-                                  <summary type="html"><![CDATA[This article highlights the top OpenSource Projects providing static site generators (SSG) in many different programming languages. You&#8217;ll find Jekyll one of them. Look at the top open-source SSGs if a full-blown CMS is needed for your project.]]></summary>
+                                  <summary type="html"><![CDATA[J1 Template is a Bootstrap V5 website template for the static site generator Jekyll. This article highlights the top open source projects providing static site generators (SSG) in many different programming languages. You&#8217;ll find Jekyll one of them. Look at the top open-source SSGs if a full-blown CMS is needed for your project.]]></summary>
                                   <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyll-one-org.github.io/assets/images/modules/attics/machine-generator-1920x1280.jpg">
                                     <media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="https://jekyll-one-org.github.io/assets/images/modules/attics/machine-generator-1920x1280.jpg"/>
                                     <entry>
@@ -68,7 +68,7 @@
                                         </author>
                                         <category term="posts">
                                           <category term="Cookies">
-                                            <summary type="html"><![CDATA[Is it needed for visitors to know what cookies are about? No doubts, you&#8217;re requested to inform - in Europe for legal reasons. All users visiting websites are bothered all the time to accept cookies. For good reasons.]]></summary>
+                                            <summary type="html"><![CDATA[J1 Template is a Bootstrap V5 website template for the static site generator Jekyll. Is it needed for visitors to know what cookies are about? No doubts, you&#8217;re requested to inform - in Europe for legal reasons. All users visiting websites are bothered all the time to accept cookies. For good reasons.]]></summary>
                                             <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyll-one-org.github.io/assets/images/modules/attics/cookies-1920x1200.jpg">
                                               <media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="https://jekyll-one-org.github.io/assets/images/modules/attics/cookies-1920x1200.jpg"/>
                                             </media:thumbnail>

@@ -13,7 +13,7 @@
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-07-14 14:44:50 +0200
+ #  Adapter generated: 2023-07-15 16:17:28 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -73,7 +73,7 @@ var logText;
         // ---------------------------------------------------------------------
         var settings = $.extend({
           module_name: 'j1.adapter.comments',
-          generated:   '2023-07-14 14:44:50 +0200'
+          generated:   '2023-07-15 16:17:28 +0200'
         }, options);
         _this = j1.adapter.comments;
         logger = log4javascript.getLogger('j1.adapter.comments');
