@@ -2,13 +2,13 @@
   <generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator>
   <link href="https://jekyll-one-org.github.io/assets/data/feeds/feed.xml" rel="self" type="application/atom+xml">
     <link href="https://jekyll-one-org.github.io/" rel="alternate" type="text/html"/>
-    <updated>2023-07-15T16:17:28+02:00</updated>
+    <updated>2023-07-19T09:26:47+02:00</updated>
     <id>https://jekyll-one-org.github.io/assets/data/feeds/feed.xml</id>
     <post_limited>1000000</post_limited>
     <template_name>J1 Theme</template_name>
-    <template_version>2023.4.5</template_version>
-    <title type="html">Starter</title>
-    <subtitle>Jekyll One Starter Theme. This template gives web developers and hobbyists a clean implementation in Jekyll for starting new projects and combines the best of open source software for the Web. Jekyll One is open source and the modules packed as well. No pain for private or professional purposes.
+    <template_version>2023.5.2</template_version>
+    <title type="html">J1 Starter</title>
+    <subtitle>J1 Template gives web developers and hobbyists a clean implementation in Jekyll for starting new projects based on Bootstap V5. The template combines the best software for the Web. Jekyll One is open source, free to use, and the modules packed as well.
 </subtitle>
     <author>
       <name>Juergen Adams</name>
@@ -16,10 +16,10 @@
     </author>
     <entry>
       <title type="html">Welcome to Jekyll</title>
-      <link href="https://jekyll-one-org.github.io/posts/public/featured/jekyll/2023/07/15/welcome-to-j1/" rel="alternate" type="text/html" title="Welcome to Jekyll">
-        <published>2023-07-15T00:00:00+02:00</published>
-        <updated>2023-07-15T00:00:00+02:00</updated>
-        <id>https://jekyll-one-org.github.io/posts/public/featured/jekyll/2023/07/15/welcome-to-j1</id>
+      <link href="https://jekyll-one-org.github.io/posts/public/featured/jekyll/2023/07/19/welcome-to-j1/" rel="alternate" type="text/html" title="Welcome to Jekyll">
+        <published>2023-07-19T00:00:00+02:00</published>
+        <updated>2023-07-19T00:00:00+02:00</updated>
+        <id>https://jekyll-one-org.github.io/posts/public/featured/jekyll/2023/07/19/welcome-to-j1</id>
         <author>
           <name>Juergen Adams</name>
         </author>
