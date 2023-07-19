@@ -2,7 +2,7 @@
   <generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator>
   <link href="https://jekyll-one-org.github.io/assets/data/feeds/feed.xml" rel="self" type="application/atom+xml">
     <link href="https://jekyll-one-org.github.io/" rel="alternate" type="text/html"/>
-    <updated>2023-07-19T09:26:47+02:00</updated>
+    <updated>2023-07-19T10:06:55+02:00</updated>
     <id>https://jekyll-one-org.github.io/assets/data/feeds/feed.xml</id>
     <post_limited>1000000</post_limited>
     <template_name>J1 Theme</template_name>
@@ -15,18 +15,18 @@
       <email>jadams@web.de</email>
     </author>
     <entry>
-      <title type="html">Welcome to Jekyll</title>
-      <link href="https://jekyll-one-org.github.io/posts/public/featured/jekyll/2023/07/19/welcome-to-j1/" rel="alternate" type="text/html" title="Welcome to Jekyll">
-        <published>2023-07-19T00:00:00+02:00</published>
-        <updated>2023-07-19T00:00:00+02:00</updated>
-        <id>https://jekyll-one-org.github.io/posts/public/featured/jekyll/2023/07/19/welcome-to-j1</id>
+      <title type="html">Welcome</title>
+      <link href="https://jekyll-one-org.github.io/posts/public/featured/jekyll/2023/06/21/welcome-to-j1/" rel="alternate" type="text/html" title="Welcome">
+        <published>2023-06-21T00:00:00+02:00</published>
+        <updated>2023-06-21T00:00:00+02:00</updated>
+        <id>https://jekyll-one-org.github.io/posts/public/featured/jekyll/2023/06/21/welcome-to-j1</id>
         <author>
           <name>Juergen Adams</name>
         </author>
         <category term="posts">
-          <category term="Post">
-            <category term="Template">
-              <summary type="html"><![CDATA[J1 Template is a Bootstrap V5 website template for the static site generator Jekyll. Jekyll is a static site generator that allows you to build websites using Markdown, HTML, and CSS. It uses templates and layouts to generate the static files that make up your website, which can be hosted on any web server. Jekyll is built with Ruby and requires basic command line knowledge.]]></summary>
+          <category term="Template">
+            <category term="Jekyll">
+              <summary type="html"><![CDATA[J1 Template is a Bootstrap V5 website template for the static site generator Jekyll. All you’re doing at the end of the day is writing your content, and the J1 Template does all the tricky things: putting out HTML, Javascript, and CSS. As a result, the site creation process gets out of your way.]]></summary>
               <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyll-one-org.github.io/assets/images/modules/attics/katie-moum-1920x1280.jpg">
                 <media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="https://jekyll-one-org.github.io/assets/images/modules/attics/katie-moum-1920x1280.jpg"/>
                 <entry>

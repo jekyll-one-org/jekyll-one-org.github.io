@@ -13,7 +13,7 @@
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-07-19 09:26:47 +0200
+ #  Adapter generated: 2023-07-19 10:06:55 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -47,7 +47,7 @@ j1.adapter.rtable = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.rtable',
-        generated:   '2023-07-19 09:26:47 +0200'
+        generated:   '2023-07-19 10:06:55 +0200'
       }, options);
       var bsMediaBreakpoints = {
         xs: 575,

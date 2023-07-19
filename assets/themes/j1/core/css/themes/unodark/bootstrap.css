@@ -10096,23 +10096,6 @@ cite, em, var, address, dfn {
 
 /*
 // -----------------------------------------------------------------------------
-// ~/scss/theme_uno_dark/extensions/_dropcap.scss
-// Provides general styles for the J1 Dropcaps
-//
-// Product/Info:
-// https://jekyll.one
-//
-// Copyright (C) 2023 Juergen Adams
-//
-// J1 Theme is licensed under the MIT License.
-// See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
-// -----------------------------------------------------------------------------
-*/
-.j1-dropcap {
-  color: #f5f5f5 !important; }
-
-/*
-// -----------------------------------------------------------------------------
 // ~/scss/theme_uno/extensions/_header.scss
 // Provides general styles for the J1 Headers
 //
