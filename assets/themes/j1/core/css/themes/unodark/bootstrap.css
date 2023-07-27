@@ -62,7 +62,7 @@
   # ----------------------------------------------------------------------------
 */
 /*!
-   * Bootstrap  v5.3.0 (https://getbootstrap.com/)
+   * Bootstrap  v5.3.1 (https://getbootstrap.com/)
    * Copyright 2011-2023 The Bootstrap Authors
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    */
@@ -187,18 +187,18 @@
 
 [data-bs-theme="dark"] {
   color-scheme: dark;
-  --bs-body-color: #9e9e9e;
-  --bs-body-color-rgb: 158, 158, 158;
+  --bs-body-color: #e0e0e0;
+  --bs-body-color-rgb: 224, 224, 224;
   --bs-body-bg: #212121;
   --bs-body-bg-rgb: 33, 33, 33;
   --bs-emphasis-color: #fff;
   --bs-emphasis-color-rgb: 255, 255, 255;
-  --bs-secondary-color: rgba(158, 158, 158, 0.75);
-  --bs-secondary-color-rgb: 158, 158, 158;
+  --bs-secondary-color: rgba(224, 224, 224, 0.75);
+  --bs-secondary-color-rgb: 224, 224, 224;
   --bs-secondary-bg: #424242;
   --bs-secondary-bg-rgb: 66, 66, 66;
-  --bs-tertiary-color: rgba(158, 158, 158, 0.5);
-  --bs-tertiary-color-rgb: 158, 158, 158;
+  --bs-tertiary-color: rgba(224, 224, 224, 0.5);
+  --bs-tertiary-color-rgb: 224, 224, 224;
   --bs-tertiary-bg: #323232;
   --bs-tertiary-bg-rgb: 50, 50, 50;
   --bs-primary-text-emphasis: #aebcc4;
@@ -527,8 +527,8 @@ legend {
   height: auto; }
 
 [type="search"] {
-  outline-offset: -2px;
-  -webkit-appearance: textfield; }
+  -webkit-appearance: textfield;
+  outline-offset: -2px; }
 
 /* rtl:raw:
 [type="tel"],
@@ -1745,10 +1745,10 @@ progress {
   font-weight: 400;
   line-height: 1.5;
   color: #424242;
+  appearance: none;
   background-color: #fff;
   background-clip: padding-box;
   border: var(--bs-border-width) solid #212121;
-  appearance: none;
   border-radius: var(--bs-border-radius);
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
   @media (prefers-reduced-motion: reduce) {
@@ -1867,6 +1867,7 @@ textarea.form-control-lg {
   font-weight: 400;
   line-height: 1.5;
   color: #424242;
+  appearance: none;
   background-color: #fff;
   background-image: var(--bs-form-select-bg-img), var(--bs-form-select-bg-icon, none);
   background-repeat: no-repeat;
@@ -1874,8 +1875,7 @@ textarea.form-control-lg {
   background-size: 16px 12px;
   border: var(--bs-border-width) solid #212121;
   border-radius: var(--bs-border-radius);
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  appearance: none; }
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
   @media (prefers-reduced-motion: reduce) {
     .form-select {
       transition: none; } }
@@ -1908,7 +1908,7 @@ textarea.form-control-lg {
   border-radius: var(--bs-border-radius-lg); }
 
 [data-bs-theme="dark"] .form-select {
-  --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%239e9e9e' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e"); }
+  --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23e0e0e0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e"); }
 
 .form-check {
   display: block;
@@ -1934,13 +1934,13 @@ textarea.form-control-lg {
   height: 1em;
   margin-top: 0.25em;
   vertical-align: top;
+  appearance: none;
   background-color: var(--bs-form-check-bg);
   background-image: var(--bs-form-check-bg-image);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   border: none;
-  appearance: none;
   print-color-adjust: exact; }
   .form-check-input[type="checkbox"] {
     border-radius: 0.25em; }
@@ -2016,8 +2016,8 @@ textarea.form-control-lg {
   width: 100%;
   height: 1.5rem;
   padding: 0;
-  background-color: transparent;
-  appearance: none; }
+  appearance: none;
+  background-color: transparent; }
   .form-range:focus {
     outline: 0; }
     .form-range:focus::-webkit-slider-thumb {
@@ -2030,11 +2030,11 @@ textarea.form-control-lg {
     width: 1rem;
     height: 1rem;
     margin-top: -0.25rem;
+    appearance: none;
     background-color: #78909c;
     border: 0;
     border-radius: 1rem;
-    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    appearance: none; }
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
     @media (prefers-reduced-motion: reduce) {
       .form-range::-webkit-slider-thumb {
         transition: none; } }
@@ -2051,11 +2051,11 @@ textarea.form-control-lg {
   .form-range::-moz-range-thumb {
     width: 1rem;
     height: 1rem;
+    appearance: none;
     background-color: #78909c;
     border: 0;
     border-radius: 1rem;
-    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    appearance: none; }
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
     @media (prefers-reduced-motion: reduce) {
       .form-range::-moz-range-thumb {
         transition: none; } }
@@ -2142,9 +2142,11 @@ textarea.form-control-lg {
     transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem); }
   .form-floating > .form-control-plaintext ~ label {
     border-width: var(--bs-border-width) 0; }
-  .form-floating > :disabled ~ label {
+  .form-floating > :disabled ~ label,
+  .form-floating > .form-control:disabled ~ label {
     color: #757575; }
-    .form-floating > :disabled ~ label::after {
+    .form-floating > :disabled ~ label::after,
+    .form-floating > .form-control:disabled ~ label::after {
       background-color: var(--bs-secondary-bg); }
 
 .input-group {
@@ -3147,7 +3149,7 @@ textarea.form-control-lg {
   .nav-link:focus-visible {
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgba(120, 144, 156, 0.25); }
-  .nav-link.disabled {
+  .nav-link.disabled, .nav-link:disabled {
     color: var(--bs-nav-link-disabled-color);
     pointer-events: none;
     cursor: default; }
@@ -3169,10 +3171,6 @@ textarea.form-control-lg {
     .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
       isolation: isolate;
       border-color: var(--bs-nav-tabs-link-hover-border-color); }
-    .nav-tabs .nav-link.disabled, .nav-tabs .nav-link:disabled {
-      color: var(--bs-nav-link-disabled-color);
-      background-color: transparent;
-      border-color: transparent; }
   .nav-tabs .nav-link.active,
   .nav-tabs .nav-item.show .nav-link {
     color: var(--bs-nav-tabs-link-active-color);
@@ -3189,10 +3187,6 @@ textarea.form-control-lg {
   --bs-nav-pills-link-active-bg: #78909c; }
   .nav-pills .nav-link {
     border-radius: var(--bs-nav-pills-border-radius); }
-    .nav-pills .nav-link:disabled {
-      color: var(--bs-nav-link-disabled-color);
-      background-color: transparent;
-      border-color: transparent; }
   .nav-pills .nav-link.active,
   .nav-pills .show > .nav-link {
     color: var(--bs-nav-pills-link-active-color);
@@ -5666,35 +5660,35 @@ textarea.form-control-lg {
 
 .text-bg-primary {
   color: #fff !important;
-  background-color: RGBA(120, 144, 156, var(--bs-bg-opacity, 1)) !important; }
+  background-color: RGBA(var(--bs-primary-rgb), var(--bs-bg-opacity, 1)) !important; }
 
 .text-bg-secondary {
   color: #fff !important;
-  background-color: RGBA(69, 90, 100, var(--bs-bg-opacity, 1)) !important; }
+  background-color: RGBA(var(--bs-secondary-rgb), var(--bs-bg-opacity, 1)) !important; }
 
 .text-bg-success {
   color: #fff !important;
-  background-color: RGBA(76, 175, 80, var(--bs-bg-opacity, 1)) !important; }
+  background-color: RGBA(var(--bs-success-rgb), var(--bs-bg-opacity, 1)) !important; }
 
 .text-bg-info {
   color: #fff !important;
-  background-color: RGBA(0, 188, 212, var(--bs-bg-opacity, 1)) !important; }
+  background-color: RGBA(var(--bs-info-rgb), var(--bs-bg-opacity, 1)) !important; }
 
 .text-bg-warning {
   color: #000 !important;
-  background-color: RGBA(255, 235, 59, var(--bs-bg-opacity, 1)) !important; }
+  background-color: RGBA(var(--bs-warning-rgb), var(--bs-bg-opacity, 1)) !important; }
 
 .text-bg-danger {
   color: #fff !important;
-  background-color: RGBA(244, 67, 54, var(--bs-bg-opacity, 1)) !important; }
+  background-color: RGBA(var(--bs-danger-rgb), var(--bs-bg-opacity, 1)) !important; }
 
 .text-bg-light {
   color: #fff !important;
-  background-color: RGBA(176, 190, 197, var(--bs-bg-opacity, 1)) !important; }
+  background-color: RGBA(var(--bs-light-rgb), var(--bs-bg-opacity, 1)) !important; }
 
 .text-bg-dark {
   color: #fff !important;
-  background-color: RGBA(55, 71, 79, var(--bs-bg-opacity, 1)) !important; }
+  background-color: RGBA(var(--bs-dark-rgb), var(--bs-bg-opacity, 1)) !important; }
 
 .link-primary {
   color: RGBA(var(--bs-primary-rgb), var(--bs-link-opacity, 1)) !important;
@@ -5926,7 +5920,7 @@ textarea.form-control-lg {
 .vr {
   display: inline-block;
   align-self: stretch;
-  width: 1px;
+  width: var(--bs-border-width);
   min-height: 1em;
   background-color: currentcolor;
   opacity: 0.25; }
