@@ -16,7 +16,7 @@
  # Tocbot is licensed under under the MIT License.
  # For details, see https://tscanlin.github.io/tocbot
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-07-27 15:03:44 +0200
+ # Adapter generated: 2023-08-24 19:35:46 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -54,7 +54,7 @@ j1.adapter.toccer = (function () {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.toccer',
-        generated:   '2023-07-27 15:03:44 +0200'
+        generated:   '2023-08-24 19:35:46 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -69,7 +69,7 @@ j1.adapter.toccer = (function () {
       toccerOptions       = $.extend(true, {}, toccerDefaults, toccerSettings, frontmatterOptions);
       // Load scroller module DEFAULTS|CONFIG
       scrollerDefaults    = $.extend({}, {"enabled":false, "smoothscroll":{"offsetCorrection":0, "offsetCorrectionLocal":0}});
-      scrollerSettings    = $.extend({}, {"enabled":true, "smoothscroll":{"offsetCorrection":-9, "offsetCorrectionLocal":-90}, "scrollers":[{"scroller":{"enabled":true, "type":"showOnScroll", "id":"panel_home_intro", "container":"panel_home_intro", "showDelay":1000, "scrollOffset":500}}, {"scroller":{"enabled":false, "type":"showOnScroll", "id":"panel_home_service", "container":"panel_home_service", "showDelay":700, "scrollOffset":200}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"preview_content", "container":"panel_home_news-scroll-group", "pagePath":"/assets/data/news_panel_posts/page", "elementScroll":true, "scrollOffset":200, "lastPage":2, "infoLastPage":true, "lastPageInfo_en":"More articles can be found with the <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n", "lastPageInfo_de":"Weitere Artikel finden Sie im <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n"}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"preview_content", "container":"timeline", "pagePath":"/pages/public/blog/navigator/page", "elementScroll":true, "scrollOffset":200, "lastPage":1000000, "infoLastPage":false, "lastPageInfo_en":"", "lastPageInfo_de":""}}]});
+      scrollerSettings    = $.extend({}, {"enabled":true, "smoothscroll":{"offsetCorrection":-9, "offsetCorrectionLocal":-90}, "scrollers":[{"scroller":{"enabled":true, "type":"showOnScroll", "id":"panel_home_intro", "container":"panel_home_intro", "showDelay":1000, "scrollOffset":500}}, {"scroller":{"enabled":false, "type":"showOnScroll", "id":"panel_home_service", "container":"panel_home_service", "showDelay":700, "scrollOffset":200}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"preview_content", "container":"panel_home_news-scroll-group", "pagePath":"/assets/data/news_panel_posts/page", "elementScroll":true, "scrollOffset":200, "lastPage":2, "infoLastPage":true, "lastPageInfo_en":"More articles can be found with the <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n", "lastPageInfo_de":"Weitere Artikel finden Sie im <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n"}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"preview_content", "container":"timeline", "pagePath":"/pages/public/blog/navigator/page", "elementScroll":true, "scrollOffset":200, "lastPage":2, "infoLastPage":false, "lastPageInfo_en":"", "lastPageInfo_de":""}}]});
       scrollerOptions     = $.extend(true, {}, scrollerDefaults, scrollerSettings);
       // initialize state flag
       _this.setState('started');

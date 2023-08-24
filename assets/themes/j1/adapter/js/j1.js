@@ -13,7 +13,7 @@
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-07-27 15:03:44 +0200
+ # Adapter generated: 2023-08-24 19:35:46 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -130,7 +130,7 @@ var j1 = (function (options) {
   };
   var user_state   = {
     'writer':               'j1.adapter',
-    'template_version':     '2023.6.0',
+    'template_version':     '2023.6.17',
 //
 //  for testing only
 //  'template_version':     'undefined',
@@ -139,7 +139,7 @@ var j1 = (function (options) {
     'theme_name':           'UnoLight',
     'theme_css':            '',
     'theme_author':         'J1 Team',
-    'theme_version':        '2023.6.0',
+    'theme_version':        '2023.6.17',
     'session_active':       false,
     'google_translate':     'disabled',
     'translate_all_pages':  true,
@@ -177,13 +177,13 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2023-07-27 15:03:44 +0200'
+        generated:   '2023-08-24 19:35:46 +0200'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
       // Load scroller module DEFAULTS|CONFIGs
       scrollerDefaults = $.extend({}, {"enabled":false, "smoothscroll":{"offsetCorrection":0, "offsetCorrectionLocal":0}});
-      scrollerSettings = $.extend({}, {"enabled":true, "smoothscroll":{"offsetCorrection":-9, "offsetCorrectionLocal":-90}, "scrollers":[{"scroller":{"enabled":true, "type":"showOnScroll", "id":"panel_home_intro", "container":"panel_home_intro", "showDelay":1000, "scrollOffset":500}}, {"scroller":{"enabled":false, "type":"showOnScroll", "id":"panel_home_service", "container":"panel_home_service", "showDelay":700, "scrollOffset":200}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"preview_content", "container":"panel_home_news-scroll-group", "pagePath":"/assets/data/news_panel_posts/page", "elementScroll":true, "scrollOffset":200, "lastPage":2, "infoLastPage":true, "lastPageInfo_en":"More articles can be found with the <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n", "lastPageInfo_de":"Weitere Artikel finden Sie im <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n"}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"preview_content", "container":"timeline", "pagePath":"/pages/public/blog/navigator/page", "elementScroll":true, "scrollOffset":200, "lastPage":1000000, "infoLastPage":false, "lastPageInfo_en":"", "lastPageInfo_de":""}}]});
+      scrollerSettings = $.extend({}, {"enabled":true, "smoothscroll":{"offsetCorrection":-9, "offsetCorrectionLocal":-90}, "scrollers":[{"scroller":{"enabled":true, "type":"showOnScroll", "id":"panel_home_intro", "container":"panel_home_intro", "showDelay":1000, "scrollOffset":500}}, {"scroller":{"enabled":false, "type":"showOnScroll", "id":"panel_home_service", "container":"panel_home_service", "showDelay":700, "scrollOffset":200}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"preview_content", "container":"panel_home_news-scroll-group", "pagePath":"/assets/data/news_panel_posts/page", "elementScroll":true, "scrollOffset":200, "lastPage":2, "infoLastPage":true, "lastPageInfo_en":"More articles can be found with the <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n", "lastPageInfo_de":"Weitere Artikel finden Sie im <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n"}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"preview_content", "container":"timeline", "pagePath":"/pages/public/blog/navigator/page", "elementScroll":true, "scrollOffset":200, "lastPage":2, "infoLastPage":false, "lastPageInfo_en":"", "lastPageInfo_de":""}}]});
       scrollerOptions  = $.extend(true, {}, scrollerDefaults, scrollerSettings);
       // settings for dynamic pages
       scrollDynamicPagesTopOnChange = frontmatterOptions.scrollDynamicPagesTopOnChange ? frontmatterOptions.scrollDynamicPagesTopOnChange : 'false';
@@ -1166,7 +1166,7 @@ var j1 = (function (options) {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2023.6.0';
+      return '2023.6.17';
     },
     // -------------------------------------------------------------------------
     // getScrollOffset()

@@ -10074,6 +10074,31 @@ cite, em, var, address, dfn {
 
 /*
  # -----------------------------------------------------------------------------
+ # ~/scss/theme_uno/extensions/_cards.scss
+ #
+ # Product/Info:
+ # https://jekyll.one
+ #
+ # Copyright (C) 2023 Juergen Adams
+ #
+ # J1 Theme is licensed under the MIT License.
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
+ # -----------------------------------------------------------------------------
+ # NOTE: Styles for (extended) cards
+ # NOTE: Cards|Styles, inspired by BS3 Material-Kit
+ # -----------------------------------------------------------------------------
+ # TODO: Should be moved|integrated to|with ~/scss/theme_uno/bootstrap/_cards.scss
+ # TODO: CSS styles should rewritten to SCSS
+ # -----------------------------------------------------------------------------
+ # SPEC:
+ # -----------------------------------------------------------------------------
+*/
+.card-body {
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: #bdbdbd; }
+
+/*
+ # -----------------------------------------------------------------------------
  # ~/scss/theme_uno_dark/extensions/_drawer.scss
  #
  # Product/Info:
@@ -10415,6 +10440,24 @@ item {
 */
 .panel-search p {
   color: #757575; }
+
+/*
+ # -----------------------------------------------------------------------------
+ # ~/scss/theme_uno/modules/_speak2me.scss
+ #
+ # Product/Info:
+ # http://jekyll.one
+ #
+ # Copyright (C) 2023 Juergen Adams
+ #
+ # J1 Theme is licensed under the MIT License
+ # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
+ # -----------------------------------------------------------------------------
+ # NOTE: Provides styles for the module J1 Rouge (Highlighter)
+ # -----------------------------------------------------------------------------
+*/
+.speak-highlighted {
+  background: rgba(255, 255, 255, 0.4); }
 
 /*
  # -----------------------------------------------------------------------------

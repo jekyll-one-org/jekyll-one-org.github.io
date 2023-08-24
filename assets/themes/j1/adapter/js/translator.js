@@ -12,7 +12,7 @@
  #  J1 Theme is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Theme/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-07-27 15:03:44 +0200
+ #  Adapter generated: 2023-08-24 19:35:46 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -22,6 +22,8 @@
 /* eslint quotes: "off"                                                       */
 // -----------------------------------------------------------------------------
 // https://github.com/EdwardBalaj/Simple-DeepL-API-Integration
+// https://www.javatpoint.com/how-to-add-google-translate-button-on-your-webpage
+// https://gist.github.com/ab007shetty/28e99707734db32a6e881e4d245d42f7
 // https://github.com/marghoobsuleman/ms-Dropdown
 // https://www.marghoobsuleman.com/image-dropdown/help
 // https://www.marghoobsuleman.com/image-dropdown/advanced-help
@@ -68,7 +70,7 @@ j1.adapter.translator = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.translator',
-        generated:   '2023-07-27 15:03:44 +0200'
+        generated:   '2023-08-24 19:35:46 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -314,7 +316,7 @@ j1.adapter.translator = (function (j1, window) {
     // Called by the translator CORE module after the user has made
     // the selection for a translation|language
     // -------------------------------------------------------------------------
-    cbGoogle: function () {
+    cbGoogle: function (option) {
       var logger            = log4javascript.getLogger('j1.adapter.translator.cbGoogle');
       var msDropdown        = document.getElementById('dropdownJSON').msDropdown;
       var url               = new liteURL(window.location.href);
@@ -344,6 +346,11 @@ j1.adapter.translator = (function (j1, window) {
       //   // domainAttribute = hostname;
       //   domainAttribute = '';
       // }
+      // button 'Do nothing' clicked
+      //
+      if (option === 'exitOnly') {
+        return;
+      }
       selectedTranslationLanguage = msDropdown.value;
       logger.info('\n' + 'selected translation language: ' + selectedTranslationLanguage);
       // set content language
@@ -358,7 +365,7 @@ j1.adapter.translator = (function (j1, window) {
         Cookies.remove('googtrans', { domain: domainAttribute });
         Cookies.remove('googtrans', { domain: hostname });
         Cookies.remove('googtrans');
-        location.reload(true);
+        location.reload();
       }
       // set transCode settings
       destLang  = translation_language;

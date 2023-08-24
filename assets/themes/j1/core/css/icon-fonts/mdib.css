@@ -3503,6 +3503,9 @@
 .mdib-format-annotation-plus:before {
   content: "\F0646"; }
 
+.mdib-format-clear:before {
+  content: "\F0265"; }
+
 .mdib-format-color-fill:before {
   content: "\F0266"; }
 
@@ -5903,6 +5906,12 @@
 .mdib-play:before {
   content: "\F040A"; }
 
+.mdib-play-outline:before {
+  content: "\F0F1B"; }
+
+.mdib-play-pause:before {
+  content: "\F040E"; }
+
 .mdib-plex:before {
   content: "\F06BA"; }
 
@@ -7000,6 +7009,18 @@
 
 .mdib-speaker:before {
   content: "\F04C3"; }
+
+.mdib-speaker-off:before {
+  content: "\F04C4"; }
+
+.mdib-speaker-pause:before {
+  content: "\F1B73"; }
+
+.mdib-speaker-play:before {
+  content: "\F1B72"; }
+
+.mdib-speaker-stop:before {
+  content: "\F1B74"; }
 
 .mdib-spear:before {
   content: "\F1845"; }

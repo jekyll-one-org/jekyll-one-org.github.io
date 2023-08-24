@@ -13,7 +13,7 @@
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-07-27 15:03:44 +0200
+ #  Adapter generated: 2023-08-24 19:35:46 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -69,7 +69,7 @@ var logText;
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.advertising',
-        generated:   '2023-07-27 15:03:44 +0200'
+        generated:   '2023-08-24 19:35:46 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -85,8 +85,8 @@ var logText;
       frontmatterOptions      = options != null ? $.extend({}, options) : {};
       // initialze advertisingOptions
       //
-      advertisingDefaults     = $.extend({},   {"enabled":false, "provider":"google", "google":{"autoHideOnUnfilled":true, "addBorderOnUnfilled":true, "checkTrackingProtection":false, "showErrorPageOnBlocked":false}});
-      advertisingSettings     = $.extend({},   {"enabled":true, "placement":"manual", "google":{"publisherID":"ca-pub-3885670015316130", "autoPlaceAds":false, "autoHideOnUnfilled":false, "addBorderOnUnfilled":true, "ads":[{"ad":null, "enabled":false, "id":"ad_5128488466", "layout":"home", "content_page":"home", "publisherID":"ca-pub-3885670015316130", "test":"on", "styles":"display:block;", "slot":5128488466, "ad_layout":"display", "ad_format":"auto", "ad_responsive":true}, {"ad":null, "enabled":false, "id":"ad_7284712660", "layout":"home", "content_page":"home", "publisherID":"ca-pub-3885670015316130", "test":"on", "styles":"display:block;", "slot":7284712660, "ad_layout":"display", "ad_format":"auto", "ad_responsive":true}, {"ad":null, "enabled":true, "id":"ad_5128488466", "layout":"page", "content_page":"preview_google_adsense", "publisherID":"ca-pub-3885670015316130", "test":"on", "styles":"display:block;", "slot":5128488466, "ad_layout":"display", "ad_format":"auto", "ad_responsive":true}, {"ad":null, "enabled":true, "id":"ad_7522184684", "layout":"page", "content_page":"preview_google_adsense", "publisherID":"ca-pub-3885670015316130", "test":"on", "styles":"display:block; text-align:center;", "slot":7522184684, "ad_layout":"in-article", "ad_format":"fluid"}, {"ad":null, "enabled":false, "id":"ad_4814313879", "layout":"page", "content_page":"preview_google_adsense", "publisherID":"ca-pub-3885670015316130", "test":"on", "styles":"display:block;", "slot":4814313879, "ad_layout":"multiplex", "ad_format":"autorelaxed", "ui_type":"image_stacked", "ui_rows":1, "ui_columns":4}]}});
+      advertisingDefaults     = $.extend({},   {"enabled":false, "provider":"google", "google":{"placement":"manual", "autoPlaceAds":false, "autoHideOnUnfilled":false, "addBorderOnUnfilled":true, "checkTrackingProtection":false, "showErrorPageOnBlocked":false}});
+      advertisingSettings     = $.extend({},   {"enabled":true, "google":{"publisherID":"<your-publisher-id>", "ads":[{"ad":null, "enabled":true, "id":"ad_<your-slot-id>", "layout":"home", "content_page":"home", "publisherID":"<your-publisher-id>", "test":"on", "styles":"display:block;", "slot":"<your-slot-id>", "ad_layout":"display", "ad_format":"auto", "ad_responsive":true}, {"ad":null, "enabled":true, "id":"ad_<your-slot-id>", "layout":"page", "content_page":"preview_google_adsense", "publisherID":"<your-publisher-id>", "test":"on", "styles":"display:block;", "slot":"<your-slot-id>", "ad_layout":"display", "ad_format":"auto", "ad_responsive":true}]}});
       advertisingOptions      = $.extend(true, {}, advertisingDefaults, advertisingSettings, frontmatterOptions);
       layout                  = advertisingOptions.layout;
       publisherID             = advertisingOptions.google.publisherID;

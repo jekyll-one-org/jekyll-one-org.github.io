@@ -13,7 +13,7 @@
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-07-27 15:03:44 +0200
+ # Adapter generated: 2023-08-24 19:35:46 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -41,7 +41,7 @@ j1.adapter.rtextResizer = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.rtextResizer',
-        generated:   '2023-07-27 15:03:44 +0200'
+        generated:   '2023-08-24 19:35:46 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
