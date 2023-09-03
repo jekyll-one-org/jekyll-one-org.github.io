@@ -13,7 +13,7 @@
  #  J1 Theme is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Theme/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-08-25 16:58:15 +0200
+ #  Adapter generated: 2023-09-03 20:25:33 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -66,7 +66,7 @@ j1.adapter.slick = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.cookieConsent',
-        generated:   '2023-08-25 16:58:15 +0200'
+        generated:   '2023-09-03 20:25:33 +0200'
       }, options);
       // Load  module DEFAULTS|CONFIG
       atticDefaults         = $.extend({}, );
@@ -171,16 +171,19 @@ j1.adapter.slick = (function (j1, window) {
                     lazy:                     slickLightboxOptions.lazy,
                   });
                 } // END carousel lightbox enabled
-                logger.info('\n' + 'adjust positions of arrows on id: post_carousel_featured');
+                logger.info('\n' + 'adjust positions of slick lightbox arrows on id: post_carousel_featured');
                 var buttons = $("#post_carousel_featured > button");
-                // recalculate right arrow position based on gutter settings
+                var arrowTopPos = Math.round(document.documentElement.clientHeight/2)
+                // jadams, 2023-09-01: not used anymore
                 //
-                var percentage_right = 3 + carouselSettings.gutters;
-                $.each($(buttons), function(index, button) {
-                  if (button.textContent.includes("Next")) {
-                    $(button).attr('style','right: ' + percentage_right + '%');
-                  }
-                });
+                // re-calculate right arrow position based on gutter settings
+                // var percentage_right = 3 + carouselSettings.gutters;
+                // $.each($(buttons), function(index, button) {
+                //
+                //   if (button.textContent.includes("Next")) {
+                //     $(button).attr('style', 'right: ' + percentage_right + '%');
+                //   }
+                // });
                 // add CSS style for individual top position for all carousels
                 //
                 if ($('#post_carousel_featured_caption')) {
@@ -215,9 +218,9 @@ j1.adapter.slick = (function (j1, window) {
                     const $slides = $slick.find('.slick-slide');
                     const $currentSlide = $slides.filter((index, slide) => $(slide).hasClass('slick-current'));
                     if (carousel_type == 'example') {
-                      slideImageHeight = ($currentSlide.find('').height() / 2) - 25;
+                      slideImageHeight = ($currentSlide.find('').height()/2) - 25;
                     } else {
-                      slideImageHeight = ($currentSlide.find('img').height() / 2) - 20;
+                      slideImageHeight = ($currentSlide.find('img').height()/2) - 25;
                     }
                     logger.info('\n' + 'adjust top arrow position (centered) by ' + slideImageHeight + ' on id: post_carousel_featured');
                     $('.slick-arrow-post_carousel_featured').css('top', slideImageHeight + 'px');
@@ -347,16 +350,19 @@ j1.adapter.slick = (function (j1, window) {
                     lazy:                     slickLightboxOptions.lazy,
                   });
                 } // END carousel lightbox enabled
-                logger.info('\n' + 'adjust positions of arrows on id: collection_carousel_portfolio');
+                logger.info('\n' + 'adjust positions of slick lightbox arrows on id: collection_carousel_portfolio');
                 var buttons = $("#collection_carousel_portfolio > button");
-                // recalculate right arrow position based on gutter settings
+                var arrowTopPos = Math.round(document.documentElement.clientHeight/2)
+                // jadams, 2023-09-01: not used anymore
                 //
-                var percentage_right = 3 + carouselSettings.gutters;
-                $.each($(buttons), function(index, button) {
-                  if (button.textContent.includes("Next")) {
-                    $(button).attr('style','right: ' + percentage_right + '%');
-                  }
-                });
+                // re-calculate right arrow position based on gutter settings
+                // var percentage_right = 3 + carouselSettings.gutters;
+                // $.each($(buttons), function(index, button) {
+                //
+                //   if (button.textContent.includes("Next")) {
+                //     $(button).attr('style', 'right: ' + percentage_right + '%');
+                //   }
+                // });
                 // add CSS style for individual top position for all carousels
                 //
                 if ($('#collection_carousel_portfolio_caption')) {
@@ -391,9 +397,9 @@ j1.adapter.slick = (function (j1, window) {
                     const $slides = $slick.find('.slick-slide');
                     const $currentSlide = $slides.filter((index, slide) => $(slide).hasClass('slick-current'));
                     if (carousel_type == 'example') {
-                      slideImageHeight = ($currentSlide.find('').height() / 2) - 25;
+                      slideImageHeight = ($currentSlide.find('').height()/2) - 25;
                     } else {
-                      slideImageHeight = ($currentSlide.find('img').height() / 2) - 20;
+                      slideImageHeight = ($currentSlide.find('img').height()/2) - 25;
                     }
                     logger.info('\n' + 'adjust top arrow position (centered) by ' + slideImageHeight + ' on id: collection_carousel_portfolio');
                     $('.slick-arrow-collection_carousel_portfolio').css('top', slideImageHeight + 'px');
@@ -523,16 +529,19 @@ j1.adapter.slick = (function (j1, window) {
                     lazy:                     slickLightboxOptions.lazy,
                   });
                 } // END carousel lightbox enabled
-                logger.info('\n' + 'adjust positions of arrows on id: collection_carousel_biography');
+                logger.info('\n' + 'adjust positions of slick lightbox arrows on id: collection_carousel_biography');
                 var buttons = $("#collection_carousel_biography > button");
-                // recalculate right arrow position based on gutter settings
+                var arrowTopPos = Math.round(document.documentElement.clientHeight/2)
+                // jadams, 2023-09-01: not used anymore
                 //
-                var percentage_right = 3 + carouselSettings.gutters;
-                $.each($(buttons), function(index, button) {
-                  if (button.textContent.includes("Next")) {
-                    $(button).attr('style','right: ' + percentage_right + '%');
-                  }
-                });
+                // re-calculate right arrow position based on gutter settings
+                // var percentage_right = 3 + carouselSettings.gutters;
+                // $.each($(buttons), function(index, button) {
+                //
+                //   if (button.textContent.includes("Next")) {
+                //     $(button).attr('style', 'right: ' + percentage_right + '%');
+                //   }
+                // });
                 // add CSS style for individual top position for all carousels
                 //
                 if ($('#collection_carousel_biography_caption')) {
@@ -567,9 +576,9 @@ j1.adapter.slick = (function (j1, window) {
                     const $slides = $slick.find('.slick-slide');
                     const $currentSlide = $slides.filter((index, slide) => $(slide).hasClass('slick-current'));
                     if (carousel_type == 'example') {
-                      slideImageHeight = ($currentSlide.find('').height() / 2) - 25;
+                      slideImageHeight = ($currentSlide.find('').height()/2) - 25;
                     } else {
-                      slideImageHeight = ($currentSlide.find('img').height() / 2) - 20;
+                      slideImageHeight = ($currentSlide.find('img').height()/2) - 25;
                     }
                     logger.info('\n' + 'adjust top arrow position (centered) by ' + slideImageHeight + ' on id: collection_carousel_biography');
                     $('.slick-arrow-collection_carousel_biography').css('top', slideImageHeight + 'px');
@@ -699,16 +708,19 @@ j1.adapter.slick = (function (j1, window) {
                     lazy:                     slickLightboxOptions.lazy,
                   });
                 } // END carousel lightbox enabled
-                logger.info('\n' + 'adjust positions of arrows on id: collection_carousel_fantasy');
+                logger.info('\n' + 'adjust positions of slick lightbox arrows on id: collection_carousel_fantasy');
                 var buttons = $("#collection_carousel_fantasy > button");
-                // recalculate right arrow position based on gutter settings
+                var arrowTopPos = Math.round(document.documentElement.clientHeight/2)
+                // jadams, 2023-09-01: not used anymore
                 //
-                var percentage_right = 3 + carouselSettings.gutters;
-                $.each($(buttons), function(index, button) {
-                  if (button.textContent.includes("Next")) {
-                    $(button).attr('style','right: ' + percentage_right + '%');
-                  }
-                });
+                // re-calculate right arrow position based on gutter settings
+                // var percentage_right = 3 + carouselSettings.gutters;
+                // $.each($(buttons), function(index, button) {
+                //
+                //   if (button.textContent.includes("Next")) {
+                //     $(button).attr('style', 'right: ' + percentage_right + '%');
+                //   }
+                // });
                 // add CSS style for individual top position for all carousels
                 //
                 if ($('#collection_carousel_fantasy_caption')) {
@@ -743,9 +755,9 @@ j1.adapter.slick = (function (j1, window) {
                     const $slides = $slick.find('.slick-slide');
                     const $currentSlide = $slides.filter((index, slide) => $(slide).hasClass('slick-current'));
                     if (carousel_type == 'example') {
-                      slideImageHeight = ($currentSlide.find('').height() / 2) - 25;
+                      slideImageHeight = ($currentSlide.find('').height()/2) - 25;
                     } else {
-                      slideImageHeight = ($currentSlide.find('img').height() / 2) - 20;
+                      slideImageHeight = ($currentSlide.find('img').height()/2) - 25;
                     }
                     logger.info('\n' + 'adjust top arrow position (centered) by ' + slideImageHeight + ' on id: collection_carousel_fantasy');
                     $('.slick-arrow-collection_carousel_fantasy').css('top', slideImageHeight + 'px');
@@ -875,16 +887,19 @@ j1.adapter.slick = (function (j1, window) {
                     lazy:                     slickLightboxOptions.lazy,
                   });
                 } // END carousel lightbox enabled
-                logger.info('\n' + 'adjust positions of arrows on id: collection_carousel_romance');
+                logger.info('\n' + 'adjust positions of slick lightbox arrows on id: collection_carousel_romance');
                 var buttons = $("#collection_carousel_romance > button");
-                // recalculate right arrow position based on gutter settings
+                var arrowTopPos = Math.round(document.documentElement.clientHeight/2)
+                // jadams, 2023-09-01: not used anymore
                 //
-                var percentage_right = 3 + carouselSettings.gutters;
-                $.each($(buttons), function(index, button) {
-                  if (button.textContent.includes("Next")) {
-                    $(button).attr('style','right: ' + percentage_right + '%');
-                  }
-                });
+                // re-calculate right arrow position based on gutter settings
+                // var percentage_right = 3 + carouselSettings.gutters;
+                // $.each($(buttons), function(index, button) {
+                //
+                //   if (button.textContent.includes("Next")) {
+                //     $(button).attr('style', 'right: ' + percentage_right + '%');
+                //   }
+                // });
                 // add CSS style for individual top position for all carousels
                 //
                 if ($('#collection_carousel_romance_caption')) {
@@ -919,9 +934,9 @@ j1.adapter.slick = (function (j1, window) {
                     const $slides = $slick.find('.slick-slide');
                     const $currentSlide = $slides.filter((index, slide) => $(slide).hasClass('slick-current'));
                     if (carousel_type == 'example') {
-                      slideImageHeight = ($currentSlide.find('').height() / 2) - 25;
+                      slideImageHeight = ($currentSlide.find('').height()/2) - 25;
                     } else {
-                      slideImageHeight = ($currentSlide.find('img').height() / 2) - 20;
+                      slideImageHeight = ($currentSlide.find('img').height()/2) - 25;
                     }
                     logger.info('\n' + 'adjust top arrow position (centered) by ' + slideImageHeight + ' on id: collection_carousel_romance');
                     $('.slick-arrow-collection_carousel_romance').css('top', slideImageHeight + 'px');
@@ -1051,16 +1066,19 @@ j1.adapter.slick = (function (j1, window) {
                     lazy:                     slickLightboxOptions.lazy,
                   });
                 } // END carousel lightbox enabled
-                logger.info('\n' + 'adjust positions of arrows on id: example_carousel_arrows_dots');
+                logger.info('\n' + 'adjust positions of slick lightbox arrows on id: example_carousel_arrows_dots');
                 var buttons = $("#example_carousel_arrows_dots > button");
-                // recalculate right arrow position based on gutter settings
+                var arrowTopPos = Math.round(document.documentElement.clientHeight/2)
+                // jadams, 2023-09-01: not used anymore
                 //
-                var percentage_right = 3 + carouselSettings.gutters;
-                $.each($(buttons), function(index, button) {
-                  if (button.textContent.includes("Next")) {
-                    $(button).attr('style','right: ' + percentage_right + '%');
-                  }
-                });
+                // re-calculate right arrow position based on gutter settings
+                // var percentage_right = 3 + carouselSettings.gutters;
+                // $.each($(buttons), function(index, button) {
+                //
+                //   if (button.textContent.includes("Next")) {
+                //     $(button).attr('style', 'right: ' + percentage_right + '%');
+                //   }
+                // });
                 // add CSS style for individual top position for all carousels
                 //
                 if ($('#example_carousel_arrows_dots_caption')) {
@@ -1095,9 +1113,9 @@ j1.adapter.slick = (function (j1, window) {
                     const $slides = $slick.find('.slick-slide');
                     const $currentSlide = $slides.filter((index, slide) => $(slide).hasClass('slick-current'));
                     if (carousel_type == 'example') {
-                      slideImageHeight = ($currentSlide.find('h3').height() / 2) - 25;
+                      slideImageHeight = ($currentSlide.find('h3').height()/2) - 25;
                     } else {
-                      slideImageHeight = ($currentSlide.find('img').height() / 2) - 20;
+                      slideImageHeight = ($currentSlide.find('img').height()/2) - 25;
                     }
                     logger.info('\n' + 'adjust top arrow position (centered) by ' + slideImageHeight + ' on id: example_carousel_arrows_dots');
                     $('.slick-arrow-example_carousel_arrows_dots').css('top', slideImageHeight + 'px');
@@ -1227,16 +1245,19 @@ j1.adapter.slick = (function (j1, window) {
                     lazy:                     slickLightboxOptions.lazy,
                   });
                 } // END carousel lightbox enabled
-                logger.info('\n' + 'adjust positions of arrows on id: image_carousel_simple');
+                logger.info('\n' + 'adjust positions of slick lightbox arrows on id: image_carousel_simple');
                 var buttons = $("#image_carousel_simple > button");
-                // recalculate right arrow position based on gutter settings
+                var arrowTopPos = Math.round(document.documentElement.clientHeight/2)
+                // jadams, 2023-09-01: not used anymore
                 //
-                var percentage_right = 3 + carouselSettings.gutters;
-                $.each($(buttons), function(index, button) {
-                  if (button.textContent.includes("Next")) {
-                    $(button).attr('style','right: ' + percentage_right + '%');
-                  }
-                });
+                // re-calculate right arrow position based on gutter settings
+                // var percentage_right = 3 + carouselSettings.gutters;
+                // $.each($(buttons), function(index, button) {
+                //
+                //   if (button.textContent.includes("Next")) {
+                //     $(button).attr('style', 'right: ' + percentage_right + '%');
+                //   }
+                // });
                 // add CSS style for individual top position for all carousels
                 //
                 if ($('#image_carousel_simple_caption')) {
@@ -1271,9 +1292,9 @@ j1.adapter.slick = (function (j1, window) {
                     const $slides = $slick.find('.slick-slide');
                     const $currentSlide = $slides.filter((index, slide) => $(slide).hasClass('slick-current'));
                     if (carousel_type == 'example') {
-                      slideImageHeight = ($currentSlide.find('').height() / 2) - 25;
+                      slideImageHeight = ($currentSlide.find('').height()/2) - 25;
                     } else {
-                      slideImageHeight = ($currentSlide.find('img').height() / 2) - 20;
+                      slideImageHeight = ($currentSlide.find('img').height()/2) - 25;
                     }
                     logger.info('\n' + 'adjust top arrow position (centered) by ' + slideImageHeight + ' on id: image_carousel_simple');
                     $('.slick-arrow-image_carousel_simple').css('top', slideImageHeight + 'px');
@@ -1403,16 +1424,19 @@ j1.adapter.slick = (function (j1, window) {
                     lazy:                     slickLightboxOptions.lazy,
                   });
                 } // END carousel lightbox enabled
-                logger.info('\n' + 'adjust positions of arrows on id: image_carousel_full');
+                logger.info('\n' + 'adjust positions of slick lightbox arrows on id: image_carousel_full');
                 var buttons = $("#image_carousel_full > button");
-                // recalculate right arrow position based on gutter settings
+                var arrowTopPos = Math.round(document.documentElement.clientHeight/2)
+                // jadams, 2023-09-01: not used anymore
                 //
-                var percentage_right = 3 + carouselSettings.gutters;
-                $.each($(buttons), function(index, button) {
-                  if (button.textContent.includes("Next")) {
-                    $(button).attr('style','right: ' + percentage_right + '%');
-                  }
-                });
+                // re-calculate right arrow position based on gutter settings
+                // var percentage_right = 3 + carouselSettings.gutters;
+                // $.each($(buttons), function(index, button) {
+                //
+                //   if (button.textContent.includes("Next")) {
+                //     $(button).attr('style', 'right: ' + percentage_right + '%');
+                //   }
+                // });
                 // add CSS style for individual top position for all carousels
                 //
                 if ($('#image_carousel_full_caption')) {
@@ -1447,9 +1471,9 @@ j1.adapter.slick = (function (j1, window) {
                     const $slides = $slick.find('.slick-slide');
                     const $currentSlide = $slides.filter((index, slide) => $(slide).hasClass('slick-current'));
                     if (carousel_type == 'example') {
-                      slideImageHeight = ($currentSlide.find('').height() / 2) - 25;
+                      slideImageHeight = ($currentSlide.find('').height()/2) - 25;
                     } else {
-                      slideImageHeight = ($currentSlide.find('img').height() / 2) - 20;
+                      slideImageHeight = ($currentSlide.find('img').height()/2) - 25;
                     }
                     logger.info('\n' + 'adjust top arrow position (centered) by ' + slideImageHeight + ' on id: image_carousel_full');
                     $('.slick-arrow-image_carousel_full').css('top', slideImageHeight + 'px');

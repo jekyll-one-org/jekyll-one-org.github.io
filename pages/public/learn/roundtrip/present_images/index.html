@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2023-08-25 16:58:15 +0200 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2023-09-03 20:25:33 +0200 ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ environment detected as: development ] -->
-  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2023.7.0 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2023.8.0 ] -->
   <head data-proofer-ignore>
     <!-- [INFO   ] [j1.layout.default.html                ] [ call default_writer for region: 'head' ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: page ] -->
@@ -62,7 +62,7 @@
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ add J1 SEO Tags ] -->
     <!-- Begin J1 SEO tags -->
     <meta name="generator" content="Jekyll v4.3.2">
-    <meta name="builder" content="J1 Template v2023.7.0">
+    <meta name="builder" content="J1 Template v2023.8.0">
     <title>Image - Lightboxes, Carousels, Sliders, and Galleries for J1 Template</title>
     <meta property="og:title" content="Image - Lightboxes, Carousels, Sliders, and Galleries for J1 Template">
     <meta name="author" content="Juergen Adams">
@@ -83,7 +83,7 @@
     <meta name="twitter:site" content="http://localhost:30000/pages/public/learn/roundtrip/present_images/">
     <meta name="twitter:creator" content="@Juergen Adams">
     <script type="application/ld+json">
-      {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Juergen Adams","url":"https://jekyll.one/"},"dateModified":"2023-08-25T16:59:06+02:00","datePublished":"2020-11-03T00:00:00+02:00","description":"J1 Template support valuable features to manage your image-based content using lightboxes, carousels, sliders, and galleries. The image modules of J1 Template offer a wide range of complex functionality based on powerful OpenSource libraries like Lightbox2, Master Slider, LightGallery, or JustifiedGallery for high-end, masonry-styled preview maps.","headline":"Image","image":{"width":1920,"height":1280,"url":"http://localhost:30000/assets/images/modules/attics/1920x1280/quino-al-2.jpg","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:30000/pages/public/learn/roundtrip/present_images/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:30000/assets/images/icons/j1/j1-512x512.png"},"name":"Juergen Adams"},"url":"http://localhost:30000/pages/public/learn/roundtrip/present_images/"}
+      {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Juergen Adams","url":"https://jekyll.one/"},"dateModified":"2023-09-03T20:26:18+02:00","datePublished":"2020-11-03T00:00:00+02:00","description":"J1 Template support valuable features to manage your image-based content using lightboxes, carousels, sliders, and galleries. The image modules of J1 Template offer a wide range of complex functionality based on powerful OpenSource libraries like Lightbox2, Master Slider, LightGallery, or JustifiedGallery for high-end, masonry-styled preview maps.","headline":"Image","image":{"width":1920,"height":1280,"url":"http://localhost:30000/assets/images/modules/attics/1920x1280/quino-al-2.jpg","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:30000/pages/public/learn/roundtrip/present_images/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:30000/assets/images/icons/j1/j1-512x512.png"},"name":"Juergen Adams"},"url":"http://localhost:30000/pages/public/learn/roundtrip/present_images/"}
     </script>
     <!-- End J1 SEO tags -->
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ end SEO Optimization ] -->
@@ -414,11 +414,6 @@
     <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module J1 Carousel ] -->
     <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: carousel ] -->
     <script defer src="/assets/themes/j1/adapter/js/carousel.js"></script>
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all Module J1 Carousel ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout all, place js files for resource ID: carousel ] -->
-    <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
-    <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
-    <script defer src="/assets/themes/j1/modules/carousel/js/carousel.js"></script>
     <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: masterslider ] -->
     <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module Master Slider Lite ] -->
@@ -661,7 +656,8 @@
                   <div class="input-group">
                     <span class="input-group-addon"><i class="mdib mdib-magnify mdib-2x mb-2" style="color:#9E9E9E"></i></span>
                     <input id="search-query" type="text" name="q" placeholder="Your search expression" autocomplete="off" class="form-control">
-                    <span id="clear-topsearch" class="form-clear form-clear-searcher d-none" style="margin-top: 0.75rem"> <i class="mdib mdib-format-clear mdib-2x" style="color:#9E9E9E"></i> </span>
+                    <!-- span id="clear-topsearch" class="form-clear form-clear-searcher d-none" style="margin-top: 0.75rem"> <i class="mdib mdib-format-clear mdib-2x" style="color:#9E9E9E"></i> </span -->
+                    <span id="clear-topsearch" class="form-clear form-clear-searcher d-none" style="margin-top: 1.15rem"> <i class="mdib mdib-format-clear mdib-24px" style="color:#9E9E9E"></i> </span>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="margin-top: 24px;"></button>
                   </div>
                 </div>
@@ -974,7 +970,7 @@
                     can also include animation effects, such as fade-in or slide-in transitions
                     between images, to make the presentation more engaging and visually appealing.</p>
                 </div>
-                <div class="slider-title">Carousel + Arrows + Dots + Captions + Lightbox</div>
+                <div class="carousel-title">Carousel + Arrows + Dots + Captions + Lightbox</div>
                 <carousel id="image_carousel_full_parent" class="slider-parent mb-5"></carousel>
               </div>
               <div class="sect2 mt-4">
@@ -988,7 +984,7 @@
                     various ways, such as changing the slider speed, or the navigation options
                     like <strong>Arrows</strong> and <strong>Dots</strong>.</p>
                 </div>
-                <div class="slider-title">Collection Biography + Arrows + Dots + Gutters</div>
+                <div class="carousel-title">Collection Biography + Arrows + Dots + Gutters</div>
                 <carousel id="collection_carousel_biography_parent" class="slider-parent mb-5"></carousel>
                 <div class="paragraph mt-4">
                   <p>Carousel from Posts</p>
@@ -1012,7 +1008,7 @@
                     <pre class="rouge highlight"><code data-lang="config"><span class="n">slick</span>::<span class="n">post_carousel_featured</span>[]</code></pre>
                   </div>
                 </div>
-                <div class="slider-title">Post Carousel (Featured Posts)</div>
+                <div class="carousel-title">Post Carousel (Featured Posts)</div>
                 <carousel id="post_carousel_featured_parent" class="slider-parent mb-4"></carousel>
               </div>
               <div class="sect2 mt-4">
@@ -1100,7 +1096,7 @@
                     </tr>
                   </table>
                 </div>
-                <div class="slider-title">Slider using Controls</div>
+                <div class="carousel-title">Slider using Controls</div>
                 <slider id="p_ms_00001" class="master-slider-parent mb-5"></slider>
               </div>
               <div class="sect2 mt-4">
@@ -1111,7 +1107,7 @@
                     the slideshow. MS Slider provides functions to combine images and text
                     elements: the MSInfo element.</p>
                 </div>
-                <div class="slider-title">Slider using Text Elements</div>
+                <div class="carousel-title">Slider using Text Elements</div>
                 <slider id="p_ms_00003" class="master-slider-parent mb-5"></slider>
               </div>
               <div class="sect2 mt-4">
@@ -1122,7 +1118,7 @@
                     the bottom of a slideshow. Find two examples to control a slideshow by
                     <strong>thumb images</strong>.</p>
                 </div>
-                <div class="slider-title">Slider using ThumbImages</div>
+                <div class="carousel-title">Slider using ThumbImages</div>
                 <slider id="p_ms_00004" class="master-slider-parent mb-5"></slider>
               </div>
               <div class="sect2 mt-4">
@@ -1132,7 +1128,7 @@
                     complex UI elements like thumbs placed side-by-side (left|right), at the
                     top, or at the bottom of a slideshow.</p>
                 </div>
-                <div class="slider-title">Slider using ThumbInfo</div>
+                <div class="carousel-title">Slider using ThumbInfo</div>
                 <slider id="p_ms_00007" class="master-slider-parent mb-5"></slider>
               </div>
               <div class="sect2 mt-4">
@@ -1143,7 +1139,7 @@
                     a larger number of slides. The layout <code>partialview</code> accompanies the active
                     slide by their neighbors on the left and the right.</p>
                 </div>
-                <div class="slider-title">Slider using Layout partialview</div>
+                <div class="carousel-title">Slider using Layout partialview</div>
                 <slider id="p_ms_00009" class="master-slider-parent mb-5"></slider>
               </div>
               <div class="sect2 mt-4">
