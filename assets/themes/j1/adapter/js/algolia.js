@@ -13,7 +13,7 @@
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-09-03 20:25:33 +0200
+ #  Adapter generated: 2023-09-11 22:42:05 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -45,7 +45,7 @@ j1.adapter.algolia = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.algolia',
-        generated:   '2023-09-03 20:25:33 +0200'
+        generated:   '2023-09-11 22:42:05 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
