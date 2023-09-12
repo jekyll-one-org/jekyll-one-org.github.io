@@ -12,7 +12,7 @@
  #  J1 Theme is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Theme/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-09-12 12:45:21 +0200
+ #  Adapter generated: 2023-09-12 13:50:27 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -70,7 +70,7 @@ j1.adapter.translator = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.translator',
-        generated:   '2023-09-12 12:45:21 +0200'
+        generated:   '2023-09-12 13:50:27 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -382,6 +382,8 @@ j1.adapter.translator = (function (j1, window) {
       // -----------------------------------------------------------------------
       if (subDomain) {
         Cookies.set('googtrans', transCode, { domain: auto_domain });
+        // jadams, 2023-09-12: added
+        Cookies.set('googtrans', transCode);
       } else {
         Cookies.set('googtrans', transCode);
 //      Cookies.set('googtrans', transCode, { domain: hostname });
