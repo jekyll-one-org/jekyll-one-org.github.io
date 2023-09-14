@@ -13,7 +13,7 @@
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-09-12 13:50:27 +0200
+ # Adapter generated: 2023-09-14 22:19:01 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -30,7 +30,7 @@ var j1 = (function (options) {
   // ---------------------------------------------------------------------------
   // base page resources
   var rePager          =  new RegExp('navigator|dateview|tagview|archive');
-  var environment      = 'development';
+  var environment      = 'production';
   var moduleOptions    = {};
   var j1_runtime_data  = {};
   var scrollerSettings = {};
@@ -130,7 +130,7 @@ var j1 = (function (options) {
   };
   var user_state   = {
     'writer':               'j1.adapter',
-    'template_version':     '2023.8.0',
+    'template_version':     '2023.8.2',
 //
 //  for testing only
 //  'template_version':     'undefined',
@@ -139,7 +139,7 @@ var j1 = (function (options) {
     'theme_name':           'UnoLight',
     'theme_css':            '',
     'theme_author':         'J1 Team',
-    'theme_version':        '2023.8.0',
+    'theme_version':        '2023.8.2',
     'session_active':       false,
     'google_translate':     'disabled',
     'translate_all_pages':  true,
@@ -177,7 +177,7 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2023-09-12 13:50:27 +0200'
+        generated:   '2023-09-14 22:19:01 +0200'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
@@ -359,20 +359,23 @@ var j1 = (function (options) {
               var panel_state;
               var footer_state;
               if (j1.getState() === 'finished' && pageVisible && atticFinished) {
+                clearInterval(dependencies_met_page_ready);
                 logger.info('\n' + 'load block elements');
                 if (banners_exits) {j1.initBanner(settings);}
                 if (panels_exists) {j1.initPanel(settings)};
                 if (footer_exists) {j1.initFooter(settings);}
+                // process pages having banners or panels
+                //
                 if (banner_blocks || panel_blocks) {
-                  // pages having banners or panels
                   var dependencies_met_blocks_ready = setInterval (function (settings) {
+                    // check the footer if HTML portion is loaded successfully
                     if (footer_exists) {
                       footer_state = j1.getXhrDataState('#footer_uno');
                     } else {
                       // pages w/o footer
                       footer_state = 'success';
                     }
-                    // check bannern if HTML content loaded successfully
+                    // check bannern if HTML content is loaded successfully
                     //
                     if (banners_exits) {
                       Object.entries(j1.xhrDataState).forEach(entry => {
@@ -385,7 +388,7 @@ var j1 = (function (options) {
                       // pages w/o banners
                       banner_state = 'success';
                     }
-                    // check panels if HTML content loaded successfully
+                    // check panels if HTML content is loaded successfully
                     //
                     if (panels_exists)  {
                       Object.entries(j1.xhrDataState).forEach(entry => {
@@ -398,32 +401,37 @@ var j1 = (function (options) {
                       // pages w/o panels
                       panel_state = 'success';
                     }
-                    // show the content section for 'block content' to optimze CLS
+                    // show the content section if block content is available (CLS optimization)
                     //
                     if (banner_state == 'success' && panel_state == 'success' && footer_state == 'success') {
                       // show the content|footer
                       //
                       $('#content').show();
                       $('.active_footer').show();
-                      clearInterval(dependencies_met_page_ready);
                       clearInterval(dependencies_met_blocks_ready);
                     }
                   }, 10);
                 } else {
-                  // pages w/o banners or panels
-                  if (footer_exists) {
-                    footer_state = j1.getXhrDataState('#footer_uno');
-                  } else {
-                    // pages w/o footer
-                    footer_state = 'success';
-                  }
-                  // show the content|footer
+                  // process pages w/o banners or panels
                   //
-                  if ( footer_state == 'success') {
-                    $('#content').show();
-                    $('.active_footer').show();
-                    clearInterval(dependencies_met_page_ready);
-                  }
+                  var dependencies_met_footer_block_ready = setInterval (function (settings) {
+                    // check the footer if HTML portion is loaded successfully
+                    if (footer_exists) {
+                      footer_state = j1.getXhrDataState('#footer_uno');
+                    } else {
+                      // pages w/o footer
+                      footer_state = 'success';
+                    }
+                    // show the content section if footer is available (CLS optimization)
+                    //
+                    if (footer_state == 'success') {
+                      // show the content|footer
+                      //
+                      $('#content').show();
+                      $('.active_footer').show();
+                      clearInterval(dependencies_met_footer_block_ready);
+                    }
+                  }, 10);
                 }
               }
             }, 10);
@@ -498,20 +506,23 @@ var j1 = (function (options) {
         var panel_state;
         var footer_state;
         if (j1.getState() === 'finished' && pageVisible && atticFinished) {
+          clearInterval(dependencies_met_page_ready);
           logger.info('\n' + 'load block elements');
           if (banners_exits) {j1.initBanner(settings);}
           if (panels_exists) {j1.initPanel(settings)};
           if (footer_exists) {j1.initFooter(settings);}
+          // process pages having banners or panels
+          //
           if (banner_blocks || panel_blocks) {
-            // pages having banners or panels
             var dependencies_met_blocks_ready = setInterval (function (settings) {
+              // check the footer if HTML portion is loaded successfully
               if (footer_exists) {
                 footer_state = j1.getXhrDataState('#footer_uno');
               } else {
                 // pages w/o footer
                 footer_state = 'success';
               }
-              // check bannern if HTML content loaded successfully
+              // check bannern if HTML content is loaded successfully
               //
               if (banners_exits) {
                 Object.entries(j1.xhrDataState).forEach(entry => {
@@ -524,7 +535,7 @@ var j1 = (function (options) {
                 // pages w/o banners
                 banner_state = 'success';
               }
-              // check panels if HTML content loaded successfully
+              // check panels if HTML content is loaded successfully
               //
               if (panels_exists)  {
                 Object.entries(j1.xhrDataState).forEach(entry => {
@@ -537,32 +548,37 @@ var j1 = (function (options) {
                 // pages w/o panels
                 panel_state = 'success';
               }
-              // show the content section for 'block content' to optimze CLS
+              // show the content section if block content is available (CLS optimization)
               //
               if (banner_state == 'success' && panel_state == 'success' && footer_state == 'success') {
                 // show the content|footer
                 //
                 $('#content').show();
                 $('.active_footer').show();
-                clearInterval(dependencies_met_page_ready);
                 clearInterval(dependencies_met_blocks_ready);
               }
             }, 10);
           } else {
-            // pages w/o banners or panels
-            if (footer_exists) {
-              footer_state = j1.getXhrDataState('#footer_uno');
-            } else {
-              // pages w/o footer
-              footer_state = 'success';
-            }
-            // show the content|footer
+            // process pages w/o banners or panels
             //
-            if ( footer_state == 'success') {
-              $('#content').show();
-              $('.active_footer').show();
-              clearInterval(dependencies_met_page_ready);
-            }
+            var dependencies_met_footer_block_ready = setInterval (function (settings) {
+              // check the footer if HTML portion is loaded successfully
+              if (footer_exists) {
+                footer_state = j1.getXhrDataState('#footer_uno');
+              } else {
+                // pages w/o footer
+                footer_state = 'success';
+              }
+              // show the content section if footer is available (CLS optimization)
+              //
+              if (footer_state == 'success') {
+                // show the content|footer
+                //
+                $('#content').show();
+                $('.active_footer').show();
+                clearInterval(dependencies_met_footer_block_ready);
+              }
+            }, 10);
           }
         }
       }, 10);
@@ -632,6 +648,8 @@ var j1 = (function (options) {
             logger.info(logText);
             var banner_data_path = '/assets/data/banner/index.html ' + id + '_content';
             selector.load(banner_data_path, cb_load_closure(id));
+          } else {
+            continue;
           }
         }
       }  else {
@@ -684,6 +702,8 @@ var j1 = (function (options) {
             logger.info(logText);
             var panel_data_path = '/assets/data/panel/index.html ' + id + '_content';
             selector.load(panel_data_path, cb_load_closure(id));
+          } else {
+            continue;
           }
         }
       } else {
@@ -1166,7 +1186,7 @@ var j1 = (function (options) {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2023.8.0';
+      return '2023.8.2';
     },
     // -------------------------------------------------------------------------
     // getScrollOffset()
@@ -2278,7 +2298,7 @@ var j1 = (function (options) {
       var lcp
       var cumulated_cls = 0;
       var cumulated_lcp = 0;
-      const development = ('development'.includes('prod')) ? false : true;
+      const development = ('production'.includes('prod')) ? false : true;
       // ResizeObserver to monitor the changes on page height (dynamic pages)
       // see: https://stackoverflow.com/questions/14866775/detect-document-height-change
       //
