@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2023-09-14 16:18:09 +0200 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2023-09-15 19:25:29 +0200 ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ environment detected as: development ] -->
-  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2023.8.2 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2023.9.0 ] -->
   <head data-proofer-ignore>
     <!-- [INFO   ] [j1.layout.default.html                ] [ call default_writer for region: 'head' ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: page ] -->
@@ -62,7 +62,7 @@
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ add J1 SEO Tags ] -->
     <!-- Begin J1 SEO tags -->
     <meta name="generator" content="Jekyll v4.3.2">
-    <meta name="builder" content="J1 Template v2023.8.2">
+    <meta name="builder" content="J1 Template v2023.9.0">
     <title>Extensions - Jekyll One enhancements for the Asciidoc markup language</title>
     <meta property="og:title" content="Extensions - Jekyll One enhancements for the Asciidoc markup language">
     <meta name="author" content="Juergen Adams">
@@ -83,7 +83,7 @@
     <meta name="twitter:site" content="http://localhost:40000/pages/public/learn/roundtrip/asciidoc_extensions/">
     <meta name="twitter:creator" content="@Juergen Adams">
     <script type="application/ld+json">
-      {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Juergen Adams","url":"https://jekyll.one/"},"dateModified":"2023-09-14T16:19:05+02:00","datePublished":"2020-11-07T00:00:00+02:00","description":"J1 Template implements some handy Ruby-based enhancements for the markup language Asciidoc. Markup extensions for is a unique feature of Jekyll One compared to other Jekyll themes and templates.","headline":"Extensions","image":{"width":1920,"height":1280,"url":"http://localhost:40000/assets/images/pages/roundtrip/puzzle-1920x1280-bw.jpg","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:40000/pages/public/learn/roundtrip/asciidoc_extensions/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:40000/assets/images/icons/j1/j1-512x512.png"},"name":"Juergen Adams"},"url":"http://localhost:40000/pages/public/learn/roundtrip/asciidoc_extensions/"}
+      {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Juergen Adams","url":"https://jekyll.one/"},"dateModified":"2023-09-15T19:25:31+02:00","datePublished":"2020-11-07T00:00:00+02:00","description":"J1 Template implements some handy Ruby-based enhancements for the markup language Asciidoc. Markup extensions for is a unique feature of Jekyll One compared to other Jekyll themes and templates.","headline":"Extensions","image":{"width":1920,"height":1280,"url":"http://localhost:40000/assets/images/pages/roundtrip/puzzle-1920x1280-bw.jpg","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:40000/pages/public/learn/roundtrip/asciidoc_extensions/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:40000/assets/images/icons/j1/j1-512x512.png"},"name":"Juergen Adams"},"url":"http://localhost:40000/pages/public/learn/roundtrip/asciidoc_extensions/"}
     </script>
     <!-- End J1 SEO tags -->
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ end SEO Optimization ] -->
@@ -707,11 +707,13 @@
                   <i class="fa icon-tip" title="Tip"></i>
                 </td>
                 <td class="content">
-                  Most extensions are based on well-documented examples from the
-                  <a href="https://github.com/asciidoctor/asciidoctor-extensions-lab/" target="_blank" rel="noopener">Asciidoctor Extensions Lab</a>.
-                  To create Asciidoc extensions on your own, it is highly recommended to read the
-                  <a href="http://asciidoctor.org/docs/user-manual/#extensions" target="_blank" rel="noopener">extensions section</a> in
-                  the Asciidoctor user manual.
+                  <div class="paragraph">
+                    <p>Most extensions are based on well-documented examples from the
+                      <a href="https://github.com/asciidoctor/asciidoctor-extensions-lab/" target="_blank" rel="noopener">Asciidoctor Extensions Lab</a>.
+                      To create Asciidoc extensions on your own, it is highly recommended to read the
+                      <a href="http://asciidoctor.org/docs/user-manual/#extensions" target="_blank" rel="noopener">extensions section</a> in
+                      the Asciidoctor user manual.</p>
+                  </div>
                 </td>
               </tr>
             </table>
@@ -741,8 +743,10 @@
                       <i class="fa icon-tip" title="Tip"></i>
                     </td>
                     <td class="content">
-                      The <strong>View Result Extension</strong> is quite helpful for sections discussing
-                      code elements.
+                      <div class="paragraph">
+                        <p>The <strong>View Result Extension</strong> is quite helpful for sections discussing
+                          code elements.</p>
+                      </div>
                     </td>
                   </tr>
                 </table>
@@ -880,8 +884,10 @@
                       <i class="fa icon-note" title="Note"></i>
                     </td>
                     <td class="content">
-                      All colors for all default admonition blocks set to the standard
-                      color set. Find available block types and their colors below.
+                      <div class="paragraph">
+                        <p>All colors for all default admonition blocks set to the standard
+                          color set. Find available block types and their colors below.</p>
+                      </div>
                     </td>
                   </tr>
                 </table>
@@ -1594,9 +1600,11 @@ mdi:apple[2x, md-indigo ml-3 mr-2] Brand icon (colored)</code></pre>
                         <i class="fa icon-note" title="Note"></i>
                       </td>
                       <td class="content">
-                        Parameters for icon size <code>icon_size</code> and modifiers <code>modifier</code> are
-                        optional. If not given, the icons size <code>size</code> is set to default <code>1x</code>, the
-                        color to <strong>black</strong> and no settings for <strong>modifiers</strong> <code>modifier</code> are applied.
+                        <div class="paragraph">
+                          <p>Parameters for icon size <code>icon_size</code> and modifiers <code>modifier</code> are
+                            optional. If not given, the icons size <code>size</code> is set to default <code>1x</code>, the
+                            color to <strong>black</strong> and no settings for <strong>modifiers</strong> <code>modifier</code> are applied.</p>
+                        </div>
                       </td>
                     </tr>
                   </table>
@@ -1663,9 +1671,11 @@ fab:apple[2x, md-indigo ml-3 mr-2] Brand icon (colored)</code></pre>
                         <i class="fa icon-note" title="Note"></i>
                       </td>
                       <td class="content">
-                        Parameters for icon size <code>icon_size</code> and modifiers <code>modifier</code> are
-                        optional. If not given, the icons size is set to default <code>1x</code>, the color
-                        to <strong>black</strong> and no settings for modifiers  <code>modifier</code> are applied.
+                        <div class="paragraph">
+                          <p>Parameters for icon size <code>icon_size</code> and modifiers <code>modifier</code> are
+                            optional. If not given, the icons size is set to default <code>1x</code>, the color
+                            to <strong>black</strong> and no settings for modifiers  <code>modifier</code> are applied.</p>
+                        </div>
                       </td>
                     </tr>
                   </table>
@@ -1787,7 +1797,7 @@ lorem:macro[size]</code></pre>
               <div class="exampleblock result">
                 <div class="content">
                   <div class="paragraph">
-                    <p>Quia beatae est quis dolorem et quam omnis a non veritatis animi voluptas. Eum reprehenderit ipsam repudiandae consequatur eum. Placeat qui sint natus quis hic illo necessitatibus et vero ad voluptatem sint eaque. Sint saepe quas mollitia similique inventore eos. Ut sequi quia quis voluptatibus quis molestiae harum natus ut repellendus earum aspernatur.</p>
+                    <p>Voluptatum odio est dignissimos dolor eos qui earum et vel autem consectetur. Fuga placeat et ut aut esse sed necessitatibus aspernatur eius porro ut expedita. Blanditiis nobis omnis qui. Voluptatem et illo et fugiat qui facilis tenetur deserunt quia. Nihil cum laudantium exercitationem quam et laboriosam est aut dolorum.</p>
                   </div>
                 </div>
               </div>
@@ -1822,7 +1832,7 @@ lorem:macro[size]</code></pre>
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>et</p>
+                            <p>vero</p>
                           </div>
                         </div>
                       </td>
@@ -1837,7 +1847,7 @@ lorem:macro[size]</code></pre>
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>eveniet expedita expedita quis id</p>
+                            <p>earum dignissimos corrupti facilis cum</p>
                           </div>
                         </div>
                       </td>
@@ -1852,7 +1862,7 @@ lorem:macro[size]</code></pre>
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Dignissimos laboriosam et nulla id est quo soluta qui consectetur quia et facere quibusdam alias.</p>
+                            <p>Rerum dolore iste provident vel perferendis beatae illum et officia saepe aliquid.</p>
                           </div>
                         </div>
                       </td>
@@ -1867,7 +1877,7 @@ lorem:macro[size]</code></pre>
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Rerum sit inventore cupiditate quos recusandae atque. Eligendi voluptatibus ut consequuntur dolor provident tenetur. Sed veritatis sed dolore maxime ab consectetur blanditiis qui commodi repellat. Et ut qui possimus nam ea quae quas odio. Aliquid qui autem placeat occaecati molestias in ut non cupiditate.</p>
+                            <p>Rerum exercitationem dolores repellendus et non quod ullam consequatur odio sunt dolorem. Dolores enim architecto iusto debitis optio illum voluptatem ut numquam aut voluptas. Voluptates nemo sequi alias adipisci et quia dolorem odit aut eaque. Sunt accusantium ipsum optio aut tenetur similique quod quidem sunt ea ratione. Ut delectus id non et voluptatem omnis.</p>
                           </div>
                         </div>
                       </td>
@@ -1882,7 +1892,7 @@ lorem:macro[size]</code></pre>
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Tue Nov 15, 1955</p>
+                            <p>Fri Mar 27, 1981</p>
                           </div>
                         </div>
                       </td>
@@ -1897,7 +1907,7 @@ lorem:macro[size]</code></pre>
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>2008-08-13</p>
+                            <p>2005-09-08</p>
                           </div>
                         </div>
                       </td>
@@ -1912,7 +1922,7 @@ lorem:macro[size]</code></pre>
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Tracy Graham</p>
+                            <p>Sheryl Whitehead</p>
                           </div>
                         </div>
                       </td>
@@ -1927,7 +1937,7 @@ lorem:macro[size]</code></pre>
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Skye</p>
+                            <p>Mohammed</p>
                           </div>
                         </div>
                       </td>
@@ -1942,7 +1952,7 @@ lorem:macro[size]</code></pre>
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Waters</p>
+                            <p>Chandler</p>
                           </div>
                         </div>
                       </td>
@@ -1957,7 +1967,7 @@ lorem:macro[size]</code></pre>
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p><a href="mailto:jordynsteele@mail.com">jordynsteele@mail.com</a></p>
+                            <p><a href="mailto:ruby_stout@live.com">ruby_stout@live.com</a></p>
                           </div>
                         </div>
                       </td>

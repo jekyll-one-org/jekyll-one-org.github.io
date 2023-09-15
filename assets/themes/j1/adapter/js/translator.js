@@ -13,7 +13,7 @@
  #  J1 Theme is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Theme/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-09-14 16:18:09 +0200
+ #  Adapter generated: 2023-09-15 19:27:04 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -72,7 +72,7 @@ j1.adapter.translator = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.translator',
-        generated:   '2023-09-14 16:18:09 +0200'
+        generated:   '2023-09-15 19:27:04 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -375,6 +375,9 @@ j1.adapter.translator = (function (j1, window) {
       Cookies.remove('googtrans', { domain: subDomain });
       Cookies.remove('googtrans', { domain: hostname });
       Cookies.remove('googtrans');
+      // set googtrans cookie for all sites
+      //
+      Cookies.set('googtrans', transCode);
       // -----------------------------------------------------------------------
       // NOTE: googtrans cookie will be rewritten (by Google!?) for
       // attributes 'SameSite' and 'Domain'. This results for 'SameSite'
@@ -383,12 +386,7 @@ j1.adapter.translator = (function (j1, window) {
       // -----------------------------------------------------------------------
       if (isSubDomain) {
         Cookies.set('googtrans', transCode, { domain: domain });
-      } else {
-        Cookies.set('googtrans', transCode);
       }
-
-      Cookies.set('googtrans', transCode);
-
       // reload current page
       location.reload();
     }, // END cbGoogle
@@ -405,3 +403,6 @@ j1.adapter.translator = (function (j1, window) {
     } // END cbDeepl
   }; // END return
 })(j1, window);
+
+
+

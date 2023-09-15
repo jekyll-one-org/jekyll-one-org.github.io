@@ -2,11 +2,11 @@
   <generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator>
   <link href="http://localhost:40000/assets/data/feeds/feed.xml" rel="self" type="application/atom+xml">
     <link href="http://localhost:40000/" rel="alternate" type="text/html"/>
-    <updated>2023-09-14T16:18:09+02:00</updated>
+    <updated>2023-09-15T19:27:04+02:00</updated>
     <id>http://localhost:40000/assets/data/feeds/feed.xml</id>
     <post_limited>1000000</post_limited>
     <template_name>J1 Theme</template_name>
-    <template_version>2023.8.2</template_version>
+    <template_version>2023.9.0</template_version>
     <title type="html">J1 Starter</title>
     <subtitle>J1 Template gives web developers and hobbyists a clean implementation in Jekyll for starting new projects based on Bootstap V5. The template combines the best software for the Web. Jekyll One is open source, free to use, and the modules packed as well.
 </subtitle>

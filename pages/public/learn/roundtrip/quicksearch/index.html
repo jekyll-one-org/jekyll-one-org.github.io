@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2023-09-14 16:18:09 +0200 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2023-09-15 19:25:29 +0200 ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ environment detected as: development ] -->
-  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2023.8.2 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2023.9.0 ] -->
   <head data-proofer-ignore>
     <!-- [INFO   ] [j1.layout.default.html                ] [ call default_writer for region: 'head' ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: page ] -->
@@ -62,7 +62,7 @@
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ add J1 SEO Tags ] -->
     <!-- Begin J1 SEO tags -->
     <meta name="generator" content="Jekyll v4.3.2">
-    <meta name="builder" content="J1 Template v2023.8.2">
+    <meta name="builder" content="J1 Template v2023.9.0">
     <title>Search - Integrated site search based on Lunr for J1 Template</title>
     <meta property="og:title" content="Search - Integrated site search based on Lunr for J1 Template">
     <meta name="author" content="Juergen Adams">
@@ -83,7 +83,7 @@
     <meta name="twitter:site" content="http://localhost:40000/pages/public/learn/roundtrip/quicksearch/">
     <meta name="twitter:creator" content="@Juergen Adams">
     <script type="application/ld+json">
-      {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Juergen Adams","url":"https://jekyll.one/"},"dateModified":"2023-09-14T16:19:14+02:00","datePublished":"2020-11-08T00:00:00+02:00","description":"The search option for the J1 Template is based on the search engine Lunr and is fully integrated with the template. Lunr is designed to be lightweight yet full-featured to provide users with a great search experience. Using Lunr for a Jekyll website, there is no need to integrate complex external, server-sided search engines like Google or Bing.","headline":"Search","image":{"width":1920,"height":1280,"url":"http://localhost:40000/assets/images/modules/attics/lunr-1280x800.jpg","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:40000/pages/public/learn/roundtrip/quicksearch/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:40000/assets/images/icons/j1/j1-512x512.png"},"name":"Juergen Adams"},"url":"http://localhost:40000/pages/public/learn/roundtrip/quicksearch/"}
+      {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Juergen Adams","url":"https://jekyll.one/"},"dateModified":"2023-09-15T19:25:34+02:00","datePublished":"2020-11-08T00:00:00+02:00","description":"The search option for the J1 Template is based on the search engine Lunr and is fully integrated with the template. Lunr is designed to be lightweight yet full-featured to provide users with a great search experience. Using Lunr for a Jekyll website, there is no need to integrate complex external, server-sided search engines like Google or Bing.","headline":"Search","image":{"width":1920,"height":1280,"url":"http://localhost:40000/assets/images/modules/attics/lunr-1280x800.jpg","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:40000/pages/public/learn/roundtrip/quicksearch/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:40000/assets/images/icons/j1/j1-512x512.png"},"name":"Juergen Adams"},"url":"http://localhost:40000/pages/public/learn/roundtrip/quicksearch/"}
     </script>
     <!-- End J1 SEO tags -->
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ end SEO Optimization ] -->
@@ -675,10 +675,12 @@ site:      J1 QuickSearch: finished, index ready.
                         <i class="fa icon-note" title="Note"></i>
                       </td>
                       <td class="content">
-                        The document <strong>content</strong> is collected by the (intrinsic) field <code>body</code>.
-                        To limit the index data loaded by the browser, the body field is removed from
-                        a document. The <code>body</code> field not available as an <strong>explicit</strong> field for searches,
-                        but the <strong>content</strong> is still fully searchable.
+                        <div class="paragraph">
+                          <p>The document <strong>content</strong> is collected by the (intrinsic) field <code>body</code>.
+                            To limit the index data loaded by the browser, the body field is removed from
+                            a document. The <code>body</code> field not available as an <strong>explicit</strong> field for searches,
+                            but the <strong>content</strong> is still fully searchable.</p>
+                        </div>
                       </td>
                     </tr>
                   </table>
@@ -797,8 +799,10 @@ site:      J1 QuickSearch: finished, index ready.
                         <i class="fa icon-note" title="Note"></i>
                       </td>
                       <td class="content">
-                        Comparing to a Google search (terms are combined at Google by a
-                        logical <code>AND</code>) a Quicksearch combines the terms by an <code>OR</code>.
+                        <div class="paragraph">
+                          <p>Comparing to a Google search (terms are combined at Google by a
+                            logical <code>AND</code>) a Quicksearch combines the terms by an <code>OR</code>.</p>
+                        </div>
                       </td>
                     </tr>
                   </table>
@@ -834,12 +838,14 @@ site:      J1 QuickSearch: finished, index ready.
                         <i class="fa icon-note" title="Note"></i>
                       </td>
                       <td class="content">
-                        Language grammar rules are not relevant for searches. For simplification,
-                        all words (terms) are transformed to lower case. As a result, the word
-                        <code>Jekyll</code> is the same as <code>jekyll</code> from a search-engines perspective. Language
-                        variations of <code>Jekyll’s</code> or plurals like <code>Generators</code> are reduced
-                        to their base form. For searches, don’t take care of grammar rules but the
-                        spelling. If you’re unsure about the spelling of a word, use wildcards.
+                        <div class="paragraph">
+                          <p>Language grammar rules are not relevant for searches. For simplification,
+                            all words (terms) are transformed to lower case. As a result, the word
+                            <code>Jekyll</code> is the same as <code>jekyll</code> from a search-engines perspective. Language
+                            variations of <code>Jekyll’s</code> or plurals like <code>Generators</code> are reduced
+                            to their base form. For searches, don’t take care of grammar rules but the
+                            spelling. If you’re unsure about the spelling of a word, use wildcards.</p>
+                        </div>
                       </td>
                     </tr>
                   </table>
