@@ -13,9 +13,205 @@
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-09-14 22:19:01 +0200
+ #  Adapter generated: 2023-09-15 15:16:13 +0200
  # -----------------------------------------------------------------------------
 */
-'use strict';j1.adapter.scroller=function(e){var l,t,n,a,o,i,r='en';platform.ua;return{init:function(o){$.extend({module_name:'j1.adapter.scroller',generated:'2023-09-14 22:19:01 +0200'},o);n=e.adapter.scroller,a=log4javascript.getLogger('j1.adapter.scroller'),l=$.extend({},{enabled:!1,smoothscroll:{offsetCorrection:0,offsetCorrectionLocal:0}}),t=$.extend({},{enabled:!0,smoothscroll:{offsetCorrection:-9,offsetCorrectionLocal:-90},scrollers:[{scroller:{enabled:!0,type:"showOnScroll",id:"panel_home_intro",container:"panel_home_intro",showDelay:1e3,scrollOffset:500}},{scroller:{enabled:!1,type:"showOnScroll",id:"panel_home_service",container:"panel_home_service",showDelay:700,scrollOffset:200}},{scroller:{enabled:!0,type:"infiniteScroll",id:"preview_content",container:"panel_home_news-scroll-group",pagePath:"/assets/data/news_panel_posts/page",elementScroll:!0,scrollOffset:200,lastPage:2,infoLastPage:!0,lastPageInfo_en:"More articles can be found with the <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n",lastPageInfo_de:"Weitere Artikel finden Sie im <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n"}},{scroller:{enabled:!0,type:"infiniteScroll",id:"preview_content",container:"timeline",pagePath:"/pages/public/blog/navigator/page",elementScroll:!0,scrollOffset:200,lastPage:2,infoLastPage:!1,lastPageInfo_en:"",lastPageInfo_de:""}}]}),$.extend(!0,{},l,t),n.setState('started'),a.debug("\nstate: "+n.getState()),a.info("\nmodule is being initialized");var i=setInterval(function(){var l='block'==$('#content').css("display");'finished'===e.getState()&&l&&(n.generate_scrollers(),n.setState('finished'),a.debug("\nstate: "+n.getState()),a.info("\nmodule initialized successfully"),clearInterval(i))},10)},generate_scrollers:function(){a=log4javascript.getLogger('j1.adapter.scroller'),o="\nscrollers are being initialized",a.info(o);var e="#panel_home_intro";o="\nscroller of type showOnScroll is being initialized on: panel_home_intro",a.info(o),$(e).length&&$(e).scroller({id:'panel_home_intro',type:'showOnScroll',container:'panel_home_intro',showDelay:1e3,scrollOffset:500}),o="\nscroller of type infiniteScroll is being initialized on: preview_content",a.info(o);e="#panel_home_news-scroll-group";'en'===r?(i='<div class="page-scroll-last"><p class="infinite-scroll-last">',i+='More articles can be found with the <a href="/pages/public/blog/navigator/" class="link-no-decoration">Navigator</a>',i+='</p></div>'):'de'===r?(i='<div class="page-scroll-last"><p class="infinite-scroll-last">',i+='Weitere Artikel finden Sie im <a href="/pages/public/blog/navigator/" class="link-no-decoration">Navigator</a>',i+='</p></div>'):(i='<div class="page-scroll-last"><p class="infinite-scroll-last">',i+='More articles can be found with the <a href="/pages/public/blog/navigator/" class="link-no-decoration">Navigator</a>',i+='</p></div>'),$(e).length&&$(e).scroller({id:'preview_content',type:'infiniteScroll',pagePath:'/assets/data/news_panel_posts/page',elementScroll:!0,scrollOffset:200,lastPage:2,infoLastPage:!0,lastPageInfo:i}),o="\nscroller of type infiniteScroll is being initialized on: preview_content",a.info(o);e="#timeline";i='<div class="page-scroll-last"><p class="infinite-scroll-last">',i+='',i+='</p></div>',$(e).length&&$(e).scroller({id:'preview_content',type:'infiniteScroll',pagePath:'/pages/public/blog/navigator/page',elementScroll:!0,scrollOffset:200,lastPage:2,infoLastPage:!1,lastPageInfo:i})},messageHandler:function(e,l){var t=JSON.stringify(l,undefined,2);return o="\nreceived message from "+e+': '+t,a.debug(o),'command'===l.type&&'module_initialized'===l.action&&a.info('\n'+l.text),!0},setState:function(e){n.state=e},getState:function(){return n.state}}}(j1,window);
+// -----------------------------------------------------------------------------
+// ESLint shimming
+// -----------------------------------------------------------------------------
+/* eslint indent: "off"                                                       */
+// -----------------------------------------------------------------------------
+'use strict';
+j1.adapter.scroller = (function (j1, window) {
+var environment   = 'development';
+var language      = 'en';
+var user_agent    = platform.ua;
+var state         = 'not_started';
+var scrollerDefaults;
+var scrollerSettings;
+var scrollerOptions;
+var _this;
+var logger;
+var logText;
+var lastPageInfo;
+  // ---------------------------------------------------------------------------
+  // Main object
+  // ---------------------------------------------------------------------------
+  return {
+    // -------------------------------------------------------------------------
+    // init()
+    // adapter initializer
+    // -------------------------------------------------------------------------
+    init: function (options) {
+      // -----------------------------------------------------------------------
+      // Default module settings
+      // -----------------------------------------------------------------------
+      var settings = $.extend({
+        module_name: 'j1.adapter.scroller',
+        generated:   '2023-09-15 15:16:13 +0200'
+      }, options);
+      // -----------------------------------------------------------------------
+      // Global variable settings
+      // -----------------------------------------------------------------------
+      _this = j1.adapter.scroller;
+      logger = log4javascript.getLogger('j1.adapter.scroller');
+      // load  module DEFAULTS|CONFIG
+      //
+      scrollerDefaults = $.extend({}, {"enabled":false, "smoothscroll":{"offsetCorrection":0, "offsetCorrectionLocal":0}});
+      scrollerSettings = $.extend({}, {"enabled":true, "smoothscroll":{"offsetCorrection":-9, "offsetCorrectionLocal":-90}, "scrollers":[{"scroller":{"enabled":true, "type":"showOnScroll", "id":"panel_home_intro", "container":"panel_home_intro", "showDelay":1000, "scrollOffset":500}}, {"scroller":{"enabled":false, "type":"showOnScroll", "id":"panel_home_service", "container":"panel_home_service", "showDelay":700, "scrollOffset":200}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"preview_content", "container":"panel_home_news-scroll-group", "pagePath":"/assets/data/news_panel_posts/page", "elementScroll":true, "scrollOffset":200, "lastPage":2, "infoLastPage":true, "lastPageInfo_en":"More articles can be found with the <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n", "lastPageInfo_de":"Weitere Artikel finden Sie im <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n"}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"preview_content", "container":"timeline", "pagePath":"/pages/public/blog/navigator/page", "elementScroll":true, "scrollOffset":200, "lastPage":2, "infoLastPage":false, "lastPageInfo_en":"", "lastPageInfo_de":""}}]});
+      scrollerOptions  = $.extend(true, {}, scrollerDefaults, scrollerSettings);
+      // initialize state flag
+      //
+      _this.setState('started');
+      logger.debug('\n' + 'state: ' + _this.getState());
+      logger.info('\n' + 'module is being initialized');
+      var dependencies_met_page_ready = setInterval (function (options) {
+        var contentState    = $('#content').css("display");
+        var ContentVisible  = (contentState == 'block') ? true: false;
+        // initialize scrollers if content is fully available|visible
+        //
+        if (j1.getState() === 'finished' && ContentVisible) {
+          _this.generate_scrollers();
+          _this.setState('finished');
+          logger.debug('\n' + 'state: ' + _this.getState());
+          logger.info('\n' + 'module initialized successfully');
+          clearInterval(dependencies_met_page_ready);
+        }
+      }, 10);
+    }, // END init
+    // -------------------------------------------------------------------------
+    // generate_scrollers()
+    // generate scrollers configured|enabled
+    // -------------------------------------------------------------------------
+    generate_scrollers: function () {
+      logger = log4javascript.getLogger('j1.adapter.scroller');
+      logText = '\n' + 'scrollers are being initialized';
+      logger.info(logText);
+      var container = '#' + 'panel_home_intro';
+      // scroller_id: panel_home_intro
+      //
+      logText = '\n' + 'scroller of type showOnScroll is being initialized on: ' + 'panel_home_intro';
+      logger.info(logText);
+      // create an (scroller) instance of 'showOnScroll'
+      //
+      if ($(container).length) {
+        $(container).scroller({
+          id:             'panel_home_intro',
+          type:           'showOnScroll',
+          container:      'panel_home_intro',
+          showDelay:      1000,
+          scrollOffset:   500,
+        });
+      }
+      // END scroller_id: panel_home_intro
+      // scroller_id: preview_content
+      //
+      logText = '\n' + 'scroller of type infiniteScroll is being initialized on: ' + 'preview_content';
+      logger.info(logText);
+      var container = '#' + 'panel_home_news-scroll-group';
+      var pagePath  = '/assets/data/news_panel_posts/page';
+      if (language === 'en') {
+        lastPageInfo =  '<div class="page-scroll-last"><p class="infinite-scroll-last">';
+        lastPageInfo += 'More articles can be found with the <a href="/pages/public/blog/navigator/" class="link-no-decoration">Navigator</a>';
+        lastPageInfo += '</p></div>';
+      } else if (language === 'de') {
+        lastPageInfo =  '<div class="page-scroll-last"><p class="infinite-scroll-last">';
+        lastPageInfo += 'Weitere Artikel finden Sie im <a href="/pages/public/blog/navigator/" class="link-no-decoration">Navigator</a>';
+        lastPageInfo += '</p></div>';
+      } else {
+        lastPageInfo =  '<div class="page-scroll-last"><p class="infinite-scroll-last">';
+        lastPageInfo += 'More articles can be found with the <a href="/pages/public/blog/navigator/" class="link-no-decoration">Navigator</a>';
+        lastPageInfo += '</p></div>';
+      }
+      // create an (scroller) instance of 'infiniteScroll'
+      //
+      if ($(container).length) {
+        $(container).scroller({
+          id:             'preview_content',
+          type:           'infiniteScroll',
+          pagePath:       '/assets/data/news_panel_posts/page',
+          elementScroll:  true,
+          scrollOffset:   200,
+          lastPage:       2,
+          infoLastPage:   true,
+          lastPageInfo:   lastPageInfo,
+        });
+      }
+      // END scroller_id: preview_content
+      // scroller_id: preview_content
+      //
+      logText = '\n' + 'scroller of type infiniteScroll is being initialized on: ' + 'preview_content';
+      logger.info(logText);
+      var container = '#' + 'timeline';
+      var pagePath  = '/pages/public/blog/navigator/page';
+      if (language === 'en') {
+        lastPageInfo =  '<div class="page-scroll-last"><p class="infinite-scroll-last">';
+        lastPageInfo += '';
+        lastPageInfo += '</p></div>';
+      } else if (language === 'de') {
+        lastPageInfo =  '<div class="page-scroll-last"><p class="infinite-scroll-last">';
+        lastPageInfo += '';
+        lastPageInfo += '</p></div>';
+      } else {
+        lastPageInfo =  '<div class="page-scroll-last"><p class="infinite-scroll-last">';
+        lastPageInfo += '';
+        lastPageInfo += '</p></div>';
+      }
+      // create an (scroller) instance of 'infiniteScroll'
+      //
+      if ($(container).length) {
+        $(container).scroller({
+          id:             'preview_content',
+          type:           'infiniteScroll',
+          pagePath:       '/pages/public/blog/navigator/page',
+          elementScroll:  true,
+          scrollOffset:   200,
+          lastPage:       2,
+          infoLastPage:   false,
+          lastPageInfo:   lastPageInfo,
+        });
+      }
+      // END scroller_id: preview_content
+      // END generate scrollers
+    },
+    // -------------------------------------------------------------------------
+    // messageHandler()
+    // manage messages send from other J1 modules
+    // -------------------------------------------------------------------------
+    messageHandler: function (sender, message) {
+      var json_message = JSON.stringify(message, undefined, 2);
+      logText = '\n' + 'received message from ' + sender + ': ' + json_message;
+      logger.debug(logText);
+      // -----------------------------------------------------------------------
+      //  Process commands|actions
+      // -----------------------------------------------------------------------
+      if (message.type === 'command' && message.action === 'module_initialized') {
+        //
+        // Place handling of command|action here
+        //
+        logger.info('\n' + message.text);
+      }
+      //
+      // Place handling of other command|action here
+      //
+      return true;
+    }, // END messageHandler
+    // -------------------------------------------------------------------------
+    // setState()
+    // Sets the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    setState: function (stat) {
+      _this.state = stat;
+    }, // END setState
+    // -------------------------------------------------------------------------
+    // getState()
+    // Returns the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    getState: function () {
+      return _this.state;
+    } // END getState
+  }; // END return
+})(j1, window);
+
 
 

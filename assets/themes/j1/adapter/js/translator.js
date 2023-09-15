@@ -1,61 +1,6 @@
----
-regenerate:                             true
----
 
-{% capture cache %}
 
-{% comment %}
- # -----------------------------------------------------------------------------
- # ~/assets/themes/j1/adapter/js/translator.js
- # Liquid template to create the Template Adapter for J1 Translator
- #
- # Product/Info:
- # http://jekyll.one
- #
- # Copyright (C) 2023 Juergen Adams
- #
- # J1 Theme is licensed under the MIT License.
- # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
- # -----------------------------------------------------------------------------
- # Test data:
- #  {{ liquid_var | debug }}
- # -----------------------------------------------------------------------------
-{% endcomment %}
-
-{% comment %} Liquid var initialization
--------------------------------------------------------------------------------- {% endcomment %}
-
-{% comment %} Set config files
--------------------------------------------------------------------------------- {% endcomment %}
-{% assign environment         = site.environment %}
-{% assign contentLanguage     = site.language %}
-{% assign blocks              = site.data.blocks %}
-{% assign modules             = site.data.modules %}
-{% assign template_config     = site.data.j1_config %}
-
-{% comment %} Set config data
--------------------------------------------------------------------------------- {% endcomment %}
-{% assign cookie_defaults     = modules.defaults.cookies.defaults %}
-{% assign cookie_settings     = modules.cookies.settings %}
-{% assign translator_defaults = modules.defaults.translator.defaults %}
-{% assign translator_settings = modules.translator.settings %}
-
-{% comment %} Set config options
--------------------------------------------------------------------------------- {% endcomment %}
-{% assign cookie_options      = cookie_defaults | merge: cookie_settings %}
-{% assign translator_options  = translator_defaults | merge: translator_settings %}
-
-{% comment %} Set variables
--------------------------------------------------------------------------------- {% endcomment %}
-
-{% comment %} Detect prod mode
--------------------------------------------------------------------------------- {% endcomment %}
-{% assign production = false %}
-{% if environment == 'prod' or environment == 'production' %}
-  {% assign production = true %}
-{% endif %}
-
-/*
+  /*
  # -----------------------------------------------------------------------------
  # ~/assets/themes/j1/adapter/js/translator.js
  # JS Adapter for J1 Translate
@@ -68,10 +13,9 @@ regenerate:                             true
  #  J1 Theme is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Theme/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- #  Adapter generated: {{site.time}}
+ #  Adapter generated: 2023-09-15 15:16:13 +0200
  # -----------------------------------------------------------------------------
 */
-
 // -----------------------------------------------------------------------------
 // ESLint shimming
 // -----------------------------------------------------------------------------
@@ -85,9 +29,8 @@ regenerate:                             true
 // https://www.marghoobsuleman.com/image-dropdown/help
 // https://www.marghoobsuleman.com/image-dropdown/advanced-help
 'use strict';
-
 j1.adapter.translator = (function (j1, window) {
-  var environment       = '{{environment}}';
+  var environment       = 'development';
   var state             = 'not_started';
   var user_translate    = {};
   var translatorDefaults;
@@ -116,34 +59,29 @@ j1.adapter.translator = (function (j1, window) {
   var gtCallbackScript;
   var languageList;
   var domainAttribute;
-
   // ---------------------------------------------------------------------------
   // Main object
   // ---------------------------------------------------------------------------
   return {
-
     // -------------------------------------------------------------------------
     // Initializer
     // -------------------------------------------------------------------------
     init: function (options) {
-
       // -----------------------------------------------------------------------
       // Default module settings
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.translator',
-        generated:   '{{site.time}}'
+        generated:   '2023-09-15 15:16:13 +0200'
       }, options);
-
       // -----------------------------------------------------------------------
       // Global variable settings
       // -----------------------------------------------------------------------
       _this                 = j1.adapter.translator;
       logger                = log4javascript.getLogger('j1.adapter.translator');
-
       // Load  module DEFAULTS|CONFIG
-      translatorDefaults    = $.extend({},   {{translator_defaults | replace: 'nil', 'null' | replace: '=>', ':' }});
-      translatorSettings    = $.extend({},   {{translator_settings | replace: 'nil', 'null' | replace: '=>', ':' }});
+      translatorDefaults    = $.extend({},   {"enabled":false, "translationEnabled":false, "hideTranslatorIcon":false, "disableLanguageSelector":false, "translationLanguage":"auto", "translateAllPages":true, "reloadPageOnChange":true, "contentURL":"/assets/data/translator", "contentLanguage":"auto", "dialogLanguage":"auto", "dialogLanguages":["en", "de"], "cookieName":"j1.user.translate", "cookieConsentName":"j1.user.consent", "xhrDataElement":"google-data", "dialogContainerID":"translator-dialog", "google":{"postSelectionCallback":"j1.adapter.translator.cbGoogle", "hideSuggestionBox":true, "hidePoweredBy":true, "hideTopFrame":true, "translationLanguages":["af", "sq", "am", "ar", "hy", "az", "eu", "be", "bn", "bs", "bg", "km", "ca", "ny", "zh-CN", "zh-TW", "co", "hr", "cs", "da", "nl", "en", "et", "tl", "fi", "fr", "fy", "gl", "ka", "de", "el", "gu", "ht", "ha", "haw", "iw", "hi", "hu", "is", "ig", "id", "ga", "it", "ja", "jw", "kn", "kk", "rw", "ko", "ku", "ky", "lo", "lv", "lt", "mk", "mg", "ms", "ml", "mt", "mi", "mr", "mo", "mn", "ne", false, "nn", "or", "ps", "fa", "pl", "pt", "pa", "ro", "rm", "ru", "gd", "sr", "st", "sn", "sd", "si", "sk", "sl", "so", "es", "su", "sw", "sv", "tg", "ta", "tt", "te", "th", "tr", "tk", "ug", "uk", "ur", "uz", "vi", "cy", "xh", "yi", "yo", "zu"], "modal_settings":{"title":{"en":"Google Translator", "de":"Google Übersetzer"}, "body_text":{"en":"This website uses the <b>free service</b> Google Translate to translate the content into 100+ languages in seconds. The language for translation is selected automatically from the language settings of your browser.\n", "de":"Diese Website nutzt den <b>kostenlosen</b> Dienst Google Translate, um die Inhalte in sekundenschnelle in über 100+ Sprachen zu übersetzen. Die Sprache für die Übersetzung wird automatisch aus den Spracheinstellungen Ihres Browsers gewählt.\n"}, "language_selector_title":{"en":"Your current language setting for the translation is:", "de":"Ihre aktuelle Spracheinstellung für die Übersetzung ist:"}, "privacy_notice":{"en":"The <b>free service</b> from Google Translate uses cookies to provide its services, personalize advertising and run traffic analysis To use the service, your consent on using cookies is required. Find more information about at the Google <a href=\"https://policies.google.com/\" target=\"_blank\" rel=\"noopener\">Privacy Policy</a>. <br />Required Cookie Settings: <ul>\n  <li style=\"list-style-type: none;\">\n    <b>Analysis</b>\n    <p>\n      For the use of Google Translations, your consent on analysis\n      in the privacy settings is required.\n    </p>\n  </li>\n  <li style=\"list-style-type: none;\">\n    <b>Personalization</b>\n    <p>\n      For the use of Google Translations, your consent on personalization\n      in the privacy settings is required.\n    </p>\n  </li>\n</ul>\n", "de":"Der <b>kostenlose</b> Dienst von Google Translate verwendet Cookies um seine Dienste bereitzustellen, Werbung zu personalisieren und Verkehrsanalysen durchzuführen. Mehr Information dazu finden Sie dazu in der <a href=\"https://policies.google.com/\" target=\"_blank\" rel=\"noopener\">Datenschutzerklärung</a> von Google. Erforderliche Cookie Einstellungen: <br /> <ul>\n  <li style=\"list-style-type: none;\">\n    <b>Analysen</b>\n    <p>\n      Für die Nutzung von Übersetzungen ist Ihre Zustimmung zu\n      Analysen in den Einstellungen Ihrer Privatsphäre\n      erforderlich.\n    </p>\n  </li>\n  <li style=\"list-style-type: none;\">\n    <b>Personalisierung</b>\n    <p>\n      Für die Nutzung von Übersetzungen ist Ihre Zustimmung zur\n      Personalisierung in den Einstellungen Ihrer Privatsphäre\n      erforderlich.\n    </p>\n  </li>\n</ul>\n"}}}});
+      translatorSettings    = $.extend({},   {"enabled":true, "translatorName":"google", "contentLanguage":"en", "dialogLanguage":"auto", "translationLanguage":"de"});
       translatorOptions     = $.extend(true, {}, translatorDefaults, translatorSettings);
       url                   = new liteURL(window.location.href);
       baseUrl               = url.origin;
@@ -161,7 +99,6 @@ j1.adapter.translator = (function (j1, window) {
       gtTranslateScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
       gtCallbackScript      = document.createElement('script');
       gtCallbackScript.id   = 'gt-callback';
-
       user_translate = {
         'translatorName':           'google',
         'translationEnabled':       false,
@@ -171,34 +108,29 @@ j1.adapter.translator = (function (j1, window) {
         'useLanguageFromBrowser':   true,
         'translationLanguage':      translation_language,
       };
-
       // initialize state flag
       _this.state = 'pending';
-
       // add GT callback script dynamically in the head section
       // jadams, 2022-04-21: postTranslateElementInit cause error, disabled
       // -----------------------------------------------------------------------
       gtCallbackScript.text  = '\n';
       gtCallbackScript.text += 'function googleTranslateElementInit() {' + '\n';
       gtCallbackScript.text += '  var gtAPI = new google.translate.TranslateElement({' + '\n';
-      gtCallbackScript.text += '    pageLanguage: "{{translator_options.contentLanguage}}",' + '\n';
+      gtCallbackScript.text += '    pageLanguage: "en",' + '\n';
       gtCallbackScript.text += '    layout:       google.translate.TranslateElement.FloatPosition.TOP_LEFT' + '\n';
       gtCallbackScript.text += '  },' + '\n';
       gtCallbackScript.text += '  "google_translate_element");' + '\n';
       gtCallbackScript.text += '}' + '\n';
       document.head.appendChild(gtCallbackScript);
-
       // -----------------------------------------------------------------------
       // initializer
       // -----------------------------------------------------------------------
       var dependencies_met_page_ready = setInterval (function (options) {
-        var expires       = '{{cookie_options.expires}}';
-        var same_site     = '{{cookie_options.same_site}}';
-        var option_domain = '{{cookie_options.domain}}';
+        var expires       = '365';
+        var same_site     = 'Strict';
+        var option_domain = 'false';
         var translationFeedbackHighlight;
-
         user_consent = j1.readCookie(cookie_names.user_consent);
-
         // set domain used by cookies
         //
         if (option_domain == 'auto') {
@@ -206,17 +138,13 @@ j1.adapter.translator = (function (j1, window) {
         } else  {
           domainAttribute = '';
         }
-
         var pageState     = $('#no_flicker').css("display");
         var pageVisible   = (pageState == 'block') ? true: false;
         var atticFinished = (j1.adapter.attic.getState() == 'finished') ? true : false;
-
         if (j1.getState() === 'finished' && pageVisible && atticFinished) {
-
           _this.setState('started');
           logger.debug('\n' + 'state: ' + _this.getState());
           logger.info('\n' + 'module is being initialized');
-
           // load|initialize user translate cookie
           //
           if (j1.existsCookie(cookie_names.user_translate)) {
@@ -231,13 +159,11 @@ j1.adapter.translator = (function (j1, window) {
               expires:  expires
             });
           }
-
           // hide the google translate element if exists
           //
           if ($('google_translate_element')) {
             $('google_translate_element').hide();
           }
-
           // show|hide translate button if enabled
           //
           if (translatorOptions.hideTranslatorIcon) {
@@ -258,7 +184,6 @@ j1.adapter.translator = (function (j1, window) {
               }
             }
           }
-
           // load|set user translate cookie
           //
           user_consent = j1.readCookie(cookie_names.user_consent);
@@ -270,7 +195,6 @@ j1.adapter.translator = (function (j1, window) {
               data:     user_translate,
               secure:   secure
             });
-
             // expire permanent cookie to session
             //
             j1.expireCookie({ name: cookie_names.user_translate });
@@ -283,11 +207,9 @@ j1.adapter.translator = (function (j1, window) {
               expires:  365
             });
           }
-
           if (translatorOptions.dialogLanguage === 'auto') {
-            translatorOptions.dialogLanguage = '{{contentLanguage}}';
+            translatorOptions.dialogLanguage = 'en';
           }
-
           j1.translator = new Translator({
             contentURL:               translatorOptions.contentURL,                     // dialog content (modals) for all supported languages
             cookieName:               cookie_names.user_translate,                      // name of the translator cookie
@@ -306,7 +228,6 @@ j1.adapter.translator = (function (j1, window) {
             xhrDataElement:           translatorOptions.xhrDataElement,                 // container for all language-specific dialogs (modals)
             postSelectionCallback:    translatorOptions.google.postSelectionCallback    // prepared but currently NOT actively used
           });
-
           // hide the translation feedback
           //
           translationFeedbackHighlight  = '<style id="translationFeedbackHighlight">';
@@ -315,9 +236,7 @@ j1.adapter.translator = (function (j1, window) {
           translationFeedbackHighlight += '    box-shadow: none !important;;';
           translationFeedbackHighlight += '  }';
           translationFeedbackHighlight += '</style>';
-
           $('head').append(translationFeedbackHighlight);
-
           // enable|disable translation (after callback)
           if (user_translate.analysis && user_translate.personalization && user_translate.translationEnabled) {
             if (translatorOptions.translatorName === 'google') {
@@ -331,7 +250,6 @@ j1.adapter.translator = (function (j1, window) {
             if (translatorOptions.translatorName === 'google') {
               logger.info('\n' + 'translation disabled');
               logger.info('\n' + 'remove existing Google Translate cookies');
-
               // remove all googtrans cookies that POTENTIALLY exists
               //
               Cookies.remove('googtrans', { domain: domainAttribute });
@@ -340,31 +258,24 @@ j1.adapter.translator = (function (j1, window) {
               Cookies.remove('googtrans');
             }
           }
-
           // -------------------------------------------------------------------
           // NOTE: Click events moved to Navigator (core)
           // -------------------------------------------------------------------
-
           _this.setState('finished');
           logger.debug('\n' + 'state: ' + _this.getState());
           logger.debug('\n' + 'module initialized successfully');
-
           clearInterval(dependencies_met_page_ready);
         }
       }, 10);
-
     }, // END init
-
     // -------------------------------------------------------------------------
     // messageHandler: MessageHandler for J1 google_translate module
     // Manage messages send from other J1 modules
     // -------------------------------------------------------------------------
     messageHandler: function (sender, message) {
       var json_message = JSON.stringify(message, undefined, 2);
-
       logText = '\n' + 'received message from ' + sender + ': ' + json_message;
       logger.debug(logText);
-
       // -----------------------------------------------------------------------
       //  Process commands|actions
       // -----------------------------------------------------------------------
@@ -374,14 +285,11 @@ j1.adapter.translator = (function (j1, window) {
         //
         logger.info('\n' + message.text);
       }
-
       //
       // Place handling of other command|action here
       //
-
       return true;
     }, // END messageHandler
-
     // -------------------------------------------------------------------------
     // setState()
     // Sets the current (processing) state of the module
@@ -389,7 +297,6 @@ j1.adapter.translator = (function (j1, window) {
     setState: function (stat) {
       _this.state = stat;
     }, // END setState
-
     // -------------------------------------------------------------------------
     // getState()
     // Returns the current (processing) state of the module
@@ -397,7 +304,6 @@ j1.adapter.translator = (function (j1, window) {
     getState: function () {
       return _this.state;
     }, // END getState
-
     // -------------------------------------------------------------------------
     // postTranslateElementInit()
     // prepared but currently NOT actively used
@@ -406,10 +312,8 @@ j1.adapter.translator = (function (j1, window) {
       // code for post processing
       logger.info('\n' + 'postTranslateElementInit entered');
       logger.info('\n' + response.T.Dh);
-
       return;
     }, // END postTranslateElementInit
-
     // -------------------------------------------------------------------------
     // cbGoogle()
     // Called by the translator CORE module after the user has made
@@ -429,7 +333,6 @@ j1.adapter.translator = (function (j1, window) {
       var destLang;
       var transCode;
       var selectedTranslationLanguage;
-
       // set domain used by cookies
       // if (cookie_option_domain == 'auto') {
       //   domainAttribute = domain ;
@@ -437,24 +340,20 @@ j1.adapter.translator = (function (j1, window) {
       //   // domainAttribute = hostname;
       //   domainAttribute = '';
       // }
-
       // button 'Do nothing' clicked
       //
       if (option === 'exitOnly') {
         return;
       }
-
       selectedTranslationLanguage = msDropdown.value;
       logger.info('\n' + 'selected translation language: ' + selectedTranslationLanguage);
-
       // set content language
       //
       if (translatorOptions.contentLanguage === 'auto') {
-        srcLang = '{{contentLanguage}}';
+        srcLang = 'en';
       } else {
         srcLang = translatorOptions.contentLanguage;
       }
-
       // translation language MUST be DIFFERENT from content language
       //
       if (srcLang == selectedTranslationLanguage ) {
@@ -466,19 +365,16 @@ j1.adapter.translator = (function (j1, window) {
         Cookies.remove('googtrans');
         location.reload();
       }
-
       // set transCode settings
       //
       destLang  = translation_language;
       transCode = '/' + srcLang + '/' + selectedTranslationLanguage;
-
       // remove all googtrans cookies that POTENTIALLY exists
       //
       Cookies.remove('googtrans', { domain: domainAttribute });
       Cookies.remove('googtrans', { domain: subDomain });
       Cookies.remove('googtrans', { domain: hostname });
       Cookies.remove('googtrans');
-
       // -----------------------------------------------------------------------
       // NOTE: googtrans cookie will be rewritten (by Google!?) for
       // attributes 'SameSite' and 'Domain'. This results for 'SameSite'
@@ -490,12 +386,10 @@ j1.adapter.translator = (function (j1, window) {
       }
 
       Cookies.set('googtrans', transCode);
-
+      
       // reload current page
       location.reload();
-
     }, // END cbGoogle
-
     // -------------------------------------------------------------------------
     // cbDeepl()
     // Called by the translator CORE module after the user made the
@@ -503,21 +397,9 @@ j1.adapter.translator = (function (j1, window) {
     // -------------------------------------------------------------------------
     cbDeepl: function () {
       var logger     = log4javascript.getLogger('j1.adapter.translator.cbDeepl');
-
       //
       // place code for processing here
       //
-
     } // END cbDeepl
-
   }; // END return
-
 })(j1, window);
-
-{% endcapture %}
-{% if production %}
-  {{ cache | minifyJS }}
-{% else %}
-  {{ cache | strip_empty_lines }}
-{% endif %}
-{% assign cache = nil %}

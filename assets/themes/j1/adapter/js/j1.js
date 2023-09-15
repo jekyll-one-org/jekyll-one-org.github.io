@@ -13,7 +13,7 @@
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-09-14 22:19:01 +0200
+ # Adapter generated: 2023-09-15 15:16:13 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -30,7 +30,7 @@ var j1 = (function (options) {
   // ---------------------------------------------------------------------------
   // base page resources
   var rePager          =  new RegExp('navigator|dateview|tagview|archive');
-  var environment      = 'production';
+  var environment      = 'development';
   var moduleOptions    = {};
   var j1_runtime_data  = {};
   var scrollerSettings = {};
@@ -177,7 +177,7 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2023-09-14 22:19:01 +0200'
+        generated:   '2023-09-15 15:16:13 +0200'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
@@ -2298,7 +2298,7 @@ var j1 = (function (options) {
       var lcp
       var cumulated_cls = 0;
       var cumulated_lcp = 0;
-      const development = ('production'.includes('prod')) ? false : true;
+      const development = ('development'.includes('prod')) ? false : true;
       // ResizeObserver to monitor the changes on page height (dynamic pages)
       // see: https://stackoverflow.com/questions/14866775/detect-document-height-change
       //
