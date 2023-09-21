@@ -13,7 +13,7 @@
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-09-21 15:09:10 +0200
+ # Adapter generated: 2023-09-21 03:50:22 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -115,7 +115,7 @@ j1.adapter.logger = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.logger',
-        generated:   '2023-09-21 15:09:10 +0200'
+        generated:   '2023-09-21 03:50:22 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -124,7 +124,7 @@ j1.adapter.logger = (function (j1, window) {
       logger      = log4javascript.getLogger('j1.adapter.logger');
       // Load  module DEFAULTS|CONFIG
       loggerDefaults      = $.extend({},   {"enabled":true, "tz_offset":"GMT+01:00", "appenders":[{"name":"Console Appender", "appender":{"name":"consoleAppender", "enabled":false, "type":"BrowserConsoleAppender", "layout":"PatternLayout", "custom_fields":["file", "line", "path"], "pattern_string":"[%d{HH:mm:ss.SSS}] [%-5p] [%-40c] [%f{1}:%f{2}] [%m]%n                       [%f{3}]"}}, {"name":"Ajax Appender", "appender":{"name":"ajaxAppender", "enabled":false, "type":"BrowserAjaxAppender", "layout":"JsonLayout", "custom_fields":["file", "line", "path"], "log_folder":"log", "log_file_name":"messages", "log_file_ext":"log", "create_on_start":true, "reset_on_start":true, "rolling_files":false, "mode":"append"}}, {"name":"Popup Appender", "appender":{"name":"popupAppender", "enabled":false, "type":"PopUpAppender", "width":600, "height":400, "lazyInit":false, "initiallyMinimized":false, "layout":"PatternLayout", "custom_fields":[], "pattern_string":"[%d{HH:mm:ss}] [ %-5p] - [%m{1}]%n"}}], "loggers":[{"name":"Parent Logger", "logger":{"type":"parent", "name":"j1", "appender":["consoleAppender", "ajaxAppender"], "level":{"production":"warn", "development":"debug"}}}]});
-      loggerSettings      = $.extend({},   {"tz_offset":"GMT+01:00", "appenders":[{"name":"Console Appender", "appender":{"name":"consoleAppender", "enabled":true}}, {"name":"Ajax Appender", "appender":{"name":"ajaxAppender", "enabled":false}}, {"name":"Popup Appender", "appender":{"name":"popupAppender", "enabled":false}}]});
+      loggerSettings      = $.extend({},   {"enabled":true, "appenders":[{"name":"Console Appender", "appender":{"name":"consoleAppender", "enabled":true}}]});
       loggerOptions       = $.extend(true, {}, loggerDefaults, loggerSettings);
       ajaxAppenderOptions = loggerOptions.appenders[1].appender;
       /* eslint-disable */
