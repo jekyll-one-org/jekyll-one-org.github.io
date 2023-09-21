@@ -15,7 +15,7 @@
  # -----------------------------------------------------------------------------
  # NOTE: Wave styles defind in /assets/data/panel.html, key 'wave'
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-09-15 19:57:50 +0200
+ #  Adapter generated: 2023-09-21 15:09:10 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -72,7 +72,7 @@ var Events = {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.speak2me',
-        generated:   '2023-09-15 19:57:50 +0200'
+        generated:   '2023-09-21 15:09:10 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -82,7 +82,7 @@ var Events = {
       frontmatterOptions  = options != null ? $.extend({}, options) : {};
       // create settings object from module options
       //
-      speak2meDefaults = $.extend({}, {"enabled":false, "dialogContainerID":"speak2me_container", "speechSelector":"main", "modal":{"title":"Text-2-Speech Translation", "settings":{"voice_settings_title":"Voice Settings", "voice_select_title":"Select a voice", "voice_control_title":"Voice Control", "speak_button_text":"Speak", "speak_button_style":"success", "stop_button_text":"Stop", "stop_button_style":"primary", "pause_button_text":"Pause", "pause_button_style":"info", "resume_button_text":"Resume", "resume_button_style":"info", "exit_button_text":"Close", "exit_button_style":"warning", "voice_speed_min":0.1, "voice_speed_max":3.0, "voice_speed_step":0.1, "voice_speed_value":1.0, "voice_speed_label":"Speed", "voice_speed_max_label":1.0, "voice_pitch_min":0.1, "voice_pitch_max":2.0, "voice_pitch_step":0.1, "voice_pitch_value":0.9, "voice_pitch_label":"Pitch", "voice_pitch_max_label":0.9, "voice_volume_min":0, "voice_volume_max":1.0, "voice_volume_step":0.1, "voice_volume_value":0.9, "voice_volume_label":"Volume", "voice_volume_max_label":0.9}}});
+      speak2meDefaults = $.extend({}, {"enabled":false, "dialogContainerID":"speak2me_container", "speechSelector":"main", "chrome_pause_resume_cycle":5000, "modal":{"title":"Text-2-Speech Translation", "settings":{"voice_settings_title":"Voice Settings", "voice_select_title":"Select a voice", "voice_control_title":"Voice Control", "speak_button_text":"Speak", "speak_button_style":"success", "stop_button_text":"Stop", "stop_button_style":"primary", "pause_button_text":"Pause", "pause_button_style":"info", "resume_button_text":"Resume", "resume_button_style":"info", "exit_button_text":"Close", "exit_button_style":"warning", "voice_speed_min":0.1, "voice_speed_max":3.0, "voice_speed_step":0.1, "voice_speed_value":1.0, "voice_speed_label":"Speed", "voice_speed_max_label":1.0, "voice_pitch_min":0.1, "voice_pitch_max":2.0, "voice_pitch_step":0.1, "voice_pitch_value":0.9, "voice_pitch_label":"Pitch", "voice_pitch_max_label":0.9, "voice_volume_min":0, "voice_volume_max":1.0, "voice_volume_step":0.1, "voice_volume_value":0.9, "voice_volume_label":"Volume", "voice_volume_max_label":0.9}}});
       speak2meSettings = $.extend({}, {"enabled":true});
       speak2meOptions  = $.extend(true, {}, speak2meDefaults, speak2meSettings, frontmatterOptions);
       ttsDisabled      = (speak2meOptions.tts == "false") ? true : false;
@@ -129,7 +129,7 @@ var Events = {
                 $().speak2me('pause').speak2me('resume');
                 logger.debug('\n' + 'speak: send pause-resumed');
               }
-            }, 10000);
+            }, speak2meOptions.chrome_pause_resume_cycle);
           }
           if (ttsDisabled) {
             logger.warn('\n' + 'tts detected: disabled');

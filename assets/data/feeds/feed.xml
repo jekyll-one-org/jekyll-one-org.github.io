@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator>
-  <link href="http://localhost:22000/assets/data/feeds/feed.xml" rel="self" type="application/atom+xml">
-    <link href="http://localhost:22000/" rel="alternate" type="text/html"/>
-    <updated>2023-09-15T19:57:50+02:00</updated>
-    <id>http://localhost:22000/assets/data/feeds/feed.xml</id>
+  <link href="http://localhost:30000/assets/data/feeds/feed.xml" rel="self" type="application/atom+xml">
+    <link href="http://localhost:30000/" rel="alternate" type="text/html"/>
+    <updated>2023-09-21T15:09:10+02:00</updated>
+    <id>http://localhost:30000/assets/data/feeds/feed.xml</id>
     <post_limited>1000000</post_limited>
     <template_name>J1 Theme</template_name>
-    <template_version>2023.9.0</template_version>
+    <template_version>2023.9.1</template_version>
     <title type="html">J1 Starter</title>
     <subtitle>J1 Template gives web developers and hobbyists a clean implementation in Jekyll for starting new projects based on Bootstap V5. The template combines the best software for the Web. Jekyll One is open source, free to use, and the modules packed as well.
 </subtitle>
@@ -16,61 +16,61 @@
     </author>
     <entry>
       <title type="html">Welcome to Jekyll</title>
-      <link href="http://localhost:22000/posts/public/featured/jekyll/2023/09/12/welcome-to-j1/" rel="alternate" type="text/html" title="Welcome to Jekyll">
-        <published>2023-09-12T00:00:00+02:00</published>
-        <updated>2023-09-12T00:00:00+02:00</updated>
-        <id>http://localhost:22000/posts/public/featured/jekyll/2023/09/12/welcome-to-j1</id>
+      <link href="http://localhost:30000/posts/public/featured/jekyll/2023/09/21/welcome-to-j1/" rel="alternate" type="text/html" title="Welcome to Jekyll">
+        <published>2023-09-21T00:00:00+02:00</published>
+        <updated>2023-09-21T00:00:00+02:00</updated>
+        <id>http://localhost:30000/posts/public/featured/jekyll/2023/09/21/welcome-to-j1</id>
         <author>
           <name>Juergen Adams</name>
         </author>
         <category term="posts">
-          <category term="Post">
-            <category term="Template">
-              <summary type="html"><![CDATA[A static site serves the content straight to the user as it is stored on the server-side. Contrary to WordPress, which uses a database to load dynamic content, a static site will display the content immediately as it will directly load the HTML files from the server.]]></summary>
-              <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:22000/assets/images/modules/attics/katie-moum-1920x1280.jpg">
-                <media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="http://localhost:22000/assets/images/modules/attics/katie-moum-1920x1280.jpg"/>
+          <category term="Template">
+            <category term="Theme">
+              <summary type="html"><![CDATA[Jekyll is a static site generator that allows you to build websites using HTML, CSS, Javascript, and Markdown for writing the content. It uses templates and layouts to generate the static files that make up your website, which can be hosted on any web server.]]></summary>
+              <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:30000/assets/images/modules/attics/katie-moum-1920x1280.jpg">
+                <media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="http://localhost:30000/assets/images/modules/attics/katie-moum-1920x1280.jpg"/>
                 <entry>
                   <title type="html">J1 Theme</title>
-                  <link href="http://localhost:22000/posts/public/featured/jekyll/2022/02/01/about-j1/" rel="alternate" type="text/html" title="J1 Theme">
+                  <link href="http://localhost:30000/posts/public/featured/jekyll/2022/02/01/about-j1/" rel="alternate" type="text/html" title="J1 Theme">
                     <published>2022-02-01T00:00:00+02:00</published>
                     <updated>2022-02-01T00:00:00+02:00</updated>
-                    <id>http://localhost:22000/posts/public/featured/jekyll/2022/02/01/about-j1</id>
+                    <id>http://localhost:30000/posts/public/featured/jekyll/2022/02/01/about-j1</id>
                     <author>
                       <name>Juergen Adams</name>
                     </author>
                     <category term="posts">
                       <category term="Theme">
                         <summary type="html"><![CDATA[J1 Template is a Bootstrap V5 website template for the static site generator Jekyll. The Theme J1 has been developed to create simple but fully configurable websites. Jekyll One is a full-featured Theme for Jekyll to create modern websites for free.]]></summary>
-                        <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:22000/assets/images/modules/attics/1920x1280/j1-starter-mockup-1.jpg">
-                          <media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="http://localhost:22000/assets/images/modules/attics/1920x1280/j1-starter-mockup-1.jpg"/>
+                        <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:30000/assets/images/modules/attics/1920x1280/j1-starter-mockup-1.jpg">
+                          <media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="http://localhost:30000/assets/images/modules/attics/1920x1280/j1-starter-mockup-1.jpg"/>
                           <entry>
                             <title type="html">Static Site Generators</title>
-                            <link href="http://localhost:22000/posts/public/featured/jekyll/2021/02/01/static-site-generators/" rel="alternate" type="text/html" title="Static Site Generators">
+                            <link href="http://localhost:30000/posts/public/featured/jekyll/2021/02/01/static-site-generators/" rel="alternate" type="text/html" title="Static Site Generators">
                               <published>2021-02-01T00:00:00+02:00</published>
                               <updated>2021-02-01T00:00:00+02:00</updated>
-                              <id>http://localhost:22000/posts/public/featured/jekyll/2021/02/01/static-site-generators</id>
+                              <id>http://localhost:30000/posts/public/featured/jekyll/2021/02/01/static-site-generators</id>
                               <author>
                                 <name>Juergen Adams</name>
                               </author>
                               <category term="posts">
                                 <category term="Generators">
-                                  <summary type="html"><![CDATA[This article highlights the top open-source projects providing static site generators, so-called SSGs, in many different programming languages. You will find Jekyll one of them. A SSG is a software tool that assists in creating websites by generating static HTML, CSS, and JavaScript files. Unlike dynamic websites that generate content on the server side in response to each user request, static sites pre-generate the content before it&#8217;s served to users.]]></summary>
-                                  <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:22000/assets/images/modules/attics/machine-generator-1920x1280.jpg">
-                                    <media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="http://localhost:22000/assets/images/modules/attics/machine-generator-1920x1280.jpg"/>
+                                  <summary type="html"><![CDATA[This article highlights the top Open Source projects providing static site generators, so-called SSGs, in many different programming languages. You will find Jekyll one of them. A SSG is a software tool that assists in creating websites by generating static HTML, CSS, and JavaScript files. Unlike dynamic websites that generate content on the server side in response to each request of a user, static sites pre-generate the content upfront it is served to users.]]></summary>
+                                  <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:30000/assets/images/modules/attics/machine-generator-1920x1280.jpg">
+                                    <media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="http://localhost:30000/assets/images/modules/attics/machine-generator-1920x1280.jpg"/>
                                     <entry>
                                       <title type="html">Cookies</title>
-                                      <link href="http://localhost:22000/posts/public/featured/technology/2021/01/01/about-cookies/" rel="alternate" type="text/html" title="Cookies">
+                                      <link href="http://localhost:30000/posts/public/featured/technology/2021/01/01/about-cookies/" rel="alternate" type="text/html" title="Cookies">
                                         <published>2021-01-01T00:00:00+02:00</published>
                                         <updated>2021-01-01T00:00:00+02:00</updated>
-                                        <id>http://localhost:22000/posts/public/featured/technology/2021/01/01/about-cookies</id>
+                                        <id>http://localhost:30000/posts/public/featured/technology/2021/01/01/about-cookies</id>
                                         <author>
                                           <name>Juergen Adams</name>
                                         </author>
                                         <category term="posts">
                                           <category term="Cookies">
-                                            <summary type="html"><![CDATA[Cookies can be used for various purposes, such as tracking user behavior, remembering login credentials, and personalizing the user experience. Providing clear and transparent information about cookies helps users understand how their data is used and allows them to make informed choices about their privacy.]]></summary>
-                                            <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:22000/assets/images/modules/attics/cookies-1920x1200.jpg">
-                                              <media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="http://localhost:22000/assets/images/modules/attics/cookies-1920x1200.jpg"/>
+                                            <summary type="html"><![CDATA[Cookies can be used for various purposes, such as tracking user behavior, remembering login credentials, and personalizing the user experience. Providing clear and transparent information about cookies helps users to understand how their data is used and allows them to make better choices about their privacy.]]></summary>
+                                            <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:30000/assets/images/modules/attics/cookies-1920x1200.jpg">
+                                              <media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="http://localhost:30000/assets/images/modules/attics/cookies-1920x1200.jpg"/>
                                             </media:thumbnail>
                                           </category>
                                         </category>

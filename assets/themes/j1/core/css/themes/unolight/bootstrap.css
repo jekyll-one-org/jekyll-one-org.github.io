@@ -12733,6 +12733,9 @@ li > a:hover {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.8) !important; }
 
+.page-link.disabled {
+  background-color: #e0e0e0; }
+
 .page-link:hover, .page-link:focus {
   border: 1px solid !important;
   background-color: #757575 !important;
