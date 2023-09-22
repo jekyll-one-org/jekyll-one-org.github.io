@@ -13,7 +13,7 @@
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-09-21 03:50:22 +0200
+ #  Adapter generated: 2023-09-22 02:08:15 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -58,7 +58,7 @@ j1.adapter.rangeSlider = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.rangeSlider',
-        generated:   '2023-09-21 03:50:22 +0200'
+        generated:   '2023-09-22 02:08:15 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
