@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2023-09-21 23:29:36 +0200 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2023-09-23 17:01:28 +0200 ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ environment detected as: development ] -->
-  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2023.9.1 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2023.9.2 ] -->
   <head data-proofer-ignore>
     <!-- [INFO   ] [j1.layout.default.html                ] [ call default_writer for region: 'head' ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: page ] -->
@@ -62,7 +62,7 @@
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ add J1 SEO Tags ] -->
     <!-- Begin J1 SEO tags -->
     <meta name="generator" content="Jekyll v4.3.2">
-    <meta name="builder" content="J1 Template v2023.9.1">
+    <meta name="builder" content="J1 Template v2023.9.2">
     <title>Image - Lightboxes, Carousels, Sliders, and Galleries for J1 Template</title>
     <meta property="og:title" content="Image - Lightboxes, Carousels, Sliders, and Galleries for J1 Template">
     <meta name="author" content="Juergen Adams">
@@ -83,7 +83,7 @@
     <meta name="twitter:site" content="http://localhost:40000/pages/public/learn/roundtrip/present_images/">
     <meta name="twitter:creator" content="@Juergen Adams">
     <script type="application/ld+json">
-      {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Juergen Adams","url":"https://jekyll.one/"},"dateModified":"2023-09-21T23:30:22+02:00","datePublished":"2020-11-03T00:00:00+02:00","description":"J1 Template support valuable features to manage your image-based content using lightboxes, carousels, sliders, and galleries. The image modules of J1 Template offer a wide range of complex functionality based on powerful OpenSource libraries like Lightbox2, Master Slider, LightGallery, or JustifiedGallery for high-end, masonry-styled preview maps.","headline":"Image","image":{"width":1920,"height":1280,"url":"http://localhost:40000/assets/images/modules/attics/1920x1280/quino-al-2.jpg","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:40000/pages/public/learn/roundtrip/present_images/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:40000/assets/images/icons/j1/j1-512x512.png"},"name":"Juergen Adams"},"url":"http://localhost:40000/pages/public/learn/roundtrip/present_images/"}
+      {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Juergen Adams","url":"https://jekyll.one/"},"dateModified":"2023-09-23T17:02:16+02:00","datePublished":"2020-11-03T00:00:00+02:00","description":"J1 Template support valuable features to manage your image-based content using lightboxes, carousels, sliders, and galleries. The image modules of J1 Template offer a wide range of complex functionality based on powerful OpenSource libraries like Lightbox2, Master Slider, LightGallery, or JustifiedGallery for high-end, masonry-styled preview maps.","headline":"Image","image":{"width":1920,"height":1280,"url":"http://localhost:40000/assets/images/modules/attics/1920x1280/quino-al-2.jpg","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:40000/pages/public/learn/roundtrip/present_images/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:40000/assets/images/icons/j1/j1-512x512.png"},"name":"Juergen Adams"},"url":"http://localhost:40000/pages/public/learn/roundtrip/present_images/"}
     </script>
     <!-- End J1 SEO tags -->
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ end SEO Optimization ] -->
@@ -809,19 +809,19 @@
                     images. See how single (individual) images are linked.</p>
                 </div>
                 <div class="lightbox-title">Lightbox for standalone images</div>
-                <lightbox id="lb-example-standalone" class="imageblock"> 
+                <div id="lb-example-standalone" class="imageblock"> 
                   <div class="content mb-4" style="margin-bottom: 1.75rem;">
                     <a class="notoc link-no-decoration" href="/assets/images/modules/gallery/old_times/image_02.jpg" data-lightbox="assets/images/modules/gallery/old_times/image_02.jpg" data-title="GrandPa's 80th Birthday">
                       <img class="img-fluid" src="/assets/images/modules/gallery/old_times/image_02.jpg" alt="Lightbox for standalone images" width="800">
                     </a>
                   </div>
-                </lightbox>
+                </div>
                 <div class="paragraph mb-4">
                   <p>The J1 lightbox module supports groups of images as well. Click on the image
                     group below to see how a group is managed.</p>
                 </div>
                 <div class="lightbox-title">Lightbox for grouped images</div>
-                <lightbox id="lb-example-group" class="imageblock"> 
+                <div id="lb-example-group" class="imageblock"> 
                   <div class="content mb-4 wm-800" style="margin-bottom: 1.75rem;">
                     <a class="notoc link-no-decoration" href="/assets/images/modules/gallery/old_times/image_03.jpg" data-lightbox="lb-example-group" data-title="GrandPa's annual journey">
                       <img class="img-fluid" src="/assets/images/modules/gallery/old_times/image_03.jpg" alt="Lightbox for grouped images" width="395">
@@ -830,7 +830,7 @@
                       <img class="img-fluid" src="/assets/images/modules/gallery/old_times/image_04.jpg" alt="Lightbox for grouped images" width="395">
                     </a>
                   </div>
-                </lightbox>
+                </div>
               </div>
               <div class="sect2 mt-5">
                 <h3 id="lightgallery">LightGallery</h3>
@@ -858,9 +858,9 @@
                 <div class="paragraph">
                   <p>Check what LightGallery can do this by the following example.</p>
                 </div>
-                <gallery>
+                <div>
                   <div id="jg_old_times" class=""></div>
-                </gallery>
+                </div>
               </div>
             </div>
           </div>
@@ -880,7 +880,7 @@
                     displayed as a slide show: simple text, for example.</p>
                 </div>
                 <div class="carousel-title">Text Carousel</div>
-                <carousel id="demo_text_carousel" class="mb-4"></carousel>
+                <div id="demo_text_carousel" class="mb-4"></div>
                 <div class="paragraph">
                   <p>Important statements or topics can be placed, e.g., on top of an article or
                     a paragraph, to give them better visibility. In one line, you can present
@@ -898,7 +898,7 @@
                     maybe the better choice.</p>
                 </div>
                 <div class="carousel-title">Parallax Text</div>
-                <carousel id="demo_text_carousel_parallax" class="mb-4"></carousel>
+                <div id="demo_text_carousel_parallax" class="mb-4"></div>
                 <div class="paragraph">
                   <p>Parallax text shows can be placed as banners on a page. For text shows,
                     different animations are available. Internally, J1 Template uses some of
@@ -936,7 +936,7 @@
                     banner presenting exciting things about your site or the products offered.</p>
                 </div>
                 <div class="carousel-title">Image Carousel</div>
-                <carousel id="demo_simple" class="mb-4"></carousel>
+                <div id="demo_simple" class="mb-4"></div>
               </div>
               <div class="sect2 mt-4">
                 <h3 id="carousel-caption-lightbox">Carousel + Caption + Lightbox</h3>
@@ -947,7 +947,7 @@
                     lightbox is used: Lightbox2; or short: lightbox.</p>
                 </div>
                 <div class="carousel-title">Image Carousel + Lightbox</div>
-                <carousel id="demo_cats" class="mb-3"></carousel>
+                <div id="demo_cats" class="mb-3"></div>
                 <div class="paragraph">
                   <p>The J1 module lightbox is a simple Lightbox but offers a bunch of impressive
                     features for displaying images. For example, the lightbox can display all
@@ -964,7 +964,7 @@
                     the show contains.</p>
                 </div>
                 <div class="carousel-title">One Slide Carousel</div>
-                <carousel id="demo_oneslide" class="mb-4"></carousel>
+                <div id="demo_oneslide" class="mb-4"></div>
               </div>
             </div>
           </div>
@@ -999,7 +999,7 @@
                     between images, to make the presentation more engaging and visually appealing.</p>
                 </div>
                 <div class="carousel-title">Carousel + Arrows + Dots + Captions + Lightbox</div>
-                <carousel id="image_carousel_full_parent" class="slider-parent "></carousel>
+                <div id="image_carousel_full_parent" class="slider-parent "></div>
               </div>
               <div class="sect2 mt-4">
                 <h3 id="carousel-from-collections">Carousel from Collections</h3>
@@ -1010,7 +1010,7 @@
                     as a caption.</p>
                 </div>
                 <div class="carousel-title">Collection Biography + Arrows + Dots + Gutters</div>
-                <carousel id="collection_carousel_biography_parent" class="slider-parent "></carousel>
+                <div id="collection_carousel_biography_parent" class="slider-parent "></div>
               </div>
               <div class="sect2 mt-4">
                 <h3 id="carousel-from-posts">Carousel from Posts</h3>
@@ -1032,7 +1032,7 @@
                   </div>
                 </div>
                 <div class="carousel-title">Post Carousel (Featured Posts)</div>
-                <carousel id="post_carousel_featured_parent" class="slider-parent "></carousel>
+                <div id="post_carousel_featured_parent" class="slider-parent "></div>
               </div>
               <div class="sect2 mt-4">
                 <h3 id="more-about-slick-carousels">More about Slick Carousels</h3>
@@ -1113,7 +1113,7 @@
                   </table>
                 </div>
                 <div class="carousel-title">Slider using Controls + Filters + Lightbox</div>
-                <slider id="p_ms_00002" class="master-slider-parent "></slider>
+                <div id="p_ms_00002" class="master-slider-parent "></div>
                 <div class="admonitionblock tip mt-4">
                   <table>
                     <tr>
@@ -1139,7 +1139,7 @@
                     so-called <strong>MSInfo</strong> blocks out-of-the-box.</p>
                 </div>
                 <div class="carousel-title">Slider using Images + Text</div>
-                <slider id="p_ms_00003" class="master-slider-parent "></slider>
+                <div id="p_ms_00003" class="master-slider-parent "></div>
               </div>
               <div class="sect2 mt-4">
                 <h3 id="thumb_images">MS Slider using ThumbImages</h3>
@@ -1150,7 +1150,7 @@
                     <strong>thumb images</strong>.</p>
                 </div>
                 <div class="carousel-title">Slider using ThumbImages</div>
-                <slider id="p_ms_00004" class="master-slider-parent "></slider>
+                <div id="p_ms_00004" class="master-slider-parent "></div>
               </div>
               <div class="sect2 mt-4">
                 <h3 id="thumb_info">MS Slider using ThumbInfo</h3>
@@ -1160,7 +1160,7 @@
                     top, or at the bottom of a slideshow.</p>
                 </div>
                 <div class="carousel-title">Slider using ThumbInfo</div>
-                <slider id="p_ms_00007" class="master-slider-parent "></slider>
+                <div id="p_ms_00007" class="master-slider-parent "></div>
               </div>
               <div class="sect2 mt-4">
                 <h3 id="partialview">MS Slider using Layout PartialView</h3>
@@ -1171,7 +1171,7 @@
                     slide by their neighbors on the left and the right.</p>
                 </div>
                 <div class="carousel-title">Slider using PartialView</div>
-                <slider id="p_ms_00009" class="master-slider-parent "></slider>
+                <div id="p_ms_00009" class="master-slider-parent "></div>
               </div>
               <div class="sect2 mt-4">
                 <h3 id="more_about_masterslider">More about Master Slider</h3>
@@ -1230,7 +1230,7 @@
                   </table>
                 </div>
                 <div class="masonry-title">Grid of Images</div>
-                <masonry id="card_example_parent" class="masonry-parent "></masonry>
+                <div id="card_example_parent" class="masonry-parent "></div>
               </div>
             </div>
           </div>
@@ -1255,9 +1255,9 @@
                   You’ll have seen it in use all over the Internet!</p>
               </div>
               <div class="gallery-title">Masonry Grid Gallery</div>
-              <gallery>
+              <div>
                 <div id="jg_customizer" class=""></div>
-              </gallery>
+              </div>
             </div>
           </div>
           <div class="sect1 mt-5">

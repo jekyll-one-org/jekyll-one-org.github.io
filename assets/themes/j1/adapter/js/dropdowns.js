@@ -13,7 +13,7 @@
  # J1 Theme is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-09-22 02:53:34 +0200
+ #  Adapter generated: 2023-09-23 22:11:45 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -48,7 +48,7 @@ j1.adapter.dropdowns = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.dropdowns',
-        generated:   '2023-09-22 02:53:34 +0200'
+        generated:   '2023-09-23 22:11:45 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings

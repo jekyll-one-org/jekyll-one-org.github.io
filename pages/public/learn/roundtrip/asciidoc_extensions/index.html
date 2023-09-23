@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2023-09-21 23:29:36 +0200 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2023-09-23 17:01:28 +0200 ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ environment detected as: development ] -->
-  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2023.9.1 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2023.9.2 ] -->
   <head data-proofer-ignore>
     <!-- [INFO   ] [j1.layout.default.html                ] [ call default_writer for region: 'head' ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ start processing: load region head, layout: page ] -->
@@ -62,7 +62,7 @@
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ add J1 SEO Tags ] -->
     <!-- Begin J1 SEO tags -->
     <meta name="generator" content="Jekyll v4.3.2">
-    <meta name="builder" content="J1 Template v2023.9.1">
+    <meta name="builder" content="J1 Template v2023.9.2">
     <title>Extensions - Enhance Asciidoc Markup Language</title>
     <meta property="og:title" content="Extensions - Enhance Asciidoc Markup Language">
     <meta name="author" content="Juergen Adams">
@@ -83,7 +83,7 @@
     <meta name="twitter:site" content="http://localhost:40000/pages/public/learn/roundtrip/asciidoc_extensions/">
     <meta name="twitter:creator" content="@Juergen Adams">
     <script type="application/ld+json">
-      {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Juergen Adams","url":"https://jekyll.one/"},"dateModified":"2023-09-21T23:30:09+02:00","datePublished":"2023-09-01T00:00:00+02:00","description":"J1 Template implements some handy Ruby-based enhancements for the markup language Asciidoc. Markup extensions for is a unique feature of Jekyll One compared to other Jekyll themes and templates.","headline":"Extensions","image":{"width":1920,"height":1280,"url":"http://localhost:40000/assets/images/pages/roundtrip/puzzle-1920x1280-bw.jpg","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:40000/pages/public/learn/roundtrip/asciidoc_extensions/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:40000/assets/images/icons/j1/j1-512x512.png"},"name":"Juergen Adams"},"url":"http://localhost:40000/pages/public/learn/roundtrip/asciidoc_extensions/"}
+      {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Juergen Adams","url":"https://jekyll.one/"},"dateModified":"2023-09-23T17:02:02+02:00","datePublished":"2023-09-01T00:00:00+02:00","description":"J1 Template implements some handy Ruby-based enhancements for the markup language Asciidoc. Markup extensions for is a unique feature of Jekyll One compared to other Jekyll themes and templates.","headline":"Extensions","image":{"width":1920,"height":1280,"url":"http://localhost:40000/assets/images/pages/roundtrip/puzzle-1920x1280-bw.jpg","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:40000/pages/public/learn/roundtrip/asciidoc_extensions/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:40000/assets/images/icons/j1/j1-512x512.png"},"name":"Juergen Adams"},"url":"http://localhost:40000/pages/public/learn/roundtrip/asciidoc_extensions/"}
     </script>
     <!-- End J1 SEO tags -->
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ end SEO Optimization ] -->
@@ -1211,13 +1211,13 @@ lightbox::&lt;block_id&gt;[ &lt;images_width&gt;, &lt;images_data_id&gt;, &lt;gr
                   </div>
                 </div>
                 <div class="lightbox-title">Lightbox block for standalone images</div>
-                <lightbox id="lb-images-standalone" class="imageblock"> 
+                <div id="lb-images-standalone" class="imageblock"> 
                   <div class="content " style="margin-bottom: 1.75rem;">
                     <a class="notoc link-no-decoration" href="/assets/images/modules/gallery/old_times/image_02.jpg" data-lightbox="assets/images/modules/gallery/old_times/image_02.jpg" data-title="GrandPa's 80th Birthday">
                       <img class="img-fluid" src="/assets/images/modules/gallery/old_times/image_02.jpg" alt="Lightbox block for standalone images" width="800">
                     </a>
                   </div>
-                </lightbox>
+                </div>
               </div>
               <div class="sect2 mt-5">
                 <h3 id="grouped-images">Grouped Images</h3>
@@ -1234,7 +1234,7 @@ lightbox::&lt;block_id&gt;[ &lt;images_width&gt;, &lt;images_data_id&gt;, &lt;gr
                   </div>
                 </div>
                 <div class="lightbox-title">Lightbox block for grouped images</div>
-                <lightbox id="lb-images-group" class="imageblock"> 
+                <div id="lb-images-group" class="imageblock"> 
                   <div class="content " style="margin-bottom: 1.75rem;">
                     <a class="notoc link-no-decoration" href="/assets/images/modules/gallery/old_times/image_03.jpg" data-lightbox="lb-images-group" data-title="GrandPa's annual journey">
                       <img class="img-fluid" src="/assets/images/modules/gallery/old_times/image_03.jpg" alt="Lightbox block for grouped images" width="400">
@@ -1243,7 +1243,7 @@ lightbox::&lt;block_id&gt;[ &lt;images_width&gt;, &lt;images_data_id&gt;, &lt;gr
                       <img class="img-fluid" src="/assets/images/modules/gallery/old_times/image_04.jpg" alt="Lightbox block for grouped images" width="400">
                     </a>
                   </div>
-                </lightbox>
+                </div>
               </div>
             </div>
           </div>
@@ -1271,13 +1271,13 @@ gallery::&lt;gallery_id&gt;[role="&lt;additional CSS styles&gt;"]</code></pre>
                 </div>
               </div>
               <div class="gallery-title">Image Gallery</div>
-              <gallery>
+              <div>
                 <div id="jg_customizer" class="mb-5"></div>
-              </gallery>
+              </div>
               <div class="gallery-title">Video Gallery</div>
-              <gallery>
+              <div>
                 <div id="jg_video_html5" class="mb-5"></div>
-              </gallery>
+              </div>
             </div>
           </div>
           <div class="sect1 mt-5">
@@ -1798,7 +1798,7 @@ lorem:macro[size]</code></pre>
               <div class="exampleblock result">
                 <div class="content">
                   <div class="paragraph">
-                    <p>Sapiente accusamus commodi rerum architecto provident et vero perferendis. Magni porro eos consequatur libero omnis quo et corrupti sunt enim facere iusto qui veritatis. Facilis eligendi dolorem ipsum distinctio facere in eum neque maxime. Est mollitia quos consequatur adipisci ipsum et voluptatibus sunt voluptas incidunt et vitae. Et vitae qui nesciunt nulla consequatur est voluptatibus qui magnam optio.</p>
+                    <p>Aut ullam quasi quaerat odit mollitia minima et consequuntur sapiente possimus autem. Minus rerum quibusdam dolores nam et molestias vel delectus rem debitis cupiditate. Corporis reprehenderit expedita qui. Maiores error est ratione et corrupti suscipit et nostrum omnis voluptatibus quo et. Aut eum dolor aut est non sunt.</p>
                   </div>
                 </div>
               </div>
@@ -1833,7 +1833,7 @@ lorem:macro[size]</code></pre>
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>quas</p>
+                            <p>non</p>
                           </div>
                         </div>
                       </td>
@@ -1848,7 +1848,7 @@ lorem:macro[size]</code></pre>
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>et rerum quas fugit eveniet</p>
+                            <p>similique rem nulla sequi quae</p>
                           </div>
                         </div>
                       </td>
@@ -1863,7 +1863,7 @@ lorem:macro[size]</code></pre>
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Nesciunt hic enim incidunt autem nemo consectetur reprehenderit omnis maiores.</p>
+                            <p>Velit dolor ut aut deleniti quia ut est facilis.</p>
                           </div>
                         </div>
                       </td>
@@ -1878,7 +1878,7 @@ lorem:macro[size]</code></pre>
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Nemo illo enim nulla blanditiis qui. Porro culpa est modi minus cumque maxime eius tempora nisi ut voluptatum voluptatem. Facilis qui numquam fuga exercitationem illo sed doloremque dolorem praesentium eveniet voluptas sapiente aut. Cupiditate voluptas ab voluptas qui et quia quaerat autem et vero qui id. Sapiente optio rerum quo enim id dolorum assumenda magnam illo et.</p>
+                            <p>Iste facilis enim sit qui exercitationem suscipit atque perspiciatis. Voluptatem unde in exercitationem voluptatem consectetur sit accusantium sit est velit saepe nisi enim. Quisquam officiis odio quis eum corrupti. Ut nemo iure tempora omnis ducimus dicta adipisci inventore beatae odio qui repellendus. Tempore voluptatum iure saepe sint soluta.</p>
                           </div>
                         </div>
                       </td>
@@ -1893,7 +1893,7 @@ lorem:macro[size]</code></pre>
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Fri Jan 10, 1969</p>
+                            <p>Sun Sep 19, 1971</p>
                           </div>
                         </div>
                       </td>
@@ -1908,7 +1908,7 @@ lorem:macro[size]</code></pre>
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>1967-04-07</p>
+                            <p>1980-11-24</p>
                           </div>
                         </div>
                       </td>
@@ -1923,7 +1923,7 @@ lorem:macro[size]</code></pre>
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Kellie Rodgers</p>
+                            <p>Wayne Wilkerson</p>
                           </div>
                         </div>
                       </td>
@@ -1938,7 +1938,7 @@ lorem:macro[size]</code></pre>
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Tomas</p>
+                            <p>Brenden</p>
                           </div>
                         </div>
                       </td>
@@ -1953,7 +1953,7 @@ lorem:macro[size]</code></pre>
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p>Wallace</p>
+                            <p>Christian</p>
                           </div>
                         </div>
                       </td>
@@ -1968,7 +1968,7 @@ lorem:macro[size]</code></pre>
                       <td class="tableblock halign-left valign-top">
                         <div class="content">
                           <div class="paragraph">
-                            <p><a href="mailto:angela_choi@mac.com">angela_choi@mac.com</a></p>
+                            <p><a href="mailto:manuel-o-donnell@aol.com">manuel-o-donnell@aol.com</a></p>
                           </div>
                         </div>
                       </td>
