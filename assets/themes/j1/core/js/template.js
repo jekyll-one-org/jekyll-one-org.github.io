@@ -4595,7 +4595,7 @@ module.exports = function parseContent(options) {
   var chunkCounter = 0;
   var userStoppedSpeaking = false;
   var chunkSpoken = false;
-  var scrollOnce = true;
+  var lastScrollPosition = false;
   var rateUserDefault;
   var pitchUserDefault;
   var volumeUserDefault;
@@ -4652,18 +4652,19 @@ module.exports = function parseContent(options) {
     'de-DE': 'Microsoft Katja Online (Natural) - German (Germany)'
   };
 
-  // -------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
   // Internal functions
-  // -------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
 
   // scan a page to get correct positions for scrolling and highlightning
   //
   function scanPage(options) {
     // see: https://stackoverflow.com/questions/3163615/how-to-scroll-an-html-page-to-a-given-anchor
     // see: https://stackoverflow.com/questions/22154129/how-to-make-setinterval-behave-more-in-sync-or-how-to-use-settimeout-instea
-    var line = 0;
+    var line = options.startLine;
     var lines;
     function scanSection(counter) {
+      // jadams, 2023-09-28:
       // because of the current translation in progress, the length
       // of a page may change to higher or lower values (asian)
       //
@@ -4683,11 +4684,20 @@ module.exports = function parseContent(options) {
         setTimeout(function () {
           scanFinished = true;
           $('#content').attr("style", "opacity: 1");
-          $(window).scrollTop(0);
+
+          // jadams, 2023-09-28:
+          // do NOT scroll on stop if paused
+          // disabled
+          // -------------------------------------------------------------------
+          // if (!myOptions.isPaused) {
+          //   window.scrollTo({top: 0, behavior: 'smooth'});
+          // }
         }, pageScanCycle);
       }
     }
-    scanSection(0);
+    scanSection({
+      startLine: 0
+    });
   } // END scanPage
 
   // merge (configuration) objects
@@ -4815,26 +4825,31 @@ module.exports = function parseContent(options) {
     var voiceLanguageDefault = voiceLanguageFirefoxDefault[currentLanguage];
   }
 
-  // -------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
   // Public functions (methods)
-  // -------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
   //
   var methods = {
     // main speak2me method.
     //
     speak: function (options) {
-      var opts = $.extend({}, $.fn.speak2me.defaults, options);
       var toSpeak = '';
       var voiceTags = new Array();
       var _this = this;
       var obj, processed, finished;
       var ignoreTags;
       scanFinished = false;
-      myOptions = extend(defaultOptions, customOptions || {});
+      myOptions = extend(options, defaultOptions, customOptions || {});
 
       // scan page to find correct positions for scrolling and highlightning
       //
-      scanPage();
+      if (!myOptions.isPaused) {
+        scanPage({
+          startLine: 0
+        });
+      } else {
+        scanFinished = true;
+      }
 
       // Default values
       //
@@ -4847,19 +4862,16 @@ module.exports = function parseContent(options) {
       voiceTags['img'] = new voiceTag('Start of an embedded image with the description,', ', ');
       voiceTags['table'] = new voiceTag('Start of an embedded table,', 'This element ist not spoken.');
       voiceTags['card-header'] = new voiceTag('', '');
-      voiceTags['doc-example'] = new voiceTag('Start of an embedded example element,', 'This element ist not spoken.');
-      voiceTags['admonitionblock'] = new voiceTag('Start of an attention element of type, ', ':');
-      voiceTags['listingblock'] = new voiceTag('Start of an embedded structured text block,', 'This element ist not spoken.');
-      voiceTags['carousel'] = new voiceTag('Start of an embedded carousel element,', 'This element ist not spoken.');
-      voiceTags['slider'] = new voiceTag('Start of an embedded slider element,', 'This element ist not spoken.');
-      voiceTags['masonry'] = new voiceTag('Start of an embedded masonry element,', 'This element ist not spoken.');
-      voiceTags['lightbox'] = new voiceTag('Start of an embedded lightbox element,', 'This element ist not spoken.');
-      voiceTags['gallery'] = new voiceTag('Start of an embedded gallery element,', 'This element ist not spoken.');
+      voiceTags['.doc-example'] = new voiceTag('Start of an embedded example element,', 'This element ist not spoken.');
+      voiceTags['.admonitionblock'] = new voiceTag('Start of an attention element of type, ', ':');
+      voiceTags['.listingblock'] = new voiceTag('Start of an embedded structured text block,', 'This element ist not spoken.');
+      voiceTags['.slider'] = new voiceTag('Start of an embedded slider element,', 'This element ist not spoken.');
+      voiceTags['.masonry'] = new voiceTag('Start of an embedded masonry element,', 'This element ist not spoken.');
+      voiceTags['.lightbox-block'] = new voiceTag('Start of an embedded lightbox element,', 'This element ist not spoken.');
+      voiceTags['.gallery'] = new voiceTag('Start of an embedded gallery element,', 'This element ist not spoken.');
       voiceTags['figure'] = new voiceTag('Start of an embedded figure with the caption,', '');
       voiceTags['blockquote'] = new voiceTag('Blockquote start.', 'Blockquote end.');
       voiceTags['quoteblock'] = new voiceTag('Start of an embedded quote block element,', 'Quote block element end.');
-
-      //      ignoreTags = ['masonry', 'carousel', 'slider', 'pre','audio','button','canvas','code','del','dialog','embed','form','head','iframe','meter','nav','noscript','object','s','script','select','style','textarea','video'];
       ignoreTags = ['audio', 'button', 'canvas', 'code', 'del', 'pre', 'dialog', 'embed', 'form', 'head', 'iframe', 'meter', 'nav', 'noscript', 'object', 's', 'script', 'select', 'style', 'textarea', 'video'];
 
       // TODO: NOT working for multiple 'tab' windows
@@ -5124,6 +5136,7 @@ module.exports = function parseContent(options) {
             if (speaker.offsetTop >= speaker.previousScrollPosition) {
               speaker.previousScrollPosition = speaker.offsetTop;
             }
+            lastScrollPosition = speaker.offsetTop - scrollBlockOffset;
           }
 
           // remove highlightning for the paragraph already spoken
@@ -5137,6 +5150,7 @@ module.exports = function parseContent(options) {
 
         // loop to prepare ALL chunks to speak or STOP the voice output
         //
+        var wasRunOnce = false;
         var speechMonitor = setInterval(function () {
           // check if all chunks (text) are spoken
           //
@@ -5145,13 +5159,24 @@ module.exports = function parseContent(options) {
             userStoppedSpeaking = false;
             chunkSpoken = false;
             speaker.$paragraph !== undefined && speaker.$paragraph.removeClass('speak-highlighted');
-            window.scrollTo({
-              top: 0,
-              behavior: 'smooth'
-            });
+
+            // jadams, 2023-09-28:
+            // do NOT scroll on stop if paused
+            // disabled
+            // -----------------------------------------------------------------
+            // if (!myOptions.isPaused) {
+            //   window.scrollTo({top: 0, behavior: 'smooth'});
+            // }
+
+            // remove speak indication;
             $('.mdib-speaker').removeClass('mdib-spin');
             clearInterval(speechMonitor);
           } else {
+            if (!wasRunOnce && myOptions.isPaused) {
+              chunkCounter = myOptions.lastChunk;
+              wasRunOnce = true;
+            }
+
             // prepare speaker data and start the voice
             //
             speaker.text = chunks[chunkCounter].text;
@@ -5315,22 +5340,20 @@ module.exports = function parseContent(options) {
           copy = anchor[0].innerText;
           prepend = voiceTags['a'].prepend;
           appended = voiceTags['a'].append;
-
-          //        jQuery('<div>' + prepend + copy + '</div>').insertBefore(this);
           jQuery('<div>' + copy + '</div>').insertBefore(this);
           jQuery('<div>' + appended + '</div>').insertBefore(this);
           jQuery(this).remove();
         });
 
-        // Search for admonitionblock elements and extract the type and
+        // Search for admonition block elements and extract the type and
         // content. Insert type and content and then remove the DOM object.
         //
-        jQuery(clone).find('.admonitionblock').addBack('admonitionblock').each(function () {
+        jQuery(clone).find('.admonitionblock').addBack('.admonitionblock').each(function () {
           content_type = this.classList[1];
           content_element = jQuery(this).find('.content');
           content = content_element[0].innerText;
-          prepend = voiceTags['admonitionblock'].prepend + content_type + '. ';
-          appended = voiceTags['admonitionblock'].append;
+          prepend = voiceTags['.admonitionblock'].prepend + content_type + '. ';
+          appended = voiceTags['.admonitionblock'].append;
           if (content !== undefined && content != '') {
             jQuery('<div>' + prepend + ' ' + content + '</div>').insertBefore(this);
             jQuery('<div>' + appended + '</div>').insertBefore(this);
@@ -5353,7 +5376,7 @@ module.exports = function parseContent(options) {
           jQuery(this).remove();
         });
 
-        // Search for <table>, check for <caption>, insert text
+        // Search for <table> tags, check for <caption>, insert text
         // if exists and then remove the DOM object.
         //
         jQuery(clone).find('table').addBack('table').each(function () {
@@ -5385,27 +5408,27 @@ module.exports = function parseContent(options) {
 
         // Search for doc-example elements and then remove the DOM object.
         //
-        jQuery(clone).find('.doc-example').addBack('doc-example').each(function () {
-          prepend = voiceTags['doc-example'].prepend;
-          appended = voiceTags['doc-example'].append;
+        jQuery(clone).find('.doc-example').addBack('.doc-example').each(function () {
+          prepend = voiceTags['.doc-example'].prepend;
+          appended = voiceTags['.doc-example'].append;
           jQuery('<div>' + prepend + '</div>').insertBefore(this);
           jQuery('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
           jQuery(this).remove();
         });
 
-        // Search for listingblock elements, check for previous declared <div>
+        // Search for listing block elements, check for previous declared <div>
         // container that contains the title element and insert the
         // text if exists and then finally remove the DOM object.
         //
-        jQuery(clone).find('.listingblock').addBack('listingblock').each(function () {
+        jQuery(clone).find('.listingblock').addBack('.listingblock').each(function () {
           title_element = jQuery(this).find('.title');
           if (title_element.length) {
             copy = title_element[0].innerText;
           } else {
             copy = '';
           }
-          prepend = voiceTags['listingblock'].prepend;
-          appended = voiceTags['listingblock'].append;
+          prepend = voiceTags['.listingblock'].prepend;
+          appended = voiceTags['.listingblock'].append;
           if (copy !== undefined && copy != '') {
             jQuery('<div>' + prepend + ' with the caption,' + copy + pause_spoken + '</div>').insertBefore(this);
             jQuery('<div>' + appended + '</div>').insertBefore(this);
@@ -5416,11 +5439,11 @@ module.exports = function parseContent(options) {
           jQuery(this).remove();
         });
 
-        // Search for <carousel> tags, check for previous declared <div>
+        // Search for masonry elements, check for previous declared <div>
         // container that contains the title element and insert the
         // text if exists and finally remove the DOM object.
         //
-        jQuery(clone).find('carousel').addBack('carousel').each(function () {
+        jQuery(clone).find('.masonry').addBack('.masonry').each(function () {
           if ($(this).prev()[0].innerText !== undefined) {
             title = $(this).prev()[0].innerText;
             title_element = jQuery(this).prev();
@@ -5430,8 +5453,8 @@ module.exports = function parseContent(options) {
           } else {
             title = '';
           }
-          prepend = voiceTags['carousel'].prepend;
-          appended = voiceTags['carousel'].append;
+          prepend = voiceTags['.masonry'].prepend;
+          appended = voiceTags['.masonry'].append;
           if (title !== undefined && title != '') {
             jQuery('<div>' + prepend + ' with the caption,' + title + pause_spoken + '</div>').insertBefore(this);
             jQuery('<div>' + appended + '</div>').insertBefore(this);
@@ -5442,11 +5465,11 @@ module.exports = function parseContent(options) {
           jQuery(this).remove();
         });
 
-        // Search for <masonry> tags, check for previous declared <div>
+        // Search for slider elements, check for previous declared <div>
         // container that contains the title element and insert the
         // text if exists and finally remove the DOM object.
         //
-        jQuery(clone).find('masonry').addBack('masonry').each(function () {
+        jQuery(clone).find('.slider').addBack('.slider').each(function () {
           if ($(this).prev()[0].innerText !== undefined) {
             title = $(this).prev()[0].innerText;
             title_element = jQuery(this).prev();
@@ -5456,34 +5479,8 @@ module.exports = function parseContent(options) {
           } else {
             title = '';
           }
-          prepend = voiceTags['masonry'].prepend;
-          appended = voiceTags['masonry'].append;
-          if (title !== undefined && title != '') {
-            jQuery('<div>' + prepend + ' with the caption,' + title + pause_spoken + '</div>').insertBefore(this);
-            jQuery('<div>' + appended + '</div>').insertBefore(this);
-          } else {
-            jQuery('<div>' + prepend + '</div>').insertBefore(this);
-            jQuery('<div>' + appended + '</div>').insertBefore(this);
-          }
-          jQuery(this).remove();
-        });
-
-        // Search for <slider> tags, check for previous declared <div>
-        // container that contains the title element and insert the
-        // text if exists and finally remove the DOM object.
-        //
-        jQuery(clone).find('slider').addBack('slider').each(function () {
-          if ($(this).prev()[0].innerText !== undefined) {
-            title = $(this).prev()[0].innerText;
-            title_element = jQuery(this).prev();
-            // remove the title 'before' the DOM object deleted
-            //
-            jQuery(title_element).remove();
-          } else {
-            title = '';
-          }
-          prepend = voiceTags['slider'].prepend;
-          appended = voiceTags['slider'].append;
+          prepend = voiceTags['.slider'].prepend;
+          appended = voiceTags['.slider'].append;
           if (title !== undefined && title != '') {
             jQuery('<div>' + prepend + ' with the caption, ' + title + pause_spoken + '</div>').insertBefore(this);
             jQuery('<div>' + appended + '</div>').insertBefore(this);
@@ -5494,11 +5491,11 @@ module.exports = function parseContent(options) {
           jQuery(this).remove();
         });
 
-        // Search for <gallery> tags, check for previous declared <div>
+        // Search for gallery elements, check for previous declared <div>
         // container that contains the title element and insert the
         // text if exists and finally remove the DOM object.
         //
-        jQuery(clone).find('gallery').addBack('gallery').each(function () {
+        jQuery(clone).find('.gallery').addBack('.gallery').each(function () {
           if ($(this).prev()[0].innerText !== undefined) {
             title = $(this).prev()[0].innerText;
             title_element = jQuery(this).prev();
@@ -5508,8 +5505,8 @@ module.exports = function parseContent(options) {
           } else {
             title = '';
           }
-          prepend = voiceTags['gallery'].prepend;
-          appended = voiceTags['gallery'].append;
+          prepend = voiceTags['.gallery'].prepend;
+          appended = voiceTags['.gallery'].append;
           if (title !== undefined && title != '') {
             prepend !== '' && jQuery('<div>' + prepend + ' with the caption ' + title + pause_spoken + '</div>').insertBefore(this);
             appended !== '' && jQuery('<div>' + appended + '</div>').insertBefore(this);
@@ -5520,10 +5517,10 @@ module.exports = function parseContent(options) {
           jQuery(this).remove();
         });
 
-        // Search for <slider> tags, and extract the <caption> tag data,
+        // Search for a lightbox blocks and extract the <caption> tag data,
         // insert the text if exists and finally remove the DOM object.
         //
-        jQuery(clone).find('lightbox').addBack('gallery').each(function () {
+        jQuery(clone).find('.lightbox-block').addBack('.lightbox-block').each(function () {
           if ($(this).prev()[0].innerText !== undefined) {
             title = $(this).prev()[0].innerText;
             title_element = jQuery(this).prev();
@@ -5533,8 +5530,8 @@ module.exports = function parseContent(options) {
           } else {
             title = '';
           }
-          prepend = voiceTags['lightbox'].prepend;
-          appended = voiceTags['lightbox'].append;
+          prepend = voiceTags['.lightbox-block'].prepend;
+          appended = voiceTags['.lightbox-block'].append;
           if (title !== undefined && title != '') {
             jQuery('<div>' + prepend + ' with the caption,' + title + pause_spoken + '</div>').insertBefore(this);
             jQuery('<div>' + appended + '</div>').insertBefore(this);
@@ -5716,10 +5713,12 @@ module.exports = function parseContent(options) {
       window.speechSynthesis.cancel();
       userStoppedSpeaking = true;
 
-      // jadams
+      // jadams, 2023-09-28;
+      // do not work
+      // -----------------------------------------------------------------------
       // NOTE: stopping coincident active speech synthesis
       // in multiple browser windows (tabs) does NOT work
-      //
+      // -----------------------------------------------------------------------
       //    user_session.speech_synthesis_active = false;
       //    j1.writeCookie({
       //      name:     'user_session',
@@ -5728,8 +5727,9 @@ module.exports = function parseContent(options) {
       //      expires:  0
       //    });
 
-      return this;
+      // return this;
     },
+
     // END stop
 
     enabled: function () {
@@ -5740,8 +5740,25 @@ module.exports = function parseContent(options) {
     isSpeaking: function () {
       return window.speechSynthesis.speaking;
     },
-    // END is Speaking
+    // END isSpeaking
 
+    isSpoken: function () {
+      if (window.speechSynthesis.speaking) {
+        return chunkCounter;
+      } else {
+        return false;
+      }
+    },
+    // END isSpoken
+
+    isScrolled: function () {
+      if (window.speechSynthesis.speaking) {
+        return lastScrollPosition;
+      } else {
+        return false;
+      }
+    },
+    // END isSpoken
     isPaused: function () {
       return window.speechSynthesis.paused;
     },
@@ -5891,7 +5908,7 @@ module.exports = function parseContent(options) {
           }
         } else {
           if (voices[i].name.includes(voiceUserDefault)) {
-            //          option.setAttribute('selected', 'selected');
+            //  option.setAttribute('selected', 'selected');
           }
         }
         option.setAttribute('data-speak2me-language', voices[i].language);
@@ -5899,7 +5916,7 @@ module.exports = function parseContent(options) {
       }
       return i - skippedVoices;
     },
-    // END get Voiuces
+    // END getVoiuces
 
     setVoice: function () {
       // The setVoice function has to have two attributes
@@ -5946,8 +5963,8 @@ module.exports = function parseContent(options) {
         }
       }
       return this;
-    } // END set Voice
-  }; // END methods
+    } // END setVoice
+  }; // END public methods
 
   // main speak2me method
   //
@@ -5959,7 +5976,7 @@ module.exports = function parseContent(options) {
     } else {
       jQuery.error('Method ' + method + ' does not exist on jQuery.speak2me');
     }
-  };
+  }; // END main
 })(jQuery);
 
 /***/ }),

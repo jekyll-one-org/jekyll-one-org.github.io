@@ -19,7 +19,7 @@
  # NOTE: For getStyleValue helper see
  #  https://stackoverflow.com/questions/16965515/how-to-get-a-style-attribute-from-a-css-class-by-javascript-jquery
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-09-23 22:11:45 +0200
+ # Adapter generated: 2023-09-28 22:54:13 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -73,7 +73,7 @@ j1.adapter.navigator = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.navigator',
-        generated:   '2023-09-23 22:11:45 +0200'
+        generated:   '2023-09-28 22:54:13 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -640,14 +640,17 @@ j1.adapter.navigator = (function (j1, window) {
       // jadams, 2023-02-26: navicon settings
       style  = '<style>';
       style += '  .nav-icon {';
-      style += '    color: ' + navQuicklinksOptions.icon_color + ' !important;';
+//    style += '    color: ' + navQuicklinksOptions.icon_color + ' !important;';
+      style += '    color: ' + navQuicklinksOptions.icon_color + ';';
+      quicklinks
       style += '  }';
       style += '</style>';
       $('head').append(style);
       // jadams, 2023-02-26: navicon settings
       style  = '<style>';
       style += '  .nav-icon:hover {';
-      style += '    color: ' + navQuicklinksOptions.icon_color_hover + ' !important;';
+//    style += '    color: ' + navQuicklinksOptions.icon_color_hover + ' !important;';
+      style += '    color: ' + navQuicklinksOptions.icon_color_hover + ';';
       style += '  }';
       style += '</style>';
       $('head').append(style);

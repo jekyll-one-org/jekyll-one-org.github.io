@@ -15,7 +15,7 @@
         <!-- start modal content  -->
         <div class="modal-content">
           <div class="modal-header">
-            <p class="lead">Text-2-Speech Translation</p>
+            <p class="lead">Text-2-Speech Control</p>
           </div>
           <!-- start modal body  -->
           <div class="modal-body">
@@ -47,27 +47,27 @@
               <!-- start control buttons -->
               <div class="ml-2">
                 <!-- speak button -->
-                <button type="button" id="speak_button" class="btn btn-success btn-sm" style="min-width: 180px" onclick="j1.adapter.speak2me.speak('main')" data-bs-dismiss="modal">
+                <button type="button" id="speak_button" class="btn btn-success btn-sm" style="min-width: 180px;" onclick="j1.adapter.speak2me.speak('main')" data-bs-dismiss="modal">
                   <i class="mdib mdib-speaker mdib-sm mr-2"></i>
                   Speak
                 </button>
                 <!-- stop button -->
-                <button type="button" id="stop_button" class="btn btn-primary btn-sm" style="min-width: 180px" onclick="j1.adapter.speak2me.stop()" data-bs-dismiss="modal">
+                <button type="button" id="stop_button" class="btn btn-danger btn-sm" style="min-width: 180px; display: none;" onclick="j1.adapter.speak2me.stop()" data-bs-dismiss="modal">
                   <i class="mdib mdib-speaker-off mdib-sm mr-2"></i>
                   Stop
                 </button>
                 <!-- pause button -->
-                <button type="button" id="pause_button" class="btn btn-info btn-sm" style="min-width: 180px" onclick="j1.adapter.speak2me.pause()">
+                <button type="button" id="pause_button" class="btn btn-warning btn-sm" style="min-width: 180px; display: none;" onclick="j1.adapter.speak2me.pause()" data-bs-dismiss="modal">
                   <i class="mdib mdib-pause mdib-sm mr-2"></i>
                   Pause
                 </button>
                 <!-- resume button -->
-                <button type="button" id="resume_button" class="btn btn-info btn-sm" style="min-width: 180px" onclick="j1.adapter.speak2me.resume()">
+                <button type="button" id="resume_button" class="btn btn-info btn-sm" style="min-width: 180px; display: none;" onclick="j1.adapter.speak2me.resume()" data-bs-dismiss="modal">
                   <i class="mdib mdib-play-pause mdib-sm mr-2"></i>
                   Resume
                 </button>
                 <!-- exit (modal) button -->
-                <button type="button" id="exit_button" class="btn btn-warning  btn-sm" style="min-width: 180px" data-bs-dismiss="modal">
+                <button type="button" id="exit_button" class="btn btn-primary  btn-sm" style="min-width: 180px;" data-bs-dismiss="modal">
                   <i class="mdib mdib-close mdib-sm mr-2"></i>
                   Close
                 </button>
