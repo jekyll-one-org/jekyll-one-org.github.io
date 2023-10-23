@@ -10,10 +10,10 @@
  #
  # Copyright (C) 2023 Juergen Adams
  #
- # J1 Theme is licensed under the MIT License.
+ # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-09-28 22:54:13 +0200
+ # Adapter generated: 2023-10-23 05:07:32 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -130,7 +130,7 @@ var j1 = (function (options) {
   };
   var user_state   = {
     'writer':               'j1.adapter',
-    'template_version':     '2023.9.2',
+    'template_version':     '2024.0.0',
 //
 //  for testing only
 //  'template_version':     'undefined',
@@ -139,7 +139,7 @@ var j1 = (function (options) {
     'theme_name':           'UnoLight',
     'theme_css':            '',
     'theme_author':         'J1 Team',
-    'theme_version':        '2023.9.2',
+    'theme_version':        '2024.0.0',
     'session_active':       false,
     'google_translate':     'disabled',
     'translate_all_pages':  true,
@@ -177,7 +177,7 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2023-09-28 22:54:13 +0200'
+        generated:   '2023-10-23 05:07:32 +0200'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
@@ -1186,7 +1186,7 @@ var j1 = (function (options) {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2023.9.2';
+      return '2024.0.0';
     },
     // -------------------------------------------------------------------------
     // getScrollOffset()

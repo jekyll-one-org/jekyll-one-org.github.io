@@ -10,10 +10,10 @@
  #
  # Copyright (C) 2023 Juergen Adams
  #
- # J1 Theme is licensed under the MIT License.
+ # J1 Template is licensed under the MIT License.
  # For details, see http://jekyll.one
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-09-28 22:54:13 +0200
+ # Adapter generated: 2023-10-23 05:07:32 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -62,7 +62,7 @@ j1.adapter.fab = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.fab',
-        generated:   '2023-09-28 22:54:13 +0200'
+        generated:   '2023-10-23 05:07:32 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings

@@ -10,10 +10,10 @@
  #
  # Copyright (C) 2023 Juergen Adams
  #
- # J1 Theme is licensed under the MIT License.
+ # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-09-28 22:54:13 +0200
+ #  Adapter generated: 2023-10-23 05:07:32 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -61,82 +61,11 @@ var logText;
         var pageVisible = (pageState == 'block') ? true: false;
         if ( j1.getState() === 'finished' && pageVisible ) {
             // Load  module DEFAULTS|CONFIG
-            analyticsDefaults = $.extend({}, {"enabled":false, "provider":"google", "trackingID":"your-tracking-id", "skipAllHosts":"localhost, 127.0.0.1", "google":{"optInOut":true, "anonymizeIP":true}});
+            analyticsDefaults = $.extend({}, {"enabled":false, "provider":"webwhiz", "trackingID":"your-tracking-id", "skipAllHosts":"localhost, 127.0.0.1", "google":{"optInOut":true, "anonymizeIP":true}});
             analyticsSettings = $.extend({}, {"enabled":true, "skipAllHosts":"localhost, 127.0.0.1", "trackingID":"<your-tracking-id>", "google":{"anonymizeIP":false}});
             analyticsOptions  = $.extend(true, {}, analyticsDefaults, analyticsSettings);
-            // [INFO   ] [j1.adapter.analytics                    ] [ detected analytics provider (j1_config): google} ]
+            // [INFO   ] [j1.adapter.analytics                    ] [ detected analytics provider (j1_config): webwhiz} ]
             // [INFO   ] [j1.adapter.analytics                    ] [ start processing load region head, layout:  ]
-            // [INFO   ] [j1.adapter.analytics                    ] [ place provider: Google Adsense ]
-            providerID        = analyticsOptions.trackingID;
-            skipAllHosts      = analyticsOptions.skipAllHosts;
-            optInOut          = analyticsOptions.google.optInOut;
-            anonymizeIP       = analyticsOptions.google.anonymizeIP;
-            validProviderID   = (providerID.includes('your')) ? false : true;
-            // -----------------------------------------------------------------
-            // Default module settings
-            // -----------------------------------------------------------------
-            var settings = $.extend({
-              module_name: 'j1.adapter.analytics',
-              generated:   '2023-09-28 22:54:13 +0200'
-            }, options);
-            // -----------------------------------------------------------------
-            // Global variable settings
-            // -----------------------------------------------------------------
-            _this = j1.adapter.analytics;
-            logger = log4javascript.getLogger('j1.adapter.analytics');
-            // initialize state flag
-            _this.setState('started');
-            logger.debug('\n' + 'state: ' + _this.getState());
-            logger.info('\n' + 'module initializing: started');
-            // remove cookies on invalid GA config or left from a previous
-            // session/page view if they exists
-            // -----------------------------------------------------------------
-            gaCookies = j1.findCookie('_ga');
-            gaCookies.forEach(function (item) {
-              logger.debug('\n' + 'delete cookie created by Google Analytics: ' + item);
-              if (hostname == 'localhost') {
-                j1.removeCookie({ name: item, domain: false, secure: false });
-              } else {
-                j1.removeCookie({ name: item, domain: '.' + hostname, secure: false });
-              }
-            });
-            gaExists  = document.getElementById('google-tag-manager') === null ? false : true;
-            skipHosts = skipAllHosts.replace(/,/g, ' ');
-            skipHost  = skipHosts.includes(hostname);
-            user_consent = j1.readCookie(cookie_names.user_consent);
-            if (user_consent.analysis && skipHost && validProviderID) {
-              logger.debug('\n' + 'Google Analytics skipped for: ' + hostname);
-            }
-            if (!gaExists && !skipHost) {
-              // add ga api dynamically in the head section
-              // ---------------------------------------------------------------
-              logger.info('\n' + 'Google Analytics added for: ' + hostname);
-              logger.info('\n' + 'Google Analytics API added in section: head');
-              gaScript.async = true;
-              gaScript.id    = 'google-tag-manager';
-              gaScript.src   = '//www.googletagmanager.com/gtag/js?id=' + providerID;
-              document.head.appendChild(gaScript);
-            }
-            user_consent  = j1.readCookie(cookie_names.user_consent);
-            if (user_consent.analysis && !skipHost ) {
-              if (validProviderID) {
-                logger.info('\n' + 'user consent on analytics: ' + user_consent.analysis);
-                logger.info('\n' + 'enable Google Analytics on ID: ' + providerID);
-                GTagOptIn.register(providerID);
-                GTagOptIn.optIn();
-              } else {
-                logger.debug('\n' + 'invalid trackig id detected for Google Analytics: ' + providerID);
-              }
-            } else {
-              logger.info('\n' + 'user consent on analytics: ' + user_consent.analysis);
-              logger.debug('\n' + 'disable Google Analytics on ID: ' + providerID);
-              GTagOptIn.register(providerID);
-              GTagOptIn.optOut();
-            }
-            _this.setState('finished');
-            logger.debug('\n' + 'state: ' + _this.getState());
-            logger.info('\n' + 'module initializing: finished');
-            clearInterval(dependencies_met_page_ready);
             // [INFO   ] [j1.adapter.analytics                    ] [ end processing ]
         }
       }, 10);

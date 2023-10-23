@@ -131,7 +131,7 @@ $(insert_result_links);
  # Anime is licensed under the MIT License.
  # See: https://github.com/juliangarnier/anime/blob/master/LICENSE.md
  #
- # J1 Theme is licensed under the MIT License.
+ # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
@@ -3181,7 +3181,7 @@ module.exports = function (options) {
  #
  # Copyright (C) 2023 Juergen Adams
  #
- # J1 Theme is licensed under the MIT License.
+ # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
@@ -3247,7 +3247,7 @@ module.exports = function lazyCSS() {
  # Attrchange is licensed under the MIT License.
  # See: https://github.com/meetselva/attrchange/blob/master/MIT-License.txt
  #
- # J1 Theme is licensed under the MIT License.
+ # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
@@ -4156,7 +4156,7 @@ module.exports = function navigator(options) {
  # Product/Info:
  # http://jekyll.one
  #
- # J1 Theme is licensed under the MIT License.
+ # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
 */
@@ -4536,7 +4536,7 @@ module.exports = function parseContent(options) {
  # Copyright (C) 2023 Juergen Adams
  # Copyright (C) 2017 Adam Coti
  #
- # J1 Theme is licensed under the MIT License.
+ # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # Articulate is licensed under the MIT License.
  # See: https://github.com/acoti/articulate.js/blob/master/LICENSE
@@ -4859,20 +4859,27 @@ module.exports = function parseContent(options) {
       voiceTags['ul'] = new voiceTag('Start of list.', 'End of list. ');
       voiceTags['dl'] = new voiceTag('Start of list.', 'End of list. ');
       voiceTags['dt'] = new voiceTag('', ', ');
-      voiceTags['img'] = new voiceTag('Start of an embedded image with the description,', ', ');
-      voiceTags['table'] = new voiceTag('Start of an embedded table,', 'This element ist not spoken.');
+      voiceTags['img'] = new voiceTag('Start of an image with the description,', ', ');
+      voiceTags['table'] = new voiceTag('Start of a table element,', 'This element ist not spoken.');
       voiceTags['card-header'] = new voiceTag('', '');
-      voiceTags['.doc-example'] = new voiceTag('Start of an embedded example element,', 'This element ist not spoken.');
+      voiceTags['.doc-example'] = new voiceTag('Start of an example element,', 'This element ist not spoken.');
       voiceTags['.admonitionblock'] = new voiceTag('Start of an attention element of type, ', ':');
-      voiceTags['.listingblock'] = new voiceTag('Start of an embedded structured text block,', 'This element ist not spoken.');
-      voiceTags['.slider'] = new voiceTag('Start of an embedded slider element,', 'This element ist not spoken.');
-      voiceTags['.masonry'] = new voiceTag('Start of an embedded masonry element,', 'This element ist not spoken.');
-      voiceTags['.lightbox-block'] = new voiceTag('Start of an embedded lightbox element,', 'This element ist not spoken.');
-      voiceTags['.gallery'] = new voiceTag('Start of an embedded gallery element,', 'This element ist not spoken.');
-      voiceTags['figure'] = new voiceTag('Start of an embedded figure with the caption,', '');
-      voiceTags['blockquote'] = new voiceTag('Blockquote start.', 'Blockquote end.');
-      voiceTags['quoteblock'] = new voiceTag('Start of an embedded quote block element,', 'Quote block element end.');
-      ignoreTags = ['audio', 'button', 'canvas', 'code', 'del', 'pre', 'dialog', 'embed', 'form', 'head', 'iframe', 'meter', 'nav', 'noscript', 'object', 's', 'script', 'select', 'style', 'textarea', 'video'];
+      voiceTags['.listingblock'] = new voiceTag('Start of a structured text block,', 'This element ist not spoken.');
+      voiceTags['.gist'] = new voiceTag('Start of a gist element,', 'This element ist not spoken.');
+      voiceTags['.slider'] = new voiceTag('Start of a slider element,', 'This element ist not spoken.');
+      voiceTags['.masonry'] = new voiceTag('Start of a masonry element,', 'This element ist not spoken.');
+      voiceTags['.lightbox-block'] = new voiceTag('Start of a lightbox element,', 'This element ist not spoken.');
+      voiceTags['.gallery'] = new voiceTag('Start of a gallery element,', 'This element ist not spoken.');
+      voiceTags['.videoblock'] = new voiceTag('Start of a HTML5 Video,', 'This video ist not spoken.');
+      voiceTags['.videojs-player'] = new voiceTag('Start of a VideoJS Video,', 'This video ist not spoken.');
+      voiceTags['.youtube-player'] = new voiceTag('Start of a YouTube Video,', 'This video ist not spoken.');
+      voiceTags['.dailymotion-player'] = new voiceTag('Start of a Dailymotion Video,', 'This video ist not spoken.');
+      voiceTags['.vimeo-player'] = new voiceTag('Start of a Vimeo Video,', 'This video ist not spoken.');
+      voiceTags['.wistia-player'] = new voiceTag('Start of a Wistia Video,', 'This video ist not spoken.');
+      voiceTags['figure'] = new voiceTag('Start of a figure with the caption,', '');
+      voiceTags['blockquote'] = new voiceTag('Blockquote start,', 'Blockquote end.');
+      voiceTags['quoteblock'] = new voiceTag('Start of a quote block element,', 'Quote block element end.');
+      ignoreTags = ['audio', 'button', 'canvas', 'code', 'del', 'pre', 'dialog', 'embed', 'form', 'head', 'iframe', 'meter', 'nav', 'noscript', 'object', 'picture', 'script', 'select', 'style', 'textarea', 'video'];
 
       // TODO: NOT working for multiple 'tab' windows
       // dispayed in the same browser
@@ -5386,6 +5393,111 @@ module.exports = function parseContent(options) {
           if (copy !== undefined && copy != '') {
             jQuery('<div>' + prepend + ' ' + copy + '</div>').insertBefore(this);
             jQuery('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+          } else {
+            jQuery('<div>' + prepend + '</div>').insertBefore(this);
+            jQuery('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+          }
+          jQuery(this).remove();
+        });
+
+        // Search for HTML5 video players, check for the title and insert text
+        // if exists and then remove the DOM object.
+        //
+        jQuery(clone).find('.videoblock').addBack('.videoblock').each(function () {
+          copy = jQuery(this).find('.title').text();
+          prepend = voiceTags['.videoblock'].prepend;
+          appended = voiceTags['.videoblock'].append;
+          if (copy !== undefined && copy != '') {
+            jQuery('<div>' + prepend + ' ' + 'with the title, ' + copy + pause_spoken + '</div>').insertBefore(this);
+            jQuery('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+          } else {
+            jQuery('<div>' + prepend + '</div>').insertBefore(this);
+            jQuery('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+          }
+          jQuery(this).remove();
+        });
+
+        // Search for VideoJS players, check for the title and insert text
+        // if exists and then remove the DOM object.
+        //
+        jQuery(clone).find('.videojs-player').addBack('.videojs-player').each(function () {
+          copy = jQuery(this).find('.video-title').text();
+          prepend = voiceTags['.videojs-player'].prepend;
+          appended = voiceTags['.videojs-player'].append;
+          if (copy !== undefined && copy != '') {
+            jQuery('<div>' + prepend + ' ' + 'with the title, ' + copy + pause_spoken + '</div>').insertBefore(this);
+            jQuery('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+          } else {
+            jQuery('<div>' + prepend + '</div>').insertBefore(this);
+            jQuery('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+          }
+          jQuery(this).remove();
+        });
+
+        // Search for YouTube players, check for the title and insert text
+        // if exists and then remove the DOM object.
+        //
+        jQuery(clone).find('.youtube-player').addBack('.youtube-player').each(function () {
+          copy = jQuery(this).find('.video-title').text();
+          prepend = voiceTags['.youtube-player'].prepend;
+          appended = voiceTags['.youtube-player'].append;
+          if (copy !== undefined && copy != '') {
+            jQuery('<div>' + prepend + ' ' + 'with the title, ' + copy + pause_spoken + '</div>').insertBefore(this);
+            jQuery('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+          } else {
+            jQuery('<div>' + prepend + '</div>').insertBefore(this);
+            jQuery('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+          }
+          jQuery(this).remove();
+        });
+
+        // Search for Dailymotion players, check for the title and insert text
+        // if exists and then remove the DOM object.
+        //
+        jQuery(clone).find('.dailymotion-player').addBack('.dailymotion-player').each(function () {
+          copy = jQuery(this).find('.video-title').text();
+          prepend = voiceTags['.dailymotion-player'].prepend;
+          appended = voiceTags['.dailymotion-player'].append;
+          if (copy !== undefined && copy != '') {
+            jQuery('<div>' + prepend + ' ' + 'with the title, ' + copy + pause_spoken + '</div>').insertBefore(this);
+            jQuery('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+          } else {
+            jQuery('<div>' + prepend + '</div>').insertBefore(this);
+            jQuery('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+          }
+          jQuery(this).remove();
+        });
+
+        // Search for Vimeo players, check for the title and insert text
+        // if exists and then remove the DOM object.
+        //
+        jQuery(clone).find('.vimeo-player').addBack('.vimeo-player').each(function () {
+          copy = jQuery(this).find('.video-title').text();
+          prepend = voiceTags['.vimeo-player'].prepend;
+          appended = voiceTags['.vimeo-player'].append;
+          if (copy !== undefined && copy != '') {
+            jQuery('<div>' + prepend + ' ' + 'with the title, ' + copy + pause_spoken + '</div>').insertBefore(this);
+            jQuery('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+          } else {
+            jQuery('<div>' + prepend + '</div>').insertBefore(this);
+            jQuery('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+          }
+          jQuery(this).remove();
+        });
+
+        // Search for Wistia players, check for the title and insert text
+        // if exists and then remove the DOM object.
+        //
+        jQuery(clone).find('.wistia-player').addBack('.wistia-player').each(function () {
+          copy = jQuery(this).find('.video-title').text();
+          prepend = voiceTags['.wistia-player'].prepend;
+          appended = voiceTags['.wistia-player'].append;
+          if (copy !== undefined && copy != '') {
+            jQuery('<div>' + prepend + ' ' + 'with the title, ' + copy + pause_spoken + '</div>').insertBefore(this);
+            jQuery('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+          } else {
+            jQuery('<div>' + prepend + '</div>').insertBefore(this);
+            jQuery('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
           }
           jQuery(this).remove();
         });
@@ -5431,6 +5543,32 @@ module.exports = function parseContent(options) {
           appended = voiceTags['.listingblock'].append;
           if (copy !== undefined && copy != '') {
             jQuery('<div>' + prepend + ' with the caption,' + copy + pause_spoken + '</div>').insertBefore(this);
+            jQuery('<div>' + appended + '</div>').insertBefore(this);
+          } else {
+            jQuery('<div>' + prepend + '</div>').insertBefore(this);
+            jQuery('<div>' + appended + '</div>').insertBefore(this);
+          }
+          jQuery(this).remove();
+        });
+
+        // Search for gist elements, check for previous declared <div>
+        // container that contains the title element and insert the
+        // text if exists and finally remove the DOM object.
+        //
+        jQuery(clone).find('.gist').addBack('.gist').each(function () {
+          if ($(this).prev()[0] !== undefined && $(this).prev()[0].innerText !== undefined) {
+            title = $(this).prev()[0].innerText;
+            title_element = jQuery(this).prev();
+            // remove the title 'before' the DOM object deleted
+            //
+            jQuery(title_element).remove();
+          } else {
+            title = '';
+          }
+          prepend = voiceTags['.gist'].prepend;
+          appended = voiceTags['.gist'].append;
+          if (title !== undefined && title != '') {
+            jQuery('<div>' + prepend + ' with the caption, ' + title + pause_spoken + '</div>').insertBefore(this);
             jQuery('<div>' + appended + '</div>').insertBefore(this);
           } else {
             jQuery('<div>' + prepend + '</div>').insertBefore(this);
@@ -5496,7 +5634,7 @@ module.exports = function parseContent(options) {
         // text if exists and finally remove the DOM object.
         //
         jQuery(clone).find('.gallery').addBack('.gallery').each(function () {
-          if ($(this).prev()[0].innerText !== undefined) {
+          if ($(this).prev()[0] !== undefined && $(this).prev()[0].innerText !== undefined) {
             title = $(this).prev()[0].innerText;
             title_element = jQuery(this).prev();
             // remove the title BEFORE the DOM object gets deleted
@@ -12829,7 +12967,7 @@ var __webpack_exports__ = {};
  #
  #  Copyright (C) 2023 Juergen Adams
  #
- #  J1 Theme is licensed under the MIT License.
+ #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  #
  # -----------------------------------------------------------------------------
@@ -12892,6 +13030,8 @@ window.j1.core.scrollSmooth = __webpack_require__(814);
 // const J1jQueryExt                      = require('./js/jquery-extensions/jquery-regex.js');
 // const J1ThemeSwitcher                  = require('./js/bs_theme_switcher/switcher.js');
 // const J1MmenuLight                     = require('./js/mmenu-light/mmenu.js');
+
+// const BootstrapJS                      = require('./node_modules/bootstrap/dist/js/bootstrap.js');
 
 const J1Tocbot = __webpack_require__(799);
 const J1AttrChangeListener = __webpack_require__(610);

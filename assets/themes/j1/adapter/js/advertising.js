@@ -10,10 +10,10 @@
  #
  # Copyright (C) 2023 Juergen Adams
  #
- # J1 Theme is licensed under the MIT License.
+ # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-09-28 22:54:13 +0200
+ #  Adapter generated: 2023-10-23 05:07:32 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -69,7 +69,7 @@ var logText;
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.advertising',
-        generated:   '2023-09-28 22:54:13 +0200'
+        generated:   '2023-10-23 05:07:32 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -86,7 +86,7 @@ var logText;
       // initialze advertisingOptions
       //
       advertisingDefaults     = $.extend({},   {"enabled":false, "provider":"google", "google":{"placement":"manual", "autoPlaceAds":false, "autoHideOnUnfilled":false, "addBorderOnUnfilled":true, "checkTrackingProtection":false, "showErrorPageOnBlocked":false}});
-      advertisingSettings     = $.extend({},   {"enabled":true, "google":{"publisherID":"<your-publisher-id>", "ads":[{"ad":null, "enabled":true, "id":"ad_<your-slot-id>", "layout":"home", "content_page":"home", "publisherID":"<your-publisher-id>", "test":"on", "styles":"display:block;", "slot":"<your-slot-id>", "ad_layout":"display", "ad_format":"auto", "ad_responsive":true}, {"ad":null, "enabled":true, "id":"ad_<your-slot-id>", "layout":"page", "content_page":"preview_google_adsense", "publisherID":"<your-publisher-id>", "test":"on", "styles":"display:block;", "slot":"<your-slot-id>", "ad_layout":"display", "ad_format":"auto", "ad_responsive":true}]}});
+      advertisingSettings     = $.extend({},   {"enabled":false, "google":{"publisherID":"<your-publisher-id>", "ads":[{"ad":null, "enabled":true, "id":"ad_<your-slot-id>", "layout":"home", "content_page":"home", "publisherID":"<your-publisher-id>", "test":"on", "styles":"display:block;", "slot":"<your-slot-id>", "ad_layout":"display", "ad_format":"auto", "ad_responsive":true}, {"ad":null, "enabled":true, "id":"ad_<your-slot-id>", "layout":"page", "content_page":"preview_google_adsense", "publisherID":"<your-publisher-id>", "test":"on", "styles":"display:block;", "slot":"<your-slot-id>", "ad_layout":"display", "ad_format":"auto", "ad_responsive":true}]}});
       advertisingOptions      = $.extend(true, {}, advertisingDefaults, advertisingSettings, frontmatterOptions);
       layout                  = advertisingOptions.layout;
       publisherID             = advertisingOptions.google.publisherID;
@@ -101,146 +101,12 @@ var logText;
         var contentState      = $('#content').css("display");
         var contentVisible    = (contentState == 'block') ? true: false;
         if (j1.getState() === 'finished' && contentVisible) {
-          _this.ad_initializer();
-          if (!validpublisherID) {
+            var ads_found = document.getElementsByClassName('adsbygoogle').length;
             if (development) {
-              logger.warn('\n' + 'invalid publisher id: ' + publisherID);
-              logger.info('\n' + 'module disabled' );
+              logger = log4javascript.getLogger('j1.adapter.advertising');
+              logger.debug('\n' + 'found ads in page: #' + ads_found);
+              logger.debug('\n' + 'no ads initialized, advertising disabled');
             }
-            clearInterval(dependencies_met_page_ready);
-            return false;
-          }
-          // [INFO   ] [j1.adapter.advertising                              ] [ place provider: Google Adsense ]
-          // initialize state flag
-          //
-          _this.setState('started');
-          if (development) {
-            logger.debug('\n' + 'state: ' + _this.getState());
-          }
-          if (user_consent.personalization) {
-            if (development) {
-              logger.info('\n' + 'adsense api is being initialized');
-            }
-            if (!validpublisherID) {
-              if (development) {
-                logger.debug('\n' + 'invalid publisherID detected for Google Adsense: ' + publisherID);
-                logger.info('\n' + 'skip initialization for provider: ' + advertisingProvider);
-              }
-              return false;
-            } else {
-              if (development) {
-                logger.info('\n' + 'use publisherID for Google Adsense: ' + publisherID);
-              }
-            }
-            // add Google Adsense API dynamically in head section loaded async
-            //
-            if (development) {
-              logger.info('\n' + 'add Google AdsenseAPI in section: head');
-            }
-            gasScript.async = true;
-            gasScript.id    = 'gas-api';
-            gasScript.src   = '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
-            gasScript.setAttribute('data-ad-client', publisherID);
-            document.head.appendChild(gasScript);
-            if (development) {
-              logger.info('\n' + 'adsense api initialized');
-            }
-            // setup monitor for state changes on all ads configured
-            //
-            setTimeout(function () {
-              var ads_found = (document.getElementsByClassName('adsbygoogle').length > 0) ? true : false;
-              if (ads_found > 0) {
-                if (development) {
-                  logger.info('\n' + 'setup Google Ad monitoring');
-                }
-                _this.ad_monitor();
-              } else {
-                if (development) {
-                  logger.warn('\n' + 'no initialized Google Ads found in page');
-                }
-              }
-            }, 1000);
-            // run protection check
-            //
-            if (checkTrackingProtection) {
-              if (development) {
-                logger.debug('\n' + 'run checks for tracking protection');
-              }
-              _this.check_tracking_protection();
-              var dependencies_met_tracking_check_ready = setInterval (function (options) {
-                if (typeof tracking_protection !== 'undefined' ) {
-                  var browser_tracking_feature = navigator.DoNotTrack;
-                  if (!tracking_protection && !browser_tracking_feature) {
-                    if (development) {
-                      logText = '\n' + 'tracking protection: disabled';
-                      logger.info(logText);
-                    }
-                  } else {
-                    if (development) {
-                      logText = '\n' + 'tracking protection: enabled';
-                      logger.debug(logText);
-                    }
-                    if (showErrorPageOnBlocked) {
-                      if (development) {
-                        logger.error('\n' + 'redirect to error page (blocked content): HTML-447');
-                      }
-                      // redirect to error page: blocked content
-                      window.location.href = '/447.html';
-                    }
-                  }
-                }
-                clearInterval(dependencies_met_tracking_check_ready);
-              }, 10);
-            } else {
-              // no protection check enabled
-              _this.setState('finished');
-              if (development) {
-                logger.debug('\n' + 'state: ' + _this.getState());
-                logger.info('\n' + 'module initialized successfully');
-              }
-              clearInterval(dependencies_met_tracking_check_ready);
-            }
-          } else {
-            // user consent on personalization "false"
-            //
-           if (production) {
-              console.debug('cookies for personalization rejected');
-              console.debug('initialization of module advertising skipped');
-            } else {
-              logger.warn('\n' + 'user consent on personalization: ' + user_consent.personalization);
-              logger.warn('\n' + 'initializing module: skipped');
-            }
-            // if consent is rejected, detect and remove Adsense cookies
-            //
-            var gasCookies = j1.findCookie('__g');
-            gasCookies.forEach(function (item) {
-              // remove Google Ad cookies
-              //
-              if (hostname == 'localhost') {
-                j1.removeCookie({ name: item, domain: false, secure: false });
-              } else {
-                j1.removeCookie({ name: item, domain: '.' + hostname, secure: false });
-              }
-            });
-            // manage tracking protection
-            //
-            if (checkTrackingProtection) {
-              if (!user_consent.personalization) {
-                if (development) {
-                  logText = '\n' + 'consent on cookies disabled for personalization';
-                  logger.debug(logText);
-                }
-                if (showErrorPageOnBlocked) {
-                  if (development) {
-                    logger.error('\n' + 'redirect to error page (blocked content): HTML-447');
-                  }
-                  // redirect to error page: blocked content
-                  window.location.href = '/448.html';
-                }
-              }
-            }
-          } // END if user_consent.personalization
-          // [INFO   ] [j1.adapter.advertising                  ] [ end processing ]
            // END if 'advertising'
           clearInterval(dependencies_met_page_ready);
         }

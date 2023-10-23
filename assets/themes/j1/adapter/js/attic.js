@@ -12,12 +12,12 @@
  # Copyright (C) 2023 Juergen Adams
  # Copyright (C) 2012 Scott Robbin
  #
- # J1 Theme is licensed under the MIT License.
+ # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # Backstretch is licensed under the MIT License.
  # For details, see https://github.com/jquery-backstretch/jquery-backstretch
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-09-28 22:54:13 +0200
+ #  Adapter generated: 2023-10-23 05:07:32 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -49,7 +49,7 @@ j1.adapter.attic = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.attic',
-        generated:   '2023-09-28 22:54:13 +0200'
+        generated:   '2023-10-23 05:07:32 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings

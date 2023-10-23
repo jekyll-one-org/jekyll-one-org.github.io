@@ -10,12 +10,12 @@
  #
  # Copyright (C) 2023 Juergen Adams
  #
- # J1 Theme is licensed under the MIT License.
+ # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
  # NOTE: Wave styles defind in /assets/data/panel.html, key 'wave'
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-09-28 22:54:13 +0200
+ #  Adapter generated: 2023-10-23 05:07:32 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -56,7 +56,7 @@ var logText;
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.waves',
-        generated:   '2023-09-28 22:54:13 +0200'
+        generated:   '2023-10-23 05:07:32 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
