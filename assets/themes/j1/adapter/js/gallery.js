@@ -20,7 +20,7 @@
  # lightGallery is licensed under the GPLv3 license
  # See: https://github.com/sachinchoolur/lightGallery/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-10-23 05:07:32 +0200
+ # Adapter generated: 2023-10-23 10:00:46 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -55,7 +55,7 @@ j1.adapter.gallery = (function (j1, window) {
     init: function (options) {
       url               = new URL(window.location.href);
       origin            = url.origin;
-      // flag used for Chromium brwoser workaround
+      // flag used for Chromium browser workaround
       j1['jg'] = {
         callback:   {},
       };
@@ -64,7 +64,7 @@ j1.adapter.gallery = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.gallery',
-        generated:   '2023-10-23 05:07:32 +0200'
+        generated:   '2023-10-23 10:00:46 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -118,7 +118,7 @@ j1.adapter.gallery = (function (j1, window) {
             xhrLoadState = j1.xhrDOMState['#jg_old_times_parent'];
             if ( xhrLoadState === 'success' ) {
               var $grid_jg_old_times = $('#jg_old_times');                  // used for later access
-              logger.info('\n' + 'dyn_loader: initialize gallery on id: ' + 'jg_old_times');
+              logger.info('\n' + 'dyn_loader, initialize gallery on id: ' + 'jg_old_times');
               j1.jg.callback.jg_old_times = 'waiting';
               /* eslint-disable */
               $('#jg_old_times').justifiedGallery({
@@ -130,8 +130,8 @@ j1.adapter.gallery = (function (j1, window) {
                 j1.jg.callback.jg_old_times = 'successful';
                 // setup the lightbox
                 //
-                logger.info('\n' + 'dyn_loader: callback "jg.complete" entered on id: ' + 'jg_old_times');
-                logger.info('\n' + 'dyn_loader: initialize lightGallery on id: ' + 'jg_old_times');
+                logger.info('\n' + 'dyn_loader, callback "jg.complete" entered on id: ' + 'jg_old_times');
+                logger.info('\n' + 'dyn_loader, initialize lightGallery on id: ' + 'jg_old_times');
                 var lg = document.getElementById("jg_old_times");
                 lightGallery(lg, {
                   "plugins":    [lgFullscreen, lgRotate, lgThumbnail],
@@ -148,8 +148,8 @@ j1.adapter.gallery = (function (j1, window) {
               //
               setTimeout (function() {
                 if (j1.jg.callback.jg_old_times == 'waiting') {
-                  logger.warn('callback "jg.callback": ' + j1.jg.callback.jg_old_times)
-                  logger.info('\n' + 'dyn_loader: initialize lightGallery on id: ' + 'jg_old_times');
+                  logger.warn('\n' + 'dyn_loader, callback "jg.callback": ' + j1.jg.callback.jg_old_times)
+                  logger.info('\n' + 'dyn_loader, initialize lightGallery on id: ' + 'jg_old_times');
                   var lg = document.getElementById("jg_old_times");
                   lightGallery(lg, {
                     "plugins":    [lgFullscreen, lgRotate, lgThumbnail],
@@ -176,7 +176,7 @@ j1.adapter.gallery = (function (j1, window) {
             xhrLoadState = j1.xhrDOMState['#jg_mega_cities_parent'];
             if ( xhrLoadState === 'success' ) {
               var $grid_jg_mega_cities = $('#jg_mega_cities');                  // used for later access
-              logger.info('\n' + 'dyn_loader: initialize gallery on id: ' + 'jg_mega_cities');
+              logger.info('\n' + 'dyn_loader, initialize gallery on id: ' + 'jg_mega_cities');
               j1.jg.callback.jg_mega_cities = 'waiting';
               /* eslint-disable */
               $('#jg_mega_cities').justifiedGallery({
@@ -188,8 +188,8 @@ j1.adapter.gallery = (function (j1, window) {
                 j1.jg.callback.jg_mega_cities = 'successful';
                 // setup the lightbox
                 //
-                logger.info('\n' + 'dyn_loader: callback "jg.complete" entered on id: ' + 'jg_mega_cities');
-                logger.info('\n' + 'dyn_loader: initialize lightGallery on id: ' + 'jg_mega_cities');
+                logger.info('\n' + 'dyn_loader, callback "jg.complete" entered on id: ' + 'jg_mega_cities');
+                logger.info('\n' + 'dyn_loader, initialize lightGallery on id: ' + 'jg_mega_cities');
                 var lg = document.getElementById("jg_mega_cities");
                 lightGallery(lg, {
                   "plugins":    [lgFullscreen, lgRotate, lgThumbnail],
@@ -210,8 +210,8 @@ j1.adapter.gallery = (function (j1, window) {
               //
               setTimeout (function() {
                 if (j1.jg.callback.jg_mega_cities == 'waiting') {
-                  logger.warn('callback "jg.callback": ' + j1.jg.callback.jg_mega_cities)
-                  logger.info('\n' + 'dyn_loader: initialize lightGallery on id: ' + 'jg_mega_cities');
+                  logger.warn('\n' + 'dyn_loader, callback "jg.callback": ' + j1.jg.callback.jg_mega_cities)
+                  logger.info('\n' + 'dyn_loader, initialize lightGallery on id: ' + 'jg_mega_cities');
                   var lg = document.getElementById("jg_mega_cities");
                   lightGallery(lg, {
                     "plugins":    [lgFullscreen, lgRotate, lgThumbnail],
@@ -242,7 +242,7 @@ j1.adapter.gallery = (function (j1, window) {
             xhrLoadState = j1.xhrDOMState['#jg_video_html5_parent'];
             if ( xhrLoadState === 'success' ) {
               var $grid_jg_video_html5 = $('#jg_video_html5');                  // used for later access
-              logger.info('\n' + 'dyn_loader: initialize gallery on id: ' + 'jg_video_html5');
+              logger.info('\n' + 'dyn_loader, initialize gallery on id: ' + 'jg_video_html5');
               j1.jg.callback.jg_video_html5 = 'waiting';
               /* eslint-disable */
               $('#jg_video_html5').justifiedGallery({
@@ -254,8 +254,8 @@ j1.adapter.gallery = (function (j1, window) {
                 j1.jg.callback.jg_video_html5 = 'successful';
                 // setup the lightbox
                 //
-                logger.info('\n' + 'dyn_loader: callback "jg.complete" entered on id: ' + 'jg_video_html5');
-                logger.info('\n' + 'dyn_loader: initialize lightGallery on id: ' + 'jg_video_html5');
+                logger.info('\n' + 'dyn_loader, callback "jg.complete" entered on id: ' + 'jg_video_html5');
+                logger.info('\n' + 'dyn_loader, initialize lightGallery on id: ' + 'jg_video_html5');
                 var lg = document.getElementById("jg_video_html5");
                 lightGallery(lg, {
                   "plugins":    [lgThumbnail, lgVideo],
@@ -283,8 +283,8 @@ j1.adapter.gallery = (function (j1, window) {
               //
               setTimeout (function() {
                 if (j1.jg.callback.jg_video_html5 == 'waiting') {
-                  logger.warn('callback "jg.callback": ' + j1.jg.callback.jg_video_html5)
-                  logger.info('\n' + 'dyn_loader: initialize lightGallery on id: ' + 'jg_video_html5');
+                  logger.warn('\n' + 'dyn_loader, callback "jg.callback": ' + j1.jg.callback.jg_video_html5)
+                  logger.info('\n' + 'dyn_loader, initialize lightGallery on id: ' + 'jg_video_html5');
                   var lg = document.getElementById("jg_video_html5");
                   lightGallery(lg, {
                     "plugins":    [lgThumbnail, lgVideo],
@@ -322,7 +322,7 @@ j1.adapter.gallery = (function (j1, window) {
             xhrLoadState = j1.xhrDOMState['#jg_video_online_youtube_parent'];
             if ( xhrLoadState === 'success' ) {
               var $grid_jg_video_online_youtube = $('#jg_video_online_youtube');                  // used for later access
-              logger.info('\n' + 'dyn_loader: initialize gallery on id: ' + 'jg_video_online_youtube');
+              logger.info('\n' + 'dyn_loader, initialize gallery on id: ' + 'jg_video_online_youtube');
               j1.jg.callback.jg_video_online_youtube = 'waiting';
               /* eslint-disable */
               $('#jg_video_online_youtube').justifiedGallery({
@@ -334,8 +334,8 @@ j1.adapter.gallery = (function (j1, window) {
                 j1.jg.callback.jg_video_online_youtube = 'successful';
                 // setup the lightbox
                 //
-                logger.info('\n' + 'dyn_loader: callback "jg.complete" entered on id: ' + 'jg_video_online_youtube');
-                logger.info('\n' + 'dyn_loader: initialize lightGallery on id: ' + 'jg_video_online_youtube');
+                logger.info('\n' + 'dyn_loader, callback "jg.complete" entered on id: ' + 'jg_video_online_youtube');
+                logger.info('\n' + 'dyn_loader, initialize lightGallery on id: ' + 'jg_video_online_youtube');
                 var lg = document.getElementById("jg_video_online_youtube");
                 lightGallery(lg, {
                   "plugins":    [lgThumbnail, lgVideo],
@@ -366,8 +366,8 @@ j1.adapter.gallery = (function (j1, window) {
               //
               setTimeout (function() {
                 if (j1.jg.callback.jg_video_online_youtube == 'waiting') {
-                  logger.warn('callback "jg.callback": ' + j1.jg.callback.jg_video_online_youtube)
-                  logger.info('\n' + 'dyn_loader: initialize lightGallery on id: ' + 'jg_video_online_youtube');
+                  logger.warn('\n' + 'dyn_loader, callback "jg.callback": ' + j1.jg.callback.jg_video_online_youtube)
+                  logger.info('\n' + 'dyn_loader, initialize lightGallery on id: ' + 'jg_video_online_youtube');
                   var lg = document.getElementById("jg_video_online_youtube");
                   lightGallery(lg, {
                     "plugins":    [lgThumbnail, lgVideo],
@@ -408,7 +408,7 @@ j1.adapter.gallery = (function (j1, window) {
             xhrLoadState = j1.xhrDOMState['#jg_video_online_youtube_james_and_adele_parent'];
             if ( xhrLoadState === 'success' ) {
               var $grid_jg_video_online_youtube_james_and_adele = $('#jg_video_online_youtube_james_and_adele');                  // used for later access
-              logger.info('\n' + 'dyn_loader: initialize gallery on id: ' + 'jg_video_online_youtube_james_and_adele');
+              logger.info('\n' + 'dyn_loader, initialize gallery on id: ' + 'jg_video_online_youtube_james_and_adele');
               j1.jg.callback.jg_video_online_youtube_james_and_adele = 'waiting';
               /* eslint-disable */
               $('#jg_video_online_youtube_james_and_adele').justifiedGallery({
@@ -420,8 +420,8 @@ j1.adapter.gallery = (function (j1, window) {
                 j1.jg.callback.jg_video_online_youtube_james_and_adele = 'successful';
                 // setup the lightbox
                 //
-                logger.info('\n' + 'dyn_loader: callback "jg.complete" entered on id: ' + 'jg_video_online_youtube_james_and_adele');
-                logger.info('\n' + 'dyn_loader: initialize lightGallery on id: ' + 'jg_video_online_youtube_james_and_adele');
+                logger.info('\n' + 'dyn_loader, callback "jg.complete" entered on id: ' + 'jg_video_online_youtube_james_and_adele');
+                logger.info('\n' + 'dyn_loader, initialize lightGallery on id: ' + 'jg_video_online_youtube_james_and_adele');
                 var lg = document.getElementById("jg_video_online_youtube_james_and_adele");
                 lightGallery(lg, {
                   "plugins":    [lgThumbnail, lgVideo],
@@ -446,8 +446,8 @@ j1.adapter.gallery = (function (j1, window) {
               //
               setTimeout (function() {
                 if (j1.jg.callback.jg_video_online_youtube_james_and_adele == 'waiting') {
-                  logger.warn('callback "jg.callback": ' + j1.jg.callback.jg_video_online_youtube_james_and_adele)
-                  logger.info('\n' + 'dyn_loader: initialize lightGallery on id: ' + 'jg_video_online_youtube_james_and_adele');
+                  logger.warn('\n' + 'dyn_loader, callback "jg.callback": ' + j1.jg.callback.jg_video_online_youtube_james_and_adele)
+                  logger.info('\n' + 'dyn_loader, initialize lightGallery on id: ' + 'jg_video_online_youtube_james_and_adele');
                   var lg = document.getElementById("jg_video_online_youtube_james_and_adele");
                   lightGallery(lg, {
                     "plugins":    [lgThumbnail, lgVideo],
@@ -482,7 +482,7 @@ j1.adapter.gallery = (function (j1, window) {
             xhrLoadState = j1.xhrDOMState['#jg_video_online_youtube_voice_kids_parent'];
             if ( xhrLoadState === 'success' ) {
               var $grid_jg_video_online_youtube_voice_kids = $('#jg_video_online_youtube_voice_kids');                  // used for later access
-              logger.info('\n' + 'dyn_loader: initialize gallery on id: ' + 'jg_video_online_youtube_voice_kids');
+              logger.info('\n' + 'dyn_loader, initialize gallery on id: ' + 'jg_video_online_youtube_voice_kids');
               j1.jg.callback.jg_video_online_youtube_voice_kids = 'waiting';
               /* eslint-disable */
               $('#jg_video_online_youtube_voice_kids').justifiedGallery({
@@ -494,8 +494,8 @@ j1.adapter.gallery = (function (j1, window) {
                 j1.jg.callback.jg_video_online_youtube_voice_kids = 'successful';
                 // setup the lightbox
                 //
-                logger.info('\n' + 'dyn_loader: callback "jg.complete" entered on id: ' + 'jg_video_online_youtube_voice_kids');
-                logger.info('\n' + 'dyn_loader: initialize lightGallery on id: ' + 'jg_video_online_youtube_voice_kids');
+                logger.info('\n' + 'dyn_loader, callback "jg.complete" entered on id: ' + 'jg_video_online_youtube_voice_kids');
+                logger.info('\n' + 'dyn_loader, initialize lightGallery on id: ' + 'jg_video_online_youtube_voice_kids');
                 var lg = document.getElementById("jg_video_online_youtube_voice_kids");
                 lightGallery(lg, {
                   "plugins":    [lgThumbnail, lgVideo],
@@ -520,8 +520,8 @@ j1.adapter.gallery = (function (j1, window) {
               //
               setTimeout (function() {
                 if (j1.jg.callback.jg_video_online_youtube_voice_kids == 'waiting') {
-                  logger.warn('callback "jg.callback": ' + j1.jg.callback.jg_video_online_youtube_voice_kids)
-                  logger.info('\n' + 'dyn_loader: initialize lightGallery on id: ' + 'jg_video_online_youtube_voice_kids');
+                  logger.warn('\n' + 'dyn_loader, callback "jg.callback": ' + j1.jg.callback.jg_video_online_youtube_voice_kids)
+                  logger.info('\n' + 'dyn_loader, initialize lightGallery on id: ' + 'jg_video_online_youtube_voice_kids');
                   var lg = document.getElementById("jg_video_online_youtube_voice_kids");
                   lightGallery(lg, {
                     "plugins":    [lgThumbnail, lgVideo],
@@ -556,7 +556,7 @@ j1.adapter.gallery = (function (j1, window) {
             xhrLoadState = j1.xhrDOMState['#jg_video_online_vimeo_parent'];
             if ( xhrLoadState === 'success' ) {
               var $grid_jg_video_online_vimeo = $('#jg_video_online_vimeo');                  // used for later access
-              logger.info('\n' + 'dyn_loader: initialize gallery on id: ' + 'jg_video_online_vimeo');
+              logger.info('\n' + 'dyn_loader, initialize gallery on id: ' + 'jg_video_online_vimeo');
               j1.jg.callback.jg_video_online_vimeo = 'waiting';
               /* eslint-disable */
               $('#jg_video_online_vimeo').justifiedGallery({
@@ -568,8 +568,8 @@ j1.adapter.gallery = (function (j1, window) {
                 j1.jg.callback.jg_video_online_vimeo = 'successful';
                 // setup the lightbox
                 //
-                logger.info('\n' + 'dyn_loader: callback "jg.complete" entered on id: ' + 'jg_video_online_vimeo');
-                logger.info('\n' + 'dyn_loader: initialize lightGallery on id: ' + 'jg_video_online_vimeo');
+                logger.info('\n' + 'dyn_loader, callback "jg.complete" entered on id: ' + 'jg_video_online_vimeo');
+                logger.info('\n' + 'dyn_loader, initialize lightGallery on id: ' + 'jg_video_online_vimeo');
                 var lg = document.getElementById("jg_video_online_vimeo");
                 lightGallery(lg, {
                   "plugins":    [lgThumbnail, lgVideo],
@@ -589,8 +589,8 @@ j1.adapter.gallery = (function (j1, window) {
               //
               setTimeout (function() {
                 if (j1.jg.callback.jg_video_online_vimeo == 'waiting') {
-                  logger.warn('callback "jg.callback": ' + j1.jg.callback.jg_video_online_vimeo)
-                  logger.info('\n' + 'dyn_loader: initialize lightGallery on id: ' + 'jg_video_online_vimeo');
+                  logger.warn('\n' + 'dyn_loader, callback "jg.callback": ' + j1.jg.callback.jg_video_online_vimeo)
+                  logger.info('\n' + 'dyn_loader, initialize lightGallery on id: ' + 'jg_video_online_vimeo');
                   var lg = document.getElementById("jg_video_online_vimeo");
                   lightGallery(lg, {
                     "plugins":    [lgThumbnail, lgVideo],
@@ -620,7 +620,7 @@ j1.adapter.gallery = (function (j1, window) {
             xhrLoadState = j1.xhrDOMState['#jg_video_online_dailymotion_parent'];
             if ( xhrLoadState === 'success' ) {
               var $grid_jg_video_online_dailymotion = $('#jg_video_online_dailymotion');                  // used for later access
-              logger.info('\n' + 'dyn_loader: initialize gallery on id: ' + 'jg_video_online_dailymotion');
+              logger.info('\n' + 'dyn_loader, initialize gallery on id: ' + 'jg_video_online_dailymotion');
               j1.jg.callback.jg_video_online_dailymotion = 'waiting';
               /* eslint-disable */
               $('#jg_video_online_dailymotion').justifiedGallery({
@@ -632,8 +632,8 @@ j1.adapter.gallery = (function (j1, window) {
                 j1.jg.callback.jg_video_online_dailymotion = 'successful';
                 // setup the lightbox
                 //
-                logger.info('\n' + 'dyn_loader: callback "jg.complete" entered on id: ' + 'jg_video_online_dailymotion');
-                logger.info('\n' + 'dyn_loader: initialize lightGallery on id: ' + 'jg_video_online_dailymotion');
+                logger.info('\n' + 'dyn_loader, callback "jg.complete" entered on id: ' + 'jg_video_online_dailymotion');
+                logger.info('\n' + 'dyn_loader, initialize lightGallery on id: ' + 'jg_video_online_dailymotion');
                 var lg = document.getElementById("jg_video_online_dailymotion");
                 lightGallery(lg, {
                   "plugins":    [lgThumbnail, lgVideo],
@@ -653,8 +653,8 @@ j1.adapter.gallery = (function (j1, window) {
               //
               setTimeout (function() {
                 if (j1.jg.callback.jg_video_online_dailymotion == 'waiting') {
-                  logger.warn('callback "jg.callback": ' + j1.jg.callback.jg_video_online_dailymotion)
-                  logger.info('\n' + 'dyn_loader: initialize lightGallery on id: ' + 'jg_video_online_dailymotion');
+                  logger.warn('\n' + 'dyn_loader, callback "jg.callback": ' + j1.jg.callback.jg_video_online_dailymotion)
+                  logger.info('\n' + 'dyn_loader, initialize lightGallery on id: ' + 'jg_video_online_dailymotion');
                   var lg = document.getElementById("jg_video_online_dailymotion");
                   lightGallery(lg, {
                     "plugins":    [lgThumbnail, lgVideo],
