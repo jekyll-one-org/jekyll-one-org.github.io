@@ -1,7 +1,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 476:
+/***/ 8476:
 /***/ ((module) => {
 
 "use strict";
@@ -13,7 +13,7 @@
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2023 Juergen Adams
+ #  Copyright (C) 2023, 2024 Juergen Adams
  #
  #  J1 Theme is licensed under MIT License.
  #  See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
@@ -44,7 +44,7 @@ module.exports = function (j1, window) {
 
 /***/ }),
 
-/***/ 253:
+/***/ 1253:
 /***/ (() => {
 
 /*
@@ -56,7 +56,7 @@ module.exports = function (j1, window) {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2023 Juergen Adams
+ # Copyright (C) 2023, 2024 Juergen Adams
  #
  # J1 Theme is licensed under MIT License.
  # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
@@ -112,7 +112,7 @@ $(insert_result_links);
 
 /***/ }),
 
-/***/ 921:
+/***/ 8921:
 /***/ ((module) => {
 
 "use strict";
@@ -126,7 +126,7 @@ $(insert_result_links);
  # https://jekyll.one
  #
  # Copyright (C) 2020 Julian Garnier
- # Copyright (C) 2023 Juergen Adams
+ # Copyright (C) 2023, 2024 Juergen Adams
  #
  # Anime is licensed under the MIT License.
  # See: https://github.com/juliangarnier/anime/blob/master/LICENSE.md
@@ -1628,7 +1628,7 @@ module.exports = anime;
 
 /***/ }),
 
-/***/ 977:
+/***/ 6977:
 /***/ ((module) => {
 
 /*
@@ -1639,7 +1639,7 @@ module.exports = anime;
  #  Product/Info:
  #  http://jekyll.one
  #
- #  Copyright (C) 2023 Juergen Adams
+ #  Copyright (C) 2023, 2024 Juergen Adams
  #
  #  J1 Theme is licensed under MIT License.
  #  See: https://github.com/jekyll-one/J1 Theme/blob/master/LICENSE
@@ -1663,7 +1663,7 @@ module.exports = anime;
 // -----------------------------------------------------------------------------
 /*!
  * J1 Asciidoctor
- * Copyright (C) 2023 Juergen Adams
+ * Copyright (C) 2023, 2024 Juergen Adams
  * Licensed under MIT License.
  */
 module.exports = function asciidoctor(options) {
@@ -1723,7 +1723,7 @@ module.exports = function asciidoctor(options) {
 
 /***/ }),
 
-/***/ 254:
+/***/ 1254:
 /***/ (() => {
 
 /*
@@ -3031,8 +3031,8 @@ module.exports = function asciidoctor(options) {
 
 /***/ }),
 
-/***/ 602:
-/***/ ((module) => {
+/***/ 6602:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 /*
@@ -3044,7 +3044,7 @@ module.exports = function asciidoctor(options) {
  #  https://jekyll.one
  #  http://getbootstrap.com/
  #
- #  Copyright (C) 2023 Juergen Adams
+ #  Copyright (C) 2023, 2024 Juergen Adams
  #
  #  J1 Theme is licensed under MIT License.
  #  See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
@@ -3063,10 +3063,14 @@ module.exports = function asciidoctor(options) {
 // module.exports = function core ( options ) {
 /*!
  * J1 Core
- * Copyright (C) 2023 Juergen Adams
+ * Copyright (C) 2023, 2024 Juergen Adams
  * Licensed under MIT License.
  */
 module.exports = function (options) {
+  const defaultOptions = __webpack_require__(8780);
+  const ParseContent = __webpack_require__(7609);
+  const parseContent = ParseContent(defaultOptions);
+
   // ---------------------------------------------------------------------------
   // Global variables
   // ---------------------------------------------------------------------------
@@ -3160,7 +3164,21 @@ module.exports = function (options) {
           $p.html(text.replace(firstLetter, marginalDropCap));
         });
       }
-    } // END createDropCap
+    },
+    // END createDropCap
+
+    // -------------------------------------------------------------------------
+    // Initialize Backdrops on all <p> elements of class "dropcap"
+    // -------------------------------------------------------------------------
+    parseHeadings: function () {
+      var headings = parseContent.selectHeadings(".js-toc-content", "h2, h3, h4, h5, h6");
+      return headings;
+    } // END parseContent
+
+    // parseContent.selectHeadings(
+    //   defaultOptions.contentSelector,
+    //   defaultOptions.headingSelector
+    // );
   }; // end return (object)
 
   //})( jQuery, window );
@@ -3168,7 +3186,253 @@ module.exports = function (options) {
 
 /***/ }),
 
-/***/ 131:
+/***/ 8780:
+/***/ ((module) => {
+
+// -----------------------------------------------------------------------------
+// ESLint shimming
+// -----------------------------------------------------------------------------
+/* eslint indent: "off"                                                       */
+/* eslint no-undef: "off"                                                     */
+/* eslint no-unused-vars: "off"                                               */
+// -----------------------------------------------------------------------------
+
+module.exports = {
+  // Where to render the table of contents.
+  tocSelector: '.js-toc',
+  // Where to grab the headings to build the table of contents.
+  contentSelector: '.js-toc-content',
+  // Which headings to grab inside of the contentSelector element.
+  headingSelector: 'h2, h3, h4, h5, h6',
+  // Headings that match the ignoreSelector will be skipped.
+  ignoreSelector: '.notoc',
+  // For headings inside relative or absolute positioned containers within content
+  hasInnerContainers: false,
+  // Main class to add to links.
+  linkClass: 'toc-link',
+  // Extra classes to add to links.
+  extraLinkClasses: '',
+  // Class to add to active links,
+  // the link corresponding to the top most heading on the page.
+  activeLinkClass: 'is-active-link',
+  // Main class to add to lists.
+  listClass: 'toc-list',
+  // Extra classes to add to lists.
+  extraListClasses: '',
+  // Class that gets added when a list should be collapsed.
+  isCollapsedClass: 'is-collapsed',
+  // Class that gets added when a list should be able
+  // to be collapsed but isn't necessarily collapsed.
+  collapsibleClass: 'is-collapsible',
+  // Class to add to list items.
+  listItemClass: 'toc-list-item',
+  // Class to add to active list items.
+  activeListItemClass: 'is-active-li',
+  // How many heading levels should not be collapsed.
+  // For example, number 6 will show everything since
+  // there are only 6 heading levels and number 0 will collapse them all.
+  // The sections that are hidden will open
+  // and close as you scroll to headings within them.
+  collapseDepth: 3,
+  // Smooth scrolling enabled.
+  scrollSmooth: true,
+  // Smooth scroll duration.
+  scrollSmoothDuration: 300,
+  // Smooth scroll offset.
+  scrollSmoothOffset: 0,
+  // Callback for scroll end.
+  scrollEndCallback: function (e) {},
+  // Headings offset between the headings and the top of the document (this is meant for minor adjustments).
+  headingsOffset: 1,
+  // Timeout between events firing to make sure it's
+  // not too rapid (for performance reasons).
+  throttleTimeout: 150,
+  // Element to add the positionFixedClass to.
+  positionFixedSelector: null,
+  // Fixed position class to add to make sidebar fixed after scrolling
+  // down past the fixedSidebarOffset.
+  positionFixedClass: 'is-position-fixed',
+  // fixedSidebarOffset can be any number but by default is set
+  // to auto which sets the fixedSidebarOffset to the sidebar
+  // element's offsetTop from the top of the document on init.
+  fixedSidebarOffset: 'auto',
+  // includeHtml can be set to true to include the HTML markup from the
+  // heading node instead of just including the textContent.
+  includeHtml: false,
+  // onclick function to apply to all links in toc. will be called with
+  // the event as the first parameter, and this can be used to stop,
+  // propagation, prevent default or perform action
+  onClick: function (e) {},
+  // orderedList can be set to false to generate unordered lists (ul)
+  // instead of ordered lists (ol)
+  orderedList: true,
+  // If there is a fixed article scroll container, set to calculate titles' offset
+  scrollContainer: null,
+  // prevent ToC DOM rendering if it's already rendered by an external system
+  skipRendering: false,
+  // Optional callback to change heading labels.
+  // For example it can be used to cut down and put ellipses on multiline headings you deem too long.
+  // Called each time a heading is parsed. Expects a string in return, the modified label to display.
+  // function (string) => string
+  headingLabelCallback: false,
+  // ignore headings that are hidden in DOM
+  ignoreHiddenElements: false,
+  // Optional callback to modify properties of parsed headings.
+  // The heading element is passed in node parameter and information parsed by default parser is provided in obj parameter.
+  // Function has to return the same or modified obj.
+  // The heading will be excluded from TOC if nothing is returned.
+  // function (object, HTMLElement) => object | void
+  headingObjectCallback: null,
+  // Set the base path, useful if you use a `base` tag in `head`.
+  basePath: '',
+  // Only takes affect when `tocSelector` is scrolling,
+  // keep the toc scroll position in sync with the content.
+  disableTocScrollSync: false
+};
+
+/***/ }),
+
+/***/ 7609:
+/***/ ((module) => {
+
+/**
+ * This file is responsible for parsing the content from the DOM and making
+ * sure data is nested properly.
+ *
+ * @author Tim Scanlin
+ */
+
+// -----------------------------------------------------------------------------
+// ESLint shimming
+// -----------------------------------------------------------------------------
+/* eslint indent: "off"                                                       */
+/* eslint no-undef: "off"                                                     */
+/* eslint semi: "off"                                                         */
+// -----------------------------------------------------------------------------
+
+module.exports = function parseContent(options) {
+  var reduce = [].reduce;
+
+  /**
+   * Get the last item in an array and return a reference to it.
+   * @param {Array} array
+   * @return {Object}
+   */
+  function getLastItem(array) {
+    return array[array.length - 1];
+  }
+
+  /**
+   * Get heading level for a heading dom node.
+   * @param {HTMLElement} heading
+   * @return {Number}
+   */
+  function getHeadingLevel(heading) {
+    return +heading.nodeName.split('H').join('');
+  }
+
+  /**
+   * Get important properties from a heading element and store in a plain object.
+   * @param {HTMLElement} heading
+   * @return {Object}
+   */
+  function getHeadingObject(heading) {
+    // each node is processed twice by this method because nestHeadingsArray() and addNode() calls it
+    // first time heading is real DOM node element, second time it is obj
+    // that is causing problem so I am processing only original DOM node
+    if (!(heading instanceof window.HTMLElement)) return heading;
+    if (options.ignoreHiddenElements && (!heading.offsetHeight || !heading.offsetParent)) {
+      return null;
+    }
+    var obj = {
+      id: heading.id,
+      children: [],
+      nodeName: heading.nodeName,
+      headingLevel: getHeadingLevel(heading),
+      textContent: options.headingLabelCallback ? String(options.headingLabelCallback(heading.textContent)) : heading.textContent.trim()
+    };
+    if (options.includeHtml) {
+      obj.childNodes = heading.childNodes;
+    }
+    if (options.headingObjectCallback) {
+      return options.headingObjectCallback(obj, heading);
+    }
+    return obj;
+  }
+
+  /**
+   * Add a node to the nested array.
+   * @param {Object} node
+   * @param {Array} nest
+   * @return {Array}
+   */
+  function addNode(node, nest) {
+    var obj = getHeadingObject(node);
+    var level = obj.headingLevel;
+    var array = nest;
+    var lastItem = getLastItem(array);
+    var lastItemLevel = lastItem ? lastItem.headingLevel : 0;
+    var counter = level - lastItemLevel;
+    while (counter > 0) {
+      lastItem = getLastItem(array);
+      if (lastItem && lastItem.children !== undefined) {
+        array = lastItem.children;
+      }
+      counter--;
+    }
+    if (level >= options.collapseDepth) {
+      obj.isCollapsed = true;
+    }
+    array.push(obj);
+    return array;
+  }
+
+  /**
+   * Select headings in content area, exclude any selector in options.ignoreSelector
+   * @param {String} contentSelector
+   * @param {Array} headingSelector
+   * @return {Array}
+   */
+  function selectHeadings(contentSelector, headingSelector) {
+    var selectors = headingSelector;
+    if (options.ignoreSelector) {
+      selectors = headingSelector.split(',').map(function mapSelectors(selector) {
+        return selector.trim() + ':not(' + options.ignoreSelector + ')';
+      });
+    }
+    try {
+      return document.querySelector(contentSelector).querySelectorAll(selectors);
+    } catch (e) {
+      console.warn('Element not found: ' + contentSelector); // eslint-disable-line
+      return null;
+    }
+  }
+
+  /**
+   * Nest headings array into nested arrays with 'children' property.
+   * @param {Array} headingsArray
+   * @return {Object}
+   */
+  function nestHeadingsArray(headingsArray) {
+    return reduce.call(headingsArray, function reducer(prev, curr) {
+      var currentHeading = getHeadingObject(curr);
+      if (currentHeading) {
+        addNode(currentHeading, prev.nest);
+      }
+      return prev;
+    }, {
+      nest: []
+    });
+  }
+  return {
+    nestHeadingsArray: nestHeadingsArray,
+    selectHeadings: selectHeadings
+  };
+};
+
+/***/ }),
+
+/***/ 1131:
 /***/ ((module) => {
 
 /*
@@ -3179,7 +3443,7 @@ module.exports = function (options) {
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2023 Juergen Adams
+ # Copyright (C) 2023, 2024 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
@@ -3230,7 +3494,7 @@ module.exports = function lazyCSS() {
 
 /***/ }),
 
-/***/ 610:
+/***/ 5771:
 /***/ (() => {
 
 /*
@@ -3242,7 +3506,7 @@ module.exports = function lazyCSS() {
  # https://jekyll.one
  #
  # Copyright (C) 2013-2014 Selvakumar Arumugam
- # Copyright (C) 2023 Juergen Adams
+ # Copyright (C) 2023, 2024 Juergen Adams
  #
  # Attrchange is licensed under the MIT License.
  # See: https://github.com/meetselva/attrchange/blob/master/MIT-License.txt
@@ -3486,7 +3750,7 @@ module.exports = function lazyCSS() {
 
 /***/ }),
 
-/***/ 490:
+/***/ 3490:
 /***/ ((module) => {
 
 /*
@@ -3499,7 +3763,7 @@ module.exports = function lazyCSS() {
  #  https://github.com/adamnurdin01/bootsnav
  #  http://corenav.anurdin.net/
  #
- #  Copyright (C) 2023 Juergen Adams
+ #  Copyright (C) 2023, 2024 Juergen Adams
  #  Copyright (C) 2016 adamnurdin01
  #
  #  J1 Theme is licensed under MIT License.
@@ -4144,7 +4408,7 @@ module.exports = function navigator(options) {
 
 /***/ }),
 
-/***/ 814:
+/***/ 8814:
 /***/ ((module) => {
 
 "use strict";
@@ -4275,7 +4539,7 @@ module.exports = function scrollSmooth(options) {
 
 /***/ }),
 
-/***/ 633:
+/***/ 8633:
 /***/ ((module) => {
 
 // -----------------------------------------------------------------------------
@@ -4381,7 +4645,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 291:
+/***/ 3291:
 /***/ ((module) => {
 
 /**
@@ -4533,7 +4797,7 @@ module.exports = function parseContent(options) {
  # https://jekyll.one
  # https://github.com/acoti/articulate.js/tree/master
  #
- # Copyright (C) 2023 Juergen Adams
+ # Copyright (C) 2023, 2024 Juergen Adams
  # Copyright (C) 2017 Adam Coti
  #
  # J1 Template is licensed under the MIT License.
@@ -4557,8 +4821,8 @@ module.exports = function parseContent(options) {
 (function ($) {
   'use strict';
 
-  const defaultOptions = __webpack_require__(633);
-  const ParseContent = __webpack_require__(291);
+  const defaultOptions = __webpack_require__(8633);
+  const ParseContent = __webpack_require__(3291);
   const parseContent = ParseContent(defaultOptions);
   const scrollBehavior = 'smooth';
   const speechCycle = 10;
@@ -6119,7 +6383,7 @@ module.exports = function parseContent(options) {
 
 /***/ }),
 
-/***/ 525:
+/***/ 4525:
 /***/ ((module) => {
 
 /**
@@ -6398,7 +6662,7 @@ module.exports = function (options) {
 
 /***/ }),
 
-/***/ 923:
+/***/ 8923:
 /***/ ((module) => {
 
 // -----------------------------------------------------------------------------
@@ -6504,7 +6768,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 407:
+/***/ 6407:
 /***/ ((module) => {
 
 /**
@@ -6644,7 +6908,7 @@ module.exports = function parseContent(options) {
 
 /***/ }),
 
-/***/ 968:
+/***/ 5968:
 /***/ ((__unused_webpack_module, exports) => {
 
 /*
@@ -6657,7 +6921,7 @@ module.exports = function parseContent(options) {
  #  https://tscanlin.github.io/tocbot
  #  https://github.com/tscanlin/tocbot
  #
- #  Copyright (C) 2023 Juergen Adams
+ #  Copyright (C) 2023, 2024 Juergen Adams
  #  Copyright (C) 2016 Tim Scanlin
  #
  #  J1 Theme is licensed under MIT License.
@@ -6796,7 +7060,7 @@ function jump(target, options) {
 
 /***/ }),
 
-/***/ 799:
+/***/ 2799:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -6809,7 +7073,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
  #  https://tscanlin.github.io/tocbot
  #  https://github.com/tscanlin/tocbot
  #
- #  Copyright (C) 2023 Juergen Adams
+ #  Copyright (C) 2023, 2024 Juergen Adams
  #  Copyright (C) 2016 Tim Scanlin
  #
  #  J1 Theme is licensed under MIT License.
@@ -6853,14 +7117,14 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   'use strict';
 
   // Default options.
-  var defaultOptions = __webpack_require__(923);
+  var defaultOptions = __webpack_require__(8923);
   // Object to store current options.
   var options = {};
   // Object for public APIs.
   var tocbot = {};
-  var BuildHtml = __webpack_require__(525);
-  var ParseContent = __webpack_require__(407);
-  var updateTocScroll = __webpack_require__(172);
+  var BuildHtml = __webpack_require__(4525);
+  var ParseContent = __webpack_require__(6407);
+  var updateTocScroll = __webpack_require__(1172);
   // Keep these variables at top scope once options are passed in.
   var buildHtml;
   var parseContent;
@@ -6959,7 +7223,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     if (options.scrollSmooth) {
       options.duration = options.scrollSmoothDuration;
       options.offset = options.scrollSmoothOffset;
-      tocbot.scrollSmooth = (__webpack_require__(968).initSmoothScrolling)(options);
+      tocbot.scrollSmooth = (__webpack_require__(5968).initSmoothScrolling)(options);
     }
 
     // Pass options to these modules.
@@ -7046,7 +7310,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 /***/ }),
 
-/***/ 172:
+/***/ 1172:
 /***/ ((module) => {
 
 // -----------------------------------------------------------------------------
@@ -7069,7 +7333,7 @@ module.exports = function updateTocScroll(options) {
 
 /***/ }),
 
-/***/ 808:
+/***/ 6808:
 /***/ ((module, exports, __webpack_require__) => {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -7243,15 +7507,15 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 /***/ }),
 
-/***/ 320:
+/***/ 3320:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
 
-var loader = __webpack_require__(990);
-var dumper = __webpack_require__(150);
+var loader = __webpack_require__(7990);
+var dumper = __webpack_require__(3150);
 
 
 function renamed(from, to) {
@@ -7262,31 +7526,31 @@ function renamed(from, to) {
 }
 
 
-module.exports.Type = __webpack_require__(364);
-module.exports.Schema = __webpack_require__(657);
-module.exports.FAILSAFE_SCHEMA = __webpack_require__(795);
-module.exports.JSON_SCHEMA = __webpack_require__(966);
-module.exports.CORE_SCHEMA = __webpack_require__(471);
-module.exports.DEFAULT_SCHEMA = __webpack_require__(601);
+module.exports.Type = __webpack_require__(1364);
+module.exports.Schema = __webpack_require__(7657);
+module.exports.FAILSAFE_SCHEMA = __webpack_require__(4795);
+module.exports.JSON_SCHEMA = __webpack_require__(5966);
+module.exports.CORE_SCHEMA = __webpack_require__(9471);
+module.exports.DEFAULT_SCHEMA = __webpack_require__(6601);
 module.exports.load                = loader.load;
 module.exports.loadAll             = loader.loadAll;
 module.exports.dump                = dumper.dump;
-module.exports.YAMLException = __webpack_require__(425);
+module.exports.YAMLException = __webpack_require__(8425);
 
 // Re-export all types in case user wants to create custom schema
 module.exports.types = {
-  binary:    __webpack_require__(531),
-  float:     __webpack_require__(215),
+  binary:    __webpack_require__(3531),
+  float:     __webpack_require__(5215),
   map:       __webpack_require__(945),
   null:      __webpack_require__(151),
-  pairs:     __webpack_require__(879),
-  set:       __webpack_require__(982),
-  timestamp: __webpack_require__(156),
-  bool:      __webpack_require__(771),
-  int:       __webpack_require__(518),
-  merge:     __webpack_require__(452),
-  omap:      __webpack_require__(605),
-  seq:       __webpack_require__(451),
+  pairs:     __webpack_require__(6879),
+  set:       __webpack_require__(4982),
+  timestamp: __webpack_require__(2156),
+  bool:      __webpack_require__(8771),
+  int:       __webpack_require__(1518),
+  merge:     __webpack_require__(7452),
+  omap:      __webpack_require__(1605),
+  seq:       __webpack_require__(6451),
   str:       __webpack_require__(48)
 };
 
@@ -7298,7 +7562,7 @@ module.exports.safeDump            = renamed('safeDump', 'dump');
 
 /***/ }),
 
-/***/ 347:
+/***/ 8347:
 /***/ ((module) => {
 
 "use strict";
@@ -7365,7 +7629,7 @@ module.exports.extend         = extend;
 
 /***/ }),
 
-/***/ 150:
+/***/ 3150:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -7373,9 +7637,9 @@ module.exports.extend         = extend;
 
 /*eslint-disable no-use-before-define*/
 
-var common              = __webpack_require__(347);
-var YAMLException       = __webpack_require__(425);
-var DEFAULT_SCHEMA      = __webpack_require__(601);
+var common              = __webpack_require__(8347);
+var YAMLException       = __webpack_require__(8425);
+var DEFAULT_SCHEMA      = __webpack_require__(6601);
 
 var _toString       = Object.prototype.toString;
 var _hasOwnProperty = Object.prototype.hasOwnProperty;
@@ -8338,7 +8602,7 @@ module.exports.dump = dump;
 
 /***/ }),
 
-/***/ 425:
+/***/ 8425:
 /***/ ((module) => {
 
 "use strict";
@@ -8401,7 +8665,7 @@ module.exports = YAMLException;
 
 /***/ }),
 
-/***/ 990:
+/***/ 7990:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -8409,10 +8673,10 @@ module.exports = YAMLException;
 
 /*eslint-disable max-len,no-use-before-define*/
 
-var common              = __webpack_require__(347);
-var YAMLException       = __webpack_require__(425);
+var common              = __webpack_require__(8347);
+var YAMLException       = __webpack_require__(8425);
 var makeSnippet         = __webpack_require__(192);
-var DEFAULT_SCHEMA      = __webpack_require__(601);
+var DEFAULT_SCHEMA      = __webpack_require__(6601);
 
 
 var _hasOwnProperty = Object.prototype.hasOwnProperty;
@@ -10136,7 +10400,7 @@ module.exports.load    = load;
 
 /***/ }),
 
-/***/ 657:
+/***/ 7657:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -10144,8 +10408,8 @@ module.exports.load    = load;
 
 /*eslint-disable max-len*/
 
-var YAMLException = __webpack_require__(425);
-var Type          = __webpack_require__(364);
+var YAMLException = __webpack_require__(8425);
+var Type          = __webpack_require__(1364);
 
 
 function compileList(schema, name) {
@@ -10265,7 +10529,7 @@ module.exports = Schema;
 
 /***/ }),
 
-/***/ 471:
+/***/ 9471:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -10279,12 +10543,12 @@ module.exports = Schema;
 
 
 
-module.exports = __webpack_require__(966);
+module.exports = __webpack_require__(5966);
 
 
 /***/ }),
 
-/***/ 601:
+/***/ 6601:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -10298,23 +10562,23 @@ module.exports = __webpack_require__(966);
 
 
 
-module.exports = (__webpack_require__(471).extend)({
+module.exports = (__webpack_require__(9471).extend)({
   implicit: [
-    __webpack_require__(156),
-    __webpack_require__(452)
+    __webpack_require__(2156),
+    __webpack_require__(7452)
   ],
   explicit: [
-    __webpack_require__(531),
-    __webpack_require__(605),
-    __webpack_require__(879),
-    __webpack_require__(982)
+    __webpack_require__(3531),
+    __webpack_require__(1605),
+    __webpack_require__(6879),
+    __webpack_require__(4982)
   ]
 });
 
 
 /***/ }),
 
-/***/ 795:
+/***/ 4795:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -10325,13 +10589,13 @@ module.exports = (__webpack_require__(471).extend)({
 
 
 
-var Schema = __webpack_require__(657);
+var Schema = __webpack_require__(7657);
 
 
 module.exports = new Schema({
   explicit: [
     __webpack_require__(48),
-    __webpack_require__(451),
+    __webpack_require__(6451),
     __webpack_require__(945)
   ]
 });
@@ -10339,7 +10603,7 @@ module.exports = new Schema({
 
 /***/ }),
 
-/***/ 966:
+/***/ 5966:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -10354,12 +10618,12 @@ module.exports = new Schema({
 
 
 
-module.exports = (__webpack_require__(795).extend)({
+module.exports = (__webpack_require__(4795).extend)({
   implicit: [
     __webpack_require__(151),
-    __webpack_require__(771),
-    __webpack_require__(518),
-    __webpack_require__(215)
+    __webpack_require__(8771),
+    __webpack_require__(1518),
+    __webpack_require__(5215)
   ]
 });
 
@@ -10373,7 +10637,7 @@ module.exports = (__webpack_require__(795).extend)({
 
 
 
-var common = __webpack_require__(347);
+var common = __webpack_require__(8347);
 
 
 // get snippet for a single line, respecting maxLength
@@ -10475,13 +10739,13 @@ module.exports = makeSnippet;
 
 /***/ }),
 
-/***/ 364:
+/***/ 1364:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var YAMLException = __webpack_require__(425);
+var YAMLException = __webpack_require__(8425);
 
 var TYPE_CONSTRUCTOR_OPTIONS = [
   'kind',
@@ -10549,7 +10813,7 @@ module.exports = Type;
 
 /***/ }),
 
-/***/ 531:
+/***/ 3531:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -10558,7 +10822,7 @@ module.exports = Type;
 /*eslint-disable no-bitwise*/
 
 
-var Type = __webpack_require__(364);
+var Type = __webpack_require__(1364);
 
 
 // [ 64, 65, 66 ] -> [ padding, CR, LF ]
@@ -10682,13 +10946,13 @@ module.exports = new Type('tag:yaml.org,2002:binary', {
 
 /***/ }),
 
-/***/ 771:
+/***/ 8771:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var Type = __webpack_require__(364);
+var Type = __webpack_require__(1364);
 
 function resolveYamlBoolean(data) {
   if (data === null) return false;
@@ -10725,14 +10989,14 @@ module.exports = new Type('tag:yaml.org,2002:bool', {
 
 /***/ }),
 
-/***/ 215:
+/***/ 5215:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var common = __webpack_require__(347);
-var Type   = __webpack_require__(364);
+var common = __webpack_require__(8347);
+var Type   = __webpack_require__(1364);
 
 var YAML_FLOAT_PATTERN = new RegExp(
   // 2.5e4, 2.5 and integers
@@ -10830,14 +11094,14 @@ module.exports = new Type('tag:yaml.org,2002:float', {
 
 /***/ }),
 
-/***/ 518:
+/***/ 1518:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var common = __webpack_require__(347);
-var Type   = __webpack_require__(364);
+var common = __webpack_require__(8347);
+var Type   = __webpack_require__(1364);
 
 function isHexCode(c) {
   return ((0x30/* 0 */ <= c) && (c <= 0x39/* 9 */)) ||
@@ -11000,7 +11264,7 @@ module.exports = new Type('tag:yaml.org,2002:int', {
 "use strict";
 
 
-var Type = __webpack_require__(364);
+var Type = __webpack_require__(1364);
 
 module.exports = new Type('tag:yaml.org,2002:map', {
   kind: 'mapping',
@@ -11010,13 +11274,13 @@ module.exports = new Type('tag:yaml.org,2002:map', {
 
 /***/ }),
 
-/***/ 452:
+/***/ 7452:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var Type = __webpack_require__(364);
+var Type = __webpack_require__(1364);
 
 function resolveYamlMerge(data) {
   return data === '<<' || data === null;
@@ -11036,7 +11300,7 @@ module.exports = new Type('tag:yaml.org,2002:merge', {
 "use strict";
 
 
-var Type = __webpack_require__(364);
+var Type = __webpack_require__(1364);
 
 function resolveYamlNull(data) {
   if (data === null) return true;
@@ -11073,13 +11337,13 @@ module.exports = new Type('tag:yaml.org,2002:null', {
 
 /***/ }),
 
-/***/ 605:
+/***/ 1605:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var Type = __webpack_require__(364);
+var Type = __webpack_require__(1364);
 
 var _hasOwnProperty = Object.prototype.hasOwnProperty;
 var _toString       = Object.prototype.toString;
@@ -11125,13 +11389,13 @@ module.exports = new Type('tag:yaml.org,2002:omap', {
 
 /***/ }),
 
-/***/ 879:
+/***/ 6879:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var Type = __webpack_require__(364);
+var Type = __webpack_require__(1364);
 
 var _toString = Object.prototype.toString;
 
@@ -11186,13 +11450,13 @@ module.exports = new Type('tag:yaml.org,2002:pairs', {
 
 /***/ }),
 
-/***/ 451:
+/***/ 6451:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var Type = __webpack_require__(364);
+var Type = __webpack_require__(1364);
 
 module.exports = new Type('tag:yaml.org,2002:seq', {
   kind: 'sequence',
@@ -11202,13 +11466,13 @@ module.exports = new Type('tag:yaml.org,2002:seq', {
 
 /***/ }),
 
-/***/ 982:
+/***/ 4982:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var Type = __webpack_require__(364);
+var Type = __webpack_require__(1364);
 
 var _hasOwnProperty = Object.prototype.hasOwnProperty;
 
@@ -11245,7 +11509,7 @@ module.exports = new Type('tag:yaml.org,2002:set', {
 "use strict";
 
 
-var Type = __webpack_require__(364);
+var Type = __webpack_require__(1364);
 
 module.exports = new Type('tag:yaml.org,2002:str', {
   kind: 'scalar',
@@ -11255,13 +11519,13 @@ module.exports = new Type('tag:yaml.org,2002:str', {
 
 /***/ }),
 
-/***/ 156:
+/***/ 2156:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var Type = __webpack_require__(364);
+var Type = __webpack_require__(1364);
 
 var YAML_DATE_REGEXP = new RegExp(
   '^([0-9][0-9][0-9][0-9])'          + // [1] year
@@ -11351,7 +11615,7 @@ module.exports = new Type('tag:yaml.org,2002:timestamp', {
 
 /***/ }),
 
-/***/ 578:
+/***/ 8578:
 /***/ (function(module, exports) {
 
 /**
@@ -11365,7 +11629,7 @@ module.exports = new Type('tag:yaml.org,2002:timestamp', {
 
 /***/ }),
 
-/***/ 979:
+/***/ 9979:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -11642,7 +11906,7 @@ return log4javascript;},this);
 
 /***/ }),
 
-/***/ 727:
+/***/ 1795:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* module decorator */ module = __webpack_require__.nmd(module);
@@ -12965,7 +13229,7 @@ var __webpack_exports__ = {};
  #  Product/Info:
  #  https://jekyll.one
  #
- #  Copyright (C) 2023 Juergen Adams
+ #  Copyright (C) 2023, 2024 Juergen Adams
  #
  #  J1 Template is licensed under the MIT License.
  #  See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
@@ -13000,11 +13264,11 @@ var __webpack_exports__ = {};
 // Following objects (native node modules) are *explicitely* forced to be
 // exposed for run-time to the global namespace (window).
 // -----------------------------------------------------------------------------
-window.Cookies = __webpack_require__(808);
-window.yaml = __webpack_require__(320);
-window.log4javascript = __webpack_require__(979);
-window.liteURL = __webpack_require__(578);
-window.platform = __webpack_require__(727);
+window.Cookies = __webpack_require__(6808);
+window.yaml = __webpack_require__(3320);
+window.log4javascript = __webpack_require__(9979);
+window.liteURL = __webpack_require__(8578);
+window.platform = __webpack_require__(1795);
 
 // Core Libraries - build|required from SOURCE
 // -----------------------------------------------------------------------------
@@ -13013,15 +13277,16 @@ window.platform = __webpack_require__(727);
 // exposed for run-time to the global namespace (window).
 // -----------------------------------------------------------------------------
 // window.deeplTranslator               = require('./js/deepl-translator');     // J1 Module deeplAPI used instead
-// window.j1.fam                        = require('./js/fam/fam.js');           // cannot used until NOT rewritten to jQuery
+// window.j1.fab                        = require('./js/fab/fab.js');           // cannot used until NOT rewritten to jQuery
 
-window.j1.adapter = __webpack_require__(476);
-window.j1.anime = __webpack_require__(921); // added for fam
-window.j1.lazyCSS = __webpack_require__(131);
-window.j1.core = __webpack_require__(602);
-window.j1.core.navigator = __webpack_require__(490);
-window.j1.core.asciidoctor = __webpack_require__(977);
-window.j1.core.scrollSmooth = __webpack_require__(814);
+window.j1.adapter = __webpack_require__(8476);
+window.j1.anime = __webpack_require__(8921); // added for fab
+window.j1.lazyCSS = __webpack_require__(1131);
+window.j1.core = __webpack_require__(6602);
+window.j1.core.parseContent = __webpack_require__(3291);
+window.j1.core.navigator = __webpack_require__(3490);
+window.j1.core.asciidoctor = __webpack_require__(6977);
+window.j1.core.scrollSmooth = __webpack_require__(8814);
 
 // Following source objects|modules are *implicetly* forced to be
 // exposed for run-time to the global namespace (window).
@@ -13033,10 +13298,10 @@ window.j1.core.scrollSmooth = __webpack_require__(814);
 
 // const BootstrapJS                      = require('./node_modules/bootstrap/dist/js/bootstrap.js');
 
-const J1Tocbot = __webpack_require__(799);
-const J1AttrChangeListener = __webpack_require__(610);
+const J1Tocbot = __webpack_require__(2799);
+const J1AttrChangeListener = __webpack_require__(5771);
 const J1Speak2Me = __webpack_require__(229);
-const J1SCarousel = __webpack_require__(254);
+const J1SCarousel = __webpack_require__(1254);
 
 // Passing log data over Internet|SeeMe (currently NOT used)
 // -----------------------------------------------------------------------------
@@ -13073,7 +13338,7 @@ const J1SCarousel = __webpack_require__(254);
 
 // Additional Vanilla JS helpers
 // -----------------------------------------------------------------------------
-const J1AdocResultViewer = __webpack_require__(253);
+const J1AdocResultViewer = __webpack_require__(1253);
 // const MSIEPolyfills                  = require('./js/polyfills/ms-ie.js');
 
 // HMR messages  (currently NOT used)

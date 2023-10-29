@@ -8,12 +8,12 @@
  # Product/Info:
  # http://jekyll.one
  #
- # Copyright (C) 2023 Juergen Adams
+ # Copyright (C) 2023, 2024 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # For details, see http://jekyll.one
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-10-23 10:00:46 +0200
+ # Adapter generated: 2023-10-29 20:21:44 +0100
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -62,7 +62,7 @@ j1.adapter.fab = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.fab',
-        generated:   '2023-10-23 10:00:46 +0200'
+        generated:   '2023-10-29 20:21:44 +0100'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -88,9 +88,7 @@ j1.adapter.fab = (function (j1, window) {
       var dependencies_met_navigator = setInterval(function() {
         var pageState     = $('#no_flicker').css("display");
         var pageVisible   = (pageState == 'block') ? true : false;
-        var atticFinished = (j1.adapter.attic.getState() == 'finished') ? true: false;
         if (j1.adapter.navigator.getState() == 'finished' && pageVisible) {
-//      if (j1.adapter.navigator.getState() == 'finished' && pageVisible && atticFinished) {
           logger.debug('\n' + 'met dependencies for: navigator');
           _this.fabLoader(fabOptions);
           clearInterval(dependencies_met_navigator);
@@ -119,12 +117,10 @@ j1.adapter.fab = (function (j1, window) {
         var pageState     = $('#no_flicker').css("display");
         var pageVisible   = (pageState == 'block') ? true: false;
         var atticFinished = (j1.adapter.attic.getState() == 'finished') ? true: false;
-//      if (j1.xhrDOMState['#' + fabOptions.xhr_container_id] == 'success' && j1.getState() == 'finished' && pageVisible && atticFinished ) {
         if (j1.xhrDOMState['#' + fabOptions.xhr_container_id] == 'success' && j1.getState() == 'finished' && pageVisible ) {
           _this.setState('loaded');
           logger.info('\n' + 'set module state to: ' + _this.getState());
           logger.info('\n' + 'HTML data for FAB: ' + _this.getState());
-//        _this.scrollSpy(fabOptions);
           _this.buttonInitializer(fabOptions);
           _this.setState('finished');
           logger.debug('\n' + 'state: ' + _this.getState());
@@ -150,16 +146,6 @@ j1.adapter.fab = (function (j1, window) {
       var iconFamily            = fabOptions.icon_family.toLowerCase();
       var floatingActionOptions = fabOptions.menu_options;
       var fabButtons            = document.querySelectorAll('.fab-btn');
-      // jadams, 2021-11-21: removed all #void links as not needed
-      //
-      // bind click event to all links with "#void" to suppress default action
-      // See: https://stackoverflow.com/questions/134845/which-href-value-should-i-use-for-javascript-links-or-javascriptvoid0
-      //
-      // $('a[href="#void"]').click(function(e) {
-      //   // e.preventDefault ? e.preventDefault() : e.returnValue = false;
-      //   logger.debug('\n' + 'bound click event to "#void", suppress default action');
-      //   return false;
-      // });
       // check if multiple buttons detected
       if ( fabButtons.length == 1 ) {
         _this.setState('processing');
@@ -208,9 +194,6 @@ j1.adapter.fab = (function (j1, window) {
                     var dependencies_met_toccer_finished = setInterval (function () {
                       if ( j1.adapter.toccer.getState() == 'finished' ) {
                         logger.debug('\n' + 'met dependencies for: toccer');
-                        // fabOptions.mode === 'icon'
-                        //   ? logger.info('\n' + 'FAB mode detected: icon')
-                        //   : logger.info('\n' + 'FAB mode detected: menu');
                         $('#open_mmenu_toc').show();
                         clearInterval(dependencies_met_toccer_finished);
                       }
@@ -225,14 +208,12 @@ j1.adapter.fab = (function (j1, window) {
                   var $this = $(this);
                   $this.on('click', function(e) {
                   _this[item.event_handler](sect123Nodes);
-  //              _this[item.event_handler](sect12Nodes);
                   });
                 });
               } else {
                 logger.info('\n' + 'register custom eventhandler on id: #' + item.id);
               }
             } else {
-  //          alert ('Creating Eventhandler failed on id: #' + item.id);
               logger.error('\n' + 'creating Eventhandler failed on id: #' + item.id);
             } // END if items (action buttons)
           });
@@ -279,7 +260,6 @@ j1.adapter.fab = (function (j1, window) {
           });
         } // END else
       } else {
-//      alert ('Multiple FAB buttons found: ' + fabButtons.length);
         logger.error('\n' + 'multiple FAB buttons found: ' + fabButtons.length);
         logger.info('\n' + 'FAB container set to hidden: ' + $fabContainer);
         $fabContainer.hide();
@@ -320,10 +300,9 @@ j1.adapter.fab = (function (j1, window) {
       var toccerScrollDuration = 300;
       var toccerScrollOffset   = 0;
       // Scroll offset correction if mobile or window width <= 992
-      // For smaller window sizes, the height of the menubar changes
-      //
+      // For smaller window sizes, the height of the menubar changes.
       // if (j1.core.isMobile() || $(window).width() <= 992) { scrollOffset += 30; }
-      // calculate offset for correct (smooth) scroll position
+      // calculate offset for correct (smooth) scroll position.
       //
       var $pagehead       = $('.attic');
       var $navbar         = $('nav.navbar');
@@ -472,62 +451,6 @@ j1.adapter.fab = (function (j1, window) {
       //
       return true;
     }, // END messageHandler
-    // -------------------------------------------------------------------------
-    // Manage (top) position and sizes (@media breakpoints) of the
-    // FAB container depending on the size of the page header (attic)
-    // -------------------------------------------------------------------------
-    // NOTE: scrollSpy currently NOT used
-    // -------------------------------------------------------------------------
-//     scrollSpy: function (options) {
-//       logger = log4javascript.getLogger('j1.adapter.fab.scrollSpy');
-//
-//       $(window).scroll(function(event){
-//         var $navbar         = $('nav.navbar');
-//         var $pagehead       = $('.attic');
-//         var $main_content   = $('.js-toc-content');
-//         var $adblock        = $('#adblock');
-//         var $footer         = $('#j1_footer');
-//         var $fabContainer   = $('#' + fabOptions.xhr_container_id);
-//         var $page           = $(document);
-//         var offset          = 0;
-//         var pageOffset      = $(document).width() >= 992 ? -120 : -116;
-//         var scrollPos       = $(document).scrollTop();
-//         var pageHeight      = $page.height();
-//         var pageHeightOuter = $page.outerHeight();
-//
-//         var m               = $main_content.offset().top;
-//         var s               = $fabContainer.length ? $fabContainer.height() : 0;
-//         var f               = $footer.length   ? $footer.outerHeight() : 0;
-//         var n               = $navbar.length   ? $navbar.height() : 0;
-// //      var h               = $pagehead.length ? $pagehead.outerHeight() : 0;
-//         var a               = $adblock.length  ? $adblock.outerHeight() : 0;
-//         var o               = n + offset;
-//
-//         // space above the (fixed) FAB container
-//         var showSsmPos      = m + pageOffset;
-//
-//         // space below the (fixed) FAB container
-//         var hideSsmPos      = pageHeight - s - f + pageOffset;
-//
-//         // set the top position of FAB container for navbar modes
-//         // e.g. "sticky" (navbar-fixed)
-//         if($navbar.hasClass('navbar-fixed')){
-//           $fabContainer.css('top', o);
-//         } else {
-//           $fabContainer.css('top', m);
-//         }
-//
-//         // show|hide FAB container on scroll position in page
-//         //
-//         scrollPos >= showSsmPos && scrollPos <= hideSsmPos
-//           ? $fabContainer.css('display','block')
-//           : $fabContainer.css('display','none');
-//
-//         // logger.debug('\n' + 'content pos detected as: ' + m + 'px');
-//         // logger.debug('\n' + 'scroll pos detected as: ' + scrollPos + 'px');
-//       }); // END setTop on scroll
-//
-//     }, // END scrollSpy
     // -------------------------------------------------------------------------
     // setState()
     // Sets the current (processing) state of the module

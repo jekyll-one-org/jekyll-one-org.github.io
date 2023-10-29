@@ -8,12 +8,12 @@
  # Product/Info:
  # https://jekyll.one
  #
- # Copyright (C) 2023 Juergen Adams
+ # Copyright (C) 2023, 2024 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-10-23 10:00:46 +0200
+ # Adapter generated: 2023-10-29 20:21:44 +0100
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -29,23 +29,25 @@ var j1 = (function (options) {
   // globals
   // ---------------------------------------------------------------------------
   // base page resources
-  var rePager          =  new RegExp('navigator|dateview|tagview|archive');
-  var environment      = 'development';
-  var moduleOptions    = {};
-  var j1_runtime_data  = {};
-  var scrollerSettings = {};
-  var scrollerOptions  = {};
-  var scrollerDefaults = {};
-  var _this            = j1;;
+  var rePager                 =  new RegExp('navigator|dateview|tagview|archive');
+  var environment             = 'development';
+  var scrollOffsetBase        = 80;
+  var scrollOffsetCorrection  = -9;
+  var moduleOptions           = {};
+  var j1_runtime_data         = {};
+  var scrollerSettings        = {};
+  var scrollerOptions         = {};
+  var scrollerDefaults        = {};
+  var banner                  = [];
+  var _this                   = j1;
+  var headingArray            = [];
   var settings;
   var json_data;
   var ep;
   var baseUrl;
   var referrer;
   var documentHeight;
-  var banner            = [];
   var scrollOffset;
-  var scrollOffsetCorrection;
   // defaults for status information
   var state                         = 'not_started';
   var mode                          = 'not_detected';
@@ -177,13 +179,13 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2023-10-23 10:00:46 +0200'
+        generated:   '2023-10-29 20:21:44 +0100'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
       // Load scroller module DEFAULTS|CONFIGs
-      scrollerDefaults = $.extend({}, {"enabled":false, "smoothscroll":{"offsetCorrection":0, "offsetCorrectionLocal":0}});
-      scrollerSettings = $.extend({}, {"enabled":true, "smoothscroll":{"offsetCorrection":-9, "offsetCorrectionLocal":-90}, "scrollers":[{"scroller":{"enabled":true, "type":"showOnScroll", "id":"panel_home_intro", "container":"panel_home_intro", "showDelay":1000, "scrollOffset":500}}, {"scroller":{"enabled":false, "type":"showOnScroll", "id":"panel_home_service", "container":"panel_home_service", "showDelay":700, "scrollOffset":200}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"preview_content", "container":"panel_home_news-scroll-group", "pagePath":"/assets/data/news_panel_posts/page", "elementScroll":true, "scrollOffset":200, "lastPage":2, "infoLastPage":true, "lastPageInfo_en":"More articles can be found with the <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n", "lastPageInfo_de":"Weitere Artikel finden Sie im <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n"}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"preview_content", "container":"timeline", "pagePath":"/pages/public/blog/navigator/page", "elementScroll":true, "scrollOffset":200, "lastPage":2, "infoLastPage":false, "lastPageInfo_en":"", "lastPageInfo_de":""}}]});
+      scrollerDefaults = $.extend({}, {"enabled":false, "smoothscroll":{"offsetBase":80, "offsetCorrection":0, "offsetCorrectionLocal":0}});
+      scrollerSettings = $.extend({}, {"enabled":true, "smoothscroll":{"offsetBase":80, "offsetCorrection":-9, "offsetCorrectionLocal":-90}, "scrollers":[{"scroller":{"enabled":true, "type":"showOnScroll", "id":"panel_home_intro", "container":"panel_home_intro", "showDelay":1000, "scrollOffset":500}}, {"scroller":{"enabled":false, "type":"showOnScroll", "id":"panel_home_service", "container":"panel_home_service", "showDelay":700, "scrollOffset":200}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"preview_content", "container":"panel_home_news-scroll-group", "pagePath":"/assets/data/news_panel_posts/page", "elementScroll":true, "scrollOffset":200, "lastPage":2, "infoLastPage":true, "lastPageInfo_en":"More articles can be found with the <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n", "lastPageInfo_de":"Weitere Artikel finden Sie im <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n"}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"preview_content", "container":"timeline", "pagePath":"/pages/public/blog/navigator/page", "elementScroll":true, "scrollOffset":200, "lastPage":2, "infoLastPage":false, "lastPageInfo_en":"", "lastPageInfo_de":""}}]});
       scrollerOptions  = $.extend(true, {}, scrollerDefaults, scrollerSettings);
       // settings for dynamic pages
       scrollDynamicPagesTopOnChange = frontmatterOptions.scrollDynamicPagesTopOnChange ? frontmatterOptions.scrollDynamicPagesTopOnChange : 'false';
@@ -192,7 +194,7 @@ var j1 = (function (options) {
       // Global variable settings
       // -----------------------------------------------------------------------
       var logger            = log4javascript.getLogger('j1.init');
-      var url               = new liteURL(window.location.href);
+      var url               = new URL(window.location.href);
       var baseUrl           = url.origin;
       var hostname          = url.hostname;
       var domain            = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
@@ -1226,7 +1228,7 @@ var j1 = (function (options) {
       var anchor          = window.location.href.split('#')[1];
       var anchor_id       = (typeof anchor !== 'undefined') && (anchor != '') ? '#' + anchor : false;
       var scrollDuration  = 300;
-      var scrollOffset    = offset ; // j1.getScrollOffset();
+      var scrollOffset    = offset; // j1.getScrollOffset();
       var isSlider        = false;
       var selector        = $(anchor_id);
       // skip invalid anchors|selectors
@@ -2189,35 +2191,111 @@ var j1 = (function (options) {
       var dependencies_met_page_displayed = setInterval (function () {
         var pageState   = $('#no_flicker').css("display");
         var pageVisible = (pageState == 'block') ? true: false;
-        if (j1.getState() == 'finished' && j1['pageMonitor'].pageType !== 'unknown' && pageVisible) {
-          // TODO: Check why a timeout is required to run the smmoth scroller (j1.scrollTo)
+        if (j1['pageMonitor'].pageType !== 'unknown' && j1.getState() == 'finished' && pageVisible) {
+          // TODO: Check why a timeout is required to run the
+          // smmoth scroller (j1.scrollTo)
+          //
           if (j1['pageMonitor'].pageType == 'static') {
+            // page type static
             setTimeout (function() {
-              logger.debug('\n' + 'Scroller: Scroll static page');
-              scrollOffsetCorrection = scrollerOptions.smoothscroll.offsetCorrection;
-              scrollOffset = j1.getScrollOffset(scrollOffsetCorrection);
-              j1.scrollTo(scrollOffset);
-            },  );
+              var headingUrl              = new URL(window.location.href);
+              var headingHash             = headingUrl.hash;
+              var headingId               = headingHash.replace(/#/g, '');
+              var scrollOffsetCorrection  = -93;
+              var scrollDuration          = 300;
+              logger.debug('\n' + 'scrollToAnchor: scroll page of type: static');
+              // scroll if headingId
+              //
+              if (headingHash == '') {
+                logger.debug('\n' + 'scrollToAnchor: top position detected');
+              } else {
+                logger.debug('\n' + 'scrollToAnchor: scroll to headline by id: ' + headingHash);
+                j1.core.scrollSmooth.scroll(headingHash, {
+                  duration:   scrollDuration,
+                  offset:     scrollOffsetCorrection,
+                  callback:   false
+                });
+              }
+            }, );
             clearInterval(dependencies_met_page_displayed);
           } else if (j1['pageMonitor'].pageType == 'dynamic') {
+            // page type dynamic
             setTimeout (function() {
-              scrollOffsetCorrection = scrollerOptions.smoothscroll.offsetCorrection;
-              scrollOffset = j1.getScrollOffset(scrollOffsetCorrection);
-              j1.scrollTo(scrollOffset);
-              logger.debug('\n' + 'Scroller: Scroll dynamic page on timeout');
-          }, 1000 );
+              var headingArray           = j1.core.parseHeadings();            // collect all headings in page
+              var headingUrl              = new URL(window.location.href);
+              var headingHash             = headingUrl.hash;
+              var headingId               = headingHash.replace(/#/g, '');
+              var scrollTop               = 0
+              var scrollOffset            = 0;
+              var headlineNo              = 0;
+              var countOnce               = true;
+              var scrollOffset            = 0;
+              var scrollOffsetCorrection  = 0;
+//
+//            var scrollOffsetCorrection  = -93;
+//              var scrollDuration          = 300;
+              logger.debug('\n' + 'scrollToAnchor: scroll page of type: dynamic');
+              // collect top position for the active headline
+              //
+              if (headingArray !== null) {
+                headingArray.forEach(function(heading, index) {
+                    if (heading.offsetTop !== undefined && heading.id == headingId && countOnce) {
+                      scrollOffset            = heading.offsetTop;
+                      headlineNo              = ++index;
+                      // jadams, 2023-10-27: !!! TEST !!!
+                      // calculate scrollOffsetCorrection based on AVERAGE
+                      // height of (number of) headlines
+                      //
+                      if (headlineNo == 1) {
+                        scrollOffsetCorrection  = scrollOffset - (headlineNo * 89);
+                      } else if (headlineNo <= 3) {
+                        scrollOffsetCorrection = scrollOffset - (headlineNo * 30);
+                      } else if (headlineNo > 3 && headlineNo <= 6) {
+                        scrollOffsetCorrection = scrollOffset - (headlineNo * 18);
+                      } else if (headlineNo > 6 && headlineNo <= 9) {
+                        scrollOffsetCorrection = scrollOffset - (headlineNo * 14);
+                      } else if (headlineNo > 9 && headlineNo <= 13) {
+                        scrollOffsetCorrection = scrollOffset - (headlineNo * 34);
+                      } else if (headlineNo > 13 && headlineNo <= 16) {
+                        scrollOffsetCorrection = scrollOffset - (headlineNo * 22);
+                      } else if (headlineNo > 16 && headlineNo <= 20) {
+                        scrollOffsetCorrection = scrollOffset - (headlineNo * 26);
+                      } else if (headlineNo > 20) {
+                        scrollOffsetCorrection = scrollOffset - (headlineNo * 23);
+                      }
+                      countOnce = false;
+                      scrollTop = Math.round(scrollOffsetCorrection);
+                    } //  END if heading.offsetTop|heading.id|countOnce
+                  } // END function(heading, index)
+                ); // END forEach headingArray
+              } // END if headingArray !== null
+              // scroll to headline's top position
+              //
+              if (headingHash == '') {
+                headingHash = '#';
+                logger.debug('\n' + 'scrollToAnchor: top position detected');
+              } else {
+                  logger.debug('\n' + 'scrollToAnchor: headline|no: ' + headingHash + '|' + headlineNo);
+                  // build-in scroller
+                  //
+                  window.scroll ({
+                  	top:       scrollTop,
+                  	left:      0,
+                  	behavior: 'smooth'
+                  });
+              } // END if headingHash
+            }, 1000);
             clearInterval(dependencies_met_page_displayed);
           } else {
-            // failsave fallback
+            // page type unknown (failsave fallback)
             setTimeout (function() {
-              logger.debug('\n' + 'Scroller: Scroll page of unknown type');
-              scrollOffsetCorrection = scrollerOptions.smoothscroll.offsetCorrection;
-              scrollOffset = j1.getScrollOffset(scrollOffsetCorrection);
+              logger.debug('\n' + 'scrollToAnchor: scroll page of type: unknown');
+              scrollOffset = scrollOffsetCorrection - scrollOffsetBase;
               j1.scrollTo(scrollOffset);
             }, 1000 );
             clearInterval(dependencies_met_page_displayed);
-          }
-        }
+          } // END if|else j1['pageMonitor'].pageType == 'dynamic'
+        } // END if j1['pageMonitor'].pageType
       }, 10);
     },
     // -------------------------------------------------------------------------
@@ -2303,10 +2381,10 @@ var j1 = (function (options) {
       // see: https://stackoverflow.com/questions/14866775/detect-document-height-change
       //
       const resizeObserver = new ResizeObserver(entries => {
-        var scrollOffsetCorrection  = scrollerOptions.smoothscroll.offsetCorrection;
+//      var scrollOffsetCorrection  = scrollerOptions.smoothscroll.offsetCorrection;
         const body                  = document.body,
               html                  = document.documentElement,
-              scrollOffset          = j1.getScrollOffset(scrollOffsetCorrection);
+              scrollOffset          = scrollOffsetCorrection;
         // logger API used for deveöopment only
         //
         if (development) {
@@ -2321,101 +2399,129 @@ var j1 = (function (options) {
           html.scrollHeight,
           html.offsetHeight
         );
-        j1['pageMonitor'].eventNo += 1;
+        if (j1['pageMonitor'] !== undefined && j1['pageMonitor'].eventNo !== undefined) {
+          j1['pageMonitor'].eventNo += 1;
+        }
         // skip first Observer event
         //
-        if (j1['pageMonitor'].eventNo == 2) {
+        if (j1['pageMonitor'] !== undefined && j1['pageMonitor'].eventNo !== undefined && j1['pageMonitor'].eventNo == 2) {
           // Set initial data from second event
           //
-          j1['pageMonitor'].pageBaseHeight      = document.body.scrollHeight;
+          j1['pageMonitor'].pageBaseHeight      = documentHeight;
           j1['pageMonitor'].currentPageHeight   = document.body.scrollHeight;
           j1['pageMonitor'].previousPageHeight  = document.body.scrollHeight;
           j1['pageMonitor'].previousGrowthRatio = 0.00;
-          pageBaseHeight      = document.body.scrollHeight;
+          pageBaseHeight      = documentHeight;
           previousGrowthRatio = 100;
           growthRatio         = 0.00;
         } else {
           // collect 'pageHeight' from 'entries'
           //
-          for (const entry of entries) {
-            pageBaseHeight = j1['pageMonitor'].pageBaseHeight;
-            if (pageBaseHeight > 0) {
-              // get the page height (rounded to int) from observer
-              //
-              pageHeight = Math.round(entry.contentRect.height);
-              j1['pageMonitor'].currentPageHeight = pageHeight;
-              // total growth ratio
-              //
-              pageGrowthRatio = pageHeight / pageBaseHeight * 100;
-              pageGrowthRatio = pageGrowthRatio.toFixed(2);
-              j1['pageMonitor'].currentGrowthRatio = pageGrowthRatio;
-              growthRatio = ((pageGrowthRatio / previousGrowthRatio) - 1) * 100;
-              growthRatio = growthRatio.toFixed(2);
-              j1['pageMonitor'].growthRatio = growthRatio;
-            }
-          } // END for entries
-          // detect the 'page type'
-          //
-          if (growthRatio >= 5) {
-            j1['pageMonitor'].pageType = 'dynamic';
-            if (development) {
-              logger.debug('\n' + 'growthRatio: ' + j1['pageMonitor'].growthRatio + '%');
-              logger.debug('\n' + 'page detected as: dynamic');
-            }
+          previousGrowthRatio = document.body.scrollHeight / pageBaseHeight * 100;
+          growthRatio         = document.body.scrollHeight / pageBaseHeight * 100;
+          if (j1['pageMonitor'] !== undefined) {
+            for (const entry of entries) {
+              pageBaseHeight = documentHeight;
+              if (pageBaseHeight > 0) {
+                // get the page height (rounded to int) from observer
+                //
+                pageHeight = Math.round(entry.contentRect.height);
+                j1['pageMonitor'].currentPageHeight = pageHeight;
+                // total growth ratio
+                //
+                pageGrowthRatio = pageHeight / pageBaseHeight * 100;
+//              pageGrowthRatio = pageGrowthRatio.toFixed(2);
+                j1['pageMonitor'].currentGrowthRatio = pageGrowthRatio;
+//              growthRatio = ((pageGrowthRatio / previousGrowthRatio) - 1) * 100;
+//                growthRatio = growthRatio.toFixed(2);
+                if (growthRatio !== undefined && growthRatio > 0) {
+                  growthRatio = growthRatio.toFixed(2);
+                } else {
+                  growthRatio = 0.00;
+                }
+                j1['pageMonitor'].growthRatio = growthRatio;
+              }
+            } // END for entries
           } else {
-            // set the page type to 'static' if low growth detected
+            pageBaseHeight      = document.body.scrollHeight;
+            previousGrowthRatio = 100;
+            growthRatio         = 0.00;
+          } // END if j1['pageMonitor'] undefined
+          if (j1['pageMonitor'] !== undefined) {
+            // detect the 'page type'
             //
-            if (typeof j1['pageMonitor'].growthRatio != 'undefined' && j1['pageMonitor'].growthRatio > 0) {
-              j1['pageMonitor'].pageType = 'static';
+//          if (growthRatio >= 5) {
+            if (growthRatio > 100) {
+              j1['pageMonitor'].pageType = 'dynamic';
               if (development) {
                 logger.debug('\n' + 'growthRatio: ' + j1['pageMonitor'].growthRatio + '%');
-                logger.debug('\n' + 'page detected as: static');
+                logger.debug('\n' + 'page detected as: dynamic');
               }
-            }
-          } // END if growthRatio
+            } else {
+              // set the page type to 'static' if low growth detected
+              //
+              if (typeof j1['pageMonitor'].growthRatio != 'undefined' && j1['pageMonitor'].growthRatio == 0) {
+                j1['pageMonitor'].pageType = 'static';
+                if (development) {
+                  logger.debug('\n' + 'growthRatio: ' + j1['pageMonitor'].growthRatio + '%');
+                  logger.debug('\n' + 'page detected as: static');
+                }
+              }
+            } // END if growthRatio
+          } // END if j1['pageMonitor'] undefined
         } // END if j1['pageMonitor']
       }); // END resizeObserver
       // -----------------------------------------------------------------------
       // run all observers for page monitoring
       // -----------------------------------------------------------------------
-      // monitor 'GROWTH'
-      resizeObserver.observe(
-        document.querySelector('body')
-      );
+      // jadams, 2023-10-26: delay untion STATIC portion of a page is loaded
+      //
+      setTimeout (function() {
+        resizeObserver.observe(
+          document.querySelector('body')
+        );
+      }, 500);
+      // jadams, 2023-10-25: disabled
+      // NOTE: Funtions like j1.getCookieNames()seems NOT available
+      // in callback beforeunload'
+      //
       // -----------------------------------------------------------------------
       // final updates before browser page|tab
       // see: https://stackoverflow.com/questions/3888902/detect-browser-or-tab-closing
       // -----------------------------------------------------------------------
-      window.addEventListener('beforeunload', function (event) {
-        var cookie_names  = j1.getCookieNames();
-        var date          = new Date();
-        var timestamp_now = date.toISOString();
-        var user_state    = j1.readCookie(cookie_names.user_state);
-        var user_consent  = j1.readCookie(cookie_names.user_consent);
-        var url           = new liteURL(window.location.href);
-        var secure        = (url.protocol.includes('https')) ? true : false;
-        var ep_status;
-        var url;
-        var baseUrl;
-        // final update of the user state cookie
-        user_state.session_active     = false;
-        user_state.last_session_ts    = timestamp_now;
-        if (!user_consent.analysis || !user_consent.personalization) {
-          cookie_written = j1.writeCookie({
-            name:     cookie_names.user_state,
-            data:     user_state,
-            secure:   secure,
-            expires:  0
-          });
-        } else {
-          cookie_written = j1.writeCookie({
-            name:     cookie_names.user_state,
-            data:     user_state,
-            secure:   secure,
-            expires:  365
-          });
-        }
-      }); // END beforeunload
+      // window.addEventListener('beforeunload', function (event) {
+      //   var cookie_names  = j1.getCookieNames();
+      //   var date          = new Date();
+      //   var timestamp_now = date.toISOString();
+      //   var user_state    = j1.readCookie(cookie_names.user_state);
+      //   var user_consent  = j1.readCookie(cookie_names.user_consent);
+      //   var url           = new liteURL(window.location.href);
+      //   var secure        = (url.protocol.includes('https')) ? true : false;
+      //   var ep_status;
+      //   var url;
+      //   var baseUrl;
+      //
+      //   // final update of the user state cookie
+      //   user_state.session_active     = false;
+      //   user_state.last_session_ts    = timestamp_now;
+      //
+      //   if (!user_consent.analysis || !user_consent.personalization) {
+      //
+      //     cookie_written = j1.writeCookie({
+      //       name:     cookie_names.user_state,
+      //       data:     user_state,
+      //       secure:   secure,
+      //       expires:  0
+      //     });
+      //   } else {
+      //     cookie_written = j1.writeCookie({
+      //       name:     cookie_names.user_state,
+      //       data:     user_state,
+      //       secure:   secure,
+      //       expires:  365
+      //     });
+      //   }
+      // }); // END beforeunload
       // initialize event handler for window/history/back on <ESC>
       //
       window.onkeyup = function (event) {
@@ -2426,7 +2532,6 @@ var j1 = (function (options) {
         var target = $(this.hash);
         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
         if (target.length) {
-          var scrollOffsetCorrection  = scrollerOptions.smoothscroll.offsetCorrectionLocal;
           var offset                  = target.offset().top + scrollOffsetCorrection;
           $('html,body').animate({
             scrollTop: offset

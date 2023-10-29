@@ -9,7 +9,7 @@
  #  https://jekyll.one
  #  http://davidjbradshaw.github.io/iframe-resizer/
  #
- #  Copyright (C) 2023 Juergen Adams
+ #  Copyright (C) 2023, 2024 Juergen Adams
  #  Copyright (C) 2013-15 David J. Bradshaw
  #
  #  J1 Template is licensed under the MIT License.
@@ -18,7 +18,7 @@
  #  For details, see http://davidjbradshaw.github.io/iframe-resizer/
  #
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-10-23 09:02:12 +0200
+ #  Adapter generated: 2023-10-29 20:16:30 +0100
  # -----------------------------------------------------------------------------
  */
 // -----------------------------------------------------------------------------
@@ -54,7 +54,7 @@ j1.adapter.framer = (function (j1, window) {
           // -----------------------------------------------------------------------
           var settings = $.extend({
             module_name: 'j1.adapter.example',
-            generated:   '2023-10-23 09:02:12 +0200'
+            generated:   '2023-10-29 20:16:30 +0100'
           }, options);
           // -----------------------------------------------------------------------
           // Global variable settings

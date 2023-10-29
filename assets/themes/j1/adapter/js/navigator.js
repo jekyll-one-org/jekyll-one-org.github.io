@@ -8,7 +8,7 @@
  # Product/Info:
  # 
  #
- # Copyright (C) 2023 Juergen Adams
+ # Copyright (C) 2023, 2024 Juergen Adams
  #
  # J1 Template is licensed under the MIT License.
  # For details, see 
@@ -19,7 +19,7 @@
  # NOTE: For getStyleValue helper see
  #  https://stackoverflow.com/questions/16965515/how-to-get-a-style-attribute-from-a-css-class-by-javascript-jquery
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-10-23 10:00:46 +0200
+ # Adapter generated: 2023-10-29 20:21:44 +0100
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -73,7 +73,7 @@ j1.adapter.navigator = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.navigator',
-        generated:   '2023-10-23 10:00:46 +0200'
+        generated:   '2023-10-29 20:21:44 +0100'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings

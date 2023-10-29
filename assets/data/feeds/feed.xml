@@ -2,7 +2,7 @@
   <generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator>
   <link href="http://localhost:40000/assets/data/feeds/feed.xml" rel="self" type="application/atom+xml">
     <link href="http://localhost:40000/" rel="alternate" type="text/html"/>
-    <updated>2023-10-23T10:00:46+02:00</updated>
+    <updated>2023-10-29T20:21:44+01:00</updated>
     <id>http://localhost:40000/assets/data/feeds/feed.xml</id>
     <post_limited>1000000</post_limited>
     <template_name>J1 Theme</template_name>
@@ -17,8 +17,8 @@
     <entry>
       <title type="html">URLs</title>
       <link href="http://localhost:40000/posts/public/featured/web/2023/10/18/url-types/" rel="alternate" type="text/html" title="URLs">
-        <published>2023-10-18T00:00:00+02:00</published>
-        <updated>2023-10-18T00:00:00+02:00</updated>
+        <published>2023-10-18T00:00:00+01:00</published>
+        <updated>2023-10-18T00:00:00+01:00</updated>
         <id>http://localhost:40000/posts/public/featured/web/2023/10/18/url-types</id>
         <author>
           <name>Juergen Adams</name>
@@ -31,8 +31,8 @@
               <entry>
                 <title type="html">J1 Theme</title>
                 <link href="http://localhost:40000/posts/public/featured/jekyll/2022/02/01/about-j1/" rel="alternate" type="text/html" title="J1 Theme">
-                  <published>2022-02-01T00:00:00+02:00</published>
-                  <updated>2022-02-01T00:00:00+02:00</updated>
+                  <published>2022-02-01T00:00:00+01:00</published>
+                  <updated>2022-02-01T00:00:00+01:00</updated>
                   <id>http://localhost:40000/posts/public/featured/jekyll/2022/02/01/about-j1</id>
                   <author>
                     <name>Juergen Adams</name>
@@ -45,8 +45,8 @@
                         <entry>
                           <title type="html">Static Site Generators</title>
                           <link href="http://localhost:40000/posts/public/featured/jekyll/2021/02/01/static-site-generators/" rel="alternate" type="text/html" title="Static Site Generators">
-                            <published>2021-02-01T00:00:00+02:00</published>
-                            <updated>2021-02-01T00:00:00+02:00</updated>
+                            <published>2021-02-01T00:00:00+01:00</published>
+                            <updated>2021-02-01T00:00:00+01:00</updated>
                             <id>http://localhost:40000/posts/public/featured/jekyll/2021/02/01/static-site-generators</id>
                             <author>
                               <name>Juergen Adams</name>
@@ -59,8 +59,8 @@
                                   <entry>
                                     <title type="html">Cookies</title>
                                     <link href="http://localhost:40000/posts/public/featured/technology/2021/01/01/about-cookies/" rel="alternate" type="text/html" title="Cookies">
-                                      <published>2021-01-01T00:00:00+02:00</published>
-                                      <updated>2021-01-01T00:00:00+02:00</updated>
+                                      <published>2021-01-01T00:00:00+01:00</published>
+                                      <updated>2021-01-01T00:00:00+01:00</updated>
                                       <id>http://localhost:40000/posts/public/featured/technology/2021/01/01/about-cookies</id>
                                       <author>
                                         <name>Juergen Adams</name>

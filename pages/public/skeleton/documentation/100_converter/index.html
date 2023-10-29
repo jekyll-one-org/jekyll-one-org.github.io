@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2023-10-23 09:02:12 +0200 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2023-10-29 20:16:30 +0100 ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ environment detected as: development ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2024.0.0 ] -->
   <head data-proofer-ignore>
@@ -76,14 +76,14 @@
     <meta property="og:image:height" content="1280">
     <meta property="og:image:width" content="1920">
     <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2022-01-01T00:00:00+02:00">
+    <meta property="article:published_time" content="2022-01-01T00:00:00+01:00">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:image" content="http://localhost:40000/assets/images/modules/attics/sigmund-1920x1280.jpg">
     <meta property="twitter:title" content="Asciidoctor PDF">
     <meta name="twitter:site" content="http://localhost:40000/pages/public/skeleton/documentation/100_converter/">
     <meta name="twitter:creator" content="@Juergen Adams">
     <script type="application/ld+json">
-      {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Juergen Adams","url":"https://jekyll.one/"},"dateModified":"2023-10-23T09:02:41+02:00","datePublished":"2022-01-01T00:00:00+02:00","description":"J1 Template is a Bootstrap V5 website template for the static site generator Jekyll. Asciidoctor PDF is a native PDF converter for AsciiDoc that plugs into the pdf backend. It bypasses the requirement to generate an intermediary format such as DocBook, Apache FO, or LaTeX. Instead, you can use Asciidoctor PDF to convert your documents directly from AsciiDoc to PDF. The aim of this library is to take the pain out of creating PDF documents from AsciiDoc.","headline":"Asciidoctor PDF","image":{"width":1920,"height":1280,"url":"http://localhost:40000/assets/images/modules/attics/sigmund-1920x1280.jpg","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:40000/pages/public/skeleton/documentation/100_converter/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:40000/assets/images/icons/j1/j1-512x512.png"},"name":"Juergen Adams"},"url":"http://localhost:40000/pages/public/skeleton/documentation/100_converter/"}
+      {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Juergen Adams","url":"https://jekyll.one/"},"dateModified":"2023-10-29T20:17:00+01:00","datePublished":"2022-01-01T00:00:00+01:00","description":"J1 Template is a Bootstrap V5 website template for the static site generator Jekyll. Asciidoctor PDF is a native PDF converter for AsciiDoc that plugs into the pdf backend. It bypasses the requirement to generate an intermediary format such as DocBook, Apache FO, or LaTeX. Instead, you can use Asciidoctor PDF to convert your documents directly from AsciiDoc to PDF. The aim of this library is to take the pain out of creating PDF documents from AsciiDoc.","headline":"Asciidoctor PDF","image":{"width":1920,"height":1280,"url":"http://localhost:40000/assets/images/modules/attics/sigmund-1920x1280.jpg","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:40000/pages/public/skeleton/documentation/100_converter/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:40000/assets/images/icons/j1/j1-512x512.png"},"name":"Juergen Adams"},"url":"http://localhost:40000/pages/public/skeleton/documentation/100_converter/"}
     </script>
     <!-- End J1 SEO tags -->
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ end SEO Optimization ] -->
@@ -425,15 +425,15 @@
     <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: dropdowns ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: slim_select ] -->
-    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: chatgpt ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module ChatGPT ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place css files for resource ID: chatgpt ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: chat ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module Chat ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place css files for resource ID: chat ] -->
     <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
     <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
-    <link rel="stylesheet" href="/assets/themes/j1/modules/chatgpt/css/theme/uno.css">
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module ChatGPT ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: chatgpt ] -->
-    <script src="/assets/themes/j1/adapter/js/chatgpt.js"></script>
+    <link rel="stylesheet" href="/assets/themes/j1/modules/chat/css/theme/uno.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module Chat ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: chat ] -->
+    <script src="/assets/themes/j1/adapter/js/chat.js"></script>
     <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ end processing ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
@@ -583,21 +583,19 @@
               APIs for the most common needs and low level APIs for bending the document
               model to accommodate special circumstances.</p>
           </div>
-          <div class="admonitionblock caution">
-            <table>
-              <tr>
-                <td class="icon">
-                  <i class="fa icon-caution" title="Status"></i>
-                </td>
-                <td class="content">
-                  <em>Asciidoctor PDF</em> is currently <em>alpha</em> software. While the converter
+          <div class="paragraph">
+            <p>[CAUTION]:</p>
+          </div>
+          <div class="exampleblock">
+            <div class="content">
+              <div class="paragraph">
+                <p><em>Asciidoctor PDF</em> is currently <em>alpha</em> software. While the converter
                   handles most AsciiDoc content, there’s still work needed to fill in gaps
                   where conversion is incomplete, incorrect or not implemented. See the
                   milestone v1.5.0 in the <a href="https://github.com/asciidoctor/asciidoctor-pdf/issues" target="_blank" rel="noopener">Issue tracker</a>
-                  for details.
-                </td>
-              </tr>
-            </table>
+                  for details.</p>
+              </div>
+            </div>
           </div>
           <div class="paragraph">
             <p>With <em>Prawn</em>, you can write text, draw lines and shapes and place images
@@ -853,6 +851,10 @@ gem <span class="nb">install </span>prawn-templates <span class="nt">--version</
               </div>
               <div class="sect2 mt-4">
                 <h3 id="convert-asciidoc-to-pdf">Convert AsciiDoc to PDF</h3>
+                <div class="paragraph">
+                  <p>Converting to PDF is a simple as running the <code>asciidoctor-pdf</code> script using
+                    <em>Ruby</em> and passing our AsciiDoc document as the first argument.</p>
+                </div>
                 <div class="admonitionblock important">
                   <table>
                     <tr>
@@ -860,15 +862,13 @@ gem <span class="nb">install </span>prawn-templates <span class="nt">--version</
                         <i class="fa icon-important" title="Important"></i>
                       </td>
                       <td class="content">
-                        You’ll need the <code>rouge</code> gem installed to run this example since
-                        it uses the <code>source-highlighter</code> attribute with the value of <code>rouge</code>.
+                        <div class="paragraph">
+                          <p>You’ll need the <code>rouge</code> gem installed to run this example since
+                            it uses the <code>source-highlighter</code> attribute with the value of <code>rouge</code>.</p>
+                        </div>
                       </td>
                     </tr>
                   </table>
-                </div>
-                <div class="paragraph">
-                  <p>Converting to PDF is a simple as running the <code>asciidoctor-pdf</code> script using
-                    <em>Ruby</em> and passing our AsciiDoc document as the first argument.</p>
                 </div>
                 <div class="listingblock">
                   <div class="content">
@@ -1284,11 +1284,11 @@ gem <span class="nb">install </span>prawn-templates <span class="nt">--version</
       <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ dropdowns module detected as: false ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: slim_select ] -->
       <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ slim_select module detected as: false ] -->
-      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: chatgpt ] -->
-      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: chatgpt ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: chat ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: chat ] -->
       <script>
         $(function() {
-                  j1.adapter.chatgpt.init();
+                  j1.adapter.chat.init();
          });
       </script>
       <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->

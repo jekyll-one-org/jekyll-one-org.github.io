@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2023-10-23 09:02:12 +0200 ] -->
+  <!-- [INFO   ] [j1.layout.default.html                ] [ page generated: 2023-10-29 20:16:30 +0100 ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ environment detected as: development ] -->
   <!-- [INFO   ] [j1.layout.default.html                ] [ version detected as: 2024.0.0 ] -->
   <head data-proofer-ignore>
@@ -76,14 +76,14 @@
     <meta property="og:image:height" content="1280">
     <meta property="og:image:width" content="1920">
     <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2022-01-01T00:00:00+02:00">
+    <meta property="article:published_time" content="2022-01-01T00:00:00+01:00">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:image" content="http://localhost:40000/assets/images/modules/attics/sigmund-1920x1280.jpg">
     <meta property="twitter:title" content="Documentation">
     <meta name="twitter:site" content="http://localhost:40000/pages/public/skeleton/documentation/">
     <meta name="twitter:creator" content="@Juergen Adams">
     <script type="application/ld+json">
-      {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Juergen Adams","url":"https://jekyll.one/"},"dateModified":"2023-10-23T09:02:50+02:00","datePublished":"2022-01-01T00:00:00+02:00","description":"J1 Template is a Bootstrap V5 website template for the static site generator Jekyll. A document of type documentation (book) typically consists in a large number of chapters and sections. To make this manageable, book-type documents are splitted in multiple files placed in a nested folder structure. Complex AsciiDoc projects of type documentation can be easily worked on by multiple authors.","headline":"Documentation","image":{"width":1920,"height":1280,"url":"http://localhost:40000/assets/images/modules/attics/sigmund-1920x1280.jpg","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:40000/pages/public/skeleton/documentation/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:40000/assets/images/icons/j1/j1-512x512.png"},"name":"Juergen Adams"},"url":"http://localhost:40000/pages/public/skeleton/documentation/"}
+      {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Juergen Adams","url":"https://jekyll.one/"},"dateModified":"2023-10-29T20:17:09+01:00","datePublished":"2022-01-01T00:00:00+01:00","description":"J1 Template is a Bootstrap V5 website template for the static site generator Jekyll. A document of type documentation (book) typically consists in a large number of chapters and sections. To make this manageable, book-type documents are splitted in multiple files placed in a nested folder structure. Complex AsciiDoc projects of type documentation can be easily worked on by multiple authors.","headline":"Documentation","image":{"width":1920,"height":1280,"url":"http://localhost:40000/assets/images/modules/attics/sigmund-1920x1280.jpg","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:40000/pages/public/skeleton/documentation/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:40000/assets/images/icons/j1/j1-512x512.png"},"name":"Juergen Adams"},"url":"http://localhost:40000/pages/public/skeleton/documentation/"}
     </script>
     <!-- End J1 SEO tags -->
     <!-- [INFO   ] [j1.layout.meta_data_generator.html    ] [ end SEO Optimization ] -->
@@ -425,15 +425,15 @@
     <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: dropdowns ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: slim_select ] -->
-    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: chatgpt ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module ChatGPT ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place css files for resource ID: chatgpt ] -->
+    <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ process resource: chat ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module Chat ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place css files for resource ID: chat ] -->
     <!-- [ERROR  ] [j1.procedures.select_location.proc    ] [ no valid resource locator for LOCAL found ] -->
     <!-- [WARN   ] [j1.procedures.select_location.proc    ] [ fallback location LOCAL selected ] -->
-    <link rel="stylesheet" href="/assets/themes/j1/modules/chatgpt/css/theme/uno.css">
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module ChatGPT ] -->
-    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: chatgpt ] -->
-    <script src="/assets/themes/j1/adapter/js/chatgpt.js"></script>
+    <link rel="stylesheet" href="/assets/themes/j1/modules/chat/css/theme/uno.css">
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, Module Chat ] -->
+    <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ layout: all, place general file resources for resource_settings.id: chat ] -->
+    <script src="/assets/themes/j1/adapter/js/chat.js"></script>
     <!-- [INFO   ] [j1.layout.resource_writer.proc        ] [ placement for all data_keys finished ] -->
     <!-- [INFO   ] [j1.layout_resource_generator.html     ] [ end processing ] -->
     <!-- [INFO   ] [j1.layout.default_writer.proc         ] [ end processing: load region head, layout: page ] -->
@@ -682,21 +682,19 @@
                   APIs for the most common needs and low level APIs for bending the document
                   model to accommodate special circumstances.</p>
               </div>
-              <div class="admonitionblock caution">
-                <table>
-                  <tr>
-                    <td class="icon">
-                      <i class="fa icon-caution" title="Status"></i>
-                    </td>
-                    <td class="content">
-                      <em>Asciidoctor PDF</em> is currently <em>alpha</em> software. While the converter
+              <div class="paragraph">
+                <p>[CAUTION]:</p>
+              </div>
+              <div class="exampleblock">
+                <div class="content">
+                  <div class="paragraph">
+                    <p><em>Asciidoctor PDF</em> is currently <em>alpha</em> software. While the converter
                       handles most AsciiDoc content, there’s still work needed to fill in gaps
                       where conversion is incomplete, incorrect or not implemented. See the
                       milestone v1.5.0 in the <a href="https://github.com/asciidoctor/asciidoctor-pdf/issues" target="_blank" rel="noopener">Issue tracker</a>
-                      for details.
-                    </td>
-                  </tr>
-                </table>
+                      for details.</p>
+                  </div>
+                </div>
               </div>
               <div class="paragraph">
                 <p>With <em>Prawn</em>, you can write text, draw lines and shapes and place images
@@ -954,6 +952,10 @@ gem <span class="nb">install </span>prawn-templates <span class="nt">--version</
               </div>
               <div class="sect2 mt-4">
                 <h3 id="convert-asciidoc-to-pdf">Convert AsciiDoc to PDF</h3>
+                <div class="paragraph">
+                  <p>Converting to PDF is a simple as running the <code>asciidoctor-pdf</code> script using
+                    <em>Ruby</em> and passing our AsciiDoc document as the first argument.</p>
+                </div>
                 <div class="admonitionblock important">
                   <table>
                     <tr>
@@ -961,15 +963,13 @@ gem <span class="nb">install </span>prawn-templates <span class="nt">--version</
                         <i class="fa icon-important" title="Important"></i>
                       </td>
                       <td class="content">
-                        You’ll need the <code>rouge</code> gem installed to run this example since
-                        it uses the <code>source-highlighter</code> attribute with the value of <code>rouge</code>.
+                        <div class="paragraph">
+                          <p>You’ll need the <code>rouge</code> gem installed to run this example since
+                            it uses the <code>source-highlighter</code> attribute with the value of <code>rouge</code>.</p>
+                        </div>
                       </td>
                     </tr>
                   </table>
-                </div>
-                <div class="paragraph">
-                  <p>Converting to PDF is a simple as running the <code>asciidoctor-pdf</code> script using
-                    <em>Ruby</em> and passing our AsciiDoc document as the first argument.</p>
                 </div>
                 <div class="listingblock">
                   <div class="content">
@@ -1380,9 +1380,11 @@ gem <span class="nb">install </span>prawn-templates <span class="nt">--version</
                         <i class="fa icon-important" title="Important"></i>
                       </td>
                       <td class="content">
-                        Variables are defined from top to bottom (i.e., in document order).
-                        Therefore, a variable must be defined before it is referenced. In other words,
-                        the path the variable refers to must be <strong>above</strong> the usage of that variable.
+                        <div class="paragraph">
+                          <p>Variables are defined from top to bottom (i.e., in document order).
+                            Therefore, a variable must be defined before it is referenced. In other words,
+                            the path the variable refers to must be <strong>above</strong> the usage of that variable.</p>
+                        </div>
                       </td>
                     </tr>
                   </table>
@@ -1581,8 +1583,10 @@ gem <span class="nb">install </span>prawn-templates <span class="nt">--version</
                         <i class="fa icon-important" title="Important"></i>
                       </td>
                       <td class="content">
-                        Operators must always be surrounded by a space on either side
-                        (e.g., 2 + 2, not 2+2).
+                        <div class="paragraph">
+                          <p>Operators must always be surrounded by a space on either side
+                            (e.g., 2 + 2, not 2+2).</p>
+                        </div>
                       </td>
                     </tr>
                   </table>
@@ -1618,8 +1622,10 @@ gem <span class="nb">install </span>prawn-templates <span class="nt">--version</
                         <i class="fa icon-important" title="Important"></i>
                       </td>
                       <td class="content">
-                        Numeric values less than 1 must have a 0 before the decimal
-                        point (e.g., 0.85).
+                        <div class="paragraph">
+                          <p>Numeric values less than 1 must have a 0 before the decimal
+                            point (e.g., 0.85).</p>
+                        </div>
                       </td>
                     </tr>
                   </table>
@@ -1781,10 +1787,12 @@ gem <span class="nb">install </span>prawn-templates <span class="nt">--version</
                         <i class="fa icon-important" title="Important"></i>
                       </td>
                       <td class="content">
-                        Numbers with more than two digits should be written as a float
-                        (e.g., 100.0), a math expression (e.g, 1 * 100), or with a unit (e.g., 100pt).
-                        Otherwise, the value may be misinterpreted as a hex color (e.g., '100') and
-                        could cause the converter to crash.
+                        <div class="paragraph">
+                          <p>Numbers with more than two digits should be written as a float
+                            (e.g., 100.0), a math expression (e.g, 1 * 100), or with a unit (e.g., 100pt).
+                            Otherwise, the value may be misinterpreted as a hex color (e.g., '100') and
+                            could cause the converter to crash.</p>
+                        </div>
                       </td>
                     </tr>
                   </table>
@@ -2055,8 +2063,10 @@ gem <span class="nb">install </span>prawn-templates <span class="nt">--version</
                           <i class="fa icon-note" title="Note"></i>
                         </td>
                         <td class="content">
-                          An RGB array is automatically converted to a hex string internally,
-                          so there’s no difference between ff0000 and [255, 0, 0].
+                          <div class="paragraph">
+                            <p>An RGB array is automatically converted to a hex string internally,
+                              so there’s no difference between ff0000 and [255, 0, 0].</p>
+                          </div>
                         </td>
                       </tr>
                     </table>
@@ -2160,7 +2170,9 @@ gem <span class="nb">install </span>prawn-templates <span class="nt">--version</
                         <i class="fa icon-caution" title="Caution"></i>
                       </td>
                       <td class="content">
-                        The GIF format (.gif) is not supported.
+                        <div class="paragraph">
+                          <p>The GIF format (.gif) is not supported.</p>
+                        </div>
                       </td>
                     </tr>
                   </table>
@@ -2231,8 +2243,10 @@ gem <span class="nb">install </span>prawn-templates <span class="nt">--version</
                         <i class="fa icon-note" title="Note"></i>
                       </td>
                       <td class="content">
-                        The string must be double quoted in order to use a Unicode escape
-                        code like <code>\u203a</code>.
+                        <div class="paragraph">
+                          <p>The string must be double quoted in order to use a Unicode escape
+                            code like <code>\u203a</code>.</p>
+                        </div>
                       </td>
                     </tr>
                   </table>
@@ -2262,11 +2276,13 @@ gem <span class="nb">install </span>prawn-templates <span class="nt">--version</
                       <i class="fa icon-important" title="Important"></i>
                     </td>
                     <td class="content">
-                      <em>Asciidoctor</em> has no challenge working with Unicode. In fact, it
-                      prefers Unicode and considers the entire range. However, once you convert
-                      to PDF, you have to meet the font requirements of PDF in order to preserve
-                      Unicode characters. There’s nothing <em>Asciidoctor</em> can do to convince PDF to
-                      work with extended characters without the right fonts in play.
+                      <div class="paragraph">
+                        <p><em>Asciidoctor</em> has no challenge working with Unicode. In fact, it
+                          prefers Unicode and considers the entire range. However, once you convert
+                          to PDF, you have to meet the font requirements of PDF in order to preserve
+                          Unicode characters. There’s nothing <em>Asciidoctor</em> can do to convince PDF to
+                          work with extended characters without the right fonts in play.</p>
+                      </div>
                     </td>
                   </tr>
                 </table>
@@ -2420,9 +2436,11 @@ gem <span class="nb">install </span>prawn-templates <span class="nt">--version</
                         <i class="fa icon-caution" title="Caution"></i>
                       </td>
                       <td class="content">
-                        At the time of this writing, you cannot use the bundled fonts if you
-                        change the value of the <code>pdf-fontsdir</code> attribute (and thus define your own
-                        custom fonts). This limitation may be lifted in the future.
+                        <div class="paragraph">
+                          <p>At the time of this writing, you cannot use the bundled fonts if you
+                            change the value of the <code>pdf-fontsdir</code> attribute (and thus define your own
+                            custom fonts). This limitation may be lifted in the future.</p>
+                        </div>
                       </td>
                     </tr>
                   </table>
@@ -2527,8 +2545,10 @@ gem <span class="nb">install </span>prawn-templates <span class="nt">--version</
                         <i class="fa icon-warning" title="Warning"></i>
                       </td>
                       <td class="content">
-                        Currently, all fonts referenced by the theme need to be present in
-                        the directory specified by the <code>pdf-fontsdir</code> attribute.
+                        <div class="paragraph">
+                          <p>Currently, all fonts referenced by the theme need to be present in
+                            the directory specified by the <code>pdf-fontsdir</code> attribute.</p>
+                        </div>
                       </td>
                     </tr>
                   </table>
@@ -2568,10 +2588,12 @@ gem <span class="nb">install </span>prawn-templates <span class="nt">--version</
                         <i class="fa icon-tip" title="Tip"></i>
                       </td>
                       <td class="content">
-                        Text in SVGs will use the font catalog from your theme. We recommend
-                        that you match the font key to the name of the font seen by the operating
-                        system. This will allow you to use the same font names (aka families) in
-                        both your graphics program and <strong>Asciidoctor PDF</strong>.
+                        <div class="paragraph">
+                          <p>Text in SVGs will use the font catalog from your theme. We recommend
+                            that you match the font key to the name of the font seen by the operating
+                            system. This will allow you to use the same font names (aka families) in
+                            both your graphics program and <strong>Asciidoctor PDF</strong>.</p>
+                        </div>
                       </td>
                     </tr>
                   </table>
@@ -2592,25 +2614,11 @@ gem <span class="nb">install </span>prawn-templates <span class="nt">--version</
                         <i class="fa icon-important" title="Important"></i>
                       </td>
                       <td class="content">
-                        The fallback font is only used when the primary font is a
-                        TrueType font (i.e., TTF, DFont, TTC). Any glyph missing from an AFM font
-                        is simply replaced with the “not” glyph (<code>¬</code>).
-                      </td>
-                    </tr>
-                  </table>
-                </div>
-                <div class="admonitionblock caution">
-                  <table>
-                    <tr>
-                      <td class="icon">
-                        <i class="fa icon-caution" title="Caution"></i>
-                      </td>
-                      <td class="content">
-                        Using the fallback font slows down PDF generation slightly because
-                        it has to analyze every single character. It’s use is not recommended for
-                        large documents. Instead, it’s best to select primary fonts that have all
-                        the characters you need. Keep in mind that the default theme currently uses
-                        a fallback font, though this may change in the future.
+                        <div class="paragraph">
+                          <p>The fallback font is only used when the primary font is a
+                            TrueType font (i.e., TTF, DFont, TTC). Any glyph missing from an AFM font
+                            is simply replaced with the “not” glyph (<code>¬</code>).</p>
+                        </div>
                       </td>
                     </tr>
                   </table>
@@ -2620,6 +2628,24 @@ gem <span class="nb">install </span>prawn-templates <span class="nt">--version</
                     Let’s choose <a href="https://github.com/android/platform_frameworks_base/blob/master/data/fonts/DroidSansFallback.ttf" target="_blank" rel="noopener">Droid Sans Fallback</a>.
                     You can map all the styles to a single font file (since bold and italic don’t
                     usually make sense for symbols).</p>
+                </div>
+                <div class="admonitionblock caution">
+                  <table>
+                    <tr>
+                      <td class="icon">
+                        <i class="fa icon-caution" title="Caution"></i>
+                      </td>
+                      <td class="content">
+                        <div class="paragraph">
+                          <p>Using the fallback font slows down PDF generation slightly because
+                            it has to analyze every single character. It’s use is not recommended for
+                            large documents. Instead, it’s best to select primary fonts that have all
+                            the characters you need. Keep in mind that the default theme currently uses
+                            a fallback font, though this may change in the future.</p>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
                 </div>
                 <div class="listingblock">
                   <div class="content">
@@ -2668,8 +2694,10 @@ gem <span class="nb">install </span>prawn-templates <span class="nt">--version</
                         <i class="fa icon-tip" title="Tip"></i>
                       </td>
                       <td class="content">
-                        If you are using more than one fallback font, add additional lines
-                        to the <code>fallbacks</code> key.
+                        <div class="paragraph">
+                          <p>If you are using more than one fallback font, add additional lines
+                            to the <code>fallbacks</code> key.</p>
+                        </div>
                       </td>
                     </tr>
                   </table>
@@ -3028,11 +3056,11 @@ gem <span class="nb">install </span>prawn-templates <span class="nt">--version</
       <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ dropdowns module detected as: false ] -->
       <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: slim_select ] -->
       <!-- [WARN   ] [j1.layout.module_writer.proc          ] [ slim_select module detected as: false ] -->
-      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: chatgpt ] -->
-      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: chatgpt ] -->
+      <!-- [INFO   ] [j1.layout_module_generator.html       ] [ process resource: chat ] -->
+      <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ place J1 adapter for resource: chat ] -->
       <script>
         $(function() {
-                  j1.adapter.chatgpt.init();
+                  j1.adapter.chat.init();
          });
       </script>
       <!-- [INFO   ] [j1.layout.module_writer.proc          ] [ placement for all data_keys finished ] -->

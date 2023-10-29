@@ -9,7 +9,7 @@
  # https://jekyll.one
  # https://github.com/jguadagno/bootstrapThemeSwitcher
  #
- # Copyright (C) 2023 Juergen Adams
+ # Copyright (C) 2023, 2024 Juergen Adams
  # Copyright (C) 2014 Joseph Guadagno
  #
  # J1 Template is licensed under the MIT License.
@@ -21,7 +21,7 @@
  #  Setup of theme loaders for local_themes|remote_themes moved
  #  to adapter navigator.js
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-10-23 10:00:46 +0200
+ # Adapter generated: 2023-10-29 20:21:44 +0100
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -108,7 +108,7 @@ j1.adapter.themer = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.themer',
-        generated:   '2023-10-23 10:00:46 +0200'
+        generated:   '2023-10-29 20:21:44 +0100'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
