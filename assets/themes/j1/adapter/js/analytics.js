@@ -13,9 +13,102 @@
  # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-11-04 20:29:54 +0100
+ #  Adapter generated: 2023-11-11 19:20:03 +0100
  # -----------------------------------------------------------------------------
 */
-'use strict';j1.adapter.analytics=function(e,n){var t,a,o,i,s,l,d,g,r,c,u,m,f=new liteURL(n.location.href).hostname,y=document.createElement('script'),p=e.getCookieNames(),I=((new Date).toISOString(),!1);return{init:function(){var n=setInterval(function(m){var k='block'==$('#no_flicker').css("display");if('finished'===e.getState()&&k){t=$.extend({},{enabled:!1,provider:"google",trackingID:"your-tracking-id",skipAllHosts:"localhost, 127.0.0.1",google:{optInOut:!0,anonymizeIP:!0}}),a=$.extend({},{enabled:!0,trackingID:"G-299QGW5RJH",google:{anonymizeIP:!1}}),o=$.extend(!0,{},t,a),i=o.trackingID,s=o.skipAllHosts,o.google.optInOut,o.google.anonymizeIP,l=!i.includes('your');$.extend({module_name:'j1.adapter.analytics',generated:'2023-11-04 20:29:54 +0100'},m);c=e.adapter.analytics,u=log4javascript.getLogger('j1.adapter.analytics'),c.setState('started'),u.debug("\nstate: "+c.getState()),u.info("\nmodule initializing: started"),e.findCookie('_ga').forEach(function(n){u.debug("\ndelete cookie created by Google Analytics: "+n),'localhost'==f?e.removeCookie({name:n,domain:!1,secure:!1}):e.removeCookie({name:n,domain:'.'+f,secure:!1})}),r=null!==document.getElementById('google-tag-manager'),d=s.replace(/,/g,' '),I=d.includes(f),(g=e.readCookie(p.user_consent)).analysis&&I&&l&&u.debug("\nGoogle Analytics skipped for: "+f),r||I||(u.info("\nGoogle Analytics added for: "+f),u.info("\nGoogle Analytics API added in section: head"),y.async=!0,y.id='google-tag-manager',y.src='//www.googletagmanager.com/gtag/js?id='+i,document.head.appendChild(y)),(g=e.readCookie(p.user_consent)).analysis&&!I?l?(u.info("\nuser consent on analytics: "+g.analysis),u.info("\nenable Google Analytics on ID: "+i),GTagOptIn.register(i),GTagOptIn.optIn()):u.debug("\ninvalid trackig id detected for Google Analytics: "+i):(u.info("\nuser consent on analytics: "+g.analysis),u.debug("\ndisable Google Analytics on ID: "+i),GTagOptIn.register(i),GTagOptIn.optOut()),c.setState('finished'),u.debug("\nstate: "+c.getState()),u.info("\nmodule initializing: finished"),clearInterval(n)}},10)},messageHandler:function(e,n){var t=JSON.stringify(n,undefined,2);return m="\nreceived message from "+e+': '+t,u.debug(m),'command'===n.type&&'module_initialized'===n.action&&u.info('\n'+n.text),!0},setState:function(e){c.state=e},getState:function(){return c.state}}}(j1,window);
+// -----------------------------------------------------------------------------
+// ESLint shimming
+// -----------------------------------------------------------------------------
+/* eslint indent: "off"                                                       */
+// -----------------------------------------------------------------------------
+'use strict';
+j1.adapter.analytics = (function (j1, window) {
+var url               = new liteURL(window.location.href);
+var hostname          = url.hostname;
+var environment       = 'development';
+var gaScript          = document.createElement('script');
+var cookie_names      = j1.getCookieNames();
+var date              = new Date();
+var timestamp_now     = date.toISOString();
+var skipHost          = false;
+var state             = 'not_started';
+var analyticsDefaults;
+var analyticsSettings;
+var analyticsOptions;
+var providerID;
+var skipAllHosts;
+var optInOut;
+var anonymizeIP;
+var validProviderID;
+var skipHosts;
+var gaCookies;
+var user_consent;
+var gaExists;
+var _this;
+var logger;
+var logText;
+  // ---------------------------------------------------------------------------
+  // Main object
+  // ---------------------------------------------------------------------------
+  return {
+    // -------------------------------------------------------------------------
+    // init()
+    // adapter initializer
+    // -------------------------------------------------------------------------
+    init: function (options) {
+      var dependencies_met_page_ready = setInterval (function (options) {
+        var pageState   = $('#no_flicker').css("display");
+        var pageVisible = (pageState == 'block') ? true: false;
+        if ( j1.getState() === 'finished' && pageVisible ) {
+            // Load  module DEFAULTS|CONFIG
+            analyticsDefaults = $.extend({}, {"enabled":false, "provider":"webwhiz", "trackingID":"your-tracking-id", "skipAllHosts":"localhost, 127.0.0.1", "google":{"optInOut":true, "anonymizeIP":true}});
+            analyticsSettings = $.extend({}, {"enabled":true, "skipAllHosts":"localhost, 127.0.0.1", "trackingID":"<your-tracking-id>", "google":{"anonymizeIP":false}});
+            analyticsOptions  = $.extend(true, {}, analyticsDefaults, analyticsSettings);
+            // [INFO   ] [j1.adapter.analytics                    ] [ detected analytics provider (j1_config): webwhiz} ]
+            // [INFO   ] [j1.adapter.analytics                    ] [ start processing load region head, layout:  ]
+            // [INFO   ] [j1.adapter.analytics                    ] [ end processing ]
+        }
+      }, 10);
+      return;
+    }, // END init
+    // -------------------------------------------------------------------------
+    // messageHandler()
+    // manage messages send from other J1 modules
+    // -------------------------------------------------------------------------
+    messageHandler: function (sender, message) {
+      var json_message = JSON.stringify(message, undefined, 2);
+      logText = '\n' + 'received message from ' + sender + ': ' + json_message;
+      logger.debug(logText);
+      // -----------------------------------------------------------------------
+      //  Process commands|actions
+      // -----------------------------------------------------------------------
+      if (message.type === 'command' && message.action === 'module_initialized') {
+        //
+        // Place handling of command|action here
+        //
+        logger.info('\n' + message.text);
+      }
+      //
+      // Place handling of other command|action here
+      //
+      return true;
+    }, // END messageHandler
+    // -------------------------------------------------------------------------
+    // setState()
+    // Sets the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    setState: function (stat) {
+      _this.state = stat;
+    }, // END setState
+    // -------------------------------------------------------------------------
+    // getState()
+    // Returns the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    getState: function () {
+      return _this.state;
+    } // END getState
+  }; // END return
+})(j1, window);
+
 
 

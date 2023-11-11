@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-11-04 20:29:54 +0100
+ # Adapter generated: 2023-11-11 19:20:03 +0100
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -30,7 +30,7 @@ var j1 = (function (options) {
   // ---------------------------------------------------------------------------
   // base page resources
   var rePager                 =  new RegExp('navigator|dateview|tagview|archive');
-  var environment             = 'production';
+  var environment             = 'development';
   var scrollOffsetBase        = 80;
   var scrollOffsetCorrection  = -9;
   var moduleOptions           = {};
@@ -132,7 +132,7 @@ var j1 = (function (options) {
   };
   var user_state   = {
     'writer':               'j1.adapter',
-    'template_version':     '2024.0.0',
+    'template_version':     '2024.0.1',
 //
 //  for testing only
 //  'template_version':     'undefined',
@@ -141,7 +141,7 @@ var j1 = (function (options) {
     'theme_name':           'UnoLight',
     'theme_css':            '',
     'theme_author':         'J1 Team',
-    'theme_version':        '2024.0.0',
+    'theme_version':        '2024.0.1',
     'session_active':       false,
     'google_translate':     'disabled',
     'translate_all_pages':  true,
@@ -179,7 +179,7 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2023-11-04 20:29:54 +0100'
+        generated:   '2023-11-11 19:20:03 +0100'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
@@ -203,7 +203,7 @@ var j1 = (function (options) {
       var timestamp_now     = date.toISOString();
       var curr_state        = 'started';
       var gaCookies         = j1.findCookie('_ga');
-      var themerOptions     = $.extend({}, {"enabled":false, "debug":false, "saveToCookie":true, "reloadPageOnChange":false, "retries":30, "preview_page":"/pages/public/tools/previewer/current_theme/", "menu_icon_family":"mdib", "menu_icon_color":"#9E9E9E", "menu_icon_size":"mdib-sm", "cssThemeLink":"bootstrapTheme", "defaultCssFile":"https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css", "bootswatchApiUrl":"https://bootswatch.com/api", "bootswatchApiVersion":5, "loadFromBootswatch":true, "localThemes":"/assets/data/themes.json", "excludeBootswatch":"Default, default, Lux, Sketchy", "includeBootswatch":"", "skipIncludeBootswatch":""});
+      var themerOptions     = $.extend({}, {"enabled":true, "debug":false, "saveToCookie":true, "reloadPageOnChange":false, "retries":30, "preview_page":"/pages/public/tools/previewer/current_theme/", "menu_icon_family":"mdib", "menu_icon_color":"#9E9E9E", "menu_icon_size":"mdib-sm", "cssThemeLink":"bootstrapTheme", "defaultCssFile":"https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css", "bootswatchApiUrl":"https://bootswatch.com/api", "bootswatchApiVersion":5, "loadFromBootswatch":true, "localThemes":"/assets/data/themes.json", "excludeBootswatch":"Default, default, Lux, Sketchy", "includeBootswatch":"", "skipIncludeBootswatch":""});
       // current template version
       template_version  = j1.getTemplateVersion();
       // -----------------------------------------------------------------------
@@ -1188,7 +1188,7 @@ var j1 = (function (options) {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2024.0.0';
+      return '2024.0.1';
     },
     // -------------------------------------------------------------------------
     // getScrollOffset()
@@ -2376,7 +2376,7 @@ var j1 = (function (options) {
       var lcp
       var cumulated_cls = 0;
       var cumulated_lcp = 0;
-      const development = ('production'.includes('prod')) ? false : true;
+      const development = ('development'.includes('prod')) ? false : true;
       // ResizeObserver to monitor the changes on page height (dynamic pages)
       // see: https://stackoverflow.com/questions/14866775/detect-document-height-change
       //

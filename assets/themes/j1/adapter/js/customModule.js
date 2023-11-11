@@ -13,9 +13,122 @@
  # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-11-04 20:29:54 +0100
+ #  Adapter generated: 2023-11-11 19:20:03 +0100
  # -----------------------------------------------------------------------------
 */
-'use strict';j1.adapter.customModule=function(e){var t,n,o,a,i={};return{init:function(a){$.extend({module_name:'j1.adapter.customModule',generated:'2023-11-04 20:29:54 +0100'},a);n=e.adapter.dropdowns,o=log4javascript.getLogger('j1.adapter.customModule'),n.setState('started'),o.debug("\nstate: "+n.getState()),o.info("\nmodule is being initialized"),t=null!=a?$.extend({},a):{},i=$.extend({}),void 0!==t&&(i=$.extend({},i,t));var d=setInterval(function(){if('finished'==e.getState()){document.querySelectorAll('.dropdowns');var t="\ncustom functions are being initialized";o.info(t),n.setState('finished'),o.debug("\nstate: "+n.getState()),clearInterval(d)}},10)},custom_module_1:function(){var e=log4javascript.getLogger('j1.adapter.customModule.custom_module_1');return a="\nentered custom function: custom_module_1",e.info(a),!0},messageHandler:function(e,t){var n=JSON.stringify(t,undefined,2);return a="\nreceived message from "+e+': '+n,o.debug(a),'command'===t.type&&'module_initialized'===t.action&&o.info('\n'+t.text),!0},setState:function(e){n.state=e},getState:function(){return n.state}}}(j1,window);
+// -----------------------------------------------------------------------------
+// ESLint shimming
+// -----------------------------------------------------------------------------
+/* eslint indent: "off"                                                       */
+// -----------------------------------------------------------------------------
+'use strict';
+j1.adapter.customModule = (function (j1, window) {
+  var environment   = 'development';
+  var moduleOptions = {};
+  var instances     = [];
+  var state         = 'not_started';
+  var frontmatterOptions;
+  var _this;
+  var logger;
+  var logText;
+  // ---------------------------------------------------------------------------
+  // Helper functions
+  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
+  // Main object
+  // ---------------------------------------------------------------------------
+  return {
+    // -------------------------------------------------------------------------
+    // Initializer
+    // -------------------------------------------------------------------------
+    init: function (options) {
+      // -----------------------------------------------------------------------
+      // Default module settings
+      // -----------------------------------------------------------------------
+      var settings = $.extend({
+        module_name: 'j1.adapter.customModule',
+        generated:   '2023-11-11 19:20:03 +0100'
+      }, options);
+      // -----------------------------------------------------------------------
+      // Global variable settings
+      // -----------------------------------------------------------------------
+      _this   = j1.adapter.dropdowns;
+      logger  = log4javascript.getLogger('j1.adapter.customModule');
+      // initialize state flag
+      _this.setState('started');
+      logger.debug('\n' + 'state: ' + _this.getState());
+      logger.info('\n' + 'module is being initialized');
+      // create settings object from frontmatterOptions
+      frontmatterOptions  = options != null ? $.extend({}, options) : {};
+      moduleOptions       = $.extend({}, );
+      if (typeof frontmatterOptions !== 'undefined') {
+        moduleOptions = $.extend({}, moduleOptions, frontmatterOptions);;
+      }
+      var dependencies_met_j1_finished = setInterval(function() {
+        if (j1.getState() == 'finished') {
+          var elms = document.querySelectorAll('.dropdowns');
+          // -------------------------------------------------------------------
+          // Initializer
+          // -------------------------------------------------------------------
+          var log_text = '\n' + 'custom functions are being initialized';
+          logger.info(log_text);
+          //
+          // place init code here if required
+          //
+          _this.setState('finished');
+          logger.debug('\n' + 'state: ' + _this.getState());
+          clearInterval(dependencies_met_j1_finished);
+        } // END dependencies_met_j1_finished
+      }, 10);
+    }, // END init
+    // -------------------------------------------------------------------------
+    // custom_module_1
+    // Called by ???
+    // -------------------------------------------------------------------------
+    custom_module_1: function (options) {
+      var logger  = log4javascript.getLogger('j1.adapter.customModule.custom_module_1');
+      logText = '\n' + 'entered custom function: custom_module_1';
+      logger.info(logText);
+      return true;
+    },
+    // -------------------------------------------------------------------------
+    // messageHandler
+    // Manage messages send from other J1 modules
+    // -------------------------------------------------------------------------
+    messageHandler: function (sender, message) {
+      var json_message = JSON.stringify(message, undefined, 2);
+      logText = '\n' + 'received message from ' + sender + ': ' + json_message;
+      logger.debug(logText);
+      // -----------------------------------------------------------------------
+      //  Process commands|actions
+      // -----------------------------------------------------------------------
+      if (message.type === 'command' && message.action === 'module_initialized') {
+        //
+        // Place handling of command|action here
+        //
+        logger.info('\n' + message.text);
+      }
+      //
+      // Place handling of other command|action here
+      //
+      return true;
+    }, // END messageHandler
+    // -------------------------------------------------------------------------
+    // setState()
+    // Sets the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    setState: function (stat) {
+      _this.state = stat;
+    }, // END setState
+    // -------------------------------------------------------------------------
+    // getState()
+    // Returns the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    getState: function () {
+      return _this.state;
+    } // END getState
+  }; // END return
+})(j1, window);
+
 
 

@@ -23634,7 +23634,7 @@ button.btn-fab-floating {
   position: fixed;
   right: .5rem;
   bottom: 1rem;
-  z-index: 9; }
+  z-index: 9999999; }
 
 .fab-btn.active ul {
   visibility: visible; }
