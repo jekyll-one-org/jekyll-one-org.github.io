@@ -20,7 +20,7 @@
  # lightGallery is licensed under the GPLv3 license
  # See: https://github.com/sachinchoolur/lightGallery/blob/master/LICENSE
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-11-11 19:20:03 +0100
+ # Adapter generated: 2023-11-11 21:02:44 +0100
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -64,7 +64,7 @@ j1.adapter.gallery = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.gallery',
-        generated:   '2023-11-11 19:20:03 +0100'
+        generated:   '2023-11-11 21:02:44 +0100'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
