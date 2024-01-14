@@ -22,11 +22,21 @@
 
 /* Chat button settings
 -------------------------------------------------------------------------------- */
+
+/* See: https://stackoverflow.com/questions/5218927/z-index-not-working-with-fixed-positioning */
+#chatbot-widget {
+  position: relative;
+  z-index: 9;
+}
+
 #chatbot-widget .text-right {
   padding-right: 5px !important;
   padding-bottom: 18px !important;
 }
 
+#chatbot-widget :is(.hover\:text-white:hover) {
+  color: #757575 !important;
+}
 
 /* ChatBob settings
 ================================================================================ */

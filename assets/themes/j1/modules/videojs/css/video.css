@@ -1,6 +1,6 @@
 /**
  * @license
- * Video.js 8.6.0 <http://videojs.com/>
+ * Video.js 8.6.1 <http://videojs.com/>
  * Copyright Brightcove, Inc. <https://www.brightcove.com/>
  * Available under Apache License Version 2.0
  * <https://github.com/videojs/video.js/blob/main/LICENSE>
@@ -8,7 +8,7 @@
  * Includes vtt.js <https://github.com/mozilla/vtt.js>
  * Available under Apache License Version 2.0
  * <https://github.com/mozilla/vtt.js/blob/main/LICENSE>
- */
+*/
 
 @charset "UTF-8";
 .vjs-modal-dialog .vjs-modal-dialog-content, .video-js .vjs-modal-dialog, .vjs-button > .vjs-icon-placeholder:before, .video-js .vjs-big-play-button .vjs-icon-placeholder:before {
@@ -29,6 +29,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 .vjs-icon-play, .video-js .vjs-play-control .vjs-icon-placeholder, .video-js .vjs-big-play-button .vjs-icon-placeholder:before {
   font-family: VideoJS;
   font-weight: normal;
@@ -500,12 +501,13 @@ body.vjs-full-window {
   padding: 0;
   cursor: pointer;
   opacity: 1;
-  border: 0.06666em solid #fff;
+  /* border-radius: 0.3em; */
+  /* border: 0.06666em solid #fff; */
+  /* background-color: rgba(43, 51, 63, 0.7); */
   background-color: #2B333F;
-  background-color: rgba(43, 51, 63, 0.7);
-  border-radius: 0.3em;
   transition: all 0.4s;
 }
+
 .vjs-big-play-centered .vjs-big-play-button {
   top: 50%;
   left: 50%;
@@ -515,9 +517,9 @@ body.vjs-full-window {
 
 .video-js:hover .vjs-big-play-button,
 .video-js .vjs-big-play-button:focus {
-  border-color: #fff;
+  /* border-color: #fff; */
+  /* background-color: rgba(115, 133, 159, 0.5); */
   background-color: #73859f;
-  background-color: rgba(115, 133, 159, 0.5);
   transition: all 0s;
 }
 

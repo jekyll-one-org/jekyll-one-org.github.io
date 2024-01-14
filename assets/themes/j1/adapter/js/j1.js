@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-11-11 21:02:44 +0100
+ # Adapter generated: 2024-01-14 17:51:54 +0100
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -132,7 +132,7 @@ var j1 = (function (options) {
   };
   var user_state   = {
     'writer':               'j1.adapter',
-    'template_version':     '2024.0.1',
+    'template_version':     '2024.1.0',
 //
 //  for testing only
 //  'template_version':     'undefined',
@@ -141,7 +141,7 @@ var j1 = (function (options) {
     'theme_name':           'UnoLight',
     'theme_css':            '',
     'theme_author':         'J1 Team',
-    'theme_version':        '2024.0.1',
+    'theme_version':        '2024.1.0',
     'session_active':       false,
     'google_translate':     'disabled',
     'translate_all_pages':  true,
@@ -179,7 +179,7 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2023-11-11 21:02:44 +0100'
+        generated:   '2024-01-14 17:51:54 +0100'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
@@ -302,28 +302,23 @@ var j1 = (function (options) {
           });
           j1.setState(curr_state);
           logger.debug('\n' + 'state: ' + j1.getState());
-          var dependencies_met_page_displayed = setInterval (function () {
-            if (j1.getState() == 'finished') {
-              if (j1.authEnabled()) {
-                if (user_session.authenticated === 'true') {
-                  // set signout
-                  logger.info('\n' + 'show signout icon');
-                  $('#navLinkSignInOut').attr('data-bs-target','#modalOmniSignOut');
-                  $('#iconSignInOut').removeClass('mdib-login').addClass('mdib-logout');
-                } else {
-                  // set signin
-                  logger.info('\n' + 'show signin icon');
-                  $('#navLinkSignInOut').attr('data-bs-target','#modalOmniSignIn');
-                  $('#iconSignInOut').removeClass('mdib-logout').addClass('mdib-login');
-                }
-                logger.info('\n' + 'authentication detected as: ' + user_session.authenticated);
-                $('#quickLinksSignInOutButton').css('display', 'block');
-                logger.debug('\n' + 'met dependencies for: j1');
-                clearInterval(dependencies_met_page_displayed);
-              }
+          if (j1.authEnabled()) {
+            if (user_session.authenticated === 'true') {
+              // set signout
+              logger.info('\n' + 'show signout icon');
+              $('#navLinkSignInOut').attr('data-bs-target','#modalOmniSignOut');
+              $('#iconSignInOut').removeClass('mdib-login').addClass('mdib-logout');
+            } else {
+              // set signin
+              logger.info('\n' + 'show signin icon');
+              $('#navLinkSignInOut').attr('data-bs-target','#modalOmniSignIn');
+              $('#iconSignInOut').removeClass('mdib-logout').addClass('mdib-login');
             }
-          }, 10);
-        })
+            logger.info('\n' + 'authentication detected as: ' + user_session.authenticated);
+            $('#quickLinksSignInOutButton').css('display', 'block');
+            logger.debug('\n' + 'met dependencies for: j1');
+          } // END if (j1.authEnabled
+        }) // ENF then
         .catch(function(error) {
           // jadams, 2018-08-31
           // TODO:  Check why a timeout is required
@@ -1188,7 +1183,7 @@ var j1 = (function (options) {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: function () {
-      return '2024.0.1';
+      return '2024.1.0';
     },
     // -------------------------------------------------------------------------
     // getScrollOffset()

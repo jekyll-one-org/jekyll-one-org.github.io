@@ -171,14 +171,22 @@
                  "src":   "/assets/videos/gallery/html5/video1.mp4",
                  "type":  "video/mp4"
               }],
-              "tracks": [{
-                 "enabled": false,
-                 "src": "/assets/videos/gallery/html5/video1.subtitles.vtt",
-                 "kind": "captions",
-                 "srclang": "en",
-                 "label": "English",
-                 "default": true
-              }]
+              "tracks": [
+                 {
+                     "default": true,
+                     "kind": "captions",
+                     "srclang": "en",
+                     "label": "English",
+                     "src": "/assets/videos/vtt/captions/video1.vtt"
+                 },
+                 {
+                     "default": true,
+                     "kind": "chapters",
+                     "srclang": "en",
+                     "label": "Chapters",
+                     "src": "/assets/videos/vtt/chapters/video1.vtt"
+                 }
+              ]
             }'>
           	<img class="speak2me-ignore"
               src="/assets/videos/gallery/video1-poster.jpg"
@@ -202,8 +210,8 @@
                  "src":   "/assets/videos/gallery/html5/video2.mp4",
                  "type":  "video/mp4"
               }],
-              "tracks": [{
-              }]
+              "tracks": [
+              ]
             }'>
           	<img class="speak2me-ignore"
               src="/assets/videos/gallery/video2-poster.jpg"

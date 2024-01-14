@@ -19,7 +19,7 @@
  # NOTE: For getStyleValue helper see
  #  https://stackoverflow.com/questions/16965515/how-to-get-a-style-attribute-from-a-css-class-by-javascript-jquery
  # -----------------------------------------------------------------------------
- # Adapter generated: 2023-11-11 21:02:44 +0100
+ # Adapter generated: 2024-01-14 17:51:54 +0100
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -73,7 +73,7 @@ j1.adapter.navigator = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings  = $.extend({
         module_name: 'j1.adapter.navigator',
-        generated:   '2023-11-11 21:02:44 +0100'
+        generated:   '2024-01-14 17:51:54 +0100'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -826,6 +826,8 @@ j1.adapter.navigator = (function (j1, window) {
       style += '       min-width: ' + navMenuOptions.dropdown_item_min_width + 'rem !important;';
       style += '       border-top: solid ' + navMenuOptions.dropdown_border_top + 'px !important;';
       style += '       border-radius: ' + navMenuOptions.dropdown_border_radius + 'px !important;';
+      // jadams, 2023-12-22: overwrite "margin-top" default of dropdown-menu[data-bs-popper]
+      style += '       margin-top: 0;';
       style += '       left: 0;';
       style += '    }';
       style += '  }';

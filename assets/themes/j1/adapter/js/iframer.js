@@ -18,7 +18,7 @@
  #  For details, see http://davidjbradshaw.github.io/iframe-resizer/
  #
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2023-11-11 21:02:44 +0100
+ #  Adapter generated: 2024-01-14 17:51:54 +0100
  # -----------------------------------------------------------------------------
  */
 // -----------------------------------------------------------------------------
@@ -56,7 +56,7 @@ j1.adapter.iframer = (function (j1, window) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.iframer',
-        generated:   '2023-11-11 21:02:44 +0100'
+        generated:   '2024-01-14 17:51:54 +0100'
       }, options);
       // -----------------------------------------------------------------------
       // Global variable settings
@@ -65,7 +65,7 @@ j1.adapter.iframer = (function (j1, window) {
       logger  = log4javascript.getLogger('j1.adapter.iframer');
       // Load  module DEFAULTS|CONFIG
       iframerDefaults = $.extend({}, {"enabled":false, "xhr_data_path":"/assets/data/iframes", "delay_iframer":1000, "inject_contentWindowScript":false, "delay_inject_contentWindowScript":500, "attributes":{"allow":false, "allowfullscreen":true, "height":false, "loading":"eager", "name":false, "referrerpolicy":"no-referrer", "src":"", "scrolling":false, "title":false, "width":false}, "options":{"autoResize":true, "bodyBackground":null, "bodyMargin":null, "bodyMarginV1":8, "bodyPadding":null, "checkOrigin":true, "inPageLinks":false, "enablePublicMethods":true, "heightCalculationMethod":"bodyOffset", "id":"iFrameResizer", "interval":32, "log":false, "maxHeight":"Infinity", "maxWidth":"Infinity", "minHeight":0, "minWidth":0, "mouseEvents":true, "resizeFrom":"parent", "scrolling":false, "sizeHeight":true, "sizeWidth":false, "warningTimeout":5000, "tolerance":0, "widthCalculationMethod":"scroll", "onClose":"function () { return true }", "onClosed":"function () {}", "onInit":"function () {}", "onMessage":"function () { warn('onMessage function not defined') }", "onMouseEnter":"function () {}", "onMouseLeave":"function () {}", "onResized":"function () {}", "onScroll":"function () { return true }"}});
-      iframerSettings = $.extend({}, {"enabled":true, "iframes":[{"iframe":null, "enabled":true, "id":"magic_iframe", "inject_contentWindowScript":true, "attributes":{"loading":"lazy", "name":"iframe document", "src":"/pages/public/tools/previewer/iframer_documents/iframe.content.html", "width":"100%", "scrolling":false}, "options":{"log":true, "inPageLinks":true, "onResized":"function(messageData) {\n  // Callback when page is resized\n  $('p#resize_stats').html (\n    '<b>iFrame ID:</b> ' +\n      messageData.iframe.id +\n      '&nbsp;&nbsp; <b>Height:</b> ' +\n      messageData.height +\n      '&nbsp;&nbsp; <b>Width:</b> ' +\n      messageData.width +\n      '&nbsp;&nbsp; <b>Event type:</b> ' +\n      messageData.type\n  )\n}\n"}}, {"iframe":null, "enabled":true, "id":"documind", "inject_contentWindowScript":true, "attributes":{"loading":"lazy", "src":"//documind.chat/dashboard/sharing/b2fb904e44d604f9ea70ccd5bf5af242", "title":"", "allowtransparency":true, "style":"background: #FAFAFA;", "height":600, "width":"100%"}, "options":{"checkOrigin":false}}]});
+      iframerSettings = $.extend({}, {"enabled":true, "iframes":[{"iframe":null, "enabled":true, "id":"magic_iframe", "inject_contentWindowScript":true, "attributes":{"loading":"lazy", "name":"iframe document", "src":"/pages/public/tools/previewer/iframer_documents/iframe.content.html", "width":"100%", "scrolling":false}, "options":{"log":true, "inPageLinks":true, "onResized":"function(messageData) {\n  // Callback when page is resized\n  $('p#resize_stats').html (\n    '<b>iFrame ID:</b> ' +\n      messageData.iframe.id +\n      '&nbsp;&nbsp; <b>Height:</b> ' +\n      messageData.height +\n      '&nbsp;&nbsp; <b>Width:</b> ' +\n      messageData.width +\n      '&nbsp;&nbsp; <b>Event type:</b> ' +\n      messageData.type\n  )\n}\n"}}, {"iframe":null, "enabled":true, "id":"documind", "inject_contentWindowScript":true, "attributes":{"loading":"lazy", "src":"/pages/public/tools/previewer/iframer_documents/iframe.docsearch.info.html", "title":"", "allowtransparency":true, "style":"background: #FAFAFA;", "height":600, "width":"100%"}, "options":{"checkOrigin":false}}]});
       iframerOptions  = $.extend(true, {}, iframerDefaults, iframerSettings);
       // load HTML portion for all grids
       console.debug('loading HTML portion for all iFrames configured');

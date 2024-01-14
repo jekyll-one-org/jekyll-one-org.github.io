@@ -23552,17 +23552,6 @@ p.dropcap {
 .btn-fab, .btn.btn-fab:hover, .btn.btn-fab:focus {
   color: rgba(255, 255, 255, 0.8); }
 
-.fab-btn ul {
-  left: 0;
-  right: 0;
-  text-align: center;
-  position: absolute;
-  bottom: 64px;
-  margin: 0;
-  visibility: hidden;
-  padding-left: 0;
-  list-style-type: none; }
-
 .btn-fab-floating.disabled,
 .btn-fab-floating[disabled] {
   pointer-events: none;
@@ -23634,7 +23623,7 @@ button.btn-fab-floating {
   position: fixed;
   right: .5rem;
   bottom: 1rem;
-  z-index: 9999999; }
+  z-index: 9; }
 
 .fab-btn.active ul {
   visibility: visible; }
@@ -23735,12 +23724,14 @@ button.btn-fab-floating {
 
 .fab-btn ul {
   left: 0;
-  right: 0;
+  right: 5px;
   text-align: center;
   position: absolute;
-  bottom: 64px;
+  bottom: 56px;
   margin: 0;
-  visibility: hidden; }
+  visibility: hidden;
+  padding-left: 0;
+  list-style-type: none; }
 
 .fab-btn ul li {
   margin-bottom: 15px; }
