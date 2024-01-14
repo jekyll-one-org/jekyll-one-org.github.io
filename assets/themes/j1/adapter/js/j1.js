@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- # Adapter generated: 2024-01-14 17:51:54 +0100
+ # Adapter generated: 2024-01-14 18:33:29 +0100
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -30,7 +30,7 @@ var j1 = (function (options) {
   // ---------------------------------------------------------------------------
   // base page resources
   var rePager                 =  new RegExp('navigator|dateview|tagview|archive');
-  var environment             = 'development';
+  var environment             = 'production';
   var scrollOffsetBase        = 80;
   var scrollOffsetCorrection  = -9;
   var moduleOptions           = {};
@@ -179,7 +179,7 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2024-01-14 17:51:54 +0100'
+        generated:   '2024-01-14 18:33:29 +0100'
       }, options);
       // create settings object from frontmatter options
       var frontmatterOptions  = options != null ? $.extend({}, options) : {};
@@ -2371,7 +2371,7 @@ var j1 = (function (options) {
       var lcp
       var cumulated_cls = 0;
       var cumulated_lcp = 0;
-      const development = ('development'.includes('prod')) ? false : true;
+      const development = ('production'.includes('prod')) ? false : true;
       // ResizeObserver to monitor the changes on page height (dynamic pages)
       // see: https://stackoverflow.com/questions/14866775/detect-document-height-change
       //
