@@ -43,17 +43,23 @@ function CookieConsent(props) {
   var detailedSettingsShown = false;
   var url                   = new liteURL(window.location.href);
   var cookieSecure          = (url.protocol.includes('https')) ? true : false;
+  var navigatorLanguage     = navigator.language || navigator.userLanguage;
+  var defaultDialogLanguage = 'en';
   var logText;
   var current_page;
   var whitelisted;
 
-  logger.info('\n' + 'initializing core module: started');
-  logger.info('\n' + 'state: started');
+  logger.debug('\n' + 'initializing core module: started');
+  logger.debug('\n' + 'state: started');
+
+  if (navigatorLanguage.indexOf("-") !== -1) {
+    navigatorLanguage = navigatorLanguage.split("-")[0];
+  }
 
   // default settings
   this.props = {
     autoShowDialog:         true,                                               // show dialog if NO consent cookie found
-    dialogLanguage:         'content',                                          // language used for the consent dialog (modal)
+    dialogLanguage:         defaultDialogLanguage,                                  // language used for the consent dialog (modal)
     dialogLanguages:        ['en','de'],                                        // supported languages for the consent dialog (modal), defaults to first in array
     contentURL:             '/assets/data/cookieconsent',                       // URL contain the consent dialogs (modals) for ALL supported languages
     postSelectionCallback:  '',                                                 // callback function, called after the user has made his selection
@@ -73,7 +79,7 @@ function CookieConsent(props) {
 
   // fallback on default language (modal) if dialogLanguage not suppported
   if (!this.props.dialogLanguages.includes(this.props.dialogLanguage)) {
-    this.props.dialogLanguage = this.props.dialogLanguages[0];
+    this.props.dialogLanguage = defaultDialogLanguage;
   }
 
   // set modal by dialogLanguage that is loadad
@@ -389,8 +395,8 @@ function CookieConsent(props) {
 
   // API functions
   // ---------------------------------------------------------------------------
-  logger.info('\n' + 'initializing core module finished');
-  logger.info('\n' + 'state: finished');
+  logger.debug('\n' + 'initializing core module finished');
+  logger.debug('\n' + 'state: finished');
 
   // show the consent dialog (modal)
   // ---------------------------------------------------------------------------

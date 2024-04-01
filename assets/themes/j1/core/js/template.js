@@ -1,7 +1,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 8476:
+/***/ 922:
 /***/ ((module) => {
 
 "use strict";
@@ -44,7 +44,7 @@ module.exports = function (j1, window) {
 
 /***/ }),
 
-/***/ 1253:
+/***/ 784:
 /***/ (() => {
 
 /*
@@ -111,7 +111,7 @@ $(insert_result_links);
 
 /***/ }),
 
-/***/ 8921:
+/***/ 258:
 /***/ ((module) => {
 
 "use strict";
@@ -1627,7 +1627,7 @@ module.exports = anime;
 
 /***/ }),
 
-/***/ 6977:
+/***/ 702:
 /***/ ((module) => {
 
 /*
@@ -1721,7 +1721,7 @@ module.exports = function asciidoctor(options) {
 
 /***/ }),
 
-/***/ 1254:
+/***/ 196:
 /***/ (() => {
 
 /*
@@ -3028,7 +3028,7 @@ module.exports = function asciidoctor(options) {
 
 /***/ }),
 
-/***/ 6602:
+/***/ 434:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -3064,8 +3064,8 @@ module.exports = function asciidoctor(options) {
  * Licensed under MIT License.
  */
 module.exports = function (options) {
-  const defaultOptions = __webpack_require__(8780);
-  const ParseContent = __webpack_require__(7609);
+  const defaultOptions = __webpack_require__(739);
+  const ParseContent = __webpack_require__(482);
   const parseContent = ParseContent(defaultOptions);
 
   // ---------------------------------------------------------------------------
@@ -3167,7 +3167,7 @@ module.exports = function (options) {
     // Initialize Backdrops on all <p> elements of class "dropcap"
     // -------------------------------------------------------------------------
     parseHeadings: function () {
-      var headings = parseContent.selectHeadings(".js-toc-content", "h2, h3, h4, h5, h6");
+      var headings = parseContent.selectHeadings('.js-toc-content', 'h2, h3, h4, h5, h6');
       return headings;
     } // END parseContent
 
@@ -3182,7 +3182,7 @@ module.exports = function (options) {
 
 /***/ }),
 
-/***/ 8780:
+/***/ 739:
 /***/ ((module) => {
 
 // -----------------------------------------------------------------------------
@@ -3288,7 +3288,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 7609:
+/***/ 482:
 /***/ ((module) => {
 
 /**
@@ -3428,7 +3428,7 @@ module.exports = function parseContent(options) {
 
 /***/ }),
 
-/***/ 1131:
+/***/ 338:
 /***/ ((module) => {
 
 /*
@@ -3490,7 +3490,7 @@ module.exports = function lazyCSS() {
 
 /***/ }),
 
-/***/ 5771:
+/***/ 497:
 /***/ (() => {
 
 /*
@@ -3743,7 +3743,7 @@ module.exports = function lazyCSS() {
 
 /***/ }),
 
-/***/ 3490:
+/***/ 102:
 /***/ ((module) => {
 
 /*
@@ -3791,6 +3791,8 @@ module.exports = function navigator(options) {
   // ---------------------------------------------------------------------------
   // global vars
   // ---------------------------------------------------------------------------
+  var cookie_names = j1.getCookieNames();
+  var user_state = j1.readCookie(cookie_names.user_state);
   var message = {};
   var state;
   var logger;
@@ -3805,16 +3807,15 @@ module.exports = function navigator(options) {
   }, options);
 
   // ---------------------------------------------------------------------------
-  // main object
+  // main
   // ---------------------------------------------------------------------------
   return {
     // -------------------------------------------------------------------------
     // module initializer
     // -------------------------------------------------------------------------
     init: function (defaultOptions, menuOptions) {
-      logger = log4javascript.getLogger('j1.core.navigator');
-      logText = 'core is being initialized';
-      logger.info(logText);
+      logger = log4javascript.getLogger('j1.navigator.core');
+      logger.debug('\n' + 'initializing module: started');
 
       // -----------------------------------------------------------------------
       // Create a Wrapper for the nav system
@@ -3824,10 +3825,11 @@ module.exports = function navigator(options) {
       this.navbarSticky();
       this.eventHandler(defaultOptions); // jadams, 2021-07-03: initialize events early
 
-      message.type = 'command';
+      logger.debug('\n' + 'initializing module: finished');
+      message.type = 'state';
       message.action = 'core_initialized';
       message.text = 'navigator core initialized';
-      j1.sendMessage('j1.core.navigator', 'j1.adapter.navigator', message);
+      j1.sendMessage('j1.navigator.core', 'j1.adapter.navigator', message);
       return true;
     },
     // -------------------------------------------------------------------------
@@ -3835,7 +3837,6 @@ module.exports = function navigator(options) {
     // -------------------------------------------------------------------------
     eventHandler: function (options) {
       var defaultOptions = options;
-      var logger = log4javascript.getLogger('j1.core.navigator.eventHandler');
       var $getNav = $('nav.navbar.navigator');
       var scrollDuration = 300;
       var page_link;
@@ -3845,6 +3846,7 @@ module.exports = function navigator(options) {
       var anchor_id;
       var scrollOffset;
       var json_data;
+      logger.debug('\n' + 'initializing eventHandler: started');
 
       // jadams: unused code (for now).: manages HTML5 server side events
       // for incoming messages from Git Server send e.g. on a 'pull request'
@@ -4087,6 +4089,14 @@ module.exports = function navigator(options) {
       // -----------------------------------------------------------------------
       $('.quicklink-nav').each(function () {
         // ---------------------------------------------------------------------
+        // ThemeToggler
+        //
+
+        // -------------------------------------------------------------------
+        // Event Mgmt from themeToggler SHOULD placed here
+        // -------------------------------------------------------------------
+
+        // ---------------------------------------------------------------------
         // QuickSearch
         //
         if ($('li.quicksearch')) {
@@ -4147,6 +4157,8 @@ module.exports = function navigator(options) {
           });
         } // END CookieConsent
       }); // End manage events for all quicklinks
+
+      logger.debug('\n' + 'initializing eventHandler: finished');
     },
     // END eventHandler
 
@@ -4410,7 +4422,7 @@ module.exports = function navigator(options) {
 
 /***/ }),
 
-/***/ 8814:
+/***/ 150:
 /***/ ((module) => {
 
 "use strict";
@@ -4541,7 +4553,7 @@ module.exports = function scrollSmooth(options) {
 
 /***/ }),
 
-/***/ 8633:
+/***/ 362:
 /***/ ((module) => {
 
 // -----------------------------------------------------------------------------
@@ -4647,7 +4659,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 3291:
+/***/ 435:
 /***/ ((module) => {
 
 /**
@@ -4787,7 +4799,7 @@ module.exports = function parseContent(options) {
 
 /***/ }),
 
-/***/ 229:
+/***/ 544:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 /*
@@ -4823,8 +4835,8 @@ module.exports = function parseContent(options) {
 (function ($) {
   'use strict';
 
-  const defaultOptions = __webpack_require__(8633);
-  const ParseContent = __webpack_require__(3291);
+  const defaultOptions = __webpack_require__(362);
+  const ParseContent = __webpack_require__(435);
   const parseContent = ParseContent(defaultOptions);
   const scrollBehavior = 'smooth';
   const speechCycle = 10;
@@ -4840,7 +4852,9 @@ module.exports = function parseContent(options) {
   const voiceUserDefault = 'Google UK English Female';
   const voiceChromeDefault = 'Google US English';
   const ignoreProvider = 'Microsoft';
-  const defaultLanguage = 'en-GB';
+  const sourceLanguage = document.getElementsByTagName("html")[0].getAttribute("lang");
+  var defaultLanguage = '';
+  var navigatorLanguage = navigator.language || navigator.userLanguage;
   var currentTranslation = getCookie('googtrans');
   var scrollBlockOffset = 100;
   var customOptions = {};
@@ -4857,7 +4871,7 @@ module.exports = function parseContent(options) {
   var rate = rateDefault;
   var pitch = pitchDefault;
   var volume = volumeDefault;
-  var pause_spoken = '. ';
+  var pause_spoken = ' — ';
   var chunkCounter = 0;
   var userStoppedSpeaking = false;
   var chunkSpoken = false;
@@ -4872,50 +4886,57 @@ module.exports = function parseContent(options) {
   var scanFinished;
   var voiceLanguageGoogleDefault = {
     'de-DE': 'Google Deutsch',
-    'en-US': 'Google US English',
+    //  'en-US':  'Google US English',
     'en-GB': 'Google UK English Female',
     'es-ES': 'Google español',
     'fr-FR': 'Google français',
     //  'hi-IN':  'Google हिन्दी',
     //  'id-ID':  'Google Bahasa Indonesia',
-    'it-IT': 'Google italiano',
+    'it-IT': 'Google italiano'
     //  'jp-JP':  'Google 日本語',
     //  'ko-KR':  'Google 한국의',
-    'nl-NL': 'Google Nederlands',
-    'pl-PL': 'Google polski',
+    //  'nl-NL':  'Google Nederlands',
+    //  'pl-PL':  'Google polski',
     //  'pt-BR':  'Google português do Brasil',
-    'pt-PT': 'Google português do Brasil'
+    //  'pt-PT':  'Google português',
     //  'ru-RU':  'Google русский',
     //  'zh-CN':  'Google 普通话（中国大陆)',
   };
   var voiceLanguageMicrosoftDefault = {
-    'sq-AL': 'Microsoft Anila Online (Natural) - Albanian (Albania)',
-    'ar-EG': 'Microsoft Salma Online (Natural) - Arabic (Egypt)',
-    'bg-BG': 'Microsoft Kalina Online (Natural) - Bulgarian (Bulgaria)',
-    'zh-CN': 'Microsoft Xiaoxiao Online (Natural) - Chinese (Mainland)',
-    'hr-HR': 'Microsoft Gabrijela Online (Natural) - Croatian (Croatia)',
-    'cs-CZ': 'Microsoft Antonin Online (Natural) - Czech (Czech)',
-    'da-DK': 'Microsoft Christel Online (Natural) - Danish (Denmark)',
-    'nl-NL': 'Microsoft Colette Online (Natural) - Dutch (Netherlands)',
+    //  'sq-AL':  'Microsoft Anila Online (Natural) - Albanian (Albania)',
+    //  'ar-EG':  'Microsoft Salma Online (Natural) - Arabic (Egypt)',
+    //  'bg-BG':  'Microsoft Kalina Online (Natural) - Bulgarian (Bulgaria)',
+    //  'zh-CN':  'Microsoft Xiaoxiao Online (Natural) - Chinese (Mainland)',
+    //  'hr-HR':  'Microsoft Gabrijela Online (Natural) - Croatian (Croatia)',
+    //  'cs-CZ':  'Microsoft Antonin Online (Natural) - Czech (Czech)',
+    //  'da-DK':  'Microsoft Christel Online (Natural) - Danish (Denmark)',
+    //  'nl-NL':  'Microsoft Colette Online (Natural) - Dutch (Netherlands)',
     'en-GB': 'Microsoft Libby Online (Natural) - English (United Kingdom)',
-    'en-US': 'Microsoft Aria Online (Natural) - English (United States)',
-    'et-EE': 'Microsoft Anu Online (Natural) - Estonian (Estonia)',
-    'fi-FI': 'Microsoft Noora Online (Natural) - Finnish (Finland)',
+    //  'en-US':  'Microsoft Aria Online (Natural) - English (United States)',
+    //  'et-EE':  'Microsoft Anu Online (Natural) - Estonian (Estonia)',
+    'es-ES': 'Microsoft Elvira Online (Natural) - Spanish (Spain)',
+    //  'fi-FI':  'Microsoft Noora Online (Natural) - Finnish (Finland)',
     'fr-FR': 'Microsoft Denise Online (Natural) - French (France)',
-    'ka-GE': 'Microsoft Giorgi Online (Natural) - Georgian (Georgia)',
+    //  'ka-GE':  'Microsoft Giorgi Online (Natural) - Georgian (Georgia)',
     'de-DE': 'Microsoft Katja Online (Natural) - German (Germany)',
-    'el-GR': 'Microsoft Athina Online (Natural) - Greek (Greece)',
-    'he-IL': 'Microsoft Avri Online (Natural) - Hebrew (Israel)',
-    'hi-IN': 'Microsoft Madhur Online (Natural) - Hindi (India)',
-    'hu-HU': 'Microsoft Noemi Online (Natural) - Hungarian (Hungary)',
-    'it-IT': 'Microsoft Elsa Online (Natural) - Italian (Italy)',
-    'ja-JP': 'Microsoft Nanami Online (Natural) - Japanese (Japan)'
+    //  'el-GR':  'Microsoft Athina Online (Natural) - Greek (Greece)',
+    //  'he-IL':  'Microsoft Avri Online (Natural) - Hebrew (Israel)',
+    //  'hi-IN':  'Microsoft Madhur Online (Natural) - Hindi (India)',
+    //  'hu-HU':  'Microsoft Noemi Online (Natural) - Hungarian (Hungary)',
+    'it-IT': 'Microsoft Elsa Online (Natural) - Italian (Italy)'
+    //  'pl-PL' : 'Microsoft Zofia Online (Natural) - Polish (Poland)',
+    //  'ja-JP':  'Microsoft Nanami Online (Natural) - Japanese (Japan)',
   };
   var voiceLanguageFirefoxDefault = {
-    'en-GB': 'Microsoft Hazel - English (United Kingdom) (en-GB)',
-    'en-US': 'Microsoft Zira Desktop - English (United States) (en-US)',
-    'de-DE': 'Microsoft Katja Online (Natural) - German (Germany)'
+    'en-GB': 'Microsoft Hazel - English (United Kingdom)',
+    //  'en-US':  'Microsoft Zira Desktop - English (United States)',
+    'de-DE': 'Microsoft Katja - German (Germany)'
   };
+  if (sourceLanguage == 'en') {
+    defaultLanguage = sourceLanguage + '-' + 'GB';
+  } else {
+    defaultLanguage = sourceLanguage + '-' + sourceLanguage.toUpperCase();
+  }
 
   // ---------------------------------------------------------------------------
   // Internal functions
@@ -5024,14 +5045,24 @@ module.exports = function parseContent(options) {
 
   // This populates the "voices" array with objects that represent the
   // available voices in the current browser. Each object has two
-  // properties: name and language. It is loaded asynchronously in
-  // deference to Chrome.
+  // properties: name and language.
+  // NOTE: the array is loaded asynchronously.
   //
   function populateVoiceList() {
+    let systemVoicesText = 'systemVoices START - ';
     var systemVoices = speechSynthesis.getVoices();
     for (var i = 0; i < systemVoices.length; i++) {
       voices.push(new voiceObj(systemVoices[i].name, systemVoices[i].lang));
+      // Collect available voices as text (for reference)
+      //
+      if (systemVoices[i].lang.includes("en") || systemVoices[i].lang.includes("de-DE") || systemVoices[i].lang.includes("es-ES") || systemVoices[i].lang.includes("pl") || systemVoices[i].lang.includes("nl")) {
+        systemVoicesText += systemVoices[i].lang.toString();
+        systemVoicesText += ' : ';
+        systemVoicesText += systemVoices[i].name.toString();
+        systemVoicesText += '\n';
+      }
     }
+    systemVoicesText += " - systemVoices END.";
   } // END populateVoiceList
 
   populateVoiceList();
@@ -5118,33 +5149,35 @@ module.exports = function parseContent(options) {
 
       // Default values
       //
-      voiceTags['a'] = new voiceTag('Follow the Link:', ':');
-      voiceTags['q'] = new voiceTag('', pause_spoken);
-      voiceTags['ol'] = new voiceTag('Start of list.', 'End of list. ');
-      voiceTags['ul'] = new voiceTag('Start of list.', 'End of list. ');
-      voiceTags['dl'] = new voiceTag('Start of list.', 'End of list. ');
-      voiceTags['dt'] = new voiceTag('', ', ');
-      voiceTags['img'] = new voiceTag('Start of an image with the description,', ', ');
-      voiceTags['table'] = new voiceTag('Start of a table element,', 'This element ist not spoken.');
-      voiceTags['card-header'] = new voiceTag('', '');
-      voiceTags['.doc-example'] = new voiceTag('Start of an example element,', 'This element ist not spoken.');
-      voiceTags['.admonitionblock'] = new voiceTag('Start of an attention element of type, ', ':');
-      voiceTags['.listingblock'] = new voiceTag('Start of a structured text block,', 'This element ist not spoken.');
-      voiceTags['.gist'] = new voiceTag('Start of a gist element,', 'This element ist not spoken.');
-      voiceTags['.slider'] = new voiceTag('Start of a slider element,', 'This element ist not spoken.');
-      voiceTags['.modal'] = new voiceTag('Start of a modal element,', 'This element ist not spoken.');
-      voiceTags['.masonry'] = new voiceTag('Start of a masonry element,', 'This element ist not spoken.');
-      voiceTags['.lightbox-block'] = new voiceTag('Start of a lightbox element,', 'This element ist not spoken.');
-      voiceTags['.gallery'] = new voiceTag('Start of a gallery element,', 'This element ist not spoken.');
-      voiceTags['.videoblock'] = new voiceTag('Start of a HTML5 Video,', 'This video ist not spoken.');
-      voiceTags['.videojs-player'] = new voiceTag('Start of a VideoJS Video,', 'This video ist not spoken.');
-      voiceTags['.youtube-player'] = new voiceTag('Start of a YouTube Video,', 'This video ist not spoken.');
-      voiceTags['.dailymotion-player'] = new voiceTag('Start of a Dailymotion Video,', 'This video ist not spoken.');
-      voiceTags['.vimeo-player'] = new voiceTag('Start of a Vimeo Video,', 'This video ist not spoken.');
-      voiceTags['.wistia-player'] = new voiceTag('Start of a Wistia Video,', 'This video ist not spoken.');
-      voiceTags['figure'] = new voiceTag('Start of a figure with the caption,', '');
-      voiceTags['blockquote'] = new voiceTag('Blockquote start,', 'Blockquote end.');
-      voiceTags['quoteblock'] = new voiceTag('Start of a quote block element,', 'Quote block element end.');
+      voiceTags['a'] = new voiceTag('Link' + pause_spoken, '');
+      voiceTags['q'] = new voiceTag(pause_spoken, '');
+      voiceTags['ol'] = new voiceTag(pause_spoken, '');
+      voiceTags['ul'] = new voiceTag(pause_spoken, '');
+      voiceTags['dl'] = new voiceTag(pause_spoken, '');
+      voiceTags['dt'] = new voiceTag(pause_spoken, '');
+      voiceTags['img'] = new voiceTag('Image element' + pause_spoken, 'Element not spoken' + pause_spoken);
+      voiceTags['table'] = new voiceTag('Table element' + pause_spoken, 'Element not spoken' + pause_spoken);
+      voiceTags['card-header'] = new voiceTag(pause_spoken, '');
+      voiceTags['.doc-example'] = new voiceTag('Example element' + pause_spoken, 'Element not spoken' + pause_spoken);
+      voiceTags['.admonitionblock'] = new voiceTag('Attention element' + pause_spoken, pause_spoken);
+      voiceTags['.listingblock'] = new voiceTag('Text element' + pause_spoken, 'Element not spoken' + pause_spoken);
+      voiceTags['.gist'] = new voiceTag('Gist element' + pause_spoken, 'Element not spoken' + pause_spoken);
+      voiceTags['.slider'] = new voiceTag('Slider element' + pause_spoken, 'Element not spoken' + pause_spoken);
+      voiceTags['.modal'] = new voiceTag('Info element' + pause_spoken, 'Element not spoken' + pause_spoken);
+      voiceTags['.masonry'] = new voiceTag('Masonry element' + pause_spoken, 'Element not spoken' + pause_spoken);
+      voiceTags['.lightbox-block'] = new voiceTag('Lightbox element' + pause_spoken, 'Element not spoken' + pause_spoken);
+      voiceTags['.gallery'] = new voiceTag('Gallery element' + pause_spoken, 'Element not spoken' + pause_spoken);
+      voiceTags['.audioblock'] = new voiceTag('Audio element' + pause_spoken, 'Element not spoken' + pause_spoken);
+      voiceTags['.videoblock'] = new voiceTag('Video element' + pause_spoken, 'Element not spoken' + pause_spoken);
+      voiceTags['.videojs-player'] = new voiceTag('Video element' + pause_spoken, 'Element not spoken' + pause_spoken);
+      voiceTags['.youtube-player'] = new voiceTag('Video element' + pause_spoken, 'Element not spoken' + pause_spoken);
+      voiceTags['.dailymotion-player'] = new voiceTag('Video element' + pause_spoken, 'Element not spoken' + pause_spoken);
+      voiceTags['.vimeo-player'] = new voiceTag('Video element' + pause_spoken, 'Element not spoken' + pause_spoken);
+      voiceTags['.wistia-player'] = new voiceTag('Video element' + pause_spoken, 'Element not spoken' + pause_spoken);
+      voiceTags['figure'] = new voiceTag('Figure element' + pause_spoken, 'Element not spoken' + pause_spoken);
+      voiceTags['parallax-quoteblock'] = new voiceTag('', pause_spoken);
+      voiceTags['blockquote'] = new voiceTag('', pause_spoken);
+      voiceTags['quoteblock'] = new voiceTag('', pause_spoken);
       ignoreTags = ['audio', 'button', 'canvas', 'code', 'del', 'pre', 'dialog', 'embed', 'form', 'head', 'iframe', 'meter', 'nav', 'noscript', 'object', 'picture', 'script', 'select', 'style', 'textarea', 'video'];
 
       // TODO: NOT working for multiple 'tab' windows
@@ -5317,6 +5350,7 @@ module.exports = function parseContent(options) {
                 //
                 innerText = node.innerText.replaceAll('?', '');
                 innerText = node.innerText.replaceAll('!', '');
+                innerText = node.innerText + pause_spoken;
                 if (innerText == text) {
                   var headline = $('#' + node.id);
                   if (headline.length > 0) {
@@ -5355,12 +5389,13 @@ module.exports = function parseContent(options) {
         subText = stringArray.join('');
         subText = subText.replaceAll('.', '');
 
-        // at least wordsMin words required
+        // at least wordsMin words are required
         //
         words = wordCount(subText);
         if (words < wordsMin) {
+          console.debug('j1.core.speak2me: no search possible on this fraction of subText: ' + subText);
+          console.debug('j1.core.speak2me: number of words found: ' + words + ' lower that words min: ' + wordsMin);
           return undefined;
-          console.warn('no search possible on this fraction of subText');
         } else {
           return subText;
         }
@@ -5540,11 +5575,11 @@ module.exports = function parseContent(options) {
         for (var tag in voiceTags) {
           $(clone).find(tag).each(function () {
             if (customTags[tag]) {
-              $(this).prepend(customTags[tag].prepend + ' ');
-              $(this).append(' ' + customTags[tag].append);
+              $(this).prepend(customTags[tag].prepend + pause_spoken);
+              $(this).append(customTags[tag].append + pause_spoken);
             } else {
-              $(this).prepend(voiceTags[tag].prepend + ' ');
-              $(this).append(' ' + voiceTags[tag].append);
+              $(this).prepend(voiceTags[tag].prepend + pause_spoken);
+              $(this).append(voiceTags[tag].append + pause_spoken);
             }
             ;
           });
@@ -5556,13 +5591,16 @@ module.exports = function parseContent(options) {
         // because these tags require a pause, but often don't
         // have a comma or period at the end of their text.
         //
-        $(clone).find('h1,h2,h3,h4,h5,h6,li,p').addBack('h1,h2,h3,h4,h5,h6,li,p').each(function () {
-          $(this).append(pause_spoken);
+        $(clone).find('h1,h2,h3,h4,h5,h6,p,li').addBack('h1,h2,h3,h4,h5,h6,p,li').each(function () {
+          var text = $(this)[0].innerText;
+          text.replace(/\s+/g, '\s');
+          text = text + pause_spoken;
+          $(this)[0].innerText = text;
         });
 
         // Search for <br> tags to add a pause at the end.
         $(clone).find('br').each(function () {
-          $(this).after(pause_spoken);
+          $(this).append(pause_spoken);
         });
 
         // Search for <figure>, check for <figcaption>, insert
@@ -5576,7 +5614,7 @@ module.exports = function parseContent(options) {
             prepend = voiceTags['figure'].prepend;
           }
           if (copy != undefined && copy !== '') {
-            $('<div>' + prepend + ' ' + copy + '</div>').insertBefore(this);
+            $('<div>' + prepend + pause_spoken + copy + '</div>').insertBefore(this);
           }
           $(this).remove();
         });
@@ -5597,9 +5635,9 @@ module.exports = function parseContent(options) {
           if (copy !== undefined && copy != '') {
             if (parentName == 'PICTURE') {
               var par;
-              $('<div>' + prepend + ' ' + copy + pause_spoken + '</div>').insertBefore(parent);
+              $('<div>' + prepend + pause_spoken + copy + pause_spoken + '</div>').insertBefore(parent);
             } else {
-              $('<div>' + prepend + ' ' + copy + pause_spoken + '</div>').insertBefore(this);
+              $('<div>' + prepend + pause_spoken + copy + pause_spoken + '</div>').insertBefore(this);
             }
           }
           $(this).remove();
@@ -5634,16 +5672,30 @@ module.exports = function parseContent(options) {
           $(this).remove();
         });
 
-        // Search for quote block elements.
+        // Search for parallax quote block elements.
         //
-        $(clone).find('.quoteblock').addBack('quoteblock').each(function () {
-          var attribution = $(this).find('.attribution');
-          content_element = $(this).find('blockquote');
-          content = content_element[0].innerText + 'quoted by, ' + attribution[0].innerText + ', ';
+        $(clone).find('.parallax-quoteblock').addBack('.parallax-quoteblock').each(function () {
+          content_element = $(this).find('.quote-text');
+          content = content_element[0].innerText + '' + pause_spoken;
           prepend = voiceTags['quoteblock'].prepend;
           appended = voiceTags['quoteblock'].append;
           if (content !== undefined && content != '') {
-            $('<div>' + prepend + ' ' + content + '</div>').insertBefore(this);
+            $('<div>' + prepend + pause_spoken + content + '</div>').insertBefore(this);
+            $('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+          }
+          $(this).remove();
+        });
+
+        // Search for quote block elements.
+        //
+        $(clone).find('.quoteblock').addBack('.quoteblock').each(function () {
+          var attribution = $(this).find('.attribution');
+          content_element = $(this).find('blockquote');
+          content = content_element[0].innerText + '' + attribution[0].innerText;
+          prepend = voiceTags['quoteblock'].prepend;
+          appended = voiceTags['quoteblock'].append;
+          if (content !== undefined && content != '') {
+            $('<div>' + prepend + pause_spoken + content + '</div>').insertBefore(this);
             $('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
           }
           $(this).remove();
@@ -5657,11 +5709,28 @@ module.exports = function parseContent(options) {
           prepend = voiceTags['table'].prepend;
           appended = voiceTags['table'].append;
           if (copy !== undefined && copy != '') {
-            $('<div>' + prepend + ' ' + copy + '</div>').insertBefore(this);
+            $('<div>' + prepend + pause_spoken + copy + '</div>').insertBefore(this);
             $('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
           } else {
-            $('<div>' + prepend + '</div>').insertBefore(this);
+            $('<div>' + prepend + pause_spoken + '</div>').insertBefore(this);
             $('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+          }
+          $(this).remove();
+        });
+
+        // Search for HTML5 audio players, check for the title and insert text
+        // if exists and then remove the DOM object.
+        //
+        $(clone).find('.audioblock').addBack('.audioblock').each(function () {
+          copy = $(this).find('.title').text();
+          prepend = voiceTags['.audioblock'].prepend;
+          appended = voiceTags['.audioblock'].append;
+          if (copy !== undefined && copy != '') {
+            $('<div>' + prepend + 'with the title, ' + copy + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + appended + '</div>').insertBefore(this);
+          } else {
+            $('<div>' + prepend + '</div>').insertBefore(this);
+            $('<div>' + appended + '</div>').insertBefore(this);
           }
           $(this).remove();
         });
@@ -5674,11 +5743,11 @@ module.exports = function parseContent(options) {
           prepend = voiceTags['.videoblock'].prepend;
           appended = voiceTags['.videoblock'].append;
           if (copy !== undefined && copy != '') {
-            $('<div>' + prepend + ' ' + 'with the title, ' + copy + pause_spoken + '</div>').insertBefore(this);
-            $('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + prepend + 'with the title, ' + copy + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + appended + '</div>').insertBefore(this);
           } else {
             $('<div>' + prepend + '</div>').insertBefore(this);
-            $('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + appended + '</div>').insertBefore(this);
           }
           $(this).remove();
         });
@@ -5691,11 +5760,11 @@ module.exports = function parseContent(options) {
           prepend = voiceTags['.videojs-player'].prepend;
           appended = voiceTags['.videojs-player'].append;
           if (copy !== undefined && copy != '') {
-            $('<div>' + prepend + ' ' + 'with the title, ' + copy + pause_spoken + '</div>').insertBefore(this);
-            $('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + prepend + 'with the title, ' + copy + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + appended + '</div>').insertBefore(this);
           } else {
             $('<div>' + prepend + '</div>').insertBefore(this);
-            $('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + appended + '</div>').insertBefore(this);
           }
           $(this).remove();
         });
@@ -5708,11 +5777,11 @@ module.exports = function parseContent(options) {
           prepend = voiceTags['.youtube-player'].prepend;
           appended = voiceTags['.youtube-player'].append;
           if (copy !== undefined && copy != '') {
-            $('<div>' + prepend + ' ' + 'with the title, ' + copy + pause_spoken + '</div>').insertBefore(this);
-            $('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + prepend + 'with the title, ' + copy + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + appended + '</div>').insertBefore(this);
           } else {
             $('<div>' + prepend + '</div>').insertBefore(this);
-            $('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + appended + '</div>').insertBefore(this);
           }
           $(this).remove();
         });
@@ -5725,11 +5794,11 @@ module.exports = function parseContent(options) {
           prepend = voiceTags['.dailymotion-player'].prepend;
           appended = voiceTags['.dailymotion-player'].append;
           if (copy !== undefined && copy != '') {
-            $('<div>' + prepend + ' ' + 'with the title, ' + copy + pause_spoken + '</div>').insertBefore(this);
-            $('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + prepend + 'with the title, ' + copy + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + appended + '</div>').insertBefore(this);
           } else {
             $('<div>' + prepend + '</div>').insertBefore(this);
-            $('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + appended + '</div>').insertBefore(this);
           }
           $(this).remove();
         });
@@ -5742,11 +5811,11 @@ module.exports = function parseContent(options) {
           prepend = voiceTags['.vimeo-player'].prepend;
           appended = voiceTags['.vimeo-player'].append;
           if (copy !== undefined && copy != '') {
-            $('<div>' + prepend + ' ' + 'with the title, ' + copy + pause_spoken + '</div>').insertBefore(this);
-            $('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + prepend + 'with the title, ' + copy + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + appended + '</div>').insertBefore(this);
           } else {
             $('<div>' + prepend + '</div>').insertBefore(this);
-            $('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + appended + '</div>').insertBefore(this);
           }
           $(this).remove();
         });
@@ -5759,11 +5828,11 @@ module.exports = function parseContent(options) {
           prepend = voiceTags['.wistia-player'].prepend;
           appended = voiceTags['.wistia-player'].append;
           if (copy !== undefined && copy != '') {
-            $('<div>' + prepend + ' ' + 'with the title, ' + copy + pause_spoken + '</div>').insertBefore(this);
-            $('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + prepend + 'with the title, ' + copy + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + appended + '</div>').insertBefore(this);
           } else {
             $('<div>' + prepend + '</div>').insertBefore(this);
-            $('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + appended + '</div>').insertBefore(this);
           }
           $(this).remove();
         });
@@ -5779,8 +5848,8 @@ module.exports = function parseContent(options) {
           } else {
             title = '';
           }
-          $('<div>' + prepend + '</div>').insertBefore(this);
-          $('<div>' + appended + title + '</div>').insertBefore(this);
+          $('<div>' + prepend + pause_spoken + '</div>').insertBefore(this);
+          $('<div>' + appended + pause_spoken + title + '</div>').insertBefore(this);
           $(title_element).remove();
         });
 
@@ -5789,7 +5858,7 @@ module.exports = function parseContent(options) {
         $(clone).find('.doc-example').addBack('.doc-example').each(function () {
           prepend = voiceTags['.doc-example'].prepend;
           appended = voiceTags['.doc-example'].append;
-          $('<div>' + prepend + '</div>').insertBefore(this);
+          $('<div>' + prepend + pause_spoken + '</div>').insertBefore(this);
           $('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
           $(this).remove();
         });
@@ -5808,11 +5877,11 @@ module.exports = function parseContent(options) {
           prepend = voiceTags['.listingblock'].prepend;
           appended = voiceTags['.listingblock'].append;
           if (copy !== undefined && copy != '') {
-            $('<div>' + prepend + ' with the caption,' + copy + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + prepend + ' with the title,' + copy + pause_spoken + '</div>').insertBefore(this);
             $('<div>' + appended + '</div>').insertBefore(this);
           } else {
-            $('<div>' + prepend + '</div>').insertBefore(this);
-            $('<div>' + appended + '</div>').insertBefore(this);
+            $('<div>' + prepend + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
           }
           $(this).remove();
         });
@@ -5822,7 +5891,7 @@ module.exports = function parseContent(options) {
         // text if exists and finally remove the DOM object.
         //
         $(clone).find('.gist').addBack('.gist').each(function () {
-          if ($(this).prev()[0] !== undefined && $(this).prev()[0].innerText !== undefined) {
+          if ($(this).prev()[0] !== undefined) {
             title = $(this).prev()[0].innerText;
             title_element = $(this).prev();
             // remove the title 'before' the DOM object deleted
@@ -5834,11 +5903,11 @@ module.exports = function parseContent(options) {
           prepend = voiceTags['.gist'].prepend;
           appended = voiceTags['.gist'].append;
           if (title !== undefined && title != '') {
-            $('<div>' + prepend + ' with the caption, ' + title + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + prepend + ' with the title, ' + title + pause_spoken + '</div>').insertBefore(this);
             $('<div>' + appended + '</div>').insertBefore(this);
           } else {
-            $('<div>' + prepend + '</div>').insertBefore(this);
-            $('<div>' + appended + '</div>').insertBefore(this);
+            $('<div>' + prepend + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
           }
           $(this).remove();
         });
@@ -5854,7 +5923,7 @@ module.exports = function parseContent(options) {
         // text if exists and finally remove the DOM object.
         //
         $(clone).find('.masonry').addBack('.masonry').each(function () {
-          if ($(this).prev()[0].innerText !== undefined) {
+          if ($(this).prev()[0] !== undefined) {
             title = $(this).prev()[0].innerText;
             title_element = $(this).prev();
             // remove the title 'before' the DOM object deleted
@@ -5866,11 +5935,11 @@ module.exports = function parseContent(options) {
           prepend = voiceTags['.masonry'].prepend;
           appended = voiceTags['.masonry'].append;
           if (title !== undefined && title != '') {
-            $('<div>' + prepend + ' with the caption,' + title + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + prepend + ' with the title,' + title + pause_spoken + '</div>').insertBefore(this);
             $('<div>' + appended + '</div>').insertBefore(this);
           } else {
-            $('<div>' + prepend + '</div>').insertBefore(this);
-            $('<div>' + appended + '</div>').insertBefore(this);
+            $('<div>' + prepend + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
           }
           $(this).remove();
         });
@@ -5880,7 +5949,7 @@ module.exports = function parseContent(options) {
         // text if exists and finally remove the DOM object.
         //
         $(clone).find('.slider').addBack('.slider').each(function () {
-          if ($(this).prev()[0].innerText !== undefined) {
+          if ($(this).prev()[0] !== undefined) {
             title = $(this).prev()[0].innerText;
             title_element = $(this).prev();
             // remove the title 'before' the DOM object deleted
@@ -5892,11 +5961,11 @@ module.exports = function parseContent(options) {
           prepend = voiceTags['.slider'].prepend;
           appended = voiceTags['.slider'].append;
           if (title !== undefined && title != '') {
-            $('<div>' + prepend + ' with the caption, ' + title + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + prepend + ' with the title, ' + title + pause_spoken + '</div>').insertBefore(this);
             $('<div>' + appended + '</div>').insertBefore(this);
           } else {
-            $('<div>' + prepend + '</div>').insertBefore(this);
-            $('<div>' + appended + '</div>').insertBefore(this);
+            $('<div>' + prepend + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
           }
           $(this).remove();
         });
@@ -5906,7 +5975,7 @@ module.exports = function parseContent(options) {
         // text if exists and finally remove the DOM object.
         //
         $(clone).find('.gallery').addBack('.gallery').each(function () {
-          if ($(this).prev()[0] !== undefined && $(this).prev()[0].innerText !== undefined) {
+          if ($(this).prev()[0] !== undefined) {
             title = $(this).prev()[0].innerText;
             title_element = $(this).prev();
             // remove the title BEFORE the DOM object gets deleted
@@ -5918,11 +5987,11 @@ module.exports = function parseContent(options) {
           prepend = voiceTags['.gallery'].prepend;
           appended = voiceTags['.gallery'].append;
           if (title !== undefined && title != '') {
-            prepend !== '' && $('<div>' + prepend + ' with the caption ' + title + pause_spoken + '</div>').insertBefore(this);
+            prepend !== '' && $('<div>' + prepend + ' with the title ' + title + pause_spoken + '</div>').insertBefore(this);
             appended !== '' && $('<div>' + appended + '</div>').insertBefore(this);
           } else {
-            prepend !== '' && $('<div>' + prepend + '</div>').insertBefore(this);
-            appended !== '' && $('<div>' + appended + '</div>').insertBefore(this);
+            prepend !== '' && $('<div>' + prepend + pause_spoken + '</div>').insertBefore(this);
+            appended !== '' && $('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
           }
           $(this).remove();
         });
@@ -5931,7 +6000,7 @@ module.exports = function parseContent(options) {
         // insert the text if exists and finally remove the DOM object.
         //
         $(clone).find('.lightbox-block').addBack('.lightbox-block').each(function () {
-          if ($(this).prev()[0].innerText !== undefined) {
+          if ($(this).prev()[0] !== undefined) {
             title = $(this).prev()[0].innerText;
             title_element = $(this).prev();
             // remove the title 'before' the DOM object deleted
@@ -5943,11 +6012,11 @@ module.exports = function parseContent(options) {
           prepend = voiceTags['.lightbox-block'].prepend;
           appended = voiceTags['.lightbox-block'].append;
           if (title !== undefined && title != '') {
-            $('<div>' + prepend + ' with the caption,' + title + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + prepend + ' with the title,' + title + pause_spoken + '</div>').insertBefore(this);
             $('<div>' + appended + '</div>').insertBefore(this);
           } else {
-            $('<div>' + prepend + '</div>').insertBefore(this);
-            $('<div>' + appended + '</div>').insertBefore(this);
+            $('<div>' + prepend + pause_spoken + '</div>').insertBefore(this);
+            $('<div>' + appended + pause_spoken + '</div>').insertBefore(this);
           }
           $(this).remove();
         });
@@ -6390,8 +6459,28 @@ module.exports = function parseContent(options) {
 
 /***/ }),
 
-/***/ 4525:
+/***/ 823:
 /***/ ((module) => {
+
+/*
+ # -----------------------------------------------------------------------------
+ #  ~/js/tocbot/build-html.js
+ #  Tocbot v4.25.0 implementation for J1 Theme
+ #
+ #  Product/Info:
+ #  https://jekyll.one
+ #  https://tscanlin.github.io/tocbot
+ #  https://github.com/tscanlin/tocbot
+ #
+ #  Copyright (C) 2023, 2024 Juergen Adams
+ #  Copyright (C) 2016 - 2024 Tim Scanlin
+ #
+ #  J1 Theme is licensed under MIT License.
+ #  See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
+ #  Tocbot is licensed under the MIT License.
+ #  For details, https://github.com/tscanlin/tocbot/blob/master/LICENSE
+ # -----------------------------------------------------------------------------
+*/
 
 /**
  * This file is responsible for building the DOM and updating DOM state.
@@ -6411,6 +6500,7 @@ module.exports = function (options) {
   var forEach = [].forEach;
   var some = [].some;
   var body = document.body;
+  var tocElement;
   var currentlyHighlighting = true;
   var SPACE_CHAR = ' ';
 
@@ -6432,36 +6522,36 @@ module.exports = function (options) {
   }
 
   /**
-   * Render nested heading array data into a given selector.
-   * @param {String} selector
+   * Render nested heading array data into a given element.
+   * @param {HTMLElement} parent Optional. If provided updates the {@see tocElement} to match.
    * @param {Array} data
    * @return {HTMLElement}
    */
-  function render(selector, data) {
+  function render(parent, data) {
     var collapsed = false;
     var container = createList(collapsed);
     data.forEach(function (d) {
       createEl(d, container);
     });
-    var parent = document.querySelector(selector);
 
-    // Return if no parent is found.
-    if (parent === null) {
+    // Return if no TOC element is provided or known.
+    tocElement = parent || tocElement;
+    if (tocElement === null) {
       return;
     }
 
     // Remove existing child if it exists.
-    if (parent.firstChild) {
-      parent.removeChild(parent.firstChild);
+    if (tocElement.firstChild) {
+      tocElement.removeChild(tocElement.firstChild);
     }
 
     // Just return the parent and don't append the list if no links are found.
     if (data.length === 0) {
-      return parent;
+      return tocElement;
     }
 
     // Append the Elements that have been created
-    return parent.appendChild(container);
+    return tocElement.appendChild(container);
   }
 
   /**
@@ -6478,12 +6568,15 @@ module.exports = function (options) {
     if (options.onClick) {
       a.onclick = options.onClick;
     }
+    if (options.includeTitleTags) {
+      a.setAttribute('title', data.textContent);
+    }
     if (options.includeHtml && data.childNodes.length) {
       forEach.call(data.childNodes, function (node) {
         a.appendChild(node.cloneNode(true));
       });
     } else {
-      // Default behavior.
+      // Default behavior. Set to textContent to keep tests happy.
       a.textContent = data.textContent;
     }
     a.setAttribute('href', options.basePath + '#' + data.id);
@@ -6502,8 +6595,9 @@ module.exports = function (options) {
     var list = document.createElement(listElement);
     var classes = options.listClass + SPACE_CHAR + options.extraListClasses;
     if (isCollapsed) {
-      classes += SPACE_CHAR + options.collapsibleClass;
-      classes += SPACE_CHAR + options.isCollapsedClass;
+      // No plus/equals here fixes compilcation issue.
+      classes = classes + SPACE_CHAR + options.collapsibleClass;
+      classes = classes + SPACE_CHAR + options.isCollapsedClass;
     }
     list.setAttribute('class', classes);
     return list;
@@ -6522,25 +6616,25 @@ module.exports = function (options) {
     }
     var posFixedEl = document.querySelector(options.positionFixedSelector);
     if (options.fixedSidebarOffset === 'auto') {
-      options.fixedSidebarOffset = document.querySelector(options.tocSelector).offsetTop;
+      options.fixedSidebarOffset = tocElement.offsetTop;
     }
     if (top > options.fixedSidebarOffset) {
       if (posFixedEl.className.indexOf(options.positionFixedClass) === -1) {
         posFixedEl.className += SPACE_CHAR + options.positionFixedClass;
       }
     } else {
-      posFixedEl.className = posFixedEl.className.split(SPACE_CHAR + options.positionFixedClass).join('');
+      posFixedEl.className = posFixedEl.className.replace(SPACE_CHAR + options.positionFixedClass, '');
     }
   }
 
   /**
    * Get top position of heading
-   * @param {HTMLElement}
-   * @return {integer} position
+   * @param {HTMLElement} obj
+   * @return {int} position
    */
   function getHeadingTopPos(obj) {
     var position = 0;
-    if (obj !== document.querySelector(options.contentSelector && obj != null)) {
+    if (obj !== null) {
       position = obj.offsetTop;
       if (options.hasInnerContainers) {
         position += getHeadingTopPos(obj.offsetParent);
@@ -6550,7 +6644,20 @@ module.exports = function (options) {
   }
 
   /**
-   * Update TOC highlighting and collapsed groups
+   * Update className only when changed.
+   * @param {HTMLElement} obj
+   * @param {string} className
+   * @return {HTMLElement} obj
+   */
+  function updateClassname(obj, className) {
+    if (obj && obj.className !== className) {
+      obj.className = className;
+    }
+    return obj;
+  }
+
+  /**
+   * Update TOC highlighting and collapsed groupings.
    */
   function updateToc(headingsArray) {
     // If a fixed content container was set
@@ -6566,50 +6673,50 @@ module.exports = function (options) {
       updateFixedSidebarClass();
     }
 
-    // Get the most TOP heading currently visible on the page to
-    // identify what element to be highlighted
+    // Get the top most heading currently visible on the page so we know what to highlight.
     var headings = headingsArray;
     var topHeader;
-    var headingTopPos;
-
-    // Using some instead of each so that we can escape early
-    if (currentlyHighlighting && document.querySelector(options.tocSelector) !== null && headings.length > 0) {
+    // Using some instead of each so that we can escape early.
+    if (currentlyHighlighting && tocElement !== null && headings.length > 0) {
       some.call(headings, function (heading, i) {
-        headingTopPos = getHeadingTopPos(heading);
-        if (headingTopPos > top + options.headingsOffset + 10) {
-          // Don't allow negative index value
-          // var index = (i === 0) ? i : i - 1;
-          // topHeader = headings[index];
-          // jadams, index correction seems NOT needed
-          topHeader = headings[i];
+        if (getHeadingTopPos(heading) > top + options.headingsOffset + 10) {
+          // Don't allow negative index value.
+          var index = i === 0 ? i : i - 1;
+          topHeader = headings[index];
           return true;
         } else if (i === headings.length - 1) {
-          // This allows scrolling for the last heading on the page
+          // This allows scrolling for the last heading on the page.
           topHeader = headings[headings.length - 1];
           return true;
         }
       });
+      var oldActiveTocLink = tocElement.querySelector('.' + options.activeLinkClass);
+      var activeTocLink = tocElement.querySelector('.' + options.linkClass + '.node-name--' + topHeader.nodeName + '[href="' + options.basePath + '#' + topHeader.id.replace(/([ #;&,.+*~':"!^$[\]()=>|/\\@])/g, '\\$1') + '"]');
+      // Performance improvement to only change the classes
+      // for the toc if a new link should be highlighted.
+      if (oldActiveTocLink === activeTocLink) {
+        return;
+      }
 
       // Remove the active class from the other tocLinks.
-      var tocLinks = document.querySelector(options.tocSelector).querySelectorAll('.' + options.linkClass);
+      var tocLinks = tocElement.querySelectorAll('.' + options.linkClass);
       forEach.call(tocLinks, function (tocLink) {
-        tocLink.className = tocLink.className.split(SPACE_CHAR + options.activeLinkClass).join('');
+        updateClassname(tocLink, tocLink.className.replace(SPACE_CHAR + options.activeLinkClass, ''));
       });
-      var tocLis = document.querySelector(options.tocSelector).querySelectorAll('.' + options.listItemClass);
+      var tocLis = tocElement.querySelectorAll('.' + options.listItemClass);
       forEach.call(tocLis, function (tocLi) {
-        tocLi.className = tocLi.className.split(SPACE_CHAR + options.activeListItemClass).join('');
+        updateClassname(tocLi, tocLi.className.replace(SPACE_CHAR + options.activeListItemClass, ''));
       });
 
       // Add the active class to the active tocLink.
-      var activeTocLink = document.querySelector(options.tocSelector).querySelector('.' + options.linkClass + '.node-name--' + topHeader.nodeName + '[href="' + options.basePath + '#' + topHeader.id.replace(/([ #;&,.+*~':"!^$[\]()=>|/@])/g, '\\$1') + '"]');
-      if (activeTocLink.className.indexOf(options.activeLinkClass) === -1) {
+      if (activeTocLink && activeTocLink.className.indexOf(options.activeLinkClass) === -1) {
         activeTocLink.className += SPACE_CHAR + options.activeLinkClass;
       }
-      var li = activeTocLink.parentNode;
+      var li = activeTocLink && activeTocLink.parentNode;
       if (li && li.className.indexOf(options.activeListItemClass) === -1) {
         li.className += SPACE_CHAR + options.activeListItemClass;
       }
-      var tocLists = document.querySelector(options.tocSelector).querySelectorAll('.' + options.listClass + '.' + options.collapsibleClass);
+      var tocLists = tocElement.querySelectorAll('.' + options.listClass + '.' + options.collapsibleClass);
 
       // Collapse the other collapsible lists.
       forEach.call(tocLists, function (list) {
@@ -6619,21 +6726,21 @@ module.exports = function (options) {
       });
 
       // Expand the active link's collapsible list and its sibling if applicable.
-      if (activeTocLink.nextSibling && activeTocLink.nextSibling.className.indexOf(options.isCollapsedClass) !== -1) {
-        activeTocLink.nextSibling.className = activeTocLink.nextSibling.className.split(SPACE_CHAR + options.isCollapsedClass).join('');
+      if (activeTocLink && activeTocLink.nextSibling && activeTocLink.nextSibling.className.indexOf(options.isCollapsedClass) !== -1) {
+        updateClassname(activeTocLink.nextSibling, activeTocLink.nextSibling.className.replace(SPACE_CHAR + options.isCollapsedClass, ''));
       }
-      removeCollapsedFromParents(activeTocLink.parentNode.parentNode);
+      removeCollapsedFromParents(activeTocLink && activeTocLink.parentNode.parentNode);
     }
   }
 
   /**
-   * Remove collpased class from parent elements.
+   * Remove collapsed class from parent elements.
    * @param {HTMLElement} element
    * @return {HTMLElement}
    */
   function removeCollapsedFromParents(element) {
-    if (element.className.indexOf(options.collapsibleClass) !== -1 && element.className.indexOf(options.isCollapsedClass) !== -1) {
-      element.className = element.className.split(SPACE_CHAR + options.isCollapsedClass).join('');
+    if (element && element.className.indexOf(options.collapsibleClass) !== -1 && element.className.indexOf(options.isCollapsedClass) !== -1) {
+      updateClassname(element, element.className.replace(SPACE_CHAR + options.isCollapsedClass, ''));
       return removeCollapsedFromParents(element.parentNode.parentNode);
     }
     return element;
@@ -6660,17 +6767,37 @@ module.exports = function (options) {
     currentlyHighlighting = true;
   }
   return {
-    enableTocAnimation: enableTocAnimation,
-    disableTocAnimation: disableTocAnimation,
-    render: render,
-    updateToc: updateToc
+    enableTocAnimation,
+    disableTocAnimation,
+    render,
+    updateToc
   };
 };
 
 /***/ }),
 
-/***/ 8923:
+/***/ 287:
 /***/ ((module) => {
+
+/*
+ # -----------------------------------------------------------------------------
+ #  ~/js/tocbot/default-options.js
+ #  Tocbot v4.25.0 implementation for J1 Theme
+ #
+ #  Product/Info:
+ #  https://jekyll.one
+ #  https://tscanlin.github.io/tocbot
+ #  https://github.com/tscanlin/tocbot
+ #
+ #  Copyright (C) 2023, 2024 Juergen Adams
+ #  Copyright (C) 2016 - 2024 Tim Scanlin
+ #
+ #  J1 Theme is licensed under MIT License.
+ #  See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
+ #  Tocbot is licensed under the MIT License.
+ #  For details, https://github.com/tscanlin/tocbot/blob/master/LICENSE
+ # -----------------------------------------------------------------------------
+*/
 
 // -----------------------------------------------------------------------------
 // ESLint shimming
@@ -6678,7 +6805,14 @@ module.exports = function (options) {
 /* eslint indent: "off"                                                       */
 /* eslint no-undef: "off"                                                     */
 /* eslint no-unused-vars: "off"                                               */
+/* eslint semi: "off"                                                         */
 // -----------------------------------------------------------------------------
+
+/**
+ * This file is responsible for reading  default options
+ *
+ * @author Tim Scanlin
+ */
 
 module.exports = {
   // Where to render the table of contents.
@@ -6716,11 +6850,14 @@ module.exports = {
   // there are only 6 heading levels and number 0 will collapse them all.
   // The sections that are hidden will open
   // and close as you scroll to headings within them.
-  collapseDepth: 0,
+  collapseDepth: 3,
+  // 0
   // Smooth scrolling enabled.
-  scrollSmooth: true,
+  scrollSmooth: false,
+  // true,
   // Smooth scroll duration.
-  scrollSmoothDuration: 420,
+  scrollSmoothDuration: 0,
+  // 420,
   // Smooth scroll offset.
   scrollSmoothOffset: 0,
   // Callback for scroll end.
@@ -6740,8 +6877,12 @@ module.exports = {
   // element's offsetTop from the top of the document on init.
   fixedSidebarOffset: 'auto',
   // includeHtml can be set to true to include the HTML markup from the
-  // heading node instead of just including the textContent.
+  // heading node instead of just including the innerText.
   includeHtml: false,
+  // includeTitleTags automatically sets the html title tag of the link
+  // to match the title. This can be useful for SEO purposes or
+  // when truncating titles.
+  includeTitleTags: false,
   // onclick function to apply to all links in toc. will be called with
   // the event as the first parameter, and this can be used to stop,
   // propagation, prevent default or perform action
@@ -6755,7 +6896,9 @@ module.exports = {
   skipRendering: false,
   // Optional callback to change heading labels.
   // For example it can be used to cut down and put ellipses on multiline headings you deem too long.
-  // Called each time a heading is parsed. Expects a string in return, the modified label to display.
+  // Called each time a heading is parsed. Expects a string and returns the modified label to display.
+  // Additionally, the attribute `data-heading-label` may be used on a heading to specify
+  // a shorter string to be used in the TOC.
   // function (string) => string
   headingLabelCallback: false,
   // ignore headings that are hidden in DOM
@@ -6770,20 +6913,36 @@ module.exports = {
   basePath: '',
   // Only takes affect when `tocSelector` is scrolling,
   // keep the toc scroll position in sync with the content.
-  disableTocScrollSync: false
+  disableTocScrollSync: false,
+  // Offset for the toc scroll (top) position when scrolling the page.
+  // Only effective if `disableTocScrollSync` is false.
+  tocScrollOffset: 0
 };
 
 /***/ }),
 
-/***/ 6407:
+/***/ 798:
 /***/ ((module) => {
 
-/**
- * This file is responsible for parsing the content from the DOM and making
- * sure data is nested properly.
- *
- * @author Tim Scanlin
- */
+/*
+ # -----------------------------------------------------------------------------
+ #  ~/js/tocbot/parse-content.js
+ #  Tocbot v4.25.0 implementation for J1 Theme
+ #
+ #  Product/Info:
+ #  https://jekyll.one
+ #  https://tscanlin.github.io/tocbot
+ #  https://github.com/tscanlin/tocbot
+ #
+ #  Copyright (C) 2023, 2024 Juergen Adams
+ #  Copyright (C) 2016 - 2024 Tim Scanlin
+ #
+ #  J1 Theme is licensed under MIT License.
+ #  See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
+ #  Tocbot is licensed under the MIT License.
+ #  For details, https://github.com/tscanlin/tocbot/blob/master/LICENSE
+ # -----------------------------------------------------------------------------
+*/
 
 // -----------------------------------------------------------------------------
 // ESLint shimming
@@ -6792,6 +6951,13 @@ module.exports = {
 /* eslint no-undef: "off"                                                     */
 /* eslint semi: "off"                                                         */
 // -----------------------------------------------------------------------------
+
+/**
+ * This file is responsible for parsing the content from the DOM and making
+ * sure data is nested properly.
+ *
+ * @author Tim Scanlin
+ */
 
 module.exports = function parseContent(options) {
   var reduce = [].reduce;
@@ -6811,7 +6977,21 @@ module.exports = function parseContent(options) {
    * @return {Number}
    */
   function getHeadingLevel(heading) {
-    return +heading.nodeName.split('H').join('');
+    return +heading.nodeName.toUpperCase().replace('H', '');
+  }
+
+  /**
+   * Determine whether the object is an HTML Element.
+   * Also works inside iframes. HTML Elements might be created by the parent document.
+   * @param {Object} maybeElement
+   * @return {Number}
+   */
+  function isHTMLElement(maybeElement) {
+    try {
+      return maybeElement instanceof window.HTMLElement || maybeElement instanceof window.parent.HTMLElement;
+    } catch (e) {
+      return maybeElement instanceof window.HTMLElement;
+    }
   }
 
   /**
@@ -6823,16 +7003,17 @@ module.exports = function parseContent(options) {
     // each node is processed twice by this method because nestHeadingsArray() and addNode() calls it
     // first time heading is real DOM node element, second time it is obj
     // that is causing problem so I am processing only original DOM node
-    if (!(heading instanceof window.HTMLElement)) return heading;
+    if (!isHTMLElement(heading)) return heading;
     if (options.ignoreHiddenElements && (!heading.offsetHeight || !heading.offsetParent)) {
       return null;
     }
+    const headingLabel = heading.getAttribute('data-heading-label') || (options.headingLabelCallback ? String(options.headingLabelCallback(heading.innerText)) : (heading.innerText || heading.textContent).trim());
     var obj = {
       id: heading.id,
       children: [],
       nodeName: heading.nodeName,
       headingLevel: getHeadingLevel(heading),
-      textContent: options.headingLabelCallback ? String(options.headingLabelCallback(heading.textContent)) : heading.textContent.trim()
+      textContent: headingLabel
     };
     if (options.includeHtml) {
       obj.childNodes = heading.childNodes;
@@ -6858,7 +7039,10 @@ module.exports = function parseContent(options) {
     var counter = level - lastItemLevel;
     while (counter > 0) {
       lastItem = getLastItem(array);
-      if (lastItem && lastItem.children !== undefined) {
+      // Handle case where there are multiple h5+ in a row.
+      if (lastItem && level === lastItem.headingLevel) {
+        break;
+      } else if (lastItem && lastItem.children !== undefined) {
         array = lastItem.children;
       }
       counter--;
@@ -6872,11 +7056,11 @@ module.exports = function parseContent(options) {
 
   /**
    * Select headings in content area, exclude any selector in options.ignoreSelector
-   * @param {String} contentSelector
+   * @param {HTMLElement} contentElement
    * @param {Array} headingSelector
    * @return {Array}
    */
-  function selectHeadings(contentSelector, headingSelector) {
+  function selectHeadings(contentElement, headingSelector) {
     var selectors = headingSelector;
     if (options.ignoreSelector) {
       selectors = headingSelector.split(',').map(function mapSelectors(selector) {
@@ -6884,9 +7068,9 @@ module.exports = function parseContent(options) {
       });
     }
     try {
-      return document.querySelector(contentSelector).querySelectorAll(selectors);
+      return contentElement.querySelectorAll(selectors);
     } catch (e) {
-      console.warn('Element not found: ' + contentSelector); // eslint-disable-line
+      console.warn('Headers not found with selector: ' + selectors); // eslint-disable-line
       return null;
     }
   }
@@ -6908,172 +7092,20 @@ module.exports = function parseContent(options) {
     });
   }
   return {
-    nestHeadingsArray: nestHeadingsArray,
-    selectHeadings: selectHeadings
+    nestHeadingsArray,
+    selectHeadings
   };
 };
 
 /***/ }),
 
-/***/ 5968:
-/***/ ((__unused_webpack_module, exports) => {
-
-/*
- # -----------------------------------------------------------------------------
- #  ~/js/tocbot/scroll-smooth/index.js
- #  Scroll-Smooth (Tocbot v4.12.0) implementation for J1 Theme
- #
- #  Product/Info:
- #  https://jekyll.one
- #  https://tscanlin.github.io/tocbot
- #  https://github.com/tscanlin/tocbot
- #
- #  Copyright (C) 2023, 2024 Juergen Adams
- #  Copyright (C) 2016 Tim Scanlin
- #
- #  J1 Theme is licensed under MIT License.
- #  See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
- #  Tocbot is licensed under the MIT License.
- #  For details, https://github.com/tscanlin/tocbot/blob/master/LICENSE
- # -----------------------------------------------------------------------------
-*/
-
-// -----------------------------------------------------------------------------
-// ESLint shimming
-// -----------------------------------------------------------------------------
-/* eslint no-redeclare: "off"                                                 */
-/* eslint no-undef: "off"                                                     */
-/* eslint no-empty: "off"                                                     */
-/* eslint semi: "off"                                                         */
-// -----------------------------------------------------------------------------
-/* globals location, requestAnimationFrame */
-
-exports.initSmoothScrolling = initSmoothScrolling;
-function initSmoothScrolling(options) {
-  if (isCssSmoothSCrollSupported()) {}
-  var duration = options.duration;
-  var offset = options.offset;
-  var pageUrl = location.hash ? stripHash(location.href) : location.href;
-  delegatedLinkHijacking();
-  function delegatedLinkHijacking() {
-    document.body.addEventListener('click', onClick, false);
-    function onClick(e) {
-      if (!isInPageLink(e.target) || e.target.className.indexOf('no-smooth-scroll') > -1 || e.target.href.charAt(e.target.href.length - 2) === '#' && e.target.href.charAt(e.target.href.length - 1) === '!' || e.target.className.indexOf(options.linkClass) === -1) {
-        return;
-      }
-
-      // Don't prevent default or hash doesn't change.
-      // e.preventDefault()
-
-      // fixing-skip-to-content-links
-      // jump(e.target.hash, {
-      //   duration: duration,
-      //   offset: offset,
-      //   callback: function () {
-      //     setFocus(e.target.hash)
-      //   }
-      // })
-
-      // jadams, 2021-11-13
-      // fixing-skip-to-content-links, done by callback to focus(), seems
-      // NOT longer required for current browsers
-      jump(e.target.hash, {
-        duration: duration,
-        offset: offset,
-        callback: false
-      });
-    }
-  }
-  function isInPageLink(n) {
-    return n.tagName.toLowerCase() === 'a' && (n.hash.length > 0 || n.href.charAt(n.href.length - 1) === '#') && (stripHash(n.href) === pageUrl || stripHash(n.href) + '#' === pageUrl);
-  }
-  function stripHash(url) {
-    return url.slice(0, url.lastIndexOf('#'));
-  }
-  function isCssSmoothSCrollSupported() {
-    return 'scrollBehavior' in document.documentElement.style;
-  }
-
-  // Adapted from:
-  // https://www.nczonline.net/blog/2013/01/15/fixing-skip-to-content-links/
-  function setFocus(hash) {
-    var element = document.getElementById(hash.substring(1));
-    if (element) {
-      if (!/^(?:a|select|input|button|textarea)$/i.test(element.tagName)) {
-        element.tabIndex = -1;
-      }
-      element.focus();
-    }
-  }
-}
-function jump(target, options) {
-  var start = window.pageYOffset;
-  var opt = {
-    duration: options.duration,
-    offset: options.offset || 0,
-    callback: options.callback,
-    easing: options.easing || easeInOutQuad
-  };
-  // This makes ids that start with a number work: ('[id="' + decodeURI(target).split('#').join('') + '"]')
-  // DecodeURI for nonASCII hashes, they was encoded, but id was not encoded, it lead to not finding the tgt element by id.
-  // And this is for IE: document.body.scrollTop
-  var tgt = document.querySelector('[id="' + decodeURI(target).split('#').join('') + '"]');
-  var distance = typeof target === 'string' ? opt.offset + (target ? tgt && tgt.getBoundingClientRect().top || 0 // handle non-existent links better.
-  : -(document.documentElement.scrollTop || document.body.scrollTop)) : target;
-  var duration = typeof opt.duration === 'function' ? opt.duration(distance) : opt.duration;
-  var timeStart;
-  var timeElapsed;
-  requestAnimationFrame(function (time) {
-    timeStart = time;
-    loop(time);
-  });
-  function loop(time) {
-    timeElapsed = time - timeStart;
-    window.scrollTo(0, opt.easing(timeElapsed, start, distance, duration));
-    if (timeElapsed < duration) {
-      requestAnimationFrame(loop);
-    } else {
-      end();
-    }
-  }
-  function end() {
-    // window.scrollTo(0, start + distance)
-
-    // jadams, 2020-07-04: on (some?) mobile devices, the navbar
-    // background is NOT switched (always?) correctly on a
-    // page RELOAD.
-    //
-    // Solution: scroll the page one pixel back and forth (trigger)
-    // to get the right position for the Toccer and adjust the
-    // Navigator to display the (tranparent) navbar correctly based
-    // on their onscroll events registered.
-    //
-    // $(window).scrollTop($(window).scrollTop()+1);
-    // $(window).scrollTop($(window).scrollTop()-1);
-
-    if (typeof opt.callback === 'function') {
-      opt.callback();
-    }
-  }
-
-  // Robert Penner's easeInOutQuad - http://robertpenner.com/easing/
-  function easeInOutQuad(t, b, c, d) {
-    t /= d / 2;
-    if (t < 1) return c / 2 * t * t + b;
-    t--;
-    return -c / 2 * (t * (t - 2) - 1) + b;
-  }
-}
-
-/***/ }),
-
-/***/ 2799:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ 562:
+/***/ ((module, exports, __webpack_require__) => {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
  # -----------------------------------------------------------------------------
  #  ~/js/tocbot/tocbot.js
- #  Tocbot v4.12.0 implementation for J1 Theme
+ #  Tocbot v4.25.0 implementation for J1 Theme
  #
  #  Product/Info:
  #  https://jekyll.one
@@ -7081,7 +7113,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
  #  https://github.com/tscanlin/tocbot
  #
  #  Copyright (C) 2023, 2024 Juergen Adams
- #  Copyright (C) 2016 Tim Scanlin
+ #  Copyright (C) 2016 - 2024 Tim Scanlin
  #
  #  J1 Theme is licensed under MIT License.
  #  See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
@@ -7094,16 +7126,21 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 */
 
 // -----------------------------------------------------------------------------
+// jadams, 2024-03-26: DISBALED all scrolling functions
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
 // ESLint shimming
 // -----------------------------------------------------------------------------
 /* eslint indent: "off"                                                       */
 /* eslint no-undef: "off"                                                     */
+/* eslint no-unused-vars: "off"                                               */
 /* eslint semi: "off"                                                         */
 // -----------------------------------------------------------------------------
 
 /**
  * Tocbot
- * Tocbot creates a toble of contents based on HTML headings on a page,
+ * Tocbot creates a table of contents based on HTML headings on a page,
  * this allows users to easily jump to different sections of the document.
  * Tocbot was inspired by tocify (http://gregfranko.com/jquery.tocify.js/).
  * The main differences are that it works natively without any need for jquery or jquery UI).
@@ -7120,18 +7157,18 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 		(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
 		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
   } else {}
-})(typeof __webpack_require__.g !== 'undefined' ? __webpack_require__.g : this.window || this.global, function (root) {
+})(typeof __webpack_require__.g !== 'undefined' ? __webpack_require__.g : window || __webpack_require__.g, function (root) {
   'use strict';
 
   // Default options.
-  var defaultOptions = __webpack_require__(8923);
+  var defaultOptions = __webpack_require__(287);
   // Object to store current options.
   var options = {};
   // Object for public APIs.
   var tocbot = {};
-  var BuildHtml = __webpack_require__(4525);
-  var ParseContent = __webpack_require__(6407);
-  var updateTocScroll = __webpack_require__(1172);
+  var BuildHtml = __webpack_require__(823);
+  var ParseContent = __webpack_require__(798);
+  var updateTocScroll = __webpack_require__(429);
   // Keep these variables at top scope once options are passed in.
   var buildHtml;
   var parseContent;
@@ -7180,17 +7217,35 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       }
     };
   }
+  function getContentElement(options) {
+    try {
+      return options.contentElement || document.querySelector(options.contentSelector);
+    } catch (e) {
+      console.warn('Contents element not found: ' + options.contentSelector); // eslint-disable-line
+      return null;
+    }
+  }
+  function getTocElement(options) {
+    try {
+      return options.tocElement || document.querySelector(options.tocSelector);
+    } catch (e) {
+      console.warn('TOC element not found: ' + options.tocSelector); // eslint-disable-line
+      return null;
+    }
+  }
 
   /**
    * Destroy tocbot.
    */
   tocbot.destroy = function () {
+    var tocElement = getTocElement(options);
+    if (tocElement === null) {
+      return;
+    }
     if (!options.skipRendering) {
       // Clear HTML.
-      try {
-        document.querySelector(options.tocSelector).innerHTML = '';
-      } catch (e) {
-        console.warn('Element not found: ' + options.tocSelector); // eslint-disable-line
+      if (tocElement) {
+        tocElement.innerHTML = '';
       }
     }
 
@@ -7227,11 +7282,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     this.state = {};
 
     // Init smooth scroll if enabled (default).
-    if (options.scrollSmooth) {
-      options.duration = options.scrollSmoothDuration;
-      options.offset = options.scrollSmoothOffset;
-      tocbot.scrollSmooth = (__webpack_require__(5968).initSmoothScrolling)(options);
-    }
+    // if (options.scrollSmooth) {
+    //   options.duration = options.scrollSmoothDuration
+    //   options.offset = options.scrollSmoothOffset
+    //   tocbot.scrollSmooth = require('./scroll-smooth').initSmoothScrolling(options)
+    // }
 
     // Pass options to these modules.
     buildHtml = BuildHtml(options);
@@ -7240,12 +7295,21 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     // For testing purposes.
     this._buildHtml = buildHtml;
     this._parseContent = parseContent;
+    this._headingsArray = headingsArray;
 
     // Destroy it if it exists first.
     tocbot.destroy();
+    var contentElement = getContentElement(options);
+    if (contentElement === null) {
+      return;
+    }
+    var tocElement = getTocElement(options);
+    if (tocElement === null) {
+      return;
+    }
 
     // Get headings array.
-    headingsArray = parseContent.selectHeadings(options.contentSelector, options.headingSelector);
+    headingsArray = parseContent.selectHeadings(contentElement, options.headingSelector);
     // Return if no headings are found.
     if (headingsArray === null) {
       return;
@@ -7257,48 +7321,55 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
     // Render.
     if (!options.skipRendering) {
-      buildHtml.render(options.tocSelector, nestedHeadings);
+      buildHtml.render(tocElement, nestedHeadings);
+    } else {
+      // No need to attach listeners if skipRendering is true, this was causing errors.
+      return this;
     }
 
     // Update Sidebar and bind listeners.
-    this._scrollListener = throttle(function (e) {
-      buildHtml.updateToc(headingsArray);
-      !options.disableTocScrollSync && updateTocScroll(options);
-      var isTop = e && e.target && e.target.scrollingElement && e.target.scrollingElement.scrollTop === 0;
-      if (e && (e.eventPhase === 0 || e.currentTarget === null) || isTop) {
-        buildHtml.updateToc(headingsArray);
-        if (options.scrollEndCallback) {
-          options.scrollEndCallback(e);
-        }
-      }
-    }, options.throttleTimeout);
-    this._scrollListener();
-    if (options.scrollContainer && document.querySelector(options.scrollContainer)) {
-      document.querySelector(options.scrollContainer).addEventListener('scroll', this._scrollListener, false);
-      document.querySelector(options.scrollContainer).addEventListener('resize', this._scrollListener, false);
-    } else {
-      document.addEventListener('scroll', this._scrollListener, false);
-      document.addEventListener('resize', this._scrollListener, false);
-    }
+    // this._scrollListener = throttle(function (e) {
+    //   buildHtml.updateToc(headingsArray)
+    //   !options.disableTocScrollSync && updateTocScroll(options)
+    //   var isTop = e && e.target && e.target.scrollingElement && e.target.scrollingElement.scrollTop === 0
+    //   if ((e && (e.eventPhase === 0 || e.currentTarget === null)) || isTop) {
+    //     buildHtml.updateToc(headingsArray)
+    //     if (options.scrollEndCallback) {
+    //       options.scrollEndCallback(e)
+    //     }
+    //   }
+    // }, options.throttleTimeout)
+
+    // this._scrollListener()
+    // if (options.scrollContainer && document.querySelector(options.scrollContainer)) {
+    //   document.querySelector(options.scrollContainer).addEventListener('scroll', this._scrollListener, false)
+    //   document.querySelector(options.scrollContainer).addEventListener('resize', this._scrollListener, false)
+    // } else {
+    //   document.addEventListener('scroll', this._scrollListener, false)
+    //   document.addEventListener('resize', this._scrollListener, false)
+    // }
 
     // Bind click listeners to disable animation.
-    var timeout = null;
-    this._clickListener = throttle(function (event) {
-      if (options.scrollSmooth) {
-        buildHtml.disableTocAnimation(event);
-      }
-      buildHtml.updateToc(headingsArray);
-      // Timeout to re-enable the animation.
-      timeout && clearTimeout(timeout);
-      timeout = setTimeout(function () {
-        buildHtml.enableTocAnimation();
-      }, options.scrollSmoothDuration);
-    }, options.throttleTimeout);
-    if (options.scrollContainer && document.querySelector(options.scrollContainer)) {
-      document.querySelector(options.scrollContainer).addEventListener('click', this._clickListener, false);
-    } else {
-      document.addEventListener('click', this._clickListener, false);
-    }
+    // var timeout = null
+    // this._clickListener = throttle(function (event) {
+    //
+    //   if (options.scrollSmooth) {
+    //     buildHtml.disableTocAnimation(event)
+    //   }
+    //   buildHtml.updateToc(headingsArray)
+    //   // Timeout to re-enable the animation.
+    //   timeout && clearTimeout(timeout)
+    //   timeout = setTimeout(function () {
+    //     buildHtml.enableTocAnimation()
+    //   }, options.scrollSmoothDuration)
+    // }, options.throttleTimeout)
+    //
+    // if (options.scrollContainer && document.querySelector(options.scrollContainer)) {
+    //   document.querySelector(options.scrollContainer).addEventListener('click', this._clickListener, false)
+    // } else {
+    //   document.addEventListener('click', this._clickListener, false)
+    // }
+
     return this;
   };
 
@@ -7317,9 +7388,32 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 /***/ }),
 
-/***/ 1172:
+/***/ 429:
 /***/ ((module) => {
 
+/*
+ # -----------------------------------------------------------------------------
+ #  ~/js/tocbot/update-toc-scroll.js
+ #  Tocbot v4.25.0 implementation for J1 Theme
+ #
+ #  Product/Info:
+ #  https://jekyll.one
+ #  https://tscanlin.github.io/tocbot
+ #  https://github.com/tscanlin/tocbot
+ #
+ #  Copyright (C) 2023, 2024 Juergen Adams
+ #  Copyright (C) 2016 - 2024 Tim Scanlin
+ #
+ #  J1 Theme is licensed under MIT License.
+ #  See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
+ #  Tocbot is licensed under the MIT License.
+ #  For details, https://github.com/tscanlin/tocbot/blob/master/LICENSE
+ # -----------------------------------------------------------------------------
+*/
+
+// -----------------------------------------------------------------------------
+// ESLint shimming
+// -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 // ESLint shimming
 // -----------------------------------------------------------------------------
@@ -7328,19 +7422,35 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /* eslint semi: "off"                                                         */
 // -----------------------------------------------------------------------------
 
+const SCROLL_LEEWAY = 30;
 module.exports = function updateTocScroll(options) {
-  var toc = document.querySelector(options.tocSelector);
+  var toc = options.tocElement || document.querySelector(options.tocSelector);
   if (toc && toc.scrollHeight > toc.clientHeight) {
     var activeItem = toc.querySelector('.' + options.activeListItemClass);
     if (activeItem) {
-      toc.scrollTop = activeItem.offsetTop;
+      // Determine container top and bottom
+      var cTop = toc.scrollTop;
+      var cBottom = cTop + toc.clientHeight;
+
+      // Determine element top and bottom
+      var eTop = activeItem.offsetTop;
+      var eBottom = eTop + activeItem.clientHeight;
+
+      // Check if out of view
+      // Above scroll view
+      if (eTop < cTop + options.tocScrollOffset) {
+        toc.scrollTop -= cTop - eTop + options.tocScrollOffset;
+        // Below scroll view
+      } else if (eBottom > cBottom - options.tocScrollOffset - SCROLL_LEEWAY) {
+        toc.scrollTop += eBottom - cBottom + options.tocScrollOffset + 2 * SCROLL_LEEWAY;
+      }
     }
   }
 };
 
 /***/ }),
 
-/***/ 6808:
+/***/ 215:
 /***/ ((module, exports, __webpack_require__) => {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -7514,15 +7624,15 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 /***/ }),
 
-/***/ 3320:
+/***/ 210:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
 
-var loader = __webpack_require__(7990);
-var dumper = __webpack_require__(3150);
+var loader = __webpack_require__(243);
+var dumper = __webpack_require__(781);
 
 
 function renamed(from, to) {
@@ -7533,32 +7643,32 @@ function renamed(from, to) {
 }
 
 
-module.exports.Type = __webpack_require__(1364);
-module.exports.Schema = __webpack_require__(7657);
-module.exports.FAILSAFE_SCHEMA = __webpack_require__(4795);
-module.exports.JSON_SCHEMA = __webpack_require__(5966);
-module.exports.CORE_SCHEMA = __webpack_require__(9471);
-module.exports.DEFAULT_SCHEMA = __webpack_require__(6601);
+module.exports.Type = __webpack_require__(388);
+module.exports.Schema = __webpack_require__(119);
+module.exports.FAILSAFE_SCHEMA = __webpack_require__(759);
+module.exports.JSON_SCHEMA = __webpack_require__(184);
+module.exports.CORE_SCHEMA = __webpack_require__(769);
+module.exports.DEFAULT_SCHEMA = __webpack_require__(489);
 module.exports.load                = loader.load;
 module.exports.loadAll             = loader.loadAll;
 module.exports.dump                = dumper.dump;
-module.exports.YAMLException = __webpack_require__(8425);
+module.exports.YAMLException = __webpack_require__(231);
 
 // Re-export all types in case user wants to create custom schema
 module.exports.types = {
-  binary:    __webpack_require__(3531),
-  float:     __webpack_require__(5215),
-  map:       __webpack_require__(945),
-  null:      __webpack_require__(151),
-  pairs:     __webpack_require__(6879),
-  set:       __webpack_require__(4982),
-  timestamp: __webpack_require__(2156),
-  bool:      __webpack_require__(8771),
-  int:       __webpack_require__(1518),
-  merge:     __webpack_require__(7452),
-  omap:      __webpack_require__(1605),
-  seq:       __webpack_require__(6451),
-  str:       __webpack_require__(48)
+  binary:    __webpack_require__(342),
+  float:     __webpack_require__(461),
+  map:       __webpack_require__(369),
+  null:      __webpack_require__(198),
+  pairs:     __webpack_require__(942),
+  set:       __webpack_require__(663),
+  timestamp: __webpack_require__(127),
+  bool:      __webpack_require__(199),
+  int:       __webpack_require__(466),
+  merge:     __webpack_require__(851),
+  omap:      __webpack_require__(946),
+  seq:       __webpack_require__(636),
+  str:       __webpack_require__(212)
 };
 
 // Removed functions from JS-YAML 3.0.x
@@ -7569,7 +7679,7 @@ module.exports.safeDump            = renamed('safeDump', 'dump');
 
 /***/ }),
 
-/***/ 8347:
+/***/ 433:
 /***/ ((module) => {
 
 "use strict";
@@ -7636,7 +7746,7 @@ module.exports.extend         = extend;
 
 /***/ }),
 
-/***/ 3150:
+/***/ 781:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -7644,9 +7754,9 @@ module.exports.extend         = extend;
 
 /*eslint-disable no-use-before-define*/
 
-var common              = __webpack_require__(8347);
-var YAMLException       = __webpack_require__(8425);
-var DEFAULT_SCHEMA      = __webpack_require__(6601);
+var common              = __webpack_require__(433);
+var YAMLException       = __webpack_require__(231);
+var DEFAULT_SCHEMA      = __webpack_require__(489);
 
 var _toString       = Object.prototype.toString;
 var _hasOwnProperty = Object.prototype.hasOwnProperty;
@@ -8609,7 +8719,7 @@ module.exports.dump = dump;
 
 /***/ }),
 
-/***/ 8425:
+/***/ 231:
 /***/ ((module) => {
 
 "use strict";
@@ -8672,7 +8782,7 @@ module.exports = YAMLException;
 
 /***/ }),
 
-/***/ 7990:
+/***/ 243:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -8680,10 +8790,10 @@ module.exports = YAMLException;
 
 /*eslint-disable max-len,no-use-before-define*/
 
-var common              = __webpack_require__(8347);
-var YAMLException       = __webpack_require__(8425);
-var makeSnippet         = __webpack_require__(192);
-var DEFAULT_SCHEMA      = __webpack_require__(6601);
+var common              = __webpack_require__(433);
+var YAMLException       = __webpack_require__(231);
+var makeSnippet         = __webpack_require__(83);
+var DEFAULT_SCHEMA      = __webpack_require__(489);
 
 
 var _hasOwnProperty = Object.prototype.hasOwnProperty;
@@ -10407,7 +10517,7 @@ module.exports.load    = load;
 
 /***/ }),
 
-/***/ 7657:
+/***/ 119:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -10415,8 +10525,8 @@ module.exports.load    = load;
 
 /*eslint-disable max-len*/
 
-var YAMLException = __webpack_require__(8425);
-var Type          = __webpack_require__(1364);
+var YAMLException = __webpack_require__(231);
+var Type          = __webpack_require__(388);
 
 
 function compileList(schema, name) {
@@ -10536,7 +10646,7 @@ module.exports = Schema;
 
 /***/ }),
 
-/***/ 9471:
+/***/ 769:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -10550,12 +10660,12 @@ module.exports = Schema;
 
 
 
-module.exports = __webpack_require__(5966);
+module.exports = __webpack_require__(184);
 
 
 /***/ }),
 
-/***/ 6601:
+/***/ 489:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -10569,23 +10679,23 @@ module.exports = __webpack_require__(5966);
 
 
 
-module.exports = (__webpack_require__(9471).extend)({
+module.exports = (__webpack_require__(769).extend)({
   implicit: [
-    __webpack_require__(2156),
-    __webpack_require__(7452)
+    __webpack_require__(127),
+    __webpack_require__(851)
   ],
   explicit: [
-    __webpack_require__(3531),
-    __webpack_require__(1605),
-    __webpack_require__(6879),
-    __webpack_require__(4982)
+    __webpack_require__(342),
+    __webpack_require__(946),
+    __webpack_require__(942),
+    __webpack_require__(663)
   ]
 });
 
 
 /***/ }),
 
-/***/ 4795:
+/***/ 759:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -10596,21 +10706,21 @@ module.exports = (__webpack_require__(9471).extend)({
 
 
 
-var Schema = __webpack_require__(7657);
+var Schema = __webpack_require__(119);
 
 
 module.exports = new Schema({
   explicit: [
-    __webpack_require__(48),
-    __webpack_require__(6451),
-    __webpack_require__(945)
+    __webpack_require__(212),
+    __webpack_require__(636),
+    __webpack_require__(369)
   ]
 });
 
 
 /***/ }),
 
-/***/ 5966:
+/***/ 184:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -10625,26 +10735,26 @@ module.exports = new Schema({
 
 
 
-module.exports = (__webpack_require__(4795).extend)({
+module.exports = (__webpack_require__(759).extend)({
   implicit: [
-    __webpack_require__(151),
-    __webpack_require__(8771),
-    __webpack_require__(1518),
-    __webpack_require__(5215)
+    __webpack_require__(198),
+    __webpack_require__(199),
+    __webpack_require__(466),
+    __webpack_require__(461)
   ]
 });
 
 
 /***/ }),
 
-/***/ 192:
+/***/ 83:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
 
-var common = __webpack_require__(8347);
+var common = __webpack_require__(433);
 
 
 // get snippet for a single line, respecting maxLength
@@ -10746,13 +10856,13 @@ module.exports = makeSnippet;
 
 /***/ }),
 
-/***/ 1364:
+/***/ 388:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var YAMLException = __webpack_require__(8425);
+var YAMLException = __webpack_require__(231);
 
 var TYPE_CONSTRUCTOR_OPTIONS = [
   'kind',
@@ -10820,7 +10930,7 @@ module.exports = Type;
 
 /***/ }),
 
-/***/ 3531:
+/***/ 342:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -10829,7 +10939,7 @@ module.exports = Type;
 /*eslint-disable no-bitwise*/
 
 
-var Type = __webpack_require__(1364);
+var Type = __webpack_require__(388);
 
 
 // [ 64, 65, 66 ] -> [ padding, CR, LF ]
@@ -10953,13 +11063,13 @@ module.exports = new Type('tag:yaml.org,2002:binary', {
 
 /***/ }),
 
-/***/ 8771:
+/***/ 199:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var Type = __webpack_require__(1364);
+var Type = __webpack_require__(388);
 
 function resolveYamlBoolean(data) {
   if (data === null) return false;
@@ -10996,14 +11106,14 @@ module.exports = new Type('tag:yaml.org,2002:bool', {
 
 /***/ }),
 
-/***/ 5215:
+/***/ 461:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var common = __webpack_require__(8347);
-var Type   = __webpack_require__(1364);
+var common = __webpack_require__(433);
+var Type   = __webpack_require__(388);
 
 var YAML_FLOAT_PATTERN = new RegExp(
   // 2.5e4, 2.5 and integers
@@ -11101,14 +11211,14 @@ module.exports = new Type('tag:yaml.org,2002:float', {
 
 /***/ }),
 
-/***/ 1518:
+/***/ 466:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var common = __webpack_require__(8347);
-var Type   = __webpack_require__(1364);
+var common = __webpack_require__(433);
+var Type   = __webpack_require__(388);
 
 function isHexCode(c) {
   return ((0x30/* 0 */ <= c) && (c <= 0x39/* 9 */)) ||
@@ -11265,13 +11375,13 @@ module.exports = new Type('tag:yaml.org,2002:int', {
 
 /***/ }),
 
-/***/ 945:
+/***/ 369:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var Type = __webpack_require__(1364);
+var Type = __webpack_require__(388);
 
 module.exports = new Type('tag:yaml.org,2002:map', {
   kind: 'mapping',
@@ -11281,13 +11391,13 @@ module.exports = new Type('tag:yaml.org,2002:map', {
 
 /***/ }),
 
-/***/ 7452:
+/***/ 851:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var Type = __webpack_require__(1364);
+var Type = __webpack_require__(388);
 
 function resolveYamlMerge(data) {
   return data === '<<' || data === null;
@@ -11301,13 +11411,13 @@ module.exports = new Type('tag:yaml.org,2002:merge', {
 
 /***/ }),
 
-/***/ 151:
+/***/ 198:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var Type = __webpack_require__(1364);
+var Type = __webpack_require__(388);
 
 function resolveYamlNull(data) {
   if (data === null) return true;
@@ -11344,13 +11454,13 @@ module.exports = new Type('tag:yaml.org,2002:null', {
 
 /***/ }),
 
-/***/ 1605:
+/***/ 946:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var Type = __webpack_require__(1364);
+var Type = __webpack_require__(388);
 
 var _hasOwnProperty = Object.prototype.hasOwnProperty;
 var _toString       = Object.prototype.toString;
@@ -11396,13 +11506,13 @@ module.exports = new Type('tag:yaml.org,2002:omap', {
 
 /***/ }),
 
-/***/ 6879:
+/***/ 942:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var Type = __webpack_require__(1364);
+var Type = __webpack_require__(388);
 
 var _toString = Object.prototype.toString;
 
@@ -11457,13 +11567,13 @@ module.exports = new Type('tag:yaml.org,2002:pairs', {
 
 /***/ }),
 
-/***/ 6451:
+/***/ 636:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var Type = __webpack_require__(1364);
+var Type = __webpack_require__(388);
 
 module.exports = new Type('tag:yaml.org,2002:seq', {
   kind: 'sequence',
@@ -11473,13 +11583,13 @@ module.exports = new Type('tag:yaml.org,2002:seq', {
 
 /***/ }),
 
-/***/ 4982:
+/***/ 663:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var Type = __webpack_require__(1364);
+var Type = __webpack_require__(388);
 
 var _hasOwnProperty = Object.prototype.hasOwnProperty;
 
@@ -11510,13 +11620,13 @@ module.exports = new Type('tag:yaml.org,2002:set', {
 
 /***/ }),
 
-/***/ 48:
+/***/ 212:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var Type = __webpack_require__(1364);
+var Type = __webpack_require__(388);
 
 module.exports = new Type('tag:yaml.org,2002:str', {
   kind: 'scalar',
@@ -11526,13 +11636,13 @@ module.exports = new Type('tag:yaml.org,2002:str', {
 
 /***/ }),
 
-/***/ 2156:
+/***/ 127:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var Type = __webpack_require__(1364);
+var Type = __webpack_require__(388);
 
 var YAML_DATE_REGEXP = new RegExp(
   '^([0-9][0-9][0-9][0-9])'          + // [1] year
@@ -11622,7 +11732,7 @@ module.exports = new Type('tag:yaml.org,2002:timestamp', {
 
 /***/ }),
 
-/***/ 8578:
+/***/ 194:
 /***/ (function(module, exports) {
 
 /**
@@ -11636,7 +11746,7 @@ module.exports = new Type('tag:yaml.org,2002:timestamp', {
 
 /***/ }),
 
-/***/ 9979:
+/***/ 863:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -11913,7 +12023,7 @@ return log4javascript;},this);
 
 /***/ }),
 
-/***/ 1795:
+/***/ 503:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* module decorator */ module = __webpack_require__.nmd(module);
@@ -13271,11 +13381,11 @@ var __webpack_exports__ = {};
 // Following objects (native node modules) are *explicitely* forced to be
 // exposed for run-time to the global namespace (window).
 // -----------------------------------------------------------------------------
-window.Cookies = __webpack_require__(6808);
-window.yaml = __webpack_require__(3320);
-window.log4javascript = __webpack_require__(9979);
-window.liteURL = __webpack_require__(8578);
-window.platform = __webpack_require__(1795);
+window.Cookies = __webpack_require__(215);
+window.yaml = __webpack_require__(210);
+window.log4javascript = __webpack_require__(863);
+window.liteURL = __webpack_require__(194);
+window.platform = __webpack_require__(503);
 
 // Core Libraries - build|required from SOURCE
 // -----------------------------------------------------------------------------
@@ -13286,14 +13396,14 @@ window.platform = __webpack_require__(1795);
 // window.deeplTranslator               = require('./js/deepl-translator');     // J1 Module deeplAPI used instead
 // window.j1.fab                        = require('./js/fab/fab.js');           // cannot used until NOT rewritten to jQuery
 
-window.j1.adapter = __webpack_require__(8476);
-window.j1.anime = __webpack_require__(8921); // added for fab
-window.j1.lazyCSS = __webpack_require__(1131);
-window.j1.core = __webpack_require__(6602);
-window.j1.core.parseContent = __webpack_require__(3291);
-window.j1.core.navigator = __webpack_require__(3490);
-window.j1.core.asciidoctor = __webpack_require__(6977);
-window.j1.core.scrollSmooth = __webpack_require__(8814);
+window.j1.adapter = __webpack_require__(922);
+window.j1.anime = __webpack_require__(258); // added for fab
+window.j1.lazyCSS = __webpack_require__(338);
+window.j1.core = __webpack_require__(434);
+window.j1.core.parseContent = __webpack_require__(435);
+window.j1.core.navigator = __webpack_require__(102);
+window.j1.core.asciidoctor = __webpack_require__(702);
+window.j1.core.scrollSmooth = __webpack_require__(150);
 
 // Following source objects|modules are *implicetly* forced to be
 // exposed for run-time to the global namespace (window).
@@ -13305,10 +13415,10 @@ window.j1.core.scrollSmooth = __webpack_require__(8814);
 
 // const BootstrapJS                      = require('./node_modules/bootstrap/dist/js/bootstrap.js');
 
-const J1Tocbot = __webpack_require__(2799);
-const J1AttrChangeListener = __webpack_require__(5771);
-const J1Speak2Me = __webpack_require__(229);
-const J1SCarousel = __webpack_require__(1254);
+const J1Tocbot = __webpack_require__(562);
+const J1AttrChangeListener = __webpack_require__(497);
+const J1Speak2Me = __webpack_require__(544);
+const J1SCarousel = __webpack_require__(196);
 
 // Passing log data over Internet|SeeMe (currently NOT used)
 // -----------------------------------------------------------------------------
@@ -13345,7 +13455,7 @@ const J1SCarousel = __webpack_require__(1254);
 
 // Additional Vanilla JS helpers
 // -----------------------------------------------------------------------------
-const J1AdocResultViewer = __webpack_require__(1253);
+const J1AdocResultViewer = __webpack_require__(784);
 // const MSIEPolyfills                  = require('./js/polyfills/ms-ie.js');
 
 // HMR messages  (currently NOT used)

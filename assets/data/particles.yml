@@ -9,13 +9,13 @@
         }
       },
       "color": {
-        "value": "#ffffff"
+        "value": "var(--bs-white)"
       },
       "shape": {
         "type": "image",
         "stroke": {
           "width": 0,
-          "color": "#000000"
+          "color": "var(--bs-black)"
         },
         "polygon": {
           "nb_sides": 5
@@ -49,7 +49,7 @@
       "line_linked": {
         "enable": false,
         "distance": 500,
-        "color": "#ffffff",
+        "color": "var(--bs-white)",
         "opacity": 0.4,
         "width": 2
       },
@@ -121,13 +121,13 @@
         }
       },
       "color": {
-        "value": "#ffffff"
+        "value": "var(--bs-white)"
       },
       "shape": {
         "type": "circle",
         "stroke": {
           "width": 0,
-          "color": "#ff0000"
+          "color": "var(--bs-red)"
         },
         "polygon": {
           "nb_sides": 5
@@ -161,7 +161,7 @@
       "line_linked": {
         "enable": true,
         "distance": 100,
-        "color": "#ffffff",
+        "color": "var(--bs-white)",
         "opacity": 1,
         "width": 1
       },

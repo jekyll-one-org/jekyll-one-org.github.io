@@ -13,9 +13,9 @@
  # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2024-01-15 22:18:27 +0100
+ #  Adapter generated: 2024-04-01 01:16:05 +0200
  # -----------------------------------------------------------------------------
 */
-'use strict';j1.adapter.chatbot=function(t,e){var n,a,i;new URL(e.location.href).hostname,document.createElement('script'),t.getCookieNames(),(new Date).toISOString();return{init:function(){var e=setInterval(function(){var n='block'==$('#no_flicker').css("display");t.adapter.attic.getState();'finished'===t.getState()&&n&&((a=log4javascript.getLogger('j1.adapter.chatbot')).info("\nchatbot: disabled"),clearInterval(e))},10)},messageHandler:function(t,e){var n=JSON.stringify(e,undefined,2);return i="\nreceived message from "+t+': '+n,a.debug(i),'command'===e.type&&'module_initialized'===e.action&&a.info('\n'+e.text),!0},setState:function(t){n.state=t},getState:function(){return n.state}}}(j1,window);
+'use strict';j1.adapter.chatbot=((e,t)=>{var a,n,i,o,r;new URL(t.location.href).hostname,document.createElement('script'),e.getCookieNames(),(new Date).toISOString();return{init:()=>{var t=setInterval(()=>{var a='block'===$('#content').css("display");'finished'===e.getState()&&a&&(o=Date.now(),(n=log4javascript.getLogger('j1.adapter.chatbot')).info("\nchatbot: disabled"),r=Date.now(),n.info("\nmodule initializing time: "+(r-o)+'ms'),clearInterval(t))},10)},messageHandler:(e,t)=>{var a=JSON.stringify(t,undefined,2);return i="\nreceived message from "+e+': '+a,n.debug(i),'command'===t.type&&'module_initialized'===t.action&&n.info('\n'+t.text),!0},setState:e=>{a.state=e},getState:()=>a.state}})(j1,window);
 
 

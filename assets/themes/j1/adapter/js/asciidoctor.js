@@ -13,9 +13,9 @@
  # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2024-01-15 22:18:27 +0100
+ #  Adapter generated: 2024-04-01 01:16:05 +0200
  # -----------------------------------------------------------------------------
 */
-'use strict';j1.adapter.asciidoctor=function(t){var e,i,a;return{init:function(a){$.extend({module_name:'j1.adapter.rtable',generated:'2024-01-15 22:18:27 +0100'},a);e=t.adapter.asciidoctor,i=log4javascript.getLogger('j1.adapter.asciidoctor'),e.setState('started'),i.debug("\nstate: "+e.getState()),i.info("\nmodule is being initialized");var n="\nasciidoctor is being initialized";i.info(n);var r=setInterval(function(){'finished'==t.getState()&&(t.core.asciidoctor.init(),e.setState('finished'),i.debug("\nstate: "+e.getState()),clearInterval(r))},10)},messageHandler:function(t,e){var n=JSON.stringify(e,undefined,2);return a="\nreceived message from "+t+': '+n,i.debug(a),'command'===e.type&&'module_initialized'===e.action&&i.info('\n'+e.text),!0},setState:function(t){e.state=t},getState:function(){return e.state}}}(j1,window);
+'use strict';j1.adapter.asciidoctor=(e=>{var t,i,a,n,d;return{init:a=>{$.extend({module_name:'j1.adapter.rtable',generated:'2024-04-01 01:16:05 +0200'},a);t=e.adapter.asciidoctor,i=log4javascript.getLogger('j1.adapter.asciidoctor');var r=setInterval(()=>{'finished'===e.getState()&&(n=Date.now(),t.setState('started'),i.debug("\nstate: "+t.getState()),i.info("\nmodule is being initialized"),e.core.asciidoctor.init(),t.setState('finished'),i.debug("\nstate: "+t.getState()),i.info("\ninitializing module: finished"),d=Date.now(),i.info("\nmodule initializing time: "+(d-n)+'ms'),clearInterval(r))},10)},messageHandler:(e,t)=>{var n=JSON.stringify(t,undefined,2);return a="\nreceived message from "+e+': '+n,i.debug(a),'command'===t.type&&'module_initialized'===t.action&&i.info('\n'+t.text),!0},setState:e=>{t.state=e},getState:()=>t.state}})(j1,window);
 
 

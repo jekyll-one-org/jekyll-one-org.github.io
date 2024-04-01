@@ -60,10 +60,12 @@
 
     var videoSettings = {
         autoplayFirstVideo: true,
+        htmlPlayerParams: false,
         youTubePlayerParams: false,
         vimeoPlayerParams: false,
-        wistiaPlayerParams: false,
         dailymotionPlayerParams: false,
+        wistiaPlayerParams: false,
+        tiktokPlayerParams: false,
         gotoNextSlideOnVideoEnd: true,
         autoplayVideoOnSlide: false,
         videojs: false,
@@ -174,6 +176,28 @@
         return vimeoPlayerParams;
     };
 
+    var getTikTokURLParams = function (defaultParams, videoInfo) {
+        if (!videoInfo || !videoInfo.tiktok)
+            return '';
+        var urlParams = videoInfo.tiktok[2] || '';
+        var defaultPlayerParams = defaultParams && Object.keys(defaultParams).length !== 0
+            ? '&' + param(defaultParams)
+            : '';
+        // Support private video
+        var urlWithHash = videoInfo.tiktok[0].split('/').pop() || '';
+        var urlWithHashWithParams = urlWithHash.split('?')[0] || '';
+        var hash = urlWithHashWithParams.split('#')[0];
+        var isPrivate = videoInfo.tiktok[1] !== hash;
+        if (isPrivate) {
+            urlParams = urlParams.replace("/" + hash, '');
+        }
+        urlParams =
+            urlParams[0] == '?' ? '&' + urlParams.slice(1) : urlParams || '';
+        // For vimeo last params gets priority if duplicates found
+        var tiktokPlayerParams = "?autoplay=0&muted=1" + defaultPlayerParams + urlParams;
+        return tiktokPlayerParams;
+    };
+
     // -------------------------------------------------------------------------
     // loadVtt
     // Loads a given WEBVTT file (from data path) and process loaded
@@ -195,8 +219,18 @@
 
     /**
      * Video module for lightGallery
-     * Supports HTML5, YouTube, Vimeo, wistia videos
+     * Supports HTML5, YouTube, Vimeo, Wistia, Dailymotion, TikToc
      *
+
+     * @ref Youtube
+     * https://developers.google.com/youtube/player_parameters#enablejsapi
+     * https://developers.google.com/youtube/iframe_api_reference
+     * https://developer.chrome.com/blog/autoplay/#iframe-delegation
+     *
+     * @ref Vimeo
+     * https://stackoverflow.com/questions/10488943/easy-way-to-get-vimeo-id-from-a-vimeo-url
+     * https://vimeo.zendesk.com/hc/en-us/articles/360000121668-Starting-playback-at-a-specific-timecode
+     * https://vimeo.zendesk.com/hc/en-us/articles/360001494447-Using-Player-Parameters
      *
      * @ref Wistia
      * https://wistia.com/support/integrations/wordpress(How to get url)
@@ -208,15 +242,6 @@
      * https://wistia.com/support/embed-and-share/sharing-videos
      * https://private-sharing.wistia.com/medias/mwhrulrucj
      *
-     * @ref Youtube
-     * https://developers.google.com/youtube/player_parameters#enablejsapi
-     * https://developers.google.com/youtube/iframe_api_reference
-     * https://developer.chrome.com/blog/autoplay/#iframe-delegation
-     *
-     * @ref Vimeo
-     * https://stackoverflow.com/questions/10488943/easy-way-to-get-vimeo-id-from-a-vimeo-url
-     * https://vimeo.zendesk.com/hc/en-us/articles/360000121668-Starting-playback-at-a-specific-timecode
-     * https://vimeo.zendesk.com/hc/en-us/articles/360001494447-Using-Player-Parameters
      */
     var Video = /** @class */ (function () {
         function Video(instance) {
@@ -289,6 +314,9 @@
                 });
                 // Automatically navigate to next slide once video reaches the end.
                 this.gotoNextSlideOnVideoEnd(src, index);
+            } else {
+              // jadams
+              var slideItem = this.core.getSlideItem(index);
             }
         };
 
@@ -359,8 +387,7 @@
 
         Video.prototype.getVideoHtml = function (src, addClass, index, html5Video) {
             var video = '';
-            var videoInfo = this.core.galleryItems[index]
-                .__slideVideoInfo || {};
+            var videoInfo = this.core.galleryItems[index].__slideVideoInfo || {};
             var currentGalleryItem = this.core.galleryItems[index];
             var videoTitle = currentGalleryItem.title || currentGalleryItem.alt;
             videoTitle = videoTitle ? 'title="' + videoTitle + '"' : '';
@@ -379,6 +406,7 @@
                 var playerParams = getVimeoURLParams(this.settings.vimeoPlayerParams, videoInfo);
                 video = "<iframe allow=\"autoplay\" id=" + videoId + " class=\"lg-video-object lg-vimeo " + addClass + "\" " + videoTitle + " src=\"//player.vimeo.com/video/" + (videoInfo.vimeo[1] + playerParams) + "\" " + commonIframeProps + "></iframe>";
             }
+            // jadams: added Wistia Player
             else if (videoInfo.wistia) {
                 var wistiaId = 'lg-wistia' + index;
                 var playerParams = param(this.settings.wistiaPlayerParams);
@@ -390,7 +418,13 @@
                 var dailymotionId = 'lg-dailymotion' + index;
                 var playerParams = param(this.settings.dailymotionPlayerParams);
                 playerParams = playerParams ? '?' + playerParams : '';
-                video = "<iframe allow=\"autoplay\" id=\"" + dailymotionId + "\" src=\"//www.dailymotion.com/embed/video/" + (videoInfo.dailymotion[1] + playerParams) + "\" " + videoTitle + " class=\"dailymotion_embed lg-video-object lg-dailymotion " + addClass + "\" name=\"dailymotion_embed\" " + commonIframeProps + "></iframe>"
+                video = "<iframe allow=\"autoplay\" id=\"" + dailymotionId + "\" src=\"//www.dailymotion.com/embed/video/" + (videoInfo.dailymotion[1] + playerParams) + "\" " + videoTitle + " class=\"dailymotion_embed lg-video-object lg-dailymotion " + addClass + "\" name=\"dailymotion_embed\" " + commonIframeProps + "></iframe>";
+            }
+            // jadams, 2024-01-22: added TicToc Player
+            else if (videoInfo.tiktoc) {
+                var tictocId = 'lg-tictoc' + index;
+                var playerParams = getTikTokURLParams(this.settings.TicTocPlayerParams);
+                video = "<iframe allow=\"autoplay\" id=" + videoId + " class=\"lg-video-object lg-tictoc " + addClass + "\" " + videoTitle + " src=\"//tiktok.com/embed/" + (videoInfo.tiktoc[1]) + "\" " + videoTitle + commonIframeProps + "></iframe>";
             }
             else if (videoInfo.html5) {
                 var html5VideoMarkup = '';
@@ -405,7 +439,6 @@
                             trackAttributes += key + "=\"" + track[key] + "\" ";
                         });
                         html5VideoMarkup += "<track " + trackAttributes + ">";
-//                      html5VideoMarkup += '<track default="true" kind="captions" src="/assets/videos/gallery/vtt/captions/video1.vtt" srclang="en" label="Captions">';
                     };
                     for (var i = 0; i < html5Video.tracks.length; i++) {
                         _loop_1(i);
@@ -496,7 +529,7 @@
         };
 
         Video.prototype.controlVideo = function (index, action) {
-            var trackSrc, $videoElement, videoInfo, videoData, videoId, videojsPlayer, zoomPlugin;
+            var trackSrc, $videoElement, videoInfo, videoStart, videoData, videoId, videojsPlayer, zoomPlugin;
 
             var chapterTracksEnabled = false;
             var zoomPluginDefaults   = {
@@ -514,9 +547,9 @@
 
             // zoom and chapter tracks only available for HTML5 video
             //
-            if (videoInfo.html5) {
+            if (this.core.galleryItems[this.core.index].video !== undefined && videoInfo.html5) {
               videoData = JSON.parse(this.core.galleryItems[this.core.index].video);
-              if (videoData.tracks.length > 0) {
+              if (videoData.tracks !== undefined && videoData.tracks.length > 0) {
                 for (var i=0; i<videoData.tracks.length; i++) {
                   if (videoData.tracks[i].kind == 'chapters') {
                     trackSrc = videoData.tracks[i].src;
@@ -529,10 +562,21 @@
               videojsPlayer = videojs(videoId);
 
               // jadams, 2023-12-11: added VideoJS zoomPlugin
-              // -----------------------------------------------------------------
+              // ---------------------------------------------------------------
               var zoomPlugin = this.settings.videojsOptions.zoomPlugin;
-              if (zoomPlugin != undefined && zoomPlugin.enabled) {
 
+              //  jadams, 2024-01-22: added video start position
+              // ---------------------------------------------------------------
+              if (zoomPlugin !== undefined && this.settings.videojsOptions.videoStart) {
+                videoStart = this.settings.videojsOptions.videoStart[index];
+                videojsPlayer.on("play", function() {
+                  var startFromSecond = new Date('1970-01-01T' + videoStart + 'Z').getTime() / 1000;
+                  videojsPlayer.currentTime(startFromSecond);
+
+                }); // END on "play"
+              } // END if videoStart
+
+              if (zoomPlugin !== undefined && zoomPlugin.enabled) {
                 zoomPlugin.settings = __assign(__assign({}, zoomPluginDefaults), zoomPlugin.options);
                 videojsPlayer.zoomPlugin({
                   moveX:  zoomPlugin.settings.moveX,
@@ -561,12 +605,12 @@
               }; // END callback
 
               // load chapter tracks
-              //
               loadVtt(trackSrc, cb_load);
 
               // add chapter tracks on play
-              //
               videojsPlayer.on("play", function() {
+                videojsPlayer.currentTime(videoStart);
+
                 var total    = videojsPlayer.duration();
                 var timeline = $(videojsPlayer.controlBar.progressControl.children_[0].el_);
 
@@ -646,7 +690,7 @@
             var _this = this;
             // check slide has poster
             if (!$el.hasClass('lg-video-loaded')) {
-                // check already video element present
+                // check if video element present
                 if (!$el.hasClass('lg-has-video')) {
                     $el.addClass('lg-has-video');
                     var _html = void 0;

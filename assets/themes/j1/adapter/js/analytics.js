@@ -13,9 +13,9 @@
  # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2024-01-15 22:18:27 +0100
+ #  Adapter generated: 2024-04-01 01:16:05 +0200
  # -----------------------------------------------------------------------------
 */
-'use strict';j1.adapter.analytics=function(e,t){var n,i,o,a,r;new liteURL(t.location.href).hostname,document.createElement('script'),e.getCookieNames(),(new Date).toISOString();return{init:function(){setInterval(function(){var t='block'==$('#no_flicker').css("display");'finished'===e.getState()&&t&&(n=$.extend({},{enabled:!1,provider:"webwhiz",trackingID:"your-tracking-id",skipAllHosts:"localhost, 127.0.0.1",google:{optInOut:!0,anonymizeIP:!0}}),i=$.extend({},{enabled:!0,skipAllHosts:"localhost, 127.0.0.1",trackingID:"<your-tracking-id>",google:{anonymizeIP:!1}}),$.extend(!0,{},n,i))},10)},messageHandler:function(e,t){var n=JSON.stringify(t,undefined,2);return r="\nreceived message from "+e+': '+n,a.debug(r),'command'===t.type&&'module_initialized'===t.action&&a.info('\n'+t.text),!0},setState:function(e){o.state=e},getState:function(){return o.state}}}(j1,window);
+'use strict';j1.adapter.analytics=((e,t)=>{var a,n,i;new liteURL(t.location.href).hostname,document.createElement('script'),e.getCookieNames(),(new Date).toISOString();return{init:()=>{var t=setInterval(()=>{var a='block'===$('#content').css("display");'finished'===e.getState()&&a&&((n=log4javascript.getLogger('j1.adapter.analytics')).info("\nGoogle Analytics: disabled"),clearInterval(t))},10)},messageHandler:(e,t)=>{var a=JSON.stringify(t,undefined,2);return i="\nreceived message from "+e+': '+a,n.debug(i),'command'===t.type&&'module_initialized'===t.action&&n.info('\n'+t.text),!0},setState:e=>{a.state=e},getState:()=>a.state}})(j1,window);
 
 

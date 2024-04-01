@@ -5,7 +5,7 @@
  #
  # Product/Info:
  # https://jekyll.one
- # https://github.com/jguadagno/bootstrapThemeSwitcher
+ # https://github.com/jguadagno/ThemeSwitcher
  #
  # Copyright (C) 2023, 2024 Juergen Adams
  # Copyright (C) 2014 Joseph Guadagno
@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # See: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # Bootstrap Theme Switcher is licensed under the MIT License.
- # See: https://github.com/jguadagno/bootstrapThemeSwitcher
+ # See: https://github.com/jguadagno/ThemeSwitcher
  # -----------------------------------------------------------------------------
  # NOTE: This modules is MODIFIED to be used with MobileMenu (mmenuLight).
  #       The original version cannot be used with J1 for theme menu creation!
@@ -36,7 +36,7 @@
 
 /**
 * jQuery Twitter Bootstrap Theme Switcher v1.1.5
-* https://github.com/jguadagno/bootstrapThemeSwitcher
+* https://github.com/jguadagno/ThemeSwitcher
 *
 * Copyright 2014, Joseph Guadagno
 * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -44,31 +44,29 @@
 
 'use strict';
 ;(function ($, window, document, undefined) {
+  var cookie_names = j1.getCookieNames();
+  var gaCookies    = j1.findCookie('_ga');
+  var j1Cookies    = j1.findCookie('j1');
+  var url          = new liteURL(window.location.href);
+  var hostname     = url.hostname;
+  var domain       = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
+  var secure       = (url.protocol.includes('https')) ? true : false;
+  var logger       = log4javascript.getLogger('j1.themes.switcher');
+  var message      = {};
 
-  var old = $.fn.bootstrapThemeSwitcher;
-
-  var cookie_names      = j1.getCookieNames();
-  var gaCookies         = j1.findCookie('_ga');
-  var j1Cookies         = j1.findCookie('j1');
-  var url               = new liteURL(window.location.href);
-  var hostname          = url.hostname;
-  var domain            = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
-  var secure            = (url.protocol.includes('https')) ? true : false;
-
-  var logger = log4javascript.getLogger('j1.core.switcher');
-  var logText;
-
-  var user_state_detected;
-  var user_state = {};
+  var user_state;
   var user_state_json;
   var user_state_cookie;
+  var user_state_detected;
+
+  var menu_type;
 
   // Constructor
   // ---------------------------------------------------------------------------
-  var BootstrapThemeSwitcher = function (element, options) {
+  var ThemeSwitcher = function (element, options) {
 
     this.$element = $(element);
-    this.settings = $.extend({}, $.fn.bootstrapThemeSwitcher.defaults, options);
+    this.settings = $.extend({}, $.fn.ThemeSwitcher.defaults, options);
     this.themesList = [];
 
     // loading local themes
@@ -78,15 +76,15 @@
 
   // Prototype
   // ---------------------------------------------------------------------------
-  BootstrapThemeSwitcher.prototype = {
+  ThemeSwitcher.prototype = {
     clear: function () {
-      logger.debug('\n' + 'bootstrapThemeSwitcher.clear');
+      logger.debug('\n' + 'ThemeSwitcher.clear');
       return this.$element.each(function () {
         this.$element.empty();
       });
     },
     update: function () {
-      logger.debug('\n' + 'bootstrapThemeSwitcher.update');
+      logger.debug('\n' + 'ThemeSwitcher.update');
       this.getThemes();
     },
 
@@ -116,9 +114,8 @@
     // to load theme CSS from cookies, finally.
     // -------------------------------------------------------------------------
     switchTheme: function (name, cssFile) {
-
       var $this      = $(this);
-      var settings   = $.extend({}, $.fn.bootstrapThemeSwitcher.defaults, $this.data('bootstrapThemeSwitcher'));
+      var settings   = $.extend({}, $.fn.ThemeSwitcher.defaults, $this.data('ThemeSwitcher'));
       var id         = settings.cssThemeLink;
       var debug      = settings.debug;
       var includeCSS = this.settings.includeBootswatch;
@@ -128,14 +125,14 @@
       // detect|set user state cookie
       user_state_detected = j1.existsCookie (cookie_names.user_state);
       if ( user_state_detected ) {
-        logger.debug('\n' + 'cookie found: ' + cookie_names.user_state);
+        logger.info('\n' + 'cookie found: ' + cookie_names.user_state);
         user_state = j1.readCookie(cookie_names.user_state);
       } else {
         logger.error('\n' + 'cookie not found: ' + cookie_names.user_state);
-        logger.debug('\n' + 'j1 cookies found:' + j1Cookies.length);
-        j1Cookies.forEach(function (item) {console.log('j1.core.switcher: ' + item);});
-        logger.debug('\n' + 'ga cookies found:' + gaCookies.length);
-        gaCookies.forEach(function (item) {console.log('j1.core.switcher: ' + item);});
+        logger.info('\n' + 'j1 cookies found:' + j1Cookies.length);
+        j1Cookies.forEach(function (item) {console.log('j1.themes.switcher: ' + item);});
+        logger.info('\n' + 'ga cookies found:' + gaCookies.length);
+        gaCookies.forEach(function (item) {console.log('j1.themes.switcher: ' + item);});
       }
 
       themeName = user_state.theme_name;
@@ -164,7 +161,7 @@
           user_state.theme_author_url    = 'https://jekyll.one/';
         }
 
-        logger.debug('\n' + 'write to cookie : ' + cookie_names.user_state);
+        logger.info('\n' + 'write to cookie : ' + cookie_names.user_state);
         j1.writeCookie({
           name: cookie_names.user_state,
           data: user_state,
@@ -175,7 +172,7 @@
         // reload current page (skip cache)
         location.reload(true);
       } else {
-        logger.debug('\n' + 'write to cookie : disabled');
+        logger.info('\n' + 'write to cookie : disabled');
         logger.warn('\n' + 'selected theme not activated: ' + name);
       } // END if saveToCookie
 
@@ -191,7 +188,7 @@
         return false;
       }
 
-      var settings = $.extend({}, $.fn.bootstrapThemeSwitcher.defaults, options);
+      var settings = $.extend({}, $.fn.ThemeSwitcher.defaults, options);
 
       // detect|set user state cookie
       user_state_detected = j1.existsCookie (cookie_names.user_state);
@@ -201,10 +198,10 @@
         user_state = j1.readCookie(cookie_names.user_state);
       } else {
         logger.error('\n' + 'cookie not found: ' + cookie_names.user_state);
-        logger.debug('\n' + 'j1 cookies found:' + j1Cookies.length);
-        j1Cookies.forEach(function (item) {console.log('j1.core.switcher: ' + item);});
-        logger.debug('\n' + 'ga cookies found:' + gaCookies.length);
-        gaCookies.forEach(function (item) {console.log('j1.core.switcher: ' + item);});
+        logger.info('\n' + 'j1 cookies found:' + j1Cookies.length);
+        j1Cookies.forEach(function (item) {console.log('j1.themes.switcher: ' + item);});
+        logger.info('\n' + 'ga cookies found:' + gaCookies.length);
+        gaCookies.forEach(function (item) {console.log('j1.themes.switcher: ' + item);});
       }
 
       var themeName = user_state.theme_name;
@@ -216,7 +213,7 @@
     // -------------------------------------------------------------------------
     //  addTheme
     // -------------------------------------------------------------------------
-    addTheme: function(name, cssFile, start, deleteCount) {
+    addTheme: function (name, cssFile, start, deleteCount) {
       if (typeof start === 'undefined') { start = 0; }
       if (typeof deleteCount === 'undefined') { deleteCount = 0; }
       this.themesList.splice(start, deleteCount, {name: name, css: cssFile});
@@ -226,7 +223,7 @@
     // -------------------------------------------------------------------------
     //  addThemesToControl
     // -------------------------------------------------------------------------
-    addThemesToControl: function() {
+    addThemesToControl: function () {
       if (typeof this.$element === 'undefined') {
         logger.error('\n' + 'bootstrapThemeSelector|addThemesToControl: Element is undefined');
         return false;
@@ -262,7 +259,7 @@
 
       if (this.$element.is('ul')) {
         var $this    = $(this);
-        var settings = $.extend({}, $.fn.bootstrapThemeSwitcher.defaults, $this.data('bootstrapThemeSwitcher'));
+        var settings = $.extend({}, $.fn.ThemeSwitcher.defaults, $this.data('ThemeSwitcher'));
         var id       = settings.cssThemeLink;
         var debug    = settings.debug;
         var themeName;
@@ -270,60 +267,67 @@
         // detect|set user state cookie
         user_state_detected = j1.existsCookie (cookie_names.user_state);
         if ( user_state_detected ) {
-          logger.debug('\n' + 'user state cookie found');
+          logger.info('\n' + 'user state cookie found');
           user_state = j1.readCookie(cookie_names.user_state);
         } else {
           logger.error('\n' + 'user state NOT cookie found');
-          logger.debug('\n' + 'j1 cookies found:' + j1Cookies.length);
-          j1Cookies.forEach(function (item) {console.log('j1.core.switcher: ' + item);});
-          logger.debug('\n' + 'ga cookies found:' + gaCookies.length);
-          gaCookies.forEach(function (item) {console.log('j1.core.switcher: ' + item);});
+          logger.info('\n' + 'j1 cookies found:' + j1Cookies.length);
+          j1Cookies.forEach(function (item) {console.log('j1.themes.switcher: ' + item);});
+          logger.info('\n' + 'ga cookies found:' + gaCookies.length);
+          gaCookies.forEach(function (item) {console.log('j1.themes.switcher: ' + item);});
         }
 
         themeName = user_state.theme_name;
 
         if ( debug === 'true' ) {
-          logger.debug('\n' + 'bootstrapThemeSelector: UL element selected');
+          logger.info('\n' + 'bootstrapThemeSelector: UL element selected');
         }
         this.$element.empty();
 
-        var cssClass;
+        var cssClass  = '';
         var iconColor = '#9E9E9E';
         $.each(this.themesList, function (i, value) {
-          // Use DIFFERENT class for MobileMenu
-          //if (base.$element[0].id.includes('MMenu')) {
+          // Use DIFFERENT class for Mobile Menu
           if (base.$element[0].id.includes('mmenu')) {
             cssClass = 'mmenu-item';
           } else {
             cssClass = 'dropdown-item';
           }
           // Add class "active" to the current theme selected
-          if ( value.name === themeName ) {
-            // if (base.$element[0].id.includes('MMenu')) {
+          if (value.name === themeName) {
+            // check Mobile Menu first
             if (base.$element[0].id.includes('mmenu')) {
               cssClass = 'mmenu-item active';
             } else {
               cssClass = 'dropdown-item active';
             }
           }
-          var li = $('<li />')
-              .attr('class',cssClass)
-              .append('<a class="link-no-decoration" href="#"><i class="mdib mdib-view-quilt mdib-18px mr-2" style="color: ' +iconColor+ '"></i>' +value.name+ '</a>')
-              .on('click', function () {
-                if (settings.loadFromBootswatch) {
-                  base.switchTheme(value.name, value.css);
-                } else {
-                  base.switchTheme(value.name, value.cssCdn);
-                }
-                // remove previous "active" class and apply to latest clicked element
-                $(this).parent().find('li').removeClass('active');
-                $(this).addClass('active');
-              });
-          base.$element.append(li);
-        });
 
+          var li = $('<li />')
+            .attr('class', cssClass)
+            .append('<a class="link-no-decoration" href="#"><i class="mdib mdib-view-quilt mdib-18px mr-2" style="color: ' +iconColor+ '"></i>' +value.name+ '</a>')
+            .on('click', function () {
+              if (settings.loadFromBootswatch) {
+                base.switchTheme(value.name, value.css);
+              } else {
+                base.switchTheme(value.name, value.cssCdn);
+              }
+              // remove previous "active" class and apply to latest clicked element
+              $(this).parent().find('li').removeClass('active');
+              $(this).addClass('active');
+            });
+            base.$element.append(li);
+        }); // END $.each
+
+        menu_type       = (base.$element[0].className.includes("dropdown-menu")) ? 'desktop'  : 'mobile';
+        message.type    = 'state';
+        message.action  = 'menu loaded for : ' + menu_type;
+        message.text    = 'menu loaded on id: ' + base.$element[0].id;
+        j1.sendMessage('ThemeSwitcher', 'j1.adapter.navigator', message);
+
+        // END if element is 'ul'
       } else if (this.$element.is('select')) {
-        logger.debug('\n' + 'bootstrapThemeSelector: SELECT element selected');
+        logger.info('\n' + 'bootstrapThemeSelector: SELECT element selected');
         this.$element.empty();
 
         var optionSelectedMarker;
@@ -342,19 +346,19 @@
           var optionSelected = $('option:selected', this);
           base.switchTheme(optionSelected.text(), optionSelected.val());
         });
-
+        // END if element is 'select'
       } else {
         // no container found to add Theme list
         logger.info('\n' + 'bootstrapThemeSelector: no UL or SELECT element found');
         logger.error('\n' + 'bootstrapThemeSelector: failed');
         // console.warn('bootstrapThemeSelector only works with ul or select elements');
-      }
+      } // END if
     }, // END addThemesToControl
 
     // -------------------------------------------------------------------------
     //  getThemes
     // -------------------------------------------------------------------------
-    getThemes: function() {
+    getThemes: function () {
       var base = this;
 
       if (this.settings.localFeed !== null && this.settings.localFeed !== '') {
@@ -376,11 +380,11 @@
         // Deferred loading remote themes from Bootswatch API
         // -----------------------------------------------------------------------
         $.ajax({
-          url: this.settings.bootswatchApiUrl + '/' + this.settings.bootswatchApiVersion + '.json',
+          url:        this.settings.bootswatchApiUrl + '/' + this.settings.bootswatchApiVersion + '.json',
           // jadams 2016-10-10: removed the setting for sychronous XMLHttpRequest
           // async: false,
-          dataType: 'json',
-          success: function (data) {
+          dataType:   'json',
+          success:    function (data) {
             if (typeof data.themes === 'undefined') {
               return null;
             }
@@ -409,23 +413,23 @@
 
   // Plugin definition
   // ---------------------------------------------------------------------------
-  $.fn.bootstrapThemeSwitcher = function (option) {
-    var methodReturn;
+  $.fn.ThemeSwitcher = function (option) {
     var args      = Array.prototype.slice.call(arguments, 1);
     var $this     = $(this);
-    var data      = $this.data('bootstrapThemeSwitcher');
+    var data      = $this.data('ThemeSwitcher');
     var options   = typeof option === 'object' && option;
+    var methodReturn;
 
     if (!data) {
-      $this.data('bootstrapThemeSwitcher', (data = new BootstrapThemeSwitcher(this, options) ));
+      $this.data('ThemeSwitcher', (data = new ThemeSwitcher(this, options) ));
     }
     if (typeof option === 'string') {
-      methodReturn = data[ option ].apply(data, args);
+      methodReturn = data[option].apply(data, args);
     }
-    return ( typeof methodReturn === 'undefined' ) ? $this : methodReturn;
+    return (typeof methodReturn === 'undefined') ? $this : methodReturn;
   };
 
-  $.fn.bootstrapThemeSwitcher.defaults = {
+  $.fn.ThemeSwitcher.defaults = {
     debug:                  false,
     saveToCookie:           true,
     cssThemeLink:           'bootstrapTheme',
@@ -435,17 +439,11 @@
     cookiePath:             '/',
     defaultCssFile:         'https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css',
     bootswatchApiUrl:       'https://bootswatch.com/api/',
-    bootswatchApiVersion:   '4',
+    bootswatchApiVersion:   '5',
     loadFromBootswatch:     true,
     localFeed:              '',
     excludeBootswatch:      ''
   };
 
-  $.fn.bootstrapThemeSwitcher.Constructor = BootstrapThemeSwitcher;
-
-  $.fn.bootstrapThemeSwitcher.noConflict = function () {
-    $.fn.BootstrapThemeSwitcher = old;
-    return this;
-  };
-
+  $.fn.ThemeSwitcher.Constructor = ThemeSwitcher;
 })(jQuery, window, document);

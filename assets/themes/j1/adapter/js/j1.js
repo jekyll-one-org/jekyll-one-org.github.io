@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- # Adapter generated: 2024-01-15 22:18:27 +0100
+ # Adapter generated: 2024-04-01 01:16:05 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -24,27 +24,33 @@
 /* eslint semi: "off"                                                         */
 // -----------------------------------------------------------------------------
 'use strict';
-var j1 = (function (options) {
+var j1 = ((options) => {
   // ---------------------------------------------------------------------------
   // globals
   // ---------------------------------------------------------------------------
   // base page resources
-  var rePager                 =  new RegExp('navigator|dateview|tagview|archive');
-  var environment             = 'production';
-  var scrollOffsetBase        = 80;
-  var scrollOffsetCorrection  = -9;
-  var moduleOptions           = {};
-  var j1_runtime_data         = {};
-  var scrollerSettings        = {};
-  var scrollerOptions         = {};
-  var scrollerDefaults        = {};
-  var banner                  = [];
-  var _this                   = j1;
-  var headingArray            = [];
+  var environment                   = 'production';
+  var scrollOffsetBase              = 80;
+  var scrollOffsetCorrection        = -9;
+  var date                          = new Date();
+  var timestamp_now                 = date.toISOString();
+  var url                           = new URL(window.location.href);
+  var rePager                       =  new RegExp('navigator|dateview|tagview|archive');
+  var baseUrl                       = url.origin;
+  var hostname                      = url.hostname;
+  var domain                        = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
+  var secure                        = (url.protocol.includes('https')) ? true : false;
+  var template_version              = '2024.2.0';
+  var moduleOptions                 = {};
+  var j1_runtime_data               = {};
+  var scrollerSettings              = {};
+  var scrollerOptions               = {};
+  var scrollerDefaults              = {};
+  var banner                        = [];
+  var headingArray                  = [];
+  var ep;
   var settings;
   var json_data;
-  var ep;
-  var baseUrl;
   var referrer;
   var documentHeight;
   var scrollOffset;
@@ -68,11 +74,11 @@ var j1 = (function (options) {
   // defaults for dynamic pages
   var timeoutScrollDynamicPages     = '1000';
   var scrollDynamicPagesTopOnChange = 'false';
-  var pageGrowthRatio               = 0;                                          // ratio a dynamic page has grown in height
-  var pageBaseHeigth                = 0;                                          // base height of a dynamic page (not grown)
-  var staticPage                    = false;                                      // defalt: false, but decided in ResizeObserver
+  var pageGrowthRatio               = 0;                                        // ratio a dynamic page has grown in height
+  var pageBaseHeigth                = 0;                                        // base height of a dynamic page (not grown)
+  var staticPage                    = false;                                    // defalt: false, but decided in ResizeObserver
   var pageHeight;
-  var pageBaseHeight;                                                              // height of a page dynamic detected in ResizeObserver
+  var pageBaseHeight;                                                           // height of a page dynamic detected in ResizeObserver
   var growthRatio                   = 0.00;
   var previousGrowthRatio           = 0.00;
   var previousPageHeight;
@@ -86,68 +92,93 @@ var j1 = (function (options) {
   var app_detected;
   var user_session_detected;
   var cookie_written;
-  // defaults for the template
-  var template_version;
+  // defaults for template versions
   var template_previous_version;
   var template_version_changed;
   // defaults for themes
   var themeName;
   var themeCss;
-  var cssExtension                = (environment === 'production')
-                                    ? '.min.css'
-                                    : '.css'
+  var cssExtension                  = (environment === 'production') ? '.min.css' : '.css';
   // defaults for data files
-  var colors_data_path            = '/assets/data/colors.json';
-  var font_size_data_path         = '/assets/data/font_sizes.json';
-  var runtime_data_path           = '/assets/data/runtime-data.yml';
-  var message_catalog_data_path   = '/assets/data/messages.yml';
+  var colors_data_path              = '/assets/data/colors.json';
+  var font_size_data_path           = '/assets/data/font_sizes.json';
+  var runtime_data_path             = '/assets/data/runtime-data.yml';
+  var message_catalog_data_path     = '/assets/data/messages.yml';
+  // block mgmt
+  var banner_state;
+  var panel_state;
+  var footer_state;
+  var banner_blocks;
+  var panel_blocks;
+  var footer_blocks;
+  var banners_exits;
+  var panels_exists;
+  var footer_exists;
   // Logger resources
   var logger;
   var logText;
+  var frontmatterOptions;
+  var _this;
+  // date|time
+  var startTime;
+  var endTime;
+  var startTimeModule;
+  var endTimeModule;
+  var timeSeconds;
   // initial cookie settings
   var cookie_names = {
-    'app_session':    'j1.app.session',
-    'user_session':   'j1.user.session',
-    'user_state':     'j1.user.state',
-    'user_consent':   'j1.user.consent',
-    'user_translate': 'j1.user.translate'
+    'app_session':                  'j1.app.session',
+    'user_session':                 'j1.user.session',
+    'user_state':                   'j1.user.state',
+    'user_consent':                 'j1.user.consent',
+    'user_translate':               'j1.user.translate',
+    'chat_prompt':                  'j1.chat_prompt',
+    'search_prompt':                'j1.search_prompt'
   };
-  var user_consent = {};
+  var user_consent = {
+    'necessary':                    true,
+    'analysis':                     false,
+    'personalization':              false
+  };
+  var user_translate = {
+    'analysis':                     false,
+    'personalization':              false,
+    'useLanguageFromBrowser':       true,
+    'translateAllPages':            true,
+    'translationEnabled':           false
+  };
   var user_session = {
-    'mode':                 'web',
-    'writer':               'j1.adapter',
-    'locale':               navigator.language || navigator.userLanguage,
-    'user_name':            'guest',
-    'provider':             'j1',
-    'provider_membership':  'guest',
-    'provider_permissions': 'public,public',
-    'provider_site_url':    'https://jekyll.one',
-    'provider_home_url':    'https://jekyll.one',
-    'provider_blog_url':    '/pages/public/blog/navigator/',
-    'provider_member_url':  '/pages/public/learn/whats_up/',
-    'provider_privacy_url': '/pages/public/legal/en/privacy/',
-    'requested_page':       'na',
-    'previous_page':        'na',
-    'last_pager':           '/pages/public/blog/navigator/'
+    'mode':                         'web',
+    'writer':                       'j1.adapter',
+    'locale':                       navigator.language || navigator.userLanguage,
+    'user_name':                    'guest',
+    'provider':                     'j1',
+    'provider_membership':          'guest',
+    'provider_permissions':         'public,public',
+    'provider_site_url':            'https://jekyll.one',
+    'provider_home_url':            'https://jekyll.one',
+    'provider_blog_url':            '/pages/public/blog/navigator/',
+    'provider_member_url':          '/pages/public/learn/whats_up/',
+    'provider_privacy_url':         '/pages/public/legal/en/privacy/',
+    'requested_page':               '',
+    'previous_page':                '',
+    'last_pager':                   ''
   };
-  var user_state   = {
-    'writer':               'j1.adapter',
-    'template_version':     '2024.1.0',
-//
-//  for testing only
-//  'template_version':     'undefined',
-//  'template_version':     '2022.4.4',
-//
-    'theme_name':           'UnoLight',
-    'theme_css':            '',
-    'theme_author':         'J1 Team',
-    'theme_version':        '2024.1.0',
-    'session_active':       false,
-    'google_translate':     'disabled',
-    'translate_all_pages':  true,
-    'translate_locale':     navigator.language || navigator.userLanguage,
-    'last_session_ts':      ''
+  var user_state = {
+    'writer':                       'j1.adapter',
+    'template_version':             '2024.2.0',
+    'theme_name':                   'UnoLight',
+    'theme_css':                    '/assets/themes/j1/core/css/themes/unolight/bootstrap.css',
+    'theme_author':                 'J1 Team',
+    'theme_version':                '2024.2.0',
+    'session_active':               false,
+    'google_translate':             'disabled',
+    'translate_all_pages':          true,
+    'translate_locale':             navigator.language || navigator.userLanguage,
+    'last_session_ts':              timestamp_now
   };
+  var chat_prompt   =               {};
+  var search_prompt =               {};
   // ---------------------------------------------------------------------------
   // Helper functions
   // ---------------------------------------------------------------------------
@@ -173,46 +204,40 @@ var j1 = (function (options) {
     // -------------------------------------------------------------------------
     // init()
     // -------------------------------------------------------------------------
-    init: function (options) {
+    init: (options) => {
       // -----------------------------------------------------------------------
       // Default module settings
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2024-01-15 22:18:27 +0100'
+        generated:   '2024-04-01 01:16:05 +0200'
       }, options);
       // create settings object from frontmatter options
-      var frontmatterOptions  = options != null ? $.extend({}, options) : {};
+      frontmatterOptions  = options != null ? $.extend({}, options) : {};
       // Load scroller module DEFAULTS|CONFIGs
-      scrollerDefaults = $.extend({}, {"enabled":false, "smoothscroll":{"offsetBase":80, "offsetCorrection":0, "offsetCorrectionLocal":0}});
-      scrollerSettings = $.extend({}, {"enabled":true, "smoothscroll":{"offsetBase":80, "offsetCorrection":-9, "offsetCorrectionLocal":-90}, "scrollers":[{"scroller":{"enabled":true, "type":"showOnScroll", "id":"panel_home_intro", "container":"panel_home_intro", "showDelay":1000, "scrollOffset":500}}, {"scroller":{"enabled":false, "type":"showOnScroll", "id":"panel_home_service", "container":"panel_home_service", "showDelay":700, "scrollOffset":200}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"preview_content", "container":"panel_home_news-scroll-group", "pagePath":"/assets/data/news_panel_posts/page", "elementScroll":true, "scrollOffset":200, "lastPage":2, "infoLastPage":true, "lastPageInfo_en":"More articles can be found with the <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n", "lastPageInfo_de":"Weitere Artikel finden Sie im <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n"}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"preview_content", "container":"timeline", "pagePath":"/pages/public/blog/navigator/page", "elementScroll":true, "scrollOffset":200, "lastPage":2, "infoLastPage":false, "lastPageInfo_en":"", "lastPageInfo_de":""}}]});
-      scrollerOptions  = $.extend(true, {}, scrollerDefaults, scrollerSettings);
+      scrollerDefaults    = $.extend({}, {"enabled":false, "smoothscroll":{"offsetBase":80, "offsetCorrection":0, "offsetCorrectionLocal":0}});
+      scrollerSettings    = $.extend({}, {"enabled":true, "smoothscroll":{"offsetBase":80, "offsetCorrection":-9, "offsetCorrectionLocal":-90}, "scrollers":[{"scroller":{"enabled":false, "type":"showOnScroll", "id":"panel_home_intro", "container":"panel_home_intro", "showDelay":1000, "scrollOffset":500}}, {"scroller":{"enabled":false, "type":"showOnScroll", "id":"panel_home_service", "container":"panel_home_service", "showDelay":700, "scrollOffset":200}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"panel_home_news", "container":"panel_home_news-scroll-group", "pagePath":"/assets/data/news_panel_posts/page", "elementScroll":true, "scrollOffset":200, "lastPage":2, "infoLastPage":true, "lastPageInfo_en":"More articles can be found with the <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n", "lastPageInfo_de":"Weitere Artikel finden Sie im <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n"}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"preview_content", "container":"timeline", "pagePath":"/pages/public/blog/navigator/page", "elementScroll":true, "scrollOffset":200, "lastPage":2, "infoLastPage":false, "lastPageInfo_en":"", "lastPageInfo_de":""}}]});
+      scrollerOptions     = $.extend(true, {}, scrollerDefaults, scrollerSettings);
       // settings for dynamic pages
       scrollDynamicPagesTopOnChange = frontmatterOptions.scrollDynamicPagesTopOnChange ? frontmatterOptions.scrollDynamicPagesTopOnChange : 'false';
       scrollDynamicPagesTopOnChange = j1.stringToBoolean(scrollDynamicPagesTopOnChange);
       // -----------------------------------------------------------------------
       // Global variable settings
       // -----------------------------------------------------------------------
-      var logger            = log4javascript.getLogger('j1.init');
-      var url               = new URL(window.location.href);
-      var baseUrl           = url.origin;
-      var hostname          = url.hostname;
-      var domain            = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
-      var secure            = (url.protocol.includes('https')) ? true : false;
-      var date              = new Date();
-      var timestamp_now     = date.toISOString();
-      var curr_state        = 'started';
-      var gaCookies         = j1.findCookie('_ga');
-      var themerOptions     = $.extend({}, {"enabled":true, "debug":false, "saveToCookie":true, "reloadPageOnChange":false, "retries":30, "preview_page":"/pages/public/tools/previewer/current_theme/", "menu_icon_family":"mdib", "menu_icon_color":"#9E9E9E", "menu_icon_size":"mdib-sm", "cssThemeLink":"bootstrapTheme", "defaultCssFile":"https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css", "bootswatchApiUrl":"https://bootswatch.com/api", "bootswatchApiVersion":5, "loadFromBootswatch":true, "localThemes":"/assets/data/themes.json", "excludeBootswatch":"Default, default, Lux, Sketchy", "includeBootswatch":"", "skipIncludeBootswatch":""});
+      var logger              = log4javascript.getLogger('j1.init');
+      var _this               = j1;
+      var curr_state          = 'started';
+      var gaCookies           = j1.findCookie('_ga');
+      var themesOptions       = $.extend({}, {"enabled":true, "debug":false, "saveToCookie":true, "reloadPageOnChange":false, "retries":30, "preview_page":"/pages/public/tools/previewer/current_theme/", "menu_icon_family":"mdib", "menu_icon_color":"var(--md-gray-500)", "menu_icon_size":"mdib-sm", "cssThemeLink":"bootstrapTheme", "defaultCssFile":"https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css", "bootswatchApiUrl":"https://bootswatch.com/api", "bootswatchApiVersion":5, "loadFromBootswatch":true, "localThemes":"/assets/data/themes.json", "excludeBootswatch":"Default, default, Lux, Sketchy", "includeBootswatch":"", "skipIncludeBootswatch":""});
       // current template version
-      template_version  = j1.getTemplateVersion();
+      // template_version  = j1.getTemplateVersion();
       // -----------------------------------------------------------------------
       // status settings
       // save status into the adapter object for (later) global access
       // -----------------------------------------------------------------------
-      j1['xhrDataState'] = {};
-      j1['xhrDOMState']  = {};
-      j1['pageMonitor']  = {
+      j1['xhrDataState']      = {};
+      j1['xhrDOMState']       = {};
+      j1['pageMonitor']       = {
         eventNo:              0,
         pageType:             'unknown',
         pageBaseHeight:       0,
@@ -226,23 +251,47 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       user_session.created    = timestamp_now;
       user_session.timestamp  = timestamp_now;
-      user_consent  = j1.readCookie(cookie_names.user_consent);
-      user_session  =  j1.existsCookie(cookie_names.user_session)
-                        ? j1.readCookie(cookie_names.user_session)
-                        : cookie_written = j1.writeCookie({
-                            name:     cookie_names.user_session,
-                            data:     user_session,
-                            secure:   secure,
-                            expires:  0
-                          });
-      user_state    =  j1.existsCookie(cookie_names.user_state)
-                        ? j1.readCookie(cookie_names.user_state)
-                        : cookie_written = j1.writeCookie({
-                            name:     cookie_names.user_state,
-                            data:     user_state,
-                            secure:   secure,
-                            expires:  365
-                          });
+      user_consent            = j1.readCookie(cookie_names.user_consent);
+      user_session            = j1.existsCookie(cookie_names.user_session)
+                                  ? j1.readCookie(cookie_names.user_session)
+                                  : cookie_written = j1.writeCookie({
+                                      name:     cookie_names.user_session,
+                                      data:     user_session,
+                                      secure:   secure,
+                                      expires:  0
+                                    });
+      user_state              = j1.existsCookie(cookie_names.user_state)
+                                  ? j1.readCookie(cookie_names.user_state)
+                                  : cookie_written = j1.writeCookie({
+                                      name:     cookie_names.user_state,
+                                      data:     user_state,
+                                      secure:   secure,
+                                      expires:  365
+                                    });
+      user_translate          = j1.existsCookie(cookie_names.user_translate)
+                                  ? j1.readCookie(cookie_names.user_translate)
+                                  : cookie_written = j1.writeCookie({
+                                      name:     cookie_names.user_translate,
+                                      data:     user_translate,
+                                      secure:   secure,
+                                      expires:  365
+                                    });
+      chat_prompt             = j1.existsCookie(cookie_names.chat_prompt)
+                                  ? j1.readCookie(cookie_names.chat_prompt)
+                                  : cookie_written = j1.writeCookie({
+                                      name:     cookie_names.chat_prompt,
+                                      data:     chat_prompt,
+                                      secure:   secure,
+                                      expires:  365
+                                    });
+      search_prompt           = j1.existsCookie(cookie_names.search_prompt)
+                                  ? j1.readCookie(cookie_names.search_prompt)
+                                  : cookie_written = j1.writeCookie({
+                                      name:     cookie_names.search_prompt,
+                                      data:     search_prompt,
+                                      secure:   secure,
+                                      expires:  365
+                                    });
       if (typeof user_state.template_version == 'undefined') {
         // add for compatibility reasons
         template_version_changed = true;
@@ -270,21 +319,25 @@ var j1 = (function (options) {
           j1.expireCookie({ name: cookie_names.user_translate });
         }
       }
-      logger.info('\n' + 'register monitors');
-      j1.registerMonitors();
-      // detect middleware (mode 'app') and update user session cookie
+      // logger.info('\n' + 'register monitors');
+      // j1.registerMonitors();
       // -----------------------------------------------------------------------
+      // APP mode
+      // -----------------------------------------------------------------------
+      //
+      // detect middleware (mode 'app') and update user session cookie
       if (user_session.mode === 'app') {
         var url           = new liteURL(window.location.href);
         var ep_status     = baseUrl + '/status' + '?page=' + window.location.pathname;
         var detectTimeout =  50;
         baseUrl = url.origin;
         // See: https://stackoverflow.com/questions/3709597/wait-until-all-jquery-ajax-requests-are-done
+        // wait all $ajax requests done
         $.when (
           $.ajax(ep_status)
         )
-        .then(function(data) {
-          var logger                  = log4javascript.getLogger('j1.init');
+        .then((data) => {
+          var logger                  = log4javascript.getLogger('j1');
           user_session                = j1.readCookie(cookie_names.user_session);
           user_session.mode           = 'app';
           user_session.requested_page = window.location.pathname;
@@ -318,12 +371,12 @@ var j1 = (function (options) {
             $('#quickLinksSignInOutButton').css('display', 'block');
             logger.debug('\n' + 'met dependencies for: j1');
           } // END if (j1.authEnabled
-        }) // ENF then
-        .catch(function(error) {
+        }) // END all $ajax requests done
+        .catch((error) => {
           // jadams, 2018-08-31
           // TODO:  Check why a timeout is required
-          setTimeout (function() {
-            var logger                  = log4javascript.getLogger('j1.init');
+          setTimeout(() => {
+            var logger                  = log4javascript.getLogger('j1');
             user_session                = j1.readCookie(cookie_names.user_session);
             user_session.mode           = 'web';
             user_session.requested_page = window.location.pathname;
@@ -340,23 +393,21 @@ var j1 = (function (options) {
             // -----------------------------------------------------------------
             // load|initialize page resources for block elements
             // NOTE: asynchronous calls should be rewitten to xhrData
-            // NOTE: Find $('#content').hide() conterpart in themer adapter
+            // NOTE: Find $('#no_flicker').hide() conterpart in themes adapter
             // -----------------------------------------------------------------
-            var dependencies_met_page_ready = setInterval (function (options) {
-              var pageState     = $('#no_flicker').css("display");
-              var pageVisible   = (pageState == 'block') ? true : false;
-              var atticFinished = (j1.adapter.attic.getState() == 'finished') ? true: false;
-              var banner_blocks = document.querySelectorAll('[id^="banner"]').length;
-              var panel_blocks  = document.querySelectorAll('[id^="panel"]').length;
-              var footer_blocks = document.querySelectorAll('[id^="footer"]').length;
-              var banners_exits = (banner_blocks > 0) ? true : false;
-              var panels_exists = (panel_blocks > 0)  ? true : false;
-              var footer_exists = (footer_blocks > 0) ? true : false;
-              var banner_state;
-              var panel_state;
-              var footer_state;
-              if (j1.getState() === 'finished' && pageVisible && atticFinished) {
-                clearInterval(dependencies_met_page_ready);
+            var dependencies_met_page_ready = setInterval (() => {
+              var pageState       = $('#no_flicker').css("display");
+              var pageVisible     = (pageState == 'block') ? true : false;
+              var j1CoreFinished  = (j1.getState() == 'finished') ? true : false;
+              var atticFinished   = (j1.adapter.attic.getState() == 'finished') ? true: false;
+              if (j1CoreFinished && pageVisible && atticFinished) {
+                startTimeModule = Date.now();
+                banner_blocks   = document.querySelectorAll('[id^="banner"]').length;
+                panel_blocks    = document.querySelectorAll('[id^="panel"]').length;
+                footer_blocks   = document.querySelectorAll('[id^="footer"]').length;
+                banners_exits   = (banner_blocks > 0) ? true : false;
+                panels_exists   = (panel_blocks > 0)  ? true : false;
+                footer_exists   = (footer_blocks > 0) ? true : false;
                 logger.info('\n' + 'load block elements');
                 if (banners_exits) {j1.initBanner(settings);}
                 if (panels_exists) {j1.initPanel(settings)};
@@ -364,7 +415,7 @@ var j1 = (function (options) {
                 // process pages having banners or panels
                 //
                 if (banner_blocks || panel_blocks) {
-                  var dependencies_met_blocks_ready = setInterval (function (settings) {
+                  var dependencies_met_blocks_ready = setInterval (() => {
                     // check the footer if HTML portion is loaded successfully
                     if (footer_exists) {
                       footer_state = j1.getXhrDataState('#footer_uno');
@@ -375,7 +426,7 @@ var j1 = (function (options) {
                     // check bannern if HTML content is loaded successfully
                     //
                     if (banners_exits) {
-                      Object.entries(j1.xhrDataState).forEach(entry => {
+                      Object.entries(j1.xhrDataState).forEach ((entry) => {
                         const [key, value] = entry;
                         if (key.includes('banner')) {
                           banner_state = value;
@@ -388,7 +439,7 @@ var j1 = (function (options) {
                     // check panels if HTML content is loaded successfully
                     //
                     if (panels_exists)  {
-                      Object.entries(j1.xhrDataState).forEach(entry => {
+                      Object.entries(j1.xhrDataState).forEach ((entry) => {
                         const [key, value] = entry;
                         if (key.includes('panel')) {
                           panel_state = value;
@@ -403,15 +454,16 @@ var j1 = (function (options) {
                     if (banner_state == 'success' && panel_state == 'success' && footer_state == 'success') {
                       // show the content|footer
                       //
-                      $('#content').show();
+                      $('#no_flicker').show();
                       $('.active_footer').show();
                       clearInterval(dependencies_met_blocks_ready);
                     }
-                  }, 10);
+                  }, 10); // ENS dependencies_met_blocks_ready
+                  // END if banner_blocks || panel_blocks
                 } else {
                   // process pages w/o banners or panels
                   //
-                  var dependencies_met_footer_block_ready = setInterval (function (settings) {
+                  var dependencies_met_footer_block_ready = setInterval (() => {
                     // check the footer if HTML portion is loaded successfully
                     if (footer_exists) {
                       footer_state = j1.getXhrDataState('#footer_uno');
@@ -424,27 +476,29 @@ var j1 = (function (options) {
                     if (footer_state == 'success') {
                       // show the content|footer
                       //
-                      $('#content').show();
+                      $('#no_flicker').show();
                       $('.active_footer').show();
                       clearInterval(dependencies_met_footer_block_ready);
-                    }
+                    } // END if footer
                   }, 10);
-                }
-              }
-            }, 10);
+                } // END pages w/o banners or panels
+                clearInterval(dependencies_met_page_ready);
+              } // END if pageVisible
+            }, 10); // END dependencies_met_page_ready
             j1.setState(curr_state);
             logger.debug('\n' + 'state: ' + j1.getState());
           }, detectTimeout);
         });
+        // END app mode
       } else {
         // web mode
         state = 'started';
         logger.debug('\n' + 'state: ' + state);
         logger.info('\n' + 'page is being initialized');
       }
-      state = 'started';
-      logger.debug('\n' + 'state: ' + state);
-      logger.info('\n' + 'page is being initialized');
+      // ---------------------------------------------------------------------
+      // WEB mode
+      // ---------------------------------------------------------------------
       if ( settings.scrollbar === 'false'  ) {
         $('body').addClass('hide-scrollbar');
         $('html').addClass('hide-scrollbar-moz');
@@ -487,23 +541,24 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       // load|initialize page resources for block elements
       // NOTE: asynchronous calls should be rewitten to xhrData
-      // NOTE: Find $('#content').hide() conterpart in themer adapter
+      // NOTE: Find $('#no_flicker').hide() conterpart in themes adapter
       // -----------------------------------------------------------------------
-      var dependencies_met_page_ready = setInterval (function (options) {
-        var pageState     = $('#no_flicker').css("display");
-        var pageVisible   = (pageState == 'block') ? true : false;
-        var atticFinished = (j1.adapter.attic.getState() == 'finished') ? true: false;
-        var banner_blocks = document.querySelectorAll('[id^="banner"]').length;
-        var panel_blocks  = document.querySelectorAll('[id^="panel"]').length;
-        var footer_blocks = document.querySelectorAll('[id^="footer"]').length;
-        var banners_exits = (banner_blocks > 0) ? true : false;
-        var panels_exists = (panel_blocks > 0)  ? true : false;
-        var footer_exists = (footer_blocks > 0) ? true : false;
-        var banner_state;
-        var panel_state;
-        var footer_state;
-        if (j1.getState() === 'finished' && pageVisible && atticFinished) {
-          clearInterval(dependencies_met_page_ready);
+      var dependencies_met_page_ready = setInterval (() => {
+        var pageState       = $('#no_flicker').css("display");
+        var pageVisible     = (pageState == 'block') ? true : false;
+        var j1CoreFinished  = (j1.getState() == 'finished') ? true : false;
+        var atticFinished   = (j1.adapter.attic.getState() == 'finished') ? true: false;
+        if (pageVisible && atticFinished) {
+          startTimeModule = Date.now();
+          logger.info('\n' + 'page is being initialized');
+          logger.info('\n' + 'register monitors');
+          j1.registerMonitors();
+          banner_blocks   = document.querySelectorAll('[id^="banner"]').length;
+          panel_blocks    = document.querySelectorAll('[id^="panel"]').length;
+          footer_blocks   = document.querySelectorAll('[id^="footer"]').length;
+          banners_exits   = (banner_blocks > 0) ? true : false;
+          panels_exists   = (panel_blocks > 0)  ? true : false;
+          footer_exists   = (footer_blocks > 0) ? true : false;
           logger.info('\n' + 'load block elements');
           if (banners_exits) {j1.initBanner(settings);}
           if (panels_exists) {j1.initPanel(settings)};
@@ -511,7 +566,7 @@ var j1 = (function (options) {
           // process pages having banners or panels
           //
           if (banner_blocks || panel_blocks) {
-            var dependencies_met_blocks_ready = setInterval (function (settings) {
+            var dependencies_met_blocks_ready = setInterval (() => {
               // check the footer if HTML portion is loaded successfully
               if (footer_exists) {
                 footer_state = j1.getXhrDataState('#footer_uno');
@@ -522,7 +577,7 @@ var j1 = (function (options) {
               // check bannern if HTML content is loaded successfully
               //
               if (banners_exits) {
-                Object.entries(j1.xhrDataState).forEach(entry => {
+                Object.entries(j1.xhrDataState).forEach ((entry) => {
                   const [key, value] = entry;
                   if (key.includes('banner')) {
                     banner_state = value;
@@ -535,7 +590,7 @@ var j1 = (function (options) {
               // check panels if HTML content is loaded successfully
               //
               if (panels_exists)  {
-                Object.entries(j1.xhrDataState).forEach(entry => {
+                Object.entries(j1.xhrDataState).forEach ((entry) => {
                   const [key, value] = entry;
                   if (key.includes('panel')) {
                     panel_state = value;
@@ -550,15 +605,18 @@ var j1 = (function (options) {
               if (banner_state == 'success' && panel_state == 'success' && footer_state == 'success') {
                 // show the content|footer
                 //
+                $('#no_flicker').show();
                 $('#content').show();
                 $('.active_footer').show();
                 clearInterval(dependencies_met_blocks_ready);
               }
             }, 10);
+            clearInterval(dependencies_met_page_ready);
+            // END if  banner_blocks || panel_blocks
           } else {
             // process pages w/o banners or panels
             //
-            var dependencies_met_footer_block_ready = setInterval (function (settings) {
+            var dependencies_met_footer_block_ready = setInterval (() => {
               // check the footer if HTML portion is loaded successfully
               if (footer_exists) {
                 footer_state = j1.getXhrDataState('#footer_uno');
@@ -571,14 +629,19 @@ var j1 = (function (options) {
               if (footer_state == 'success') {
                 // show the content|footer
                 //
+                $('#no_flicker').show();
                 $('#content').show();
                 $('.active_footer').show();
                 clearInterval(dependencies_met_footer_block_ready);
-              }
-            }, 10);
-          }
-        }
-      }, 10);
+              } // END  if footer
+            }, 10); // END dependencies_met_footer_block_ready
+          } // END pages w/o banners or panels
+          endTimeModule = Date.now();
+          logger.info('\n' + 'page finalized successfully');
+          logger.info('\n' + 'page initializing time: ' + (endTimeModule-startTimeModule) + 'ms');
+          clearInterval(dependencies_met_page_ready);
+        } // END pageVisible
+      }, 10); // END dependencies_met_page_ready
       state = 'running';
       logger.debug('\n' + 'state: ' + state);
       user_session.timestamp = timestamp_now;
@@ -598,33 +661,29 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       //
       j1.finalizePage();
-    },
+    }, // END init
     // -------------------------------------------------------------------------
     // initBanner()
     // AJAX fetcher to load and place all banner used for a page
     // -------------------------------------------------------------------------
-    initBanner: function (options) {
-      var logger            = log4javascript.getLogger('j1.initBanner');
-      var banner            = [];
-      var bannerOptions     = [];
-      var mod               = 'j1';
-      var logText;
-      var cb_load_closure = function(banner_id) {
-        return function ( responseTxt, statusTxt, xhr ) {
-          if ( statusTxt ==  'success' ) {
-            // var logger = log4javascript.getLogger('j1.adapter.xhrData');
-            logText = '\n' + 'loading banner completed on id: ' +banner_id;
-            logger.info(logText);
+    initBanner: (options) => {
+      var logger        = log4javascript.getLogger('j1.initBanner');
+      var banner        = [];
+      var bannerOptions = [];
+      var mod           = 'j1';
+      var cb_load_closure = (banner_id) => {
+        return (responseTxt, statusTxt, xhr) => {
+          if (statusTxt ==  'success') {
+            logger.debug('\n' + 'loading banner completed on id: ' + banner_id);
             j1.setXhrDataState(banner_id, statusTxt);
             j1.setXhrDomState(banner_id, statusTxt);
-            logger.info('\n' + 'XHR data loaded in the DOM: ' + banner_id);
+            logger.debug('\n' + 'XHR data loaded in the DOM: ' + banner_id);
           }
-          if ( statusTxt == 'error' ) {
-            logText = '\n' + 'loading banner failed on id: ' +banner_id+ ', error: ' + xhr.status + ': ' + xhr.statusText;
+          if (statusTxt == 'error') {
+            logText = '\n' + 'loading banner failed on id: '  +banner_id + ', error: ' + xhr.status + ': ' + xhr.statusText;
             logger.error(logText);
             j1.setXhrDataState(banner_id, statusTxt);
             j1.setXhrDomState(banner_id, statusTxt);
-            // Set|Log status
             state = 'failed';
             logger.error('\n' + 'state: ' + state);
           }
@@ -655,32 +714,28 @@ var j1 = (function (options) {
         return false;
       }
       return true;
-    },
+    }, // END initBanner
     // -------------------------------------------------------------------------
     // initPanel()
     // AJAX fetcher to load and place all panel used for a page
     // -------------------------------------------------------------------------
-    initPanel: function ( options ) {
-      var logger            = log4javascript.getLogger('j1.initPanel');
-      var panel             = [];
-      var mod               = 'j1';
-      var logText;
-      var cb_load_closure = function(panel_id) {
-        return function ( responseTxt, statusTxt, xhr ) {
-          var logger = log4javascript.getLogger('j1.adapter.xhrData');
-          if ( statusTxt == 'success' ) {
-            logText = '\n' + 'loading panel completed on id: ' +panel_id;
-            logger.info(logText);
+    initPanel: (options) => {
+      var logger = log4javascript.getLogger('j1.initPanel');
+      var panel  = [];
+      var mod    = 'j1';
+      var cb_load_closure = (panel_id) => {
+        return (responseTxt, statusTxt, xhr) => {
+          if (statusTxt == 'success') {
+            logger.debug('\n' + 'loading panel completed on id: ' + panel_id);
             j1.setXhrDataState(panel_id, statusTxt);
             j1.setXhrDomState(panel_id, statusTxt);
-            logger.info('\n' + 'XHR data loaded in the DOM: ' + panel_id);
+            logger.debug('\n' + 'XHR data loaded in the DOM: ' + panel_id);
           }
-          if ( statusTxt == 'error' ) {
-            logText = '\n' + 'loading panel failed on id: ' +panel_id+ ', error ' + xhr.status + ': ' + xhr.statusText;
+          if (statusTxt == 'error') {
+            logText = '\n' + 'loading panel failed on id: ' + panel_id + ', error ' + xhr.status + ': ' + xhr.statusText;
             logger.error(logText);
             j1.setXhrDataState(panel_id, statusTxt);
             j1.setXhrDomState(panel_id, statusTxt);
-            // Set|Log status
             state = 'error';
             logger.error('\n' + 'state: ' + state);
           }
@@ -709,56 +764,49 @@ var j1 = (function (options) {
         return false;
       }
       return true;
-    },
+    }, // END initPanel
     // -------------------------------------------------------------------------
     // initFooter()
     // AJAX fetcher to load and place the footer used for a page
     // -------------------------------------------------------------------------
-    initFooter: function ( options ) {
-      var logger            = log4javascript.getLogger('j1.initFooter');
-      var mod               = 'j1';
-      var logText;
-      logText = '\n' + 'loading footer started';
-      logger.info(logText);
-      var cb_load_closure = function(footer_id) {
-        return function ( responseTxt, statusTxt, xhr ) {
-          var logger = log4javascript.getLogger('j1.adapter.xhrData');
-          if ( statusTxt ==  'success' ) {
-            logText = '\n' + 'footer loaded successfully on id: ' + footer_id;
-            logger.info(logText);
+    initFooter: (options) => {
+      var logger = log4javascript.getLogger('j1.initFooter');
+      var mod    = 'j1';
+      var cb_load_closure = (footer_id) => {
+        return (responseTxt, statusTxt, xhr) => {
+          if (statusTxt ==  'success') {
+            logger.debug('\n' + 'footer loaded successfully on id: ' + footer_id);
             j1.setXhrDataState(footer_id, statusTxt);
             j1.setXhrDomState(footer_id, statusTxt);
-            logger.info('\n' + 'XHR data loaded in the DOM: ' + footer_id);
-            logText = '\n' + 'initialization finished';
-            logger.info(logText);
+            logger.debug('\n' + 'XHR data loaded in the DOM: ' + footer_id);
+            logger.debug('\n' + 'initialization footer finished');
           }
-          if ( statusTxt == 'error' ) {
-            logText = '\n' + 'loading footer failed on id: ' +footer_id+ ', error ' + xhr.status + ': ' + xhr.statusText;
+          if (statusTxt == 'error') {
+            logText = '\n' + 'loading footer failed on id: ' + footer_id + ', error ' + xhr.status + ': ' + xhr.statusText;
             logger.error(logText);
             j1.setXhrDataState(footer_id, statusTxt);
             j1.setXhrDomState(footer_id, statusTxt);
             // Set|Log status
             state = 'failed';
             logger.error('\n' + 'state: ' + state);
-            logText = '\n' + 'initialization finished';
-            logger.info(logText);
+            logger.error('\n' + 'initialization footer failed');
           }
         };
       };
+      logger.info('\n' + 'loading footer on id: footer_uno');
       var id = '#' + 'footer_uno';
       var selector = $(id);
       if (selector.length) {
         var footer_data_path = '/assets/data/footer/index.html ' + id;
         selector.load(footer_data_path, cb_load_closure(id));
       } else {
-        logText = '\n' + 'data not loaded';
-        logger.debug(logText);
+        logger.debug('\n' + 'data not loaded');
         j1.setXhrDataState(id, 'not loaded');
         j1.setXhrDomState(id, 'pending');
         return false;
       }
       return true;
-    },
+    }, // END initFooter
     // -------------------------------------------------------------------------
     // finalizePage
     // DISABLED: show the page after timeout of  ms
@@ -769,9 +817,8 @@ var j1 = (function (options) {
     //  To make correct data sure for APP mode, a status request is done
     //  to load the current state from the middleware (skipped in WEB mode)
     // -------------------------------------------------------------------------
-    finalizePage: function (options) {
-      var logger              = log4javascript.getLogger('j1.adapter.finalizePage');
-//    var flickerTimeout      = ;
+    finalizePage: (options) => {
+      var logger              = log4javascript.getLogger('j1.finalizePage');
       var url                 = new liteURL(window.location.href);
       var baseUrl             = url.origin;
       var secure              = (url.protocol.includes('https')) ? true : false;
@@ -802,7 +849,7 @@ var j1 = (function (options) {
       var meta_personalization  = $('meta[name=personalization]').attr('content');
       var personalization       = (meta_personalization === 'true') ? true: false;
       const cb = (list) => {
-          list.getEntries().forEach(entry => {
+          list.getEntries().forEach ((entry) => {
               console.log(entry);
           });
       }
@@ -816,7 +863,8 @@ var j1 = (function (options) {
       logText= '\n' + 'loading page partials: started';
       logger.info(logText);
       if (j1.appDetected()) {
-        // app mode
+        // ---------------------------------------------------------------------
+        // APP mode
         // ---------------------------------------------------------------------
         logger.info('\n' + 'mode detected: app');
         $.when ($.ajax(ep_status))
@@ -871,7 +919,7 @@ var j1 = (function (options) {
             body_animation_fadein     += '</style>';
             $('head').append(body_animation_fadein);
           }
-          // display the page loaded is managed by module "themer"
+          // display the page loaded is managed by module "themes"
           // $('#no_flicker').css('display', 'block');
           // $('#no_flicker').show();
           // jadams, 2021-12-06: Check if access to cookies for this site failed.
@@ -929,7 +977,7 @@ var j1 = (function (options) {
             logger.info('\n' + 'authentication detected as: ' + user_session.authenticated);
             $('#quickLinksSignInOutButton').css('display', 'block');
           }
-          // TODO: should MOVED to Themer ???
+          // TODO: should MOVED to themes ???
           // jadams, 2021-07-25: hide|show themes menu on cookie consent
           // (analysis|personalization) settings. BootSwatch is a 3rd party
           // is using e.g GA. Because NO control is possible on 3rd parties,
@@ -957,11 +1005,13 @@ var j1 = (function (options) {
           current_user_data = j1.mergeData(user_session, user_state);
           j1.core.navigator.updateSidebar(current_user_data);
           // initiate smooth scroller if page is ready and visible
-          var dependencies_met_page_ready = setInterval (function (options) {
-            var pageState   = $('#no_flicker').css("display");
-            var pageVisible = (pageState == 'block') ? true: false;
-            if ( j1.getState() === 'finished' && pageVisible ) {
-              setTimeout (function() {
+          var dependencies_met_page_ready = setInterval (() => {
+            var pageState       = $('#no_flicker').css("display");
+            var pageVisible     = (pageState == 'block') ? true: false;
+            var j1CoreFinished  = (j1.getState() == 'finished') ? true : false;
+            var atticFinished   = (j1.adapter.attic.getState() == 'finished') ? true: false;
+            if (j1CoreFinished && pageVisible && atticFinished) {
+              setTimeout(() => {
                 // scroll to an anchor in current page if given in URL
                 j1.scrollToAnchor();
               }, 1000);
@@ -975,9 +1025,12 @@ var j1 = (function (options) {
           logger.info(logText);
           logText = '\n' + 'page finalized successfully';
           logger.info(logText);
+          endTimeModule = Date.now();
+          logger.info('\n' + 'page initializing time: ' + (endTimeModule-startTimeModule) + 'ms');
         });
       } else {
-        // web mode
+        // ---------------------------------------------------------------------
+        // WEB mode
         // ---------------------------------------------------------------------
         logger.info('\n' + 'state: finished');
         logger.info('\n' + 'page initialization: finished');
@@ -1000,7 +1053,7 @@ var j1 = (function (options) {
           body_animation_fadein     += '</style>';
           $('head').append(body_animation_fadein);
         }
-        // display the page loaded is managed by module "themer"
+        // display the page loaded is managed by module "themes"
         // $('#no_flicker').css('display', 'block');
         // $('#no_flicker').show();
         // jadams, 2021-12-06: Check if access to cookies for this site failed.
@@ -1075,13 +1128,13 @@ var j1 = (function (options) {
           // Display cookie icon
           $('#quickLinksCookieButton').css('display', 'none');
         }
-        // TODO: should MOVED to Themer ???
+        // TODO: should MOVED to themes ???
         // jadams, 2021-07-25: hide|show themes menu on cookie consent
         // (analysis|personalization) settings. BootSwatch is a 3rd party
         // is using e.g GA. Because NO control is possible on 3rd parties,
         // for GDPR compliance, themes feature may disabled on
         // privacy settings
-        if (!user_consent.personalization)  {
+        if (!user_consent.personalization) {
           logger.debug('\n' + 'disable themes feature because of privacy settings');
           logger.debug('\n' + 'personalization not allowed, privacy settings for personalization: ' + user_consent.personalization);
           $("#themes_menu").hide();
@@ -1124,17 +1177,19 @@ var j1 = (function (options) {
         current_user_data = j1.mergeData(user_session, user_state);
         j1.core.navigator.updateSidebar(current_user_data);
         // initiate smooth scroller if page is ready and visible
-        var dependencies_met_page_ready = setInterval (function (options) {
-          var pageState   = $('#no_flicker').css("display");
-          var pageVisible = (pageState == 'block') ? true: false;
-          if ( j1.getState() === 'finished' && pageVisible ) {
-            setTimeout (function() {
+        var dependencies_met_page_ready = setInterval (() => {
+          var pageState      = $('#no_flicker').css("display");
+          var pageVisible    = (pageState == 'block') ? true: false;
+          var j1CoreFinished = (j1.getState() === 'finished') ? true : false;
+          var atticFinished  = (j1.adapter.attic.getState() == 'finished') ? true: false;
+          if (j1CoreFinished && pageVisible && atticFinished) {
+            setTimeout(() => {
               // scroll to an anchor in current page if given in URL
               j1.scrollToAnchor();
             }, 1000);
             clearInterval(dependencies_met_page_ready);
-          }
-        }, 10);
+          } // END if pageVisible
+        }, 10); // END dependencies_met_page_ready
         // set|log status
         state = 'finished';
         j1.setState(state);
@@ -1142,11 +1197,10 @@ var j1 = (function (options) {
         logger.info(logText);
         logText = '\n' + 'page finalized successfully';
         logger.info(logText);
+        endTimeModule = Date.now();
+        logger.info('\n' + 'page initializing time: ' + (endTimeModule-startTimeModule) + 'ms');
       }
-    },
-    // -------------------------------------------------------------------------
-    // Helper functions
-    // -------------------------------------------------------------------------
+    }, // END finalizePage
     // -------------------------------------------------------------------------
     // mergeData()
     // merge two objects (properties) and returns the resulting object
@@ -1161,37 +1215,35 @@ var j1 = (function (options) {
         }
       }
       return o;
-    },
+    }, // END mergeData
     // -------------------------------------------------------------------------
     // getPrevPage()
     // Returns the last vistited page
     // -------------------------------------------------------------------------
-    getPrevPage: function () {
+    getPrevPage: () => {
       return previous_page;
-    },
+    }, // END getPrevPage
     // -------------------------------------------------------------------------
     // getLanguage()
     // Returns the preferred language taken form window.navigator
     // See:
     // https://stackoverflow.com/questions/1043339/javascript-for-detecting-browser-language-preference
     // -------------------------------------------------------------------------
-    getLanguage: function () {
+    getLanguage: () => {
       var language = navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage);
-    },
+    }, // END getLanguage
     // -------------------------------------------------------------------------
     // getTemplateVersion()
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
-    getTemplateVersion: function () {
-      return '2024.1.0';
-    },
+    getTemplateVersion: () => {
+      return '2024.2.0';
+    }, // END getTemplateVersion
     // -------------------------------------------------------------------------
     // getScrollOffset()
     // Calculate offset for a correct (smooth) scroll position
     // -------------------------------------------------------------------------
-    getScrollOffset: function (offsetCorrection) {
-//     var scrollOffset;
-//      var offsetCorrection = 0;
+    getScrollOffset: (offsetCorrection) => {
       var $pagehead     = $('.attic');
       var $navbar       = $('#navigator_nav_navbar');
       var $adblock      = $('#adblock');
@@ -1210,7 +1262,7 @@ var j1 = (function (options) {
                             ? -1*(n + a + f) + offsetCorrection
                             : -1*(n + a + f) + h + offsetCorrection;
       return scrollOffset;
-    },
+    }, // END getScrollOffset
     // -------------------------------------------------------------------------
     // scrollTo()
     // Scrolls smooth to any anchor referenced by an page URL on
@@ -1218,7 +1270,7 @@ var j1 = (function (options) {
     // TOCCER module
     // NOTE: crollTo() is triggered by 'onDocumentHeigthChange'
     // -------------------------------------------------------------------------
-    scrollTo: function (offset) {
+    scrollTo: (offset) => {
       var logger          = log4javascript.getLogger('j1.scrollTo');
       var anchor          = window.location.href.split('#')[1];
       var anchor_id       = (typeof anchor !== 'undefined') && (anchor != '') ? '#' + anchor : false;
@@ -1260,21 +1312,21 @@ var j1 = (function (options) {
         $(window).scrollTop($(window).scrollTop()-1);
         return false;
       }
-    },
+    }, // END scrollTo
     // -------------------------------------------------------------------------
     //  authEnabled()
     //  Returns the state of the authentication module
     // -------------------------------------------------------------------------
-    authEnabled: function () {
+    authEnabled: () => {
       var logger      = log4javascript.getLogger('j1.authentication');
       var authEnabled = false;
       return authEnabled;
-    },
+    }, // END authEnabled
     // -------------------------------------------------------------------------
     //  appDetected()
     //  Returns true if a web session cookie exists
     // -------------------------------------------------------------------------
-    appDetected: function () {
+    appDetected: () => {
       var user_session;
       var cookieExists = j1.existsCookie(cookie_names.user_session);
       var detected = false;
@@ -1286,14 +1338,14 @@ var j1 = (function (options) {
         detected = false;
       }
       return detected;
-    },
+    }, // END appDetected
     // -------------------------------------------------------------------------
     // loadHTML()
     // Load HTML data asychronously using XHR|jQuery on an element (e.g. <div>)
     // specified by xhr_container_id, xhr_data_path (options)
     // -------------------------------------------------------------------------
-    loadHTML: function (options, mod, status) {
-      var logger            = log4javascript.getLogger('j1.adapter.loadHTML');
+    loadHTML: (options, mod, status) => {
+      var logger            = log4javascript.getLogger('j1.loadHTML');
       var selector          = $('#' + options.xhr_container_id);
       var state             = status;
       var observer_options  = {
@@ -1303,22 +1355,19 @@ var j1 = (function (options) {
         subtree:        true
       };
       var observer;
-      var logText;
-      var cb_load_closure = function(mod, id) {
-        return function (responseTxt, statusTxt, xhr) {
-          var logger = log4javascript.getLogger('j1.adapter.loadHTML');
-          if ( statusTxt === 'success' ) {
+      var cb_load_closure = (mod, id) => {
+        return (responseTxt, statusTxt, xhr) => {
+          if (statusTxt === 'success') {
             j1.setXhrDataState(id, statusTxt);
             j1.setXhrDomState(id, 'pending');
-            logText = '\n' + 'data loaded successfully on id: ' +id;
-            logger.info(logText);
+            logger.debug('\n' + 'data loaded successfully on id: ' +id);
             state = true;
           }
           if ( statusTxt === 'error' ) {
             // jadams, 2020-07-21: to be checked why id could be UNDEFINED
             if (typeof(id) != "undefined") {
               state = 'failed';
-              logger.info('\n' + 'set state for ' +mod+ ' to: ' + state);
+              logger.debug('\n' + 'set state for ' +mod+ ' to: ' + state);
               // jadams, 2020-07-21: intermediate state should DISABLED
               // executeFunctionByName(mod + '.setState', window, state);
               j1.setXhrDataState(id, statusTxt);
@@ -1333,21 +1382,21 @@ var j1 = (function (options) {
       // see: https://stackoverflow.com/questions/20420577/detect-added-element-to-dom-with-mutation-observer
       //
       var html_data_path = options.xhr_data_path + ' #' + options.xhr_data_element;
-      var id        = '#' + options.xhr_container_id;
-      var container = '#' + options.xhr_container_id + '_container';
-      var $selector = $(id);
+      var id             = '#' + options.xhr_container_id;
+      var container      = '#' + options.xhr_container_id + '_container';
+      var $selector      = $(id);
       // NOTE: Unclear why some pages (e.g. about/site) affected (fam button).
       // All pages should have FRONTMATTER defaults (by _config.yml) setting
       // all relevant defaults.
       // failsafe - prevent XHR load errors
       if (options.xhr_data_element !== '') {
-        logger.info('\n' + 'XHR data element found: ' + options.xhr_data_element);
+        logger.debug('\n' + 'XHR data element found: ' + options.xhr_data_element);
       } else  {
         logger.debug('\n' + 'no XHR data element found, loading data aborted');
         return;
       }
-      if ( $selector.length ) {
-        $selector.load( html_data_path, cb_load_closure( mod, id ) );
+      if ($selector.length) {
+        $selector.load(html_data_path, cb_load_closure( mod, id ));
         var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
         var xhrObserver = new MutationObserver (mutationHandler);
         var obsConfig = {
@@ -1361,7 +1410,7 @@ var j1 = (function (options) {
         function mutationHandler (mutationRecords) {
           mutationRecords.forEach ( function (mutation) {
             if (mutation.addedNodes.length) {
-              logger.info('\n' + 'XHR data loaded in the DOM: ' + id);
+              logger.debug('\n' + 'XHR data loaded in the DOM: ' + id);
               j1.setXhrDomState(id, 'success');
             }
           });
@@ -1369,32 +1418,27 @@ var j1 = (function (options) {
       } else {
         // jadams, 2020-07-21: To be clarified why a id is "undefined"
         // failsafe - prevent XHR load errors
-        if (id != '#undefined') {
-          logText = '\n' + 'data not loaded on id:' + id;
-          logger.debug(logText);
+        if (id !== '#undefined') {
           j1.setXhrDataState(id, 'not loaded');
-          j1.setXhrDomState(id, 'not loaded');
-          // Set processing state to 'finished' to complete module load
-          state = 'finished';
-          logger.debug('\n' + 'state: ' + state);
+          j1.setXhrDomState(id, 'not loaded')
           // jadams, 2020-07-21: intermediate state should DISABLED
           // executeFunctionByName(mod + '.setState', window, state);
-          state = false;
+          // state = false;
         }
       }
       return state;
-    },
+    }, // END loadHTML
     // -------------------------------------------------------------------------
     // loadJS()
     // Load JS data asychronously using jQuery (XHR)
     // -------------------------------------------------------------------------
-    loadJS: function (options, mod, status) {
-      var logger  = log4javascript.getLogger('j1.adapter.loadJS');
+    loadJS: (options, mod, status) => {
+      var logger  = log4javascript.getLogger('j1.loadJS');
       var state   = status;
       var logText;
       var cb_load_closure = function(mod, id) {
         return function (responseTxt, statusTxt, xhr) {
-          var logger = log4javascript.getLogger('j1.adapter.loadJS');
+          var logger = log4javascript.getLogger('j1.loadJS');
           if ( statusTxt === 'success' ) {
             j1.setXhrDataState(id, statusTxt);
             logText = '\n' + 'data loaded successfully for: ' +id;
@@ -1417,28 +1461,28 @@ var j1 = (function (options) {
         success:  cb_load_closure(mod, options.xhr_data_element)
       });
       return state;
-    },
+    }, // END loadJS
     // -------------------------------------------------------------------------
     // removeRessource (Vanilla JS)
     // -------------------------------------------------------------------------
-    removeRessource: function (filename, filetype) {
+    removeRessource: (filename, filetype) => {
       // determine element type to create nodelist from
-      var targetelement=(filetype=="js")? "script" : (filetype=="css")? "link" : "none"
+      var targetelement = (filetype === "js") ? "script" : (filetype === "css") ? "link" : "none";
       // determine corresponding attribute to test for
-      var targetattr=(filetype=="js")? "src" : (filetype=="css")? "href" : "none"
-      var allsuspects=document.getElementsByTagName(targetelement)
+      var targetattr = (filetype === "js") ? "src" : (filetype === "css") ? "href" : "none";
+      var allsuspects = document.getElementsByTagName(targetelement)
       // search backwards within nodelist for matching elements to remove
       // remove element by calling parentNode.removeChild()
       for (var i=allsuspects.length; i>=0; i--) {
         if (allsuspects[i] && allsuspects[i].getAttribute(targetattr)!=null && allsuspects[i].getAttribute(targetattr).indexOf(filename)!=-1)
             allsuspects[i].parentNode.removeChild(allsuspects[i])
       }
-    },
+    }, // END removeRessource
     // -------------------------------------------------------------------------
     // subdomain()
     // Returns true|false if a subdomain is used for a given URL
     // -------------------------------------------------------------------------
-    subdomain: function (url) {
+    subdomain: (url) => {
       // See: https://snipplr.com/view/5449/check-if-a-url-contains-a-subdomain
       // IF THERE, REMOVE WHITE SPACE FROM BOTH ENDS
       url = url.replace(new RegExp(/^\s+/),""); // START
@@ -1465,7 +1509,7 @@ var j1 = (function (options) {
     // -------------------------------------------------------------------------
     //  readCookie (Vanilla JS)
     // -------------------------------------------------------------------------
-    readCookie: function (name) {
+    readCookie: (name) => {
       var data;
       var data_json;
       var cookieExists = j1.existsCookie(name);
@@ -1480,7 +1524,7 @@ var j1 = (function (options) {
       } else {
         return false;
       }
-    },
+    }, // END readCookie
     // -------------------------------------------------------------------------
     // writeCookie (Cookie lib)
     // Write 'data' to a cookie 'name'. If not exists, the cookie gets
@@ -1513,7 +1557,7 @@ var j1 = (function (options) {
     //    must now also specify the Secure attribute (they require a secure
     //    context/HTTPS).
     // -------------------------------------------------------------------------
-    writeCookie: function (options /*name, data, [path, expires, domain, samesite, http_only, secure]*/) {
+    writeCookie: (options /*name, data, [path, expires, domain, samesite, http_only, secure]*/) => {
       var date                  = new Date();
       var timestamp_now         = date.toISOString();
       var url                   = new liteURL(window.location.href);
@@ -1536,7 +1580,7 @@ var j1 = (function (options) {
       var settings = $.extend(defaults, options);
       // Failsafe: if 'None' is given for samesite in non-secure environments
       // -----------------------------------------------------------------------
-      if (settings.samesite == 'None' && !settings.secure) {
+      if (settings.samesite === 'None' && !settings.secure) {
         settings.samesite = 'Lax';
       }
       cookie_data.timestamp = timestamp_now;
@@ -1560,7 +1604,7 @@ var j1 = (function (options) {
       stringifiedAttributes += '; ' + 'SameSite=' + settings.samesite;
       // set domain used by cookies
       if (settings.domain) {
-        if (settings.domain == 'auto') {
+        if (settings.domain === 'auto') {
           stringifiedAttributes += '; ' + 'Domain=' + auto_domain;
         } else {
           stringifiedAttributes += '; ' + 'Domain=' + settings.domain;
@@ -1568,7 +1612,7 @@ var j1 = (function (options) {
       }
       // set secure attribute
       if (settings.secure) {
-        if (settings.secure == 'auto') {
+        if (settings.secure === 'auto') {
           stringifiedAttributes += '; ' + 'Secure=' + auto_secure;
         } else {
           stringifiedAttributes += '; ' + 'Secure=' + settings.secure;
@@ -1582,7 +1626,7 @@ var j1 = (function (options) {
       } else {
         return false;
       }
-    },
+    }, // END writeCookie
     // -------------------------------------------------------------------------
     // findCookie (Vanilla JS)
     // Search for cookies (by name) in the page header that matches a given
@@ -1592,15 +1636,15 @@ var j1 = (function (options) {
     // -------------------------------------------------------------------------
     // See: https://stackoverflow.com/questions/52287989/javascript-cookie-remove-or-delete-with-regex-regular-expression
     // -------------------------------------------------------------------------
-    findCookie: function (name) {
+    findCookie: (name) => {
       var rCookie=[];
       document.cookie.replace(new RegExp(name + '[^= ]*', 'g'), function(a){ rCookie.push(a.trim()); });
       return rCookie;
-    },
+    }, // END findCookie
     // -------------------------------------------------------------------------
     // removeCookie (Vanilla JS)
     // -------------------------------------------------------------------------
-    removeCookie: function (options /*name, [path, domain]*/) {
+    removeCookie: (options /*name, [path, domain]*/) => {
       var url                   = new liteURL(window.location.href);
       var baseUrl               = url.origin;;
       var hostname              = url.hostname;
@@ -1623,15 +1667,15 @@ var j1 = (function (options) {
       stringifiedAttributes += '; ' + 'Expires=' + settings.expires;
       // set domain used by cookies
       if (settings.domain) {
-        if (settings.domain == 'auto') {
+        if (settings.domain === 'auto') {
           stringifiedAttributes += '; ' + 'Domain=' + auto_domain;
-        } else if (typeof settings.domain == 'string') {
+        } else if (typeof settings.domain === 'string') {
           stringifiedAttributes += '; ' + 'Domain=' + settings.domain;
         }
       }
       // set secure attribute
       if (settings.secure) {
-        if (settings.secure == 'auto') {
+        if (settings.secure === 'auto') {
           stringifiedAttributes += '; ' + 'Secure=' + auto_secure;
         } else {
           stringifiedAttributes += '; ' + 'Secure=' + settings.secure;
@@ -1645,7 +1689,7 @@ var j1 = (function (options) {
       } else {
         return false;
       }
-    },
+    }, // END removeCookie
     // -------------------------------------------------------------------------
     // expireCookie (Vanilla JS)
     // Expires given cookies by name except cookies set to httpOnly. For all
@@ -1667,7 +1711,7 @@ var j1 = (function (options) {
     // to already KNOWN values.
     //
     // -------------------------------------------------------------------------
-    expireCookie: function (options /*name [,path, samesite, secure]*/) {
+    expireCookie: (options /*name [,path, samesite, secure]*/) => {
       var url                   = new liteURL(window.location.href);
       var baseUrl               = url.origin;;
       var hostname              = url.hostname;
@@ -1689,7 +1733,7 @@ var j1 = (function (options) {
       stringifiedAttributes += '; ' + 'SameSite=' + settings.samesite;
       // set domain used by cookies
       if (settings.domain) {
-        if (settings.domain == 'auto') {
+        if (settings.domain === 'auto') {
           stringifiedAttributes += '; ' + 'Domain=' + auto_domain;
         } else if (typeof settings.domain == 'string') {
           if (settings.domain !== 'false') {
@@ -1699,17 +1743,17 @@ var j1 = (function (options) {
       }
       // set secure attribute
       if (settings.secure) {
-        if (settings.secure == 'auto') {
+        if (settings.secure === 'auto') {
           stringifiedAttributes += '; ' + 'Secure=' + auto_secure;
         } else {
           stringifiedAttributes += '; ' + 'Secure=' + settings.secure;
         }
       }
-      var dc        = document.cookie;                                          // all cookies in page
-      var end       = dc.length;                                                // default to end of the string
-      var prefix    = settings.name + '=';                                      // search string for the cookie name given
-      var begin     = dc.indexOf('; ' + prefix);
-      var content   = '';
+      var dc      = document.cookie;                                          // all cookies in page
+      var end     = dc.length;                                                // default to end of the string
+      var prefix  = settings.name + '=';                                      // search string for the cookie name given
+      var begin   = dc.indexOf('; ' + prefix);
+      var content = '';
       // collect the cookie content
       // -----------------------------------------------------------------------
       // found, and not in the first position
@@ -1732,12 +1776,12 @@ var j1 = (function (options) {
       content = decodeURI(dc.substring(begin + prefix.length, end) ).replace(/"/g, '');
       document.cookie = settings.name + '=' + content + stringifiedAttributes;
       return true;
-    },
+    }, // END expireCookie
     // -------------------------------------------------------------------------
     // existsCookie (Vanilla JS)
     // returns true if a cookie of given name exists
     // -------------------------------------------------------------------------
-    existsCookie: function (name) {
+    existsCookie: (name) => {
       var dc            = document.cookie;
       var prefix        = name + '=';
       var begin         = dc.indexOf('; ' + prefix);
@@ -1766,7 +1810,7 @@ var j1 = (function (options) {
       cookieContent = decodeURI(dc.substring(begin + prefix.length, end) ).replace(/"/g, '');
       cookieExists  = cookieContent.length ? true : false;
       return cookieExists;
-    },
+    }, // END existsCookie
     // -------------------------------------------------------------------------
     // Resolve MACROs
     //
@@ -1777,9 +1821,9 @@ var j1 = (function (options) {
     //  https://stackoverflow.com/questions/179713/how-to-change-the-href-for-a-hyperlink-using-jquery
     //  https://stackoverflow.com/questions/5223/length-of-a-javascript-object
     // -------------------------------------------------------------------------
-    resolveMacros: function (user_data) {
+    resolveMacros: (user_data) => {
       var logger = log4javascript.getLogger('j1.resolveMacros');
-      var sidebarLoaded = setInterval(function() {
+      var sidebarLoaded = setInterval(() => {
         if ($('#sidebar_mmenu').length) {
           if (Object.keys(user_data).length) {
             $('[id^=macro-]').each(function() {
@@ -1840,14 +1884,14 @@ var j1 = (function (options) {
           }
         }
       }, 10);
-    },
+    }, // END resolveMacros
     // -------------------------------------------------------------------------
     // Update MACROs
     // Update the values, NOT the placeholders
     // -------------------------------------------------------------------------
-    updateMacros: function (user_data) {
+    updateMacros: (user_data) => {
       var logger = log4javascript.getLogger('j1.updateMacros');
-      var sidebarLoaded = setInterval(function() {
+      var sidebarLoaded = setInterval(() => {
         if ($('#sidebar_mmenu').length) {
           if (Object.keys(user_data).length) {
             $('[id^=macro-]').each(function() {
@@ -1893,68 +1937,21 @@ var j1 = (function (options) {
           }
         }
       }, 10);
-    },
-    // -------------------------------------------------------------------------
-    // getMessage
-    // Get a log message from the log message catalog object
-    // -------------------------------------------------------------------------
-    getMessage: function (level, message, property) {
-      var message = j1.messages[level][message]['message'][property];
-      return message;
-    },
+    }, // END updateMacros
     // -------------------------------------------------------------------------
     // logger
     // Log a message
     // -------------------------------------------------------------------------
-    logger: function (logger, level, message) {
+    logger: (logger, level, message) => {
       var logger = log4javascript.getLogger(logger);
       logger[level](message);
       return true;
-    },
-    // -------------------------------------------------------------------------
-    // Send message
-    // -------------------------------------------------------------------------
-    sendMessage: function ( sender, receiver, message ) {
-      var logger        = log4javascript.getLogger('j1.sendMessage');
-      // var json_message  = JSON.stringify(message, undefined, 2);             // multiline
-      var json_message  = JSON.stringify(message);
-      if ( receiver === 'j1' ) {
-        logText = '\n' + 'send message from ' + sender + ' to' + receiver + ': ' + json_message;
-        logger.debug(logText);
-        executeFunctionByName('j1' + '.messageHandler', window, sender, message);
-      } else {
-        logText = '\n' + 'send message from ' + sender + ' to ' + receiver + ': ' + json_message;
-        logger.debug(logText);
-        //executeFunctionByName('j1.' + receiver + '.messageHandler', window, sender, message)
-        executeFunctionByName(receiver + '.messageHandler', window, sender, message);
-      }
-    },
-    // -------------------------------------------------------------------------
-    // messageHandler: MessageHandler for J1 CookieConsent module
-    // Manage messages send from other J1 modules
-    // -------------------------------------------------------------------------
-    messageHandler: function ( sender, message ) {
-      // var json_message  = JSON.stringify(message, undefined, 2);             // multiline
-      var json_message  = JSON.stringify(message);
-      logText = '\n' + 'received message from ' + sender + ': ' + json_message;
-      logger.debug(logText);
-      // -----------------------------------------------------------------------
-      //  Process commands|actions
-      // -----------------------------------------------------------------------
-      if ( message.type === 'command' && message.action === 'module_initialized' ) {
-        _this.setState('finished');
-        logger.info('\n' + message.text);
-      }
-      //
-      // Place handling of other command|action here
-      //
-      return true;
-    },
+    }, // END logger
     // -------------------------------------------------------------------------
     // getStyleValue:
     // Returns the value of a style from a css class definition
     // example: j1.getStyleValue('uno-primary', 'background-color')
-    getStyleValue: function (className, style) {
+    getStyleValue: (className, style) => {
       var elementId = 'test-' + className,
         testElement = document.getElementById(elementId),
         val;
@@ -1967,28 +1964,27 @@ var j1 = (function (options) {
       val = $(testElement).css(style);
       document.body.removeChild(testElement);
       return val;
-    },
+    }, // END getStyleValue
     // -------------------------------------------------------------------------
     // getStyleSheetLoaded:
     // NOTE:
     // EXAMPLE: getStyleSheetLoaded('bootstrap');
-    //
-    getStyleSheetLoaded: function (styleSheet) {
-      // var styleSheet  = styleSheetName.toLowerCase() + '.css';
-      var sheets      = document.styleSheets, stylesheet = sheets[(sheets.length - 1)];
+    // -------------------------------------------------------------------------
+    getStyleSheetLoaded: (styleSheet) => {
+      var sheets = document.styleSheets, stylesheet = sheets[(sheets.length - 1)];
       // find CSS file 'styleSheetName' in document
       for(var i in document.styleSheets) {
         if(sheets[i].href && sheets[i].href.indexOf(styleSheet) > -1) {
           return true;;
         }
       }
-    },
+    }, // END getStyleSheetLoaded
     // -------------------------------------------------------------------------
     //  Returns the names of cookies used for J1 Theme
     // -------------------------------------------------------------------------
-    getCookieNames: function () {
+    getCookieNames: () => {
       return cookie_names;
-    },
+    }, // END getCookieNames
     // -------------------------------------------------------------------------
     // Set dynamic styles
     // -------------------------------------------------------------------------
@@ -2056,106 +2052,92 @@ var j1 = (function (options) {
     //   return true;
     // },
     // -------------------------------------------------------------------------
-    // setState()
-    // Set the current (processing) state of the module
-    // -------------------------------------------------------------------------
-    setState: function (stat) {
-      state = stat;
-    },
-    // -------------------------------------------------------------------------
-    // getState()
-    // Returns the current (processing) state of the module
-    // -------------------------------------------------------------------------
-    getState: function () {
-      return state;
-    },
-    // -------------------------------------------------------------------------
     // setXhrDataState()
     // Set the final (loading) state of an element (partial) loaded via Xhr
     // -------------------------------------------------------------------------
-    setXhrDataState: function (obj, stat) {
+    setXhrDataState: (obj, stat) => {
       j1.xhrDataState[obj] = stat;
-    },
+    }, // END setXhrDataState
     // -------------------------------------------------------------------------
     // getXhrDataState()
     // Returns the final (loading) state of an element (partial) loaded via Xhr
     // -------------------------------------------------------------------------
-    getXhrDataState: function (obj) {
+    getXhrDataState: (obj) => {
       return j1.xhrDataState[obj];
-    },
+    }, // END mergeData
     // -------------------------------------------------------------------------
     // setXhrDomState()
     // Set the state of an element loaded via Xhr that is
     // successfully added to the DOM
     // -------------------------------------------------------------------------
-    setXhrDomState: function (obj, stat) {
+    setXhrDomState: (obj, stat) => {
       j1.xhrDOMState[obj] = stat;
-    },
+    }, // END getXhrDataState
     // -------------------------------------------------------------------------
     // getXhrDataState()
     // Returns the state of an element loaded via Xhr that is
     // successfully added to the DOM
     // -------------------------------------------------------------------------
-    getXhrDOMState: function (obj) {
+    getXhrDOMState: (obj) => {
       return j1.xhrDOMState[obj];
-    },
+    }, // END getXhrDOMState
     // -------------------------------------------------------------------------
     // setMode()
     // Set the current mode of the site (web|app)
     // -------------------------------------------------------------------------
-    setMode: function (mod) {
+    setMode: (mod) => {
       mode = mod;
-    },
+    }, // END setMode
     // -------------------------------------------------------------------------
     // getMode()
     // Returns the current mode of the site (web|app)
     // -------------------------------------------------------------------------
-    getMode: function () {
+    getMode: () => {
       return mode;
-    },
+    }, // END getMode
     // -------------------------------------------------------------------------
     // checkUserAgent()
     // Returns the name (UA) of the web browser
     // -------------------------------------------------------------------------
-    checkUserAgent: function () {
+    checkUserAgent: () => {
       if (navigator.userAgent.search(ua_name) >= 0) {
         return true;
       } else {
         return false;
       }
-    },
+    }, // END checkUserAgent
     // -------------------------------------------------------------------------
     // generateId()
     // Generate a unique (thread) id used by the logger
     // -------------------------------------------------------------------------
-    generateId: function (length) {
+    generateId: (length) => {
      var result           = '';
      var characters       = 'abcdefghijklmnopqrstuvwxyz0123456789';
      var charactersLength = characters.length;
      for ( var i = 0; i < length; i++ ) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+       result += characters.charAt(Math.floor(Math.random() * charactersLength));
      }
      return result;
-    },
+    }, // END generateId
     // -------------------------------------------------------------------------
     // getTrue()
     // Returns always true (for testing purposes)
     // -------------------------------------------------------------------------
-    getTrue: function () {
+    getTrue: () => {
       return true;
-    },
+    }, // END getTrue
     // -------------------------------------------------------------------------
     // getFalse()
     // Returns always false (for testing purposes)
     // -------------------------------------------------------------------------
-    getFalse: function () {
+    getFalse: () => {
       return false;
-    },
+    }, // END getFalse
     // -------------------------------------------------------------------------
     // goHome()
     // Redirect current page to the browser homepage
     // -------------------------------------------------------------------------
-    goHome: function () {
+    goHome: () => {
       // most browsers
       if (typeof window.home == 'function') {
         window.home();
@@ -2165,34 +2147,36 @@ var j1 = (function (options) {
       } else {
         window.location.href = 'about:blank';
       }
-    },
+    }, // END goHome
     // -------------------------------------------------------------------------
     // goBack()
     // Redirect current page to last visited page (referrer)
     // -------------------------------------------------------------------------
-    goBack: function () {
+    goBack: () => {
       // where visitor has come from
       window.location.href = document.referrer;
-    },
+    }, // END goBack
     // -------------------------------------------------------------------------
     // scrollToAnchor()
     // Scroll to an anchor in current page if given in URL
     // TODO: Find a better solution for 'dynamic' pages to detect
     // the content if fully loaded instead using a timeout
     // -------------------------------------------------------------------------
-    scrollToAnchor: function () {
-      var logger = log4javascript.getLogger('j1.adapter.scrollToAnchor');
+    scrollToAnchor: () => {
+      var logger = log4javascript.getLogger('j1.scrollToAnchor');
       var scrollOffset;
-      var dependencies_met_page_displayed = setInterval (function () {
-        var pageState   = $('#no_flicker').css("display");
-        var pageVisible = (pageState == 'block') ? true: false;
-        if (j1['pageMonitor'].pageType !== 'unknown' && j1.getState() == 'finished' && pageVisible) {
+      var dependencies_met_page_displayed = setInterval (() => {
+        var pageState      = $('#no_flicker').css("display");
+        var pageVisible    = (pageState === 'block') ? true: false;
+        var j1CoreFinished = (j1.getState() === 'finished') ? true : false;
+        var pageMonitor    = (j1['pageMonitor'].pageType !== 'unknown') ? true : false;
+        if (j1CoreFinished && pageVisible && pageMonitor) {
           // TODO: Check why a timeout is required to run the
           // smmoth scroller (j1.scrollTo)
           //
-          if (j1['pageMonitor'].pageType == 'static') {
+          if (j1['pageMonitor'].pageType === 'static') {
             // page type static
-            setTimeout (function() {
+            setTimeout(() => {
               var headingUrl              = new URL(window.location.href);
               var headingHash             = headingUrl.hash;
               var headingId               = headingHash.replace(/#/g, '');
@@ -2201,7 +2185,7 @@ var j1 = (function (options) {
               logger.debug('\n' + 'scrollToAnchor: scroll page of type: static');
               // scroll if headingId
               //
-              if (headingHash == '') {
+              if (headingHash === '') {
                 logger.debug('\n' + 'scrollToAnchor: top position detected');
               } else {
                 logger.debug('\n' + 'scrollToAnchor: scroll to headline by id: ' + headingHash);
@@ -2213,9 +2197,9 @@ var j1 = (function (options) {
               }
             }, );
             clearInterval(dependencies_met_page_displayed);
-          } else if (j1['pageMonitor'].pageType == 'dynamic') {
+          } else if (j1['pageMonitor'].pageType === 'dynamic') {
             // page type dynamic
-            setTimeout (function() {
+            setTimeout(() => {
               var headingArray           = j1.core.parseHeadings();            // collect all headings in page
               var headingUrl              = new URL(window.location.href);
               var headingHash             = headingUrl.hash;
@@ -2233,7 +2217,7 @@ var j1 = (function (options) {
               // collect top position for the active headline
               //
               if (headingArray !== null) {
-                headingArray.forEach(function(heading, index) {
+                headingArray.forEach ((heading, index) => {
                     if (heading.offsetTop !== undefined && heading.id == headingId && countOnce) {
                       scrollOffset            = heading.offsetTop;
                       headlineNo              = ++index;
@@ -2241,7 +2225,7 @@ var j1 = (function (options) {
                       // calculate scrollOffsetCorrection based on AVERAGE
                       // height of (number of) headlines
                       //
-                      if (headlineNo == 1) {
+                      if (headlineNo === 1) {
                         scrollOffsetCorrection  = scrollOffset - (headlineNo * 89);
                       } else if (headlineNo <= 3) {
                         scrollOffsetCorrection = scrollOffset - (headlineNo * 30);
@@ -2266,24 +2250,24 @@ var j1 = (function (options) {
               } // END if headingArray !== null
               // scroll to headline's top position
               //
-              if (headingHash == '') {
+              if (headingHash === '') {
                 headingHash = '#';
                 logger.debug('\n' + 'scrollToAnchor: top position detected');
               } else {
-                  logger.debug('\n' + 'scrollToAnchor: headline|no: ' + headingHash + '|' + headlineNo);
-                  // build-in scroller
-                  //
-                  window.scroll ({
-                  	top:       scrollTop,
-                  	left:      0,
-                  	behavior: 'smooth'
-                  });
+                logger.debug('\n' + 'scrollToAnchor: headline|no: ' + headingHash + '|' + headlineNo);
+                // build-in scroller
+                //
+                window.scroll ({
+                	top:       scrollTop,
+                	left:      0,
+                	behavior: 'smooth'
+                });
               } // END if headingHash
             }, 1000);
             clearInterval(dependencies_met_page_displayed);
           } else {
             // page type unknown (failsave fallback)
-            setTimeout (function() {
+            setTimeout(() => {
               logger.debug('\n' + 'scrollToAnchor: scroll page of type: unknown');
               scrollOffset = scrollOffsetCorrection - scrollOffsetBase;
               j1.scrollTo(scrollOffset);
@@ -2292,12 +2276,12 @@ var j1 = (function (options) {
           } // END if|else j1['pageMonitor'].pageType == 'dynamic'
         } // END if j1['pageMonitor'].pageType
       }, 10);
-    },
+    }, // END scrollToAnchor
     // -------------------------------------------------------------------------
     // stringToBoolean()
     // convert a string to boolean
     // -------------------------------------------------------------------------
-    stringToBoolean: function (string) {
+    stringToBoolean: (string) => {
       switch(string.toLowerCase().trim()) {
         case "true":
         case "yes":
@@ -2324,7 +2308,7 @@ var j1 = (function (options) {
     //
     // -------------------------------------------------------------------------
     //
-    registerLazyLoadCss: function () {
+    registerLazyLoadCss: () => {
       console.log('register CSS files for lazy loading');
       // load MDI Light CSS
       //
@@ -2366,12 +2350,12 @@ var j1 = (function (options) {
     // registerMonitors()
     //
     // -------------------------------------------------------------------------
-    registerMonitors: function () {
-      var cls;
-      var lcp
+    registerMonitors: () => {
+      const development = ('production'.includes('prod')) ? false : true;
       var cumulated_cls = 0;
       var cumulated_lcp = 0;
-      const development = ('production'.includes('prod')) ? false : true;
+      var cls;
+      var lcp;
       // ResizeObserver to monitor the changes on page height (dynamic pages)
       // see: https://stackoverflow.com/questions/14866775/detect-document-height-change
       //
@@ -2383,7 +2367,7 @@ var j1 = (function (options) {
         // logger API used for deveöopment only
         //
         if (development) {
-          var logger = log4javascript.getLogger('ResizeObserver');
+          var logger = log4javascript.getLogger('j1.ResizeObserver');
         }
         // get the page height from the DOM
         //
@@ -2399,7 +2383,7 @@ var j1 = (function (options) {
         }
         // skip first Observer event
         //
-        if (j1['pageMonitor'] !== undefined && j1['pageMonitor'].eventNo !== undefined && j1['pageMonitor'].eventNo == 2) {
+        if (j1['pageMonitor'] !== undefined && j1['pageMonitor'].eventNo !== undefined && j1['pageMonitor'].eventNo === 2) {
           // Set initial data from second event
           //
           j1['pageMonitor'].pageBaseHeight      = documentHeight;
@@ -2471,52 +2455,11 @@ var j1 = (function (options) {
       // -----------------------------------------------------------------------
       // jadams, 2023-10-26: delay untion STATIC portion of a page is loaded
       //
-      setTimeout (function() {
+      setTimeout(() => {
         resizeObserver.observe(
           document.querySelector('body')
         );
       }, 500);
-      // jadams, 2023-10-25: disabled
-      // NOTE: Funtions like j1.getCookieNames()seems NOT available
-      // in callback beforeunload'
-      //
-      // -----------------------------------------------------------------------
-      // final updates before browser page|tab
-      // see: https://stackoverflow.com/questions/3888902/detect-browser-or-tab-closing
-      // -----------------------------------------------------------------------
-      // window.addEventListener('beforeunload', function (event) {
-      //   var cookie_names  = j1.getCookieNames();
-      //   var date          = new Date();
-      //   var timestamp_now = date.toISOString();
-      //   var user_state    = j1.readCookie(cookie_names.user_state);
-      //   var user_consent  = j1.readCookie(cookie_names.user_consent);
-      //   var url           = new liteURL(window.location.href);
-      //   var secure        = (url.protocol.includes('https')) ? true : false;
-      //   var ep_status;
-      //   var url;
-      //   var baseUrl;
-      //
-      //   // final update of the user state cookie
-      //   user_state.session_active     = false;
-      //   user_state.last_session_ts    = timestamp_now;
-      //
-      //   if (!user_consent.analysis || !user_consent.personalization) {
-      //
-      //     cookie_written = j1.writeCookie({
-      //       name:     cookie_names.user_state,
-      //       data:     user_state,
-      //       secure:   secure,
-      //       expires:  0
-      //     });
-      //   } else {
-      //     cookie_written = j1.writeCookie({
-      //       name:     cookie_names.user_state,
-      //       data:     user_state,
-      //       secure:   secure,
-      //       expires:  365
-      //     });
-      //   }
-      // }); // END beforeunload
       // initialize event handler for window/history/back on <ESC>
       //
       window.onkeyup = function (event) {
@@ -2535,9 +2478,104 @@ var j1 = (function (options) {
         }
       }
      });
-   } // END registerMonitors
-  };
-}) (j1, window);
+    }, // END registerMonitors
+    // -------------------------------------------------------------------------
+    // int2float()
+    // convert an integer to float using given precision (default: 2 decimals)
+    // -------------------------------------------------------------------------
+    int2float: (number, precision = 2) => {
+      return number.toFixed(precision);
+    },
+    // -------------------------------------------------------------------------
+    // getTimeLeft()
+    // calulates the time left
+    // -------------------------------------------------------------------------
+    getTimeLeft: (endDate) => {
+      // Get the current date and time
+      const now = new Date();
+      // Get the milliseconds of both dates
+      const endTime     = endDate.getTime();
+      const currentTime = now.getTime();
+      // Calculate the difference in milliseconds
+      const difference  = endTime - currentTime;
+      // Check if the end date has passed (difference is negative)
+      if (difference < 0) {
+        return 'Time has passed!';
+      }
+      // Calculate remaining days using milliseconds in a day
+      const daysLeft = Math.floor(difference / (1000 * 60 * 60 * 24));
+      // Calculate remaining hours using milliseconds in an hour
+      const hoursLeft = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      // Calculate remaining minutes using milliseconds in a minute
+      const minutesLeft = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      // Calculate remaining seconds using milliseconds in a second
+      const secondsLeft = Math.floor((difference % (1000 * 60)) / 1000);
+      // Return a formatted string showing remaining time
+      return `${daysLeft} days, ${hoursLeft} hours, ${minutesLeft} minutes, ${secondsLeft} seconds left`;
+    }, // END getTimeLeft
+    // -------------------------------------------------------------------------
+    // getMessage()
+    // get a log message from the log message catalog object
+    // -------------------------------------------------------------------------
+    getMessage: (level, message, property) => {
+      var message = j1.messages[level][message]['message'][property];
+      return message;
+    }, // END getMessage
+    // -------------------------------------------------------------------------
+    // sendMessage()
+    // -------------------------------------------------------------------------
+    sendMessage: (sender, receiver, message) => {
+      var logger        = log4javascript.getLogger('j1.sendMessage');
+      // var json_message  = JSON.stringify(message, undefined, 2);             // multiline
+      var json_message  = JSON.stringify(message);
+      if (receiver === 'j1') {
+        logText = '\n' + 'send message from ' + sender + ' to' + receiver + ': ' + json_message;
+        logger.debug(logText);
+        executeFunctionByName('j1' + '.messageHandler', window, sender, message);
+      } else {
+        logText = '\n' + 'send message from ' + sender + ' to ' + receiver + ': ' + json_message;
+        logger.debug(logText);
+        //executeFunctionByName('j1.' + receiver + '.messageHandler', window, sender, message)
+        executeFunctionByName(receiver + '.messageHandler', window, sender, message);
+      }
+    }, // END sendMessage
+    // -------------------------------------------------------------------------
+    // messageHandler()
+    // manage messages send from other J1 modules
+    // -------------------------------------------------------------------------
+    messageHandler: (sender, message) => {
+      // var json_message  = JSON.stringify(message, undefined, 2);             // multiline
+      var json_message  = JSON.stringify(message);
+      logText = '\n' + 'received message from ' + sender + ': ' + json_message;
+      logger.debug(logText);
+      // -----------------------------------------------------------------------
+      //  process commands|actions
+      // -----------------------------------------------------------------------
+      if ( message.type === 'command' && message.action === 'module_initialized' ) {
+        _this.setState('finished');
+        logger.info('\n' + message.text);
+      }
+      //
+      // place handling of other command|action here
+      //
+      return true;
+    }, // END messageHandler
+    // -------------------------------------------------------------------------
+    // setState()
+    // det the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    setState: (stat) => {
+      state = stat;
+    }, // END setState
+    // -------------------------------------------------------------------------
+    // getState()
+    // returns the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    getState: () => {
+      return state;
+    } // END getState
+  }; // END main (return)
+})(j1, window);
 
 
 
