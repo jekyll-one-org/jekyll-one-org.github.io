@@ -13,9 +13,109 @@
  # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2024-04-01 01:16:05 +0200
+ #  Adapter generated: 2024-04-02 22:58:47 +0200
  # -----------------------------------------------------------------------------
 */
-'use strict';j1.adapter.asciidoctor=(e=>{var t,i,a,n,d;return{init:a=>{$.extend({module_name:'j1.adapter.rtable',generated:'2024-04-01 01:16:05 +0200'},a);t=e.adapter.asciidoctor,i=log4javascript.getLogger('j1.adapter.asciidoctor');var r=setInterval(()=>{'finished'===e.getState()&&(n=Date.now(),t.setState('started'),i.debug("\nstate: "+t.getState()),i.info("\nmodule is being initialized"),e.core.asciidoctor.init(),t.setState('finished'),i.debug("\nstate: "+t.getState()),i.info("\ninitializing module: finished"),d=Date.now(),i.info("\nmodule initializing time: "+(d-n)+'ms'),clearInterval(r))},10)},messageHandler:(e,t)=>{var n=JSON.stringify(t,undefined,2);return a="\nreceived message from "+e+': '+n,i.debug(a),'command'===t.type&&'module_initialized'===t.action&&i.info('\n'+t.text),!0},setState:e=>{t.state=e},getState:()=>t.state}})(j1,window);
+// -----------------------------------------------------------------------------
+// ESLint shimming
+// -----------------------------------------------------------------------------
+/* eslint indent: "off"                                                       */
+// -----------------------------------------------------------------------------
+'use strict';
+j1.adapter.asciidoctor = ((j1, window) => {
+  var environment   = 'development';
+  var moduleOptions = {};
+  var state         = 'not_started';
+  var _this;
+  var logger;
+  var logText;
+  // date|time
+  var startTime;
+  var endTime;
+  var startTimeModule;
+  var endTimeModule;
+  var timeSeconds;
+  // ---------------------------------------------------------------------------
+  // helper functions
+  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
+  // main
+  // ---------------------------------------------------------------------------
+  return {
+    // -------------------------------------------------------------------------
+    // adapter initializer
+    // -------------------------------------------------------------------------
+    init: (options) => {
+      // -----------------------------------------------------------------------
+      // default module settings
+      // -----------------------------------------------------------------------
+      var settings = $.extend({
+        module_name: 'j1.adapter.rtable',
+        generated:   '2024-04-02 22:58:47 +0200'
+      }, options);
+      // -----------------------------------------------------------------------
+      // global variable settings
+      // -----------------------------------------------------------------------
+      _this   = j1.adapter.asciidoctor;
+      logger  = log4javascript.getLogger('j1.adapter.asciidoctor');
+      // -----------------------------------------------------------------------
+      // module initializer
+      // -----------------------------------------------------------------------
+      var dependencies_met_j1_finished = setInterval(() => {
+        var j1CoreFinished = (j1.getState() === 'finished') ? true : false;
+        if (j1CoreFinished) {
+          startTimeModule = Date.now();
+          _this.setState('started');
+          logger.debug('\n' + 'state: ' + _this.getState());
+          logger.info('\n' + 'module is being initialized');
+        	j1.core.asciidoctor.init();
+          _this.setState('finished');
+          logger.debug('\n' + 'state: ' + _this.getState());
+          logger.info('\n' + 'initializing module: finished');
+          endTimeModule = Date.now();
+          logger.info('\n' + 'module initializing time: ' + (endTimeModule-startTimeModule) + 'ms');
+          clearInterval(dependencies_met_j1_finished);
+        } // END dependencies_met_j1_finished
+      }, 10);
+    }, // END init
+    // -------------------------------------------------------------------------
+    // messageHandler: MessageHandler for J1 CookieConsent module
+    // Manage messages send from other J1 modules
+    // -------------------------------------------------------------------------
+    messageHandler: (sender, message) => {
+      var json_message = JSON.stringify(message, undefined, 2);
+      logText = '\n' + 'received message from ' + sender + ': ' + json_message;
+      logger.debug(logText);
+      // -----------------------------------------------------------------------
+      //  Process commands|actions
+      // -----------------------------------------------------------------------
+      if (message.type === 'command' && message.action === 'module_initialized') {
+        //
+        // Place handling of command|action here
+        //
+        logger.info('\n' + message.text);
+      }
+      //
+      // Place handling of other command|action here
+      //
+      return true;
+    }, // END messageHandler
+    // -------------------------------------------------------------------------
+    // setState()
+    // Sets the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    setState: (stat) => {
+      _this.state = stat;
+    }, // END setState
+    // -------------------------------------------------------------------------
+    // getState()
+    // Returns the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    getState: () => {
+      return _this.state;
+    } // END getState
+  }; // END return
+})(j1, window);
+
 
 

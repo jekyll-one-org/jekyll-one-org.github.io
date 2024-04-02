@@ -13,9 +13,107 @@
  # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2024-04-01 01:16:05 +0200
+ #  Adapter generated: 2024-04-02 22:58:47 +0200
  # -----------------------------------------------------------------------------
 */
-'use strict';j1.adapter.analytics=((e,t)=>{var a,n,i;new liteURL(t.location.href).hostname,document.createElement('script'),e.getCookieNames(),(new Date).toISOString();return{init:()=>{var t=setInterval(()=>{var a='block'===$('#content').css("display");'finished'===e.getState()&&a&&((n=log4javascript.getLogger('j1.adapter.analytics')).info("\nGoogle Analytics: disabled"),clearInterval(t))},10)},messageHandler:(e,t)=>{var a=JSON.stringify(t,undefined,2);return i="\nreceived message from "+e+': '+a,n.debug(i),'command'===t.type&&'module_initialized'===t.action&&n.info('\n'+t.text),!0},setState:e=>{a.state=e},getState:()=>a.state}})(j1,window);
+// -----------------------------------------------------------------------------
+// ESLint shimming
+// -----------------------------------------------------------------------------
+/* eslint indent: "off"                                                       */
+// -----------------------------------------------------------------------------
+'use strict';
+j1.adapter.analytics = ((j1, window) => {
+  var url               = new liteURL(window.location.href);
+  var hostname          = url.hostname;
+  var environment       = 'development';
+  var gaScript          = document.createElement('script');
+  var cookie_names      = j1.getCookieNames();
+  var date              = new Date();
+  var timestamp_now     = date.toISOString();
+  var skipHost          = false;
+  var state             = 'not_started';
+  var analyticsDefaults;
+  var analyticsSettings;
+  var analyticsOptions;
+  var providerID;
+  var skipAllHosts;
+  var optInOut;
+  var anonymizeIP;
+  var validProviderID;
+  var skipHosts;
+  var gaCookies;
+  var user_consent;
+  var gaExists;
+  var _this;
+  var logger;
+  var logText;
+  // date|time
+  var startTime;
+  var endTime;
+  var startTimeModule;
+  var endTimeModule;
+  var timeSeconds;
+  // ---------------------------------------------------------------------------
+  // main
+  // ---------------------------------------------------------------------------
+  return {
+    // -------------------------------------------------------------------------
+    // adapter initializer
+    // -------------------------------------------------------------------------
+    init: (options) => {
+      // -----------------------------------------------------------------------
+      // module initializer
+      // -----------------------------------------------------------------------
+      var dependencies_met_page_ready = setInterval (() => {
+        var pageState      = $('#content').css("display");
+        var pageVisible    = (pageState === 'block') ? true: false;
+        var j1CoreFinished = (j1.getState() === 'finished') ? true : false;
+        if (j1CoreFinished && pageVisible) {
+            logger = log4javascript.getLogger('j1.adapter.analytics');
+            logger.info('\n' + 'Google Analytics: disabled');
+            clearInterval(dependencies_met_page_ready);
+        }
+      }, 10);
+      return;
+    }, // END init
+    // -------------------------------------------------------------------------
+    // messageHandler()
+    // manage messages send from other J1 modules
+    // -------------------------------------------------------------------------
+    messageHandler: (sender, message) => {
+      var json_message = JSON.stringify(message, undefined, 2);
+      logText = '\n' + 'received message from ' + sender + ': ' + json_message;
+      logger.debug(logText);
+      // -----------------------------------------------------------------------
+      //  Process commands|actions
+      // -----------------------------------------------------------------------
+      if (message.type === 'command' && message.action === 'module_initialized') {
+        //
+        // Place handling of command|action here
+        //
+        logger.info('\n' + message.text);
+      }
+      //
+      // Place handling of other command|action here
+      //
+      return true;
+    }, // END messageHandler
+    // -------------------------------------------------------------------------
+    // setState()
+    // Sets the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    setState: (stat) => {
+      _this.state = stat;
+    }, // END setState
+    // -------------------------------------------------------------------------
+    // getState()
+    // Returns the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    getState: () => {
+      return _this.state;
+    } // END getState
+  }; // END return
+})(j1, window);
+
 
 

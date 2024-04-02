@@ -15,7 +15,7 @@
  # -----------------------------------------------------------------------------
  # NOTE: iconPicker styles defind in /assets/data/panel.html, key 'iconPicker'
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2024-04-01 01:16:05 +0200
+ #  Adapter generated: 2024-04-02 22:58:47 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -25,7 +25,7 @@
 // -----------------------------------------------------------------------------
 'use strict';
 j1.adapter.iconPickerPage = ((j1, window) => {
-  const selectID  = 'icon_library';
+  const selectID          = 'icon_library';
   var iconPickerDefaults;
   var iconPickerSettings;
   var iconPickerOptions;
@@ -48,7 +48,7 @@ j1.adapter.iconPickerPage = ((j1, window) => {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1.adapter.iconPickerPage',
-        generated:   '2024-04-01 01:16:05 +0200'
+        generated:   '2024-04-02 22:58:47 +0200'
       }, options);
       // -----------------------------------------------------------------------
       // global variable settings

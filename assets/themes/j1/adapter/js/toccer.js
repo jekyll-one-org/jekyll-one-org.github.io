@@ -16,9 +16,193 @@
  # Tocbot is licensed under under the MIT License.
  # For details, see https://tscanlin.github.io/tocbot
  # -----------------------------------------------------------------------------
- # Adapter generated: 2024-04-01 01:16:05 +0200
+ # Adapter generated: 2024-04-02 22:58:47 +0200
  # -----------------------------------------------------------------------------
 */
-'use strict';j1.adapter.toccer=(()=>{var e,t,o,l,n,a={},i={},s={},r={},c={},d={},g={};return{init:o=>{$.extend({module_name:'j1.adapter.toccer',generated:'2024-04-01 01:16:05 +0200'},o);e=j1.adapter.toccer,t=log4javascript.getLogger('j1.adapter.toccer'),g=null!=o?$.extend({},o):{},r=$.extend({},{enabled:!0,log:!1,tocSelector:".js-toc",contentSelector:".js-toc-content",headingSelector:"h2, h3, h4, h5, h6",ignoreSelector:".notoc",collapseDepth:3,activeLinkColor:"var(--bs-red)",throttleTimeout:150,scrollSmooth:!0,scrollSmoothDuration:300,scrollSmoothOffset:0,scrollContainer:null}),c=$.extend({},{enabled:!0,log:!1}),d=$.extend(!0,{},r,c,g),s=$.extend({},{enabled:!1,smoothscroll:{offsetBase:80,offsetCorrection:0,offsetCorrectionLocal:0}}),a=$.extend({},{enabled:!0,smoothscroll:{offsetBase:80,offsetCorrection:-9,offsetCorrectionLocal:-90},scrollers:[{scroller:{enabled:!1,type:"showOnScroll",id:"panel_home_intro",container:"panel_home_intro",showDelay:1e3,scrollOffset:500}},{scroller:{enabled:!1,type:"showOnScroll",id:"panel_home_service",container:"panel_home_service",showDelay:700,scrollOffset:200}},{scroller:{enabled:!0,type:"infiniteScroll",id:"panel_home_news",container:"panel_home_news-scroll-group",pagePath:"/assets/data/news_panel_posts/page",elementScroll:!0,scrollOffset:200,lastPage:2,infoLastPage:!0,lastPageInfo_en:"More articles can be found with the <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n",lastPageInfo_de:"Weitere Artikel finden Sie im <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n"}},{scroller:{enabled:!0,type:"infiniteScroll",id:"preview_content",container:"timeline",pagePath:"/pages/public/blog/navigator/page",elementScroll:!0,scrollOffset:200,lastPage:2,infoLastPage:!1,lastPageInfo_en:"",lastPageInfo_de:""}}]}),i=$.extend(!0,{},s,a);var f=setInterval(()=>{var o='block'==$('#content').css("display"),a='finished'==j1.getState();!!j1.stringToBoolean(d.toc)&&a&&o&&(l=Date.now(),e.setState('started'),t.debug("\nstate: "+e.getState()),t.info("\nmodule is being initialized"),e.initToccerCore(d),e.moduleOptions=d,e.setState('finished'),t.debug("\nstate: "+e.getState()),t.info("\ninitializing module finished"),n=Date.now(),t.info("\nmodule initializing time: "+(n-l)+'ms'),clearInterval(f))},10)},initToccerCore:o=>{var l=i.smoothscroll.offsetCorrection;j1.getScrollOffset(l);e.setState('running'),t.debug("\nstate: "+e.getState());var n=setInterval(()=>{!!$('#toc_mmenu').length&&(tocbot.init({log:o.log,activeLinkColor:o.activeLinkColor,tocSelector:o.tocSelector,headingSelector:o.headingSelector,ignoreSelector:o.ignoreSelector,contentSelector:o.contentSelector,collapseDepth:o.collapseDepth,throttleTimeout:o.throttleTimeout,hasInnerContainers:!1,includeHtml:!1,linkClass:'toc-link',extraLinkClasses:'',activeLinkClass:'is-active-link',listClass:'toc-list',extraListClasses:'',isCollapsedClass:'is-collapsed',collapsibleClass:'is-collapsible',listItemClass:'toc-list-item',positionFixedSelector:'',positionFixedClass:'is-position-fixed',fixedSidebarOffset:'auto',scrollContainer:null,scrollSmooth:!1,scrollSmoothDuration:0,scrollSmoothOffset:0,onClick:e=>{var t=e.currentTarget.href;history.pushState(null,null,t),setTimeout(()=>{j1.scrollToAnchor(t)},1500)},headingsOffset:1,throttleTimeout:o.throttleTimeout}),t.debug("\nmet dependencies for: loadHTML"),clearInterval(n))},10)},messageHandler:(e,l)=>{var n=JSON.stringify(l,undefined,2);return o="\nreceived message from "+e+': '+n,t.debug(o),'command'===l.type&&'module_initialized'===l.action&&t.info('\n'+l.text),!0},setState:t=>{e.state=t},getState:()=>e.state}})(j1,window);
+// -----------------------------------------------------------------------------
+// ESLint shimming
+// -----------------------------------------------------------------------------
+/* eslint indent: "off"                                                       */
+// -----------------------------------------------------------------------------
+'use strict';
+j1.adapter.toccer = (() => {
+  var environment         = 'development';
+  var state               = 'not_started';
+  var scrollerSettings    = {};
+  var scrollerOptions     = {};
+  var scrollerDefaults    = {};
+  var toccerDefaults      = {};
+  var toccerSettings      = {};
+  var toccerOptions       = {};
+  var frontmatterOptions  = {};
+  var _this;
+  var logger;
+  var logText;
+  // date|time
+  var startTime;
+  var endTime;
+  var startTimeModule;
+  var endTimeModule;
+  var timeSeconds;
+  // ---------------------------------------------------------------------------
+  // helper functions
+  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
+  // main object
+  // ---------------------------------------------------------------------------
+  return {
+    // -------------------------------------------------------------------------
+    // adapter initializer
+    // -------------------------------------------------------------------------
+    init: (options) => {
+      // -----------------------------------------------------------------------
+      // default module settings
+      // -----------------------------------------------------------------------
+      var settings  = $.extend({
+        module_name: 'j1.adapter.toccer',
+        generated:   '2024-04-02 22:58:47 +0200'
+      }, options);
+      // -----------------------------------------------------------------------
+      // global variable settings
+      // -----------------------------------------------------------------------
+      _this              = j1.adapter.toccer;
+      logger             = log4javascript.getLogger('j1.adapter.toccer');
+      // create settings object from frontmatter
+      frontmatterOptions = options != null ? $.extend({}, options) : {};
+      // Load module DEFAULTS|CONFIG
+      toccerDefaults     = $.extend({}, {"enabled":true, "log":false, "tocSelector":".js-toc", "contentSelector":".js-toc-content", "headingSelector":"h2, h3, h4, h5, h6", "ignoreSelector":".notoc", "collapseDepth":3, "activeLinkColor":"var(--bs-red)", "throttleTimeout":150, "scrollSmooth":true, "scrollSmoothDuration":300, "scrollSmoothOffset":0, "scrollContainer":null});
+      toccerSettings     = $.extend({}, {"enabled":true, "log":false});
+      toccerOptions      = $.extend(true, {}, toccerDefaults, toccerSettings, frontmatterOptions);
+      // Load scroller module DEFAULTS|CONFIG
+      scrollerDefaults   = $.extend({}, {"enabled":false, "smoothscroll":{"offsetBase":80, "offsetCorrection":0, "offsetCorrectionLocal":0}});
+      scrollerSettings   = $.extend({}, {"enabled":true, "smoothscroll":{"offsetBase":80, "offsetCorrection":-9, "offsetCorrectionLocal":-90}, "scrollers":[{"scroller":{"enabled":false, "type":"showOnScroll", "id":"panel_home_intro", "container":"panel_home_intro", "showDelay":1000, "scrollOffset":500}}, {"scroller":{"enabled":false, "type":"showOnScroll", "id":"panel_home_service", "container":"panel_home_service", "showDelay":700, "scrollOffset":200}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"panel_home_news", "container":"panel_home_news-scroll-group", "pagePath":"/assets/data/news_panel_posts/page", "elementScroll":true, "scrollOffset":200, "lastPage":2, "infoLastPage":true, "lastPageInfo_en":"More articles can be found with the <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n", "lastPageInfo_de":"Weitere Artikel finden Sie im <a href=\"/pages/public/blog/navigator/\" class=\"link-no-decoration\">Navigator</a>\n"}}, {"scroller":{"enabled":true, "type":"infiniteScroll", "id":"preview_content", "container":"timeline", "pagePath":"/pages/public/blog/navigator/page", "elementScroll":true, "scrollOffset":200, "lastPage":2, "infoLastPage":false, "lastPageInfo_en":"", "lastPageInfo_de":""}}]});
+      scrollerOptions    = $.extend(true, {}, scrollerDefaults, scrollerSettings);
+      // initialize state flag
+      // _this.setState('started');
+      // logger.debug('\n' + 'state: ' + _this.getState());
+      // logger.info('\n' + 'module is being initialized');
+      // -----------------------------------------------------------------------
+      // module initializer
+      // -----------------------------------------------------------------------
+      var dependencies_met_toccer = setInterval (() => {
+        var pageState      = $('#content').css("display");
+        var pageVisible    = (pageState == 'block') ? true: false;
+        var j1CoreFinished = (j1.getState() == 'finished') ? true : false;
+        var toccerEnabled  = (j1.stringToBoolean(toccerOptions.toc)) ? true : false;
+        if (toccerEnabled && j1CoreFinished && pageVisible) {
+          startTimeModule = Date.now();
+          _this.setState('started');
+          logger.debug('\n' + 'state: ' + _this.getState());
+          logger.info('\n' + 'module is being initialized');
+          _this.initToccerCore(toccerOptions);
+          // save config settings into the toccer object for later access
+          _this['moduleOptions'] = toccerOptions;
+          _this.setState('finished');
+          logger.debug('\n' + 'state: ' + _this.getState());
+          logger.info('\n' + 'initializing module finished');
+          endTimeModule = Date.now();
+          logger.info('\n' + 'module initializing time: ' + (endTimeModule-startTimeModule) + 'ms');
+          clearInterval(dependencies_met_toccer);
+        } // END
+      }, 10); // END
+    }, // END init
+    // -------------------------------------------------------------------------
+    // Initialize the toccer on page
+    // -------------------------------------------------------------------------
+    initToccerCore: (options) => {
+      var scrollOffsetCorrection  = scrollerOptions.smoothscroll.offsetCorrection;
+      var scrollOffset            = j1.getScrollOffset(scrollOffsetCorrection) + scrollOffsetCorrection;
+      _this.setState('running');
+      logger.debug('\n' + 'state: ' + _this.getState());
+      // tocbot get fired if HTML portion is loaded (AJAX load finished)
+      var dependencies_met_ajax_load_finished = setInterval (() => {
+        var ajaxLoadFinished = ($('#toc_mmenu').length) ? true : false;
+        if (ajaxLoadFinished) {
+          /* eslint-disable */
+          tocbot.init({
+            log:                    options.log,
+            activeLinkColor:        options.activeLinkColor,
+            tocSelector:            options.tocSelector,
+            headingSelector:        options.headingSelector,
+            ignoreSelector:         options.ignoreSelector,
+            contentSelector:        options.contentSelector,
+            collapseDepth:          options.collapseDepth,
+            throttleTimeout:        options.throttleTimeout,
+            hasInnerContainers:     false,
+            includeHtml:            false,
+            linkClass:              'toc-link',
+            extraLinkClasses:       '',
+            activeLinkClass:        'is-active-link',
+            listClass:              'toc-list',
+            extraListClasses:       '',
+            isCollapsedClass:       'is-collapsed',
+            collapsibleClass:       'is-collapsible',
+            listItemClass:          'toc-list-item',
+            positionFixedSelector:  '',
+            positionFixedClass:     'is-position-fixed',
+            fixedSidebarOffset:     'auto',
+            scrollContainer:        null,
+            scrollSmooth:           false,                                      // options.scrollSmooth,
+            scrollSmoothDuration:   0,                                          // options.scrollSmoothDuration,
+            scrollSmoothOffset:     0,                                          // scrollOffset,
+            onClick:                (event) => {
+                                      // jadams 2024-03-16: workaroud|browser's history
+                                      var currentURL = event.currentTarget.href;
+                                      // add current URL (anchor) to browser's history
+                                      history.pushState(null, null, currentURL);
+                                      // jadams 2024-03-16: use smooth scrolling from J1
+                                      // NOTE: all scrolling functions from tocbot DISABLED
+                                      setTimeout(() => {
+                                        j1.scrollToAnchor(currentURL);
+                                      }, 1500);
+                                    },
+            headingsOffset:         1,
+            throttleTimeout:        options.throttleTimeout
+          });
+          /* eslint-enable */
+          logger.debug('\n' + 'met dependencies for: loadHTML');
+          clearInterval(dependencies_met_ajax_load_finished);
+        } // END AJAX load finished
+      }, 10); // END dependencies_met_ajax_load_finished
+    }, // END initToccerCore
+    // -------------------------------------------------------------------------
+    // messageHandler()
+    // manage messages send from other J1 modules
+    // -------------------------------------------------------------------------
+    messageHandler: (sender, message) => {
+      var json_message = JSON.stringify(message, undefined, 2);
+      logText = '\n' + 'received message from ' + sender + ': ' + json_message;
+      logger.debug(logText);
+      // -----------------------------------------------------------------------
+      //  process commands|actions
+      // -----------------------------------------------------------------------
+      if (message.type === 'command' && message.action === 'module_initialized') {
+        //
+        // place handling of command|action here
+        //
+        logger.info('\n' + message.text);
+      }
+      //
+      // place handling of other command|action here
+      //
+      return true;
+    }, // END messageHandler
+    // -------------------------------------------------------------------------
+    // setState()
+    // sets the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    setState: (stat) => {
+      _this.state = stat;
+    }, // END setState
+    // -------------------------------------------------------------------------
+    // getState()
+    // Returns the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    getState: () => {
+      return _this.state;
+    } // END getState
+  }; // END main (return)
+})(j1, window);
+
 
 

@@ -18,9 +18,296 @@
  #  For details, see http://davidjbradshaw.github.io/iframe-resizer/
  #
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2024-04-01 01:16:05 +0200
+ #  Adapter generated: 2024-04-02 22:58:47 +0200
  # -----------------------------------------------------------------------------
  */
-'use strict';j1.adapter.iframer=((e,t)=>{var n,i,a,d,o,r,s,l,c,m;return{init:l=>{d=new URL(t.location.href),o=d.origin;$.extend({module_name:'j1.adapter.iframer',generated:'2024-04-01 01:16:05 +0200'},l);r=e.adapter.iframer,s=log4javascript.getLogger('j1.adapter.iframer'),n=$.extend({},{enabled:!1,xhr_data_path:"/assets/data/iframes",delay_iframer:1e3,inject_contentWindowScript:!1,delay_inject_contentWindowScript:500,attributes:{allow:!1,allowfullscreen:!0,height:!1,loading:"eager",name:!1,referrerpolicy:"no-referrer",src:"",scrolling:!1,title:!1,width:!1},options:{autoResize:!0,bodyBackground:null,bodyMargin:null,bodyMarginV1:8,bodyPadding:null,checkOrigin:!0,inPageLinks:!1,enablePublicMethods:!0,heightCalculationMethod:"bodyOffset",id:"iFrameResizer",interval:32,log:!1,maxHeight:"Infinity",maxWidth:"Infinity",minHeight:0,minWidth:0,mouseEvents:!0,resizeFrom:"parent",scrolling:!1,sizeHeight:!0,sizeWidth:!1,warningTimeout:5e3,tolerance:0,widthCalculationMethod:"scroll",onClose:"function () { return true }",onClosed:"function () {}",onInit:"function () {}",onMessage:"function () { warn('onMessage function not defined') }",onMouseEnter:"function () {}",onMouseLeave:"function () {}",onResized:"function () {}",onScroll:"function () { return true }"}}),i=$.extend({},{enabled:!0,iframes:[{iframe:null,enabled:!0,id:"magic_iframe",inject_contentWindowScript:!0,attributes:{loading:"lazy",name:"iframe document",src:"/pages/public/tools/previewer/iframer_documents/iframe.content.html",width:"100%",scrolling:!1},options:{log:!0,inPageLinks:!0,onResized:"function(messageData) {\n  // Callback when page is resized\n  $('p#resize_stats').html (\n    '<b>iFrame ID:</b> ' +\n      messageData.iframe.id +\n      '&nbsp;&nbsp; <b>Height:</b> ' +\n      messageData.height +\n      '&nbsp;&nbsp; <b>Width:</b> ' +\n      messageData.width +\n      '&nbsp;&nbsp; <b>Event type:</b> ' +\n      messageData.type\n  )\n}\n"}},{iframe:null,enabled:!0,id:"documind",inject_contentWindowScript:!0,attributes:{loading:"lazy",src:"/pages/public/tools/previewer/iframer_documents/iframe.docsearch.info.html",title:"",allowtransparency:!0,style:"background: #FAFAFA;",height:600,width:"100%"},options:{checkOrigin:!1}}]}),a=$.extend(!0,{},n,i),console.debug('loading HTML portion for all iFrames configured'),r.loadIframeHTML(a,a.iframes),r.setState('started'),s.debug("\nstate: "+r.getState()),s.info("\nmodule is being initialized");var u=setInterval(()=>{var t='block'===$('#content').css("display");'finished'===e.getState()&&t&&(r.setState('started'),s.debug("\nstate: "+r.getState()),s.info("\nmodule is being initialized"),s.info("\ninitialize iFramer"),r.initialize(a),r.setState('finished'),s.debug("\nstate: "+r.getState()),s.info("\ninitializing module finished"),m=Date.now(),s.info("\nmodule initializing time: "+(m-c)+'ms'),clearInterval(u))},10)},initialize:t=>{var n=t,i={};r.setState('running'),s.debug("\nstate: "+r.getState()),s.info("\nfound iframe on id: magic_iframe"),i['dependencies_met_html_loaded_magic_iframe']='',i.dependencies_met_html_loaded_magic_iframe=setInterval(()=>{if('success'===e.xhrDOMState['#magic_iframe_parent']){$('#magic_iframe');s.info("\ndyn_loader, initialize iframe on id: magic_iframe"),setTimeout(()=>{var e,t,n,i;t='magic_iframe',(i=(n=(e=document.getElementById(t)).contentDocument||e.contentWindow.document).createElement('script')).id='contentWindowScript',i.async=!0,i.src=o+'/assets/themes/j1/modules/iframeResizer/js/client/iframeResizer.contentWindow.min.js',n.head.appendChild(i)},n.delay_inject_contentWindowScript),setTimeout(()=>{iFrameResize({log:!0,inPageLinks:!0,onResized:function(e){$('p#resize_stats').html('<b>iFrame ID:</b> '+e.iframe.id+'&nbsp;&nbsp; <b>Height:</b> '+e.height+'&nbsp;&nbsp; <b>Width:</b> '+e.width+'&nbsp;&nbsp; <b>Event type:</b> '+e.type)}},'#magic_iframe')},1e3),clearInterval(i.dependencies_met_html_loaded_magic_iframe)}},10),s.info("\nfound iframe on id: documind"),i['dependencies_met_html_loaded_documind']='',i.dependencies_met_html_loaded_documind=setInterval(()=>{if('success'===e.xhrDOMState['#documind_parent']){$('#documind');s.info("\ndyn_loader, initialize iframe on id: documind"),setTimeout(()=>{var e,t,n,i;t='documind',(i=(n=(e=document.getElementById(t)).contentDocument||e.contentWindow.document).createElement('script')).id='contentWindowScript',i.async=!0,i.src=o+'/assets/themes/j1/modules/iframeResizer/js/client/iframeResizer.contentWindow.min.js',n.head.appendChild(i)},n.delay_inject_contentWindowScript),setTimeout(()=>{iFrameResize({checkOrigin:!1},'#documind')},1e3),clearInterval(i.dependencies_met_html_loaded_documind)}},10),r.setState('finished'),s.debug("\nstate: "+r.getState()),s.info("\nmodule initialized successfully")},loadIframeHTML:(t,n)=>{var i,a=Object.keys(n).length,d=a,o=t.xhr_data_path+'/index.html';console.debug('number of iframes found: '+d),r.setState('load_data'),Object.keys(n).forEach(t=>{n[t].enabled?(i=n[t].id+'_parent',console.debug('load HTML portion on iframe id: '+n[t].id),e.loadHTML({xhr_container_id:i,xhr_data_path:o,xhr_data_element:n[t].id})):(console.debug('iframe found disabled on id: '+n[t].id),d--)}),console.debug('iframes loaded in page enabled|all: '+d+'|'+a),r.setState('data_loaded')},setXhrState:(t,n)=>{e.adapter.navigator.xhrData[t]=n},getXhrState:t=>e.adapter.navigator.xhrData[t],messageHandler:(e,t)=>{var n=JSON.stringify(t,undefined,2);return l="\nreceived message from "+e+': '+n,s.debug(l),'command'===t.type&&'module_initialized'===t.action&&s.info('\n'+t.text),!0},setState:e=>{r.state=e},getState:()=>r.state}})(j1,window);
+// -----------------------------------------------------------------------------
+// ESLint shimming
+// -----------------------------------------------------------------------------
+/* eslint indent: "off"                                                       */
+// -----------------------------------------------------------------------------
+'use strict';
+j1.adapter.iframer = ((j1, window) => {
+  var environment       = 'development';
+  var state             = 'not_started';
+  var iframerDefaults;
+  var iframerSettings;
+  var iframerOptions;
+  var url;
+  var origin;
+  var _this;
+  var logger;
+  var logText;
+  // date|time
+  var startTime;
+  var endTime;
+  var startTimeModule;
+  var endTimeModule;
+  var timeSeconds;
+  // ---------------------------------------------------------------------------
+  // helper functions
+  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
+  // main
+  // ---------------------------------------------------------------------------
+  return {
+    // -------------------------------------------------------------------------
+    // adapter tnitializer
+    // -------------------------------------------------------------------------
+    init: (options) => {
+      url     = new URL(window.location.href);
+      origin  = url.origin;
+      // -----------------------------------------------------------------------
+      // default module settings
+      // -----------------------------------------------------------------------
+      var settings = $.extend({
+        module_name: 'j1.adapter.iframer',
+        generated:   '2024-04-02 22:58:47 +0200'
+      }, options);
+      // -----------------------------------------------------------------------
+      // global variable settings
+      // -----------------------------------------------------------------------
+      _this   = j1.adapter.iframer;
+      logger  = log4javascript.getLogger('j1.adapter.iframer');
+      // Load  module DEFAULTS|CONFIG
+      iframerDefaults = $.extend({}, {"enabled":false, "xhr_data_path":"/assets/data/iframes", "delay_iframer":1000, "inject_contentWindowScript":false, "delay_inject_contentWindowScript":500, "attributes":{"allow":false, "allowfullscreen":true, "height":false, "loading":"eager", "name":false, "referrerpolicy":"no-referrer", "src":"", "scrolling":false, "title":false, "width":false}, "options":{"autoResize":true, "bodyBackground":null, "bodyMargin":null, "bodyMarginV1":8, "bodyPadding":null, "checkOrigin":true, "inPageLinks":false, "enablePublicMethods":true, "heightCalculationMethod":"bodyOffset", "id":"iFrameResizer", "interval":32, "log":false, "maxHeight":"Infinity", "maxWidth":"Infinity", "minHeight":0, "minWidth":0, "mouseEvents":true, "resizeFrom":"parent", "scrolling":false, "sizeHeight":true, "sizeWidth":false, "warningTimeout":5000, "tolerance":0, "widthCalculationMethod":"scroll", "onClose":"function () { return true }", "onClosed":"function () {}", "onInit":"function () {}", "onMessage":"function () { warn('onMessage function not defined') }", "onMouseEnter":"function () {}", "onMouseLeave":"function () {}", "onResized":"function () {}", "onScroll":"function () { return true }"}});
+      iframerSettings = $.extend({}, {"enabled":true, "iframes":[{"iframe":null, "enabled":true, "id":"magic_iframe", "inject_contentWindowScript":true, "attributes":{"loading":"lazy", "name":"iframe document", "src":"/pages/public/tools/previewer/iframer_documents/iframe.content.html", "width":"100%", "scrolling":false}, "options":{"log":true, "inPageLinks":true, "onResized":"function(messageData) {\n  // Callback when page is resized\n  $('p#resize_stats').html (\n    '<b>iFrame ID:</b> ' +\n      messageData.iframe.id +\n      '&nbsp;&nbsp; <b>Height:</b> ' +\n      messageData.height +\n      '&nbsp;&nbsp; <b>Width:</b> ' +\n      messageData.width +\n      '&nbsp;&nbsp; <b>Event type:</b> ' +\n      messageData.type\n  )\n}\n"}}, {"iframe":null, "enabled":true, "id":"documind", "inject_contentWindowScript":true, "attributes":{"loading":"lazy", "src":"/pages/public/tools/previewer/iframer_documents/iframe.docsearch.info.html", "title":"", "allowtransparency":true, "style":"background: #FAFAFA;", "height":600, "width":"100%"}, "options":{"checkOrigin":false}}]});
+      iframerOptions  = $.extend(true, {}, iframerDefaults, iframerSettings);
+      // load HTML portion for all grids
+      console.debug('loading HTML portion for all iFrames configured');
+      _this.loadIframeHTML(iframerOptions, iframerOptions.iframes);
+      // initialize state flag
+      _this.setState('started');
+      logger.debug('\n' + 'state: ' + _this.getState());
+      logger.info('\n' + 'module is being initialized');
+      // -----------------------------------------------------------------------
+      // module initializer
+      // -----------------------------------------------------------------------
+      var dependencies_met_page_ready = setInterval (() => {
+        var pageState      = $('#content').css("display");
+        var pageVisible    = (pageState === 'block') ? true : false;
+        var j1CoreFinished = (j1.getState() === 'finished') ? true : false;
+        if (j1CoreFinished && pageVisible) {
+          _this.setState('started');
+          logger.debug('\n' + 'state: ' + _this.getState());
+          logger.info('\n' + 'module is being initialized');
+          logger.info('\n' + 'initialize iFramer');
+          _this.initialize(iframerOptions);
+          _this.setState('finished');
+          logger.debug('\n' + 'state: ' + _this.getState());
+          logger.info('\n' + 'initializing module finished');
+          endTimeModule = Date.now();
+          logger.info('\n' + 'module initializing time: ' + (endTimeModule-startTimeModule) + 'ms');
+          clearInterval(dependencies_met_page_ready);
+        } // END j1CoreFinished && pageVisible
+      }, 10); // END dependencies_met_page_ready
+    }, // END init
+    // -------------------------------------------------------------------------
+    // Load AJAX data and initialize the jg gallery
+    // -------------------------------------------------------------------------
+    initialize: (options) => {
+      var iframerOptions    = options;
+      var xhrLoadState      = 'pending';                                        // (initial) load state for the HTML portion of the slider
+      var load_dependencies = {};
+      var dependency;
+      // logger = log4javascript.getLogger('j1.adapter.gallery');
+      _this.setState('running');
+      logger.debug('\n' + 'state: ' + _this.getState());
+        logger.info('\n' + 'found iframe on id: ' + 'magic_iframe');
+          // create dynamic loader variable to setup the grid on id magic_iframe
+          dependency = 'dependencies_met_html_loaded_magic_iframe';
+          load_dependencies[dependency] = '';
+          // initialize the iframe if HTML portion successfully loaded
+          //
+          load_dependencies['dependencies_met_html_loaded_magic_iframe'] = setInterval (() => {
+            // check if HTML portion of the iframe is loaded successfully
+            xhrLoadState = j1.xhrDOMState['#magic_iframe_parent'];
+            if (xhrLoadState === 'success') {
+              var $iframe_magic_iframe = $('#magic_iframe');                  // used for later access
+              logger.info('\n' + 'dyn_loader, initialize iframe on id: ' + 'magic_iframe');
+              // Inject contentWindow script into the docoment to be loaded
+              // into an iframe element
+              if ('true' == 'true') {
+                setTimeout(() => {
+                  var iframe;
+                  var iframeSelector;
+                  var iframeDocument;
+                  var contentWindowScript;
+                  // create DOM selector
+                  //
+                  iframeSelector            = 'magic_iframe'
+                  iframe                    = document.getElementById(iframeSelector);
+                  iframeDocument            = iframe.contentDocument || iframe.contentWindow.document;
+                  // create contentWindow script
+                  //
+                  contentWindowScript       = iframeDocument.createElement('script');
+                  contentWindowScript.id    = 'contentWindowScript';
+                  contentWindowScript.async = true;
+                  contentWindowScript.src   = origin + '/assets/themes/j1/modules/iframeResizer/js/client/iframeResizer.contentWindow.min.js';
+                  iframeDocument.head.appendChild(contentWindowScript);
+                }, iframerOptions.delay_inject_contentWindowScript);
+            } // END if iframerOptions.inject_contentWindowScript
+            setTimeout(() => {
+              /* eslint-disable */
+              var $iframe_magic_iframe = iFrameResize({
+                  log: true,
+                  inPageLinks: true,
+                  onResized: function(messageData) {
+  // Callback when page is resized
+  $('p#resize_stats').html (
+    '<b>iFrame ID:</b> ' +
+      messageData.iframe.id +
+      '&nbsp;&nbsp; <b>Height:</b> ' +
+      messageData.height +
+      '&nbsp;&nbsp; <b>Width:</b> ' +
+      messageData.width +
+      '&nbsp;&nbsp; <b>Event type:</b> ' +
+      messageData.type
+  )
+}
+,
+                },
+                '#magic_iframe'
+              )
+              /* eslint-enable */
+            }, 1000);
+            clearInterval(load_dependencies['dependencies_met_html_loaded_magic_iframe']);
+          } // END  if xhrLoadState === 'success'
+          }, 10); // END dependencies_met_html_loaded
+         // ENDIF iframe enabled
+        logger.info('\n' + 'found iframe on id: ' + 'documind');
+          // create dynamic loader variable to setup the grid on id documind
+          dependency = 'dependencies_met_html_loaded_documind';
+          load_dependencies[dependency] = '';
+          // initialize the iframe if HTML portion successfully loaded
+          //
+          load_dependencies['dependencies_met_html_loaded_documind'] = setInterval (() => {
+            // check if HTML portion of the iframe is loaded successfully
+            xhrLoadState = j1.xhrDOMState['#documind_parent'];
+            if (xhrLoadState === 'success') {
+              var $iframe_documind = $('#documind');                  // used for later access
+              logger.info('\n' + 'dyn_loader, initialize iframe on id: ' + 'documind');
+              // Inject contentWindow script into the docoment to be loaded
+              // into an iframe element
+              if ('true' == 'true') {
+                setTimeout(() => {
+                  var iframe;
+                  var iframeSelector;
+                  var iframeDocument;
+                  var contentWindowScript;
+                  // create DOM selector
+                  //
+                  iframeSelector            = 'documind'
+                  iframe                    = document.getElementById(iframeSelector);
+                  iframeDocument            = iframe.contentDocument || iframe.contentWindow.document;
+                  // create contentWindow script
+                  //
+                  contentWindowScript       = iframeDocument.createElement('script');
+                  contentWindowScript.id    = 'contentWindowScript';
+                  contentWindowScript.async = true;
+                  contentWindowScript.src   = origin + '/assets/themes/j1/modules/iframeResizer/js/client/iframeResizer.contentWindow.min.js';
+                  iframeDocument.head.appendChild(contentWindowScript);
+                }, iframerOptions.delay_inject_contentWindowScript);
+            } // END if iframerOptions.inject_contentWindowScript
+            setTimeout(() => {
+              /* eslint-disable */
+              var $iframe_documind = iFrameResize({
+                  checkOrigin: false,
+                },
+                '#documind'
+              )
+              /* eslint-enable */
+            }, 1000);
+            clearInterval(load_dependencies['dependencies_met_html_loaded_documind']);
+          } // END  if xhrLoadState === 'success'
+          }, 10); // END dependencies_met_html_loaded
+         // ENDIF iframe enabled
+      _this.setState('finished');
+      logger.debug('\n' + 'state: ' + _this.getState());
+      logger.info('\n' + 'module initialized successfully');
+    }, // END function initialize
+    // -------------------------------------------------------------------------
+    // loadIframeHTML()
+    // loads the HTML portion via AJAX for all iFrames configured.
+    // NOTE: Make sure the placeholder DIV is available in the content
+    // page as generated using the Asciidoc extension iframe::
+    // -------------------------------------------------------------------------
+    loadIframeHTML: (options, iframe) => {
+      var numIFrames  = Object.keys(iframe).length;
+      var activeIFrames  = numIFrames;
+      var xhr_data_path = options.xhr_data_path + '/index.html';
+      var xhr_container_id;
+      console.debug('number of iframes found: ' + activeIFrames);
+      _this.setState('load_data');
+      Object.keys(iframe).forEach((key) => {
+        if (iframe[key].enabled) {
+          xhr_container_id = iframe[key].id + '_parent';
+          console.debug('load HTML portion on iframe id: ' + iframe[key].id);
+          j1.loadHTML({
+            xhr_container_id: xhr_container_id,
+            xhr_data_path:    xhr_data_path,
+            xhr_data_element: iframe[key].id
+          });
+        } else {
+          console.debug('iframe found disabled on id: ' + iframe[key].id);
+          activeIFrames--;
+        }
+      });
+      console.debug('iframes loaded in page enabled|all: ' + activeIFrames + '|' + numIFrames);
+      _this.setState('data_loaded');
+    }, // END loadIframeHTML
+    // -------------------------------------------------------------------------
+    // setXhrState
+    // Set the final (loading) state of an element (partial) loaded via Xhr
+    // -------------------------------------------------------------------------
+    setXhrState: (obj, stat) => {
+      j1.adapter.navigator.xhrData[obj] = stat;
+    }, // END setXhrState
+    // -------------------------------------------------------------------------
+    // getState
+    // Returns the final (loading) state of an element (partial) loaded via Xhr
+    // -------------------------------------------------------------------------
+    getXhrState: (obj) => {
+      return j1.adapter.navigator.xhrData[obj];
+    }, // END getXhrState
+    // -------------------------------------------------------------------------
+    // messageHandler()
+    // manage messages send from other J1 modules
+    // -------------------------------------------------------------------------
+    messageHandler: (sender, message) => {
+      var json_message = JSON.stringify(message, undefined, 2);
+      logText = '\n' + 'received message from ' + sender + ': ' + json_message;
+      logger.debug(logText);
+      // -----------------------------------------------------------------------
+      //  process commands|actions
+      // -----------------------------------------------------------------------
+      if (message.type === 'command' && message.action === 'module_initialized') {
+        //
+        // place handling of command|action here
+        //
+        logger.info('\n' + message.text);
+      }
+      //
+      // place handling of other command|action here
+      //
+      return true;
+    }, // END messageHandler
+    // -------------------------------------------------------------------------
+    // setState()
+    // sets the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    setState: (stat) => {
+      _this.state = stat;
+    }, // END setState
+    // -------------------------------------------------------------------------
+    // getState()
+    // Returns the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    getState: () => {
+      return _this.state;
+    } // END getState
+  }; // END main (return)
+})(j1, window);
+
 
 

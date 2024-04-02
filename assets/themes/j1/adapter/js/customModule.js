@@ -13,9 +13,128 @@
  # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2024-04-01 01:16:05 +0200
+ #  Adapter generated: 2024-04-02 22:58:47 +0200
  # -----------------------------------------------------------------------------
 */
-'use strict';j1.adapter.customModule=(e=>{var t,n,i,a,o,d,s={};return{init:a=>{$.extend({module_name:'j1.adapter.customModule',generated:'2024-04-01 01:16:05 +0200'},a);n=e.adapter.dropdowns,i=log4javascript.getLogger('j1.adapter.customModule'),t=null!=a?$.extend({},a):{},s=$.extend({}),void 0!==t&&(s=$.extend({},s,t));setInterval(()=>{'finished'===e.getState()&&(o=Date.now(),n.setState('started'),i.debug("\nset module state to: "+n.getState()),i.info("\ncustom functions are being initialized"),n.setState('finished'),i.debug("\nstate: "+n.getState()),i.info("\ninitializing custom functions: finished"),d=Date.now(),i.info("\ninitializing time: "+(d-o)+'ms'))},10)},custom_module_1:()=>{var e=log4javascript.getLogger('j1.adapter.customModule.custom_module_1');return a="\nentered custom function: custom_module_1",e.info(a),!0},messageHandler:(e,t)=>{var n=JSON.stringify(t,undefined,2);return a="\nreceived message from "+e+': '+n,i.debug(a),'command'===t.type&&'module_initialized'===t.action&&i.info('\n'+t.text),!0},setState:e=>{n.state=e},getState:()=>n.state}})(j1,window);
+// -----------------------------------------------------------------------------
+// ESLint shimming
+// -----------------------------------------------------------------------------
+/* eslint indent: "off"                                                       */
+// -----------------------------------------------------------------------------
+'use strict';
+j1.adapter.customModule = ((j1, window) => {
+  var environment       = 'development';
+  var moduleOptions     = {};
+  var instances         = [];
+  var state             = 'not_started';
+  var frontmatterOptions;
+  var _this;
+  var logger;
+  var logText;
+  // date|time
+  var startTime;
+  var endTime;
+  var startTimeModule;
+  var endTimeModule;
+  var timeSeconds;
+  // ---------------------------------------------------------------------------
+  // helper functions
+  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
+  // main
+  // ---------------------------------------------------------------------------
+  return {
+    // -------------------------------------------------------------------------
+    // adapter initializer
+    // -------------------------------------------------------------------------
+    init: (options) => {
+      // -----------------------------------------------------------------------
+      // default module settings
+      // -----------------------------------------------------------------------
+      var settings = $.extend({
+        module_name: 'j1.adapter.customModule',
+        generated:   '2024-04-02 22:58:47 +0200'
+      }, options);
+      // -----------------------------------------------------------------------
+      // global variable settings
+      // -----------------------------------------------------------------------
+      _this   = j1.adapter.dropdowns;
+      logger  = log4javascript.getLogger('j1.adapter.customModule');
+      // create settings object from frontmatterOptions
+      frontmatterOptions  = options != null ? $.extend({}, options) : {};
+      moduleOptions       = $.extend({}, );
+      if (typeof frontmatterOptions !== 'undefined') {
+        moduleOptions = $.extend({}, moduleOptions, frontmatterOptions);;
+      }
+      // -----------------------------------------------------------------------
+      // module initializer
+      // -----------------------------------------------------------------------
+      var dependencies_met_j1_finished = setInterval(() => {
+        var j1CoreFinished = (j1.getState() === 'finished') ? true : false;
+        if (j1CoreFinished) {
+          startTimeModule = Date.now();
+          _this.setState('started');
+          logger.debug('\n' + 'set module state to: ' + _this.getState());
+          logger.info('\n' + 'custom functions are being initialized');
+          //
+          // place init code here
+          //
+          _this.setState('finished');
+          logger.debug('\n' + 'state: ' + _this.getState());
+          logger.info('\n' + 'initializing custom functions: finished');
+          endTimeModule = Date.now();
+          logger.info('\n' + 'initializing time: ' + (endTimeModule-startTimeModule) + 'ms');
+        } // END j1CoreFinished
+      }, 10); // END dependencies_met_j1_finished
+    }, // END init
+    // -------------------------------------------------------------------------
+    // custom_module_1
+    // called by ???
+    // -------------------------------------------------------------------------
+    custom_module_1: (options) => {
+      var logger = log4javascript.getLogger('j1.adapter.customModule.custom_module_1');
+      logText = '\n' + 'entered custom function: custom_module_1';
+      logger.info(logText);
+      return true;
+    },
+    // -------------------------------------------------------------------------
+    // messageHandler()
+    // manage messages send from other J1 modules
+    // -------------------------------------------------------------------------
+    messageHandler: (sender, message) => {
+      var json_message = JSON.stringify(message, undefined, 2);
+      logText = '\n' + 'received message from ' + sender + ': ' + json_message;
+      logger.debug(logText);
+      // -----------------------------------------------------------------------
+      //  process commands|actions
+      // -----------------------------------------------------------------------
+      if (message.type === 'command' && message.action === 'module_initialized') {
+        //
+        // place handling of command|action here
+        //
+        logger.info('\n' + message.text);
+      }
+      //
+      // place handling of other command|action here
+      //
+      return true;
+    }, // END messageHandler
+    // -------------------------------------------------------------------------
+    // setState()
+    // sets the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    setState: (stat) => {
+      _this.state = stat;
+    }, // END setState
+    // -------------------------------------------------------------------------
+    // getState()
+    // Returns the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    getState: () => {
+      return _this.state;
+    } // END getState
+  }; // END main (return)
+})(j1, window);
+
 
 

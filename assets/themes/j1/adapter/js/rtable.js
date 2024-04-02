@@ -13,9 +13,197 @@
  # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- #  Adapter generated: 2024-04-01 01:16:05 +0200
+ #  Adapter generated: 2024-04-02 22:58:47 +0200
  # -----------------------------------------------------------------------------
 */
-'use strict';j1.adapter.rtable=((e,t)=>{var a,n,i,s,r,d,l,o;return{init:d=>{$.extend({module_name:'j1.adapter.rtable',generated:'2024-04-01 01:16:05 +0200'},d);var b,g={xs:575,sm:576,md:768,lg:992,xl:1200};s=e.adapter.rtable,r=log4javascript.getLogger('j1.adapter.rtable'),a=$.extend({},{enabled:!1,rtable:{breakpoint:"lg",type:"default",hover:!1,mode:"stack",sort:!1,minimap:!1},"table-responsive":{breakpoint:"lg",type:"default",hover:!1}}),n=$.extend({},{enabled:!0}),i=$.extend(!0,{},a,n),s.setState('started'),r.debug("\nstate: "+s.getState()),r.info("\nmodule is being initialized");var m=setInterval(()=>{var a='block'===$('#content').css("display");'finished'===e.getState()&&a&&(l=Date.now(),s.setState('started'),r.debug("\nset module state to: "+s.getState()),r.info("\ninitializing module: started"),$('table').each(function(){var e,a=$(this);if($(a).hasClass('rtable')&&($(a).addClass('table'),$(a).addClass('tablesaw'),$(a).attr('data-tablesaw-mode',i.rtable.mode),Tablesaw.init(a,{breakpoint:i.rtable.breakpoint}),(b=g[i.rtable.breakpoint])||(b=g.lg),$(t).width()<b?(e="\nhide colgroups: "+a.attr('id'),a.find('colgroup').hide(),r.debug(e)):(e="\nshow colgroup: "+a.attr('id'),a.find('colgroup').show(),r.debug(e))),$(a).hasClass(/table-responsive/)){const t=/table-responsive[-]*\w*/,i='b-table-'+Math.floor(1e4*Math.random())+1;var n,s=$(a).attr("class").match(t);s?n=s[0]:(e="\nno matching responsive class found",r.warn(e)),$(a).removeClass(/table-responsive[-]*\w+/),$(a).addClass('table'),$('<div>',{id:i,"class":n}).insertBefore($(a)),$('#'+i).append($(a))}}),s.setState('finished'),r.debug("\nstate: "+s.getState()),r.info("\ninitializing module: finished"),o=Date.now(),r.info("\nmodule initializing time: "+(o-l)+'ms'),clearInterval(m))},10)},messageHandler:(e,t)=>{var a=JSON.stringify(t,undefined,2);return d="\nreceived message from "+e+': '+a,r.debug(d),'command'===t.type&&'module_initialized'===t.action&&r.info('\n'+t.text),!0},setState:e=>{s.state=e},getState:()=>s.state}})(j1,window);
+// -----------------------------------------------------------------------------
+// ESLint shimming
+// -----------------------------------------------------------------------------
+/* eslint indent: "off"                                                       */
+// -----------------------------------------------------------------------------
+'use strict';
+j1.adapter.rtable = ((j1, window) => {
+  var environment   = 'development';
+  var state         = 'not_started';
+  var rtableDefaults;
+  var rtableSettings;
+  var rtableOptions;
+  var _this;
+  var logger;
+  var logText;
+  // date|time
+  var startTime;
+  var endTime;
+  var startTimeModule;
+  var endTimeModule;
+  var timeSeconds;
+  // ---------------------------------------------------------------------------
+  // helper functions
+  // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
+  // main
+  // ---------------------------------------------------------------------------
+  return {
+    // -------------------------------------------------------------------------
+    // adapter initializer
+    // -------------------------------------------------------------------------
+    init: (options) => {
+      // -----------------------------------------------------------------------
+      // default module settings
+      // -----------------------------------------------------------------------
+      var settings = $.extend({
+        module_name: 'j1.adapter.rtable',
+        generated:   '2024-04-02 22:58:47 +0200'
+      }, options);
+      var bsMediaBreakpoints = {
+        xs: 575,
+        sm: 576,
+        md: 768,
+        lg: 992,
+        xl: 1200
+      };
+      var breakpoint;
+      // -----------------------------------------------------------------------
+      // global variable settings
+      // -----------------------------------------------------------------------
+      _this   = j1.adapter.rtable;
+      logger  = log4javascript.getLogger('j1.adapter.rtable');
+      // Load  module DEFAULTS|CONFIG
+      rtableDefaults = $.extend({}, {"enabled":false, "rtable":{"breakpoint":"lg", "type":"default", "hover":false, "mode":"stack", "sort":false, "minimap":false}, "table-responsive":{"breakpoint":"lg", "type":"default", "hover":false}});
+      rtableSettings = $.extend({}, {"enabled":true});
+      rtableOptions  = $.extend(true, {}, rtableDefaults, rtableSettings);
+      // initialize state flag
+      _this.setState('started');
+      logger.debug('\n' + 'state: ' + _this.getState());
+      logger.info('\n' + 'module is being initialized');
+      // -----------------------------------------------------------------------
+      // module initializer
+      // -----------------------------------------------------------------------
+      var dependency_met_page_ready = setInterval(() => {
+        var pageState      = $('#content').css("display");
+        var pageVisible    = (pageState === 'block') ? true : false;
+        var j1CoreFinished = (j1.getState() === 'finished') ? true : false;
+        if (j1CoreFinished && pageVisible) {
+          startTimeModule = Date.now();
+          _this.setState('started');
+          logger.debug('\n' + 'set module state to: ' + _this.getState());
+          logger.info('\n' + 'initializing module: started');
+          // Add data attributes for tablesaw to all tables of a page
+          // as Asciidoctor has NO option to pass 'data attributes'
+          // See: https://stackoverflow.com/questions/50600405/how-to-add-custom-data-attributes-with-asciidoctor
+          //
+          $('table').each(function () {
+            var curTable = $(this);
+            var log_text;
+            // jadams, 2020-09-16: class 'rtable' indicate use of 'tablesaw'
+            if ($(curTable).hasClass('rtable')) {
+              // add needed CSS class/attribute for tablesaw
+              $(curTable).addClass('table');
+              $(curTable).addClass('tablesaw');
+              $(curTable).attr('data-tablesaw-mode', rtableOptions.rtable.mode);
+              // Advanced mode NOT supported (mode stack only)
+              //
+              // $(curTable).attr('data-tablesaw-sortable', '');
+              // $(curTable).attr('data-tablesaw-sortable-switch', '');
+              // $(curTable).attr('data-tablesaw-minimap', '');
+              // $(curTable).attr('data-tablesaw-mode-switch', '');
+              Tablesaw.init(curTable, {
+                breakpoint:   rtableOptions.rtable.breakpoint
+              });
+              // set initial state for all table/colgroup elements
+              //
+              breakpoint = bsMediaBreakpoints[rtableOptions.rtable.breakpoint];
+              if (! breakpoint) {
+                breakpoint = bsMediaBreakpoints['lg'];
+              }
+              if ($(window).width() < breakpoint) {
+                log_text = '\n' + 'hide colgroups: ' + curTable.attr('id')
+                curTable.find('colgroup').hide();
+                logger.debug(log_text);
+              } else {
+                log_text = '\n' + 'show colgroup: ' + curTable.attr('id')
+                curTable.find('colgroup').show();
+                logger.debug(log_text);
+              }
+            } // END if hasClass rtable
+            // add needed div element needed for BS to move the table found
+            // for BS responsiveness
+            //
+            if ($(curTable).hasClass(/table-responsive/)) {
+              // see: https://stackoverflow.com/questions/2596833/how-to-move-child-element-from-one-parent-to-another-using-jquery
+              // see: https://github.com/NV/jquery-regexp-classes
+              //
+              const re                 = /table-responsive[-]*\w*/;
+              const myID               = 'b-table-' + Math.floor(Math.random() * 10000) + 1;
+              var myClasses            = $(curTable).attr("class");
+              var responsiveClassFound = myClasses.match(re);
+              var responsiveClass;
+              if (responsiveClassFound) {
+                responsiveClass = responsiveClassFound[0];
+              } else {
+                // failsafe
+                log_text = '\n' + 'no matching responsive class found';
+                logger.warn(log_text);
+              }
+              // remove responsive class from the table
+              $(curTable).removeClass(/table-responsive[-]*\w+/);
+              $(curTable).addClass('table');
+              // add needed div element needed for BS
+              $('<div>', {
+                id: myID,
+                class: responsiveClass
+              }).insertBefore($(curTable));
+              // move the table found for BS responsiveness
+              $('#' + myID ).append($(curTable));
+            } // END if hasClass 'table-responsive'
+          });
+          _this.setState('finished');
+          logger.debug('\n' + 'state: ' + _this.getState());
+          logger.info('\n' + 'initializing module: finished');
+          endTimeModule = Date.now();
+          logger.info('\n' + 'module initializing time: ' + (endTimeModule-startTimeModule) + 'ms');
+          clearInterval(dependency_met_page_ready);
+        } // END if pageVisible
+      }, 10); // END dependency_met_page_ready
+    }, // END init
+    // -------------------------------------------------------------------------
+    // messageHandler()
+    // manage messages send from other J1 modules
+    // -------------------------------------------------------------------------
+    messageHandler: (sender, message) => {
+      var json_message = JSON.stringify(message, undefined, 2);
+      logText = '\n' + 'received message from ' + sender + ': ' + json_message;
+      logger.debug(logText);
+      // -----------------------------------------------------------------------
+      //  process commands|actions
+      // -----------------------------------------------------------------------
+      if (message.type === 'command' && message.action === 'module_initialized') {
+        //
+        // place handling of command|action here
+        //
+        logger.info('\n' + message.text);
+      }
+      //
+      // place handling of other command|action here
+      //
+      return true;
+    }, // END messageHandler
+    // -------------------------------------------------------------------------
+    // setState()
+    // sets the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    setState: (stat) => {
+      _this.state = stat;
+    }, // END setState
+    // -------------------------------------------------------------------------
+    // getState()
+    // Returns the current (processing) state of the module
+    // -------------------------------------------------------------------------
+    getState: () => {
+      return _this.state;
+    } // END getState
+  }; // END main (return)
+})(j1, window);
+
 
 

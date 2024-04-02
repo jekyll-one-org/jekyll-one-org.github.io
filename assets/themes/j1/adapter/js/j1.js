@@ -13,7 +13,7 @@
  # J1 Template is licensed under the MIT License.
  # For details, see: https://github.com/jekyll-one-org/j1-template/blob/main/LICENSE.md
  # -----------------------------------------------------------------------------
- # Adapter generated: 2024-04-01 01:16:05 +0200
+ # Adapter generated: 2024-04-02 22:58:47 +0200
  # -----------------------------------------------------------------------------
 */
 // -----------------------------------------------------------------------------
@@ -29,7 +29,7 @@ var j1 = ((options) => {
   // globals
   // ---------------------------------------------------------------------------
   // base page resources
-  var environment                   = 'production';
+  var environment                   = 'development';
   var scrollOffsetBase              = 80;
   var scrollOffsetCorrection        = -9;
   var date                          = new Date();
@@ -40,7 +40,7 @@ var j1 = ((options) => {
   var hostname                      = url.hostname;
   var domain                        = hostname.substring(hostname.lastIndexOf('.', hostname.lastIndexOf('.') - 1) + 1);
   var secure                        = (url.protocol.includes('https')) ? true : false;
-  var template_version              = '2024.2.0';
+  var template_version              = '2024.2.1';
   var moduleOptions                 = {};
   var j1_runtime_data               = {};
   var scrollerSettings              = {};
@@ -166,11 +166,11 @@ var j1 = ((options) => {
   };
   var user_state = {
     'writer':                       'j1.adapter',
-    'template_version':             '2024.2.0',
+    'template_version':             '2024.2.1',
     'theme_name':                   'UnoLight',
     'theme_css':                    '/assets/themes/j1/core/css/themes/unolight/bootstrap.css',
     'theme_author':                 'J1 Team',
-    'theme_version':                '2024.2.0',
+    'theme_version':                '2024.2.1',
     'session_active':               false,
     'google_translate':             'disabled',
     'translate_all_pages':          true,
@@ -210,7 +210,7 @@ var j1 = ((options) => {
       // -----------------------------------------------------------------------
       var settings = $.extend({
         module_name: 'j1',
-        generated:   '2024-04-01 01:16:05 +0200'
+        generated:   '2024-04-02 22:58:47 +0200'
       }, options);
       // create settings object from frontmatter options
       frontmatterOptions  = options != null ? $.extend({}, options) : {};
@@ -1237,7 +1237,7 @@ var j1 = ((options) => {
     // Returns the template version taken from site config (_config.yml)
     // -------------------------------------------------------------------------
     getTemplateVersion: () => {
-      return '2024.2.0';
+      return '2024.2.1';
     }, // END getTemplateVersion
     // -------------------------------------------------------------------------
     // getScrollOffset()
@@ -2351,7 +2351,7 @@ var j1 = ((options) => {
     //
     // -------------------------------------------------------------------------
     registerMonitors: () => {
-      const development = ('production'.includes('prod')) ? false : true;
+      const development = ('development'.includes('prod')) ? false : true;
       var cumulated_cls = 0;
       var cumulated_lcp = 0;
       var cls;
